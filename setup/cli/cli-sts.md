@@ -31,13 +31,11 @@ The new `sts` CLI will not work with StackState version 4.6 or older. If you are
 {% tabs %}
 {% tab title="Installer" %}
 
-Open a **Powershell** terminal (version 5.1 or later), change the `<URL>` and `<API-TOKEN>` and run the command below:
+Open a **Powershell** terminal (version 5.1 or later), change the `<URL>` and `<API-TOKEN>` and run the command below. After installation, the `sts` command will be available for the current user on both the Powershell terminal and the command prompt (cmd.exe).
 
 ```powershell
 . { iwr -useb https://dl.stackstate.com/stackstate-cli/install.ps1 } | iex; install -StsUrl "<URL>" -StsApiToken "<API-TOKEN>"
 ```
-
-After installation, the `sts` command will be available for the current user on both the Powershell terminal and the command prompt (cmd.exe).
 
 {% endtab %}
 {% tab title="Manual install steps" %}
@@ -85,29 +83,29 @@ Open a **Powershell** terminal (version 5.1 or later) and run the steps below. T
 
 {% tabs %}
 {% tab title="Installer" %}
-Open a terminal, change the `<URL>` and `<API-TOKEN>` and run the command below:
+Open a terminal, change the `<URL>` and `<API-TOKEN>` and run the command below. After installation the `sts` command will be available for the current user.
 
 ```bash
 curl -o- https://dl.stackstate.com/stackstate-cli/install.sh | STS_URL="URL" STS_API_TOKEN="API-TOKEN" bash
 ```
 
-After installation the `sts` command is available for the current user.
 {% endtab %}
 
 {% tab title="Manual" %}
-Open a terminal and run the steps below. This can be done one step at a time, or all together as a single script.
+Open a terminal and run the steps below. This can be done one step at a time, or all together as a single script. After installation the `sts` command will be available for the current user.
 
-```bash
-# Step 1 - Download latest version for x86_64 (Intel) or arm64 (M1).
-(VERSION=`curl https://dl.stackstate.com/stackstate-cli/LATEST_VERSION` && 
-  ARCH=`uname -m` &&
-  curl https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-full-$VERSION.darwin-$ARCH.tar.gz | tar xz --directory /usr/local/bin)
+1. Download latest version for x86_64 (Intel) or arm64 (M1).
+   ```bash
+   (VERSION=`curl https://dl.stackstate.com/stackstate-cli/LATEST_VERSION` && 
+     ARCH=`uname -m` &&
+     curl https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-full-$VERSION.darwin-$ARCH.tar.gz | tar xz --directory /usr/local/bin)
+   ```
 
-# Step 2 - Verify installation success.
-sts version
-```
-
-After installation the `sts` command is available for the current user.
+2. Verify that the CLI works:
+    ```bash
+    sts version
+    ```
+   
 {% endtab %}
 {% endtabs %}
 
@@ -116,28 +114,28 @@ After installation the `sts` command is available for the current user.
 
 {% tabs %}
 {% tab title="Installer" %}
-Open a terminal, change the `<URL>` and `<API-TOKEN>` and run the command below:
+Open a terminal, change the `<URL>` and `<API-TOKEN>` and run the command below. After installation the `sts` command will be available for the current user.
 
 ```bash
 curl -o- https://dl.stackstate.com/stackstate-cli/install.sh | STS_URL="URL" STS_API_TOKEN="API-TOKEN" bash
 ```
 
-After installation the `sts` command is available for the current user.
 {% endtab %}
 
 {% tab title="Manual install steps" %}
-Open a terminal and run the steps below. This can be done one step at a time, or all together as a single script.
+Open a terminal and run the steps below. This can be done one step at a time, or all together as a single script. After installation the `sts` command will be available for the current user.
 
-```bash
-# Step 1 - Download and unpack latest version for x86_64.
-(VERSION=`curl https://dl.stackstate.com/stackstate-cli/LATEST_VERSION` && 
+1. Download and unpack the latest version for x86_64:
+   ```bash
+   (VERSION=`curl https://dl.stackstate.com/stackstate-cli/LATEST_VERSION` && 
   curl https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-full-$VERSION.linux-x86_64.tar.gz | tar xz --directory /usr/local/bin)
+   ```
 
-# Step 2 - Verify installation success.
-sts version
-```
+2. Verify that the CLI works:
+    ```bash
+    sts version
+    ```
 
-After installation the `sts` command is available for the current user.
 {% endtab %}
 {% endtabs %}
 
