@@ -42,7 +42,7 @@ Open a **Powershell** terminal (version 5.1 or later) and run the steps below. T
 1. If it is installed, upgrade the old `sts` CLI to `stac`:
    1. [Check if the old `sts` CLI is installed](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running).
    2. [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
-2. Set the source version and target path:
+2. Set the source version and target path for the new `sts` CLI:
     ```powershell
     $CLI_PATH = $env:USERPROFILE +"\stackstate-cli"
     If (!(test-path $CLI_PATH)) { md $CLI_PATH }
