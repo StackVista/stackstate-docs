@@ -242,19 +242,18 @@ The StackState CLI authenticates against the Base API and the Admin API using a 
 
 ➡️ [Learn more about StackState permissions](/configure/security/rbac/rbac_permissions.md)
 
-{% hint style="info" %}
-If you are using a custom tool instead of the CLI, you can authenticate with the same API token. For example, this can be done by including the following header in a curl request:
+You can find your API token in the StackState UI, go to **Main menu** &gt; **CLI**.
+
+![](../../.gitbook/assets/v50_main_menu.png)
+
+### Custom tool authentication
+
+If you are using a custom tool instead of the CLI, you can authenticate with the same [API token](#api-token---base-api-and-admin-api) used by the CLI. For example, this can be done by including the following header in a curl request:
 
 ```
 curl -H "Authorization: ApiToken <token>" <stackstate-api-endpoint>
 ```
-{% endhint %}
 
-
-You can find your API token in the StackState UI, go to **Main menu** &gt; **CLI**.
-
-
-![](../../.gitbook/assets/v50_main_menu.png)
 
 ## Upgrade
 
@@ -295,7 +294,7 @@ To uninstall an installed version of the CLI:
 
 3. If you added the CLI file or directory to your path (an optional installation step), remove it.
 
-## Use the StackState CLI
+## Use the `stac` CLI
 
 For details on how to work with the StackState CLI, refer to the help provided in the CLI.
 
