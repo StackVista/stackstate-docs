@@ -23,10 +23,10 @@ The steps below describe how to install the StackState CLI on Linux using the st
 **Installation:**
 
 1. Download the Linux executable `sts-cli-VERSION-linux64` from [https://download.stackstate.com](https://download.stackstate.com).
-2. Rename the downloaded file to be `sts` and make it executable:
+2. Rename the downloaded file to be `stac` and make it executable:
 
    ```text
-   mv sts-cli-VERSION-linux64 sts
+   mv sts-cli-VERSION-linux64 stac
    chmod +x sts
    ```
 
@@ -46,7 +46,7 @@ The steps below describe how to install the StackState CLI on Windows using the 
 **Installation:**
 
 1. Download the executable `sts-cli-VERSION-windows.exe` from [https://download.stackstate.com](https://download.stackstate.com).
-2. Rename the downloaded file to be `sts.exe`.
+2. Rename the downloaded file to be `stac.exe`.
 3. \(optional\) Add the file to your PATH to use StackState CLI commands from [anywhere on the command line](https://stackoverflow.com/questions/4822400/register-an-exe-so-you-can-run-it-from-any-command-line-in-windows).
 4. To configure the StackState CLI, do one of the following:
    * [Launch the configuration wizard](cli-install.md#configuration-wizard-linux-and-windows-install).
@@ -82,8 +82,12 @@ The StackState CLI can be run inside a Docker container on Linux, Windows or Mac
    +-- usage.md          # How to configure and use this package
    ```
 
-2. \(optional\) Add the `bin` directory to your PATH to use StackState CLI commands from [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
-3. To configure the StackState CLI, [manually add configuration](cli-install.md#manual-configuration-docker).
+2. Rename the bash and Powershell scripts in the `bin` directory to use the new `stac` name:
+   * Script to run the CLI in Docker for bash: Rename from `sts` to `stac`.
+   * Script to run the CLI in Docker for Powershell: Rename from `sts.ps1` to `stac.ps1`.
+
+3. \(optional\) Add the `bin` directory to your PATH to use StackState CLI commands from [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
+4. To configure the StackState CLI, [manually add configuration](#manual-configuration-docker).
 
 ## Configure the StackState CLI
 
