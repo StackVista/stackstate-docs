@@ -259,12 +259,12 @@ To upgrade an installed version of the CLI:
       1. Version 4.6 and older: The file was downloaded as `sts-cli-VERSION-linux64` and renamed to `sts`.
       2. Version 5.0 and above: The file was downloaded as `sts-cli-VERSION-linux64` and renamed to `stac`.
    * **Docker:**
-     * The zip archive was downloaded as `sts-cli-VERSION.zip` and extracted. All files from the zip archive should be removed. 
+     * The zip archive was downloaded as `sts-cli-VERSION.zip` and extracted. All files extracted from the zip archive should be removed. 
 
 2. Follow the instructions to download and install the upgraded CLI:
    * [Linux install](#linux-install)
    * [Windows install](#windows-install)
-   * [Docker install /(Mac, Linux, Windows/)](#docker-install-mac-linux-windows)
+   * [Docker install \(Mac, Linux, Windows\)](#docker-install-mac-linux-windows)
    
 3. It is not necessary to configure the CLI again, the existing CLI configuration will be used.
 
@@ -274,10 +274,10 @@ To uninstall an installed version of the CLI:
 
 1. Delete the old CLI files:
    * **Linux or Windows:**
-      1. For version 4.6 and older: the file was downloaded as `sts-cli-VERSION-linux64` and renamed to `sts`.
-      2. For version 5.0 and above: the file was downloaded as `sts-cli-VERSION-linux64` and renamed to `stac`.
+      1. Version 4.6 and older: The file was downloaded as `sts-cli-VERSION-linux64` and renamed to `sts`.
+      2. Version 5.0 and above: The file was downloaded as `sts-cli-VERSION-linux64` and renamed to `stac`.
    * **Docker:**
-     * The zip archive was downloaded as `sts-cli-VERSION.zip` and extracted. All files from the zip archive should be removed. 
+     * The zip archive was downloaded as `sts-cli-VERSION.zip` and extracted. All files extracted from the zip archive should be removed. 
 
 2. Delete any CLI configuration files:
    * **Linux or Windows:**
