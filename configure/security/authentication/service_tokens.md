@@ -29,7 +29,13 @@ Use "sts service-token [command] --help" for more information about a command.
 
 ### Create service tokens
 
-To create a service token you can use the `sts service-token create` command. This takes the following command line arguments:
+To create a service token you can use the `sts service-token create` command. 
+
+{% hint style="info" %}
+Note that the Service Token will only be displayed once. It is not possible to see the token again.
+{% endhint %}
+
+This command takes the following command line arguments:
 
 | Flag | Description |
 | :--- |:--- |
@@ -37,20 +43,16 @@ To create a service token you can use the `sts service-token create` command. Th
 | `--expiration` | The expiration date of the service token, the format is yyyy-MM-dd. The expiration is optional. |
 | `--roles` | A comma separated list of roles to assign to the service token |
 
-To create a service token with the name `my-service-token` and the role `stackstate-power-user`, use the following command:
+For example, the command below will create a service token with the name `my-service-token` and the role `stackstate-power-user`:
 
 ```bash
 > sts service-token create --name my-service-token --roles stackstate-power-user
 ✅ Service token created: svctok-aaaaa-bbbb-ccccc-ddddd
 ```
 
-{% hint style="info" %}
-Note that the Service Token will only be displayed once. It is not possible to see the token again.
-{% endhint %}
-
 ### List service tokens
 
-If you would now `list` the Service Tokens using the StackState CLI you will see the following output:
+The ID, name, expiration date and roles of all created service tokens can be seen using the `sts service-token list` command. For example:
 
 ```bash
 > sts service-token list
@@ -58,7 +60,9 @@ ID              | NAME             | EXPIRATION | ROLES
 107484341630693 | my-service-token |            | [stackstate-power-user]
 ```
 
-Deleting the Service Token is now possible using the `delete` command, and passing the ID of the Service Token as an argument:
+### Delete service tokens
+
+A Service Token can be deleted using the `sts service-token delete` command. Pass the ID of the Service Token as an argument. For example:
 
 ```bash
 > sts service-token delete 107484341630693
