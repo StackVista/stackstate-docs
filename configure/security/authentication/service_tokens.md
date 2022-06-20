@@ -78,11 +78,11 @@ To use the CLI, refer to the CLI documentation:
 ➡️ [Which version of the CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 
 {% tabs %}
-{% tab title="`stac` CLI" %}
-[`stac` CLI Authentication](../../../setup/cli/cli-sts.md#authentication)
-{% endtab %}
-{% tab title="`sts` CLI" %}
+{% tab title="CLI: sts (new)" %}
 [`sts` CLI Configuration Options](../../../setup/cli/cli-sts.md#configuration-options) 
+{% endtab %}
+{% tab title="CLI: stac" %}
+[`stac` CLI Authentication](../../../setup/cli/cli-sts.md#authentication)
 {% endtab %}
 {% endtabs %}
 
