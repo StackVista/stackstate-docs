@@ -19,7 +19,7 @@ In a future release of StackState, the new CLI will fully replace the `stac` CLI
 The new StackState CLI has been built for a reason. Here are the major advantages of switching:
 
  * Easy installation and configuration for all Operating Systems
- * Native MacOS support
+ * Native macOS support
  * Faster releases - the CLI is versioned independently of the StackState product
  * Backwards as well as forwards compatible with StackState versions
  * Machine readable output for every command

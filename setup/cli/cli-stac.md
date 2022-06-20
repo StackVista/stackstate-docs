@@ -10,11 +10,11 @@ The StackState CLI provides easy access to the functionality provided by the Sta
 
 ## Install the StackState CLI
 
-A standalone executable is available to run the StackState CLI on [Linux](cli-install.md#linux-install) and [Windows](cli-install.md#windows-install). You can also run the CLI [inside a Docker container](cli-install.md#docker-install-mac-linux-windows) on Linux, Windows or MacOS.
+A standalone executable is available to run the StackState CLI on [Linux](#linux-install) and [Windows](#windows-install). You can also run the CLI [inside a Docker container](#docker-install-macos-linux-windows) on Linux, Windows or macOS.
 
 ### Linux install
 
-The steps below describe how to install the StackState CLI on Linux using the standalone executable file. If you prefer, you can run the CLI [inside a Docker container](#docker-install-mac-linux-windows) .
+The steps below describe how to install the StackState CLI on Linux using the standalone executable file. If you prefer, you can run the CLI [inside a Docker container](#docker-install-macos-linux-windows) .
 
 **Requirements:**
 
@@ -30,14 +30,14 @@ The steps below describe how to install the StackState CLI on Linux using the st
    chmod +x sts
    ```
 
-3. \(optional\) Add the file to your PATH to use StackState CLI commands from [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
+3. \(optional\) Add the file to your PATH to use `stac` CLI commands from [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
 4. To configure the StackState CLI, do one of the following:
-   * [Launch the configuration wizard](cli-install.md#configuration-wizard-linux-and-windows-install).
-   * [Manually add configuration](cli-install.md#manual-configuration-docker).
+   * [Launch the configuration wizard](#configuration-wizard-linux-and-windows-install).
+   * [Manually add configuration](#manual-configuration-docker).
 
 ### Windows install
 
-The steps below describe how to install the StackState CLI on Windows using the standalone executable file. If you prefer, you can run the CLI [inside a Docker container](cli-install.md#docker-install-mac-linux-windows) .
+The steps below describe how to install the StackState CLI on Windows using the standalone executable file. If you prefer, you can run the CLI [inside a Docker container](#docker-install-macos-linux-windows) .
 
 **Requirements:**
 
@@ -47,14 +47,14 @@ The steps below describe how to install the StackState CLI on Windows using the 
 
 1. Download the executable `sts-cli-VERSION-windows.exe` from [https://download.stackstate.com](https://download.stackstate.com).
 2. Rename the downloaded file to be `stac.exe`.
-3. \(optional\) Add the file to your PATH to use StackState CLI commands from [anywhere on the command line](https://stackoverflow.com/questions/4822400/register-an-exe-so-you-can-run-it-from-any-command-line-in-windows).
+3. \(optional\) Add the file to your PATH to use `stac` CLI commands from [anywhere on the command line](https://stackoverflow.com/questions/4822400/register-an-exe-so-you-can-run-it-from-any-command-line-in-windows).
 4. To configure the StackState CLI, do one of the following:
-   * [Launch the configuration wizard](cli-install.md#configuration-wizard-linux-and-windows-install).
-   * [Manually add configuration](cli-install.md#manual-configuration-docker).
+   * [Launch the configuration wizard](#configuration-wizard-linux-and-windows-install).
+   * [Manually add configuration]#manual-configuration-docker).
 
-### Docker install \(MacOS, Linux, Windows\)
+### Docker install \(macOS, Linux, Windows\)
 
-The StackState CLI can be run inside a Docker container on Linux, Windows or MacOS. The ZIP archive provided contains scripts that run the CLI without needing to worry about Docker invocations.
+The StackState CLI can be run inside a Docker container on Linux, Windows or macOS. The ZIP archive provided contains scripts that run the CLI without needing to worry about Docker invocations.
 
 **Requirements:**
 
@@ -86,24 +86,24 @@ The StackState CLI can be run inside a Docker container on Linux, Windows or Mac
    * Script to run the CLI in Docker for bash: Rename from `sts` to `stac`.
    * Script to run the CLI in Docker for Powershell: Rename from `sts.ps1` to `stac.ps1`.
 
-3. \(optional\) Add the `bin` directory to your PATH to use StackState CLI commands from [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
+3. \(optional\) Add the `bin` directory to your PATH to use `stac` CLI commands from [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
 4. To configure the StackState CLI, [manually add configuration](#manual-configuration-docker).
 
 ## Configure the StackState CLI
 
-After installation, the StackState CLI must be configured with the API connection details for your StackState instance. If you installed the standalone executable StackState CLI on Linux or Windows, a wizard is available to guide you through configuration. If you installed the Docker version of the StackState CLI on MacOS, Linux or Windows, the configuration file must be manually created.
+After installation, the StackState CLI must be configured with the API connection details for your StackState instance. If you installed the standalone executable StackState CLI on Linux or Windows, a wizard is available to guide you through configuration. If you installed the Docker version of the StackState CLI on macOS, Linux or Windows, the configuration file must be manually created.
 
-* **Linux or Windows install \(standalone executable\)**: [Configuration wizard](cli-install.md#configuration-wizard-linux-and-windows-install).
-* **Docker install**: [Create the configuration file manually](cli-install.md#manual-configuration-docker).
+* **Linux or Windows install \(standalone executable\)**: [Configuration wizard](#configuration-wizard-linux-and-windows-install).
+* **Docker install**: [Create the configuration file manually](#manual-configuration-docker).
 
 ### Configuration wizard \(Linux and Windows install\)
 
 If the StackState CLI was installed on Linux or Windows using a standalone executable file, the first time you run any `sts` command, a configuration wizard will request the required configuration items. The wizard will then create a configuration file with the entered details and store it under the user's home directory. If a valid configuration file already exists, the StackState CLI will use this and the configuration wizard will not run.
 
-The configuration wizard is not available when the CLI is run inside a Docker container on MacOS, Linux or Windows.
+The configuration wizard is not available when the CLI is run inside a Docker container on macOS, Linux or Windows.
 
 {% hint style="info" %}
-To configure the CLI, you will need your [authentication credentials](cli-install.md#authentication).
+To configure the CLI, you will need your [authentication credentials](#authentication).
 {% endhint %}
 
 Example configuration wizard:
@@ -137,7 +137,7 @@ The CLI configuration file can be manually created or edited using the steps bel
 3. Rename the file to be `conf.yaml`.
 4. Edit the file and add:
    * URLs to the StackState APIs.
-   * Any required authentication details for the APIs. The `base_api` API has support for [API tokens](cli-install.md#authentication). You can copy your private API Token from the **CLI** page in the StackState UI.
+   * Any required authentication details for the APIs. The `base_api` API has support for [API tokens](#authentication). You can copy your private API Token from the **CLI** page in the StackState UI.
    * Client details.
 
 {% tabs %}
@@ -219,7 +219,7 @@ sts --instance <instance_name> ...
 
 ## Authentication
 
-The StackState CLI uses three StackState APIs: the Base API, the Admin API and the Receiver API. These APIs are secured differently and need to have separate authentication details entered in the CLI configuration file.
+The StackState CLI uses three StackState APIs: the Base API, the Admin API and the Receiver API. These APIs are secured differently and need to have separate authentication details provided in the CLI configuration file.
 
 ### API key - Receiver API
 
@@ -268,7 +268,7 @@ To upgrade an installed version of the CLI:
 2. Follow the instructions to download and install the upgraded CLI:
    * [Linux install](#linux-install)
    * [Windows install](#windows-install)
-   * [Docker install \(MacOS, Linux, Windows\)](#docker-install-mac-linux-windows)
+   * [Docker install \(macOS, Linux, Windows\)](#docker-install-macos-linux-windows)
    
 3. It is not necessary to configure the CLI again, the existing CLI configuration will be used.
 

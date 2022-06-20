@@ -81,7 +81,7 @@ Open a **Powershell** terminal (version 5.1 or later) and run the steps below. T
 {% endtabs %}
 
 {% endtab %}
-{% tab title="MacOS" %}
+{% tab title="macOS" %}
 
 {% tabs %}
 {% tab title="Installer" %}
@@ -229,7 +229,7 @@ The `sts` CLI and all associated configuration are now removed for the current u
 {% endtabs %}
 
 {% endtab %}
-{% tab title="MacOS" %}
+{% tab title="macOS" %}
 
 {% tabs %}
 {% tab title="Uninstaller" %}
