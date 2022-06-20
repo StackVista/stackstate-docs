@@ -73,18 +73,21 @@ A Service Token can be deleted using the `sts service-token delete` command. Pas
 
 Once created, a Service Token can be used to authenticate to StackState from a headless service. To do this you can either use the CLI or directly talk to the API.
 
-To use the CLI, refer to the CLI documentation:
+
+### StackState CLI
 
 ➡️ [Which version of the CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
-[`sts` CLI Configuration Options](../../../setup/cli/cli-sts.md#configuration-options) 
+To use the CLI, refer to the CLI documentation: [`sts` CLI Configuration Options](../../../setup/cli/cli-sts.md#configuration-options) 
 {% endtab %}
 {% tab title="CLI: stac" %}
-[`stac` CLI Authentication](../../../setup/cli/cli-sts.md#authentication)
+To use the CLI, refer to the CLI documentation: [`stac` CLI Authentication](../../../setup/cli/cli-sts.md#authentication)
 {% endtab %}
 {% endtabs %}
+
+### StackState Rest API
 
 To talk directly to the StackState Rest API, you can send the Service Token in the following ways:
 
