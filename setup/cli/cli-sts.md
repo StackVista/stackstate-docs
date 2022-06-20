@@ -19,8 +19,8 @@ If you are running an older version of StackState, use the [`stac` CLI](cli-stac
 {% endhint %}
 
 1. If it is installed, upgrade the old `sts` CLI to `stac`:
-   1. [Check if the old `sts` CLI is installed](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running).
-   2. [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
+   a. [Check if the old `sts` CLI is installed](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running).
+   b. [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
 2. Follow the steps below to install the new `sts` CLI:
 
 {% tabs %}
