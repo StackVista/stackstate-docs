@@ -21,8 +21,8 @@ StackState tracks a single own health state for each topology element (component
 In the StackState UI, the color of an element represents its own health state. A topology element can have any of the following health states:
 
 * Green - `CLEAR` - There is nothing to worry about.
-* Orange - `DEVIATING` - Something may require your attention.
-* Red - `CRITICAL` - Attention is needed right now, because something is broken.
+* Orange - `DEVIATING` - Something may require your attention. A badge on the component shows the number of health checks that are currently failing.
+* Red - `CRITICAL` - Attention is needed right now, because something is broken. A badge on the component shows the number of health checks that are currently failing.
 * Gray - `UNKNOWN` - No health state available.
 
 ![Health states](../../.gitbook/assets/v50_element-health-states.png)
@@ -31,7 +31,7 @@ The element will also have an outer color if it has an unhealthy [propagated hea
 
 ### Health checks
 
-Health checks attached to an element can be calculated internally by StackState or by an external monitoring system (health streams). The health state of an element is calculated as the most severe state reported by a health check attached to it. A badge on a component or component group in the topology visualizer shows how many checks are currently failing. If all checks are passing, no badge will be displayed.
+Health checks attached to an element can be calculated internally by StackState or by an external monitoring system (health streams). The health state of an element is calculated as the most severe state reported by a health check attached to it. When a component or component group has a DEVIATING or CRITICAL state, a badge will appear on the component icon showing the number of checks that are currently failing.
 
 #### StackState health checks
 
