@@ -6,10 +6,6 @@ description: StackState Self-hosted v4.6.x
 
 ## Overview
 
-{% hint style="warning" %}
-The new `sts` CLI works with **StackState v5.0 or higher**.
-{% endhint %}
-
 The new StackState `sts` CLI provides easy access to the functionality provided by the StackState APIs. It can be used for automate using StackState data, configure StackState and to develop StackPacks. 
 
 The new `sts` CLI will eventually replace the [`stac` CLI](cli-stac.md), however, not all commands are currently supported. For an overview of the differences and overlap between the new and the old CLI, see the [CLI comparison page](/setup/cli/cli-comparison.md).
