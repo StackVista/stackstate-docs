@@ -91,7 +91,9 @@ The StackState CLI can be run inside a Docker container on Linux, Windows or mac
 
 ## Configure the StackState CLI
 
-After installation, the StackState CLI must be configured with the API connection details for your StackState instance. If you installed the standalone executable StackState CLI on Linux or Windows, a wizard is available to guide you through configuration. If you installed the Docker version of the StackState CLI on macOS, Linux or Windows, the configuration file must be manually created.
+After a new installation, the StackState CLI must be configured with the API connection details for your StackState instance. If you upgraded from a previous version of the CLI, it is not necessary to configure the CLI again, the existing CLI configuration will be used.
+
+The standalone executable StackState CLI on Linux or Windows includes a wizard to guide you through configuration. If you installed the Docker version of the StackState CLI on macOS, Linux or Windows, the configuration file must be manually created.
 
 * **Linux or Windows install \(standalone executable\)**: [Configuration wizard](#configuration-wizard-linux-and-windows-install).
 * **Docker install**: [Create the configuration file manually](#manual-configuration-docker).
@@ -256,7 +258,7 @@ You can find your API token in the StackState UI, go to **Main menu** &gt; **CLI
 
 ## Upgrade
 
-To upgrade an installed version of the CLI:
+Follow the steps below to upgrade an installed version of the CLI. Note that it is not necessary to configure the CLI again after the upgraded version is installed, the existing CLI configuration will be used.
 
 1. Delete the existing CLI files:
    * **Windows and Linux:**
