@@ -20,6 +20,11 @@ The new `sts` CLI will eventually replace the [`stac` CLI](cli-stac.md), however
 The new `sts` CLI will not work with StackState version 4.6 or older. If you are running an older version of StackState, use the [`stac` CLI](cli-stac.md).
 {% endhint %}
 
+1. If it is installed, upgrade the old `sts` CLI to `stac`:
+   1. [Check if the old `sts` CLI is installed](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running).
+   2. [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
+2. Follow the steps below to install the new `sts` CLI either with the install script or manually:
+
 {% tabs %}
 {% tab title="Windows" %}
 
@@ -39,10 +44,7 @@ After installation, the `sts` command will be available for the current user on 
 
 Open a **Powershell** terminal (version 5.1 or later) and run the steps below. This can be done one step at a time, or joined together as a single script. After installation, the `sts` command will be available for the current user on both the Powershell terminal and the command prompt (cmd.exe).
 
-1. If it is installed, upgrade the old `sts` CLI to `stac`:
-   1. [Check if the old `sts` CLI is installed](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running).
-   2. [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
-2. Set the source version and target path for the new `sts` CLI:
+1. Set the source version and target path for the CLI:
     ```powershell
     $CLI_PATH = $env:USERPROFILE +"\stackstate-cli"
     If (!(test-path $CLI_PATH)) { md $CLI_PATH }
@@ -52,14 +54,14 @@ Open a **Powershell** terminal (version 5.1 or later) and run the steps below. T
     echo "Installing StackState CLI v$VERSION to: $CLI_PATH"
     ```
 
-3. Download and unpack the CLI to the target CLI path. Remove remaining artifacts:
+2. Download and unpack the CLI to the target CLI path. Remove remaining artifacts:
     ```powershell
     Invoke-WebRequest $CLI_DL -OutFile $CLI_PATH\stackstate-cli.zip
     Expand-Archive -Path "$CLI_PATH\stackstate-cli.zip" -DestinationPath $CLI_PATH -Force
     rm $CLI_PATH\stackstate-cli.zip, $CLI_PATH\VERSION
     ```
 
-4. Register the CLI path to the current user's PATH. This will make the `sts` command available everywhere:
+3. Register the CLI path to the current user's PATH. This will make the `sts` command available everywhere:
     ```powershell
     $PATH = (Get-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Environment" -Name PATH).Path
     if ( $PATH -notlike "*$CLI_PATH*" ) { 
@@ -70,7 +72,7 @@ Open a **Powershell** terminal (version 5.1 or later) and run the steps below. T
     }
    ```
 
-5. Verify that the CLI works:
+4. Verify that the CLI works:
     ```powershell
     sts version
     ```
