@@ -84,7 +84,7 @@ Open a **Powershell** terminal (version 5.1 or later) and run the steps below. T
 Open a terminal, change the `<URL>` and `<API-TOKEN>` and run the command below. After installation, the `sts` command will be available for the current user.
 
 ```bash
-curl -o- https://dl.stackstate.com/stackstate-cli/install.sh | STS_URL="URL" STS_API_TOKEN="API-TOKEN" bash
+curl -o- https://dl.stackstate.com/stackstate-cli/install.sh | STS_URL="<URL>" STS_API_TOKEN="<API-TOKEN>" bash
 ```
 
 {% endtab %}
@@ -115,7 +115,7 @@ Open a terminal and run the steps below. This can be done one step at a time, or
 Open a terminal, change the `<URL>` and `<API-TOKEN>` and run the command below. After installation, the `sts` command will be available for the current user.
 
 ```bash
-curl -o- https://dl.stackstate.com/stackstate-cli/install.sh | STS_URL="URL" STS_API_TOKEN="API-TOKEN" bash
+curl -o- https://dl.stackstate.com/stackstate-cli/install.sh | STS_URL="<URL>" STS_API_TOKEN="<API-TOKEN>" bash
 ```
 
 {% endtab %}
@@ -160,17 +160,22 @@ The most secure way to use your API token is through an environment variable. Yo
 ### Quick start
 
 {% hint style="info" %}
-**Docker only**:
-You can not configure the Docker version of the CLI with a config file. Instead you will need to specify the configuration of your StackState through the `STS_CLI_URL` and `STS_CLI_API_TOKEN` environment variable and pass these to docker, for example `docker run -e STS_CLI_URL -e STS_CLI_API_TOKEN stackstate/stackstate-cli2 settings list --type Layer`. 
+**Linux, macOS and Windows**
 {% endhint %}
 
-Get your API token from the CLI page then run:
+1. In the StackState UI, go to **Main menu** &gt; **CLI** and copy your API token.
 
-```bash
-sts cli save-config --url URL --api-token API-TOKEN 
-```
+2. Run the command below, where `<URL>` is the URL to your StackState instance and `<API-TOKEN>` is the API token you copied from the CLI page in the StackState UI:
+   ```bash
+   sts cli save-config --url <URL> --api-token <API-TOKEN> 
+   ```
 
-The connection to your StackState instance will be tested and a configuration file will be stored at `~/.config/stackstate-cli/config.yaml`. 
+3. The connection to your StackState instance will be tested and a configuration file stored at `~/.config/stackstate-cli/config.yaml`. 
+
+{% hint style="info" %}
+**Docker only**:
+You cannot configure the Docker version of the CLI with a config file. Instead you will need to specify the configuration of your StackState through the `STS_CLI_URL` and `STS_CLI_API_TOKEN` environment variable and pass these to docker, for example `docker run -e STS_CLI_URL -e STS_CLI_API_TOKEN stackstate/stackstate-cli2 settings list --type Layer`. 
+{% endhint %}
 
 ### Configuration options
 
@@ -201,26 +206,29 @@ The `sts` CLI and all associated configuration are now removed for the current u
 {% endtab %}
 
 {% tab title="Manual" %}
-Open a **Powershell** terminal and run each step one-by-one or all at once.
+Open a **Powershell** terminal and run each step one-by-one or all at once. The `sts` CLI and all associated configuration will be removed for the current user.
 
-```powershell
-  # Step 1 - remove binary
-  $CLI_PATH = $env:USERPROFILE+"\stackstate-cli"
-  rm -R $CLI_PATH 2>1  > $null
+1. Remove binary:
+   ```powershell
+   $CLI_PATH = $env:USERPROFILE+"\stackstate-cli"
+   rm -R $CLI_PATH 2>1  > $null 
+   ```
 
-  # Step 2 - remove config
-  rm -R $env:USERPROFILE+"\.config\stackstate-cli" 2>1  > $null
+2.Remove config:
+   ```powershell   
+   rm -R $env:USERPROFILE+"\.config\stackstate-cli" 2>1  > $null
+   ```
 
-  # Step 3 - remove the CLI from the environment path
-  $PATH = (Get-ItemProperty -Path ‘Registry::HKEY_CURRENT_USER\Environment’ -Name PATH).Path
-  $i = $PATH.IndexOf(";$CLI_PATH")
-  if ($i -ne -1) {
-    $PATH = $PATH.Remove($i, $CLI_PATH.Length+1)
-    (Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Environment' -Name PATH –Value $PATH) 
-  }
-```
+3. Remove the CLI from the environment path:
+   ```  
+   $PATH = (Get-ItemProperty -Path ‘Registry::HKEY_CURRENT_USER\Environment’ -Name PATH).Path
+   $i = $PATH.IndexOf(";$CLI_PATH")
+   if ($i -ne -1) {
+     $PATH = $PATH.Remove($i, $CLI_PATH.Length+1)
+     (Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Environment' -Name PATH –Value $PATH) 
+   }
+   ```
 
-The `sts` CLI and all associated configuration are now removed for the current user.
 {% endtab %}
 {% endtabs %}
 
