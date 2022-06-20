@@ -23,7 +23,7 @@ The new `sts` CLI will not work with StackState version 4.6 or older. If you are
 1. If it is installed, upgrade the old `sts` CLI to `stac`:
    1. [Check if the old `sts` CLI is installed](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running).
    2. [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
-2. Follow the steps below to install the new `sts` CLI either with the install script or manually:
+2. Follow the steps below to install the new `sts` CLI:
 
 {% tabs %}
 {% tab title="Windows" %}
