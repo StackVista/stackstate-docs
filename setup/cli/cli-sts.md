@@ -187,7 +187,7 @@ docker run \
 
 ### Authentication
 
-By default the CLI will use the API token you provided when you saved the configuration. You can also use the CLI to create one (more more) Service Token(s) to authenticate with the StackState API. The ServiceTokens can be used in for instance Continuous Integration scenarios where there is no real user doing the operations on the StackState instance.
+By default, the CLI will authenticate using the API token that you provided when you saved the configuration. You can also use the CLI to create one (more more) Service Token(s) to authenticate with the StackState API. The ServiceTokens can be used in for instance Continuous Integration scenarios where there is no real user doing the operations on the StackState instance.
 
 To create a Service Token, run the command below:
 
@@ -205,9 +205,13 @@ sts context save --name <NAME> --service-token <TOKEN> --url <URL>
 
 ### Configuration options
 
-You do not need a configuration file to run the `sts` CLI. You can configure the CLI through (a combination of) environment variables and flags.
+You do not need a configuration file to run the `sts` CLI. You can also configure the CLI through a combination of environment variables and flags.
 
-If multiple types of configuration are presented to the CLI the order of processing will be: flags first, environment variables second and config file third.
+If multiple types of configuration are presented to the CLI the order of processing will be: 
+
+1. First: Flags
+2. Second: Environment variables 
+3. Last: Config file
 
 | Name | Flag | Description                                                                           |
 | :--- |:--- |:--------------------------------------------------------------------------------------|

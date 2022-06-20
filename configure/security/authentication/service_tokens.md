@@ -76,27 +76,29 @@ Once created, a Service Token can be used to authenticate to StackState from a h
 
 ### StackState CLI
 
+To use a service token for authentication with the StackState CLI, refer to the documentation for the CLI version that you are running. 
+
 ➡️ [Which version of the CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
-To use the CLI, refer to the CLI documentation: [`sts` CLI Configuration Options](../../../setup/cli/cli-sts.md#configuration-options) 
+{% tab title="CLI: sts (new)" %} 
+[`sts` CLI: Authentication](../../../setup/cli/cli-sts.md#configuration-options) 
 {% endtab %}
 {% tab title="CLI: stac" %}
-To use the CLI, refer to the CLI documentation: [`stac` CLI Authentication](../../../setup/cli/cli-sts.md#authentication)
+[`stac` CLI: Authentication](../../../setup/cli/cli-sts.md#authentication)
 {% endtab %}
 {% endtabs %}
 
 ### StackState Rest API
 
-To talk directly to the StackState Rest API, you can send the Service Token in the following ways:
+To use a service token to talk directly to the StackState Rest API, add it to the header of the request in one of the following ways:
 
-* In the `Authorization` header of the request:
+* In the `Authorization` header:
     ```bash
     > curl -X GET -H "Authorization: ApiKey <TOKEN>" http://localhost:8080/api/server/status
     ```
  
-* In the `X-API-Key` header of the request:
+* In the `X-API-Key` header:
     ```bash
     > curl -X GET -H "X-API-Key: <TOKEN>" http://localhost:8080/api/server/status
     ```
