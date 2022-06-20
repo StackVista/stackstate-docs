@@ -252,11 +252,42 @@ You can find your API token in the StackState UI, go to **Main menu** &gt; **CLI
 
 ## Upgrade
 
-TODO
+To upgrade an installed version of the CLI:
+
+1. Delete the CLI files:
+   * Windows and Linux:
+      1. For version 4.6 and older: the file was downloaded as `sts-cli-VERSION-linux64` and renamed to `sts`.
+      2. For version 5.0 and above: the file was downloaded as `sts-cli-VERSION-linux64` and renamed to `stac`.
+   * Docker:
+     * The zip archive was downloaded as `sts-cli-VERSION.zip` and extracted. All files from the zip archive should be removed. 
+
+2. Follow the instructions to install the CLI:
+   * [Linux install](#linux-install)
+   * [Windows install](#windows-install)
+   * [Docker install /(Mac, Linux, Windows/)](#docker-install-mac-linux-windows)
+   
+3. It is not necessary to configure the CLI, the existing CLI configuration will be used.
 
 ## Uninstall
 
-TODO
+To uninstall an installed version of the CLI:
+
+1. Delete the old CLI files:
+   * **Linux or Windows:**
+      1. For version 4.6 and older: the file was downloaded as `sts-cli-VERSION-linux64` and renamed to `sts`.
+      2. For version 5.0 and above: the file was downloaded as `sts-cli-VERSION-linux64` and renamed to `stac`.
+   * **Docker:**
+     * The zip archive was downloaded as `sts-cli-VERSION.zip` and extracted. All files from the zip archive should be removed. 
+
+2. Delete any CLI configuration files:
+   * **Linux or Windows:**
+     * `conf.d/conf.yaml` - relative to the directory where the CLI is run.
+     * `~/.stackstate/cli/conf.yaml` - relative to the user's home directory.
+     * `%APPDATA%/StackState/cli/conf.yaml` - relative to the user's home directory.
+   * **Docker:** 
+     * `conf.d/conf.yaml` - relative to the directory where the CLI would run. Should have been removed together with the old CLI files in step 1.
+
+3. If you added the CLI file or directory to your path (an optional installation step), remove it.
 
 ## Use the StackState CLI
 
