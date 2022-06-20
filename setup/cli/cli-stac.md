@@ -254,14 +254,14 @@ You can find your API token in the StackState UI, go to **Main menu** &gt; **CLI
 
 To upgrade an installed version of the CLI:
 
-1. Delete the CLI files:
+1. Delete the existing CLI files:
    * **Windows and Linux:**
       1. Version 4.6 and older: The file was downloaded as `sts-cli-VERSION-linux64` and renamed to `sts`.
       2. Version 5.0 and above: The file was downloaded as `sts-cli-VERSION-linux64` and renamed to `stac`.
    * **Docker:**
      * The zip archive was downloaded as `sts-cli-VERSION.zip` and extracted. All files from the zip archive should be removed. 
 
-2. Follow the instructions to install the CLI:
+2. Follow the instructions to download and install the upgraded CLI:
    * [Linux install](#linux-install)
    * [Windows install](#windows-install)
    * [Docker install /(Mac, Linux, Windows/)](#docker-install-mac-linux-windows)
