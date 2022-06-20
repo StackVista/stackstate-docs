@@ -13,7 +13,9 @@ The new `sts` CLI will eventually replace the [`stac` CLI](cli-stac.md), however
 ## Install
 
 {% hint style="warning" %}
-The new `sts` CLI will not work with StackState version 4.6 or older. If you are running an older version of StackState, use the [`stac` CLI](cli-stac.md).
+**The new `sts` CLI will works with StackState version 5.0 and above.** 
+
+If you are running an older version of StackState, use the [`stac` CLI](cli-stac.md).
 {% endhint %}
 
 1. If it is installed, upgrade the old `sts` CLI to `stac`:
