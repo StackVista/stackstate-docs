@@ -101,7 +101,7 @@ In the StackState UI, the view health state is reported as a one of four colors:
 * Red - `CRITICAL` - Attention is needed right now, because something is broken.
 * Gray - `UNKNOWN` - View health state reporting is disabled.
 
-![Health states](../../.gitbook/assets/v50_view-health-states.png)
+![Health states](../../.gitbook/assets/v50_view_health_states.svg)
 
 * [How to configure view health state reporting](configure-view-health.md)
 
@@ -111,7 +111,7 @@ You can check the view health state in the following places in the StackState UI
 * **Starred views** - Starred views are listed in the StackState main menu together with their health state.
 * **All views** - The health state of all views is visible on the view overview screen. Click **Views** from the StackState main menu.
 
-![View health state in main menu](../../.gitbook/assets/v50_view_health_main_menu.png)
+![View health state in main menu](../../.gitbook/assets/v50_view_health_main_menu.svg)
 
 ## See also
 
