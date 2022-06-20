@@ -213,6 +213,7 @@
     * [LDAP](configure/security/authentication/ldap.md)
     * [Open ID Connect \(OIDC\)](configure/security/authentication/oidc.md)
     * [KeyCloak](configure/security/authentication/keycloak.md)
+    * [Service tokens](configure/security/authentication/service_tokens.md)
   * [RBAC](configure/security/rbac/README.md)
     * [Role-based Access Control](configure/security/rbac/role_based_access_control.md)
     * [Permissions](configure/security/rbac/rbac_permissions.md)
