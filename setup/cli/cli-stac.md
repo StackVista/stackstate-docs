@@ -260,8 +260,8 @@ To upgrade an installed version of the CLI:
 
 1. Delete the existing CLI files:
    * **Windows and Linux:**
-      1. Version 4.6 and older: The file was downloaded as `sts-cli-VERSION-linux64` and renamed to `sts`.
-      2. Version 5.0 and above: The file was downloaded as `sts-cli-VERSION-linux64` and renamed to `stac`.
+      * Version 4.6 and older: The file was downloaded as `sts-cli-VERSION-linux64` and renamed to `sts`.
+      * Version 5.0 and above: The file was downloaded as `sts-cli-VERSION-linux64` and renamed to `stac`.
    * **Docker:**
      * The zip archive was downloaded as `sts-cli-VERSION.zip` and extracted. All files extracted from the zip archive should be removed. 
 
