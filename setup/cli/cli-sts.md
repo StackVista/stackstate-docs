@@ -39,8 +39,9 @@ After installation, the `sts` command will be available for the current user on 
 
 Open a **Powershell** terminal (version 5.1 or later) and run the steps below. This can be done one step at a time, or joined together as a single script. After installation, the `sts` command will be available for the current user on both the Powershell terminal and the command prompt (cmd.exe).
 
-
-1. If you are running the old `sts` CLI, [upgrade to the version released together with StackState v5.0](/setup/cli/cli-stac.md#upgrade).This has been renamed to `stac`.
+1. If it is installed, upgrade the old `sts` CLI to `stac`:
+   1. Not sure if you have the old CLI installed? [Check which version of the StackState CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running).
+   2. [Upgrade the old `sts` CLI](/setup/cli/cli-stac.md#upgrade) to the CLI version v5.0 (`stac`).
 2. Set the source version and target path:
     ```powershell
     $CLI_PATH = $env:USERPROFILE +"\stackstate-cli"

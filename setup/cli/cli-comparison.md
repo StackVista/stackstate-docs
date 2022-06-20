@@ -77,6 +77,10 @@ VERSION | BUILD DATE           | COMMIT
 
 # old CLI - example output:
 usage: cli.py [-h] [-v] [-i [INSTANCE]] [-c [CLIENT]]
+
+
+# no CLI installed - example output:
+command not found: sts
   ...
 
 
