@@ -27,7 +27,7 @@ The steps below describe how to install the StackState CLI on Linux using the st
 
    ```text
    mv sts-cli-VERSION-linux64 stac
-   chmod +x sts
+   chmod +x stac
    ```
 
 3. \(optional\) Add the file to your PATH to use `stac` CLI commands from [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
@@ -100,7 +100,7 @@ The standalone executable StackState CLI on Linux or Windows includes a wizard t
 
 ### Configuration wizard \(Linux and Windows install\)
 
-If the StackState CLI was installed on Linux or Windows using a standalone executable file, the first time you run any `sts` command, a configuration wizard will request the required configuration items. The wizard will then create a configuration file with the entered details and store it under the user's home directory. If a valid configuration file already exists, the StackState CLI will use this and the configuration wizard will not run.
+If the StackState CLI was installed on Linux or Windows using a standalone executable file, the first time you run any `stac` command, a configuration wizard will request the required configuration items. The wizard will then create a configuration file with the entered details and store it under the user's home directory. If a valid configuration file already exists, the StackState CLI will use this and the configuration wizard will not run.
 
 The configuration wizard is not available when the CLI is run inside a Docker container on macOS, Linux or Windows.
 
@@ -111,7 +111,7 @@ To configure the CLI, you will need your [authentication credentials](#authentic
 Example configuration wizard:
 
 ```text
-$ sts graph list-types
+$ stac graph list-types
 No config was found. Would you like to configure the CLI using this wizard? (Y/n): Y
 
 StackState URL: https://company.stackstate.com/
@@ -213,10 +213,10 @@ instances:
       ...
 ```
 
-To use the StackState CLI with a non-default instance, specify the instance name in the sts command:
+To use the StackState CLI with a non-default instance, specify the instance name in the `stac` command:
 
 ```text
-sts --instance <instance_name> ...
+stac --instance <instance_name> ...
 ```
 
 ## Authentication
@@ -299,6 +299,6 @@ To uninstall an installed version of the CLI:
 For details on how to work with the StackState CLI, refer to the help provided in the CLI.
 
 ```text
-sts --help
+stac --help
 ```
 
