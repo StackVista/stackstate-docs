@@ -83,7 +83,7 @@ Open a **Powershell** terminal (version 5.1 or later) and run the steps below. T
 
 {% tabs %}
 {% tab title="Installer" %}
-Open a terminal, change the `<URL>` and `<API-TOKEN>` and run the command below. After installation the `sts` command will be available for the current user.
+Open a terminal, change the `<URL>` and `<API-TOKEN>` and run the command below. After installation, the `sts` command will be available for the current user.
 
 ```bash
 curl -o- https://dl.stackstate.com/stackstate-cli/install.sh | STS_URL="URL" STS_API_TOKEN="API-TOKEN" bash
@@ -92,7 +92,7 @@ curl -o- https://dl.stackstate.com/stackstate-cli/install.sh | STS_URL="URL" STS
 {% endtab %}
 
 {% tab title="Manual" %}
-Open a terminal and run the steps below. This can be done one step at a time, or all together as a single script. After installation the `sts` command will be available for the current user.
+Open a terminal and run the steps below. This can be done one step at a time, or all together as a single script. After installation, the `sts` command will be available for the current user.
 
 1. Download latest version for x86_64 (Intel) or arm64 (M1).
    ```bash
@@ -114,7 +114,7 @@ Open a terminal and run the steps below. This can be done one step at a time, or
 
 {% tabs %}
 {% tab title="Installer" %}
-Open a terminal, change the `<URL>` and `<API-TOKEN>` and run the command below. After installation the `sts` command will be available for the current user.
+Open a terminal, change the `<URL>` and `<API-TOKEN>` and run the command below. After installation, the `sts` command will be available for the current user.
 
 ```bash
 curl -o- https://dl.stackstate.com/stackstate-cli/install.sh | STS_URL="URL" STS_API_TOKEN="API-TOKEN" bash
@@ -123,7 +123,7 @@ curl -o- https://dl.stackstate.com/stackstate-cli/install.sh | STS_URL="URL" STS
 {% endtab %}
 
 {% tab title="Manual install steps" %}
-Open a terminal and run the steps below. This can be done one step at a time, or all together as a single script. After installation the `sts` command will be available for the current user.
+Open a terminal and run the steps below. This can be done one step at a time, or all together as a single script. After installation, the `sts` command will be available for the current user.
 
 1. Download and unpack the latest version for x86_64:
    ```bash
