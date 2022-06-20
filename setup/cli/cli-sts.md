@@ -6,14 +6,14 @@ description: StackState Self-hosted v4.6.x
 
 ## Overview
 
-The new StackState `sts` CLI provides easy access to the functionality provided by the StackState APIs. It can be used for automate using StackState data, configure StackState and to develop StackPacks. 
+The new StackState `sts` CLI provides easy access to the functionality provided by the StackState APIs. It can be used for automate using StackState data, configure StackState and to develop StackPacks.
 
 The new `sts` CLI will eventually replace the [`stac` CLI](cli-stac.md), however, not all commands are currently supported. For an overview of the differences and overlap between the new and the old CLI, see the [CLI comparison page](/setup/cli/cli-comparison.md).
 
 ## Install
 
 {% hint style="warning" %}
-**The new `sts` CLI will works with StackState version 5.0 and above.** 
+**The new `sts` CLI will works with StackState version 5.0 and above.**
 
 If you are running an older version of StackState, use the [`stac` CLI](cli-stac.md).
 {% endhint %}
@@ -60,9 +60,9 @@ Open a **Powershell** terminal (version 5.1 or later) and run the steps below. T
 3. Register the CLI path to the current user's PATH. This will make the `sts` command available everywhere:
     ```powershell
     $PATH = (Get-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Environment" -Name PATH).Path
-    if ( $PATH -notlike "*$CLI_PATH*" ) { 
+    if ( $PATH -notlike "*$CLI_PATH*" ) {
       $PATH = "$PATH;$CLI_PATH"
-      (Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Environment" -Name PATH –Value $PATH) 
+      (Set-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Environment" -Name PATH –Value $PATH)
       $MACHINE_PATH = (Get-ItemProperty -Path "Registry::HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\Environment" -Name PATH).path
       $env:Path = "$PATH;$MACHINE_PATH"
     }
@@ -94,7 +94,7 @@ Open a terminal and run the steps below. This can be done one step at a time, or
 
 1. Download the latest version for x86_64 (Intel) or arm64 (M1).
    ```bash
-   (VERSION=`curl https://dl.stackstate.com/stackstate-cli/LATEST_VERSION` && 
+   (VERSION=`curl https://dl.stackstate.com/stackstate-cli/LATEST_VERSION` &&
      ARCH=`uname -m` &&
      curl https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-full-$VERSION.darwin-$ARCH.tar.gz | tar xz --directory /usr/local/bin)
    ```
@@ -103,7 +103,7 @@ Open a terminal and run the steps below. This can be done one step at a time, or
     ```bash
     sts version
     ```
-   
+
 {% endtab %}
 {% endtabs %}
 
@@ -146,7 +146,7 @@ To run the latest version of the CLI using Docker execute:
 docker run stackstate/stackstate-cli2
 ```
 
-You can now run CLI commands by adding appending them to the end of the `docker run` command (e.g. `docker run stackstate/stackstate-cli2 version`). 
+You can now run CLI commands by adding appending them to the end of the `docker run` command (e.g. `docker run stackstate/stackstate-cli2 version`).
 
 {% endtab %}
 {% endtabs %}
@@ -165,10 +165,10 @@ The most secure way to use your API token is through an environment variable. Yo
 
 2. Run the command below, where `<URL>` is the URL to your StackState instance and `<API-TOKEN>` is the API token you copied from the CLI page in the StackState UI:
    ```bash
-   sts cli save-config --url <URL> --api-token <API-TOKEN> 
+   sts cli save-config --url <URL> --api-token <API-TOKEN>
    ```
 
-3. The connection to your StackState instance will be tested and a configuration file stored at `~/.config/stackstate-cli/config.yaml`. 
+3. The connection to your StackState instance will be tested and a configuration file stored at `~/.config/stackstate-cli/config.yaml`.
 
 #### Docker
 
@@ -185,7 +185,23 @@ docker run \
    stackstate/stackstate-cli2 settings list --type Layer
 ```
 
+### Authentication
 
+By default the CLI will use the API token you provided when you saved the configuration. You can also use the CLI to create one (more more) Service Token(s) to authenticate with the StackState API. The ServiceTokens can be used in for instance Continuous Integration scenarios where there is no real user doing the operations on the StackState instance.
+
+To create a Service Token, run the command below:
+
+```bash
+sts service-token create --name <NAME> --roles <ROLE(s)> [--expiration <yyyy-MM-dd>]
+```
+
+This will create a new Service Token and print it. The `--expiration` parameter is optional and can be used to set the expiration date of the Service Token.
+
+Once you have this, you can configure the CLI to use it:
+
+```bash
+sts context save --name <NAME> --service-token <TOKEN> --url <URL>
+```
 
 ### Configuration options
 
@@ -197,6 +213,7 @@ If multiple types of configuration are presented to the CLI the order of process
 | :--- |:--- |:--------------------------------------------------------------------------------------|
 | `STS_CLI_URL` | `--url` | URL to your StackState instance.                                                      |
 | `STS_CLI_API_TOKEN` | `--api-token` | API token to your StackState instance. The most secure way to use your API token is through an environment variable. You can store the API token with a secrets manager and inject it as an environment variable into your shell.                                               |
+| `STS_CLI_SERVICE_TOKEN` | `--service-token` | Service Token to your StackState instance. The most secure way to use your service token is through an environment variable. You can store the service token with a secrets manager and inject it as an environment variable into your shell.                                               |
 | `STS_CLI_API_PATH` | n/a | The path appended to the end of the URL to get the API endpoint. (Defaults to `/api`) |
 
 ## Uninstall
@@ -221,21 +238,21 @@ Open a **Powershell** terminal and run each step one-by-one or all at once. The 
 1. Remove binary:
    ```powershell
    $CLI_PATH = $env:USERPROFILE+"\stackstate-cli"
-   rm -R $CLI_PATH 2>1  > $null 
+   rm -R $CLI_PATH 2>1  > $null
    ```
 
 2.Remove config:
-   ```powershell   
+   ```powershell
    rm -R $env:USERPROFILE+"\.config\stackstate-cli" 2>1  > $null
    ```
 
 3. Remove the CLI from the environment path:
-   ```  
+   ```
    $PATH = (Get-ItemProperty -Path ‘Registry::HKEY_CURRENT_USER\Environment’ -Name PATH).Path
    $i = $PATH.IndexOf(";$CLI_PATH")
    if ($i -ne -1) {
      $PATH = $PATH.Remove($i, $CLI_PATH.Length+1)
-     (Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Environment' -Name PATH –Value $PATH) 
+     (Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Environment' -Name PATH –Value $PATH)
    }
    ```
 
