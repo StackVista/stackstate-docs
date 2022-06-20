@@ -12,7 +12,7 @@ The new `sts` CLI works with **StackState v5.0 or higher**.
 
 The new StackState `sts` CLI provides easy access to the functionality provided by the StackState APIs. It can be used for automate using StackState data, configure StackState and to develop StackPacks. 
 
-This page describes the new `sts` CLI. This CLI will eventually fully replace the [`stac` CLI](cli-stac.md), however, not all commands are currently supported. For an overview of the differences and overlap between the new and the old CLI, see the [CLI comparison page](/setup/cli/cli-comparison.md).
+The new `sts` CLI will eventually replace the [`stac` CLI](cli-stac.md), however, not all commands are currently supported. For an overview of the differences and overlap between the new and the old CLI, see the [CLI comparison page](/setup/cli/cli-comparison.md).
 
 ## Install
 
@@ -26,7 +26,7 @@ The new `sts` CLI will not work with StackState version 4.6 or older. If you are
 {% tabs %}
 {% tab title="Installer" %}
 
-Open a **Powershell** terminal (version 5.1 or later), change the `<URL>` and `<API-TOKEN>` and run:
+Open a **Powershell** terminal (version 5.1 or later), change the `<URL>` and `<API-TOKEN>` and run the command below:
 
 ```powershell
 . { iwr -useb https://dl.stackstate.com/stackstate-cli/install.ps1 } | iex; install -StsUrl "<URL>" -StsApiToken "<API-TOKEN>"
@@ -35,12 +35,13 @@ Open a **Powershell** terminal (version 5.1 or later), change the `<URL>` and `<
 After installation, the `sts` command will be available for the current user on both the Powershell terminal and the command prompt (cmd.exe).
 
 {% endtab %}
-{% tab title="Manual" %}
+{% tab title="Manual install steps" %}
 
-Open a **Powershell** terminal (version 5.1 or later) and run the steps below. This can be done one step at a time, or all together as a single script.
+Open a **Powershell** terminal (version 5.1 or later) and run the steps below. This can be done one step at a time, or joined together as a single script. After installation, the `sts` command will be available for the current user on both the Powershell terminal and the command prompt (cmd.exe).
 
 
-1. Set the source version and target path:
+1. If you are running the old `sts` CLI. [Upgrade to the version released together with StackState v5.0 \(`stac`\)](/setup/cli/cli-stac.md#upgrade).
+2. Set the source version and target path:
     ```powershell
     $CLI_PATH = $env:USERPROFILE +"\stackstate-cli"
     If (!(test-path $CLI_PATH)) { md $CLI_PATH }
@@ -50,14 +51,14 @@ Open a **Powershell** terminal (version 5.1 or later) and run the steps below. T
     echo "Installing StackState CLI v$VERSION to: $CLI_PATH"
     ```
 
-2. Download and unpack the CLI to the target CLI path. Remove remaining artifacts:
+3. Download and unpack the CLI to the target CLI path. Remove remaining artifacts:
     ```powershell
     Invoke-WebRequest $CLI_DL -OutFile $CLI_PATH\stackstate-cli.zip
     Expand-Archive -Path "$CLI_PATH\stackstate-cli.zip" -DestinationPath $CLI_PATH -Force
     rm $CLI_PATH\stackstate-cli.zip, $CLI_PATH\VERSION
     ```
 
-3. Register the CLI path to the current user's PATH. This will make the `sts` command available everywhere:
+4. Register the CLI path to the current user's PATH. This will make the `sts` command available everywhere:
     ```powershell
     $PATH = (Get-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Environment" -Name PATH).Path
     if ( $PATH -notlike "*$CLI_PATH*" ) { 
@@ -68,12 +69,11 @@ Open a **Powershell** terminal (version 5.1 or later) and run the steps below. T
     }
    ```
 
-4. Verify that the CLI works:
+5. Verify that the CLI works:
     ```powershell
     sts version
     ```
 
-After installation, the `sts` command will be available for the current user on both the Powershell terminal and the command prompt (cmd.exe).
 {% endtab %}
 {% endtabs %}
 
@@ -82,7 +82,7 @@ After installation, the `sts` command will be available for the current user on 
 
 {% tabs %}
 {% tab title="Installer" %}
-Open a terminal, change the URL and API-TOKEN and run:
+Open a terminal, change the `<URL>` and `<API-TOKEN>` and run the command below:
 
 ```bash
 curl -o- https://dl.stackstate.com/stackstate-cli/install.sh | STS_URL="URL" STS_API_TOKEN="API-TOKEN" bash
@@ -113,7 +113,7 @@ After installation the `sts` command is available for the current user.
 
 {% tabs %}
 {% tab title="Installer" %}
-Open a terminal, change the URL and API-TOKEN and run:
+Open a terminal, change the `<URL>` and `<API-TOKEN>` and run the command below:
 
 ```bash
 curl -o- https://dl.stackstate.com/stackstate-cli/install.sh | STS_URL="URL" STS_API_TOKEN="API-TOKEN" bash
@@ -122,7 +122,7 @@ curl -o- https://dl.stackstate.com/stackstate-cli/install.sh | STS_URL="URL" STS
 After installation the `sts` command is available for the current user.
 {% endtab %}
 
-{% tab title="Manual" %}
+{% tab title="Manual install steps" %}
 Open a terminal and run the steps below. This can be done one step at a time, or all together as a single script.
 
 ```bash

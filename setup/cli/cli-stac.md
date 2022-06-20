@@ -250,6 +250,14 @@ You can find your API token in the StackState UI, go to **Main menu** &gt; **CLI
 
 ![](../../.gitbook/assets/v50_main_menu.png)
 
+## Upgrade
+
+TODO
+
+## Uninstall
+
+TODO
+
 ## Use the StackState CLI
 
 For details on how to work with the StackState CLI, refer to the help provided in the CLI.
