@@ -153,11 +153,11 @@ You can now run CLI commands by adding appending them to the end of the `docker 
 
 ## Configure
 
+### Quick start
+
 {% hint style="warning" %}
 The most secure way to use your API token is through an environment variable. You can store the API token with a secrets manager and inject it as an environment variable into your shell.
 {% endhint %}
-
-### Quick start
 
 #### Linux, macOS and Windows
 
@@ -193,11 +193,11 @@ You do not need a configuration file to run the `sts` CLI. You can configure the
 
 If multiple types of configuration are presented to the CLI the order of processing will be: flags first, environment variables second and config file third.
 
-| Name | Flag |  Description |
-| :--- |:--- | :--- |
-| `STS_CLI_URL` | `--url` | URL to your StackState instance. |
-| `STS_CLI_API_TOKEN` | `--api-token` | API token to your StackState instance. |
-| `STS_CLI_API_PATH` | n/a | The path appended to the end of the URL to get the API endpoint. (Defaults to `/api`)|
+| Name | Flag | Description                                                                           |
+| :--- |:--- |:--------------------------------------------------------------------------------------|
+| `STS_CLI_URL` | `--url` | URL to your StackState instance.                                                      |
+| `STS_CLI_API_TOKEN` | `--api-token` | API token to your StackState instance. The most secure way to use your API token is through an environment variable. You can store the API token with a secrets manager and inject it as an environment variable into your shell.                                               |
+| `STS_CLI_API_PATH` | n/a | The path appended to the end of the URL to get the API endpoint. (Defaults to `/api`) |
 
 ## Uninstall
 
