@@ -128,8 +128,7 @@ Open a terminal and run the steps below. This can be done one step at a time, or
 1. Download and unpack the latest version for x86_64:
    ```bash
    (VERSION=`curl https://dl.stackstate.com/stackstate-cli/LATEST_VERSION` && 
-  curl https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-full-$VERSION.linux-x86_64.tar.gz | tar xz --directory /usr/local/bin)
-   ```
+  curl https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-full-$VERSION.linux-x86_64.tar.gz | tar xz --directory /usr/local/bin)```
 
 2. Verify that the CLI works:
     ```bash
