@@ -240,11 +240,11 @@ The StackState CLI authenticates against the Base API and the Admin API using a 
 * The Base API is used for most operations. All users have access to this API, although the available operations will be restricted in accordance with the permissions assigned to each role. 
 * The Admin API is used for some operations that affect the global configuration of StackState, such as the configuration of StackGraph's retention. Only users with the permission `access-admin-api` will have access to the Admin API and the associated operations.
 
-➡️ [Learn more about StackState permissions](/configure/security/rbac/rbac_permissions.md)
-
 You can find your API token in the StackState UI, go to **Main menu** &gt; **CLI**.
 
 ![](../../.gitbook/assets/v50_main_menu.png)
+
+➡️ [Learn more about StackState permissions](/configure/security/rbac/rbac_permissions.md)
 
 ### Custom tool authentication
 
