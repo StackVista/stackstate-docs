@@ -82,6 +82,26 @@ NODES=$(kubectl get ${NODE_TYPE} -n ${LONGHORN_NAMESPACE} -o name)
 
 kubectl patch -n ${LONGHORN_NAMESPACE} ${NODES} --type='json'  -p "[{\"op\": \"replace\", \"path\": \"/spec/disks/default-disk-ca1000000000/storageReserved\", \"value\": ${STORAGE_RESERVED}}]"
 ```
+
+### Change the number of replicas for Longhorn persistent volumes
+
+1. Scale down all the Stackstate deployments and delete all statefulsets. The deletion is required since the immutable fields of the statefulsets have to be changed. The data stored on the persistent volumes won't be deleted:
+
+```
+kubectl scale -n default deployment -l kots.io/app-slug=stackstate --replicas=0
+kubectl delete -n default statefulsets -l kots.io/app-slug=stackstate
+```
+
+2. Select the required storage class in the [Persistent volume settings](/setup/install-stackstate/kots-install/kots_configuration_screen.md#persistent-volume-settings) section of the KOTS Config UI.
+
+3. Redeploy the application via the KOTS Config UI.
+
+4. Change the number of replicas for the following persistent volumes on the **Volume** tab of the Longhorn UI:
+    * 1 - for the `longhorn-single-replica` storage class.
+    * 2 - for the `longhorn-stackstate (two-replicas volumes)`
+
+![](/.gitbook/assets/kots-persistent-volumes.png)
+
 ## Node management
 
 ### Restart a node
