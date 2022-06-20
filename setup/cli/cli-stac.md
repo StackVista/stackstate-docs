@@ -52,7 +52,7 @@ The steps below describe how to install the StackState CLI on Windows using the 
    * [Launch the configuration wizard](cli-install.md#configuration-wizard-linux-and-windows-install).
    * [Manually add configuration](cli-install.md#manual-configuration-docker).
 
-### Docker install \(Mac, Linux, Windows\)
+### Docker install \(MacOS, Linux, Windows\)
 
 The StackState CLI can be run inside a Docker container on Linux, Windows or MacOS. The ZIP archive provided contains scripts that run the CLI without needing to worry about Docker invocations.
 
@@ -87,7 +87,7 @@ The StackState CLI can be run inside a Docker container on Linux, Windows or Mac
 
 ## Configure the StackState CLI
 
-After installation, the StackState CLI must be configured with the API connection details for your StackState instance. If you installed the standalone executable StackState CLI on Linux or Windows, a wizard is available to guide you through configuration. If you installed the Docker version of the StackState CLI on Mac, Linux or Windows, the configuration file must be manually created.
+After installation, the StackState CLI must be configured with the API connection details for your StackState instance. If you installed the standalone executable StackState CLI on Linux or Windows, a wizard is available to guide you through configuration. If you installed the Docker version of the StackState CLI on MacOS, Linux or Windows, the configuration file must be manually created.
 
 * **Linux or Windows install \(standalone executable\)**: [Configuration wizard](cli-install.md#configuration-wizard-linux-and-windows-install).
 * **Docker install**: [Create the configuration file manually](cli-install.md#manual-configuration-docker).
@@ -264,7 +264,7 @@ To upgrade an installed version of the CLI:
 2. Follow the instructions to download and install the upgraded CLI:
    * [Linux install](#linux-install)
    * [Windows install](#windows-install)
-   * [Docker install \(Mac, Linux, Windows\)](#docker-install-mac-linux-windows)
+   * [Docker install \(MacOS, Linux, Windows\)](#docker-install-mac-linux-windows)
    
 3. It is not necessary to configure the CLI again, the existing CLI configuration will be used.
 
