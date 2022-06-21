@@ -89,10 +89,10 @@ curl -o- https://dl.stackstate.com/stackstate-cli/install.sh | STS_URL="<URL>" S
 
 {% endtab %}
 
-{% tab title="Manual" %}
+{% tab title="Manual install steps" %}
 Open a terminal and run the steps below. This can be done one step at a time, or all together as a single script. After installation, the `sts` command will be available for the current user.
 
-1. Download the latest version for x86_64 (Intel) or arm64 (M1).
+1. Download the latest CLI version for x86_64 (Intel) or arm64 (M1).
    ```bash
    (VERSION=`curl https://dl.stackstate.com/stackstate-cli/LATEST_VERSION` &&
      ARCH=`uname -m` &&
@@ -189,7 +189,7 @@ docker run \
 
 #### API token
 
-By default, the CLI will authenticate using the API token that you provided when you saved the configuration. 
+By default, the CLI will authenticate using the API token that you provided when the CLI configuration was saved. 
 
 #### Service tokens
 
@@ -201,7 +201,7 @@ To create a service token, run the command below:
 sts service-token create --name <NAME> --roles <ROLE(s)> [--expiration <yyyy-MM-dd>]
 ```
 
-This will create a new service token and print it. The `--expiration` parameter is optional and can be used to set the expiration date of the Service Token.
+This will create a new service token and print it. The `--expiration` parameter is optional and can be used to set the expiration date of the service token.
 
 Once you have this, you can configure the CLI to use it:
 
