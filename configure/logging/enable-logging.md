@@ -131,41 +131,7 @@ sts graph show-node 9161801377514
       "lastUpdateTimestamp":1605284678082,
       "function":28286436254116,
       "enabled":true,
-      "arguments":[
-         {
-            "id":128484527572993,
-            "lastUpdateTimestamp":1605284678082,
-            "parameter":184761614904259,
-            "value":1,
-            "_type":"ArgumentLongVal"
-         },
-         {
-            "id":229304367255010,
-            "lastUpdateTimestamp":1605284678082,
-            "parameter":178411912509267,
-            "value":1,
-            "_type":"ArgumentLongVal"
-         }
-      ],
-      "_type":"ViewHealthStateConfiguration"
-   },
-   "groupingEnabled":true,
-   "minimumGroupSize":4,
-   "query":"(domain IN (\"customer E\") AND layer IN (\"API\", \"applications\", \"business application\", \"hypervisor\", \"databases\", \"k8s_proc\", \"lambda\", \"network devices\", \"location\", \"rack\", \"row\", \"servers\", \"services\", \"storage\"))",
-   "queryVersion":"0.0.1",
-   "identifier":"urn:stackpack:demo-stackpack:query-view:demo-customer-e",
-   "ownedBy":"urn:stackpack:demo-stackpack",
-   "eventTypes":[
-
-   ],
-   "tags":[
-
-   ],
-   "spanTypes":[
-
-   ],
-   "_type":"QueryView"
-}
+      ...
 ```
 
 **Not running the `stac` CLI yet?**
@@ -174,7 +140,21 @@ sts graph show-node 9161801377514
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+```commandline
+# get IDs of all views
+sts settings list --type QueryView
+
+TYPE      | ID              | IDENTIFIER | NAME                      | OWNED BY | LAST UPDATED                                          
+QueryView | 165313710240823 |            | Demo - Customer A         |          | Tue Jun 21 13:44:12 2022 CEST
+QueryView | 26281716816873  |            | Demo - Customer B         |          | Tue Jun 21 13:44:12 2022 CEST
+QueryView | 184368967764989 |            | Demo - Customer D         |          | Tue Jun 21 13:44:12 2022 CEST
+
+
+# get the ID of the specified view's "viewHealthStateConfiguration"
+
+sts settings describe --ids <VIEW_ID>
+
+```
 {% endtab %}
 
 {% endtabs %}
