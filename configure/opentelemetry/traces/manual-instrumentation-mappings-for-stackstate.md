@@ -58,7 +58,7 @@ as seen within the picture below.
 ![service type](../../../.gitbook/assets/otel_traces_trace_perspective_c.png)
 
 {% endtab %}
-{% tab title="Topology Perspective - Component properties" %}
+{% tab title="Topology Perspective - Component Properties" %}
 
 **Example of where the trace.perspective.name is displayed within the Topology Perspective within your component properties**
 
