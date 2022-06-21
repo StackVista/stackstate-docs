@@ -42,7 +42,7 @@ and the last interaction before the Trace completed is another interaction with 
 As you can see from the above within this trace context it had 3 span events, 
 thus spans is a collection of events that makes up a trace.
 
-**Concepts mentioned above**
+### Concepts mentioned above
 
 A span can be one of two types, a `parent span` or a `child span`. It **can not be both** and if it
 is a child span then there should be a pre-existing parent span that it can be linked to.
@@ -50,14 +50,14 @@ is a child span then there should be a pre-existing parent span that it can be l
 A span works with the concept that you open a span and then close it when it reaches a certain point in your code.
 This will then determine the duration of your span, and eventually your trace.
 
-- **Parent span**
+- #### Parent span
   - A parent span, also referred to as a root span, contains the end-to-end latency of an entire request.
   - For example if we execute a Lambda script, The script execution will be created as the parent span. All the other
     things monitored and executed inside this Lambda will be captured as children spans.
   - The parent span should be the last span you close. This is usually either at the end of your script execution or after you close your last child span
   - A parent span does not require a child span, it can be standalone if it is not a part of anything.
 
-- **Child span**
+- #### Child span
   - A child span is started by a parent span and might involve calling a function, the database, another service, etc.
     A child span in the aforementioned example may be a function that determines if the item is accessible or not.
     Child spans offer insight on every element of a request.
@@ -68,6 +68,7 @@ If we combine the trace and span concept then you have a complete and working tr
 
 The above will look as follows:
 
+```text
 - Trace
   - Parent Span
     - Child Span
@@ -76,6 +77,7 @@ The above will look as follows:
     - Child Span
   - Parent Span
   - Parent Span
+```
 
 ## How does a child span link to a parent span
 A parent span will contain an id for example `span-id: id-001`, when a child span is created it will,
@@ -169,6 +171,7 @@ This allows us to capture unique data for a certain type of instrumentation and 
 StackState currently supports two types of instrumentations.
 
 - An ***out-of-the-box*** solution specifically for AWS using a Lambda layer for all your ***NodeJS*** functions. 
+  - This solution does not require you to write any code, but only supports certain services
   - Visit the [AWS OpenTelemetry integrations page](/stackpacks/integrations/aws/opentelemetry-nodejs.md) for more information regarding the [supported AWS services](/stackpacks/integrations/aws/opentelemetry-nodejs.md#supported-services) and how to install and use this Lambda layer.
 - **Manual instrumentation** using the [OpenTelemetry API](https://opentelemetry.io/docs/instrumentation/)
   - This gives you the ability to create and display a custom component with a health state within StackState using the [OpenTelemetry API](https://opentelemetry.io/docs/instrumentation/).
