@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.0.x
 
 The StackState `stac` CLI provides easy access to the functionality provided by the StackState APIs. It can be used to configure StackState, work with data, automate using StackState data and help with developing StackPacks. You can configure the CLI to work with multiple instances of StackState.
 
-## Install the StackState CLI
+## Install the `stac` CLI
 
 A standalone executable is available to run the `stac` CLI on [Linux](#linux-install) and [Windows](#windows-install). You can also run the `stac` CLI [inside a Docker container](#docker-install-macos-linux-windows) on Linux, Windows or macOS.
 
@@ -89,7 +89,7 @@ The StackState CLI can be run inside a Docker container on Linux, Windows or mac
 3. \(optional\) Add the `bin` directory to your PATH to use `stac` CLI commands from [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
 4. To configure the StackState CLI, [manually add configuration](#manual-configuration-docker).
 
-## Configure the StackState CLI
+## Configure the `stac` CLI
 
 After a new installation, the `stac` CLI must be configured with the API connection details for your StackState instance. If you upgraded from a previous version of the CLI, it is not necessary to configure the CLI again, the existing CLI configuration will be used.
 
