@@ -7,9 +7,13 @@ description: StackState Self-hosted v5.0.x
 Component and Span relations shows the relationship between StackState components for example the image below
 shows an example of a relation running from the following to following components:
 
-- `Service Name: Parent Component` 
-  - `Service Name: Child Component` 
-    - `Service Name: Child 2 Component`
+```text
+Service Name: Parent Component
+|
+---> Service Name: Child Component
+     |
+     ---> Service Name: Child 2 Component
+```
 
 An example of the above displayed in StackState will show up as follows:
 
@@ -25,15 +29,23 @@ and `Service Name: Child 2 Component` has the parent id set as `Service Name: Ch
 
 Important to also remember that health state only propagates up, so that means if we have the following
 
-- `Service Name: Parent Component`
-    - `Service Name: Child Component` ***400 Status***
-        - `Service Name: Child 2 Component`
+```text
+Service Name: Parent Component
+|
+---> Service Name: Child Component [400 Status]
+     |
+     ---> Service Name: Child 2 Component
+```
 
 then that will only result in the following components showing a propagated critical state.
 
-- `Service Name: Parent Component` ***Propagated 400 Status*** 
-    - `Service Name: Child Component` ***400 Status***
-        - `Service Name: Child 2 Component`
+```text
+Service Name: Parent Component [Propagated 400 Status]
+|
+---> Service Name: Child Component [400 Status]
+     |
+     ---> Service Name: Child 2 Component
+```
 
 A visual example of this will be as follows:
 
