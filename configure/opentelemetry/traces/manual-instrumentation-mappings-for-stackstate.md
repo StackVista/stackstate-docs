@@ -45,37 +45,38 @@ You need to include **ALL** the keys below when creating a span as they all need
   - `Example value`
     - RDS: Database Hello-World
   - `Description`
-    - This is the primary name of the trace within StackState. This value will be used to visually identify your StackState component and Trace.
+    - This is the core name of your component and trace in StackState. This will be used as the main identifier to spot your component in the Topology Perspective or on the horizontal lines within the Trace Perspective view within a trace.
 
 {% tabs %}
-{% tab title="Topology View" %}
+{% tab title="Topology Perspective" %}
 
-**The trace perspective name can be found in the following location**
+**Example of where the trace.perspective.name is displayed within the Topology Perspective**
 
-1) On the main component screen, Your new component will be labeled with this name.
+1) When you view the Topology Perspective page your component should be visible with this as the primary identifier,
+as seen within the picture below.
 
 ![service type](../../../.gitbook/assets/otel_traces_trace_perspective_c.png)
 
 {% endtab %}
-{% tab title="Topology Properties View" %}
+{% tab title="Topology Perspective - Component properties" %}
 
-**The trace perspective name can be found in the following location**
+**Example of where the trace.perspective.name is displayed within the Topology Perspective within your component properties**
 
-1) Click on your component in the StackState Topology view
+1) Click on your component in the StackState Topology Perspective
 2) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
-3) The column row with the value 'name' will contain the value you defined, as seen below in the image.
-4) Your component will also contain a label called service-name, this will also represent your component name.
+3) A row with the value `name` will contain the value you defined, as seen below in the image.
+4) Your component will also contain a new label called service-name, this will also represent your component name.
 
 ![service type](../../../.gitbook/assets/otel_traces_trace_perspective_a.png)
 
 {% endtab %}
-{% tab title="Trace Perspective View" %}
+{% tab title="Trace Perspective" %}
 
-**The trace perspective name can be found in the following location**
+**Example of where the trace.perspective.name is displayed within the Trace Perspective**
 
 1) In your top navigation bar click on the `trace perspective` icon
-2) Find the trace in the list of traces and click on it to expand the trace.
-3) You will notice that the an graph line will contain the name of your component
+2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your trace).
+3) You will notice that a horizontal graph line will contain the name of your component as seen below.
 
 ![service type](../../../.gitbook/assets/otel_traces_trace_perspective_b.png)
 
@@ -171,7 +172,7 @@ You need to include **ALL** the keys below when creating a span as they all need
 
 **This identifier can be found in the following location**
 
-1) Click on your component in the StackState Topology view
+1) Click on your component in the StackState Topology Perspective
 2) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
 3) The column row with the value 'identifiers' will contain the value you defined, as seen below in the image.
 
@@ -192,13 +193,13 @@ You need to include **ALL** the keys below when creating a span as they all need
       or if you post a `200` then your component will be healthy. This allows you to control the health state of your component
 
 {% tabs %}
-{% tab title="Topology View - Healthy" %}
+{% tab title="Topology Perspective - Healthy" %}
 **You will see the following color on your component if you post a http.status_code of 200**
 
 ![Healthy](../../../.gitbook/assets/otel_traces_health_state_a.png)
 {% endtab %}
 
-{% tab title="Topology View - Critical" %}
+{% tab title="Topology Perspective - Critical" %}
 **You will see the following color on your component if you post a http.status_code of 400 or higher>**
 
 ![Critical](../../../.gitbook/assets/otel_traces_health_state_b.png)
