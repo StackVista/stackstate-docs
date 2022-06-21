@@ -587,50 +587,58 @@ To delete the StackState AWS Cloudformation stack from an AWS account using the 
 2. Set the S3 bucket that will be deleted:
 
    ```bash
-   BUCKET=$(aws cloudformation describe-stack-resource \
-     --stack-name stackstate-resources \
-     --logical-resource-id StsLogsBucket \
-     --query "StackResourceDetail.PhysicalResourceId" \
-     --output=text)
+    BUCKET=$(aws cloudformation describe-stack-resource \
+      --region $REGION \
+      --stack-name stackstate-resources \
+      --logical-resource-id StsLogsBucket \
+      --query "StackResourceDetail.PhysicalResourceId" \
+      --output=text) && echo "Found Bucket: ${BUCKET}"
    ```
    
 3. Disable the EventBridge rule: 
 
    ```bash
-   aws events disable-rule --region $REGION \
-     --name $(aws cloudformation describe-stack-resource --region $REGION \
-       --stack-name stackstate-resources-debug \
-       --logical-resource-id StsEventBridgeRule \
-       --query "StackResourceDetail.PhysicalResourceId" \
-       --output=text)
+    aws events disable-rule \
+        --region $REGION \
+        --name "$(aws cloudformation describe-stack-resource \
+            --stack-name stackstate-resources \
+            --logical-resource-id StsEventBridgeRule \
+            --region $REGION \
+            --query "StackResourceDetail.PhysicalResourceId" \
+            --output=text)"
    ```
    
 4. Delete all FlowLogs that send to this bucket:
 
    ```bash
-   aws ec2 delete-flow-logs --region $REGION \
-     --flow-log-ids $(aws ec2 describe-flow-logs --region $REGION\
-       --query "FlowLogs[?LogDestination==$BUCKET].[FlowLogId]" \
-       --output=text | tr '\n' ' ')"
+    aws ec2 delete-flow-logs \
+        --region $REGION \
+        --flow-log-ids "$(aws ec2 describe-flow-logs \
+            --region $REGION \
+            --query "FlowLogs[?LogDestination=='arn:aws:s3:::$BUCKET'].[FlowLogId]" \
+            --output=text | tr '\n' ' ')"
    ```
 
 5. Delete objects in the S3 bucket. This is a versioned S3 bucket, so each object version will be deleted individually. Note that if there are more than 1000 items in the bucket this command will fail, it's likely more convenient to perform this in the [AWS web console](#aws-web-console):
 
    ```bash
-   sleep 60 # To make sure all objects have finished writing to bucket
-   aws s3api delete-objects --region $REGION --bucket $BUCKET \
-    --delete "$(aws s3api list-object-versions --region $REGION --bucket $BUCKET \
-      --query Account \
-      --output text) \
-    --output json \
-    --query '{Objects: Versions[].{Key:Key,VersionId:VersionId}}')"
+    sleep 60 # To make sure all objects have finished writing to bucket
+    aws s3api delete-objects \
+        --region $REGION \
+        --bucket "$BUCKET" \
+        --delete "$(aws s3api list-object-versions \
+            --region $REGION \
+            --bucket "$BUCKET" \
+            --output=json \
+            --query='{Objects: Versions[].{Key:Key,VersionId:VersionId}}')" \
+        --output=text
    ```
 
 6. Delete the CloudFormation template:
 
    ```bash
-   aws cloudformation delete-stack --region $REGION \
-     --stack-name stackstate-resources
+    aws cloudformation delete-stack --region $REGION \
+        --stack-name stackstate-resources
    ```
    
 
