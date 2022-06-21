@@ -26,7 +26,8 @@ When debugging the health synchronization there are some common verification ste
 stac topic show sts_health_sync
 ```
 
-➡️ [Not running the `stac` CLI yet?  Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
+**Not running the `stac` CLI yet?**
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
@@ -65,7 +66,8 @@ stream urn                                            sub stream count
 urn:health:sourceId:streamId                                         1
 ```
 
-➡️ [Not running the `stac` CLI yet?  Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
+**Not running the `stac` CLI yet?**
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
@@ -90,7 +92,8 @@ subStreamId1                                     20
 subStreamId2                                     17
 ```
 
-➡️ [Not running the `stac` CLI yet?  Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
+**Not running the `stac` CLI yet?**
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
@@ -127,7 +130,8 @@ error message                                                                   
 Sub stream `substream with id `subStreamId2`` not started when receiving snapshot stop                          6
 ```
 
-➡️ [Not running the `stac` CLI yet?  Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
+**Not running the `stac` CLI yet?**
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
@@ -165,7 +169,8 @@ check states updated (per second)  -                                        -   
 check states deleted (per second)  -
 ```
 
-➡️ [Not running the `stac` CLI yet?  Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
+**Not running the `stac` CLI yet?**
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
@@ -210,7 +215,8 @@ check state id    topology element identifier    number of matched topology elem
 ----------------  -----------------------------  -------------------------------------
 ```
 
-➡️ [Not running the `stac` CLI yet?  Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
+**Not running the `stac` CLI yet?**
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
@@ -230,7 +236,8 @@ The `delete` stream functionality is helpful while setting up a health synchroni
 stac health delete urn:health:sourceId:streamId
 ```
 
-➡️ [Not running the `stac` CLI yet?  Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
+**Not running the `stac` CLI yet?**
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
@@ -251,7 +258,8 @@ stac health clear-errors urn:health:sourceId:streamId
 
 ```
 
-➡️ [Not running the `stac` CLI yet?  Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
+**Not running the `stac` CLI yet?**
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
