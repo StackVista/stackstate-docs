@@ -209,18 +209,20 @@ You do not need a configuration file to run the `sts` CLI. You can also configur
 
 If multiple types of configuration are presented to the CLI the order of processing will be: 
 
-1. First: Flags
-2. Second: Environment variables 
-3. Last: Config file
+1. First: Flags.
+2. Second: Environment variables.
+3. Last: Config file.
 
-| Name | Flag | Description                                                                           |
-| :--- |:--- |:--------------------------------------------------------------------------------------|
-| `STS_CLI_URL` | `--url` | URL to your StackState instance.                                                      |
-| `STS_CLI_API_TOKEN` | `--api-token` | API token to your StackState instance. The most secure way to use your API token is through an environment variable. You can store the API token with a secrets manager and inject it as an environment variable into your shell.                                               |
+| Environment variable    | Flag | Description                                                                           |
+|:------------------------|:--- |:--------------------------------------------------------------------------------------|
+| `STS_CLI_URL`           | `--url` | URL to your StackState instance.                                                      |
+| `STS_CLI_API_TOKEN`     | `--api-token` | API token to your StackState instance. The most secure way to use your API token is through an environment variable. You can store the API token with a secrets manager and inject it as an environment variable into your shell.                                               |
 | `STS_CLI_SERVICE_TOKEN` | `--service-token` | Service Token to your StackState instance. The most secure way to use your service token is through an environment variable. You can store the service token with a secrets manager and inject it as an environment variable into your shell.                                               |
-| `STS_CLI_API_PATH` | n/a | The path appended to the end of the URL to get the API endpoint. (Defaults to `/api`) |
+| `STS_CLI_API_PATH`      | n/a | The path appended to the end of the URL to get the API endpoint. (Defaults to `/api`) |
 
 ## Uninstall
+
+Follow the instructions below to uninstall the StackState CLI.
 
 {% tabs %}
 {% tab title="Windows" %}

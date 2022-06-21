@@ -76,18 +76,10 @@ Once created, a Service Token can be used to authenticate to StackState from a h
 
 ### StackState CLI
 
-To use a service token for authentication with the StackState CLI, refer to the documentation for the CLI version that you are running. 
+A service token for authentication with the new `sts` CLI. It is not possible to authenticate with service tokens using the `stac` CLI. For details, see the CLI documentation.
 
-➡️ [Which version of the CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
-
-{% tabs %}
-{% tab title="CLI: sts (new)" %} 
-[`sts` CLI: Authentication](../../../setup/cli/cli-sts.md#configuration-options) 
-{% endtab %}
-{% tab title="CLI: stac" %}
-[`stac` CLI: Authentication](../../../setup/cli/cli-sts.md#authentication)
-{% endtab %}
-{% endtabs %}
+* [Which version of the CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+* `sts`(new) CLI: [Authentication](/setup/cli/cli-sts.md#authentication)
 
 ### StackState Rest API
 
