@@ -194,7 +194,8 @@ as seen within the picture below.
     - This controls the health state for the component in StackState. 
     - If you post a `400` or higher than the component will go into critical state
       or if you post a `200` then your component will be healthy. This allows you to control the health state of your component
-    - Lorem ipsum
+    - For a more advanced breakdown head over to the [OpenTelemetry Custom Instrumentation - Health State Page]() for a more in-depth explanation, 
+      how health state works with merging components, and what is metrics is displayed by default with the health state and custom instrumentation.
 
 {% tabs %}
 {% tab title="Topology Perspective (Healthy)" %}
