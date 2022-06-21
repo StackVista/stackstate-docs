@@ -21,12 +21,12 @@ When debugging the health synchronization there are some common verification ste
 
 {% tabs %}
 {% tab title="CLI: stac" %}
-Not running the `stac` CLI yet?  [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
 
 ```text
 stac topic show sts_health_sync
 ```
 
+➡️ [Not running the `stac` CLI yet?  Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
@@ -55,7 +55,6 @@ Returns a list of all current synchronized health streams and the number of sub 
 
 {% tabs %}
 {% tab title="CLI: stac" %}
-Not running the `stac` CLI yet?  [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
 
 ```javascript
 # List streams
@@ -65,6 +64,8 @@ stream urn                                            sub stream count
 --------------------------------------------------  ------------------
 urn:health:sourceId:streamId                                         1
 ```
+
+➡️ [Not running the `stac` CLI yet?  Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
@@ -78,7 +79,6 @@ Returns a list of all sub streams for a given stream URN, together with the numb
 
 {% tabs %}
 {% tab title="CLI: stac" %}
-Not running the `stac` CLI yet?  [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
 
 ```javascript
 # List sub streams
@@ -89,6 +89,8 @@ sub stream id                     check state count
 subStreamId1                                     20
 subStreamId2                                     17
 ```
+
+➡️ [Not running the `stac` CLI yet?  Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
@@ -103,7 +105,6 @@ The stream status command returns the aggregated stream latency and throughput m
 
 {% tabs %}
 {% tab title="CLI: stac" %}
-Not running the `stac` CLI yet?  [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
 
 ```javascript
 # Show a stream status
@@ -125,6 +126,8 @@ error message                                                                   
 ----------------------------------------------------------------------------------------------  ------------------------
 Sub stream `substream with id `subStreamId2`` not started when receiving snapshot stop                          6
 ```
+
+➡️ [Not running the `stac` CLI yet?  Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
@@ -137,12 +140,6 @@ Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 The sub stream status provides useful information to verify that check states sent to StackState from an external system could be bound and linked to existing topology elements. This information is helpful to debug why a specific check is not visible on the expected topology element.
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
-
-➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
-
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
-{% endtab %}
 {% tab title="CLI: stac" %}
 ```javascript
 # Show a sub stream status.
@@ -167,6 +164,12 @@ check states created (per second)  -                                        -   
 check states updated (per second)  -                                        -                                        -
 check states deleted (per second)  -
 ```
+
+➡️ [Not running the `stac` CLI yet?  Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 {% endtab %}
 {% endtabs %}
 
@@ -185,7 +188,6 @@ In the example below, `checkStateId2` is listed under `Check states with identif
 
 {% tabs %}
 {% tab title="CLI: stac" %}
-Not running the `stac` CLI yet?  [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
 
 ```javascript
 # Show a sub stream status matched/unmatched check states.
@@ -207,6 +209,8 @@ Check states with identifier which has multiple matching topology elements:
 check state id    topology element identifier    number of matched topology elements
 ----------------  -----------------------------  -------------------------------------
 ```
+
+➡️ [Not running the `stac` CLI yet?  Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
@@ -220,12 +224,13 @@ The `delete` stream functionality is helpful while setting up a health synchroni
 
 {% tabs %}
 {% tab title="CLI: stac" %}
-Not running the `stac` CLI yet?  [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
 
 ```javascript
 # Delete a health synchronization stream
 stac health delete urn:health:sourceId:streamId
 ```
+
+➡️ [Not running the `stac` CLI yet?  Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
@@ -239,13 +244,14 @@ The `clear-errors` option removes all errors from a health stream. This is helpf
 
 {% tabs %}
 {% tab title="CLI: stac" %}
-Not running the `stac` CLI yet?  [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
 
 ```javascript
 # Clear health stream errors
 stac health clear-errors urn:health:sourceId:streamId 
 
 ```
+
+➡️ [Not running the `stac` CLI yet?  Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
