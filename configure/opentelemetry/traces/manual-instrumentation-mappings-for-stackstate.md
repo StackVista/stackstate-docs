@@ -43,7 +43,7 @@ You need to include **ALL** the keys below when creating a span as they all need
   - `Expected`
     - This field can be any string value
   - `Example`
-    - RDS: Database Hello-World
+    - AWS RDS: Hello World Database
   - `Description`
     - This is the core name of your component and trace in StackState. This will be used as the main identifier to spot your component in the Topology Perspective or on the horizontal lines within the Trace Perspective view within a trace.
 
@@ -87,20 +87,20 @@ as seen within the picture below.
 ### Service Name
   - `Key`
     - service.name
-  - `Expected value`
+  - `Expected`
     - This field can be any string value
-  - `Example value`
-    - RDS: Database Hello-World
+  - `Example`
+    - AWS RDS: Database
   - `Description`
-    - This will be the resource displayed under your trace perspective for a specific trace.
+    - The service name property will be a unique value attached to your span within your trace in the Trace Perspective.
 
 {% tabs %}
-{% tab title="Trace Perspective View" %}
+{% tab title="Trace Perspective" %}
 
-1) In your top navigation bar click on the `trace perspective` icon
-2) Find the trace in the list of traces and click on it to expand the trace.
+1) In your top navigation bar click on the `trace perspective` menu item.
+2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your trace).
 3) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
-4) The column row with the value 'span.serviceName' will contain the value you defined, as seen below in the image.
+4) A row with the value `span.serviceName` will contain the value you defined, as seen below in the image.
 
 ![service type](../../../.gitbook/assets/otel_traces_service_name_b.png)
 
