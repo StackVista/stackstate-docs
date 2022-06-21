@@ -67,3 +67,19 @@ You will then notice that the middle component disappear as it merged with the L
 inherited the same relation mappings.
 
 ![service type](../../../.gitbook/assets/otel_traces_merge_with_healthy_complete.png)
+
+## Multiple children
+
+It is also good to know that a single parent can have multiple children, allow you to build a tree with branches of relations, for example
+
+```text
+Service Name: Parent Component
+|
+---> Service Name: Child Component
+|
+---> Service Name: Child 2 Component
+```
+
+![service type](../../../.gitbook/assets/otel_traces_multiple_children.png)
+
+
