@@ -26,33 +26,48 @@ This page provides specific instructions and details of any required manual step
 {% tabs %}
 {% tab title="Kubernetes" %}
 
-This version of StackState includes a breaking change to the output of the [Telemetry Script API](/develop/reference/scripting/script-apis/telemetry.md). The output uses the new [StreamingScriptApi](/develop/reference/scripting/streaming-script-result.md) and the data format changed. Any script making use of that API needs to be adapted to deal with the new output format.
-{% endtab %}
-{% tab title="Linux" %}
+* This version of StackState includes a breaking change to the output of the [Telemetry Script API](/develop/reference/scripting/script-apis/telemetry.md). The output uses the new [StreamingScriptApi](/develop/reference/scripting/streaming-script-result.md) and the data format changed. Any script making use of that API needs to be adapted to deal with the new output format.
 
-This version of StackState includes a breaking change to the output of the [Telemetry Script API](/develop/reference/scripting/script-apis/telemetry.md). The output uses the new [StreamingScriptApi](/develop/reference/scripting/streaming-script-result.md) and the data format changed. Any script making use of that API needs to be adapted to deal with the new output format.
-{% endtab %}
-{% endtabs %}
-
-StackPack updates:
+**StackPack updates:**
+* [StackState Agent StackPack v4.5.2](/stackpacks/integrations/agent.md#release-notes)
+* [AWS v1.2.1](/stackpacks/integrations/aws/aws.md#release-notes)
+* [Dynatrace v1.4.2](/stackpacks/integrations/dynatrace.md#release-notes)
+* [Kubernetes v3.9.12](/stackpacks/integrations/kubernetes.md#release-notes)
+* [OpenShift v3.7.12](/stackpacks/integrations/openshift.md#release-notes)
+* [ServiceNow v5.3.3](/stackpacks/integrations/servicenow.md#release-notes)
+* [VMware vSphere v2.3.3](/stackpacks/integrations/vsphere.md#release-notes)
 
 {% endtab %}
 {% tab title="KOTS" %}
 
 #### v5.0.0
 
-No manual action required.
+* This version of StackState includes a breaking change to the output of the [Telemetry Script API](/develop/reference/scripting/script-apis/telemetry.md). The output uses the new [StreamingScriptApi](/develop/reference/scripting/streaming-script-result.md) and the data format changed. Any script making use of that API needs to be adapted to deal with the new output format.
 
-StackPack updates:
+**StackPack updates:**
+* [StackState Agent StackPack v4.5.2](/stackpacks/integrations/agent.md#release-notes)
+* [AWS v1.2.1](/stackpacks/integrations/aws/aws.md#release-notes)
+* [Dynatrace v1.4.2](/stackpacks/integrations/dynatrace.md#release-notes)
+* [Kubernetes v3.9.12](/stackpacks/integrations/kubernetes.md#release-notes)
+* [OpenShift v3.7.12](/stackpacks/integrations/openshift.md#release-notes)
+* [ServiceNow v5.3.3](/stackpacks/integrations/servicenow.md#release-notes)
+* [VMware vSphere v2.3.3](/stackpacks/integrations/vsphere.md#release-notes)
 
 {% endtab %}
 {% tab title="Linux" %}
 
 #### v5.0.0
 
-No manual action required.
+* This version of StackState includes a breaking change to the output of the [Telemetry Script API](/develop/reference/scripting/script-apis/telemetry.md). The output uses the new [StreamingScriptApi](/develop/reference/scripting/streaming-script-result.md) and the data format changed. Any script making use of that API needs to be adapted to deal with the new output format.
 
-StackPack updates:
+**StackPack updates:**
+* [StackState Agent StackPack v4.5.2](/stackpacks/integrations/agent.md#release-notes)
+* [AWS v1.2.1](/stackpacks/integrations/aws/aws.md#release-notes)
+* [Dynatrace v1.4.2](/stackpacks/integrations/dynatrace.md#release-notes)
+* [Kubernetes v3.9.12](/stackpacks/integrations/kubernetes.md#release-notes)
+* [OpenShift v3.7.12](/stackpacks/integrations/openshift.md#release-notes)
+* [ServiceNow v5.3.3](/stackpacks/integrations/servicenow.md#release-notes)
+* [VMware vSphere v2.3.3](/stackpacks/integrations/vsphere.md#release-notes)
 
 {% endtab %}
 {% endtabs %}
