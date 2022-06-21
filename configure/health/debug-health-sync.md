@@ -22,10 +22,14 @@ When debugging the health synchronization there are some common verification ste
 {% tabs %}
 {% tab title="CLI: stac" %}
 
-Not running the `stac` CLI yet? [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
 ```text
 stac topic show sts_health_sync
 ```
+
+Not running the `stac` CLI yet? 
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
+
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
