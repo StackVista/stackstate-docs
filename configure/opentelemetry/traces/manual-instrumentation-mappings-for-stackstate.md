@@ -134,15 +134,16 @@ as seen within the picture below.
 {% endtab %}
 {% endtabs %}
 
-### Service Identifier
+### Service Identifier ([Used for Merging Components](/configure/opentelemetry/traces/merging-with-stackstate-components.md))
   - `Key`
     - service.identifier
-  - `Expected value`
-    - This field can be any string value, do note if you use an identifier that is already on your StackState UI please read more on [merging with existing StackState components]() as you component will merge with a pre-existing StackState component.
-  - `Example value`
-    - aws:rds:database
+  - `Expected`
+    - This field can be any string value
+    - ***Components with the same service identifiers will merge into one component, This allows you to merge multiple components and create relations, or merge with an existing StackState component. You can read more about this on the [merging with existing StackState components](/configure/opentelemetry/traces/merging-with-stackstate-components.md) page***
+  - `Example`
+    - aws:rds:database:hello-world
   - `Description`
-    - This will be the identifier for you component on the StackState UI. This is the primary component for merging or allowing merger of StackState component with yours. To read more about [what merging components]() in StackState is, or [how to merge my manual instrumentation with a StackState component]()
+    - This will be the identifier for you component on the StackState UI. This is the primary component for merging or allowing merger of your component with a StackState pre-existing component. Head over to [merging with existing StackState components](/configure/opentelemetry/traces/merging-with-stackstate-components.md) to learn more.
 
 {% tabs %}
 {% tab title="Topology Properties View" %}
@@ -151,7 +152,7 @@ as seen within the picture below.
 
 1) Click on your component in the StackState Topology Perspective
 2) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
-3) The column row with the value 'identifiers' will contain the value you defined, as seen below in the image.
+3) The row with the key `identifiers` will contain the value you defined, as seen below in the image.
 
 ![service identifier](../../../.gitbook/assets/otel_traces_service_identifier.png)
 {% endtab %}
