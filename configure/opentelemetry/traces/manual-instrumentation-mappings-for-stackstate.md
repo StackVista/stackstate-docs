@@ -146,9 +146,9 @@ as seen within the picture below.
     - This will be the identifier for you component on the StackState UI. This is the primary component for merging or allowing merger of your component with a StackState pre-existing component. Head over to [merging with existing StackState components](/configure/opentelemetry/traces/merging-with-stackstate-components.md) to learn more.
 
 {% tabs %}
-{% tab title="Topology Properties View" %}
+{% tab title="Topology Perspective - Component Properties" %}
 
-**This identifier can be found in the following location**
+**Example of where the service.identifier is displayed within the Topology Perspective Component Properties view**
 
 1) Click on your component in the StackState Topology Perspective
 2) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
