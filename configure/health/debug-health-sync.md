@@ -26,6 +26,7 @@ When debugging the health synchronization there are some common verification ste
 stac topic show sts_health_sync
 ```
 
+
 Not running the `stac` CLI yet? 
 
 ➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
