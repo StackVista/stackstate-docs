@@ -139,11 +139,11 @@ as seen within the picture below.
     - service.identifier
   - `Expected`
     - This field can be any string value
-    - ***Components with the same service identifiers will merge into one component, This allows you to merge multiple components and create relations, or merge with an existing StackState component. You can read more about this on the [merging with existing StackState components](/configure/opentelemetry/traces/merging-with-stackstate-components.md) page***
   - `Example`
     - aws:rds:database:hello-world
   - `Description`
-    - This will be the identifier for you component on the StackState UI. This is the primary component for merging or allowing merger of your component with a StackState pre-existing component. Head over to [merging with existing StackState components](/configure/opentelemetry/traces/merging-with-stackstate-components.md) to learn more.
+    - This value will be added to the identifier list on your component within StackState.
+    - ***NB. Components with the same service identifiers will merge into one component, This allows you to merge multiple components and create relations, or merge with an existing StackState component. You can read more about this on the [merging with existing StackState components](/configure/opentelemetry/traces/merging-with-stackstate-components.md) page***
 
 {% tabs %}
 {% tab title="Topology Perspective - Component Properties" %}
@@ -153,6 +153,7 @@ as seen within the picture below.
 1) Click on your component in the StackState Topology Perspective
 2) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
 3) The row with the key `identifiers` will contain the value you defined, as seen below in the image.
+4) ***NB. It is recommended to go and read the [merging with existing StackState components](/configure/opentelemetry/traces/merging-with-stackstate-components.md) page to know how this value can be leverage to create relations***
 
 ![service identifier](../../../.gitbook/assets/otel_traces_service_identifier.png)
 {% endtab %}
@@ -183,39 +184,40 @@ as seen within the picture below.
 {% endtab %}
 {% endtabs %}
 
-### HTTP Status Code
+### HTTP Status Code ([Health State]())
   - `Key`
     - http.status_code
-  - `Expected value`
-    - A valid HTTP status for example `200` or `400` and higher
-  - `Example value`
+  - `Expected`
+    - A valid HTTP status for example `200`, `400` or higher
+  - `Example`
     - 200
   - `Description`
-    - ***Health State*** - This controls the health state for the component in StackState. 
+    - This controls the health state for the component in StackState. 
     - If you post a `400` or higher than the component will go into critical state
       or if you post a `200` then your component will be healthy. This allows you to control the health state of your component
+    - Lorem ipsum
 
 {% tabs %}
-{% tab title="Topology Perspective - Healthy" %}
+{% tab title="Topology Perspective (Healthy)" %}
 **You will see the following color on your component if you post a http.status_code of 200**
 
 ![Healthy](../../../.gitbook/assets/otel_traces_health_state_a.png)
 {% endtab %}
 
-{% tab title="Topology Perspective - Critical" %}
+{% tab title="Topology Perspective (Critical)" %}
 **You will see the following color on your component if you post a http.status_code of 400 or higher>**
 
 ![Critical](../../../.gitbook/assets/otel_traces_health_state_b.png)
 {% endtab %}
 
-{% tab title="Trace Perspective View" %}
+{% tab title="Trace Perspective - Span Properties" %}
 
 **The http status can be found in the following location regardless of what the HTTP status actually is**
 
 1) In your top navigation bar click on the `trace perspective` icon
-2) Find the trace in the list of traces and click on it to expand the trace.
+2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your trace).
 3) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
-4) The column row with the value 'http.status_code' will contain the value you defined, as seen below in the image.
+4) The row with the value `http.status_code` will contain the value you defined, as seen below in the image.
 
 ![Healthy](../../../.gitbook/assets/otel_traces_health_state_c.png)
 {% endtab %}
