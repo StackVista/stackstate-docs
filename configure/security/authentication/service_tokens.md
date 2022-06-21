@@ -81,9 +81,9 @@ A service token for authentication with the new `sts` CLI. It is not possible to
 * [Which version of the CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 * `sts`(new) CLI: [Authentication](/setup/cli/cli-sts.md#authentication)
 
-### StackState Rest API
+### StackState APIs
 
-To use a service token to talk directly to the StackState Rest API, add it to the header of the request in one of the following ways:
+To use a service token to talk directly to the StackState Base API or the StackState Admin API, add it to the header of the request in one of the following ways:
 
 * In the `Authorization` header:
     ```bash
@@ -95,3 +95,4 @@ To use a service token to talk directly to the StackState Rest API, add it to th
     > curl -X GET -H "X-API-Key: <TOKEN>" http://localhost:8080/api/server/status
     ```
 
+➡️ [Learn more about the StackState APIs](/setup/cli/cli-stac.md#authentication)
