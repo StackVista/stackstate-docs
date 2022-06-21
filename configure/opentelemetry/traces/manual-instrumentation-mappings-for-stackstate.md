@@ -40,9 +40,9 @@ You need to include **ALL** the keys below when creating a span as they all need
 ### Trace Perspective Name
   - `Key`
     - trace.perspective.name
-  - `Expected value`
+  - `Expected`
     - This field can be any string value
-  - `Example value`
+  - `Example`
     - RDS: Database Hello-World
   - `Description`
     - This is the core name of your component and trace in StackState. This will be used as the main identifier to spot your component in the Topology Perspective or on the horizontal lines within the Trace Perspective view within a trace.
