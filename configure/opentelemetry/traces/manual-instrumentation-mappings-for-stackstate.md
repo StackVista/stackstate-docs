@@ -11,8 +11,8 @@ You will have to include the Span key values when you create your Spans inside t
 
 # OpenTelemetry API requirements
 Your data will not appear in StackState if the following two requirements is no satisfied.
-1) [Tracer name and version requirement](#Defining a tracer name and version)
-2) [Span key-value requirements](#Summary of the Span key and value requirements)
+- [Tracer name and version requirement](/configure/opentelemetry/traces/manual-instrumentation-mappings-for-stackstate.md#Defining a tracer name and version)
+- [Span key-value requirements](/configure/opentelemetry/traces/manual-instrumentation-mappings-for-stackstate.md#Summary of the Span key and value requirements)
 
 ## Defining a tracer name and version
 For StackState to understand your data a tracer name and version needs to be passed to with your instrumentation.
