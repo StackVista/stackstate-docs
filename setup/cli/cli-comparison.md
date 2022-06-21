@@ -70,16 +70,16 @@ You can check which version of the `sts` CLI you are running with the following 
 ```commandline
 sts version
 
-# new CLI - example output:
+# new `sts` CLI - example output:
 VERSION | BUILD DATE           | COMMIT                                   
 1.0.0   | 2022-06-24T12:26:50Z | 6553352125d31a46c4790068e36c8eca32ace7fd
 
 
-# old CLI - example output:
+# old `sts` CLI - example output:
 usage: cli.py [-h] [-v] [-i [INSTANCE]] [-c [CLIENT]]
 
 
-# no CLI installed - example output:
+# no `sts` CLI installed - example output:
 command not found: sts
   ...
 
