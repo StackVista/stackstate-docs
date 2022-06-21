@@ -30,7 +30,6 @@ This page provides specific instructions and details of any required manual step
 
 StackPack updates:
 
-TODO
 
 {% endtab %}
 {% tab title="KOTS" %}
@@ -44,7 +43,6 @@ TODO
 
 StackPack updates:
 
-TODO
 
 {% endtab %}
 {% tab title="Linux" %}
@@ -58,7 +56,6 @@ TODO
 
 StackPack updates:
 
-TODO
 
 {% endtab %}
 {% endtabs %}
