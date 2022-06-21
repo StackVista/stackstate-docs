@@ -20,18 +20,18 @@ When debugging the health synchronization there are some common verification ste
    * **No streams / sub streams are present** - Use the CLI command below to verify that health data sent to the Receiver API is arriving in StackState:
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
-
-➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
-
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
-{% endtab %}
 {% tab title="CLI: stac" %}
 
 Not running the `stac` CLI yet? [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
 ```text
 stac topic show sts_health_sync
 ```
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 {% endtab %}
 {% endtabs %}
 
