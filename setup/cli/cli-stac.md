@@ -254,7 +254,6 @@ If you are using a custom tool instead of the CLI, you can authenticate with the
 curl -H "Authorization: ApiToken <token>" <stackstate-api-endpoint>
 ```
 
-
 ## Upgrade
 
 Follow the steps below to upgrade an installed version of the CLI. Note that it is not necessary to configure the CLI again after the upgraded version is installed, the existing CLI configuration will be used.
