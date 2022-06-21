@@ -64,7 +64,7 @@ as seen within the picture below.
 
 1) Click on your component in the StackState Topology Perspective
 2) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
-3) A row with the value `name` will contain the value you defined, as seen below in the image.
+3) A row with the key `name` will contain the value you defined, as seen below in the image.
 4) Your component will also contain a new label called service-name, this will also represent your component name.
 
 ![service type](../../../.gitbook/assets/otel_traces_trace_perspective_a.png)
@@ -102,34 +102,9 @@ as seen within the picture below.
 1) In your top navigation bar click on the `trace perspective` menu item.
 2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your trace).
 3) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
-4) A row with the value `span.serviceName` will contain the value you defined, as seen below in the image.
+4) A row with the key `span.serviceName` will contain the value you defined, as seen below in the image.
 
 ![service type](../../../.gitbook/assets/otel_traces_service_name_b.png)
-
-{% endtab %}
-{% endtabs %}
-
-
-### Resource Name
-  - `Key`
-    - resource.name
-  - `Expected`
-    - This field can be any string value
-  - `Example`
-    - Database
-  - `Description`
-    - This will be the resource.name will be displayed under your trace perspective for a specific trace.
-
-{% tabs %}
-{% tab title="Trace Perspective" %}
-
-**Example of where the resource.name is displayed within the Trace Perspective**
-
-1) In your top navigation bar click on the `trace perspective` menu item.
-2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your trace).
-3) The section on your right side will contain a row with the key `Resource`, the value displayed next to the key will be the one you defined.
-
-![service type](../../../.gitbook/assets/otel_traces_trace_resource.png)
 
 {% endtab %}
 {% endtabs %}
@@ -138,22 +113,22 @@ as seen within the picture below.
 ### Service Type
   - `Key`
     - service.type
-  - `Expected value`
+  - `Expected`
     - This field can be any string value
-  - `Example value`
+  - `Example`
     - AWS RDS
   - `Description`
     - This will be the service displayed under your trace perspective for a specific trace.
 
 {% tabs %}
-{% tab title="Trace Perspective Properties View" %}
+{% tab title="Trace Perspective - Span Properties" %}
 
-**The service type can be found in the following location**
+**Example of where the service.type is displayed within the Trace Perspective Span Properties view**
 
 1) In your top navigation bar click on the `trace perspective` icon
-2) Find the trace in the list of traces and click on it to expand the trace.
+2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your trace).
 3) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
-4) The column row with the value 'service' will contain the value you defined, as seen below in the image.
+4) A row with the key `service` will contain the value you defined, as seen below in the image.
 
 ![service type](../../../.gitbook/assets/otel_traces_service_type.png)
 {% endtab %}
@@ -179,6 +154,31 @@ as seen within the picture below.
 3) The column row with the value 'identifiers' will contain the value you defined, as seen below in the image.
 
 ![service identifier](../../../.gitbook/assets/otel_traces_service_identifier.png)
+{% endtab %}
+{% endtabs %}
+
+
+### Resource Name
+- `Key`
+    - resource.name
+- `Expected`
+    - This field can be any string value
+- `Example`
+    - Database
+- `Description`
+    - This will be the resource.name will be displayed under your trace perspective for a specific trace.
+
+{% tabs %}
+{% tab title="Trace Perspective" %}
+
+**Example of where the resource.name is displayed within the Trace Perspective**
+
+1) In your top navigation bar click on the `trace perspective` menu item.
+2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your trace).
+3) The section on your right side will contain a row with the key `Resource`, the value displayed next to the key will be the one you defined.
+
+![resource name](../../../.gitbook/assets/otel_traces_trace_resource.png)
+
 {% endtab %}
 {% endtabs %}
 
