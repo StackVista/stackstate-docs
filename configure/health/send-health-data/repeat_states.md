@@ -71,7 +71,7 @@ Every health Repeat States data payload has the following details:
 
 ## Send health to StackState
 
-Health can be sent in one JSON message via HTTP POST or using the StackState CLI command `sts health send`. In the example below, a snapshot containing two check states is sent to StackState from a single external monitoring system.
+Health can be sent in one JSON message via HTTP POST or using the `stac` CLI command `stac health send`. In the example below, a snapshot containing two check states is sent to StackState from a single external monitoring system.
 
 {% tabs %}
 {% tab title="curl" %}
@@ -117,22 +117,30 @@ curl -X POST \
 }'
 ```
 {% endtab %}
-{% tab title="StackState CLI" %}
+{% tab title="CLI: stac" %}
 ```
-sts health send expiry urn:health:sourceId:streamId \
+stac health send expiry urn:health:sourceId:streamId \
   --repeat-interval-seconds 300 \
   --expiry-interval-seconds 600
 
-sts health send check-state urn:health:sourceId:streamId \
+stac health send check-state urn:health:sourceId:streamId \
   checkStateId1 "Disk Usage" "server-1" deviating \
   --message "Deviating Server Running out of disk space" \
   --consistency-model="REPEAT_STATES"
 
-sts health send check-state urn:health:sourceId:streamId \
+stac health send check-state urn:health:sourceId:streamId \
   checkStateId2 "Health Monitor" "server-2" critical \
   --message "Provisioning failed. [Learn more](https://www.any-link.com)" \
   --consistency-model="REPEAT_STATES"
 ```
 
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
 {% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+
 {% endtabs %}

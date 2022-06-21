@@ -22,7 +22,7 @@ Health can be sent to the StackState Receiver API using the `"health"` property 
    "health":[
       {
         "consistency_model": "TRANSACTIONAL_INCREMENTS",
-        "incrment": {
+        "increment": {
               "checkpoint": {
                   "offset": 5,
                   "batch_index": 102
@@ -84,7 +84,7 @@ Every health Transactional Increments data payload has the following details:
 
 ## Send health to StackState
 
-Health can be sent in one JSON message via HTTP POST or using the StackState CLI command `sts health send`. In the example below, a snapshot containing two check states is sent to StackState from a single external monitoring system.
+Health can be sent in one JSON message via HTTP POS. In the example below, a snapshot containing two check states is sent to StackState from a single external monitoring system.
 
 {% tabs %}
 {% tab title="curl" %}
@@ -102,7 +102,7 @@ curl -X POST \
   "health": [
     {
       "consistency_model": "TRANSACTIONAL_INCREMENTS",
-      "incrment": {
+      "increment": {
             "checkpoint": {
                 "offset": 5,
                 "batch_index": 102
@@ -140,11 +140,14 @@ curl -X POST \
 }'
 ```
 {% endtab %}
-{% tab title="StackState CLI" %}
-```
-Sending of Transactional increments check_states is not available in the CLI, 
-but all the debugging and introspection features can still be used.
-```
+{% tab title="CLI: stac" %}
+
+Sending of Transactional increments check_states is not available in the CLI, but all the debugging and introspection features can still be used.
 
 {% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Sending of Transactional increments check_states is not available in the CLI. Use the `stac` CLI for debugging and introspection features.
+{% endtab %}
+
 {% endtabs %}
