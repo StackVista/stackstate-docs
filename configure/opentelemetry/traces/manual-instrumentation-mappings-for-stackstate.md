@@ -97,6 +97,8 @@ as seen within the picture below.
 {% tabs %}
 {% tab title="Trace Perspective" %}
 
+**Example of where the service.name is displayed within the Trace Perspective**
+
 1) In your top navigation bar click on the `trace perspective` menu item.
 2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your trace).
 3) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
@@ -111,21 +113,21 @@ as seen within the picture below.
 ### Resource Name
   - `Key`
     - resource.name
-  - `Expected value`
+  - `Expected`
     - This field can be any string value
-  - `Example value`
-    - AWS RDS Database Trace
+  - `Example`
+    - Database
   - `Description`
-    - This will be the resource displayed under your trace perspective for a specific trace.
+    - This will be the resource.name will be displayed under your trace perspective for a specific trace.
 
 {% tabs %}
-{% tab title="Trace Perspective View" %}
+{% tab title="Trace Perspective" %}
 
-**The resource name can be found in the following location**
+**Example of where the resource.name is displayed within the Trace Perspective**
 
-1) In your top navigation bar click on the `trace perspective` icon
-2) Find the trace in the list of traces and click on it to expand the trace.
-3) The section on your right side will contain a column row with the value 'Resource', that contain the value you defined, as seen below in the image.
+1) In your top navigation bar click on the `trace perspective` menu item.
+2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your trace).
+3) The section on your right side will contain a row with the key `Resource`, the value displayed next to the key will be the one you defined.
 
 ![service type](../../../.gitbook/assets/otel_traces_trace_resource.png)
 
