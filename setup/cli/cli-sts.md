@@ -92,14 +92,14 @@ curl -o- https://dl.stackstate.com/stackstate-cli/install.sh | STS_URL="<URL>" S
 {% tab title="Manual install steps" %}
 Open a terminal and run the steps below. This can be done one step at a time, or all together as a single script. After installation, the `sts` command will be available for the current user.
 
-1. Download the latest CLI version for x86_64 (Intel) or arm64 (M1).
+3. Download the latest CLI version for x86_64 (Intel) or arm64 (M1).
    ```bash
    (VERSION=`curl https://dl.stackstate.com/stackstate-cli/LATEST_VERSION` &&
      ARCH=`uname -m` &&
      curl https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-full-$VERSION.darwin-$ARCH.tar.gz | tar xz --directory /usr/local/bin)
    ```
 
-2. Verify that the CLI works:
+4. Verify that the CLI works:
     ```bash
     sts version
     ```
