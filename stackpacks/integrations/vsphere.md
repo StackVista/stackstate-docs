@@ -183,6 +183,14 @@ To uninstall the VMWare vSphere StackPack and disable the VMWare vSphere check:
 
 ## Release notes
 
+**VMWare vSphere StackPack v2.3.3 (2022-06-03)**
+
+- Improvement: Updated documentation
+
+**VMWare vSphere StackPack v2.3.2 (2022-04-20)**
+
+- Improvement: Added collection level setting info.
+
 **VMWare vSphere StackPack v2.3.1 \(2021-04-12\)**
 
 * Improvement: Common bumped from 2.5.0 to 2.5.1

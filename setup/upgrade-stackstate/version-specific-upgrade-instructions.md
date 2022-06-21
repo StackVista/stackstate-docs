@@ -44,7 +44,6 @@ This page provides specific instructions and details of any required manual step
 
 * This version of StackState includes a breaking change to the output of the [Telemetry Script API](/develop/reference/scripting/script-apis/telemetry.md). The output uses the new [StreamingScriptApi](/develop/reference/scripting/streaming-script-result.md) and the data format changed. Any script making use of that API needs to be adapted to deal with the new output format.
 
-StackPack updates:
 **StackPack updates:**
 * [StackState Agent StackPack v4.5.2](/stackpacks/integrations/agent.md#release-notes)
 * [AWS v1.2.1](/stackpacks/integrations/aws/aws.md#release-notes)
@@ -61,7 +60,6 @@ StackPack updates:
 
 * This version of StackState includes a breaking change to the output of the [Telemetry Script API](/develop/reference/scripting/script-apis/telemetry.md). The output uses the new [StreamingScriptApi](/develop/reference/scripting/streaming-script-result.md) and the data format changed. Any script making use of that API needs to be adapted to deal with the new output format.
 
-StackPack updates:
 **StackPack updates:**
 * [StackState Agent StackPack v4.5.2](/stackpacks/integrations/agent.md#release-notes)
 * [AWS v1.2.1](/stackpacks/integrations/aws/aws.md#release-notes)

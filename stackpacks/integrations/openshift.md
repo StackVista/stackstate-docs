@@ -334,6 +334,18 @@ See the OpenShift Agent documentation for instructions on [how to uninstall the 
 
 ## Release notes
 
+**OpenShift StackPack v3.7.13 (2022-06-21)**
+
+- Bug Fix: Fixed description for services/ingresses view.
+
+**OpenShift StackPack v3.7.12 (2022-06-03)**
+
+- Improvement: Updated documentation.
+
+**OpenShift StackPack v3.7.11 (2022-05-23)**
+
+- Bug Fix: Fixed broken link in integration StackState Agent V2 integration documentation.
+
 **OpenShift StackPack v3.7.10 (2022-03-02)**
 
 - Improvement: Documentation for `agent.containerRuntime.customSocketPath` option.
@@ -342,18 +354,6 @@ See the OpenShift Agent documentation for instructions on [how to uninstall the 
 
 * Bug Fix: Support nodes without instanceId
 
-**OpenShift StackPack v3.7.8 (2021-10-06)**
-
-* Bug Fix: Fix metrics for generic events
-
-**OpenShift StackPack v3.7.7 (2021-08-20)**
-
-* Improvement: Add description to Views
-
-**OpenShift StackPack v3.7.5 \(2021-07-14\)**
-
-* Improvement: Documentation update
-* Improvement: Update of `stackstate.url` for the installation documentation of the StackState Agent
 
 ## See also
 
