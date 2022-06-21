@@ -193,7 +193,7 @@ By default, the CLI will authenticate using the API token that you provided when
 
 #### Service tokens
 
-You can optionally use the CLI to create one or more service tokens to authenticate with the StackState base and admin APIs. For example, service tokens can be used in CI (Continuous Integration) scenarios where there is no real user doing the operations on the StackState instance.
+You can optionally use the CLI to create one or more service tokens to authenticate with the StackState Base and Admin APIs. For example, a service token can be used to authenticate in CI (Continuous Integration) scenarios where no real user is doing the operations on the StackState instance.
 
 To create a service token, run the command below:
 
