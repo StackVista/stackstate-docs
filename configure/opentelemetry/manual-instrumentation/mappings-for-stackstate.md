@@ -134,7 +134,7 @@ as seen within the picture below.
 {% endtab %}
 {% endtabs %}
 
-### Service Identifier ([Used for Merging Components](/configure/opentelemetry/traces/merging-with-stackstate-components.md))
+### Service Identifier ([Used for Merging Components](/configure/opentelemetry/manual-instrumentation/merging-components.md))
   - `Key`
     - service.identifier
   - `Expected`
@@ -143,7 +143,7 @@ as seen within the picture below.
     - aws:rds:database:hello-world
   - `Description`
     - This value will be added to the identifier list on your component within StackState.
-    - ***NB. Components with the same service identifiers will merge into one component, This allows you to merge multiple components and create relations, or merge with an existing StackState component. You can read more about this on the [merging with existing StackState components](/configure/opentelemetry/traces/merging-with-stackstate-components.md) page***
+    - ***NB. Components with the same service identifiers will merge into one component, This allows you to merge multiple components and create relations, or merge with an existing StackState component. You can read more about this on the [merging with existing StackState components](/configure/opentelemetry/manual-instrumentation/merging-components.md) page***
 
 {% tabs %}
 {% tab title="Topology Perspective - Component Properties" %}
@@ -153,7 +153,7 @@ as seen within the picture below.
 1) Click on your component in the StackState Topology Perspective
 2) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
 3) The row with the key `identifiers` will contain the value you defined, as seen below in the image.
-4) ***NB. It is recommended to go and read the [merging with existing StackState components](/configure/opentelemetry/traces/merging-with-stackstate-components.md) page to know how this value can be leverage to create relations***
+4) ***NB. It is recommended to go and read the [merging with existing StackState components](/configure/opentelemetry/manual-instrumentation/merging-components.md) page to know how this value can be leverage to create relations***
 
 ![service identifier](../../../.gitbook/assets/otel_traces_service_identifier.png)
 {% endtab %}
@@ -199,13 +199,17 @@ as seen within the picture below.
 
 {% tabs %}
 {% tab title="Topology Perspective (Healthy)" %}
-**You will see the following color on your component if you post a http.status_code of 200**
+**You will see the following color on your component if you post a `http.status_code` of `200`**
+
+This means that your component is in a healthy state.
 
 ![Healthy](../../../.gitbook/assets/otel_traces_health_state_a.png)
 {% endtab %}
 
 {% tab title="Topology Perspective (Critical)" %}
-**You will see the following color on your component if you post a http.status_code of 400 or higher>**
+**You will see the following color on your component if you post a `http.status_code` of `400` or higher**
+
+This means that your component is in a critical state.
 
 ![Critical](../../../.gitbook/assets/otel_traces_health_state_b.png)
 {% endtab %}
@@ -214,7 +218,7 @@ as seen within the picture below.
 
 **The http status can be found in the following location regardless of what the HTTP status actually is**
 
-1) In your top navigation bar click on the `trace perspective` icon
+1) In your top navigation bar click on the `trace perspective` menu item.
 2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your trace).
 3) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
 4) The row with the value `http.status_code` will contain the value you defined, as seen below in the image.

@@ -12,14 +12,14 @@ Lorem Ipsum
 
 Writing manual OpenTelemetry instrumentations allows you to create custom components on the StackState topology.
 
-Relationships are then drawn between your components based on parent and child spans, this concept needs to be understood before continuing on this page. You can read more about it on the [manual instrumentation component relations](manual-instrumentation-component-relations.md) page.
+Relationships are then drawn between your components based on parent and child spans, this concept needs to be understood before continuing on this page. You can read more about it on the [manual instrumentation component relations](component-relations.md) page.
 
 The missing part from the above functionality is to allow a relationship to be created between one of your custom instrumentation components you created
 and a pre-existing StackState component.
 
 This can be achieved by creating a child span, the parent id of this child span needs to be your custom instrumentation component.
 
-We then add a  [service identifier](manual-instrumentation-mappings-for-stackstate.md#Service Identifier) into a second child component you created with the same identifier from a existing component in StackState.
+We then add a  [service identifier](mappings-for-stackstate.md#Service Identifier) into a second child component you created with the same identifier from a existing component in StackState.
 Let's visually break this down below.
 
 For this example we will create one parent span and one child span.
