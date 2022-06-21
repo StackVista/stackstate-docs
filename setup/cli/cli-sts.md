@@ -10,7 +10,7 @@ The new StackState `sts` CLI provides easy access to the functionality provided 
 
 The new `sts` CLI will eventually replace the [`stac` CLI](cli-stac.md), however, not all commands are currently supported. For an overview of the differences and overlap between the new and the old CLI, see the [CLI comparison page](/setup/cli/cli-comparison.md).
 
-## Install
+## Install the new `sts` CLI
 
 {% hint style="warning" %}
 **The new `sts` CLI works with StackState version 5.0 and above.**
@@ -151,7 +151,7 @@ You can now run CLI commands by adding appending them to the end of the `docker 
 {% endtab %}
 {% endtabs %}
 
-## Configure
+## Configure the new `sts` CLI
 
 ### Quick start
 
