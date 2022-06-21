@@ -24,9 +24,11 @@ When debugging the health synchronization there are some common verification ste
 
 ➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 
-Command not currently available in the new `sts` CLI.
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 {% endtab %}
 {% tab title="CLI: stac" %}
+
+Not running the `stac` CLI yet? [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
 ```text
 stac topic show sts_health_sync
 ```
@@ -57,7 +59,7 @@ Returns a list of all current synchronized health streams and the number of sub 
 
 ➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 
-Command not currently available in the new `sts` CLI.
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 {% endtab %}
 {% tab title="CLI: stac" %}
 ```javascript
@@ -80,7 +82,7 @@ Returns a list of all sub streams for a given stream URN, together with the numb
 
 ➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 
-Command not currently available in the new `sts` CLI.
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 {% endtab %}
 {% tab title="CLI: stac" %}
 ```javascript
@@ -105,7 +107,7 @@ The stream status command returns the aggregated stream latency and throughput m
 
 ➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 
-Command not currently available in the new `sts` CLI.
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 {% endtab %}
 {% tab title="CLI: stac" %}
 ```javascript
@@ -140,7 +142,7 @@ The sub stream status provides useful information to verify that check states se
 
 ➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 
-Command not currently available in the new `sts` CLI.
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 {% endtab %}
 {% tab title="CLI: stac" %}
 ```javascript
@@ -187,7 +189,7 @@ In the example below, `checkStateId2` is listed under `Check states with identif
 
 ➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 
-Command not currently available in the new `sts` CLI.
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 {% endtab %}
 {% tab title="CLI: stac" %}
 ```javascript
@@ -222,7 +224,7 @@ The `delete` stream functionality is helpful while setting up a health synchroni
 
 ➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 
-Command not currently available in the new `sts` CLI.
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 {% endtab %}
 {% tab title="CLI: stac" %}
 ```javascript
@@ -241,7 +243,7 @@ The `clear-errors` option removes all errors from a health stream. This is helpf
 
 ➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 
-Command not currently available in the new `sts` CLI.
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 {% endtab %}
 {% tab title="CLI: stac" %}
 ```javascript
