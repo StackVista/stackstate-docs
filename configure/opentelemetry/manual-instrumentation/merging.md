@@ -3,64 +3,55 @@ description: StackState Self-hosted v5.0.x
 ---
 
 # Merging with StackState components
+Merging components allows you to do any of the following things
+- Add extra attributes into pre-existing StackState components.
+- Create custom relations for pre-existing components
+- Allows you to add a component relation to another propagating health in different ways
 
-## What is a merged component on StackState
+## Important to know when merging
+When you merge your custom instrumentation with an StackState component it might seem that your component disappeared, it did not.
+The component that you are merging with will inherit all the properties, health and relations. This means that
+yes you do not see your component anymore, but that is only because the component you merged with will now act as the 
+original component it initially appeared as, and the component you created.
 
-Lorem Ipsum
+## How do components merge
+If two components on the StackState topology view have the same `identifier` it will merge those two components.
 
-## How to merge a component
+For example if you select a component and click on the `SHOW ALL PROPERTIES` button on the right panel
 
-Writing manual OpenTelemetry instrumentations allows you to create custom components on the StackState topology.
+![service type](../../../.gitbook/assets/relation_example_a.png)
 
-Relationships are then drawn between your components based on parent and child spans, this concept needs to be understood before continuing on this page. You can read more about it on the [manual instrumentation component relations](component-relations.md) page.
+It will open a dialog, within this dialog you can see the identifiers, if you reuse any one of these within your span then it will merge with that component.
 
-The missing part from the above functionality is to allow a relationship to be created between one of your custom instrumentation components you created
-and a pre-existing StackState component.
+![service type](../../../.gitbook/assets/relation_example_b.png)
 
-This can be achieved by creating a child span, the parent id of this child span needs to be your custom instrumentation component.
 
-We then add a  [service identifier](mappings-for-stackstate.md#Service Identifier) into a second child component you created with the same identifier from a existing component in StackState.
-Let's visually break this down below.
+## Merging a pre-existing component
 
-For this example we will create one parent span and one child span.
+Let's take the following example, we have 3 components that we create all having the previous one as their parent span.
 
-The parent component will contain the following values:
+```text
+Service Name: Parent Component
+|
+---> Service Name: Child Component
+     |
+     ---> Service Name: Child 2 Component
+```
 
-| Span Key               | Span Value                     |
-|:-----------------------|:-------------------------------|
-| trace.perspective.name | Parent Component               |
-| service.name           | Service Name: Parent Component |
-| service.type           | Service Type: Parent Component |
-| service.identifier     | parent-component-identifier    |
-| resource.name          | Resource: Parent Component     |
-| http.status_code       | 200                            |
+That will create the following components with relations.
 
-and the child component will contain the following values:
+![service type](../../../.gitbook/assets/otel_traces_healthy_state_1_2_3_unmerged.png)
 
-| Span Key               | Span Value                    |
-|:-----------------------|:------------------------------|
-| trace.perspective.name | Child Component               |
-| service.name           | Service Name: Child Component |
-| service.type           | Service Type: Child Component |
-| service.identifier     | child-component-identifier    |
-| resource.name          | Resource: Child Component    |
-| http.status_code       | 200                           |
+Now let's add a few pre-existing Lambda functions into the picture. We are focusing on the healthy Lambda function in the bottom right corner.
 
-when this custom instrumentation is executed and send to StackState the topology view will receive the following components:
+![service type](../../../.gitbook/assets/otel_traces_pre_merge.png)
 
-![service type](../../../.gitbook/assets/otel_trace_child_parent_relation.png)
+If we click on that Lambda function we will be able to see what the identifier is, by using 
+the same `service identifier` `arn:aws:lambda:eu-west-1:965323806078:function:otel-example-custom-instrumentation-dev-create-custom-component` in our second component it will merge with that pre-existing component.
 
-As you can see from the image above there is a relationship created between the parent we made and the child component.
-Now let's select a pre-existing component to merge the child component with.
+![service type](../../../.gitbook/assets/otel_traces_merge_with_healthy.png)
 
-For this example I'm picking a SQS Queue called `notifications-965323806078-eu-west-1` that the StackState AWS StackPack created.
+That will result in the following happening. As you can see the component we merged now has new relations, and those relations
+is the same ones our component had as the merged component inherited the same relations
 
-Below is the component next to the parent and child component.
-
-![service type](../../../.gitbook/assets/otel_trace_child_parent_relation_no_merger.png)
-
-As you can see there is atm no relationship between what I created and the pre-existing SQS component.
-Now to create this relationship between two components we need to merge a component with a pre-existing relation to an existing StackState component.
-
-What does this mean? If we take the current parent and child component within the image above you can see a relationship going down from the parent to the child, what this means is if we should merge the child with the existing
-AWS SQS we selected then that relationship will point to the merged component.
+![service type](../../../.gitbook/assets/otel_traces_merge_with_healthy_complete.png)

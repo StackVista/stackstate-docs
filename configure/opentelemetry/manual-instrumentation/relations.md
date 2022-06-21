@@ -70,7 +70,7 @@ inherited the same relation mappings.
 
 ## Multiple children
 
-It is also good to know that a single parent can have multiple children, allow you to build a tree with branches of relations, for example
+It is also good to know that a single parent can have multiple children, this allows you to build a tree with branches of relations, for example
 
 ```text
 Service Name: Parent Component
