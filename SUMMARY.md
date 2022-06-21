@@ -183,7 +183,6 @@
         * [Span Heath State](configure/opentelemetry/manual-instrumentation/health.md)
         * [Merging Components](configure/opentelemetry/manual-instrumentation/merging.md)
         * [StackState Instrumentation examples](configure/opentelemetry/manual-instrumentation/instrumentation-examples.md)
-        * [Debugging](configure/opentelemetry/manual-instrumentation/debugging.md)
 * [Telemetry](configure/telemetry/README.md)
     * [Add telemetry during topology synchronization](configure/telemetry/telemetry_synchronized_topology.md)
     * [Data sources](configure/telemetry/data-sources/README.md)
