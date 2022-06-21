@@ -165,7 +165,7 @@ sts settings describe --ids <VIEW_ID>
 
 #### Check and propagation IDs
 
-The ID for a check or propagation on a specific component can be found in in the StackState UI. These are the IDs for the component's instance of a check function or propagation function.
+The ID for a check or propagation on a specific component can be found in the StackState UI. These are the IDs for the component's instance of a check function or propagation function.
 
 1. Select a component to open detailed information about it in the right panel **Selection details** tab.
 2. Click on **...** and select **Show JSON**.
