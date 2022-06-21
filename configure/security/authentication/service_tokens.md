@@ -2,15 +2,15 @@
 description: StackState Self-hosted v5.0.x
 ---
 
-# Service Tokens
+# Service tokens
 
 ## Overview
 
-Using Service Tokens it is possible to authenticate to StackState without having configured a user account. This is useful for situations where you want to use StackState from headless services like a CI server. In such a scenario you typically do not want to provision a user account in your identity provider.
+Using Service tokens it is possible to authenticate to StackState without having configured a user account. This is useful for situations where you want to use StackState from headless services like a CI server. In such a scenario you typically do not want to provision a user account in your identity provider.
 
-## Manage Service Tokens
+## Manage service tokens
 
-Service Tokens can be managed via the new [StackState CLI](../../../setup/cli/cli-sts.md). The following commands are available:
+Service tokens can be managed via the new [StackState CLI](../../../setup/cli/cli-sts.md). The following commands are available:
 
 ```bash
 > sts service-token --help
@@ -32,7 +32,7 @@ Use "sts service-token [command] --help" for more information about a command.
 To create a service token you can use the `sts service-token create` command. 
 
 {% hint style="info" %}
-Note that the Service Token will only be displayed once. It is not possible to see the token again.
+Note that the service token will only be displayed once. It is not possible to see the token again.
 {% endhint %}
 
 This command takes the following command line arguments:
@@ -62,16 +62,16 @@ ID              | NAME             | EXPIRATION | ROLES
 
 ### Delete service tokens
 
-A Service Token can be deleted using the `sts service-token delete` command. Pass the ID of the Service Token as an argument. For example:
+A service token can be deleted using the `sts service-token delete` command. Pass the ID of the service token as an argument. For example:
 
 ```bash
 > sts service-token delete 107484341630693
 ✅ Service token deleted: 107484341630693
 ```
 
-## Use Service Tokens
+## Use service tokens
 
-Once created, a Service Token can be used to authenticate to StackState from a headless service. To do this you can either use the CLI or directly talk to the API.
+Once created, a service token can be used to authenticate to StackState from a headless service. To do this you can either use the CLI or directly talk to the API.
 
 
 ### StackState CLI

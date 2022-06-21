@@ -187,15 +187,21 @@ docker run \
 
 ### Authentication
 
-By default, the CLI will authenticate using the API token that you provided when you saved the configuration. You can also use the CLI to create one (more more) Service Token(s) to authenticate with the StackState API. The ServiceTokens can be used in for instance Continuous Integration scenarios where there is no real user doing the operations on the StackState instance.
+#### API token
 
-To create a Service Token, run the command below:
+By default, the CLI will authenticate using the API token that you provided when you saved the configuration. 
+
+#### Service tokens
+
+You can optionally use the CLI to create one or more service tokens to authenticate with the StackState base and admin APIs. For example, service tokens can be used in CI (Continuous Integration) scenarios where there is no real user doing the operations on the StackState instance.
+
+To create a service token, run the command below:
 
 ```bash
 sts service-token create --name <NAME> --roles <ROLE(s)> [--expiration <yyyy-MM-dd>]
 ```
 
-This will create a new Service Token and print it. The `--expiration` parameter is optional and can be used to set the expiration date of the Service Token.
+This will create a new service token and print it. The `--expiration` parameter is optional and can be used to set the expiration date of the Service Token.
 
 Once you have this, you can configure the CLI to use it:
 
@@ -213,12 +219,12 @@ If multiple types of configuration are presented to the CLI the order of process
 2. Second: Environment variables.
 3. Last: Config file.
 
-| Environment variable    | Flag | Description                                                                           |
-|:------------------------|:--- |:--------------------------------------------------------------------------------------|
-| `STS_CLI_URL`           | `--url` | URL to your StackState instance.                                                      |
-| `STS_CLI_API_TOKEN`     | `--api-token` | API token to your StackState instance. The most secure way to use your API token is through an environment variable. You can store the API token with a secrets manager and inject it as an environment variable into your shell.                                               |
-| `STS_CLI_SERVICE_TOKEN` | `--service-token` | Service Token to your StackState instance. The most secure way to use your service token is through an environment variable. You can store the service token with a secrets manager and inject it as an environment variable into your shell.                                               |
-| `STS_CLI_API_PATH`      | n/a | The path appended to the end of the URL to get the API endpoint. (Defaults to `/api`) |
+| Environment variable    | Flag | Description                                                                                                                                                                                                                                     |
+|:------------------------|:--- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `STS_CLI_URL`           | `--url` | URL to your StackState instance.                                                                                                                                                                                                                |
+| `STS_CLI_API_TOKEN`     | `--api-token` | API token to your StackState instance. The most secure way to use your API token is through an environment variable. You can store the API token with a secrets manager and inject it as an environment variable into your shell.               |
+| `STS_CLI_SERVICE_TOKEN` | `--service-token` | A service token to your StackState instance. The most secure way to use your service token is through an environment variable. You can store the service token with a secrets manager and inject it as an environment variable into your shell. |
+| `STS_CLI_API_PATH`      | n/a | The path appended to the end of the URL to get the API endpoint. (Defaults to `/api`)                                                                                                                                                           |
 
 ## Uninstall
 
