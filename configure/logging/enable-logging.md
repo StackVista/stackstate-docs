@@ -21,10 +21,10 @@ The logging level should be set using the ID for an instance of a function, not 
    * [Event handler IDs](enable-logging.md#event-handler-ids)
    * [Propagation IDs](enable-logging.md#check-and-propagation-ids)
    * [View health state configuration IDs](enable-logging.md#view-health-state-configuration-ids)
-2. Use the [StackState CLI](../../setup/cli-install.md) to set the logging level for the ID, for example:
+2. Use the [`stac` CLI](/setup/cli/cli-stac.md) to set the logging level for the ID, for example:
 
    ```text
-   sts serverlog setlevel <id> DEBUG
+   stac serverlog setlevel <id> DEBUG
    ```
 
 3. Monitor the `stackstate.log` using the function instance ID.
@@ -61,18 +61,26 @@ The ID for an event handler can be found using the [StackState CLI](../../setup/
 * Use the `id` from the command output to [enable logging](enable-logging.md#set-the-logging-level-for-a-function-instance) for a specific event handler.
 
 {% tabs %}
-{% tab title="CLI command" %}
+{% tab title="CLI: stac" %}
 ```text
-sts graph list EventHandler
-```
-{% endtab %}
+stac graph list EventHandler
 
-{% tab title="Example result" %}
-```text
              id  type          name          description    owned by    manual    last updated
 ---------------  ------------  ------------  -------------  ----------  --------  ------------------------
 114118706410878  EventHandler  demo_handler                             True      Fri Nov 13 11:32:29 2020
 ```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+```text
+sts settings list --type EventHandler
+```
+
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 {% endtab %}
 {% endtabs %}
 
@@ -86,19 +94,11 @@ The ID for a view health state configuration can be found using the [StackState 
 * Use the `viewHealthStateConfiguration` ID from the retrieved view JSON to [enable logging](enable-logging.md#set-the-logging-level-for-a-function-instance) for this instance of the view health state configuration function. In the example below, this would be `39710412772194`.
 
 {% tabs %}
-{% tab title="CLI command" %}
+{% tab title="CLI: stac" %}
 ```text
 # get IDs of all views
-sts graph list QueryView
+stac graph list QueryView
 
-# get the ID of the specified view's "viewHealthStateConfiguration"
-sts graph show-node <VIEW_ID>
-```
-{% endtab %}
-
-{% tab title="Example result" %}
-```text
-$ sts graph list QueryView                           
              id  type       name                       description    owned by                      manual    last updated
 ---------------  ---------  -------------------------  -------------  ----------------------------  --------  ------------------------
   9161801377514  QueryView  Demo - Customer A          -              urn:stackpack:demo-stackpack  False     Fri Nov 13 16:24:38 2020
@@ -106,7 +106,10 @@ $ sts graph list QueryView
 278537340600843  QueryView  Demo - Business Dashboard  -              urn:stackpack:demo-stackpack  False     Fri Nov 13 16:24:38 2020
 
 
-$ sts graph show-node 9161801377514
+# get the ID of the specified view's "viewHealthStateConfiguration"
+# stac graph show-node <VIEW_ID>
+
+sts graph show-node 9161801377514
 
 {
    "id":9161801377514,
@@ -164,7 +167,16 @@ $ sts graph show-node 9161801377514
    "_type":"QueryView"
 }
 ```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
 {% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+
 {% endtabs %}
 
 ### StackState UI
