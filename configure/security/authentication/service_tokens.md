@@ -10,7 +10,7 @@ Using Service tokens it is possible to authenticate to StackState without having
 
 ## Manage service tokens
 
-Service tokens can be managed via the new [StackState CLI](../../../setup/cli/cli-sts.md). The following commands are available:
+Service tokens can be managed via the [new `sts` CLI](../../../setup/cli/cli-sts.md). The following commands are available:
 
 ```bash
 > sts service-token --help
@@ -74,7 +74,7 @@ A service token can be deleted using the `sts service-token delete` command. Pas
 Once created, a service token can be used to authenticate to StackState from a headless service. To do this you can either use the CLI or directly talk to the API.
 
 
-### StackState CLI
+### StackState `sts` CLI
 
 A service token can be used for authentication with the new `sts` CLI. It is not possible to authenticate with service tokens using the `stac` CLI. For details, see the CLI documentation:
 

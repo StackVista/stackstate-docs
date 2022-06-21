@@ -155,6 +155,8 @@ QueryView | 184368967764989 |            | Demo - Customer D         |          
 sts settings describe --ids <VIEW_ID>
 
 ```
+
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 {% endtab %}
 
 {% endtabs %}
