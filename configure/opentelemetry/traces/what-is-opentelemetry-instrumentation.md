@@ -50,14 +50,14 @@ is a child span then there should be a pre-existing parent span that it can be l
 A span works with the concept that you open a span and then close it when it reaches a certain point in your code.
 This will then determine the duration of your span, and eventually your trace.
 
-- #### Parent span
+#### Parent span
   - A parent span, also referred to as a root span, contains the end-to-end latency of an entire request.
   - For example if we execute a Lambda script, The script execution will be created as the parent span. All the other
     things monitored and executed inside this Lambda will be captured as children spans.
   - The parent span should be the last span you close. This is usually either at the end of your script execution or after you close your last child span
   - A parent span does not require a child span, it can be standalone if it is not a part of anything.
 
-- #### Child span
+#### Child span
   - A child span is started by a parent span and might involve calling a function, the database, another service, etc.
     A child span in the aforementioned example may be a function that determines if the item is accessible or not.
     Child spans offer insight on every element of a request.
