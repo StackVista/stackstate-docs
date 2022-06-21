@@ -21,7 +21,7 @@ We will show how the above is implemented when we get to the code examples page.
 
 If you run you StackState Agent in debug mode then you should receive a message about an unknown instrumentation and the name that was passed to it
 
-## Summary of the span key-value mapping requirements
+## Span mapping requirements - Summary
 Below is a table with a summary of all the span keys that's required
 
 You need to include **ALL** the keys below when creating a span as they all need to be provided before the component will appear on your StackState instance.
@@ -35,8 +35,7 @@ You need to include **ALL** the keys below when creating a span as they all need
 | service.identifier     | string     | Any string                             | aws:rds:database:hello-world |
 | http.status_code       | number     | 200, 400 or higher (HTML Status Codes) | 200                          |
 
-## Span key-value requirements mapping breakdown
-
+## Span mapping requirements - Breakdown
 ### Trace Perspective Name
   - `Key`
     - trace.perspective.name
