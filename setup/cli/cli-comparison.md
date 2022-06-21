@@ -86,7 +86,7 @@ command not found: sts
 
 ```
 
-If you are not running the new `sts` CLI yet, we recommend that you [install the new CLI](cli-sts.md) and rename the old CLI to `stac`.
+If you are not running the new `sts` CLI yet, we recommend that you [install the new `sts` CLI](cli-sts.md) and [upgrade old `sts` CLI to `stac`](cli-stac.md).
 
 ## CLI command overview
 

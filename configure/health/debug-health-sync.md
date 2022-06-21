@@ -55,7 +55,7 @@ Returns a list of all current synchronized health streams and the number of sub 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
 
-➡️ [Which version of the CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 
 Command not currently available in the new `sts` CLI.
 {% endtab %}
