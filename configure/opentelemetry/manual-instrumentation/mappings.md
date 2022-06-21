@@ -26,14 +26,14 @@ Below is a table with a summary of all the span keys that's required
 
 You need to include **ALL** the keys below when creating a span as they all need to be provided before the component will appear on your StackState instance.
 
-| ***Key***              | ***Type*** | ***Allowed Values***                   | ***Example***                |
-|:-----------------------|:-----------|:---------------------------------------|:-----------------------------|
-| trace.perspective.name | string     | Any string                             | AWS RDS: Hello World Database|
-| service.name           | string     | Any string                             | AWS RDS: Database            |
-| resource.name          | string     | Any string                             | Database                     |
-| service.type           | string     | Any string                             | AWS RDS                      |
-| service.identifier     | string     | Any string                             | aws:rds:database:hello-world |
-| http.status_code       | number     | 200, 400 or higher (HTML Status Codes) | 200                          |
+| ***Key***                | ***Type*** | ***Allowed Values***                   | ***Example***                |
+|:-------------------------|:-----------|:---------------------------------------|:-----------------------------|
+| **trace.perspective.name** | `string`     | Any string value                       | AWS RDS: Hello World Database|
+| **service.name**             | `string`     | Any string value                       | AWS RDS: Database            |
+| **resource.name**            | `string`     | Any string value                       | Database                     |
+| **service.type**             | `string`     | Any string value                       | AWS RDS                      |
+| **service.identifier**       | `string`     | Any string value                            | aws:rds:database:hello-world |
+| **http.status_code**         | `number`     | 200, 400 or higher (HTML Status Codes) | 200                          |
 
 ## Span mapping requirements - Breakdown
 ### Trace Perspective Name
