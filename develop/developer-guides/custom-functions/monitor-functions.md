@@ -144,7 +144,7 @@ stackstate.featureSwitches.monitorEnableExperimentalAPIs = true
 ## Creating a custom monitor function
 The following example describes a step-by-step process of creating a Monitor function. In this case, a metric thereshold rule is introduced parameterized with the exact metrics query to use and the threshold itself.
 
-#### Create an STJ file
+### Create an STJ file
 
 The first step is to create an STJ import file following the usual format and file organization:
 
@@ -160,7 +160,7 @@ The first step is to create an STJ import file following the usual format and fi
 
 StackState expects a `_version` property to be present in each and every export file. Monitor functions are supported in versions `1.0.39` and up. Each export file can contain multiple Monitor function nodes and also nodes of other types.
 
-#### Populate the Monitor function node
+### Populate the Monitor function node
 
 The next step is the function node itself.
 
@@ -187,7 +187,7 @@ An important field is the `identifier` - it is a unique value of the StackState 
 
 The `prefix` is described in more detail in [topology identifiers](../../../configure/topology/identifiers.md), while the `unique-function-identification` is user-definable and free-form.
 
-#### Populate the Monitor function body
+### Populate the Monitor function body
 
 The most important fields of the Monitor function node are its `scriptBody` and `parameters`. In this step, we will focus on the body of the function and we'll determine the required parameters next.
 
@@ -334,7 +334,7 @@ To parameterize this function and make it reusable for different metrics and thr
 }
 ```
 
-#### Formalize the function parameters
+### Formalize the function parameters
 
 In the previous steps, we created a Monitor function and implemented the validation rule for CPU usage metrics, we determined that in order to make the function reusable, we need to extract three parameters - `metrics`, `threshold` and the `topologyIdentifierPattern`.
 
@@ -366,7 +366,7 @@ The `threshold` and `topologyIdentifierPattern` are simple basic types, a floati
 
 The above specification ensures that each function invocation is passed all the requisite parameters (all marked as `required`) and that their types will be safe to use in the context of the body of the function. Any type mismatches will be reported during the importing of this function definition.
 
-#### Upload to StackState
+### Upload to StackState
 
 The final step is giving the function a descriptive name and uploading it to StackState by importing the file containing the function definition. The following snippet contains the full function created so far:
 
