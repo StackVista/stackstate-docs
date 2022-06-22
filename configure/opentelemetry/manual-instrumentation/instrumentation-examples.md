@@ -22,7 +22,7 @@ what result do you receive on StackState.
 {% tabs %}
 {% tab title="JavaScript & NodeJS" %}
 
-### Prerequisites
+## Prerequisites
 For NodeJS and Javascript, we are not explaining the setup to get to this point but rather the code example and libraries that was used.
 
 You should install the following npm libraries using npm or yarn
@@ -31,7 +31,7 @@ You should install the following npm libraries using npm or yarn
 - [@opentelemetry/sdk-trace-base](https://www.npmjs.com/package/@opentelemetry/sdk-trace-base)
 - [@opentelemetry/exporter-trace-otlp-proto](https://www.npmjs.com/package/@opentelemetry/exporter-trace-otlp-proto)
 
-### What the StackState Agent expects
+## What the StackState Agent expects
 The StackState Agent is expecting you to send the following keys in every single span:
 - `trace.perspective.name`
 - `service.name`
@@ -39,16 +39,14 @@ The StackState Agent is expecting you to send the following keys in every single
 - `service.identifier`
 - `resource.name`
 
-***THE MOST IMPORTANT PART IS***
-
-that the StackState Agent only accept the data in a [Protobuf Format](https://developers.google.com/protocol-buffers), Our examples below will
+***The most important part to remember is*** that the StackState Agent only accept the data in a [Protobuf Format](https://developers.google.com/protocol-buffers), Our examples below will
 use this format but if you do attempt to write something from scratch remember that this is a requirement.
 
 In this NodeJS/JS example the protobuf export is the following line:
 
 `import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-proto';`
 
-### Code snippet
+## Code snippet
 
 The code snippet below will implement a solution creating the above-mentioned components.
 
