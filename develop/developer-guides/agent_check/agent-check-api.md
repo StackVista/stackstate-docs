@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Agent check API
@@ -305,7 +305,7 @@ The method requires the following details:
 
 * **check\_state\_id** - string. Uniquely identifies the check state within the \(sub\)stream.
 * **name** - string. Display name for the health check state.
-* **health\_value** - Health. The StackState health value, can be CLEAR, DEVIATING or CRITICAL.
+* **health\_value** - Health. The StackState health value, can be `CLEAR`, `DEVIATING` or `CRITICAL`.
 * **topology\_element\_identifier** - string. The component or relation identifier that the check state should bind to. The check state will associated with all components/relations that have the specified identifier.
 * **message** - string. Optional. Extended message to display with the health state. Supports Markdown.
 

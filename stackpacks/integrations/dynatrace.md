@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # 💠 Dynatrace
@@ -200,7 +200,7 @@ The [Dynatrace health check](#dynatrace-health-check) retrieves all events and t
 | Dynatrace event severity | Available in StackState as                                                                                                                       |
 | :--- |:-------------------------------------------------------------------------------------------------------------------------------------------------|
 | `INFO` | Events are mapped to the associated component. They are listed on the StackState Events Perspective and in the right panel **View summary** tab. |
-| `PERFORMANCE`, `RESOURCE_CONTENTION`, `MONITORING_UNAVAILABLE`, `ERROR` | Events are added to a StackState health stream. These event severities will result in a DEVIATING state on the associated component.             |
+| `PERFORMANCE`, `RESOURCE_CONTENTION`, `MONITORING_UNAVAILABLE`, `ERROR` | Events are added to a StackState health stream. These event severities will result in a `DEVIATING` state on the associated component.             |
 | `AVAILABILITY`, `CUSTOM_ALERT` | Events are added to a StackState health stream. These event severities will result in a CRITICAL state on the associated component.              |
 
 
@@ -272,17 +272,23 @@ To uninstall the Dynatrace StackPack and disable the Dynatrace checks:
 
 ## Release notes
 
+**Dynatrace StackPack v1.4.2 (2022-06-03)**
+
+- Improvement: Updated documentation
+
+**Dynatrace StackPack v1.4.1 (2022-05-31)**
+
+- BugFix: Fixed component action issue where applications would not successfully redirect to Dynatrace. [STAC-16661](https://stackstate.atlassian.net/browse/STAC-16661)
+
+**Dynatrace StackPack v1.4.0 (2022-04-06)**
+
+- Features: Dynatrace support for synthetic checks, introduced a new component type synthetic monitor (requires StackState Agent v2.17 or later)
+- Features: Synthetic checks and custom devices added as layer
+- BugFix: Fixed showing component actions when component merges. [STAC-14517](https://stackstate.atlassian.net/browse/STAC-14517)
+
 **Dynatrace StackPack v1.3.0 \(2021-10-12\)**
 
-* Features: Support of Agent 2.15 release that sends Health State snapshots with new Dynatrace topology and health checks. 
-
-**Dynatrace StackPack 1.2.0 (2021-09-02)**
-
-* Features: Introduced a new component type named Custom-Device 
-
-**Dynatrace StackPack v1.1.2 \(2021-06-24\)**
-
-* Improvement: Changed which events send DEVIATING health state
+- Features: Support of Agent 2.15 release that sends Health State snapshots with new Dynatrace topology and health checks.
 
 
 ## See also

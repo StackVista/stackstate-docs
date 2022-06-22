@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Getting Started
@@ -30,14 +30,14 @@ A topology consists of components and relations combined with their health state
 
 The health state of a component is indicated by two colors:
 
-* The inner color of a component indicates the health state that is calculated for the component itself.
-* The outer color indicates the potential impact of components that this component depends on.
+* The component color indicates the health state that is calculated for the component itself.
+* The outer color indicates there is potential impact from unhealthy components or relations that this component depends upon.
 
-The direction of a relation's arrow indicates dependency. For example, `app -> db` means: `app` depends on `db`. Health propagates in the opposite direction. So if the `db` component turns red, the `app` component will turn red too.
+The direction of a relation's arrow indicates dependency. For example, `app -> db` means: `app` depends on `db`. Health propagates in the opposite direction to the arrows. So if the `db` component turns red, the outer color of the `app` component will turn red too.
 
-➡️ Learn more about [components](/use/concepts/components.md) and [relations](/use/concepts/relations.md)
+➡️ Learn more about [components](/use/concepts/components.md), [relations](/use/concepts/relations.md) and [health state](/use/health-state/about-health-state.md)
 
-![Component](/.gitbook/assets/021_topology_elements.png)
+![Component](/.gitbook/assets/v50_topology_elements.png)
 
 ## Timeline
 

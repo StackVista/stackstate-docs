@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Topology Perspective
@@ -10,11 +10,17 @@ The Topology Perspective displays the components in your IT landscape and their 
 
 ![Topology Perspective](/.gitbook/assets/v50_topology.png)
 
+## Legend
+
+Click on the Legend button (?) in the bottom right of the screen to display an explanation of the icons and colors used in the topology visualization.
+
+![Topology Perspective - legend](/.gitbook/assets/v50_topology_legend.png)
+
 ## Components
 
 The Topology Perspective shows the filtered components and relations in a selected [view](../views/about_views.md) or the entire, unfiltered topology in [explore mode](../explore_mode.md). Components that have one or more health checks configured will report a calculated [health state](../../health-state/about-health-state.md).
 
-* Select a component to display [detailed component information](/use/concepts/components.md#detailed-component-information) in the right panel **Selection details** tab .
+* Select a component to display [detailed component information](/use/concepts/components.md#detailed-component-information) in the right panel **Selection details** tab.
 * Hover over a component to open the [component context menu](#component-context-menu).
 
 ➡️ [Learn more about components](/use/concepts/components.md#components)
@@ -72,7 +78,7 @@ The View Filters are saved together with the View. For details, see the page [fi
 
 The visualization of components and relations in the topology perspective can be customized in the visualization settings. Click the **Visualization Settings** icon in the left menu to open the visualization settings menu. Here you can edit:
 
-* Root cause display - to what extent the view should be expanded when an element in the view reports a DEVIATING or CRITICAL health state or propagated health state.
+* Root cause display - to what extent the view should be expanded when an element in the view reports a `DEVIATING` or `CRITICAL` health state or propagated health state.
 * Grouping - should all components be displayed individually or should like components be grouped. For details, see [component grouping](topology-perspective.md#grouping).
 * Grid - should components be organized by [layer and domain](../../concepts/layers_domains_environments.md).
 * Indirect relations - should relations between components be shown if these connect through other components that are not displayed in the view. For details, see [relations](/use/concepts/relations.md).
@@ -97,14 +103,14 @@ See the full list of [StackState keyboard shortcuts](../keyboard-shortcuts.md).
 
 ### Show root cause
 
-If there are components with [telemetry streams](../../metrics-and-events/telemetry_streams.md) and [health checks](../../health-state/about-health-state.md) in your view, the Topology Perspective will calculate a health state and propagate this state throughout the graph. The propagated health state will help you to see the risk of affecting other components.
+If there are components with [telemetry streams](../../metrics-and-events/telemetry_streams.md) and [health checks](../../health-state/about-health-state.md) in your view, the Topology Perspective will calculate a health state and propagate this state throughout the graph. The propagated health state will help you to see the risk of affecting other components. When an element has an unhealthy [propagated health state](/use/health-state/about-health-state.md#propagated-health-state), this will be shown as an outer color in the topology visualization.
 
 {% hint style="success" "self-hosted info" %}
 
 You can configure or develop your own [propagation functions](../../../develop/developer-guides/custom-functions/propagation-functions.md).
 {% endhint %}
 
-It is possible that your view can contain components that have a deviating propagated health state caused by a component that is outside your view. The Topology Perspective allows you to configure whether the view should be expanded to show root cause components that are outside of the currently displayed view:
+It is possible that a view can contain components that have a `DEVIATING` propagated health state caused by a component that is itself not included in the view. The Topology Perspective allows you to configure whether the view should be expanded to automatically show root cause components that are outside the currently displayed view:
 
 * **Don't show root cause** - Do not show the root causes of components shown by the current topology filters.
 * **Show root cause only** - Only show the root causes of components shown by the current topology filters that have a `CRITICAL` or `DEVIATING` propagated health. Indirect relations are visualized if a component directly depends on at least one invisible component that leads to the root cause.

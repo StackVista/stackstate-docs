@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Components
@@ -12,10 +12,10 @@ A component consists of:
 
 1. The name of the component.
 2. An icon in the middle that represents either the component itself or the component type.
-3. An inner color represents the component's [own health state](/use/health-state/about-health-state.md#element-health-state).
-4. An outer color represents the [propagated health state](/use/health-state/about-health-state.md#propagated-health-state). This state depends on other components or relations.
+3. The component color represents the component's [own health state](/use/health-state/about-health-state.md#element-own-health-state).
+4. An outer color indicates an unhealthy [propagated health state](/use/health-state/about-health-state.md#propagated-health-state) (`DEVIATING` or `CRITICAL`). The propagated health state is calculated based on the health state of components or relations that the component depends upon.
 
-![](/.gitbook/assets/021_topology_elements.png)
+![](/.gitbook/assets/v50_topology_elements.png)
 
 ## Detailed component information
 
@@ -32,11 +32,13 @@ Click SHOW ALL PROPERTIES to open a pop-up with all details of the component, in
 
 ## Component groups
 
-Components of the same type and/or state can optionally be grouped together into a single element. Grouped components are represented by a hexagon in the topology visualization. The size of the component group's hexagon in the topology visualization represents the number of components in the group:
+Components of the same type and/or state can optionally be grouped together into a single element. Grouped components are represented by a circle in the topology visualization. The component group will be named `<COMPONENT_TYPE> group`. For example a group of components with type `pod` will be named `pod group`.
 
-* Less than 100 components = small hexagon
-* 100 to 150 components = medium hexagon
-* More than 150 components = large hexagon
+The size of the component group's circle in the topology visualization represents the number of components in the group:
+
+* Less than 100 components = small circle
+* 100 to 150 components = medium circle
+* More than 150 components = large circle
 
 You can customize the grouping of components in the [Visualization settings](/use/stackstate-ui/views/visualization_settings.md).
 

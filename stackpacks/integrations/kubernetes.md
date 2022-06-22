@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # 💠 Kubernetes
@@ -331,6 +331,22 @@ See the Kubernetes Agent documentation for instructions on [how to uninstall the
 
 ## Release notes
 
+**Kubernetes StackPack v3.9.13 (2022-06-21)**
+
+- Bug Fix: Fixed description for services/ingresses view.
+
+**Kubernetes StackPack v3.9.12 (2022-06-03)**
+
+- Improvement: Updated documentation.
+
+**Kubernetes StackPack v3.9.11 (2022-05-23)**
+
+- Bug Fix: Fixed broken link in integration StackState Agent V2 integration documentation.
+
+**Kubernetes StackPack v3.9.10 (2022-04-11)**
+
+- Bug Fix: Show kubernetes view names on StackPack instance
+
 **Kubernetes StackPack v3.9.9 (2022-03-02)**
 
 - Improvement: Documentation for `agent.containerRuntime.customSocketPath` option.
@@ -339,18 +355,6 @@ See the Kubernetes Agent documentation for instructions on [how to uninstall the
 
 * Bug Fix: Support nodes without instanceId
 
-**Kubernetes StackPack v3.9.7 (2021-10-06)**
-
-* Bug Fix: Fix metrics for generic events
-
-**Kubernetes StackPack v3.9.6 (2021-08-20)**
-
-* Improvement: Add description to Views
-
-**Kubernetes StackPack v3.9.5 \(2021-07-14\)**
-
-* Improvement: Documentation update
-* Improvement: Update of `stackstate.url` for the installation documentation of the StackState Agent
 
 ## See also
 
