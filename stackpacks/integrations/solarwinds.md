@@ -123,16 +123,16 @@ The SolarWinds check retrieves the following topology data from SolarWinds:
 The SolarWinds check retrieves the health status from nodes and interfaces and translates these statuses to StackState statuses:
 
 | SolarWinds Health status | StackState Health state |
-| :--- | :--- |
-| Up | Clear |
-| External | Clear |
-| Unmanaged | Clear |
-| Unreachable | Clear |
-| Shutdown | Clear |
-| Warning | Deviating |
-| Unknown | Deviating |
-| Down | Critical |
-| Critical | Critical |
+| :--- |:------------------------|
+| Up | `CLEAR`                 |
+| External | `CLEAR`                 |
+| Unmanaged | `CLEAR`                 |
+| Unreachable | `CLEAR`                 |
+| Shutdown | `CLEAR`                 |
+| Warning | `DEVIATING`             |
+| Unknown | `DEVIATING`             |
+| Down | `CRITICAL`              |
+| Critical | `CRITICAL`              |
 
 {% hint style="info" %}
 The configured `collection_interval` will be used as the [`repeat_interval` for the health synchronization](../../../configure/health/health-synchronization.md#repeat-interval). Make sure that the value set for the the `collection_interval` matches the time that the check will take to run.

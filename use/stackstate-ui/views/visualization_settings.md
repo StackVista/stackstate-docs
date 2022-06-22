@@ -17,7 +17,7 @@ Changes made to the visualization settings are saved together with the view.
 
 ## Root cause
 
-The root cause visualization settings allow you to make the same changes as can be done with the lightening bolt buttons in the top right corner of the topology visualization. By default, this will be set to **don't show root cause**. When enabled, the view will be automatically expanded to show dependencies that are impacting DEVIATING or CRITICAL propagated health states of components in the view.
+The root cause visualization settings allow you to make the same changes as can be done with the lightening bolt buttons in the top right corner of the topology visualization. By default, this will be set to **don't show root cause**. When enabled, the view will be automatically expanded to show dependencies that are impacting `DEVIATING` or `CRITICAL` propagated health states of components in the view.
 
 ## Grid options
 
