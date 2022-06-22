@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Investigate a problem
@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.0.x
 
 Unhealthy components in a view are grouped into [problems](about-problems.md) based on how they are connected in the topology. When StackState identifies a problem this will be reported in the right panel **View summary** tab under **Problems**. Problems are listed by the timestamp of the health state change for the root cause component - you will find the oldest problem in the view at the bottom of the list. Select a problem to open [detailed information about the problem ](problem_investigation.md#detailed-information-about-a-problem) in the right panel **Selection details** tab.
 
-![View Summary](../../.gitbook/assets/v50_view_details_problems.png)
+![View Summary](/.gitbook/assets/v50_view_details_problems.png)
 
 ## Detailed information about a problem
 
