@@ -31,7 +31,7 @@ The element will also have an outer color if it has an unhealthy [propagated hea
 
 ### Health checks
 
-Health checks attached to an element can be calculated internally by StackState or by an external monitoring system (health streams). The health state of an element is calculated as the most severe state reported by a health check attached to it. When a component or component group has a DEVIATING or CRITICAL state, a badge will appear on the component icon showing the number of checks that are currently failing.
+Health checks attached to an element each have a health state that is calculated internally by StackState or by an external monitoring system using health synchronization. The health state of the element itself is calculated as the most severe state reported by a health check attached to it. When a component or component group has a DEVIATING or CRITICAL state, a badge will appear on its icon in the topology visualization showing the number of health checks that are currently failing.
 
 #### StackState health checks
 
@@ -42,7 +42,7 @@ StackState can calculate health checks based on telemetry or log streams defined
 
 #### External monitoring system
 
-Health data from external monitoring systems can be sent to StackState using health synchronization. In this case, health checks are calculated by an external system based on its own rules and then sent to StackState as a health stream and bound to the associated topology element. This approach is useful if you have existing health checks defined externally, or if it is not viable to send telemetry or events data to StackState and translate the check rules.
+Health data from external monitoring systems can be sent to StackState using health synchronization. In this case, the state of a health check is calculated by an external system based on its own rules. The calculated health state is then sent to StackState as a health stream and bound to the associated topology element. This approach is useful if you have existing health checks defined externally, or if it is not viable to send telemetry or events data to StackState and translate the check rules.
 
 Existing StackPacks will provide health synchronization out of the box.
 
@@ -61,13 +61,13 @@ A topology element can have any of the propagated health states listed below:
 * Red - `CRITICAL` - Potential impact from another `CRITICAL` topology element. May require your attention.
 * `UNKNOWN` - No propagated health state. There is nothing to worry about.
 
-In the StackState UI, an outer color will be shown when the element's propagated health state is calculated as unhealthy - orange for `DEVIATING` or red for `CRITICAL`. 
+In the StackState UI, an outer color will be shown when an element's propagated health state is calculated as unhealthy - orange for `DEVIATING` or red for `CRITICAL`. 
 
 The color of the element itself (the inner color) represents the [element own health state](#element-own-health-state).
 
 ![](../../.gitbook/assets/v50_propagated-health-states.png)
 
-The propagated health state of an element can also be found:
+The propagated health state of an element can also be found in the following places:
 
 * In the right panel **Selection details** tab when information about a component or relation is displayed. 
 * In the [component context menu](/use/stackstate-ui/perspectives/topology-perspective.md#component-context-menu) when you hover over a component in the topology visualization.
