@@ -26,6 +26,38 @@ It will open a dialog; within this dialog, you can see the identifiers. If you r
 ![service type](../../../.gitbook/assets/relation_example_b.png)
 
 
+## Merging inheritance
+
+When you merge your component with a StackState component, the StackState component will contain all the labels, telemetry, and health from your original component.
+
+For example, here we have an unmerged child component; below are all the `labels` and `identifiers` for this child component.
+
+![service type](../../../.gitbook/assets/otel_unmerged_child.png)
+
+And on the right side, we included the list of health checks and telemetry also running on the child.
+
+![service type](../../../.gitbook/assets/otel_unmerged_child_health.png)
+
+Now when we look at the component that we want to merge with, you will notice the `labels` and `identifiers` contains none of the same ones we looked at when viewing the child component.
+
+![service type](../../../.gitbook/assets/merging_attempt.png)
+
+This is the same for the health checks and telemetry on the right side.
+
+![service type](../../../.gitbook/assets/merge_attempt_health.png)
+
+Now let's see the result after merging our child component with the pre-existing StackState component.
+
+Let's look at the `identifiers` and `labels` again. As you can see in the image below the
+`identifiers` stayed the same but the `labels` merged, This StackState component now contain the values from both.
+
+![service type](../../../.gitbook/assets/otel_after_merge_labels.png)
+
+The same can be seen in the health checks and telemetry. You will notice that the health checks and telemetry streams are from both components.
+
+![service type](../../../.gitbook/assets/otel_after_merge_health.png)
+
+
 ## Merging a pre-existing component
 
 Let's take the following example; we have three components that we create, all having the previous one as their parent span.
