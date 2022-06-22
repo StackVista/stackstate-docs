@@ -56,9 +56,7 @@ It will open a dialog; within this dialog, you can see the identifiers. If you r
 ![service type](../../../.gitbook/assets/relation_example_b.png)
 
 
-
-## Merging a pre-existing component
-
+## Merging with a StackState component
 Let's take the following example; we have three components that we create, all having the previous one as their parent span.
 
 ```text
