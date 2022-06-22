@@ -14,20 +14,7 @@ The component you are merging with will inherit all the properties, health, and 
 yes, you do not see your component anymore, but that's because the component you merged with will now act as the
 original component it initially appeared as, and the component you created.
 
-## How do components merge
-If two components on the StackState topology view have the same `identifier` it will merge those two components.
-
-For example, if you select a component and click on the `SHOW ALL PROPERTIES` button on the right panel
-
-![service type](../../../.gitbook/assets/relation_example_a.png)
-
-It will open a dialog; within this dialog, you can see the identifiers. If you reuse any of these within your span, it will merge with that component, We will have a few visual examples further down in the documentation.
-
-![service type](../../../.gitbook/assets/relation_example_b.png)
-
-
 ## Merging inheritance
-
 When you merge your component with a StackState component, the StackState component will contain all the labels, telemetry, and health from your original component.
 
 For example, here we have an unmerged child component; below are all the `labels` and `identifiers` for this child component.
@@ -56,6 +43,18 @@ Let's look at the `identifiers` and `labels` again. As you can see in the image 
 The same can be seen in the health checks and telemetry. You will notice that the health checks and telemetry streams are from both components.
 
 ![service type](../../../.gitbook/assets/otel_after_merge_health.png)
+
+## How do components merge
+If two components on the StackState topology view have the same `identifier` it will merge those two components.
+
+For example, if you select a component and click on the `SHOW ALL PROPERTIES` button on the right panel
+
+![service type](../../../.gitbook/assets/relation_example_a.png)
+
+It will open a dialog; within this dialog, you can see the identifiers. If you reuse any of these within your span, it will merge with that component, We will have a few visual examples further down in the documentation.
+
+![service type](../../../.gitbook/assets/relation_example_b.png)
+
 
 
 ## Merging a pre-existing component
