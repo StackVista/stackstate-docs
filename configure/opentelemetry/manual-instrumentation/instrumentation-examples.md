@@ -25,6 +25,8 @@ what result do you receive on StackState.
 ## Prerequisites
 For NodeJS and Javascript, we are not explaining the setup to get to this point but rather the code example and libraries that was used.
 
+---
+
 You should install the following npm libraries using npm or yarn
 
 - [@opentelemetry/api](https://www.npmjs.com/package/@opentelemetry/api)
@@ -40,6 +42,8 @@ The StackState Agent is expecting you to send the following keys in every single
 - `service.type`
 - `service.identifier`
 - `resource.name`
+
+---
 
 ***The most important part to remember is*** that the StackState Agent only accept the data in a [Protobuf Format](https://developers.google.com/protocol-buffers), Our examples below will
 use this format but if you do attempt to write something from scratch remember that this is a requirement.
