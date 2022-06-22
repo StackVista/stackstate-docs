@@ -419,4 +419,4 @@ Uploading the function to StackState can be done in one of three ways:
 - Or by placing it as [part of a StackPack]() and installing said StackPack.
 
 After the function is uploaded, it is generally available for any Monitor definition to invoke it.
-You can see [this article](../monitors/how-to-create-monitors.md)
+You can see [this article](../monitors/how-to-create-monitors.md) to learn how to create a custom Monitor that utilizes an existing Monitor function.
