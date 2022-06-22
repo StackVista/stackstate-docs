@@ -31,6 +31,8 @@ You should install the following npm libraries using npm or yarn
 - [@opentelemetry/sdk-trace-base](https://www.npmjs.com/package/@opentelemetry/sdk-trace-base)
 - [@opentelemetry/exporter-trace-otlp-proto](https://www.npmjs.com/package/@opentelemetry/exporter-trace-otlp-proto)
 
+---
+
 ## What the StackState Agent expects
 The StackState Agent is expecting you to send the following keys in every single span:
 - `trace.perspective.name`
@@ -45,6 +47,8 @@ use this format but if you do attempt to write something from scratch remember t
 In this NodeJS/JS example the protobuf export is the following line:
 
 `import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-proto';`
+
+---
 
 ## Code snippet
 
