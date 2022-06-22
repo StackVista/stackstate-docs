@@ -21,7 +21,7 @@ For example, if you select a component and click on the `SHOW ALL PROPERTIES` bu
 
 ![service type](../../../.gitbook/assets/relation_example_a.png)
 
-It will open a dialog; within this dialog, you can see the identifiers. If you reuse any of these within your span, it will merge with that component.
+It will open a dialog; within this dialog, you can see the identifiers. If you reuse any of these within your span, it will merge with that component, We will have a few visual examples further down in the documentation.
 
 ![service type](../../../.gitbook/assets/relation_example_b.png)
 
