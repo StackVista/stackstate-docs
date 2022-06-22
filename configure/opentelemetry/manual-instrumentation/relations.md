@@ -4,8 +4,7 @@ description: StackState Self-hosted v5.0.x
 
 # Spans Relations
 
-Component and Span relations shows the relationship between StackState components for example the image below
-shows an example of a relation running from the following to following components:
+Component and Span relations show the relationship between StackState components, for example, the image below shows an example of a relation running from the following to the following components:
 
 ```text
 Service Name: Parent Component
@@ -27,7 +26,7 @@ and `Service Name: Child 2 Component` has the parent id set as `Service Name: Ch
 
 ## Health State Flow
 
-Important to also remember that health state only propagates up, so that means if we have the following
+Important to also remember that the health state only propagates up, so that means if we have the following
 
 ```text
 Service Name: Parent Component
@@ -37,7 +36,7 @@ Service Name: Parent Component
      ---> Service Name: Child 2 Component
 ```
 
-then that will only result in the following components showing a propagated critical state.
+Then that will only result in the following components showing a propagated critical state.
 
 ```text
 Service Name: Parent Component [Propagated 400 Status]
@@ -52,25 +51,25 @@ A visual example of this will be as follows:
 ![service type](../../../.gitbook/assets/otel_traces_critical_state_1_2_3_unmerged.png)
 
 
-So remember to create your parent, children span in the correct order as it may affect the flow of the health state.
+So remember to create your parent and children spans in the correct order as it may affect the flow of the health state.
 
 ## Relations when merging
 
-Relations are retained when merging components, this allows you to create a component, create a child to this component
+Relations are retained when merging components; this allows you to create a parent component, create a child component for this parent
 and then merge that child component with an existing component. This will then create a relationship between the pre-existing component
-and the parent component, For example here we have the three components as describe above:
+and parent components. For example, here we have the three components as described above:
 
 ![service type](../../../.gitbook/assets/otel_traces_pre_merge.png)
 
 If we then merge our middle component `Service Name: Child Component` with the existing healthy Lambda component `otel-example-custom-instrumentation-dev-create-custom-component` in the bottom right corner.
-You will then notice that the middle component disappear as it merged with the Lambda component, and now the Lambda has relations with the first and third component as it
+You will then notice that the middle component disappeared as it merged with the Lambda component, and now the Lambda has relations with the first and third components as it
 inherited the same relation mappings.
 
 ![service type](../../../.gitbook/assets/otel_traces_merge_with_healthy_complete.png)
 
 ## Multiple children
 
-It is also good to know that a single parent can have multiple children, this allows you to build a tree with branches of relations, for example
+It is also good to know that a single parent can have multiple children. This allows you to build a tree with branches of relations, for example
 
 ```text
 Service Name: Parent Component
