@@ -233,7 +233,7 @@ def threshold = /* Same as above. */
 
 def topologyIdentifierPattern = "urn:host:/${tags.host}"
 
-def checkThreshold =  /* Same as above. */
+def checkThreshold = /* Same as above. */
 
 metrics.map { result ->
   def state = "CLEAR"
@@ -251,6 +251,39 @@ metrics.map { result ->
 ```
 
 With the above change, each timeseries is now validated against the threshold and reported as a Monitor health state. Each such result is uniquely identified by the metrics that were used to compute it, so any future changes based on the same metrics will result in health state updates instead of new states being created. Furthermore, we used the same metrics to extract the `tags.host` grouping from it and turned it into a specific topology identifier of a hostname represented in StackState. This topology identifier reconstruction, called topology mapping, is performed for all the groupped metric timeseries meaning it automatically applies to all the hosts in the topology that have CPU metrics associated with them.
+An improvement to the above definition can be made by introducing a result chart with each result. This is done by populating the optional `displayTimeseries` property of the Monitor health state:
+
+```groovy
+def metrics = /* Same as above. */
+def threshold = /* Same as above. */
+def topologyIdentifierPattern = /* Same as above. */
+def checkThreshold = /* Same as above. */
+
+metrics.map { result ->
+  def state = "CLEAR"
+  if (checkThreshold(result.timeSeries, threshold)) {
+    state = "CRITICAL";
+  }
+
+  return [
+    _type: "MonitorHealthState",
+    id: result.timeSeries.id.toIdentifierString(),
+    state: state,
+    topologyIdentifier: StringTemplate.runForTimeSeriesId(topologyIdentifierPattern, result.timeSeries.id),
+    displayTimeSeries: [
+      [
+        _type: "DisplayTimeSeries",
+        name: "The resulting metric values",
+        query: result.query,
+        timeSeriesId: result.timeSeries.id
+      ]
+    ]
+  ]
+}
+```
+
+Each chart configuration supplied this way will be shown together with the Monitor result on the StackState UI. In the above case, the specific timeseries that resulted in the Monitor health state being computed will be displayed for host affected by this Monitor.
+
 The full function body created so far:
 
 ```groovy
@@ -279,7 +312,15 @@ metrics.map { result ->
     _type: "MonitorHealthState",
     id: result.timeSeries.id.toIdentifierString(),
     state: state,
-    topologyIdentifier: StringTemplate.runForTimeSeriesId(topologyIdentifierPattern, result.timeSeries.id)
+    topologyIdentifier: StringTemplate.runForTimeSeriesId(topologyIdentifierPattern, result.timeSeries.id),
+    displayTimeSeries: [
+      [
+        _type: "DisplayTimeSeries",
+        name: "The resulting metric values",
+        query: result.query,
+        timeSeriesId: result.timeSeries.id
+      ]
+    ]
   ]
 }
 ```
@@ -289,7 +330,7 @@ To parameterize this function and make it reusable for different metrics and thr
 ```json
 {
   "_type": "ScriptFunctionBody",
-  "scriptBody": "def checkThreshold(timeSeries, threshold) {\n  timeSeries.points.any { point -> point.last() > threshold }\n}\n\nmetrics.map { result ->\n  def state = \"CLEAR\"\n  if (checkThreshold(result.timeSeries, threshold)) {\n    state = \"CRITICAL\";\n  }\n\n  return [\n    _type: \"MonitorHealthState\",\n    id: result.timeSeries.id.toIdentifierString(),\n    state: state,\n    topologyIdentifier: StringTemplate.runForTimeSeriesId(topologyIdentifierPattern, result.timeSeries.id)\n  ]\n}"
+  "scriptBody": "def checkThreshold(timeSeries, threshold) {\n  timeSeries.points.any { point -> point.last() > threshold }\n}\n\nmetrics.map { result ->\n  def state = \"CLEAR\"\n  if (checkThreshold(result.timeSeries, threshold)) {\n    state = \"CRITICAL\";\n  }\n\n  return [\n    _type: \"MonitorHealthState\",\n    id: result.timeSeries.id.toIdentifierString(),\n    state: state,\n    topologyIdentifier: StringTemplate.runForTimeSeriesId(topologyIdentifierPattern, result.timeSeries.id)\n    displayTimeSeries: [\n      [\n        _type: \"DisplayTimeSeries\",\n        name: \"The resulting metric values\",\n        query: result.query,\n        timeSeriesId: result.timeSeries.id\n      ]\n    ]\n  ]\n}"
 }
 ```
 
@@ -362,8 +403,10 @@ The final step is giving the function a descriptive name and uploading it to Sta
         }
       ],
       "identifier": "urn:system:default:monitor-function:metric-above-threshold",
-      "_type": "ScriptFunctionBody",
-      "scriptBody": "def checkThreshold(timeSeries, threshold) {\n  timeSeries.points.any { point -> point.last() > threshold }\n}\n\nmetrics.map { result ->\n  def state = \"CLEAR\"\n  if (checkThreshold(result.timeSeries, threshold)) {\n    state = \"CRITICAL\";\n  }\n\n  return [\n    _type: \"MonitorHealthState\",\n    id: result.timeSeries.id.toIdentifierString(),\n    state: state,\n    topologyIdentifier: StringTemplate.runForTimeSeriesId(topologyIdentifierPattern, result.timeSeries.id)\n  ]\n}"
+      "script": {
+        "_type": "ScriptFunctionBody",
+        "scriptBody": "def checkThreshold(timeSeries, threshold) {\n  timeSeries.points.any { point -> point.last() > threshold }\n}\n\nmetrics.map { result ->\n  def state = \"CLEAR\"\n  if (checkThreshold(result.timeSeries, threshold)) {\n    state = \"CRITICAL\";\n  }\n\n  return [\n    _type: \"MonitorHealthState\",\n    id: result.timeSeries.id.toIdentifierString(),\n    state: state,\n    topologyIdentifier: StringTemplate.runForTimeSeriesId(topologyIdentifierPattern, result.timeSeries.id)\n    displayTimeSeries: [\n      [\n        _type: \"DisplayTimeSeries\",\n        name: \"The resulting metric values\",\n        query: result.query,\n        timeSeriesId: result.timeSeries.id\n      ]\n    ]\n  ]\n}"
+      }
     }
   ]
 }
