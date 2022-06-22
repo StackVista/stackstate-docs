@@ -56,3 +56,4 @@ Show indirect relations is switched off by default. If we take a view of three c
 
 If we enable show all indirect relations, there will always be a dotted line marking all indirect connections between the components. That could work out to be a heavy operation on a large topology and might slow down the topology visualization. We don’t need to enable indirect relations here to show them the view expands to show Root Cause Only components.
 
+➡️ [Learn more about indirect relations](/use/concepts/relations.md#relation-types)
