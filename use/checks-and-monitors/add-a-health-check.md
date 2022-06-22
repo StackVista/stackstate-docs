@@ -62,7 +62,7 @@ Check functions are scripts that take streaming telemetry as an input, check the
 
 ### Check function: Autonomous metric stream anomaly detection
 
-The `Autonomous metric stream anomaly detection` health check reacts to anomaly events and sets the component health state to the `DEVIATING` \(orange\). 
+The `Autonomous metric stream anomaly detection` health check reacts to anomaly events and sets the component health state to the `DEVIATING` \(orange\).
 
 ➡️ [Learn more about anomaly health checks](anomaly-health-checks.md).
 

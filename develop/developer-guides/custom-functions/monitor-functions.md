@@ -39,8 +39,8 @@ The supported fields are:
 - `parameters` - a set of parameters "accepted" by this function, these allow the computation to be parameterized,
 - `script` - names or lists out the concrete algorithm to use for this computation; currently, Monitors only support scripts of type `ScriptFunctionBody` written using the `Groovy` language.
 
-#### Parameters
-A Monitor Function can use any number of parameters of an array of available types. These parameter types are not unlike the ones available to the Check Functions (https://docs.stackstate.com/develop/developer-guides/custom-functions/check-functions#parameters) with the one notable exception being the `SCRIPT_METRIC_QUERY` parameter type.
+### Parameters
+A Monitor Function can use any number of parameters of an array of available types. These parameter types are not unlike the ones available to the [Check functions](./check-functions.md) with the one notable exception being the `SCRIPT_METRIC_QUERY` parameter type.
 
 `SCRIPT_METRIC_QUERY` parameter type represents a Telemetry Query and ensures that a well-formed Telemetry Query builder value is supplied to the function. Here's an example declaration of such a parameter:
 
@@ -140,3 +140,237 @@ To use the above, experimental APIs please enable them explicitly in your StackS
 ```
 stackstate.featureSwitches.monitorEnableExperimentalAPIs = true
 ```
+
+## Creating a custom monitor function
+The following example describes a step-by-step process of creating a Monitor function. In this case, a metric thereshold rule is introduced parameterized with the exact metrics query to use and the threshold itself.
+
+1. Create an STJ file
+
+The first step is to create an STJ import file following the usual format and file organization:
+
+```json
+{
+  "_version": "1.0.39",
+  "timestamp": "2022-06-23T23:23:23.269369Z[GMT]",
+  "nodes": [
+    ...
+  ]
+}
+```
+
+StackState expects a `_version` property to be present in each and every export file. Monitor functions are supported in versions `1.0.39` and up. Each export file can contain multiple Monitor function nodes and also nodes of other types.
+
+2. Populate the Monitor function node
+
+The next step is the function node itself.
+
+```json
+{
+  "_type": "MonitorFunction",
+  "name": "The name of the Monitor Function",
+  "description": "A longer, meaningful description of a Monitor Function",
+  "identifier": "urn:system:default:monitor-function:a-name-of-the-monitor-function",
+  "parameters": [
+    ...
+  ],
+  "script": {
+    "_type": "ScriptFunctionBody",
+    "scriptBody": ...
+  }
+}
+```
+
+Here you can define the basic information about the function such as its name and description to help you distinguish different Monitor functions.
+An important field is the `identifier` - it is a unique value of the StackState URN format that can be used to refer to this objects in various other places, such as an invocation of a Monitor function. The identifier should be formatted as follows:
+
+`urn : <prefix> : monitor-function : <unique-function-identification>`
+
+The `prefix` is described in more detail in [topology identifiers](../../../configure/topology/identifiers.md), while the `unique-function-identification` is user-definable and free-form.
+
+3. Populate the Monitor function body
+
+The most important fields of the Monitor function node are its `scriptBody` and `parameters`. In this step, we will focus on the body of the function and we'll determine the required parameters next.
+
+As described above, the function we're creating will check a given metric against a given threshold and based on that produce health states for the affected topology. To make things concrete, let's start with a simple CPU usage metric:
+
+```groovy
+def metrics =
+  Telemetry.query("StackState Metrics", "cluster='cluster-a.example.com'")
+    .metricField("system.cpu.system")
+    .groupBy("tags.host")
+    .start("-10m")
+    .aggregation("mean", "30s")
+```
+
+The above snippet queries `StackState Metrics` datasource for a CPU usage, grouped per each hostname of a `cluster-a.example.com` Kubernetes cluster, starting at 10 minutes in the past, averaged every 30 seconds. The results are grouped per hostname and represent the CPU usage of that host averaged across 10 minutes.
+Next we need to check the returned values against a threshold of 90%:
+
+```groovy
+def metrics = /* Same as above. */
+
+def threshold = 90.0
+
+def checkThreshold(timeSeries, threshold) {
+  timeSeries.points.any { point -> point.last() > threshold }
+}
+
+metrics.map { result ->
+  def state = "CLEAR"
+  if (checkThreshold(result.timeSeries, threshold)) {
+    state = "CRITICAL";
+  }
+
+  return state
+}
+```
+
+For each hostname, we check the resulting values to see if any of them are above the threshold of 90%, and if so we indicate a `CRITICAL` health state, otherwise a `CLEAR` one is reported.
+To make these results conform to the required format, we need to include a few more mandatory fields. The most important one is the `topologyIdentifier` which determines to which topology element a given Monitor result "belongs". We also give each monitor result a uniqe `id` (derived from the metrics that were used to create it), so that the system can match and replace successively supplied results accross time:
+
+```groovy
+def metrics = /* Same as above. */
+def threshold = /* Same as above. */
+
+def topologyIdentifierPattern = "urn:host:/${tags.host}"
+
+def checkThreshold =  /* Same as above. */
+
+metrics.map { result ->
+  def state = "CLEAR"
+  if (checkThreshold(result.timeSeries, threshold)) {
+    state = "CRITICAL";
+  }
+
+  return [
+    _type: "MonitorHealthState",
+    id: result.timeSeries.id.toIdentifierString(),
+    state: state,
+    topologyIdentifier: StringTemplate.runForTimeSeriesId(topologyIdentifierPattern, result.timeSeries.id)
+  ]
+}
+```
+
+With the above change, each timeseries is now validated against the threshold and reported as a Monitor health state. Each such result is uniquely identified by the metrics that were used to compute it, so any future changes based on the same metrics will result in health state updates instead of new states being created. Furthermore, we used the same metrics to extract the `tags.host` grouping from it and turned it into a specific topology identifier of a hostname represented in StackState. This topology identifier reconstruction, called topology mapping, is performed for all the groupped metric timeseries meaning it automatically applies to all the hosts in the topology that have CPU metrics associated with them.
+The full function body created so far:
+
+```groovy
+def metrics =
+  Telemetry.query("StackState Metrics", "cluster='cluster-a.example.com'")
+    .metricField("system.cpu.system")
+    .groupBy("tags.host")
+    .start("-10m")
+    .aggregation("mean", "30s")
+
+def threshold = 90.0
+
+def topologyIdentifierPattern = "urn:host:/${tags.host}"
+
+def checkThreshold(timeSeries, threshold) {
+  timeSeries.points.any { point -> point.last() > threshold }
+}
+
+metrics.map { result ->
+  def state = "CLEAR"
+  if (checkThreshold(result.timeSeries, threshold)) {
+    state = "CRITICAL";
+  }
+
+  return [
+    _type: "MonitorHealthState",
+    id: result.timeSeries.id.toIdentifierString(),
+    state: state,
+    topologyIdentifier: StringTemplate.runForTimeSeriesId(topologyIdentifierPattern, result.timeSeries.id)
+  ]
+}
+```
+
+To parameterize this function and make it reusable for different metrics and thresholds, we can extract the `metrics`, `threshold` and `topologyIdentifierPattern` into StackState functions parameters. Furthermore, in order to use this function as part of an STJ import file it needs to be encoded as a JSON string property:
+
+```json
+{
+  "_type": "ScriptFunctionBody",
+  "scriptBody": "def checkThreshold(timeSeries, threshold) {\n  timeSeries.points.any { point -> point.last() > threshold }\n}\n\nmetrics.map { result ->\n  def state = \"CLEAR\"\n  if (checkThreshold(result.timeSeries, threshold)) {\n    state = \"CRITICAL\";\n  }\n\n  return [\n    _type: \"MonitorHealthState\",\n    id: result.timeSeries.id.toIdentifierString(),\n    state: state,\n    topologyIdentifier: StringTemplate.runForTimeSeriesId(topologyIdentifierPattern, result.timeSeries.id)\n  ]\n}"
+}
+```
+
+4. Formalize the function parameters
+
+In the previous steps, we created a Monitor function and implemented the validation rule for CPU usage metrics, we determined that in order to make the function reusable, we need to extract three parameters - `metrics`, `threshold` and the `topologyIdentifierPattern`.
+
+The `threshold` and `topologyIdentifierPattern` are simple basic types, a floating point value and a string respectively. For the `metrics` parameter, we can utilize the aforementioned `SCRIPT_METRIC_QUERY` parameter type, which ensures well-formedness of the metrics query supplied as the value of this parameter:
+
+```json
+{
+  "_type": "Parameter",
+  "name": "threshold",
+  "type": "DOUBLE",
+  "required": true,
+  "multiple": false
+},
+{
+  "_type": "Parameter",
+  "name": "topologyIdentifierPattern",
+  "type": "STRING",
+  "required": true,
+  "multiple": false
+},
+{
+  "_type": "Parameter",
+  "name": "metrics",
+  "type": "SCRIPT_METRIC_QUERY",
+  "required": true,
+  "multiple": false
+},
+```
+
+The above specification ensures that each function invocation is passed all the requisite parameters (all marked as `required`) and that their types will be safe to use in the context of the body of the function. Any type mismatches will be reported during the importing of this function definition.
+
+5. Upload to StackState
+
+The final step is giving the function a descriptive name and uploading it to StackState by importing the file containing the function definition. The following snippet contains the full function created so far:
+
+```json
+{
+  "_version": "1.0.39",
+  "timestamp": "2022-06-23T23:23:23.269369Z[GMT]",
+  "nodes": [
+    {
+      "_type": "MonitorFunction",
+      "name": "Metric above threshold",
+      "description": "Validates that a metric value stays below a given threshold, reports a CRITICAL state otherwise.",
+      "parameters": [
+        {
+          "_type": "Parameter",
+          "name": "threshold",
+          "type": "DOUBLE",
+          "required": true,
+          "multiple": false
+        },
+        {
+          "_type": "Parameter",
+          "name": "topologyIdentifierPattern",
+          "type": "STRING",
+          "required": true,
+          "multiple": false
+        },
+        {
+          "_type": "Parameter",
+          "name": "metrics",
+          "type": "SCRIPT_METRIC_QUERY",
+          "required": true,
+          "multiple": false
+        }
+      ],
+      "identifier": "urn:system:default:monitor-function:metric-above-threshold",
+      "_type": "ScriptFunctionBody",
+      "scriptBody": "def checkThreshold(timeSeries, threshold) {\n  timeSeries.points.any { point -> point.last() > threshold }\n}\n\nmetrics.map { result ->\n  def state = \"CLEAR\"\n  if (checkThreshold(result.timeSeries, threshold)) {\n    state = \"CRITICAL\";\n  }\n\n  return [\n    _type: \"MonitorHealthState\",\n    id: result.timeSeries.id.toIdentifierString(),\n    state: state,\n    topologyIdentifier: StringTemplate.runForTimeSeriesId(topologyIdentifierPattern, result.timeSeries.id)\n  ]\n}"
+    }
+  ]
+}
+```
+
+Uploading the function to StackState can be done in one of three ways:
+
+- By utilizing the Import/Export facility under StackState settings.
+- By utilizing the [StackState CLI]() `sts graph import` command.
+- Or by placing it as [part of a StackPack]() and installing said StackPack.
