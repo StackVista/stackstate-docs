@@ -417,3 +417,6 @@ Uploading the function to StackState can be done in one of three ways:
 - By utilizing the Import/Export facility under StackState settings.
 - By utilizing the [StackState CLI]() `sts graph import` command.
 - Or by placing it as [part of a StackPack]() and installing said StackPack.
+
+After the function is uploaded, it is generally available for any Monitor definition to invoke it.
+You can see [this article](../monitors/how-to-create-monitors.md)

@@ -249,7 +249,7 @@
   * [Integrate external services](develop/developer-guides/integrating_external_services.md)
   * [Mirroring Telemetry](develop/developer-guides/mirroring.md)
   * [Monitors](develop/developer-guides/monitors/README.md)
-    * [Create monitors](develop/developer-guides/monitors/how-to-create-moniors.md)
+    * [Create monitors](develop/developer-guides/monitors/how-to-create-monitors.md)
   * [StackPack development](develop/developer-guides/stackpack/README.md)
     * [How to create a StackPack](develop/developer-guides/stackpack/develop_stackpacks.md)
     * [Packaging](develop/developer-guides/stackpack/prepare_package.md)
