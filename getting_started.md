@@ -37,7 +37,7 @@ The direction of a relation's arrow indicates dependency. For example, `app -> d
 
 ➡️ Learn more about [components](/use/concepts/components.md), [relations](/use/concepts/relations.md) and [health state](/use/health-state/about-health-state.md)
 
-![Component](/.gitbook/assets/021_topology_elements.png)
+![Component](/.gitbook/assets/v50_topology_elements.png)
 
 ## Timeline
 
