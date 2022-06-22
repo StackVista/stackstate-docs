@@ -165,7 +165,7 @@ The most secure way to use your API token is through an environment variable. Yo
 
 2. Run the command below, where `<URL>` is the URL to your StackState instance and `<API-TOKEN>` is the API token you copied from the CLI page in the StackState UI:
    ```bash
-   sts cli save-config --url <URL> --api-token <API-TOKEN>
+   sts context save --name <NAME> --url <URL> --api-token <API-TOKEN>
    ```
 
 3. The connection to your StackState instance will be tested and a configuration file stored at `~/.config/stackstate-cli/config.yaml`.
@@ -189,7 +189,7 @@ docker run \
 
 #### API token
 
-By default, the CLI will authenticate using the API token that you provided when the CLI configuration was saved. 
+By default, the CLI will authenticate using the API token that you provided when the CLI configuration was saved.
 
 #### Service tokens
 
@@ -209,15 +209,26 @@ Once you have this, you can configure the CLI to use it:
 sts context save --name <NAME> --service-token <TOKEN> --url <URL>
 ```
 
+### Managing multiple contexts
+
+The new `sts` CLI supports managing different (authentication) contexts. This enables you to easily switch between an administrative and regular user, or to switch between different StackState instances, for instance a test and production instance. To manage these contexts, the following `sts context` commands are implemented:
+
+   * `sts context list` - list all contexts
+   * `sts context save --name <NAME> --url <URL> --api-token <API-TOKEN>` - save a new context
+   * `sts context delete --name <NAME>` - delete a context
+   * `sts context set --name <NAME>` - switch to a context
+   * `sts context validate` - validate the current context
+
+
 ### Configuration options
 
 You do not need a configuration file to run the `sts` CLI. You can also configure the CLI through a combination of environment variables and flags.
 
-If multiple types of configuration are presented to the CLI the order of processing will be: 
+If multiple types of configuration are presented to the CLI the order of processing will be:
 
-1. First: Flags.
-2. Second: Environment variables.
-3. Last: Config file.
+1. Flags
+2. Environment variables
+3. Config file
 
 | Environment variable    | Flag | Description                                                                                                                                                                                                                                     |
 |:------------------------|:--- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -225,6 +236,9 @@ If multiple types of configuration are presented to the CLI the order of process
 | `STS_CLI_API_TOKEN`     | `--api-token` | API token to your StackState instance. The most secure way to use your API token is through an environment variable. You can store the API token with a secrets manager and inject it as an environment variable into your shell.               |
 | `STS_CLI_SERVICE_TOKEN` | `--service-token` | A service token to your StackState instance. The most secure way to use your service token is through an environment variable. You can store the service token with a secrets manager and inject it as an environment variable into your shell. |
 | `STS_CLI_API_PATH`      | n/a | The path appended to the end of the URL to get the API endpoint. (Defaults to `/api`)                                                                                                                                                           |
+| `STS_CLI_CONTEXT` | `--context` | The name of the context to use.                                                                                                                                                                                                                 |
+
+Next to overriding specific parts of the config file, it is also possible to override the default config file location. This is done through the `--config <PATH>` flag.
 
 ## Uninstall
 
