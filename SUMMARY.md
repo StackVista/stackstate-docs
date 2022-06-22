@@ -179,7 +179,7 @@
     * [What is a OpenTelemetry instrumentation ?](configure/opentelemetry/what-is-opentelemetry-instrumentation.md)
     * [StackState Manual Instrumentation](configure/opentelemetry/manual-instrumentation/README.md)
         * [Tracer and Span mappings](configure/opentelemetry/manual-instrumentation/mappings.md)
-        * [Span Relations](configure/opentelemetry/manual-instrumentation/relations.md)
+        * [Component Relations](configure/opentelemetry/manual-instrumentation/relations.md)
         * [Span Heath State](configure/opentelemetry/manual-instrumentation/health.md)
         * [Merging Components](configure/opentelemetry/manual-instrumentation/merging.md)
         * [StackState Instrumentation examples](configure/opentelemetry/manual-instrumentation/instrumentation-examples.md)

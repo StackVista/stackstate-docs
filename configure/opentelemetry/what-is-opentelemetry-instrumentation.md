@@ -105,7 +105,7 @@ As you can see from the above, each following span parent id has the id from the
 ## Why create parent and children spans?
 We want to create relations between different span events, how they affect each other, and their relational flow.
 
-You can head over to the [manual instrumentation component relations](/configure/opentelemetry/manual-instrumentation/component-relations.md) page to get a full
+You can head over to the [manual instrumentation component relations](/configure/opentelemetry/manual-instrumentation/relations.md) page to get a full
 breakdown of how StackState relations work, how parent-child spans are shown on StackState, and how relations are created between
 components and how the health state uses these relations to propagate health.
 
@@ -168,7 +168,7 @@ StackState currently supports two types of instrumentations.
   - Visit the [AWS OpenTelemetry integrations page](/stackpacks/integrations/aws/opentelemetry-nodejs.md) for more information regarding the [supported AWS services](/stackpacks/integrations/aws/opentelemetry-nodejs.md#supported-services) and how to install and use this Lambda layer.
 - **Manual instrumentation** using the [OpenTelemetry API](https://opentelemetry.io/docs/instrumentation/)
   - This gives you the ability to create and display a custom component with a health state within StackState using the [OpenTelemetry API](https://opentelemetry.io/docs/instrumentation/).
-  - To learn more about how to implement a manual instrumentation specifically for StackState, head over to the [manual instrumentation mappings for StackState](/configure/opentelemetry/manual-instrumentation/mappings-for-stackstate.md) section
+  - To learn more about how to implement a manual instrumentation specifically for StackState, head over to the [manual instrumentation tracer and span mappings](/configure/opentelemetry/manual-instrumentation/mappings.md) page
 
 
 
