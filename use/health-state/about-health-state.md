@@ -111,7 +111,7 @@ You can check the view health state in the following places in the StackState UI
 * **Starred views** - Starred views are listed in the StackState main menu together with their health state.
 * **All views** - The health state of all views is visible on the view overview screen. Click **Views** from the StackState main menu.
 
-![View health state in main menu](../../.gitbook/assets/v50_view_health_main_menu.svg)
+![View health state in main menu](../../.gitbook/assets/v50_view_health_main_menu.png)
 
 ## See also
 
