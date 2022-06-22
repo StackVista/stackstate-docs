@@ -133,7 +133,7 @@ as seen within the picture below.
 {% endtab %}
 {% endtabs %}
 
-### Service Identifier ([Used for Merging Components](/configure/opentelemetry/manual-instrumentation/merging-components.md))
+### Service Identifier ([Used for Merging Components](/configure/opentelemetry/manual-instrumentation/merging.md))
   - `Key`
     - service.identifier
   - `Expected`
@@ -142,7 +142,7 @@ as seen within the picture below.
     - aws:rds:database:hello-world
   - `Description`
     - This value will be added to the identifier list on your component within StackState.
-    - ***NB. Components with the same service identifiers will merge into one component, This allows you to merge multiple components and create relations, or merge with an existing StackState component. You can read more about this on the [merging with existing StackState components](/configure/opentelemetry/manual-instrumentation/merging-components.md) page***
+    - ***NB. Components with the same service identifiers will merge into one component, This allows you to merge multiple components and create relations, or merge with an existing StackState component. You can read more about this on the [merging with existing StackState components](/configure/opentelemetry/manual-instrumentation/merging.md) page***
 
 {% tabs %}
 {% tab title="Topology Perspective - Component Properties" %}
@@ -152,7 +152,7 @@ as seen within the picture below.
 1) Click on your component in the StackState Topology Perspective
 2) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
 3) The row with the key `identifiers` will contain the value you defined, as seen below in the image.
-4) ***NB. It is recommended to go and read the [merging with existing StackState components](/configure/opentelemetry/manual-instrumentation/merging-components.md) page to know how this value can be leverage to create relations***
+4) ***NB. It is recommended to go and read the [merging with existing StackState components](/configure/opentelemetry/manual-instrumentation/merging.md) page to know how this value can be leverage to create relations***
 
 ![service identifier](../../../.gitbook/assets/otel_traces_service_identifier.png)
 {% endtab %}
