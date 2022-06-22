@@ -7,23 +7,23 @@ description: StackState Self-hosted v5.0.x
 Below is a code snippet showing the basics required to send custom instrumentation
 to StackState.
 
-We are creating two components
+We are creating two components.
 
 - RDS Database
 - RDS Table
 
-And we want a relation between the database and table flowing down from the Database to the Table. This will allow 
-the health state to propagate up to the database of something is wrong with the table.
+And we want a relationship between the database and table flowing down from the database to the table. This will allow
+the health state propagates up to the database if something is wrong with the table.
 
-This is where you best judgement will come in play, best would be to play around with the parent spans, child spans etc. and see
-what result you receive on StackState.
+This is where your best judgment will come into play; best would be to play around with the parent spans, child spans, etc., and see
+what result do you receive on StackState.
 
 
 {% tabs %}
 {% tab title="JavaScript & NodeJS" %}
 
 ### Prerequisites
-For NodeJS and Javascript we are not explaining the setup to get to this point but rather the code example and libraries that was used.
+For NodeJS and Javascript, we are not explaining the setup to get to this point but rather the code example and libraries that was used.
 
 You should install the following npm libraries using npm or yarn
 
@@ -65,8 +65,8 @@ const stsTraceAgentOpenTelemetryEndpoint = "http://localhost:8126/open-telemetry
 // The tracer identier to allow StackState to identifier this instrumentations.
 // The name and version below should not be changed
 const tracerIdentifier = {
-  name: "@opentelemetry/instrumentation-stackstate",
-  version: "1.0.0"
+    name: "@opentelemetry/instrumentation-stackstate",
+    version: "1.0.0"
 }
 
 // Creating a trace provider and exporter
@@ -81,7 +81,7 @@ const tracer = openTelemetryAPI.trace.getTracer(tracerIdentifier.name, tracerIde
 // Creating a parent span. You need a identifier for this span inside the code
 // we will use the value 'RDS Database' but this does not matter.
 const parentSpan = tracer.startSpan('RDS Database', {
-  root: true,
+    root: true,
 });
 
 // Adding attributes to the parent span
@@ -94,9 +94,9 @@ parentSpan.setAttribute('resource.name', 'AWS RDS');
 // Creating a child span. You need a identifier for this span inside the code
 // we will use the value 'RDS Table' but this does not matter.
 const childSpan = tracer.startSpan(
-  'RDS Table',
-  undefined,
-  openTelemetryAPI.trace.setSpan(openTelemetryAPI.context.active(), parentSpan)
+    'RDS Table',
+    undefined,
+    openTelemetryAPI.trace.setSpan(openTelemetryAPI.context.active(), parentSpan)
 );
 
 // Adding attributes to the child span
