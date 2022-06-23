@@ -21,10 +21,10 @@ The logging level should be set using the ID for an instance of a function, not 
    * [Event handler IDs](enable-logging.md#event-handler-ids)
    * [Propagation IDs](enable-logging.md#check-and-propagation-ids)
    * [View health state configuration IDs](enable-logging.md#view-health-state-configuration-ids)
-2. Use the [StackState CLI](../../setup/cli-install.md) to set the logging level for the ID, for example:
+2. Use the [`stac` CLI](/setup/cli/cli-stac.md) to set the logging level for the ID, for example:
 
    ```text
-   sts serverlog setlevel <id> DEBUG
+   stac serverlog setlevel <id> DEBUG
    ```
 
 3. Monitor the `stackstate.log` using the function instance ID.
@@ -55,30 +55,38 @@ Retrieve the ID for a specific instance of a function:
 
 #### Event handler IDs
 
-The ID for an event handler can be found using the [StackState CLI](../../setup/cli-install.md). This is the ID for an instance of an event handler function.
+The ID for an event handler can be found using the [StackState CLI](../../setup/cli/README.md). This is the ID for an instance of an event handler function.
 
 * To list all event handlers, run the StackState CLI command below.
 * Use the `id` from the command output to [enable logging](enable-logging.md#set-the-logging-level-for-a-function-instance) for a specific event handler.
 
 {% tabs %}
-{% tab title="CLI command" %}
+{% tab title="CLI: stac" %}
 ```text
-sts graph list EventHandler
-```
-{% endtab %}
+stac graph list EventHandler
 
-{% tab title="Example result" %}
-```text
              id  type          name          description    owned by    manual    last updated
 ---------------  ------------  ------------  -------------  ----------  --------  ------------------------
 114118706410878  EventHandler  demo_handler                             True      Fri Nov 13 11:32:29 2020
 ```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+```text
+sts settings list --type EventHandler
+```
+
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 {% endtab %}
 {% endtabs %}
 
 #### View health state configuration IDs
 
-The ID for a view health state configuration can be found using the [StackState CLI](../../setup/cli-install.md). This is the ID for a view's instance of a view health state configuration function.
+The ID for a view health state configuration can be found using the [StackState CLI](../../setup/cli/README.md). This is the ID for a view's instance of a view health state configuration function.
 
 * Run the two StackState CLI commands below:
   1. To return the IDs of all StackState views.
@@ -86,19 +94,11 @@ The ID for a view health state configuration can be found using the [StackState 
 * Use the `viewHealthStateConfiguration` ID from the retrieved view JSON to [enable logging](enable-logging.md#set-the-logging-level-for-a-function-instance) for this instance of the view health state configuration function. In the example below, this would be `39710412772194`.
 
 {% tabs %}
-{% tab title="CLI command" %}
+{% tab title="CLI: stac" %}
 ```text
 # get IDs of all views
-sts graph list QueryView
+stac graph list QueryView
 
-# get the ID of the specified view's "viewHealthStateConfiguration"
-sts graph show-node <VIEW_ID>
-```
-{% endtab %}
-
-{% tab title="Example result" %}
-```text
-$ sts graph list QueryView                           
              id  type       name                       description    owned by                      manual    last updated
 ---------------  ---------  -------------------------  -------------  ----------------------------  --------  ------------------------
   9161801377514  QueryView  Demo - Customer A          -              urn:stackpack:demo-stackpack  False     Fri Nov 13 16:24:38 2020
@@ -106,7 +106,10 @@ $ sts graph list QueryView
 278537340600843  QueryView  Demo - Business Dashboard  -              urn:stackpack:demo-stackpack  False     Fri Nov 13 16:24:38 2020
 
 
-$ sts graph show-node 9161801377514
+# get the ID of the specified view's "viewHealthStateConfiguration"
+# stac graph show-node <VIEW_ID>
+
+sts graph show-node 9161801377514
 
 {
    "id":9161801377514,
@@ -128,50 +131,41 @@ $ sts graph show-node 9161801377514
       "lastUpdateTimestamp":1605284678082,
       "function":28286436254116,
       "enabled":true,
-      "arguments":[
-         {
-            "id":128484527572993,
-            "lastUpdateTimestamp":1605284678082,
-            "parameter":184761614904259,
-            "value":1,
-            "_type":"ArgumentLongVal"
-         },
-         {
-            "id":229304367255010,
-            "lastUpdateTimestamp":1605284678082,
-            "parameter":178411912509267,
-            "value":1,
-            "_type":"ArgumentLongVal"
-         }
-      ],
-      "_type":"ViewHealthStateConfiguration"
-   },
-   "groupingEnabled":true,
-   "minimumGroupSize":4,
-   "query":"(domain IN (\"customer E\") AND layer IN (\"API\", \"applications\", \"business application\", \"hypervisor\", \"databases\", \"k8s_proc\", \"lambda\", \"network devices\", \"location\", \"rack\", \"row\", \"servers\", \"services\", \"storage\"))",
-   "queryVersion":"0.0.1",
-   "identifier":"urn:stackpack:demo-stackpack:query-view:demo-customer-e",
-   "ownedBy":"urn:stackpack:demo-stackpack",
-   "eventTypes":[
-
-   ],
-   "tags":[
-
-   ],
-   "spanTypes":[
-
-   ],
-   "_type":"QueryView"
-}
+      ...
 ```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
 {% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+```commandline
+# get IDs of all views
+sts settings list --type QueryView
+
+TYPE      | ID              | IDENTIFIER | NAME                      | OWNED BY | LAST UPDATED                                          
+QueryView | 165313710240823 |            | Demo - Customer A         |          | Tue Jun 21 13:44:12 2022 CEST
+QueryView | 26281716816873  |            | Demo - Customer B         |          | Tue Jun 21 13:44:12 2022 CEST
+QueryView | 184368967764989 |            | Demo - Customer D         |          | Tue Jun 21 13:44:12 2022 CEST
+
+
+# get the ID of the specified view's "viewHealthStateConfiguration"
+
+sts settings describe --ids <VIEW_ID>
+
+```
+
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endtab %}
+
 {% endtabs %}
 
 ### StackState UI
 
 #### Check and propagation IDs
 
-The ID for a check or propagation on a specific component can be found in in the StackState UI. These are the IDs for the component's instance of a check function or propagation function.
+The ID for a check or propagation on a specific component can be found in the StackState UI. These are the IDs for the component's instance of a check function or propagation function.
 
 1. Select a component to open detailed information about it in the right panel **Selection details** tab.
 2. Click on **...** and select **Show JSON**.
@@ -184,7 +178,7 @@ The ID for a check or propagation on a specific component can be found in in the
 
 ## See also
 
-* [StackState CLI](../../setup/cli-install.md)
+* [StackState CLI](../../setup/cli/README.md)
 * [Check functions](../../develop/developer-guides/custom-functions/check-functions.md)
 * [Event handler functions](../../develop/developer-guides/custom-functions/event-handler-functions.md)
 * [State propagation and propagation functions](../../develop/developer-guides/custom-functions/propagation-functions.md)

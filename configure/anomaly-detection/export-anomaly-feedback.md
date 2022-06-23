@@ -10,7 +10,7 @@ Feedback that has been added to anomalies reported by the Autonomous Anomaly Det
 
 ## Export feedback
 
-To export anomaly feedback from StackState, the [StackState CLI](/setup/cli-install.md) is required. When an export is run, all feedback and comments for all anomalies reported in the specified time window will be exported.
+To export anomaly feedback from StackState, the [StackState CLI](/setup/cli/README.md) is required. When an export is run, all feedback and comments for all anomalies reported in the specified time window will be exported.
 
 {% hint style="warning" %}
 **Note that any user comments will be included in the exported feedback.** These comments are very useful, but should not contain any sensitive information.
@@ -18,6 +18,8 @@ To export anomaly feedback from StackState, the [StackState CLI](/setup/cli-inst
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
+
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 
 Using StackState CLI `sts` (new), anomaly feedback can be exported from StackState with the command `sts anomaly collect-feedback`. 
 
@@ -48,6 +50,9 @@ stac anomaly collect-feedback --start-time=-7d > feedback.json
 # include 3 days of metric data for each anomaly
 stac anomaly collect-feedback --start-time=-10d --end-time=-2d --history=3d > feedback.json
 ```
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
 {% endtab %}
 {% endtabs %}
 

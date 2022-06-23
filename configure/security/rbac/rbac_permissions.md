@@ -30,21 +30,34 @@ StackState comes with four predefined roles:
   * `execute-restricted-scripts`
   * `update-permissions`
   * `upload-stackpacks`
-  * **Guests** \(`stackstate-guest`\): Have read access, as you can see below when we use the StackState CLI to show granted permissions for the role:
+  * **Guests** \(`stackstate-guest`\): Have read access, as you can see below when we use the `stac` CLI to show granted permissions for the role:
 
-    ```text
-      $ sts permission show stackstate-guest
-      subject           permission                 resource
-      ----------------  -------------------------  ----------
-      stackstate-guest  access-cli                 system
-      stackstate-guest  access-explore             system
-      stackstate-guest  perform-custom-query       system
-      stackstate-guest  read-permissions           system
-      stackstate-guest  update-visualization       system
-      stackstate-guest  manage-star-view           system
-      stackstate-guest  execute-component-actions  system
-      stackstate-guest  access-view                everything
-    ```
+{% tabs %}
+{% tab title="CLI: stac" %}
+
+```text
+$ stac permission show stackstate-guest
+subject           permission                 resource
+----------------  -------------------------  ----------
+stackstate-guest  access-cli                 system
+stackstate-guest  access-explore             system
+stackstate-guest  perform-custom-query       system
+stackstate-guest  read-permissions           system
+stackstate-guest  update-visualization       system
+stackstate-guest  manage-star-view           system
+stackstate-guest  execute-component-actions  system
+stackstate-guest  access-view                everything
+```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
 
 ### Default and custom role names
 
@@ -265,17 +278,43 @@ See the full list of [permissions for pre-defined roles](rbac_permissions.md#all
 
 List all permissions:
 
+{% tabs %}
+{% tab title="CLI: stac" %}
+
 ```text
-sts permission list
+stac permission list
 ```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
 
 ### Show granted permissions
 
 Show the permissions granted to a specific role.
 
+{% tabs %}
+{% tab title="CLI: stac" %}
+
 ```text
-sts permission show [role-name]
+stac permission show [role-name]
 ```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
 
 ### Grant permissions
 
@@ -283,41 +322,106 @@ sts permission show [role-name]
 
 Provide a subject with permission to open a view:
 
+{% tabs %}
+{% tab title="CLI: stac" %}
+
 ```text
-sts permission grant [subject-handle] access-view [view-name]
+stac permission grant [subject-handle] access-view [view-name]
 ```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
 
 #### Allow a user to create \(save\) views
 
 Provide a subject with the system permission to create \(save\) views:
 
+{% tabs %}
+{% tab title="CLI: stac" %}
+
 ```text
-sts permission grant [subject-handle] create-views system
+stac permission grant [subject-handle] create-views system
 ```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
 
 #### Allow a user to check StackState settings
 
 Provide a subject with the system permission to check StackState settings:
 
+{% tabs %}
+{% tab title="CLI: stac" %}
+
 ```text
-sts permission grant [subject-handle] read-settings system
+stac permission grant [subject-handle] read-settings system
 ```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
 
 #### Allow a user to add or edit event handlers
 
 Provide a subject with the system permission to add new event handlers and edit existing event handlers:
 
+{% tabs %}
+{% tab title="CLI: stac" %}
+
 ```text
-sts permission grant [subject-handle] manage-event-handlers system
+stac permission grant [subject-handle] manage-event-handlers system
 ```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
 
 ### Revoke permissions
 
 Revoke permissions for a subject to open a view:
 
+{% tabs %}
+{% tab title="CLI: stac" %}
+
 ```text
-sts permission revoke [subject-handle] access-view [view-name]
+stac permission revoke [subject-handle] access-view [view-name]
 ```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
 
 ## StackState UI with no permissions
 

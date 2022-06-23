@@ -10,21 +10,38 @@ StackState configuration can be exported and imported. The import/export functio
 
 ## Export configuration
 
-An export of the StackState configuration can be obtained from the StackState UI, the [StackState CLI](../../cli-install.md) or using curl commands. Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack configuration will not be included in the export.
+An export of the StackState configuration can be obtained from the StackState UI, the [StackState CLI](../../cli/README.md) or using curl commands. Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack configuration will not be included in the export.
 
 To export configuration using the StackState CLI or curl:
 
 {% tabs %}
-{% tab title="StackState CLI" %}
+{% tab title="CLI: sts (new)" %}
+
 ```text
 # Output in terminal window
-sts graph export
+sts settings describe
 
 # Export to file
-sts graph export > export.stj
+sts settings describe --file <PATH_TO_FILE.stj>
 ```
-{% endtab %}
 
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+
+Command not currently available in the new `sts` CLI.
+{% endtab %}
+{% tab title="CLI: stac" %}
+```text
+# Output in terminal window
+stac graph export
+
+# Export to file
+stac graph export > export.stj
+```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
 {% tab title="curl" %}
 ```text
 curl -X POST -H 'Content-Type: application/json;charset=UTF-8' \
@@ -76,10 +93,24 @@ Import is intended to be a one-off action - importing multiple times might resul
 To clear the StackState configuration and import from a file using the StackState CLI or curl. The `<token>` used for authorization with curl is available on the **CLI** page in the StackState UI main menu:
 
 {% tabs %}
-{% tab title="StackState CLI" %}
+{% tab title="CLI: sts (new)" %}
+
 ```text
-sts graph import < export.stj
+sts settings apply --file <PATH_TO_FILE.stj>
 ```
+
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+
+Command not currently available in the new `sts` CLI.
+{% endtab %}
+{% tab title="CLI: stac" %}
+```text
+stac graph import < <PATH_TO_FILE.stj>
+```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
 {% endtab %}
 
 {% tab title="curl" %}
@@ -134,7 +165,29 @@ There is a way to use identifiers and namespaces that come with them to perform 
 
 Node identifiers are specified in a following pattern: `urn:stackpack:{stackpack_name}:{type_name}:{object_name}`. The namespace effectively used by this process is `urn:stackpack:{stackpack_name}:`. If every configuration node has an identifier and they are all in the same namespace, then you can perform an idempotent update using following STS CLI commands:
 
-For export: `sts graph export --namespace urn:stackpack:{stackpack_name}:`
+For export: 
+
+{% tabs %}
+{% tab title="CLI: sts (new)" %}
+
+```commandline
+sts settings describe --namespace urn:stackpack:{stackpack_name}:
+```
+
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+
+Command not currently available in the new `sts` CLI.
+{% endtab %}
+{% tab title="CLI: stac" %}
+```text
+stac graph export --namespace urn:stackpack:{stackpack_name}:
+```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% endtabs %}
 
 For import currently we have a curl way: `curl -XPOST http://yourInstance/api/import?namespace=urn:stackpack:{stackpack_name} --data @./filename -H 'Content-Type: application/json'`
 

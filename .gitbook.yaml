@@ -133,8 +133,8 @@ redirects:
   setup/backup_restore/manual_topology: ./setup/data-management/backup_restore/manual_topology_backup.md
   setup/clear_data: ./setup/data-management/clear_stored_data.md
   setup/retention: ./setup/data-management/data_retention.md
-  setup/cli: ./setup/cli-install.md
-  setup/kubernetes/image_configuration: ./setup/instal-stackstate/kubernetes_install/image_configuration.md
+  setup/cli: ./setup/cli/README.md
+  setup/kubernetes/image_configuration: ./setup/install-stackstate/kubernetes_install/image_configuration.md
   setup/kubernetes_install: ./setup/install-stackstate/kubernetes_install/README.md
   setup/kubernetes_install/customize_config: ./setup/install-stackstate/kubernetes_install/customize_config.md
   setup/kubernetes_install/image_configuration: ./setup/install-stackstate/kubernetes_install/image_configuration.md
@@ -245,7 +245,7 @@ redirects:
   use/analytics: ./use/stackstate-ui/analytics.md
   stackpacks/integrations/aws-x-ray: ./stackpacks/integrations/aws/aws-x-ray.md
   use/views/perspectives: ./use/conecpts/perspectives.md
-  setup/installation/cli-install: ./setup/cli-install.md
+  setup/installation/cli-install: ./setup/cli/README.md
   configuring/creating_stackpacks: ./develop/developer-guides/stackpack/develop_stackpacks.md
 
 # 4.5 docs
@@ -322,3 +322,5 @@ redirects:
 # 5.0 docs
 
   develop/reference/scripting/async_script_result: ./develop/reference/scripting/async-script-result.md
+  develop/reference/cli_reference: ./setup/cli/README.md
+  setup/cli-install: ./setup/cli/README.md
