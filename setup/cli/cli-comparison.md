@@ -106,6 +106,7 @@ The new `sts` CLI will completely replace the old `stac` CLI. Not all commands h
 | `anomaly collect-feedback` | `anomaly collect-feedback` | Export anomalies to disk. |
 | `anomaly send` | ❌ | Send anomalies. Will not be ported to the new `sts` CLI. This remains possible via the StackState Receiver API. |
 | ❌ | `completion` | Generate the CLI autocompletion script for the specified shell. |
+| ❌ | `context` | Manage CLI authentication contexts. |
 | `datasource list` | `settings list --type DataSource` | List all telemetry data sources. |
 | `event send` | ❌ | Send events. Will not be ported to the new `sts` CLI. This remains possible via the StackState Agent and the StackState Receiver API. |
 | `graph *` | `settings *` | Configure StackState settings. |
