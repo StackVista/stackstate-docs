@@ -135,11 +135,14 @@ Additionally, the following Script APIs are optionally available. They are consi
 - `Http` - used to fetch external data via the HTTP protocol,
 - `Graph` - a generic way to query the StackGraph database.
 
+{% hint style="success" "self-hosted info" %}
+
 To use the above, experimental APIs please enable them explicitly in your StackState configuration file by appending the following line at the end of the `etc/application_stackstate.conf` file.
 
-```
-stackstate.featureSwitches.monitorEnableExperimentalAPIs = true
-```
+`stackstate.featureSwitches.monitorEnableExperimentalAPIs = true`
+
+{% endhint %}
+
 
 ## Creating a custom monitor function
 The following example describes a step-by-step process of creating a Monitor function. In this case, a metric thereshold rule is introduced parameterized with the exact metrics query to use and the threshold itself.
@@ -414,7 +417,7 @@ The final step is giving the function a descriptive name and uploading it to Sta
 
 Uploading the function to StackState can be done in one of three ways:
 
-- By utilizing the [StackState CLI](/setup/cli/README.md) commands:
+- By utilizing the [StackState CLI](../../../setup/cli/README.md) commands:
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
@@ -427,11 +430,7 @@ Uploading the function to StackState can be done in one of three ways:
 
 - By placing it as [part of a StackPack](../../../stackpacks/about-stackpacks.md) and installing said StackPack.
 
-{% hint style="success" "self-hosted info" %}
-
 - By utilizing the Import/Export facility under StackState settings.
-
-{% endhint %}
 
 After the function is uploaded, it is generally available for any Monitor definition to invoke it.
 You can see [this article](../monitors/how-to-create-monitors.md) to learn how to create a custom Monitor that utilizes an existing Monitor function.

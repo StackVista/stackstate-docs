@@ -50,9 +50,8 @@ The output of this command indicates the specific errors that occured along with
 {% hint style="success" "self-hosted info" %}
 The Monitor runner subsystem can be disabled via the configuration file by appending the following line at the end of the `etc/application_stackstate.conf` file:
 
-```
-stackstate.featureSwitches.monitorRunner = false
-```
+`stackstate.featureSwitches.monitorRunner = false`
+
 {% endhint %}
 
 ## See also
