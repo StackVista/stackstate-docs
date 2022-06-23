@@ -211,13 +211,7 @@ sts context save --name <NAME> --service-token <TOKEN> --url <URL>
 
 ### Managing multiple contexts
 
-The new `sts` CLI supports managing different (authentication) contexts. This enables you to easily switch between an administrative and regular user, or to switch between different StackState instances. For example, you could use a different context for a test and production instance of StackState. Contexts can be managed with the following `sts context` commands:
-
-   * `sts context list` - list all contexts
-   * `sts context save --name <NAME> --url <URL> --api-token <API-TOKEN>` - save a new context
-   * `sts context set --name <NAME>` - switch to a context
-   * `sts context validate` - validate the current context
-   * `sts context delete --name <NAME>` - delete a context
+The new `sts` CLI supports managing different (authentication) contexts. This enables you to easily switch between an administrative and regular user, or to switch between different StackState instances. For example, you could use a different context for a test and production instance of StackState. You can list, save, delete, set and validate contexts in the new `sts` CLI. Run `sts context -h` for details of the available commands and their usage.
 
 ### Configuration options
 
