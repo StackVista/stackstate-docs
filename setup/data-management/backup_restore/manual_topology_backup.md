@@ -15,12 +15,15 @@ This page describes the process of exporting and importing manual topology data,
 
 To export all manually created components and relations to a file `manual_topo.stj` using the [StackState CLI](/setup/cli/README.md):
 
+{% tabs %}
+{% tab title="CLI: stac" %}
+
 1. Create the export file:
 
    ```text
-   sts graph list --manual --ids Component Relation \
+   stac graph list --manual --ids Component Relation \
    | xargs \
-   sts graph export --ids \
+   stac graph export --ids \
    > manual_topo.stj
    ```
 
@@ -28,10 +31,20 @@ To export all manually created components and relations to a file `manual_topo.s
 
 Breakdown of the export command used in the example above:
 
-* `sts graph list --manual --ids Component Relation` lists all ids of manually created components and relations.
+* `stac graph list --manual --ids Component Relation` lists all ids of manually created components and relations.
 * `| xargs` connects the `graph list` and `graph export` commands.
-* `sts graph export --ids` exports all graph nodes by ids.
+* `stac graph export --ids` exports all graph nodes by ids.
 * `> manual_topo.stj` dumps the results in the file `manual_topo.stj`.
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
 
 ## Import manually created topology
 
