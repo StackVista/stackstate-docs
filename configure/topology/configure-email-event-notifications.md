@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Enable email event notifications
@@ -38,7 +38,7 @@ StackState can send an event notification by email whenever the health state of 
    ```
 
 2. Restart StackState to apply the configuration changes.
-3. Use the [Manage event handlers](/use/stackstate-ui/views/manage-event-handlers.md) pane in the StackState UI to add an email event handler to a view.
+3. Use the [Manage event handlers](/use/stackstate-ui/views/manage-event-handlers.md) panel in the StackState UI to add an email event handler to a view.
 {% endtab %}
 
 {% tab title="Linux" %}

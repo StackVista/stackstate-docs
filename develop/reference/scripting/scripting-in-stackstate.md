@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Scripting in StackState
@@ -37,13 +37,14 @@ All StackState functionality exposed via scripting is available via so-called sc
 
   Please have a look at the full list of [script APIs](script-apis/).
 
-## Asynchronous programming
+## Asynchronous and streaming programming
 
-Most functions available through the StackState script APIs need some time to return a result. For efficiency reasons, StackState will suspend script execution while waiting for a result and continue other work on other background threads. When a function has an async return value, the word `async` is written before the return type in the script API documentation. This has implications for how to work with results. Please [read about async script results](async_script_result.md) to understand how this works.
+Most functions available through the StackState script APIs need some time to return a result. For efficiency reasons, StackState will suspend script execution while waiting for a result and continue other work on other background threads. When a function has an async return value, the word `async` is written before the return type in the script API documentation. This has implications for how to work with results. Please [read about async script results](async-script-result.md) to understand how this works. On top of asynchronous programming, some APIs make use of [streaming](streaming-script-result.md) to allow constant-memory processing of large amounts of data. 
 
 ## See also
 
 * [Analytics environment](../../../use/stackstate-ui/analytics.md)
-* [Async script results](async_script_result.md)
+* [Async script results](async-script-result.md)
+* [Streaming script results](streaming-script-result.md)
 * [Script APIs](script-apis/)
 

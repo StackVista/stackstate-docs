@@ -1,14 +1,63 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # How to get a template file
 
 ## Export the StackState configuration
 
-You can get a complete dump of all configuration using the CLI: `sts graph export > configuration.stj`. Follow the preparation steps below to prepare the `.stj` file, such that it contains only configuration nodes pertaining to your StackPack.
+You can get a complete dump of all configuration using the StackState CLI:
 
-If all of your configuration nodes already have been assigned to the right namespace you can get all the nodes of your StackPack via: `sts graph export --namespace <namespace> > configuration.stj`.
+{% tabs %}
+{% tab title="CLI: sts (new)" %}
+
+```commandline
+sts settings describe --file <PATH_TO_FILE.stj>
+```
+
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+
+Command not currently available in the new `sts` CLI.
+{% endtab %}
+{% tab title="CLI: stac" %}
+```text
+stac graph export > <PATH_TO_FILE.stj>
+```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% endtabs %}
+
+Follow the preparation steps below to prepare the `.stj` file, such that it contains only configuration nodes pertaining to your StackPack.
+
+If all of your configuration nodes already have been assigned to the right namespace you can get all the nodes of your StackPack using the command: 
+
+{% tabs %}
+{% tab title="CLI: sts (new)" %}
+
+```commandline
+sts settings describe --namespace <NAMESPACE> --file <PATH_TO_FILE.stj>
+```
+
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+
+Command not currently available in the new `sts` CLI.
+{% endtab %}
+{% tab title="CLI: stac" %}
+
+```text
+stac graph export --namespace <namespace> > <PATH_TO_FILE.stj>
+```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% endtabs %}
+
+
 
 ## Prepare the template file
 

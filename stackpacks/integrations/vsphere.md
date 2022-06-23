@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # 💠 VMWare vSphere
@@ -182,6 +182,14 @@ To uninstall the VMWare vSphere StackPack and disable the VMWare vSphere check:
 3. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
 
 ## Release notes
+
+**VMWare vSphere StackPack v2.3.3 (2022-06-03)**
+
+- Improvement: Updated documentation
+
+**VMWare vSphere StackPack v2.3.2 (2022-04-20)**
+
+- Improvement: Added collection level setting info.
 
 **VMWare vSphere StackPack v2.3.1 \(2021-04-12\)**
 

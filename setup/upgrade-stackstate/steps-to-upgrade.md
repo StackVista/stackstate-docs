@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Steps to upgrade
@@ -134,7 +134,7 @@ Upgrades should be done through SSH and not the KOTS UI.
 2. Check the [StackState version specific upgrade notes](version-specific-upgrade-instructions.md) for all changes between your current StackState version and the version that you will upgrade to. 
 3. Run `kubectl kots upstream upgrade stackstate -n default--airgap-bundle bundle_name.airgap`.
 4. Log in to the KOTS UI.
-5. Click on **Config** and update as needed. Click **Save Config** and then follow the prompts to re-deploy
+5. Click **Config** and update as needed. Click **Save Config** and then follow the prompts to re-deploy
 {% endtab %}
 
 {% tab title="OpenShift" %}

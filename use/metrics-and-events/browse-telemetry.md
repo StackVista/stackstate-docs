@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Browse telemetry
@@ -20,7 +20,11 @@ Within the telemetry inspector you can adjust the selected metric as well as the
 
 ### Anomaly feedback
 
-When anomaly detection is enabled for a metric stream, users can give feedback on reported anomalies in the form of a thumbs-up (*"well spotted!"*) or thumbs-down (*"false positive"*). For more elaborate feedback, it is also possible to add comments. Feedback added to anomalies can be [exported and sent to StackState](/stackpacks/add-ons/aad.md#export-feedback) where it will be used by the StackState team to further develop and improve the AAD.
+When anomaly detection is enabled for a metric stream, users can give feedback on reported anomalies in the form of a thumbs-up (*"well spotted!"*) or thumbs-down (*"false positive"*). For more elaborate feedback, it is also possible to add comments. Feedback added to anomalies will be used by the StackState team to further develop and improve the AAD.
+
+{% hint style="info" "self-hosted info" %}
+In a self-hosted installation, feedback must be [exported and sent to StackState](/configure/anomaly-detection/export-anomaly-feedback.md) for the StackState team to be able to access it.
+{% endhint %}
 
 Note that feedback is not used to train the local instance of AAD.
 

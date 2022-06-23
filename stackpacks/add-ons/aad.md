@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Autonomous Anomaly Detector
@@ -34,9 +34,9 @@ Each identified anomaly is given a severity. This can be HIGH, MEDIUM or LOW. Th
 
 ### Anomaly events
 
-When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream Anomaly` event is generated. Anomaly events are listed on the Events Perspective and will also be reported as one of the [Probable Causes for any associated problem](../../use/problem-analysis/problem_investigation.md#probable-causes). Clicking on the event will open the Event Details pane on the right-hand side of the screen.
+When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream Anomaly` event is generated. Anomaly events are listed on the Events Perspective and will also be reported as one of the [Probable Causes for any associated problem](../../use/problem-analysis/problem_investigation.md#probable-causes). Select an event to display detailed information about it in the right panel **Selection details** tab.
 
-![Metric stream anomaly event details pane](../../.gitbook/assets/v50_event_metric_stream_anomaly.png)
+![Metric stream anomaly event detailed information](../../.gitbook/assets/v50_event_metric_stream_anomaly.png)
 
 * **Metric Stream** - The name of the metric stream on which the anomaly was detected.
 * **Severity** - The [anomaly severity](#anomaly-severity). Anomaly events are only generated for HIGH severity anomalies.
@@ -57,7 +57,7 @@ To enable improvement of the AAD, users can add feedback to reported anomalies. 
 
 {% hint style="success" "self-hosted info" %}
 
-Use the StackState CLI to [export anomaly feedback](/configure/telemetry/export-anomaly-feedback.md) ready to send to StackState.
+Use the StackState CLI to [export anomaly feedback](/configure/anomaly-detection/export-anomaly-feedback.md) ready to send to StackState.
 
 {% endhint %}
 

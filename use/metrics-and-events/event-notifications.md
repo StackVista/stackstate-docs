@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Send event notifications
@@ -14,7 +14,7 @@ When something goes wrong within your IT environment, StackState can send event 
 
 Event handlers can be added to a StackState view to send event notifications or trigger actions in response to health state change events or problem events that are generated within the view. The event handler will listen to generated events and run a configured event handler function when the configured [event type](#event-types-for-notifications) is generated.
 
-You can add an event handler to a view from the StackState UI [Manage Event Handlers](/use/stackstate-ui/views/manage-event-handlers.md) pane.
+You can add an event handler to a view from the StackState UI [Manage Event Handlers](/use/stackstate-ui/views/manage-event-handlers.md) panel.
 
 ![Add an event handler](../../.gitbook/assets/v50_event_handlers_tab.png)
 
@@ -28,7 +28,7 @@ Only events related to components are captured in event handlers, relation-relat
 
 ### State change events
 
-Metrics and events data flow through StackState topology elements in telemetry streams. These telemetry streams are used by [health checks](../checks-and-monitors/add-a-health-check.md) to determine the health state of an element. For every change in health state, at least one state change event is generated. Use the [Manage Event Handlers](/use/stackstate-ui/views/manage-event-handlers.md) pane to add an event handler to the view and trigger an event notification or action whenever state changed events are generated.
+Metrics and events data flow through StackState topology elements in telemetry streams. These telemetry streams are used by [health checks](../checks-and-monitors/add-a-health-check.md) to determine the health state of an element. For every change in health state, at least one state change event is generated. Use the [Manage Event Handlers](/use/stackstate-ui/views/manage-event-handlers.md) panel to add an event handler to the view and trigger an event notification or action whenever state changed events are generated.
 
 The event types generated when an element state changes are described in the table below.
 
@@ -40,7 +40,7 @@ The event types generated when an element state changes are described in the tab
 
 ### Problem events
 
-StackState groups unhealthy components in a view into problems, each with a common root cause. For every change to a problem, at least one problem event is generated. Use the [Manage Event Handlers](/use/stackstate-ui/views/manage-event-handlers.md) pane to add an event handler to the view and trigger an event notification or action whenever problem events are generated.
+StackState groups unhealthy components in a view into problems, each with a common root cause. For every change to a problem, at least one problem event is generated. Use the [Manage Event Handlers](/use/stackstate-ui/views/manage-event-handlers.md) panel to add an event handler to the view and trigger an event notification or action whenever problem events are generated.
 
 Changes to a problem result in the following event types being generated. Note that there may be a slight delay between the generation of a health state change event for an element and the resulting Problem event:
 

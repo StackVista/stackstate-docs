@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # StackState release notes
@@ -101,6 +101,17 @@ Details of the included improvements, bug fixes and StackPack updates can be fou
 ## StackState v4.5.x
 
 Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
+
+### v4.5.6
+
+**Improvements**
+
+- Added support for base64 encoded trust stores. STAC-16004
+
+**Bug fixes**
+
+- If the OIDC configuration is wrongly configured to obtain a username, the logging will show all fields that can be selected to obtain the username from. STAC-16027
+- Security fixes for CVE-2022-24407. STAC-15939
 
 ### v4.5.5
 
@@ -355,7 +366,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 
 **Improvements**
 
-* The CLI will now issue a deprecation warning when not using the new API token based authentication. For details, see the [CLI authentication docs](/setup/cli-install.md#authentication). STAC-12567
+* The CLI will now issue a deprecation warning when not using the new API token based authentication. For details, see the [CLI authentication docs](/setup/cli/README.md). STAC-12567
 * Any change to a check will update the check state data and fire a change event. STAC-12472
 
 **Bug fixes**
@@ -381,9 +392,9 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 * The [Autonomous Anomaly Detector \(AAD\)](../../stackpacks/add-ons/aad.md) is now enabled by default in the Kubernetes distribution. STAC-12024
 * It is now possible to [configure whether ClusterRoles and ClusterRoleBindings need to be installed](../install-stackstate/kubernetes_install/required_permissions.md#disable-automatic-creation-of-cluster-wide-resources) by the StackState Helm chart using the flag `cluster-role.enabled`. STAC-11749
 * StackState HDFS pods now run without privileges in Kubernetes. STAC-11741
-* Added support for interacting with external systems using [self-signed certificates](../../configure/security/self-signed-cert.md). STAC-11738
+* Added support for interacting with external systems using [self-signed certificates](/configure/security/self-signed-certificates.md). STAC-11738
 * The field specifying the [role to use for Keycloak authentication](../../configure/security/authentication/keycloak.md) \(default field name: `roles`\) is now configurable using the `groupsField` configuration parameter. STAC-11609
-* StackState now supports [API tokens for authentication of the StackState CLI](../cli-install.md#authentication). This allows the StackState CLI to work with Keycloak or OIDC as an authentication provider. STAC-11608
+* StackState now supports [API tokens for authentication of the StackState CLI](../cli/README.md). This allows the StackState CLI to work with Keycloak or OIDC as an authentication provider. STAC-11608
 * The CLI will now issue a deprecation warning when not using the new API token based authentication. STAC-12567
 * Added support for [backup and restore procedure for self-hosted Kubernetes](../data-management/backup_restore/kubernetes_backup.md) setup. STAC-11548
 * It is now possible to use component actions when time-traveling. STAC-11462

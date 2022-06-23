@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Configure the view health
@@ -17,12 +17,12 @@ StackState can reduce this noise by looking at the overall health state of a **v
 View health state is calculated by a **view state configuration function**. To configure a view to report its health state:
 
 1. In the StackState UI, click **Views** from the main menu.
-2. Click on the pencil icon next to a view name to edit the view.
+2. Click the pencil icon next to a view name to edit the view.
 3. Set **View Health State Enabled** to **On**.
 4. Select a **Configuration function** to use to calculate the view health.
 5. Provide any required arguments. These will vary according to the view health state configuration function selected. For example, for the default [MINIMUM HEALTH STATES](configure-view-health.md#minimum-health-states) configuration function:
    * **minCriticalHealthStates** - Set to at least **1**. This is the number of CRITICAL \(red\) health states required for the view to report a CRITICAL health state.
-   * **minDeviatingHealthStates** - Set to at least **1**. This is the number of DEVIATING \(orange\) health states required for the view to report a DEVIATING health state.
+   * **minDeviatingHealthStates** - Set to at least **1**. This is the number of deviating \(orange\) health states required for the view to report a `DEVIATING` health state.
 6. Click **UPDATE** to save the new configuration to the view.
    * The view health will update immediately.
 
@@ -45,7 +45,7 @@ When the View health state changes, a `ViewHealthStateChangedEvent` is generated
 {% hint style="warning" %}
 **minCriticalHealthStates** and **minDeviatingHealthStates** must be set to **1** or higher.
 
-When set to 0, the view will always report a CRITICAL or DEVIATING health state.
+When set to 0, the view will always report a `CRITICAL` or `DEVIATING` health state.
 {% endhint %}
 
 The **MINIMUM HEALTH STATES** view health state configuration function calculates the health state of the view as follows:

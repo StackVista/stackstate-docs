@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Traces Perspective
@@ -30,15 +30,15 @@ When inspecting a trace and seeing the list of its spans, you can click on any s
 
 ## Filter displayed traces
 
-Traces and components are tightly related. The traces visible in the Traces Perspective can be filtered in the **View filters** pane on the left-hand side of the StackState UI.
+Traces and components are tightly related. The traces visible in the Traces Perspective can be filtered in the **View filters** on the left of the StackState UI.
 
 ### Filter by source component
 
-The [topology filters](../filters.md#filter-topology) in the **View Filters** pane on the left-hand side of the StackState UI define the elements \(components and relations\) for which traces will be displayed. Only traces relating to elements that match the applied topology filters, or the view itself, will be visible. You can adjust the components for which traces are displayed by updating the topology filters.
+The [topology filters](../filters.md#filter-topology) in the **View Filters** panel on the left of the StackState UI define the elements \(components and relations\) for which traces will be displayed. Only traces relating to elements that match the applied topology filters, or the view itself, will be visible. You can adjust the components for which traces are displayed by updating the topology filters.
 
 ### Filter by properties
 
-The [trace filters](../filters.md#filter-traces) in the **View Filters** pane on the left-hand side of the StackState UI allow you to refine the traces displayed based on span type and tags.
+The [trace filters](../filters.md#filter-traces) in the **View Filters** panel on the left of the StackState UI allow you to refine the traces displayed based on span type and tags.
 
 ### Filter by timestamp
 
@@ -59,7 +59,7 @@ By installing our agent and its integrations to gather traces from these technol
 * Each component relates to a span
 * Each trace relates to a list of spans \(or components\) that are traversed to complete the requests executed in your IT infrastructure.
 
-![The spans \(components\) of a trace](../../../.gitbook/assets/v50_trace-inspection.png)
+![The spans \(components\) of a trace](../../../.gitbook/assets/v50_traces.png)
 
 ![The topology for which you fetch traces](../../../.gitbook/assets/v50_topology-traces.png)
 

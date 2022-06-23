@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Debug topology synchronization
@@ -16,12 +16,12 @@ A topology synchronized using StackState Agent follows the process described bel
 
 1. StackState Agent:
    * Connects to a data source to collect data.
-   * Connects to the StackState receiver to push collected data to StackState (in JSON format).
+   * Connects to the StackState Receiver to push collected data to StackState (in JSON format).
    * Read the [troubleshooting steps for StackState Agent](#stackstate-agent).
-2. StackState receiver:
+2. StackState Receiver:
    * Extracts topology and telemetry payloads from the received JSON. 
    * Puts messages on the Kafka bus. 
-   * Read the [troubleshooting steps for StackState receiver](#stackstate-receiver).
+   * Read the [troubleshooting steps for StackState Receiver](#stackstate-receiver).
 3. Kafka:
    * Stores received data in topics.
    * Read the [troubleshooting steps for Kafka](#kafka).
@@ -45,17 +45,17 @@ For integrations that run through StackState Agent, StackState Agent is a good p
 - Check the [StackState Agent log](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) for hints that it has problems connecting to StackState.
 - The integration can be triggered manually using the `stackstate-agent check <check_name> -l debug` command on your terminal. This command will not send any data to StackState. Instead, it will return the topology and telemetry collected to standard output along with any generated log messages.
 
-### StackState receiver
+### StackState Receiver
 
-The StackState receiver receives JSON data from the StackState Agent. 
+The StackState Receiver receives JSON data from the StackState Agent. 
  
-- Check the StackState receiver logs for JSON deserialization errors. 
+- Check the StackState Receiver logs for JSON deserialization errors. 
 
 ### Kafka
 
 Topology and telemetry are stored on Kafka on separate topics. The StackState topology synchronization reads data from a Kafka bus once it becomes available.
 
-- Use the StackState CLI to list all topics present on Kafka `sts topology list-topics`. A topic should be present where the name has the format `sts_topo_<instance_type>_<instance url>` where `<instance_type>` is the recognizable name of an integration and `<instance_url>` corresponds to the StackState Agent integration YAML, this is usually the URL of the data source.
+- Use the `stac` CLI to list all topics present on Kafka `stac topology list-topics`. A topic should be present where the name has the format `sts_topo_<instance_type>_<instance url>` where `<instance_type>` is the recognizable name of an integration and `<instance_url>` corresponds to the StackState Agent integration YAML, this is usually the URL of the data source.
 - Check the messages on the Kafka topic using the StackState CLI command `sts topic show <topic_name>`. If there are recent messages on the Kafka bus, then you know that the issue is not in the data collection.
 
 ### Synchronization
@@ -137,9 +137,12 @@ For details on working with the StackState log files on Linux, see the page [Con
 
 Returns a list of all current topology synchronization streams.
 
+{% tabs %}
+{% tab title="CLI: stac" %}
+
 ```javascript
 # List streams
-sts topology list
+stac topology list
 
         Node Id  Identifier                                                                               Status      Created Components    Deleted Components    Created Relations    Deleted Relations    Errors
 ---------------  ---------------------------------------------------------------------------------------  --------  --------------------  --------------------  -------------------  -------------------  --------
@@ -148,13 +151,26 @@ sts topology list
 144667609743389  urn:stackpack:stackstate:instance:44a9ce1e-413c-4c4c-819d-2095c1229dda:sync:stackstate   Running                  13599                  5496                    0                    0       329
 ```
 
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
+
 ### Show status of a stream 
 
 Shows the data of a specific topology synchronization stream, including detalied latency of the data being processed. The `id` might be either a `node id` or the identifier of a topology synchronization. The search gives priority to the `node id`.
 
+{% tabs %}
+{% tab title="CLI: stac" %}
+
 ```javascript
 # Show a topology synchronization status
-sts topology show urn:stackpack:stackstate:instance:44a9ce1e-413c-4c4c-819d-2095c1229dda:sync:stackstate
+stac topology show urn:stackpack:stackstate:instance:44a9ce1e-413c-4c4c-819d-2095c1229dda:sync:stackstate
 
         Node Id  Identifier                                                                               Status      Created Components    Deleted Components    Created Relations    Deleted Relations    Errors
 ---------------  ---------------------------------------------------------------------------------------  --------  --------------------  --------------------  -------------------  -------------------  --------
@@ -164,6 +180,16 @@ metric               value between now and 500 seconds ago  value between 500 an
 -----------------  ---------------------------------------  ----------------------------------------  -----------------------------------------
 latency (Seconds)                                   35.754  ---                                       ---
 ```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
 
 ## See also
 

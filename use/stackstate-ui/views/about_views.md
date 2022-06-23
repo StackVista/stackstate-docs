@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # About views
@@ -24,7 +24,7 @@ Not all views are manually created. Many [StackPacks](../../../stackpacks/about-
 
 Every view that a user has permission to access is listed on the **all views** screen in the StackState UI. To open this screen, click **all views** from the main menu or **Views** in the top bar breadcrumbs. Views marked with a star are listed directly in the main menu for easy access.
 
-Click on a view name to open the topology perspective for that view.
+Click a view name to open the topology perspective for that view.
 
 ## Starred views
 
@@ -35,9 +35,9 @@ To add or remove a star:
 * For the current view: Click the star icon to the right of its name in the top bar to add or remove the star.
 * For any view: Click **all views** from the main menu to open a list of all views. Click the star icon to the right of a view name to add or remove its star.
 
-## The View Details pane
+## View Summary
 
-When you first open a view, the View Details pane will be visible on the right-hand side of the StackState UI. This shows the following information:
+When you first open a view, the **View Summary** will be visible in the right panel. This shows the following information:
 
 * **View properties** - The view health state, query and last updated timestamp.
 * **Components** - A summary of the number of components in the view.

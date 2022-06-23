@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Splunk
@@ -8,20 +8,20 @@ description: StackState Self-hosted v5.0.x
 
 The StackState Splunk integration synchronizes events, metrics, health and topology data from Splunk to StackState. The integration uses StackState Agent V1 and StackState Agent V2:
 
-* [StackState Agent V1](../../../setup/agent/agent-v1.md) is used to collect Splunk events and metrics data. It can also be used to collect topology data when the Splunk topology V1 integration is configured.
-* [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md) is used to collect health data. It can also be used to collect topology data when the Splunk topology V2 integration is configured.
+* [StackState Agent V1](../../../setup/agent/agent-v1.md) is used to collect Splunk events and metrics data. It can also be used to collect topology data when the Splunk Topology V1 integration is configured.
+* [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md) is used to collect health data. It can also be used to collect topology data when the Splunk Topology V2 integration is configured.
 
 Splunk is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
 
 ![Data flow](../../../.gitbook/assets/stackpack-splunk.svg)
 
 * StackState Agent V1 periodically connects to the configured Splunk instance to execute Splunk saved searches and retrieve data:
-  * Topology data from the searches configured in the Splunk topology V1 Agent check.
-  * Metrics data from the searches configured in the Splunk metrics Agent check.
-  * Events data from the searches configured in the Splunk events Agent check.
+  * Topology data from the searches configured in the Splunk Topology V1 Agent check.
+  * Metrics data from the searches configured in the Splunk Metrics Agent check.
+  * Events data from the searches configured in the Splunk Events Agent check.
 * StackState Agent V2 periodically connects to the configured Splunk instance to execute Splunk saved searches and retrieve data:
-  * Topology data from the searches configured in the Splunk topology V2 Agent check.
-  * Health data from the searches configured in the Splunk health Agent check.
+  * Topology data from the searches configured in the Splunk Topology V2 Agent check.
+  * Health data from the searches configured in the Splunk Health Agent check.
 * The Agents push retrieved data to StackState.
 * StackState translates incoming data:
   * [Topology data](splunk_stackpack.md#topology) is translated into components and relations.
@@ -42,34 +42,25 @@ Splunk is a [StackState core integration](/stackpacks/integrations/about_integra
 
 ### Install
 
-#### Splunk metrics and events
-
-To retrieve metrics and events data from Splunk, [StackState Agent V1](../../../setup/agent/agent-v1.md) must be installed. Once the required Splunk Agent checks have been configured, Splunk metrics and events will directly be available in StackState.
-
-#### Splunk health
-
-To retrieve health data from Splunk, [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md) must be installed. Once the Splunk health Agent check has been configured, Splunk health data will directly be available in StackState.
-
-#### Splunk topology
-
-To retrieve topology data from Splunk, [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md) or [StackState Agent V1](../../../setup/agent/agent-v1.md) must be installed.
-
 The Splunk StackPack provides all the necessary configuration to easily work with Splunk topology data in StackState. Install the Splunk StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
 
 * **Splunk instance name** - A unique name to identify the Splunk instance in StackState. 
 * **Splunk API URL** - The URL where the Splunk API can be reached. For example: `http://splunk.network.local:8089`.
 
+After the StackPack has been installed, you should follow the instructions below to configure the required Splunk checks on StackState Agent V2 or StackState Agent V1.
+
 ### Configure
 
-StackState Agent V2 and/or StackState Agent V1 must be configured with a Splunk Agent check for each type of data you want to retrieve from Splunk \(topology, metrics and/or events\).
+A Splunk check must be configured on StackState Agent V2 or StackState Agent V1 for each type of data you want to retrieve from Splunk:
 
-Details of how to configure each of these checks can be found on the pages listed below:
+* **StackState Agent V2 (recommended)**:
+  * [Splunk Health check](splunk_health.md) - to retrieve health data from Splunk
+  * [Splunk Topology V2 check](splunk_topology_v2.md) - to retrieve topology data from Splunk
 
-* [Splunk topology V2 check with StackState Agent V2](splunk_topology_v2.md)
-* [Splunk topology V1 check with StackState Agent V1](splunk_topology.md)
-* [Splunk metrics check configuration](splunk_metrics.md)
-* [Splunk events check configuration](splunk_events.md)
-* [Splunk health check configuration](splunk_health.md)
+* **StackState Agent V1**:
+  * [Splunk Events check](splunk_events.md) - to retrieve events data from Splunk
+  * [Splunk Metrics check](splunk_metrics.md) - to retrieve metrics data from Splunk
+  * [Splunk Topology V1 check](splunk_topology.md) - to retrieve topology data from Splunk
 
 ### Authentication
 
@@ -166,32 +157,32 @@ The Splunk integration can retrieve the following data:
 
 #### Events
 
-When the Splunk events Agent check is configured, events will be retrieved from the configured Splunk saved search or searches. Events retrieved from splunk are available in StackState as a log telemetry stream in the `stackstate-generic-events` data source. This can be [mapped to associated components](../../../use/metrics-and-events/add-telemetry-to-element.md).
+When the Splunk Events Agent check is configured, events will be retrieved from the configured Splunk saved search or searches. Events retrieved from splunk are available in StackState as a log telemetry stream in the `stackstate-generic-events` data source. This can be [mapped to associated components](../../../use/metrics-and-events/add-telemetry-to-element.md).
 
-For details on how to configure the events retrieved, see the [Splunk events check configuration](splunk_events.md).
+For details on how to configure the events retrieved, see the [Splunk Events check configuration](splunk_events.md).
 
 #### Metrics
 
-When the Splunk metrics Agent check is configured, metrics will be retrieved from the configured Splunk saved search or searches. One metric can be retrieved from each saved search. Metrics retrieved from splunk are available in StackState as a metrics telemetry stream in the `stackstate-metrics` data source. This can be [mapped to associated components](../../../use/metrics-and-events/add-telemetry-to-element.md).
+When the Splunk Metrics Agent check is configured, metrics will be retrieved from the configured Splunk saved search or searches. One metric can be retrieved from each saved search. Metrics retrieved from splunk are available in StackState as a metrics telemetry stream in the `stackstate-metrics` data source. This can be [mapped to associated components](../../../use/metrics-and-events/add-telemetry-to-element.md).
 
-For details on how to configure the metrics retrieved, see the [Splunk metrics check configuration](splunk_metrics.md).
+For details on how to configure the metrics retrieved, see the [Splunk Metrics check configuration](splunk_metrics.md).
 
 #### Topology
 
-When the Splunk StackPack is installed, and a Splunk topology Agent check is configured, topology will be retrieved from the configured Splunk saved searches. The check that you should configure depends on the StackState Agent that you will use to retrieve topology data. The Splunk topology V1 check uses StackState Agent V1 to retrieve data from Splunk, while the Splunk topology V2 check uses StackState Agent V2.
+When the Splunk StackPack is installed, and a Splunk topology Agent check is configured, topology will be retrieved from the configured Splunk saved searches. The check that you should configure depends on the StackState Agent that you will use to retrieve topology data. The Splunk Topology V1 check uses StackState Agent V1 to retrieve data from Splunk, while the Splunk Topology V2 check uses StackState Agent V2.
 
 For details on how to configure the components and relations retrieved, see:
 
-* [Splunk topology V1 check configuration](splunk_topology.md) \(StackState Agent V1\).
-* [Splunk topology V2 check configuration](splunk_topology_v2.md) \(StackState Agent V2\).
+* [Splunk Topology V1 check configuration](splunk_topology.md) \(StackState Agent V1\).
+* [Splunk Topology V2 check configuration](splunk_topology_v2.md) \(StackState Agent V2\).
 
 If you have an existing Splunk topology integration configured to use StackState Agent V1 and would like to upgrade to use StackState Agent V2, refer to the [Splunk topology check upgrade instructions](splunk_topology_upgrade_v1_to_v2.md).
 
 #### Health
 
-When the Splunk health Agent check is configured, health check states will be retrieved from the configured Splunk saved searches. Retrieved health check states are mapped to the associated components and relations in StackState.
+When the Splunk Health Agent check is configured, health check states will be retrieved from the configured Splunk saved searches. Retrieved health check states are mapped to the associated components and relations in StackState.
 
-For details on how to configure the health retrieved, see the [Splunk health check configuration](splunk_health.md).
+For details on how to configure the health retrieved, see the [Splunk Health check configuration](splunk_health.md).
 
 #### Traces
 
@@ -213,14 +204,14 @@ For further details, see the [Splunk API documentation \(docs.splunk.com\)](http
 
 ### Open source
 
-The Splunk StackPack and the Agent checks for Splunk events, metrics and topology are open source and available on GitHub at the links below:
+The Splunk StackPack and the Agent checks for Splunk Events, metrics and topology are open source and available on GitHub at the links below:
 
 * [Splunk StackPack \(github.com\)](https://github.com/StackVista/stackpack-splunk)
-* [Splunk topology V1 check \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_topology)
-* [Splunk topology V2 check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/splunk_topology)
-* [Splunk metrics check \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_metric)
-* [Splunk events check \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_event)
-* [Splunk health check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/splunk_health)
+* [Splunk Topology V1 check \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_topology)
+* [Splunk Topology V2 check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/splunk_topology)
+* [Splunk Metrics check \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_metric)
+* [Splunk Events check \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/tree/master/splunk_event)
+* [Splunk Health check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/splunk_health)
 
 ## Troubleshooting
 
@@ -232,11 +223,11 @@ To uninstall the Splunk StackPack, go to the StackState UI **StackPacks** &gt; *
 
 For instructions on how to disable the Splunk Agent checks, see:
 
-* [Disable the Splunk topology V2 Agent check](splunk_topology_v2.md#disable-the-agent-check)
-* [Disable the Splunk topology V1 Agent check](splunk_topology.md#disable-the-agent-check)
-* [Disable the Splunk metrics Agent check](splunk_metrics.md#disable-the-agent-check)
-* [Disable the Splunk events Agent check](splunk_events.md#disable-the-agent-check)
-* [Disable the Splunk health Agent check](splunk_health.md#disable-the-agent-check)
+* [Disable the Splunk Topology V2 Agent check](splunk_topology_v2.md#disable-the-agent-check)
+* [Disable the Splunk Topology V1 Agent check](splunk_topology.md#disable-the-agent-check)
+* [Disable the Splunk Metrics Agent check](splunk_metrics.md#disable-the-agent-check)
+* [Disable the Splunk Events Agent check](splunk_events.md#disable-the-agent-check)
+* [Disable the Splunk Health Agent check](splunk_health.md#disable-the-agent-check)
 
 ## Release notes
 
@@ -246,11 +237,14 @@ The [Splunk StackPack release notes](https://github.com/StackVista/stackpack-spl
 
 Configure the StackState Agent Splunk checks:
 
-* [Splunk topology V2 check configuration - StackState Agent V2](splunk_topology_v2.md)
-* [Splunk topology V1 check configuration - StackState Agent V1](splunk_topology.md)
-* [Splunk events check configuration - StackState Agent V1](splunk_events.md)
-* [Splunk metrics check configuration - StackState Agent V1](splunk_metrics.md)
-* [Splunk health check configuration - StackState Agent V2](splunk_health.md)
+* **StackState Agent V2 (recommended)**:
+  * [Splunk Health check](splunk_health.md) - to retrieve health data from Splunk
+  * [Splunk Topology V2 check](splunk_topology_v2.md) - to retrieve topology data from Splunk
+
+* **StackState Agent V1**:
+  * [Splunk Events check](splunk_events.md) - to retrieve events data from Splunk
+  * [Splunk Metrics check](splunk_metrics.md) - to retrieve metrics data from Splunk
+  * [Splunk Topology V1 check](splunk_topology.md) - to retrieve topology data from Splunk
 
 Other resources:
 

@@ -1,10 +1,10 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Telemetry - script API
 
-## Function `query`
+## Function: `query`
 
 A telemetry query is a conjunction of equality conditions. For example, `name = 'system.load.norm.15' and host='localhost'`. There are several builder methods available that help to refine the query time range, limit the number of points returned, or set a metric field.
 
@@ -16,16 +16,20 @@ Telemetry.query(dataSourceName: String, query: String)
 Telemetry queries only support metric queries. If you need event queries, please enter a feature request at [support.stackstate.com](https://support.stackstate.com)
 {% endhint %}
 
-**Args:**
+### Args
 
 * `dataSourceName` - name of the data source.
 * `query` - set of equality conditions.
 
-**Returns:**
+### Returns
 
-`AsyncScriptResult[TelemetryScriptApiQueryResponse]`
+{% hint style="info" %}
+The output format of the Telemetry API changed in StackState v5.0. If you are running an earlier version of StackState, see the documentation for [StackState v4.6 documentation \(docs.stackstate.com/v/4.6\)](https://docs.stackstate.com/v/4.6/develop/reference/scripting/script-apis/telemetry).
+{% endhint %}
 
-**Builder methods:**
+`StreamingScriptResult[MetricTimeSeriesResult]`
+
+### Builder methods
 
 * `.groupBy(fieldName: String)` - optional. Used to return grouped results from Elasticsearch. Requires `.aggregation()` to be used. If there is no aggregation, a plain metric stream will be returned.
 * `aggregation(method: String, bucketSize: String)` - returns aggregated telemetry using `method` and `bucketSize`. See the [available aggregation methods](/use/metrics-and-events/add-telemetry-to-element.md#aggregation-methods).
@@ -36,9 +40,18 @@ Telemetry queries only support metric queries. If you need event queries, please
 * `metricField(fieldName: String)` - optional, but may be required for some data sources. Sets a field that holds metric value. 
 * `compileQuery()` - returns the telemetry query that was created with this function and the builder methods. After this builder method no more builder methods can be called.
 
-**Examples:**
+### Examples
 
-* Get metrics aggregated using Mean with bucket size 15 minutes and grouped by the field `host`: 
+* [Get metrics aggregated using Mean with bucket size 15 minutes and grouped by the field `host`](#get-metrics-aggregated-using-mean-with-bucket-size-15-minutes-and-grouped-by-the-field-host)
+* [Process the `StreamingScriptResult` result data, getting the ids of the resulting timeSeries](#process-the-streamingscriptresultstreaming-script-resultmd-result-data-getting-the-ids-of-the-resulting-timeseries)
+* [Get raw metric by query](#get-raw-metric-by-query)
+* [Get metric aggregated using Mean with bucket size 1 minute](#get-metric-aggregated-using-mean-with-bucket-size-1-minute)
+* [Query metrics starting 3 hours ago till now](#query-metrics-starting-3-hours-ago-till-now)
+* [Query metrics starting beginning of the data till last hour ago](#query-metrics-starting-beginning-of-the-data-till-last-hour-ago)
+* [Query metrics within time range starting 3 hours ago up to 1 hour ago](#query-metrics-within-time-range-starting-3-hours-ago-up-to-1-hour-ago)
+* [Query metrics from field `value` and limits points returned](#query-metrics-from-field-value-and-limits-points-returned)
+
+#### Get metrics aggregated using Mean with bucket size 15 minutes and grouped by the field `host`: 
   
   {% tabs %}
   {% tab title="Query" %}
@@ -53,8 +66,8 @@ Telemetry queries only support metric queries. If you need event queries, please
   {% endtab %}
   {% tab title="Example JSON output" %}
   ```text
-  {
-    "_type": "TelemetryMetricQueryResponse",
+  [{
+    "_type": "MetricTimeSeriesResult",
     "query": {
       "_type": "TelemetryMetricQuery",
       "aggregation": {
@@ -76,72 +89,102 @@ Telemetry queries only support metric queries. If you need event queries, please
       "metricField": "stackstate.jvm_threads_current",
       "startTime": 1643293949765
     },
-    "response": {
-      "_type": "MetricData",
-      "result": [
-        {
-          "_type": "TimeSeries",
-          "annotations": [],
-          "id": {
-            "_type": "TimeSeriesId",
-            "groups": {
-              "host": "sts-kafka-to-es-multi-metrics_generic-events_topology-events_state-events_sts-events"
-            }
-          },
-          "points": [[1643293800000, 49.46666666666667]],
-          "tags": []
-        },
-        {
-          "_type": "TimeSeries",
-          "annotations": [],
-          "id": {
-            "_type": "TimeSeriesId",
-            "groups": {
-              "host": "sts-kafka-to-es-trace-events"
-            }
-          },
-          "points": [[1643293800000, 44.46666666666667]],
-          "tags": []
-        },
-        {
-          "_type": "TimeSeries",
-          "annotations": [],
-          "id": {
-            "_type": "TimeSeriesId",
-            "groups": {
-              "host": "sts-receiver"
-            }
-          },
-          "points": [[1643293800000, 50.266666666666666]],
-          "tags": []
-        },
-        {
-          "_type": "TimeSeries",
-          "annotations": [],
-          "id": {
-            "_type": "TimeSeriesId",
-            "groups": {
-              "host": "sts-server"
-            }
-          },
-          "points": [[1643293800000, 179.53333333333333]],
-          "tags": []
+    "timeSeries": {
+      "_type": "TimeSeries",
+      "annotations": [],
+      "id": {
+        "_type": "TimeSeriesId",
+        "groups": {
+          "host": "sts-kafka-to-es-multi-metrics_generic-events_topology-events_state-events_sts-events"
         }
-      ]
+      },
+      "points": [[1643293800000, 49.46666666666667]],
+      "tags": []
     }
-  }
+  },
+  {
+    "_type": "MetricTimeSeriesResult",
+    "query": {
+      "_type": "TelemetryMetricQuery",
+      "aggregation": {
+        "bucketSize": 900000,
+        "method": "MEAN"
+      },
+      "conditions": [
+        {
+          "key": "name",
+          "value": "jvm_threads_current"
+        }
+      ],
+      "dataSourceId": 277422153298283,
+      "endTime": 1643294849765,
+      "groupBy": {
+        "fields": ["host"]
+      },
+      "includeAnnotations": false,
+      "metricField": "stackstate.jvm_threads_current",
+      "startTime": 1643293949765
+    },
+    "timeSeries": {
+      "_type": "TimeSeries",
+      "annotations": [],
+      "id": {
+        "_type": "TimeSeriesId",
+        "groups": {
+          "host": "sts-kafka-to-es-trace-events"
+        }
+      },
+      "points": [[1636293800000, 54.7]],
+      "tags": []
+    }
+  }]
   ```
   {% endtab %}
   {% endtabs %}
 
-* Get raw metric by query
+#### Process the [StreamingScriptResult](./../streaming-script-result.md) result data, getting the ids of the resulting timeSeries
+
+  {% tabs %}
+  {% tab title="Query" %}
+  ```text
+  Telemetry
+    .query("StackState Multi Metrics", "")
+    .groupBy("host")
+    .metricField("jvm_threads_current")
+    .start("-15m")
+    .aggregation("mean", "15m")
+    .then { it.timeSeries.id }
+  ```
+  {% endtab %}
+  {% tab title="Example JSON output" %}
+  ```text
+  [
+    {
+      "_type": "TimeSeriesId",
+        "groups": {
+          "host": "sts-kafka-to-es-multi-metrics_generic-events_topology-events_state-events_sts-events"
+        }
+      },
+      {
+        "_type": "TimeSeriesId",
+          "groups": {
+            "host": "sts-kafka-to-es-trace-events"
+          }
+      }
+    }
+  ]
+  ```
+  {% endtab %}
+  {% endtabs %}
+
+#### Get raw metric by query
   ```text
   Telemetry
     .query("StackState Metrics", "name='system.load.norm' and host='host1'")
     .metricField("value")
   ```
 
-* Get metric aggregated using Mean with bucket size 1 minute:
+#### Get metric aggregated using Mean with bucket size 1 minute
   ```text
   Telemetry
     .query("StackState Metrics", "name='system.load.norm' and host='host1'")
@@ -149,7 +192,7 @@ Telemetry queries only support metric queries. If you need event queries, please
     .aggregation("99th percentile", "1m") // get 99th percentile of each minute
   ```
 
-* Query metrics starting 3 hours ago till now:
+#### Query metrics starting 3 hours ago till now
 
   ```text
   Telemetry
@@ -158,7 +201,7 @@ Telemetry queries only support metric queries. If you need event queries, please
     .start("-3h") // starting from 3 hours ago
   ```
 
-* Query metrics starting beginning of the data till last hour ago:
+#### Query metrics starting beginning of the data till last hour ago
 
   ```text
   Telemetry
@@ -167,7 +210,7 @@ Telemetry queries only support metric queries. If you need event queries, please
     .end("-1h") // ending 1 hour ago
   ```
 
-* Query metrics within time range starting 3 hours ago up to 1 hour ago:
+#### Query metrics within time range starting 3 hours ago up to 1 hour ago
 
   ```text
   Telemetry
@@ -176,7 +219,7 @@ Telemetry queries only support metric queries. If you need event queries, please
     .window("-3h", "-1h") // from 3 hours ago to 1 hour ago
   ```
 
-* Query metrics from field "value" and limits points returned:
+#### Query metrics from field "value" and limits points returned
 
   ```text
   Telemetry
@@ -185,3 +228,6 @@ Telemetry queries only support metric queries. If you need event queries, please
     .limit(100)
   ```
 
+## See also
+
+* [Streaming script result](./../streaming-script-result.md)

@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Timeline and time travel
@@ -35,7 +35,7 @@ The telemetry interval can be set in the following ways:
 
 * **Zoom out**
 
-![Click on the magnifying glass to double the size of the telemetry interval](../../.gitbook/assets/v50_telemetry_interval_zoom_out.png)
+![Click the magnifying glass to double the size of the telemetry interval](../../.gitbook/assets/v50_telemetry_interval_zoom_out.png)
 
 * **Use the telemetry interval jumper arrows**
 
@@ -77,7 +77,7 @@ The topology time can be set in the following ways:
 
 * **Click a timestamp**
 
-![Click on a timestamp to jump to that specific topology time](../../.gitbook/assets/v50_topology_time_timestamp.png)
+![Click a timestamp to jump to that specific topology time](../../.gitbook/assets/v50_topology_time_timestamp.png)
 
 #### Topology time outside the telemetry interval
 

@@ -1,14 +1,14 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Component - script API
 
-## Function `withId`
+## Function: `withId`
 
 Get access to a component by its ID.
 
-**Args:**
+### Args
 
 * `id` - id of the component we are querying for. Each component has a unique randomly assigned id number.
 
@@ -110,9 +110,9 @@ Each of the methods below give you a Async result with a set of properties
     arguments
     ```
 
-**Examples:**
+### Examples
 
-This example returns the name of the layer for the component with id `123`. After getting the layer the [AsyncScriptResult](../async_script_result.md) `then` function is used to get the name of the layer.
+This example returns the name of the layer for the component with id `123`. After getting the layer the [AsyncScriptResult](../async-script-result.md) `then` function is used to get the name of the layer.
 
 ```text
 Component.withId(123).layer().then { it.name }

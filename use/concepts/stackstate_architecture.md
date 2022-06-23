@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # StackState architecture
@@ -30,7 +30,7 @@ StackState configuration and topology data are stored in the StackGraph database
 
 The StackState User Interface visualizes all collected data in [perspectives](perspectives.md). You can also customize your instance of StackState here by adding automation steps, such as event handlers and output to external systems.
 
-You can optionally install the [StackState CLI](/develop/reference/cli_reference.md) to control your StackState instance directly from the command line.
+You can optionally install the [StackState CLI](/setup/cli) to control your StackState instance directly from the command line.
 
 ## Open source
 
