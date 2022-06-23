@@ -12,7 +12,7 @@ information about OpenTelemetry and what it is.
 ## What is a distributed trace?
 Distributed tracing is a way of tracking code or application requests as it flows through the system as a whole.
 Things like latency, errors, success statuses, and more can be tracked and monitored.
-All the events and data mentioned above will be captured and grouped within separate spans.
+All the timed operations and data mentioned above will be captured and grouped within separate spans.
 Below is an example of a Trace that contains two spans, one Lambda parent span, and one SNS child span.
 (Parent and child span definitions will be explained a bit further down inside this documentation)
 
@@ -25,7 +25,7 @@ The above is a snippet of the [Trace Perspective](/use/stackstate-ui/perspective
 A span represents each unit of work that has been done within the lifespan of the trace.
 A request's whole lifecycle, from creation to fulfillment, is represented by a trace.
 
-For example, in the trace captured below, three events occurred.
+For example, in the trace captured below, three time operations occurred.
 
 The first was the Lambda that we monitored with OpenTelemetry, as seen in the screenshot below; this is the parent span.
 
@@ -39,7 +39,7 @@ And the last interaction before the Trace is completed is another interaction wi
 
 ![trace span example a](../../.gitbook/assets/otel_example_trace_span_a.png)
 
-As you can see from the above, within this trace context, it had three span events; thus, spans are a collection of events that makes up a trace.
+As you can see from the above, within this trace context, it had three span timed operations; thus, spans are a collection of timed operations that make up a trace.
 
 ### Concepts mentioned above
 
@@ -103,7 +103,7 @@ As you can see from the above, each following span parent id has the id from the
 
 
 ## Why create parent and children spans?
-We want to create relations between different span events, how they affect each other, and their relational flow.
+We want to create relations between different span timed operations, how they affect each other, and their relational flow.
 
 You can head over to the [manual instrumentation component relations](/configure/opentelemetry/manual-instrumentation/relations.md) page to get a full
 breakdown of how StackState relations work, how parent-child spans are shown on StackState, and how relations are created between
