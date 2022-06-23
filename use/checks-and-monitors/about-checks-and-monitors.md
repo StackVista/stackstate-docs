@@ -25,24 +25,35 @@ Monitors are a flexible way to define a custom set of monitoring rules. They can
 
 See how to [add a new monitor](./add-a-monitor.md).
 
-
 ### Monitor execution
 Monitors are run by a dedicated subsystem of StackState called the Monitor runner. The main task of the Monitor runner is to schedule the execution of all existing monitors in such a way as to ensure that all of them produce viable results in a timely manner.
 For that purpose, the Monitor runner uses an interval parameter configured on a per-monitor basis - the `intervalSeconds`. The runner will attempt to schedule a Monitor execution every `intervalSeconds`, counting from the end of the previous execution cycle, in parallel to the other existing Monitors (subject to resource limits). For example, setting `intervalSeconds` of a Monitor definition to the value `600` will cause the Monitor runner to attempt to schedule the execution of this Monitor every ten minutes, assuming that the execution time itself is negligible.
 
 The runner is maintenance free - it starts whenever StackState starts and picks up any newly applied Monitor definitions automatically whenever they are created, changed or removed. Any changes to the Monitors are reflected with the next execution cycle and any execution issues are logged to the global StackState log file. Any such error logs are obtainable (in addition to being stored in the StackState log file) via a dedicated CLI command:
 
+{% tabs %}
+{% tab title="CLI: sts (new)" %}
 ```
-sts monitor status <identifier-of-the-monitor-definition>
+# By ID
+sts monitor status --id <id-of-a-monitor>
+# By Identifier
+sts monitor status --identifier <identifier-of-a-monitor>
 ```
+{% endtab %}
+{% tab title="CLI: stac" %}
+`stac monitor status <identifier-of-a-monitor>`
+{% endtab %}
+{% endtabs %}
 
 The output of this command indicates the specific errors that occured along with the counts of how many times they happend in addition to health stream statistics associated with this monitor.
 
+{% hint style="success" "self-hosted info" %}
 The Monitor runner subsystem can be disabled via the configuration file by appending the following line at the end of the `etc/application_stackstate.conf` file:
 
 ```
 stackstate.featureSwitches.monitorRunner = false
 ```
+{% endhint %}
 
 ## See also
 * [Health Synchronization](../../configure/health/health-synchronization)
