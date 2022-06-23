@@ -15,7 +15,7 @@ Most Monitors in StackState are created as part of a StackPack installed by the 
 * Details of the monitors provided by StackPacks can be found in [their respective documentation](../../stackpacks/integrations/README.md).
 * You can also [create a custom monitor](../../develop/developer-guides/monitors/how-to-create-monitors.md) from scratch using the StackState CLI.
 
-It might be beneficial to modify an existing Monitor definition to change its parameters, run interval or to disable it. All of these actions are done by utilizing the StackState CLI and are describe in greater detail in the following sections.
+It might be beneficial to modify an existing Monitor definition to change its parameters, run interval or to disable it. All of these actions are done by utilizing the StackState CLI and are described in greater detail in the following sections.
 
 ### Change Monitor parameters or run interval
 

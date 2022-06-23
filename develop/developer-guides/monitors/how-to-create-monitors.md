@@ -16,18 +16,22 @@ Monitors in StackState are represented textually using the STJ file format. The 
     {
       "_type": "Monitor",
       "name": "CPU Usage",
-      "description": "",
+      "description": "A simple CPU-usage monitor. If the metric is above a given threshold, the state is set to CRITICAL.",
       "identifier": "urn:system:default:monitor:cpu-usage",
       "remediationHint": "Turn it off and on again.",
-      "function": {{ get "urn:system:default:monitor-function:metric-threshold" }},
+      "function": {{ get "urn:system:default:monitor-function:metric-above-threshold" }},
       "arguments": [{
         "_type": "ArgumentDoubleVal",
-        "parameter": {{ get "urn:system:default:monitor-function:metric-threshold" "Type=Parameter;Name=threshold" }},
+        "parameter": {{ get "urn:system:default:monitor-function:metric-above-threshold" "Type=Parameter;Name=threshold" }},
         "value": 90.0
       }, {
+         "_type": "ArgumentStringVal",
+        "parameter": {{ get "urn:system:default:monitor-function:metric-above-threshold" "Type=Parameter;Name=topologyIdentifierPattern" }},
+        "value": "urn:host:/${tags.host}"
+      }, {
         "_type": "ArgumentScriptMetricQueryVal",
-        "parameter": {{ get "urn:system:default:monitor-function:metric-threshold" "Type=Parameter;Name=query" }},
-        "script": "Telemetry\n.query(\"StackState Metrics\", \"\")\n.metricField(\"cpu-usage\")\n.groupBy(\"tags.name\")\n.start(\"-1m\")\n.aggregation(\"mean\", \"15s\")"
+        "parameter": {{ get "urn:system:default:monitor-function:metric-above-threshold" "Type=Parameter;Name=query" }},
+        "script": "Telemetry\n.query(\"StackState Metrics\", \"\")\n.metricField(\"system.cpu.system\")\n.groupBy(\"tags.host\")\n.start(\"-1m\")\n.aggregation(\"mean\", \"15s\")"
       }],
       "intervalSeconds": 60
     }
@@ -35,7 +39,7 @@ Monitors in StackState are represented textually using the STJ file format. The 
 }
 ```
 
-In addition to the usual elements of an STJ file, the protocol version and timestamp, the snippet defines a single note of type `Monitor`. Here is a breakdown of the various fields supported by this definition:
+In addition to the usual elements of an STJ file, the protocol version and timestamp, the snippet defines a single node of type `Monitor`. Here is a breakdown of the various fields supported by this definition:
 - `name` - a human readable name that shortly describes the operating principle of the Monitor,
 - `identifier` - a StackState-URN-formatted value that uniquely identifies this Monitor definition,
 - `description` - a longer, more in-depth description of the Monitor,
@@ -44,18 +48,20 @@ In addition to the usual elements of an STJ file, the protocol version and times
 - `arguments` - lists concrete values that are to be used as arguments to the Monitor Function invocation,
 - `intervalSeconds` - dictates how often to execute this particular Monitor; new executions are scheduled after `intervalSeconds`, counting from the time th last execution ended.
 
-### Unique identifier
+### Identifier
+
+An important field of the Monitor node is the `identifier` - it is a unique value of the StackState URN format that can be used together with the Monitor-specific StackState CLI commands. The identifier should be formatted as follows:
+
+`urn : <prefix> : monitor : <unique-monitor-identification>`
+
+The `prefix` is described in more detail in [topology identifiers](../../../configure/topology/identifiers.md), while the `unique-monitor-identification` is user-definable and free-form.
 
 ### Monitor function
 
-You can [create a custom monitor function](../custom-functions/monitor-functions.md) to customize how StackState processes the 4T data.
+Each monitor configured in StackState uses a monitor function to compute the health state results attached to the elements.
 
-### Run interval
+Monitor functions are scripts that accept the 4T data as input, check the data based on some internal logic and output health state mappings for the affected topology elements. The function is run periodically by the monitor runner and it is responsible for detecting any changes in the data that can be considered to change an elements health state.
 
-## Creating a custom monitor
-To create a custom monitor in StackState:
-
-### Select a suitable monitor function.
 You can list the available monitor functions via the CLI command:
 
 {% tabs %}
@@ -67,21 +73,98 @@ You can list the available monitor functions via the CLI command:
 {% endtab %}
 {% endtabs %}
 
-You can also [create a custom monitor function](../custom-functions/monitor-functions.md)
+You can [create a custom monitor function](../custom-functions/monitor-functions.md) to customize how StackState processes the 4T data.
 
-### Create a new [STJ](../../develop/reference/stj/using_stj.md) import file and populate it acording to the specification above.
+### Run interval
+
+The Monitor run interval determines how often a Monitor logic will be executed. It is expressed in seconds. For example, an `intervalSeconds: 60` configuration means that StackState will attempt to execute the Monitor function associated with the Monitor every 60 seconds. If the monitor function execution takes significant time, the next scheduled run will occur 60 seconds **after** the previous run finishes.
+
+## Creating a custom monitor
+In this article, we'll create a CPU metric monitor using an example Monitor function created in [another article](../custom-functions/monitor-functions.md). To create a custom monitor in StackState:
+
+### Create a new [STJ](../../develop/reference/stj/using_stj.md) import file.
+
+```json
+{
+  "_version": "1.0.39",
+  "timestamp": "2022-05-23T13:16:27.369269Z[GMT]",
+  "nodes": [
+    ...
+  ]
+}
+```
+
 You can place multiple monitors on the same STJ file. You can also add other node types on the same import file.
 
-### Populate the at least the `name`, `identifier` and `intervalSeconds` parameters of the monitor definition.
-The `identifier` should be a value that uniquely identifies this specific monitor definition.
+### Populate the Monitor node
 
-### Populate the `function` value using the previously selected function.
-Configuring the monitor function is best done by utilizing the [`get` helper function](../../develop/reference/stj/stj_reference.md#get).
+A Monitor node of type `Monitor` needs to be added to the import file. This type of a node is supported in API version 1.0.39 and above. The required fields are the `name`, `identifier` and `description`. The `identifier` should be a value that uniquely identifies this specific monitor definition. `intervalSeconds`, `function` and `arguments` determine what validation rule and how often it is run. An optional parameter of `remediationHint` can be specified - it is a Markdown-encoded instruction of what to do if this Monitor produces an unhealthy health state. It is displayed on the interface together with the Monitor result panel.
+
+Configuring the monitor function is best done by utilizing the [`get` helper function](../../develop/reference/stj/stj_reference.md#get) paired with the `identifier` of the function itself. In this example the function is named `Metric above threshold` and its identifier is `urn:system:default:monitor-function:metric-above-threshold`.
+
+```json
+{
+  "_version": "1.0.39",
+  "timestamp": "2022-05-23T13:16:27.369269Z[GMT]",
+  "nodes": [
+    {
+      "_type": "Monitor",
+      "name": "CPU Usage",
+      "description": "A simple CPU-usage monitor. If the metric is above a given threshold, the state is set to CRITICAL.",
+      "identifier": "urn:system:default:monitor:cpu-usage",
+      "remediationHint": "Turn it off and on again.",
+      "function": {{ get "urn:system:default:monitor-function:metric-above-threshold" }},
+      "arguments": [
+        ...
+      ],
+      "intervalSeconds": 60
+    }
+  ]
+}
+```
+
+The invocation of the `get` helper function will automatically resolve to the ID of the desired function during import time.
 
 ### Populate the parameters of the monitor function invocation.
-The parameters are different for each function. More details on the functions provided by StackPacks is available in their respective documentation.
 
-### Apply the newly created monitor in StackState using the CLI command:
+The parameters are different for each monitor function. In the case of `Metric above threshold` we need to populate `thershold`, `metrics` and `topologyIdentifierPattern`:
+
+```json
+{
+  "_version": "1.0.39",
+  "timestamp": "2022-05-23T13:16:27.369269Z[GMT]",
+  "nodes": [
+    {
+      "_type": "Monitor",
+      "name": "CPU Usage",
+      "description": "A simple CPU-usage monitor. If the metric is above a given threshold, the state is set to CRITICAL.",
+      "identifier": "urn:system:default:monitor:cpu-usage",
+      "remediationHint": "Turn it off and on again.",
+      "function": {{ get "urn:system:default:monitor-function:metric-above-threshold" }},
+      "arguments": [{
+        "_type": "ArgumentDoubleVal",
+        "parameter": {{ get "urn:system:default:monitor-function:metric-above-threshold" "Type=Parameter;Name=threshold" }},
+        "value": 90.0
+      }, {
+         "_type": "ArgumentStringVal",
+        "parameter": {{ get "urn:system:default:monitor-function:metric-above-threshold" "Type=Parameter;Name=topologyIdentifierPattern" }},
+        "value": "urn:host:/${tags.host}"
+      }, {
+        "_type": "ArgumentScriptMetricQueryVal",
+        "parameter": {{ get "urn:system:default:monitor-function:metric-above-threshold" "Type=Parameter;Name=query" }},
+        "script": "Telemetry\n.query(\"StackState Metrics\", \"\")\n.metricField(\"system.cpu.system\")\n.groupBy(\"tags.host\")\n.start(\"-1m\")\n.aggregation(\"mean\", \"15s\")"
+      }],
+      "intervalSeconds": 60
+    }
+  ]
+}
+```
+
+Parameters, similarily to the `function` can be referred to by utilizing the `get` helper function.
+
+### Apply the newly created monitor in StackState
+
+This can be achieved by using the dedicated StackState CLI command:
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
@@ -95,6 +178,7 @@ The parameters are different for each function. More details on the functions pr
 An alternative way is to include the newly created monitor in a custom StackPack and installing it.
 
 ### Verify that your newly created monitor is working correctly.
+
 You can check if your monitor is working correctly by invoking the CLI command:
 
 {% tabs %}
@@ -118,8 +202,6 @@ You can also preview the results it generates by invoking the CLI command: `sts 
 `stac monitor preview <id-or-identifier-of-a-monitor>`
 {% endtab %}
 {% endtabs %}
-
-For a more thorough description of each of the above steps, follow the [step by step guide](../../develop/developer-guides/monitors/how-to-create-monitors.md).
 
 ## See also
 
