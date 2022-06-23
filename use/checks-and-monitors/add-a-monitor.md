@@ -63,8 +63,19 @@ Most monitors in StackState are created as part of a StackPack installed by the 
 
 To create a custom monitor in StackState:
 
-1. Select a suitable monitor function or [create a custom one](../../develop/developer-guides/custom-functions/monitor-functions.md).
-   * You can list the available monitor functions via the CLI command `sts settings list --type MonitorFunction`
+1. Select a suitable monitor function.
+   * You can list the available monitor functions via the CLI command:
+
+   {% tabs %}
+   {% tab title="CLI: sts (new)" %}
+   `sts settings list --type MonitorFunction`
+   {% endtab %}
+   {% tab title="CLI: stac" %}
+   `stac graph list MonitorFunction`
+   {% endtab %}
+   {% endtabs %}
+
+   * You can also [create a custom monitor function](../../develop/developer-guides/custom-functions/monitor-functions.md)
 
 2. Create a new [STJ](../../develop/reference/stj/using_stj.md) import file and populate it acording to the specification above.
    * You can place multiple monitors on the same STJ file. You can also add other node types on the same import file.
@@ -77,12 +88,42 @@ To create a custom monitor in StackState:
 5. Populate the parameters of the monitor function invocation.
    * The parameters are different for each function. More details on the functions provided by StackPacks is available in their respective documentation.
 
-6. Apply the newly created monitor in StackState using the CLI commands: `sts monitor apply < path/to/the/file.stj`.
+6. Apply the newly created monitor in StackState using the CLI command:
+
+   {% tabs %}
+   {% tab title="CLI: sts (new)" %}
+   `sts monitor apply -f path/to/the/file.stj`
+   {% endtab %}
+   {% tab title="CLI: stac" %}
+   `stac monitor apply < path/to/the/file.stj`
+   {% endtab %}
+   {% endtabs %}
+
    * An alternative way is to include the newly created monitor in a custom StackPack and installing it.
 
 7. Verify that your newly created monitor is working correctly.
-   * You can check if your monitor is working correctly by invoking the `sts monitor status` command.
-   * You can also preview the results it generates by invoking the `sts monitor preview` command.
+   * You can check if your monitor is working correctly by invoking the CLI command:
+   {% tabs %}
+   {% tab title="CLI: sts (new)" %}
+   ```
+   # By ID
+   sts monitor status --id <id-of-a-monitor>
+   # By Identifier
+   sts monitor status --identifier <identifier-of-a-monitor>
+   ```
+   {% endtab %}
+   {% tab title="CLI: stac" %}
+   `stac monitor status <id-or-identifier-of-a-monitor>`
+   {% endtab %}
+   {% endtabs %}
+
+   * You can also preview the results it generates by invoking the CLI command: `sts monitor preview` command.
+
+   {% tabs %}
+   {% tab title="CLI: stac" %}
+   `stac monitor preview <id-or-identifier-of-a-monitor>`
+   {% endtab %}
+   {% endtabs %}
 
 For a more thorough description of each of the above steps, follow the [step by step guide](../../develop/developer-guides/monitors/how-to-create-monitors.md).
 
