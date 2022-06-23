@@ -64,7 +64,7 @@ Most monitors in StackState are created as part of a StackPack installed by the 
 To create a custom monitor in StackState:
 
 #### Select a suitable monitor function.
-* You can list the available monitor functions via the CLI command:
+You can list the available monitor functions via the CLI command:
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
@@ -75,19 +75,19 @@ To create a custom monitor in StackState:
 {% endtab %}
 {% endtabs %}
 
-* You can also [create a custom monitor function](../../develop/developer-guides/custom-functions/monitor-functions.md)
+You can also [create a custom monitor function](../../develop/developer-guides/custom-functions/monitor-functions.md)
 
 #### Create a new [STJ](../../develop/reference/stj/using_stj.md) import file and populate it acording to the specification above.
-* You can place multiple monitors on the same STJ file. You can also add other node types on the same import file.
+You can place multiple monitors on the same STJ file. You can also add other node types on the same import file.
 
 #### Populate the at least the `name`, `identifier` and `intervalSeconds` parameters of the monitor definition.
-* The `identifier` should be a value that uniquely identifies this specific monitor definition.
+The `identifier` should be a value that uniquely identifies this specific monitor definition.
 
 #### Populate the `function` value using the previously selected function.
-* Configuring the monitor function is best done by utilizing the [`get` helper function](../../develop/reference/stj/stj_reference.md#get).
+Configuring the monitor function is best done by utilizing the [`get` helper function](../../develop/reference/stj/stj_reference.md#get).
 
 #### Populate the parameters of the monitor function invocation.
-* The parameters are different for each function. More details on the functions provided by StackPacks is available in their respective documentation.
+The parameters are different for each function. More details on the functions provided by StackPacks is available in their respective documentation.
 
 #### Apply the newly created monitor in StackState using the CLI command:
 
@@ -100,10 +100,11 @@ To create a custom monitor in StackState:
 {% endtab %}
 {% endtabs %}
 
-* An alternative way is to include the newly created monitor in a custom StackPack and installing it.
+An alternative way is to include the newly created monitor in a custom StackPack and installing it.
 
 #### Verify that your newly created monitor is working correctly.
-* You can check if your monitor is working correctly by invoking the CLI command:
+You can check if your monitor is working correctly by invoking the CLI command:
+
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
 ```
@@ -118,7 +119,7 @@ sts monitor status --identifier <identifier-of-a-monitor>
 {% endtab %}
 {% endtabs %}
 
-* You can also preview the results it generates by invoking the CLI command: `sts monitor preview` command.
+You can also preview the results it generates by invoking the CLI command: `sts monitor preview` command.
 
 {% tabs %}
 {% tab title="CLI: stac" %}
