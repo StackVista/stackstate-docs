@@ -41,7 +41,7 @@ sts monitor status --identifier <identifier-of-a-monitor>
 ```
 {% endtab %}
 {% tab title="CLI: stac" %}
-`stac monitor status <identifier-of-a-monitor>`
+`stac monitor status <id-or-identifier-of-a-monitor>`
 {% endtab %}
 {% endtabs %}
 
