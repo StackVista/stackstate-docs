@@ -16,6 +16,25 @@ Checks are defined on a per-topology element basis and rely on the telemetry str
 
 This can be conveniently done by extending the [component templates](../../develop/developer-guides/custom-functions/template-functions.md) in a StackPack definition. See how to [develop a StackPack](../../develop/developer-guides/stackpack/README.md).
 
+### Check results
+
+Check results are available on the topology element's details panel under the **Health** section:
+
+![Check result panel](../../.gitbook/assets/v50_check_result.png)
+
+The result panel displays among other information:
+
+- a **health state** produced by this Check, along with the time it has been updated,
+- a **metric chart** of the data that resulted in this health state being generated,
+- the Check function configuration utilized by this Check.
+
+The context menu of a Check result contains several useful shortcuts:
+
+- **Edit** provides a way to change the configuration of a specific check,
+- **Delete** allows for a removal of the Check associated with this result panel.
+
+Both of the options above are disabled when in time-travelling mode - topology elements cannot be modified in the past.
+
 ## Monitors
 **Monitors** are a new feature of StackState, introduced in version 5.0, that allows definition of complex validation rules within StackState. Monitors allow novel ways of combining 4T data to improve rule expressiveness and monitoring coverage.
 
@@ -23,7 +42,7 @@ Monitors, similarily to Checks, use the 4T data collected by StackState to compu
 
 Monitors are a flexible way to define a custom set of monitoring rules. They can created manually, packaged as part of a StackPack, or integrated into any modern software development practice that leverages automation (for instance, GitOps).
 
-See how to [add a new monitor](./add-a-monitor.md).
+See how to [manage monitors](./add-a-monitor.md) in StackState.
 
 ### Monitor execution
 Monitors are run by a dedicated subsystem of StackState called the Monitor runner. The main task of the Monitor runner is to schedule the execution of all existing monitors in such a way as to ensure that all of them produce viable results in a timely manner.
@@ -53,6 +72,22 @@ The Monitor runner subsystem can be disabled via the configuration file by appen
 `stackstate.featureSwitches.monitorRunner = false`
 
 {% endhint %}
+
+### Monitor results
+
+Similarily to Checks, Monitor results are also available on the StackState interface in the topology element's details under the **Health** section:
+
+![Monitor result panel](../../.gitbook/assets/v50_monitor_result.png)
+
+The result panel displays among other information:
+
+- a **health state** produced by the associated Monitor, along with the time it has been updated,
+- **optional metric charts** of the data that resulted in this health state being generated,
+- the name of the Monitor associated with this result.
+
+The context menu of a Monitor result panel allows for inspecting of the Monitor definition:
+
+- **Show monitor definition** opens a modal window containing the full Monitor definition associated with this result.
 
 ## See also
 * [Health Synchronization](../../configure/health/health-synchronization)
