@@ -414,9 +414,24 @@ The final step is giving the function a descriptive name and uploading it to Sta
 
 Uploading the function to StackState can be done in one of three ways:
 
+- By utilizing the [StackState CLI](/setup/cli/README.md) commands:
+
+{% tabs %}
+{% tab title="CLI: sts (new)" %}
+`stac settings import < path/to/file.stj`
+{% endtab %}
+{% tab title="CLI: stac" %}
+`stac graph import < path/to/file.stj`
+{% endtab %}
+{% endtabs %}
+
+- By placing it as [part of a StackPack](../../../stackpacks/about-stackpacks.md) and installing said StackPack.
+
+{% hint style="success" "self-hosted info" %}
+
 - By utilizing the Import/Export facility under StackState settings.
-- By utilizing the [StackState CLI](/setup/cli/README.md) `sts graph import` command.
-- Or by placing it as [part of a StackPack](../../../stackpacks/about-stackpacks.md) and installing said StackPack.
+
+{% endhint %}
 
 After the function is uploaded, it is generally available for any Monitor definition to invoke it.
 You can see [this article](../monitors/how-to-create-monitors.md) to learn how to create a custom Monitor that utilizes an existing Monitor function.
