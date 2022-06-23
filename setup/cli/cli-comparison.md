@@ -11,12 +11,12 @@ StackState has a new CLI! The new CLI has many advantages and a few notable diff
 {% hint style="info" %}
 **The old `sts` CLI has been renamed to `stac`.** 
 
-In a future release of StackState, the new CLI will fully replace the `stac` CLI. Most commands will be ported to the new CLI, but some will be deprecated. See the [CLI command overview](#cli-command-overview) for up-to-date information on the port process.
+In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. Most commands will be ported to the new `sts` CLI, but some will be deprecated. See the [CLI command overview](#cli-command-overview) for up-to-date information on the port process.
 {% endhint %}
 
 ## Why a new CLI?
 
-The new StackState CLI has been built for a reason. Here are the major advantages of switching:
+The new `sts` CLI has been built for a reason. Here are the major advantages of switching:
 
  * Easy installation and configuration for all Operating Systems
  * Native macOS support
@@ -28,9 +28,9 @@ The new StackState CLI has been built for a reason. Here are the major advantage
 
 ## Notable Differences between the CLIs
 
- * Unlike `stac`, the new CLI will not have commands for sending data to StackState. For these purposes, you can use either the StackState Agent or the StackState Receiver API. 
+ * Unlike `stac`, the new `sts` CLI will not have commands for sending data to StackState. For these purposes, you can use either the StackState Agent or the StackState Receiver API. 
  * Some commands have been renamed to fall more in line with how we think of StackState today. For example, the old command `stac graph` is now called `sts settings`.
- * The new CLI only works with StackState v5.0 or later.
+ * The new `sts` CLI only works with StackState v5.0 or later.
 
 {% tabs %}
 {% tab title="sts CLI" %}
@@ -40,7 +40,7 @@ The `sts` CLI is:
 * Works with StackState v5.0 or later. 
 * Contains all of the latest commands - see the [CLI command overview](#cli-command-overview).
 
-➡️ [Learn how to install the new CLI](cli-sts.md)
+➡️ [Install the new `sts` CLI](cli-sts.md)
 {% endtab %}
 {% tab title="stac CLI" %}
 
@@ -53,6 +53,10 @@ The `stac` CLI is:
 
 {% hint style="info" %}
 Note that this CLI was previously named `sts`. It has been renamed to `stac` with the release of StackState v5.0.
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
 {% endhint %}
 
 {% endtab %}
@@ -81,38 +85,40 @@ usage: cli.py [-h] [-v] [-i [INSTANCE]] [-c [CLIENT]]
 
 # no `sts` CLI installed - example output:
 command not found: sts
-  ...
 
 
 ```
 
-If you are not running the new `sts` CLI yet, we recommend that you [install the new `sts` CLI](cli-sts.md) and [upgrade the old `sts` CLI to `stac`](cli-stac.md).
+If you are not running the new `sts` CLI yet, we recommend that you:
+
+1. [Upgrade the old `sts` CLI to `stac`](cli-stac.md).
+2. [Install the new `sts` CLI](cli-sts.md) 
 
 ## CLI command overview
 
-The new CLI will completely replace the old `stac` CLI. Not all commands have been moved to the new CLI yet and some commands are not available in the old CLI. The following table gives an overview of the commands available in each CLI and the current `port` status.
+The new `sts` CLI will completely replace the old `stac` CLI. Not all commands have been moved to the new CLI yet and some commands are not available in the old CLI. The following table gives an overview of the commands available in each CLI and the current `port` status.
 
  - 🚧 - Work in progress.
  - ❌ - Command will not be available in this CLI.
 
 | `stac` CLI command  | `sts` CLI command | Description | 
 | :--- |:--- | | :--- |
-| `anomaly collect-feedback` | `anomaly collect-feedback` | Commands for exporting anomalies to disk. |
-| `anomaly send` | ❌ | Command for sending anomalies. Will not be ported to the new CLI. This remains possible via the StackState Receiver API. |
-| ❌ | `completion` | Generates the autocompletion script for the specified shell. |
+| `anomaly collect-feedback` | `anomaly collect-feedback` | Export anomalies to disk. |
+| `anomaly send` | ❌ | Send anomalies. Will not be ported to the new `sts` CLI. This remains possible via the StackState Receiver API. |
+| ❌ | `completion` | Generate the CLI autocompletion script for the specified shell. |
 | `datasource list` | `settings list --type DataSource` | List all telemetry data sources. |
-| `event send` | ❌ | Commands for sending events. Will not be ported to the new CLI. This remains possible via the StackState Agent and the StackState Receiver API. |
+| `event send` | ❌ | Send events. Will not be ported to the new `sts` CLI. This remains possible via the StackState Agent and the StackState Receiver API. |
 | `graph *` | `settings *` | Configure StackState settings. |
 | `graph retention` | 🚧 | Configure StackState graph database retention. |
-| `health *` | 🚧 | Configuring health synchronization. |
-| `metric *` | ❌ | Commands for sending and retrieving metrics. Will not be ported to the new CLI. Metrics can still be sent via the StackState Agent and the StackState Receiver API. To retrieve metrics, use the StackState UI [telemetry inspector](/use/metrics-and-events/browse-telemetry.md) or [analytics environment](/use/stackstate-ui/analytics.md). |
+| `health *` | 🚧 | Configure health synchronization. |
+| `metric *` | ❌ | Send and retrieve metrics. Will not be ported to the new `sts` CLI. Metrics can still be sent via the StackState Agent and the StackState Receiver API. To retrieve metrics, use the StackState UI [telemetry inspector](/use/metrics-and-events/browse-telemetry.md) or [analytics environment](/use/stackstate-ui/analytics.md). |
 | `monitor send` | `monitor send` | |
 | `permission *` | 🚧 | Configure user/group permissions. |
-| `serverlog` | ❌ | Command for reading StackState log files. Will not be ported to the new CLI. Log files can be read via Kubernetes or directly from disk. |
+| `serverlog` | ❌ | Read StackState log files. Will not be ported to the new `sts` CLI. Log files can be read via Kubernetes or directly from disk. |
 | `script execute` | `script execute` | Execute StackState scripts. | 
 | `stackpack *` | `stackpack *` | Install, configure and uninstall StackPacks. |
-| `subscription *` | 🚧 | Configuring StackState's license. |
-| `subject *` | 🚧 | Configuring users/groups. |
-| `topology send` | ❌ | Command for sending topology. Will not be ported to the new CLI. This remains possible via the StackState Agent or the StackState Receiver API. |
+| `subscription *` | 🚧 | Configure the StackState license. |
+| `subject *` | 🚧 | Configure users/groups. |
+| `topology send` | ❌ | Send topology. Will not be ported to the new `sts` CLI. This remains possible via the StackState Agent or the StackState Receiver API. |
 | `topic *` | 🚧 | Inspect StackState messaging topics. |
-| `trace send` |❌ | Command for sending traces. Will not be ported to the new CLI. This remains possible via the StackState Agent or the StackState Receiver API. |
+| `trace send` |❌ | Send traces. Will not be ported to the new `sts` CLI. This remains possible via the StackState Agent or the StackState Receiver API. |

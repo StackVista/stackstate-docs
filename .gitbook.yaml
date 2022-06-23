@@ -134,7 +134,7 @@ redirects:
   setup/clear_data: ./setup/data-management/clear_stored_data.md
   setup/retention: ./setup/data-management/data_retention.md
   setup/cli: ./setup/cli/README.md
-  setup/kubernetes/image_configuration: ./setup/instal-stackstate/kubernetes_install/image_configuration.md
+  setup/kubernetes/image_configuration: ./setup/install-stackstate/kubernetes_install/image_configuration.md
   setup/kubernetes_install: ./setup/install-stackstate/kubernetes_install/README.md
   setup/kubernetes_install/customize_config: ./setup/install-stackstate/kubernetes_install/customize_config.md
   setup/kubernetes_install/image_configuration: ./setup/install-stackstate/kubernetes_install/image_configuration.md
