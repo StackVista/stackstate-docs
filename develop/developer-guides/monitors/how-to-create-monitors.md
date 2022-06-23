@@ -6,10 +6,124 @@ description: StackState Self-hosted v5.0.x
 
 ## Overview
 
+Monitors in StackState are represented textually using the STJ file format. The following snippet presents an example monitor file:
+
+```json
+{
+  "_version": "1.0.39",
+  "timestamp": "2022-05-23T13:16:27.369269Z[GMT]",
+  "nodes": [
+    {
+      "_type": "Monitor",
+      "name": "CPU Usage",
+      "description": "",
+      "identifier": "urn:system:default:monitor:cpu-usage",
+      "remediationHint": "Turn it off and on again.",
+      "function": {{ get "urn:system:default:monitor-function:metric-threshold" }},
+      "arguments": [{
+        "_type": "ArgumentDoubleVal",
+        "parameter": {{ get "urn:system:default:monitor-function:metric-threshold" "Type=Parameter;Name=threshold" }},
+        "value": 90.0
+      }, {
+        "_type": "ArgumentScriptMetricQueryVal",
+        "parameter": {{ get "urn:system:default:monitor-function:metric-threshold" "Type=Parameter;Name=query" }},
+        "script": "Telemetry\n.query(\"StackState Metrics\", \"\")\n.metricField(\"cpu-usage\")\n.groupBy(\"tags.name\")\n.start(\"-1m\")\n.aggregation(\"mean\", \"15s\")"
+      }],
+      "intervalSeconds": 60
+    }
+  ]
+}
+```
+
+In addition to the usual elements of an STJ file, the protocol version and timestamp, the snippet defines a single note of type `Monitor`. Here is a breakdown of the various fields supported by this definition:
+- `name` - a human readable name that shortly describes the operating principle of the Monitor,
+- `identifier` - a StackState-URN-formatted value that uniquely identifies this Monitor definition,
+- `description` - a longer, more in-depth description of the Monitor,
+- `remediationHint` - a short, markdown-enabled hint displayed whenever the validation rule represented by this Monitor triggers and results in an unhealthy state.
+- `function` - refers a specific Monitor Function to use as the basis of computation for this Monitor,
+- `arguments` - lists concrete values that are to be used as arguments to the Monitor Function invocation,
+- `intervalSeconds` - dictates how often to execute this particular Monitor; new executions are scheduled after `intervalSeconds`, counting from the time th last execution ended.
+
 ### Unique identifier
 
 ### Monitor function
 
+You can [create a custom monitor function](../custom-functions/monitor-functions.md) to customize how StackState processes the 4T data.
+
 ### Run interval
 
 ## Creating a custom monitor
+To create a custom monitor in StackState:
+
+### Select a suitable monitor function.
+You can list the available monitor functions via the CLI command:
+
+{% tabs %}
+{% tab title="CLI: sts (new)" %}
+`sts settings list --type MonitorFunction`
+{% endtab %}
+{% tab title="CLI: stac" %}
+`stac graph list MonitorFunction`
+{% endtab %}
+{% endtabs %}
+
+You can also [create a custom monitor function](../custom-functions/monitor-functions.md)
+
+### Create a new [STJ](../../develop/reference/stj/using_stj.md) import file and populate it acording to the specification above.
+You can place multiple monitors on the same STJ file. You can also add other node types on the same import file.
+
+### Populate the at least the `name`, `identifier` and `intervalSeconds` parameters of the monitor definition.
+The `identifier` should be a value that uniquely identifies this specific monitor definition.
+
+### Populate the `function` value using the previously selected function.
+Configuring the monitor function is best done by utilizing the [`get` helper function](../../develop/reference/stj/stj_reference.md#get).
+
+### Populate the parameters of the monitor function invocation.
+The parameters are different for each function. More details on the functions provided by StackPacks is available in their respective documentation.
+
+### Apply the newly created monitor in StackState using the CLI command:
+
+{% tabs %}
+{% tab title="CLI: sts (new)" %}
+`sts monitor apply -f path/to/the/file.stj`
+{% endtab %}
+{% tab title="CLI: stac" %}
+`stac monitor apply < path/to/the/file.stj`
+{% endtab %}
+{% endtabs %}
+
+An alternative way is to include the newly created monitor in a custom StackPack and installing it.
+
+### Verify that your newly created monitor is working correctly.
+You can check if your monitor is working correctly by invoking the CLI command:
+
+{% tabs %}
+{% tab title="CLI: sts (new)" %}
+```
+# By ID
+sts monitor status --id <id-of-a-monitor>
+# By Identifier
+sts monitor status --identifier <identifier-of-a-monitor>
+```
+{% endtab %}
+{% tab title="CLI: stac" %}
+`stac monitor status <id-or-identifier-of-a-monitor>`
+{% endtab %}
+{% endtabs %}
+
+You can also preview the results it generates by invoking the CLI command: `sts monitor preview` command.
+
+{% tabs %}
+{% tab title="CLI: stac" %}
+`stac monitor preview <id-or-identifier-of-a-monitor>`
+{% endtab %}
+{% endtabs %}
+
+For a more thorough description of each of the above steps, follow the [step by step guide](../../develop/developer-guides/monitors/how-to-create-monitors.md).
+
+## See also
+
+* [StackState CLI](/setup/cli/README.md)
+* [StackState Template JSON \(STJ\)](../../develop/reference/stj/README.md)
+* [Develop your own StackPacks](../../stackpacks/sdk.md)
+* [Integrations](../../stackpacks/integrations/README.md)
