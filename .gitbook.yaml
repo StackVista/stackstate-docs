@@ -322,3 +322,5 @@ redirects:
 # 5.0 docs
 
   develop/reference/scripting/async_script_result: ./develop/reference/scripting/async-script-result.md
+  develop/reference/cli_reference: ./setup/cli/README.md
+  setup/cli-install: ./setup/cli/README.md

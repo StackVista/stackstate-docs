@@ -9,7 +9,7 @@ description: StackState Self-hosted v4.6.x
 StackState has a new CLI! The new CLI has many advantages and a few notable differences. 
 
 {% hint style="info" %}
-**The old CLI has been renamed to `stac`.** 
+**The old `sts` CLI has been renamed to `stac`.** 
 
 In a future release of StackState, the new CLI will fully replace the `stac` CLI. Most commands will be ported to the new CLI, but some will be deprecated. See the [CLI command overview](#cli-command-overview) for up-to-date information on the port process.
 {% endhint %}
