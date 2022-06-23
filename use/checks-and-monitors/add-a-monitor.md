@@ -64,25 +64,31 @@ Most monitors in StackState are created as part of a StackPack installed by the 
 To create a custom monitor in StackState:
 
 1. Select a suitable monitor function or [create a custom one](../../develop/developer-guides/custom-functions/check-functions.md).
-  * You can list the available monitor functions via the CLI command `sts settings list --type MonitorFunction`
-2. Create a new [STJ](../../develop/reference/stj/using_stj.md) import file and populate it acording to the specification above.
-  * You can place multiple monitors on the same STJ file. You can also add other node types on the same import file.
-3. Populate the at least the `name`, `identifier` and `intervalSeconds` parameters of the monitor definition.
-  * The `identifier` should be a value that uniquely identifies this specific monitor definition.
-4. Populate the `function` value using the previously selected function.
-  * Configuring the monitor function is best done by utilizing the [`get` helper function](../../develop/reference/stj/stj_reference.md#\`get\`).
-5. Populate the parameters of the monitor function invocation.
-  * The parameters are different for each function. More details on the functions provided by StackPacks is available in their respective documentation.
-4. Apply the newly created monitor in StackState using the CLI commands: `sts monitor apply < path/to/the/file.stj`.
-  * An alternative way is to include the newly created monitor in a custom StackPack and installing it.
-5. Verify that your newly created monitor is working correctly.
-  * You can check if your monitor is working correctly by invoking the `sts monitor status` command.
-  * You can also preview the results it generates by invoking the `sts monitor preview` command.
+   * You can list the available monitor functions via the CLI command `sts settings list --type MonitorFunction`
 
-For a more thorough description of each of the above steps please follow the [step by step guide](../../develop/developer-guides/monitors/how-to-create-moniors.md).
+2. Create a new [STJ](../../develop/reference/stj/using_stj.md) import file and populate it acording to the specification above.
+   * You can place multiple monitors on the same STJ file. You can also add other node types on the same import file.
+3. Populate the at least the `name`, `identifier` and `intervalSeconds` parameters of the monitor definition.
+   * The `identifier` should be a value that uniquely identifies this specific monitor definition.
+
+4. Populate the `function` value using the previously selected function.
+   * Configuring the monitor function is best done by utilizing the [`get` helper function](../../develop/reference/stj/stj_reference.md#\`get\`).
+   
+5. Populate the parameters of the monitor function invocation.
+   * The parameters are different for each function. More details on the functions provided by StackPacks is available in their respective documentation.
+   
+6. Apply the newly created monitor in StackState using the CLI commands: `sts monitor apply < path/to/the/file.stj`.
+   * An alternative way is to include the newly created monitor in a custom StackPack and installing it.
+   
+7. Verify that your newly created monitor is working correctly.
+   * You can check if your monitor is working correctly by invoking the `sts monitor status` command.
+   * You can also preview the results it generates by invoking the `sts monitor preview` command.
+
+For a more thorough description of each of the above steps, follow the [step by step guide](../../develop/developer-guides/monitors/how-to-create-monitors.md).
 
 ## See also
-* [StackState CLI](../../develop/reference/cli_reference.md)
+
+* [StackState CLI](/setup/cli/README.md)
 * [StackState Template JSON \(STJ\)](../../develop/reference/stj/README.md)
 * [Develop your own StackPacks](../../stackpacks/sdk.md)
 * [Integrations](../../stackpacks/integrations/README.md)
