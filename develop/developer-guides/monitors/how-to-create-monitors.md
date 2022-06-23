@@ -6,6 +6,12 @@ description: StackState Self-hosted v5.0.x
 
 ## Overview
 
+TODO
+
+## Monitor definition
+
+### STJ file format
+
 Monitors in StackState are represented textually using the STJ file format. The following snippet presents an example monitor file:
 
 ```json
@@ -67,9 +73,15 @@ You can list the available monitor functions via the CLI command:
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
 `sts settings list --type MonitorFunction`
+
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 {% endtab %}
 {% tab title="CLI: stac" %}
 `stac graph list MonitorFunction`
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
 {% endtab %}
 {% endtabs %}
 
@@ -169,9 +181,15 @@ This can be achieved by using the dedicated StackState CLI command:
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
 `sts monitor apply -f path/to/the/file.stj`
+
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 {% endtab %}
 {% tab title="CLI: stac" %}
 `stac monitor apply < path/to/the/file.stj`
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
 {% endtab %}
 {% endtabs %}
 
@@ -189,17 +207,38 @@ sts monitor status --id <id-of-a-monitor>
 # By Identifier
 sts monitor status --identifier <identifier-of-a-monitor>
 ```
+
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 {% endtab %}
 {% tab title="CLI: stac" %}
-`stac monitor status <id-or-identifier-of-a-monitor>`
+```
+stac monitor status <id-or-identifier-of-a-monitor>
+```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
 {% endtab %}
 {% endtabs %}
 
-You can also preview the results it generates by invoking the CLI command: `sts monitor preview` command.
+You can also preview the results it generates by invoking the CLI command:
 
 {% tabs %}
+{% tab title="CLI: sts (new)" %}
+```
+sts monitor preview <id-or-identifier-of-a-monitor>
+```
+
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endtab %}
 {% tab title="CLI: stac" %}
-`stac monitor preview <id-or-identifier-of-a-monitor>`
+```
+stac monitor preview <id-or-identifier-of-a-monitor>
+```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
 {% endtab %}
 {% endtabs %}
 

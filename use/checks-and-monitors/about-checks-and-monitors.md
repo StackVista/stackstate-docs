@@ -4,9 +4,13 @@ description: StackState Self-hosted v5.0.x
 
 # About checks and monitors
 
+## Overview
+
+TODO
+
 ## Checks
 
-**Checks** is a feature of StackState that provides health state information bound to the topology elements based on the telemetry & log streams and a set of customizable validation rules expressed in the form of **Check Functions**.
+**Checks** are a feature of StackState that provides health state information bound to the topology elements based on the telemetry and log streams and a set of customizable validation rules expressed in the form of **Check Functions**.
 
 StackState can calculate health checks based on telemetry or log streams defined for a topology element. When telemetry or events data is available in StackState, this approach opens up the possibility to use the Autonomous Anomaly Detector \(AAD\) for anomaly health checks.
 
@@ -18,7 +22,7 @@ This can be conveniently done by extending the [component templates](../../devel
 
 ### Check results
 
-Check results are available on the topology element's details panel under the **Health** section:
+Check results are available in the right panel **Selection details** tab under the **Health** section when information about an element is displayed:
 
 ![Check result panel](../../.gitbook/assets/v50_check_result.png)
 
@@ -28,10 +32,10 @@ The result panel displays among other information:
 - a **metric chart** of the data that resulted in this health state being generated,
 - the Check function configuration utilized by this Check.
 
-The context menu of a Check result contains several useful shortcuts:
+The context menu of a Check result (...) contains several useful shortcuts:
 
-- **Edit** provides a way to change the configuration of a specific check,
-- **Delete** allows for a removal of the Check associated with this result panel.
+- **Edit** - change the configuration of a specific check.
+- **Delete** - remove the Check associated with this result panel.
 
 Both of the options above are disabled when in time-travelling mode - topology elements cannot be modified in the past.
 
@@ -42,9 +46,10 @@ Monitors, similarily to Checks, use the 4T data collected by StackState to compu
 
 Monitors are a flexible way to define a custom set of monitoring rules. They can created manually, packaged as part of a StackPack, or integrated into any modern software development practice that leverages automation (for instance, GitOps).
 
-See how to [manage monitors](./add-a-monitor.md) in StackState.
+See how to [manage monitors](add-a-monitor.md) in StackState.
 
 ### Monitor execution
+
 Monitors are run by a dedicated subsystem of StackState called the Monitor runner. The main task of the Monitor runner is to schedule the execution of all existing monitors in such a way as to ensure that all of them produce viable results in a timely manner.
 For that purpose, the Monitor runner uses an interval parameter configured on a per-monitor basis - the `intervalSeconds`. The runner will attempt to schedule a Monitor execution every `intervalSeconds`, counting from the end of the previous execution cycle, in parallel to the other existing Monitors (subject to resource limits). For example, setting `intervalSeconds` of a Monitor definition to the value `600` will cause the Monitor runner to attempt to schedule the execution of this Monitor every ten minutes, assuming that the execution time itself is negligible.
 
@@ -58,9 +63,17 @@ sts monitor status --id <id-of-a-monitor>
 # By Identifier
 sts monitor status --identifier <identifier-of-a-monitor>
 ```
+
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 {% endtab %}
 {% tab title="CLI: stac" %}
-`stac monitor status <id-or-identifier-of-a-monitor>`
+```
+stac monitor status <id-or-identifier-of-a-monitor>
+```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
 {% endtab %}
 {% endtabs %}
 
@@ -75,7 +88,7 @@ The Monitor runner subsystem can be disabled via the configuration file by appen
 
 ### Monitor results
 
-Similarily to Checks, Monitor results are also available on the StackState interface in the topology element's details under the **Health** section:
+The same as for Checks, Monitor results are in the right panel **Selection details** tab under the **Health** section when information about an element is displayed:
 
 ![Monitor result panel](../../.gitbook/assets/v50_monitor_result.png)
 
@@ -85,9 +98,9 @@ The result panel displays among other information:
 - **optional metric charts** of the data that resulted in this health state being generated,
 - the name of the Monitor associated with this result.
 
-The context menu of a Monitor result panel allows for inspecting of the Monitor definition:
+The context menu of a Monitor result panel (...) allows for inspecting of the Monitor definition:
 
-- **Show monitor definition** opens a modal window containing the full Monitor definition associated with this result.
+- **Show monitor definition** - opens a modal window containing the full Monitor definition associated with this result.
 
 ## See also
 * [Health Synchronization](../../configure/health/health-synchronization)

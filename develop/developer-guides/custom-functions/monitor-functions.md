@@ -6,7 +6,13 @@ description: StackState Self-hosted v5.0.x
 
 ## Overview
 
-Monitor Functions, much like any other type of function in StackState, are represented using the STJ file format. The following snippet represents an example Monitor Function definition:
+Monitor Functions, much like any other type of function in StackState, are represented using the STJ file format. 
+
+## Monitor function definition
+
+### STJ file format
+
+The following snippet represents an example Monitor Function definition:
 
 ```json
 {
@@ -137,15 +143,22 @@ Additionally, the following Script APIs are optionally available. They are consi
 
 {% hint style="success" "self-hosted info" %}
 
-To use the above, experimental APIs please enable them explicitly in your StackState configuration file by appending the following line at the end of the `etc/application_stackstate.conf` file.
+To use the above, experimental APIs they must be explicitly named in your StackState configuration file by appending the following line at the end of the `etc/application_stackstate.conf` file.
 
 `stackstate.featureSwitches.monitorEnableExperimentalAPIs = true`
 
 {% endhint %}
 
 
-## Creating a custom monitor function
+## Create a custom monitor function
+
 The following example describes a step-by-step process of creating a Monitor function. In this case, a metric thereshold rule is introduced parameterized with the exact metrics query to use and the threshold itself.
+
+1. [Create an STJ file.](#create-an-stj-file)
+2. [Populate the Monitor function node.](#populate-the-monitor-function-node)
+3. [Populate the Monitor function body.](#populate-the-monitor-function-body)
+4. [Formalize the function parameters.](#formalize-the-function-parameters)
+5. [Upload to StackState.](#upload-to-stackstate)
 
 ### Create an STJ file
 
