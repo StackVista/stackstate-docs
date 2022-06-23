@@ -55,7 +55,7 @@ Retrieve the ID for a specific instance of a function:
 
 #### Event handler IDs
 
-The ID for an event handler can be found using the [StackState CLI](../../setup/cli-install.md). This is the ID for an instance of an event handler function.
+The ID for an event handler can be found using the [StackState CLI](../../setup/cli/README.md). This is the ID for an instance of an event handler function.
 
 * To list all event handlers, run the StackState CLI command below.
 * Use the `id` from the command output to [enable logging](enable-logging.md#set-the-logging-level-for-a-function-instance) for a specific event handler.
@@ -86,7 +86,7 @@ sts settings list --type EventHandler
 
 #### View health state configuration IDs
 
-The ID for a view health state configuration can be found using the [StackState CLI](../../setup/cli-install.md). This is the ID for a view's instance of a view health state configuration function.
+The ID for a view health state configuration can be found using the [StackState CLI](../../setup/cli/README.md). This is the ID for a view's instance of a view health state configuration function.
 
 * Run the two StackState CLI commands below:
   1. To return the IDs of all StackState views.
@@ -178,7 +178,7 @@ The ID for a check or propagation on a specific component can be found in the St
 
 ## See also
 
-* [StackState CLI](../../setup/cli-install.md)
+* [StackState CLI](../../setup/cli/README.md)
 * [Check functions](../../develop/developer-guides/custom-functions/check-functions.md)
 * [Event handler functions](../../develop/developer-guides/custom-functions/event-handler-functions.md)
 * [State propagation and propagation functions](../../develop/developer-guides/custom-functions/propagation-functions.md)

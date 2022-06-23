@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.0.x
 
 ## Overview
 
-StackState can synchronize health information from your own data sources either via HTTP or the [StackState CLI](/setup/cli-install.md).
+StackState can synchronize health information from your own data sources either via HTTP or the [StackState CLI](/setup/cli/README.md).
 
 ## StackState Receiver API
 

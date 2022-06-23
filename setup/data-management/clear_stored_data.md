@@ -12,27 +12,40 @@ The data in StackState is divided into three different sets:
 
 With this much data to store, it is important to have the means to manage it. There is a standard 8 days data retention period set in StackState. This can be configured according to your needs using the StackState CLI or manually on each machine. Find out more about [StackState data retention](data_retention.md).
 
-## Clear data using the StackState CLI
+## Clear data using the `stac` CLI
 
 {% hint style="warning" %}
 Clearing the data in StackState will **remove any configured permissions from the system**.
 {% endhint %}
 
-The StackState CLI needs access to the Admin API \(default port 7071\) to issue the command used below.
+The `stac` CLI needs access to the Admin API \(default port 7071\) to issue the command used below.
 
-Running the StackState CLI delete command will:
+Running the `stac` CLI delete command will:
 
 * Stop all necessary services.
 * Delete all topology and telemetry data. Note that, the Kafka topics folder needs to be deleted manually from the StackState server. The Kafka topics folder is located in `/opt/stackstate/var/lib/` and is named `kafka`.
 * Start StackState.
 
+{% tabs %}
+{% tab title="CLI: stac" %}
+
 ```text
 # Delete all topology and telemetry data
-sts graph delete --all
+stac graph delete --all
 
 # The Kafka topics folder needs to be deleted manually from the StackState server:
 # /opt/stackstate/var/lib/kafka
 ```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
 
 ## Clear data manually
 

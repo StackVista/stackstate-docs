@@ -18,7 +18,7 @@ This process can be repeated until the desired performance is achieved.
 
 ## Observe topology synchronization performance
 
-To understand how a topology synchronization is performing, use the [StackState CLI](/setup/cli-install.md) to take a look at the synchronization's status page. The status page shows the latency of a topology synchronization. This is the amount of time that it took from data being collected at the source, to the moment that the data is stored by the topology synchronization framework. Typically, a lower latency is preferred, however, a higher latency might be acceptable when synchronizing topology from bigger data lakes.
+To understand how a topology synchronization is performing, use the [StackState CLI](/setup/cli/README.md) to take a look at the synchronization's status page. The status page shows the latency of a topology synchronization. This is the amount of time that it took from data being collected at the source, to the moment that the data is stored by the topology synchronization framework. Typically, a lower latency is preferred, however, a higher latency might be acceptable when synchronizing topology from bigger data lakes.
 
 1. Get the urn of a synchronization using the `topology list` command.
     ```javascript

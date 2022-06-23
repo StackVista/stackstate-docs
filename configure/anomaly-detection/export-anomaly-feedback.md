@@ -10,7 +10,7 @@ Feedback that has been added to anomalies reported by the Autonomous Anomaly Det
 
 ## Export feedback
 
-To export anomaly feedback from StackState, the [StackState CLI](/setup/cli-install.md) is required. When an export is run, all feedback and comments for all anomalies reported in the specified time window will be exported.
+To export anomaly feedback from StackState, the [StackState CLI](/setup/cli/README.md) is required. When an export is run, all feedback and comments for all anomalies reported in the specified time window will be exported.
 
 {% hint style="warning" %}
 **Note that any user comments will be included in the exported feedback.** These comments are very useful, but should not contain any sensitive information.
