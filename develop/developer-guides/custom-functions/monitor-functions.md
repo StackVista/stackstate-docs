@@ -106,10 +106,10 @@ return [
 
 Each object in this array represents a single monitor result - usually, it is a one to one mapping between a specific metrics' time series and a topology element, but in general it is possible to express many-to-one mappings as well.
 The supported fields are:
-- `id` - the identifier for this concrete monitor result, it is used to deduplicate results arriving from different sources of computation,
-- `topologyIdentifier` - indicates to which Topology element this result "belongs",
-- `state` - indicates the resulting health state of the validation rule,
-- `displayTimeSeries` - an optional configuration of chart(s) that will be displayed on the StackState interface together with the monitor result.
+- **id** - the identifier for this concrete monitor result, it is used to deduplicate results arriving from different sources of computation,
+- **topologyIdentifier** - indicates to which Topology element this result "belongs",
+- **state** - indicates the resulting health state of the validation rule,
+- **displayTimeSeries** - an optional configuration of chart(s) that will be displayed on the StackState interface together with the monitor result.
 
 The `displayTimeSeries` field can optionally be used to instrument StackState to display a helpful metric chart (or multiple charts) together with the monitor result. It is expected to be an array of JSON-encoded objects of type `DisplayTimeSeries` of the following shape:
 
@@ -123,25 +123,25 @@ The `displayTimeSeries` field can optionally be used to instrument StackState to
 ```
 
 The meaning of different `DisplayTimeSeries` fields:
-- `name` - a short name for the chart, it is displayed as the chart title on the StackState interface,
-- `query` - a Telemetry query used to fetch the metrics data to display on the interface,
-- `timeSeriesId` - an identifier of the concrete time series to use if the `query` produces multiple lines; when defined, the displayed chart will be limitted to just one line.
+- **name** - a short name for the chart, it is displayed as the chart title on the StackState interface,
+- **query** - a Telemetry query used to fetch the metrics data to display on the interface,
+- **timeSeriesId** - an identifier of the concrete time series to use if the `query` produces multiple lines; when defined, the displayed chart will be limitted to just one line.
 
 The computation performed by a monitor function is restricted in numerous ways, including by restricting its access to certain classes (sandboxing) and by resource utilization (both in execution time and memory, compute usage). Some of these limits can be lifted by changing the default StackState configuration.
 
 ### Available APIs
 Monitor functions can leverage existing StackState Script APIs, including:
 
-- `Telemetry` - used to fetch Metric and Log data,
-- `Async` - allowing for combining multiple asynchronous results in one computation,
-- `View` - StackState View related operations,
-- `Component` - StackState Component related operations.
+- **Telemetry** - used to fetch Metric and Log data,
+- **Async** - allowing for combining multiple asynchronous results in one computation,
+- **View** - StackState View related operations,
+- **Component** - StackState Component related operations.
 
 Additionally, the following Script APIs are optionally available. They are considered to be experimental:
 
-- `Topology` - used to fetch Topology data,
-- `Http` - used to fetch external data via the HTTP protocol,
-- `Graph` - a generic way to query the StackGraph database.
+- **Topology** - used to fetch Topology data,
+- **Http** - used to fetch external data via the HTTP protocol,
+- **Graph** - a generic way to query the StackGraph database.
 
 {% hint style="success" "self-hosted info" %}
 
@@ -430,25 +430,35 @@ The final step is giving the function a descriptive name and uploading it to Sta
 }
 ```
 
-Uploading the function to StackState can be done in one of three ways:
+The function can be uploaded to StackState in one of three ways:
 
-- By utilizing the [StackState CLI](../../../setup/cli/README.md) commands:
+- Make the function [part of a StackPack](../../../stackpacks/about-stackpacks.md) and install the StackPack.
+- Use the Import/Export facility under StackState settings.
+- Use the [StackState CLI](../../../setup/cli/README.md):
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
-`stac settings import < path/to/file.stj`
+```
+stac settings import < path/to/file.stj
+```
+
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+
 {% endtab %}
 {% tab title="CLI: stac" %}
-`stac graph import < path/to/file.stj`
+```
+stac graph import < path/to/file.stj
+```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
 {% endtab %}
 {% endtabs %}
 
-- By placing it as [part of a StackPack](../../../stackpacks/about-stackpacks.md) and installing said StackPack.
+After the function has been uploaded, it will be generally available for any monitor definition to invoke it.
 
-- By utilizing the Import/Export facility under StackState settings.
-
-After the function is uploaded, it is generally available for any monitor definition to invoke it.
-You can see [this article](../monitors/how-to-create-monitors.md) to learn how to create a custom monitor that utilizes an existing monitor function.
+➡️ [Learn how to create a custom monitor that utilizes an existing monitor function](../monitors/how-to-create-monitors.md).
 
 ## See also
 
