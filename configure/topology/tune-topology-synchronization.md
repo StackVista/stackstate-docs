@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # Tune topology synchronization performance
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/topology/tune-topology-synchronization).
+{% endhint %}
+
 ## Overview
 
 This guide lays out steps to tune topology synchronization for best performance on a Kubernetes deployment of StackState.

@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # Subjects
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/security/rbac/rbac_subjects).
+{% endhint %}
+
 ## Link your existing authentication provider to StackState RBAC
 
 StackState is configured by default with file based authentication with predefined roles for Guests \(very limited permission level\), Power Users and Administrators \(full permission level\). To change the configuration to use LDAP authentication, see [authentication docs](../authentication/).

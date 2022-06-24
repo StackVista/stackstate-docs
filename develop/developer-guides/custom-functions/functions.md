@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # StackState functions
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/developer-guides/custom-functions/functions).
+{% endhint %}
+
 ## Overview
 
 Functions in StackState are predefined scripts that transform input into an output. They are called by StackState on-demand. For example, when a component changes state, new telemetry flows in or a user triggers an action. Advanced users can develop their own functions to customize StackState. These functions can then be exported and [packaged with a custom StackPack](../stackpack/develop_stackpacks.md).

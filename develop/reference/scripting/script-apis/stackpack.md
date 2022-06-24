@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # StackPack - script API
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/reference/scripting/script-apis/stackpack).
+{% endhint %}
+
 The StackPack script API provides handy operations to get the status of a StackPack or resources that are provided by a StackPack.
 
 ## Function `isInstalled`

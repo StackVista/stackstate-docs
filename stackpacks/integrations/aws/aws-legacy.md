@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # AWS \(Legacy\)
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/aws/aws-legacy).
+{% endhint %}
+
 {% hint style="info" %}
 The AWS \(Legacy\) StackPack has been deprecated. It is recommended to use the [new AWS integration](aws.md).
 {% endhint %}

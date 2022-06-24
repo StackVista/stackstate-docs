@@ -4,6 +4,18 @@ description: StackState Self-hosted v4.6.x
 
 # Set telemetry stream priority
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/use/metrics-and-events/set-telemetry-stream-priority).
+{% endhint %}
+
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/use/metrics-and-events/set-telemetry-stream-priority).
+{% endhint %}
+
 ## Overview
 
 Telemetry streams in the right-hand component pane of the StackState UI are displayed in order of telemetry stream priority. There are four levels of priority: `High`, `Medium`, `Low`, and `None`. By default, all streams have priority set to `none`. 

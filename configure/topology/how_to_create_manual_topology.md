@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # Create a topology manually
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/topology/how_to_create_manual_topology).
+{% endhint %}
+
 StackState automatically creates a topology based on real-time data sources. _There is typically no need to create a topology manually_. There may be a few exceptions:
 
 * Business processes are typically not discoverable and may therefore be placed on top of the topology manually.

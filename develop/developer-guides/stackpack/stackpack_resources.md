@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # Resources in a StackPack
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/developer-guides/stackpack/stackpack_resources).
+{% endhint %}
+
 The resources reside in `<your-stackpack>/src/main/stackpack/resources` directory. This folder contains files to be used mostly as display assets in the StackState UI as steps during the StackPack installation process. Some of the files are required for a StackPack to be displayed correctly:
 
 * `logo.png` - an image file with the StackPack logo that is displayed on the StackPacks page in StackState.

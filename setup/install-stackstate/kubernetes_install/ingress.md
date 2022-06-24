@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # Configure Ingress
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/install-stackstate/kubernetes_install/ingress).
+{% endhint %}
+
 The StackState Helm chart exposes an `ingress` section in its values. By default ingress is disabled.
 
 We give an example here for how to configure an nginx-ingress controller with TLS encryption enabled. Setting up the controller itself and the certificates is beyond the scope of this document.

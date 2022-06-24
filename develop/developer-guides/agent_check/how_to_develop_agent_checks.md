@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # How to develop Agent checks
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/developer-guides/agent_check/how_to_develop_agent_checks).
+{% endhint %}
+
 This document covers how to create your first check with Agent v2 Check API. Following topics are covered in this document: the agent directory structure, configuring your check, writing your first check, sending topology, metrics, events, and service checks as well as how to add external python dependencies and putting it all together.
 
 ## Installing Agent v2 StackPack

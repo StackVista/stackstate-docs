@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # Enable email event notifications
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/topology/configure-email-event-notifications).
+{% endhint %}
+
 ## Overview
 
 StackState can send an event notification by email whenever the health state of an entity or view changes. To enable email event notifications, the StackState configuration must include details of the SMTP server to use.

@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # Agent V1 \(Legacy\)
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/agent/agent-v1).
+{% endhint %}
+
 ## Overview
 
 StackState Agent V1 allows you to run checks that connect to [Splunk](/stackpacks/integrations/splunk/splunk_stackpack.md) to retrieve metrics and events data. All other Agent checks run on [StackState Agent V2](about-stackstate-agent.md).

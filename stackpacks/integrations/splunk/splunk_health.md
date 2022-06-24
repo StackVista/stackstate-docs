@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # Splunk Health
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/splunk/splunk_health).
+{% endhint %}
+
 ## Overview
 
 When the [Splunk StackPack](splunk_stackpack.md) has been installed in StackState, you can configure the Splunk Health check on StackState Agent V2 to begin collecting Splunk health data.

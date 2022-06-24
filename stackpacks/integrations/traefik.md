@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # Traefik
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/traefik).
+{% endhint %}
+
 The StackState Agent V2 Traefik integration provides the following functionality:
 
 * Reporting Traefik frontends and backends as topology elements.   

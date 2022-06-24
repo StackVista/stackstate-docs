@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # Set custom default telemetry interval
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/telemetry/custom_telemetry_interval).
+{% endhint %}
+
 ## Overview
 
 The telemetry interval specifies the time window for which events, metrics and traces are available in the StackState perspectives. It runs from left to right on the timeline at the bottom of the StackState UI. By default, the telemetry interval active when opening a [view](/use/stackstate-ui/views/about_views.md) or [explore mode](/use/stackstate-ui/explore_mode.md) is set to a relative time period, showing telemetry data from the last hour. If required, you can configure StackState to use a different default telemetry interval.

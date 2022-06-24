@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # AWS ECS
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/aws/aws-ecs).
+{% endhint %}
+
 ## Overview
 
 Get topology and telemetry information from an Amazon Elastic Container Service \(ECS\) cluster.

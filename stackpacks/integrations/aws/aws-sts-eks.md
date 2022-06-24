@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # StackState/Agent IAM role for EKS
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/aws/aws-sts-eks).
+{% endhint %}
+
 ## Overview
 
 If StackState or the StackState Agent are running within an AWS environment in an EKS cluster instance, an IAM role can be attached to the node-group where the pods `stackstate-api`, `stackstate-server` and/or `stackstate-cluster-agent` are running. 

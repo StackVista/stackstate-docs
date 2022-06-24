@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # Kubernetes
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/agent/kubernetes).
+{% endhint %}
+
 ## Overview
 
 {% hint style="info" %}

@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # Metrics Perspective
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/use/stackstate-ui/perspectives/metrics-perspective).
+{% endhint %}
+
 The Metrics Perspective shows metrics for the selected [view](../views/about_views.md). StackState will automatically deliver all the relevant information for any part of your landscape, so you don't need to pre-define the streams you want to see.
 
 ![Metrics Perspective](../../../.gitbook/assets/v46_metrics-perspective.png)

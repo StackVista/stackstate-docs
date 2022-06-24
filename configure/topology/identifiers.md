@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # Identifiers
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/identifiers).
+{% endhint %}
+
 ## Overview
 
 Identifiers are used in StackState to identify objects, such as topology elements \(components and relations\) and functions. This page describes the different types of identifiers used for topology elements and how global scope identifiers are structured in StackState.

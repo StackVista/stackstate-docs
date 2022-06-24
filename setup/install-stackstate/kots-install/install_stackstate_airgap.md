@@ -2,6 +2,12 @@
 description: StackState Self-hosted v4.6.x
 ---
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/install-stackstate/kots-install/install_stackstate_airgap).
+{% endhint %}
+
 ## Overview
 
 For VMs that are not able to connect to the Internet, we provide an offline (Airgapped) install. This requires a number of files to be downloaded and copied to the servers that will make up your cluster.

@@ -4,6 +4,12 @@ description: StackState Self-hosted v4.6.x
 
 # Async - script API
 
+{% hint style="warning" %}
+**This page describes StackState version 4.6.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/reference/scripting/script-apis/async).
+{% endhint %}
+
 The Script API functions are executed asynchronously and instead of returning result directly they return a `promise` of result in the form of `AsyncScriptResult`. The `Async` Script API offers functions to work with `AsyncScriptResult`
 
 ## Function `sequence`
