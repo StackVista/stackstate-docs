@@ -12,8 +12,8 @@ A component consists of:
 
 1. The name of the component.
 2. An icon in the middle that represents either the component itself or the component type.
-3. The component color represents the component's [own health state](/use/health-state/about-health-state.md#element-own-health-state).
-4. An outer color indicates an unhealthy [propagated health state](/use/health-state/about-health-state.md#propagated-health-state) (`DEVIATING` or `CRITICAL`). The propagated health state is calculated based on the health state of components or relations that the component depends upon.
+3. The component color represents the component's [own health state](/use/concepts/health-state.md#element-health-state).
+4. An outer color indicates an unhealthy [propagated health state](/use/concepts/health-state.md#propagated-health-state) (`DEVIATING` or `CRITICAL`). The propagated health state is calculated based on the health state of components or relations that the component depends upon.
 
 ![](/.gitbook/assets/v50_topology_elements.png)
 
@@ -23,7 +23,7 @@ When a component is selected by clicking on it, detailed information about the c
 
 * Metadata, such as the component name, type and any labels
 * [Run state](/use/concepts/components.md#run-state)
-* [Health checks](/use/health-state/add-a-health-check.md)
+* [Health checks](/use/checks-and-monitors/add-a-health-check.md)
 * [Telemetry streams](/use/metrics-and-events/telemetry_streams.md)
 
 Click SHOW ALL PROPERTIES to open a pop-up with all details of the component, including the YAML definition.
@@ -44,6 +44,6 @@ You can customize the grouping of components in the [Visualization settings](/us
 
 ## Run state
 
-Some components in StackState will report a **Run state**, for example, AWS EC2 instances. This is different to the [health state](/use/health-state/about-health-state.md) and indicates the component’s operational state. The run state can be `DEPLOYING`, `DEPLOYED`, `STARTING`, `STARTED`, `STOPPING`, `STOPPED` or `UNKNOWN`. It is not used in the calculation of a component's health state.
+Some components in StackState will report a **Run state**, for example, AWS EC2 instances. This is different to the [health state](/use/concepts/health-state.md) and indicates the component’s operational state. The run state can be `DEPLOYING`, `DEPLOYED`, `STARTING`, `STARTED`, `STOPPING`, `STOPPED` or `UNKNOWN`. It is not used in the calculation of a component's health state.
 
 For every change in run state, a `Run state changed` event is generated. These events are visible in the [Events Perspective](/use/stackstate-ui/perspectives/events_perspective.md) and can help to correlate changes in the deployment state of components with problems in an environment.

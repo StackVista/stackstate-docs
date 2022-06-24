@@ -324,3 +324,8 @@ redirects:
   develop/reference/scripting/async_script_result: ./develop/reference/scripting/async-script-result.md
   develop/reference/cli_reference: ./setup/cli/README.md
   setup/cli-install: ./setup/cli/README.md
+  use/health-state/anomaly-health-checks: ./use/checks-and-monitors/anomaly-health-checks.md
+  use/health-state/configure-view-health: ./use/checks-and-monitors/configure-view-health.md
+  use/health-state/about-health-state: ./use/concepts/health-state.md
+  use/health-state/add-a-health-check: ./use/checks-and-monitors/add-a-health-check.md
+  use/health-state: ./use/checks-and-monitors/README.md

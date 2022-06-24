@@ -439,12 +439,12 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 **Features**
 
 * [Show configuration changes](../../use/problem-analysis/problem_investigation.md#element-properties-changed-events) for faster root cause analysis. STAC-12441
-* [Alert on anomalies](../../use/health-state/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. STAC-11798
+* [Alert on anomalies](../../use/checks-and-monitors/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. STAC-11798
 * [Drill down on Problems](../../use/problem-analysis/about-problems.md) for faster investigation. STAC-10481
 
 **Improvements**
 
-* Introduced [check functions that alert on anomalies](../../use/health-state/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. Previous anomaly detection functions and baseline streams and functions are deprecated and will be removed in StackState v4.4. STAC-12256
+* Introduced [check functions that alert on anomalies](../../use/checks-and-monitors/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. Previous anomaly detection functions and baseline streams and functions are deprecated and will be removed in StackState v4.4. STAC-12256
 * The [Autonomous Anomaly Detector \(AAD\)](../../stackpacks/add-ons/aad.md) is now enabled by default in the Kubernetes distribution. STAC-12024
 * It is now possible to [configure whether ClusterRoles and ClusterRoleBindings need to be installed](../install-stackstate/kubernetes_install/required_permissions.md#disable-automatic-creation-of-cluster-wide-resources) by the StackState Helm chart using the flag `cluster-role.enabled`. STAC-11749
 * StackState HDFS pods now run without privileges in Kubernetes. STAC-11741

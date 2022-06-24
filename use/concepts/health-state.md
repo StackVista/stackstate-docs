@@ -37,8 +37,8 @@ Health checks attached to an element each have a health state that is calculated
 
 StackState can calculate health checks based on telemetry or log streams defined for a topology element. When telemetry or events data is available in StackState, this approach opens up the possibility to use the Autonomous Anomaly Detector \(AAD\) for anomaly health checks.
 
-* [How to add a health check](add-a-health-check.md)
-* [How to set up anomaly health checks](anomaly-health-checks.md)
+* [How to add a health check](../checks-and-monitors/add-a-health-check.md)
+* [How to set up anomaly health checks](../checks-and-monitors/anomaly-health-checks.md)
 
 #### External monitoring system
 
@@ -115,7 +115,8 @@ You can check the view health state in the following places in the StackState UI
 
 ## See also
 
-* [Add a health check based on telemetry streams available in StackState](add-a-health-check.md)
+* [Add a health check based on telemetry streams available in StackState](../checks-and-monitors/add-a-health-check.md)
+* [Add a new monitor](../checks-and-monitors/manage-monitors.md)
 * [Add Static Health from a CSV file](../../stackpacks/integrations/static_health.md "StackState Self-Hosted only")
 * [Set up a health synchronization](../../configure/health/health-synchronization.md "StackState Self-Hosted only")
-* [Configure the view health](configure-view-health.md)
+* [Configure the view health](../checks-and-monitors/configure-view-health.md)

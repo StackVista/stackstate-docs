@@ -74,9 +74,9 @@ There are many ways StackState can help monitor the saturation of a system, for 
 
 ## Checks
 
-From StackState Agent v2.13, [Anomaly health checks](/use/health-state/anomaly-health-checks.md) monitoring golden signals will automatically be added for streams with HTTP traffic. 
+From StackState Agent v2.13, [Anomaly health checks](/use/checks-and-monitors/anomaly-health-checks.md) monitoring golden signals will automatically be added for streams with HTTP traffic. 
 
-To help meet a specific SLA (Service Level Agreement), you can [add health checks](/use/health-state/about-health-state.md#health-checks) in StackState. Examples of using a check function to monitor error percentage and response time are given below.
+To help meet a specific SLA (Service Level Agreement), you can [add health checks](/use/concepts/health-state.md#health-checks) in StackState. Examples of using a check function to monitor error percentage and response time are given below.
 
 ### Example: Error percentage
 

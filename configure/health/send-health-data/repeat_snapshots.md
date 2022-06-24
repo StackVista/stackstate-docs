@@ -46,7 +46,7 @@ Health can be sent to the StackState Receiver API using the `"health"` property 
             "message": "Provisioning failed. [Learn more](https://www.any-link.com)",
             "health": "critical",
             "topologyElementIdentifier": "server-2",
-            "name": "Health Monitor"
+            "name": "Health monitor"
           }
         ]
       }
@@ -113,7 +113,7 @@ curl -X POST \
           "message": "Provisioning failed. [Learn more](https://www.any-link.com)",
           "health": "critical",
           "topologyElementIdentifier": "server-2",
-          "name": "Health Monitor"
+          "name": "Health monitor"
         }
       ]
     }
@@ -131,7 +131,7 @@ stac health send check-state urn:health:sourceId:streamId \
   --message "Deviating Server Running out of disk space" --consistency-model="REPEAT_SNAPSHOTS"
 
 stac health send check-state urn:health:sourceId:streamId \
-  checkStateId2 "Health Monitor" "server-2" critical \
+  checkStateId2 "Health monitor" "server-2" critical \
   --message "Provisioning failed. [Learn more](https://www.any-link.com)" --consistency-model="REPEAT_SNAPSHOTS"
 
 stac health send stop urn:health:sourceId:streamId
