@@ -95,7 +95,10 @@ You can [create a custom monitor function](../custom-functions/monitor-functions
 The monitor run interval determines how often a monitor logic will be executed. It is expressed in seconds. For example, an `intervalSeconds: 60` configuration means that StackState will attempt to execute the monitor function associated with the Monitor every 60 seconds. If the monitor function execution takes significant time, the next scheduled run will occur 60 seconds **after** the previous run finishes.
 
 ## Create a custom monitor
-In this article, we'll create a CPU metric monitor using an example monitor function created in [another article](../custom-functions/monitor-functions.md). To create a custom monitor in StackState:
+
+The steps below will create a CPU metric monitor using an example [monitor function](../custom-functions/monitor-functions.md). 
+
+To create a custom monitor in StackState:
 
 1. [Create a new STJ import file.](#create-a-new-stj-import-file)
 2. [Populate the monitor node.](#populate-the-monitor-node)
@@ -121,7 +124,7 @@ You can place multiple monitors on the same STJ file. You can also add other nod
 
 A monitor node of type `Monitor` needs to be added to the import file. This type of a node is supported in API version 1.0.39 and above. The required fields are the `name`, `identifier` and `description`. The `identifier` should be a value that uniquely identifies this specific monitor definition. `intervalSeconds`, `function` and `arguments` determine what validation rule and how often it is run. An optional parameter of `remediationHint` can be specified - it is a Markdown-encoded instruction of what to do if this monitor produces an unhealthy health state. It is displayed on the interface together with the monitor result panel.
 
-Configuring the monitor function is best done by utilizing the [`get` helper function](../../develop/reference/stj/stj_reference.md#get) paired with the `identifier` of the function itself. In this example the function is named `Metric above threshold` and its identifier is `urn:system:default:monitor-function:metric-above-threshold`.
+Configuring the monitor function is best done by utilizing the [`get` helper function](/develop/reference/stj/stj_reference.md#get) paired with the `identifier` of the function itself. In this example the function is named `Metric above threshold` and its identifier is `urn:system:default:monitor-function:metric-above-threshold`.
 
 ```json
 {
@@ -254,6 +257,6 @@ stac monitor preview <id-or-identifier-of-a-monitor>
 ## See also
 
 * [StackState CLI](/setup/cli/README.md)
-* [StackState Template JSON \(STJ\)](../../develop/reference/stj/README.md)
-* [Develop your own StackPacks](../../stackpacks/sdk.md)
-* [Integrations](../../stackpacks/integrations/README.md)
+* [StackState Template JSON \(STJ\)](/develop/reference/stj/README.md)
+* [Develop your own StackPacks](/stackpacks/sdk.md)
+* [Integrations](/stackpacks/integrations/README.md)
