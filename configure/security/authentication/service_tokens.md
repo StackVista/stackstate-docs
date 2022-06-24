@@ -29,7 +29,22 @@ Use "sts service-token [command] --help" for more information about a command.
 
 ### Create service tokens
 
-To create a service token you can use the `sts service-token create` command. 
+To create a service token you can use the new `sts` CLI.
+
+{% tabs %}
+{% tab title="CLI: sts (new)" %}
+```commandline
+sts service-token create
+```
+
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endtab %}
+{% tab title="CLI: stac" %}
+
+Command not available in the `stac` CLI, use the new `sts` CLI. 
+{% endtab %}
+{% endtabs %}
+
 
 {% hint style="info" %}
 Note that the service token will only be displayed once. It is not possible to see the token again.
@@ -45,29 +60,59 @@ This command takes the following command line arguments:
 
 For example, the command below will create a service token with the name `my-service-token` and the role `stackstate-power-user`:
 
-```bash
+{% tabs %}
+{% tab title="CLI: sts (new)" %}
+```commandline
 > sts service-token create --name my-service-token --roles stackstate-power-user
 ✅ Service token created: svctok-aaaaa-bbbb-ccccc-ddddd
 ```
 
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endtab %}
+{% tab title="CLI: stac" %}
+
+Command not available in the `stac` CLI, use the new `sts` CLI. 
+{% endtab %}
+{% endtabs %}
+
 ### List service tokens
 
-The ID, name, expiration date and roles of all created service tokens can be seen using the `sts service-token list` command. For example:
+The ID, name, expiration date and roles of all created service tokens can be seen using the new `sts` CLI. For example:
 
+{% tabs %}
+{% tab title="CLI: sts (new)" %}
 ```bash
 > sts service-token list
 ID              | NAME             | EXPIRATION | ROLES
 107484341630693 | my-service-token |            | [stackstate-power-user]
 ```
 
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endtab %}
+{% tab title="CLI: stac" %}
+
+Command not available in the `stac` CLI, use the new `sts` CLI. 
+{% endtab %}
+{% endtabs %}
+
 ### Delete service tokens
 
-A service token can be deleted using the `sts service-token delete` command. Pass the ID of the service token as an argument. For example:
+A service token can be deleted using the new `sts` CLI. Pass the ID of the service token as an argument. For example:
 
+{% tabs %}
+{% tab title="CLI: sts (new)" %}
 ```bash
 > sts service-token delete 107484341630693
 ✅ Service token deleted: 107484341630693
 ```
+
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endtab %}
+{% tab title="CLI: stac" %}
+
+Command not available in the `stac` CLI, use the new `sts` CLI. 
+{% endtab %}
+{% endtabs %}
 
 ## Use service tokens
 
