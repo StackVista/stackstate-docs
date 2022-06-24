@@ -301,3 +301,17 @@ For details on how to work with the StackState CLI, refer to the help provided i
 stac --help
 ```
 
+## License
+
+The `stac` CLI can be used to check your license validity and update a license key when needed, for example, in case of expiration.
+
+```text
+# check license key validity
+stac subscription show
+# Update license key
+stac subscription update new-license-key
+```
+
+{% hint style="info" %}
+Note that it is not necessary to do this via the CLI. StackState will also offer this option in the UI when a license is about to expire or has expired.
+{% endhint %}

@@ -28,12 +28,12 @@ Details of the included features, improvements, bug fixes and updated StackPacks
 
 **Features**
 
+- Introduced a new monitoring feature - 4T Monitors. STAC-14693
 - Part of the API of StackState 5.0.0 has been released with an OpenAPI specification to allow for easier consumption by API clients of StackState. The OpenAPI specification can be browsed at [https://dl.stackstate.com/stackstate-openapi/v5.0/openapi-v5.0.0.html](https://dl.stackstate.com/stackstate-openapi/v5.0/openapi-v5.0.0.html) STAC-16693
 - The topology visualizer has been revamped. It now features much cleaner user experience and multiple helpful navigation improvements including a [legend](/use/stackstate-ui/perspectives/topology-perspective.md#legend) that describes the components and relations displayed. STAC-16191
 - First release of a [completely new, easier to install CLI](/setup/cli/cli-sts.md), supporting the new features of StackState such as 4T Monitors and Service Tokens. STAC-15281
 - Anomalies can now be marked with a [thumbs-up or thumbs-down](/stackpacks/add-ons/aad.md#anomaly-feedback). This feedback can be exported via the CLI and sent to StackState to help further develop test sets and algorithms for the AAD. STAC-15270
 - The right panel in the StackState UI has been revamped. It now supports multiple tabs and chaining of selected elements.  STAC-14808
-- Introduced a new monitoring feature - 4T Monitors. STAC-14693
 
 
 **Improvements**
