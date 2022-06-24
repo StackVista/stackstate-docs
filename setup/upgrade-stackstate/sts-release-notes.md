@@ -19,7 +19,7 @@ Before you upgrade, [check the version specific upgrade instructions](/setup/upg
 
 The StackState v5.0 release delivers brand new features and enhancements that help your team troubleshoot faster. Here are some highlights:
 
-* **New 4T® Monitors** – adds a new, first-in-the-industry dimension to observability monitoring – the ability to now monitor topology and to set validation rules that span topology and multiple other parameters
+* **[New 4T® Monitors](/use/checks-and-monitors/about-checks-and-monitors.md)** – adds a new, first-in-the-industry dimension to observability monitoring – the ability to now monitor topology and to set validation rules that span topology and multiple other parameters
 * **Improved Topology Visualizer and Right Panel** – substantially enhances user experience and increases productivity with a more modern, focused, easy-to-learn UI and more in-depth troubleshooting capabilities.
 * **[New StackState CLI](/setup/cli/cli-comparison.md)** – lets you instantly configure StackState, run queries, create monitors and more, directly from your command line, while sending output directly to other systems for GitOps integration.
 * **[Accuracy Feedback for Anomalies](/stackpacks/add-ons/aad.md#anomaly-feedback)** – gives users the ability to provide feedback about the usefulness of the anomalies reported by StackState, so we can continuously improve the accuracy of our algorithms.
