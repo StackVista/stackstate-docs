@@ -73,5 +73,5 @@ if (viewSummary.getStates().any{elementState -> (elementState.type == "DB") && (
 
 ## See also
 
-* [Configure the view health](../../../use/checks-and-monitors/configure-view-health.md)
+* [Configure the view health](../../../use/stackstate-ui/views/configure-view-health.md)
 

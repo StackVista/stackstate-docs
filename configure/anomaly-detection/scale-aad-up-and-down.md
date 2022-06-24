@@ -37,7 +37,7 @@ For most cases, this snippet should be added to the `values.yaml` file used to d
 
 ## Evaluate use of resources
 
-One of the most important uses of anomalies in the StackState product is in [anomaly health checks](../../use/health-state/anomaly-health-checks.md). The following metrics can be used to determine if the AAD is putting the available resources to good use:
+One of the most important uses of anomalies in the StackState product is in [anomaly health checks](../../use/checks-and-monitors/anomaly-health-checks.md). The following metrics can be used to determine if the AAD is putting the available resources to good use:
 
 * **Checked streams** - the number of metric streams that have their latest data points checked.
 * **Streams with anomaly checks** - the number of metric streams that have an anomaly health check defined on them.

@@ -58,7 +58,7 @@ To enable view health state, set `View Health State Enabled` to **on** when you 
 
 To disable a view health state, [edit the view](about_views.md#delete-or-edit-a-view) and set `View Health State Enabled` to **off**.
 
-➡️ [Learn more about how to configure the view health state](../../checks-and-monitors/configure-view-health.md).
+➡️ [Learn more about how to configure the view health state](configure-view-health.md).
 
 ### Event notifications for view health state changes
 

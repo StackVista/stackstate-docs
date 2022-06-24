@@ -100,7 +100,7 @@ To stop time travelling and return the topology time to live mode, click **Go li
 
 The health state of a view during the selected telemetry interval is displayed as a color in the timeline **Health** line.
 
-Health state information is available when [health state is enabled](../checks-and-monitors/configure-view-health.md) for the current view as long as the topology displayed results from the original topology filter saved in the view.
+Health state information is available when [health state is enabled](views/configure-view-health.md) for the current view as long as the topology displayed results from the original topology filter saved in the view.
 
 {% hint style="info" %}
 If the topology filters have been edited and not saved, no health state information will be available.

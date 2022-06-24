@@ -79,7 +79,7 @@
   * [Filters](use/stackstate-ui/filters.md)
   * [Views](use/stackstate-ui/views/README.md)
     * [About views](use/stackstate-ui/views/about_views.md)
-    * [Configure the view health](use/checks-and-monitors/configure-view-health.md)
+    * [Configure the view health](use/stackstate-ui/views/configure-view-health.md)
     * [Create and edit views](use/stackstate-ui/views/create_edit_views.md)
     * [Manage event handlers](use/stackstate-ui/views/manage-event-handlers.md)
     * [Visualization settings](use/stackstate-ui/views/visualization_settings.md)
