@@ -46,7 +46,7 @@ When you first open a view, the **View Summary** will be visible in the right pa
 
 ## View health state
 
-A view is also a tool to define a clear selection of components for which you want to receive a event notifications. Typically, these are services that provide business value to a team's \(internal\) customers. StackState can define a single health state for any given set of components stored as a view - the [view health state](../../health-state/about-health-state.md#view-health-state). The view health state reflects the health state of components and relations within the view. It can be calculated based on a simple count, but it could also be something more complex, for example:
+A view is also a tool to define a clear selection of components for which you want to receive a event notifications. Typically, these are services that provide business value to a team's \(internal\) customers. StackState can define a single health state for any given set of components stored as a view - the [view health state](../../concepts/health-state.md#view-health-state). The view health state reflects the health state of components and relations within the view. It can be calculated based on a simple count, but it could also be something more complex, for example:
 
 * Report view health state `CLEAR` if service A and service B are working fine.
 * Report view health `DEVIATING` if service A has a problem.
@@ -58,7 +58,7 @@ To enable view health state, set `View Health State Enabled` to **on** when you 
 
 To disable a view health state, [edit the view](about_views.md#delete-or-edit-a-view) and set `View Health State Enabled` to **off**.
 
-➡️ [Learn more about how to configure the view health state](../../health-state/configure-view-health.md).
+➡️ [Learn more about how to configure the view health state](../../checks-and-monitors/configure-view-health.md).
 
 ### Event notifications for view health state changes
 
@@ -78,6 +78,6 @@ Through a combination of configuration of permissions and scope, it is possible 
 ## See also
 
 * [Create and edit views](create_edit_views.md)
-* [Health state for a view](../../health-state/about-health-state.md#view-health-state)  
+* [Health state for a view](../../concepts/health-state.md#view-health-state)  
 * [Visualization settings](visualization_settings.md)
 * [Send event notifications for view health state changes](/use/stackstate-ui/views/manage-event-handlers.md)

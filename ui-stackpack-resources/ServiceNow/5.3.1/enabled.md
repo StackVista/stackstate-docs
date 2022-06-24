@@ -9,8 +9,8 @@ Now that StackState has the topology from your ServiceNow instance, you can see 
 - ServiceNow Applications
 - ServiceNow Business Processes
 - ServiceNow Discovered
-- ServiceNow Infrastructure & Network
-- ServiceNow Machines & Load balancers
+- ServiceNow Infrastructure and Network
+- ServiceNow Machines and Load balancers
 
 Change requests will be visible as events in StackState.
 

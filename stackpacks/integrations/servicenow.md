@@ -243,8 +243,8 @@ When the ServiceNow integration is enabled, the following ServiceNow specific vi
 * ServiceNow Applications
 * ServiceNow Business Processes
 * ServiceNow Discovered
-* ServiceNow Infrastructure & Network
-* ServiceNow Machines & Load balancers
+* ServiceNow Infrastructure and Network
+* ServiceNow Machines and Load balancers
 
 ### Open source
 

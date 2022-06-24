@@ -18,7 +18,7 @@ Click on the Legend button (?) in the bottom right of the screen to display an e
 
 ## Components
 
-The Topology Perspective shows the filtered components and relations in a selected [view](../views/about_views.md) or the entire, unfiltered topology in [explore mode](../explore_mode.md). Components that have one or more health checks configured will report a calculated [health state](../../health-state/about-health-state.md).
+The Topology Perspective shows the filtered components and relations in a selected [view](../views/about_views.md) or the entire, unfiltered topology in [explore mode](../explore_mode.md). Components that have one or more health checks configured will report a calculated [health state](../../concepts/health-state.md).
 
 * Select a component to display [detailed component information](/use/concepts/components.md#detailed-component-information) in the right panel **Selection details** tab.
 * Hover over a component to open the [component context menu](#component-context-menu).
@@ -53,7 +53,7 @@ Shortcuts give you direct access to detailed information about the specific comp
 
 ## Relations
 
-Relations show how components in the topology are connected together. They are represented by a dashed or solid line and have an arrowhead showing the direction of dependency between the components they link. [Health state will propagate](../../health-state/about-health-state.md#propagated-health-state) from one component to the next, from dependencies to dependent components. Relations that have one or more health checks configured will report a calculated health state.
+Relations show how components in the topology are connected together. They are represented by a dashed or solid line and have an arrowhead showing the direction of dependency between the components they link. [Health state will propagate](../../concepts/health-state.md#propagated-health-state) from one component to the next, from dependencies to dependent components. Relations that have one or more health checks configured will report a calculated health state.
 
 Select a relation to open detailed information about it in the right panel **Selection details** tab.
 
@@ -103,7 +103,7 @@ See the full list of [StackState keyboard shortcuts](../keyboard-shortcuts.md).
 
 ### Show root cause
 
-If there are components with [telemetry streams](../../metrics-and-events/telemetry_streams.md) and [health checks](../../health-state/about-health-state.md) in your view, the Topology Perspective will calculate a health state and propagate this state throughout the graph. The propagated health state will help you to see the risk of affecting other components. When an element has an unhealthy [propagated health state](/use/health-state/about-health-state.md#propagated-health-state), this will be shown as an outer color in the topology visualization.
+If there are components with [telemetry streams](../../metrics-and-events/telemetry_streams.md) and [health checks](../../concepts/health-state.md) in your view, the Topology Perspective will calculate a health state and propagate this state throughout the graph. The propagated health state will help you to see the risk of affecting other components. When an element has an unhealthy [propagated health state](/use/health-state/about-health-state.md#propagated-health-state), this will be shown as an outer color in the topology visualization.
 
 {% hint style="success" "self-hosted info" %}
 

@@ -25,7 +25,7 @@ The main way to filter topology is using the available basic filters. When you s
 | Filter | Description |
 | :--- | :--- |
 | Layers, Domains, Environments and Component types | Filter by the component details included when components are imported or created. |
-| Component health | Only include components with the named [health state](../health-state/about-health-state.md) as reported by the associated health check. |
+| Component health | Only include components with the named [health state](../concepts/health-state.md) as reported by the associated health check. |
 | Component labels | Only include components with a specific label. |
 | Include components | Components named here will be included in the topology **in addition to** the components returned from other filters. |
 

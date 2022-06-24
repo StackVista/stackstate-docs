@@ -299,7 +299,7 @@ A number of [actions](../../use/stackstate-ui/perspectives/topology-perspective.
 | **Show configuration and storage** | pods containers | Display the selected pod or container with its configmaps, secrets and volumes |
 | **Show dependencies \(deep\)** | deployment replicaset replicationcontroller statefulset daemonset job cronjob pod | Displays all dependencies \(up to 6 levels deep\) of the selected pod or workload. |
 | **Show pods** | deployment replicaset replicationcontroller statefulset daemonset job cronjob | Displays the pods for the selected workload. |
-| **Show pods & services** | namespace | Opens a view for the pods/services in the selected namespace |
+| **Show pods and services** | namespace | Opens a view for the pods/services in the selected namespace |
 | **Show services** | namespace | Open a view for the service and ingress components in the selected namespace |
 | **Show workloads** | namespace | Show workloads in the selected namespace |
 

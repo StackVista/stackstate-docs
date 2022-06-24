@@ -28,7 +28,7 @@ Only events related to components are captured in event handlers, relation-relat
 
 ### State change events
 
-Metrics and events data flow through StackState topology elements in telemetry streams. These telemetry streams are used by [health checks](../health-state/add-a-health-check.md) to determine the health state of an element. For every change in health state, at least one state change event is generated. Use the [Manage Event Handlers](/use/stackstate-ui/views/manage-event-handlers.md) panel to add an event handler to the view and trigger an event notification or action whenever state changed events are generated.
+Metrics and events data flow through StackState topology elements in telemetry streams. These telemetry streams are used by [health checks](../checks-and-monitors/add-a-health-check.md) to determine the health state of an element. For every change in health state, at least one state change event is generated. Use the [Manage Event Handlers](/use/stackstate-ui/views/manage-event-handlers.md) panel to add an event handler to the view and trigger an event notification or action whenever state changed events are generated.
 
 The event types generated when an element state changes are described in the table below.
 
@@ -55,7 +55,7 @@ Changes to a problem result in the following event types being generated. Note t
 
 ## See also
 
-* [Add a health check](../health-state/add-a-health-check.md)
+* [Add a health check](../checks-and-monitors/add-a-health-check.md)
 * [Configure an SMTP server to send email event notifications](../../configure/topology/configure-email-event-notifications.md "StackState Self-Hosted only")
 * [Custom event handlers](../../develop/developer-guides/custom-functions/event-handler-functions.md "StackState Self-Hosted only")
 * [Create a custom event handler function](../../develop/developer-guides/custom-functions/event-handler-functions.md "StackState Self-Hosted only")

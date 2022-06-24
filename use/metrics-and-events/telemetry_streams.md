@@ -28,7 +28,7 @@ Telemetry streams can also be defined in templates and attached automatically to
 
 ## See also
 
-* [Add a health check based on telemetry streams available in StackState](../health-state/add-a-health-check.md)
+* [Add a health check based on telemetry streams available in StackState](../checks-and-monitors/add-a-health-check.md)
 * [Add a telemetry stream to an element](add-telemetry-to-element.md)
 * [Use templates to add telemetry streams to your own integrations](../../configure/telemetry/telemetry_synchronized_topology.md "StackState Self-Hosted only")
 * [Check functions](../../develop/developer-guides/custom-functions/check-functions.md "StackState Self-Hosted only")
