@@ -10,7 +10,7 @@ Note that the release notes may include details of functionality that is current
 
 ## StackState v5.0.x
 
-### v5.0.0
+### v5.0.0 (2022-06-24)
 
 The StackState v5.0 release delivers brand new features and enhancements that help your team troubleshoot faster. Here are some highlights:
 
@@ -78,7 +78,7 @@ Details of the included features, improvements, bug fixes and updated StackPacks
 
 ## StackState v4.6.x
 
-### v4.6.1 (05-04-2022)
+### v4.6.1 (2022-04-05)
 
 **Bug fixes**
 
@@ -86,7 +86,7 @@ Details of the included features, improvements, bug fixes and updated StackPacks
 - If the OIDC configuration is wrongly configured to obtain a username, the logging will show all fields that can be selected to obtain the username from. STAC-16027
 - Security fixes for CVE-2022-24407. STAC-15939
 
-### v4.6.0 (04-03-2022)
+### v4.6.0 (2022-03-04)
 
 The StackState v4.6 release brings powerful new capabilities:
 
@@ -153,7 +153,7 @@ Details of the included improvements and bug fixes can be found below.
 
 - Fixed issue that caused the AAD to fail to authenticate with StackState. STAC-15278
 
-### v4.5.2 (2022-14-01)
+### v4.5.2 (2022-01-14)
 
 **Improvements**
 
