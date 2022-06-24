@@ -10,7 +10,7 @@ Reacting to each event in an environment can cause a lot of noise. This may be b
 
 StackState can reduce this noise by looking at the overall health state of a **view** rather than that of individual elements. The view health state is determined by the combined health of its elements. When a view changes its health state, a view state change event is triggered and that can in turn trigger an event notification or automated action.
 
-![Views list with view health state](../../.gitbook/assets/v50_views_list.png)
+![Views list with view health state](../../../.gitbook/assets/v50_views_list.png)
 
 ## Configure view health state
 
@@ -26,17 +26,17 @@ View health state is calculated by a **view state configuration function**. To c
 6. Click **UPDATE** to save the new configuration to the view.
    * The view health will update immediately.
 
-![Edit query view](../../.gitbook/assets/v50_edit_query_view.png)
+![Edit query view](../../../.gitbook/assets/v50_edit_query_view.png)
 
 {% hint style="success" "self-hosted info" %}
 
-* Create your own [custom View Health State Configuration functions](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md).
+* Create your own [custom View Health State Configuration functions](../../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md).
 * Details of the available configuration functions are available in the StackState UI, go to **Settings** &gt; **Functions** &gt; **View Health State Configuration Functions**.
 {% endhint %}
 
 ## React to view state changes
 
-When the View health state changes, a `ViewHealthStateChangedEvent` is generated. This event can be used to trigger an [event notification](../metrics-and-events/event-notifications.md), such as an e-mail or Slack message.
+When the View health state changes, a `ViewHealthStateChangedEvent` is generated. This event can be used to trigger an [event notification](../../metrics-and-events/event-notifications.md), such as an e-mail or Slack message.
 
 ## View health state configuration functions
 
@@ -56,12 +56,12 @@ The **MINIMUM HEALTH STATES** view health state configuration function calculate
 
 {% hint style="success" "self-hosted info" %}
 
-Use the **MINIMUM HEALTH STATES** view health state configuration as a starting point to [create a custom view health state configuration function](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#create-a-custom-view-health-state-configuration-function).
+Use the **MINIMUM HEALTH STATES** view health state configuration as a starting point to [create a custom view health state configuration function](../../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#create-a-custom-view-health-state-configuration-function).
 {% endhint %}
 
 ## See also
 
-* [Add a health check](add-a-health-check.md)
+* [Add a health check](../../checks-and-monitors/add-a-health-check.md)
 * [Send event notifications when a health state changes](/use/stackstate-ui/views/manage-event-handlers.md)
-* [Customize the view state configuration](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md "StackState Self-Hosted only")
-* [Create a custom view health state configuration function](../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#create-a-custom-view-health-state-configuration-function "StackState Self-Hosted only")
+* [Customize the view state configuration](../../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md "StackState Self-Hosted only")
+* [Create a custom view health state configuration function](../../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#create-a-custom-view-health-state-configuration-function "StackState Self-Hosted only")

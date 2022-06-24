@@ -5,7 +5,7 @@ description: StackState Self-hosted v5.0.x
 # Welcome to the StackState Self-hosted product docs!
 
 {% hint style="success" %}
-**StackState v5.0 is available soon!**
+**StackState v5.0 is available now!**
 
 [Read the release notes](/setup/upgrade-stackstate/sts-release-notes.md) to find out what's new.
 {% endhint %}

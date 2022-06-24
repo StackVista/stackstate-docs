@@ -37,7 +37,7 @@
 * [About health state](use/concepts/health-state.md)
 * [Add a health check](use/checks-and-monitors/add-a-health-check.md)
 * [Anomaly health checks](use/checks-and-monitors/anomaly-health-checks.md)
-* [Configure the view health](use/checks-and-monitors/configure-view-health.md)
+* [Configure the view health](use/stackstate-ui/views/configure-view-health.md)
 
 ## 🛑 Problem analysis
 

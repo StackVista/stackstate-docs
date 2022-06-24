@@ -229,7 +229,7 @@ redirects:
   use/health-state-and-event-notifications/add-a-health-check: ./use/health-state/add-a-health-check.md
   use/problems/problem_investigation: ./use/problem-analysis/problem_investigation.md
   use/problems/problem_notifications: ./use/problem-analysis/problem_notifications.md
-  use/health-state-and-event-notifications/anomaly-health-checks: ./use/health-state/anomaly-health-checks.md
+  use/health-state-and-event-notifications/anomaly-health-checks: ./use/checks-and-monitors/anomaly-health-checks.md
   use/view_filters: ./use/stackstate-ui/filters.md
   use/health-state-and-event-notifications/configure-view-health: ./use/health-state/configure-view-health.md
   setup/installation/kubernetes_install/development_setup: ./setup/install-stackstate/kubernetes_install/non_high_availability_setup.md

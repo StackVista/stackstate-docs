@@ -106,6 +106,6 @@ The context menu of a monitor result panel (...) allows for inspecting of the mo
 * [Health Synchronization](../../configure/health/health-synchronization)
 * [StackState Template JSON \(STJ\)](../../develop/reference/stj/README.md)
 * [StackState Query Language \(STQL\)](../../develop/reference/stql_reference.md)
-* [StackState CLI](../../setup/cli-install.md)
+* [StackState CLI](../../setup/cli/README.md)
 * [StackPacks](../../stackpacks/about-stackpacks.md)
 * [Identifiers](../../configure/topology/identifiers.md)
