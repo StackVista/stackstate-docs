@@ -1,9 +1,9 @@
-name: Merge 4.6 changes into master
+name: Merge 5.0 changes into master
 
-# triggered on push or merge to 4.6 branch
+# triggered on push or merge to 50 branch
 on:
   push:
-    branches: [ 4.6 ]
+    branches: [ 5.0 ]
 
 jobs:
   auto-pull-request:
@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: pull-request-action
-        uses: vsoch/pull-request-action@1.0.18
+        uses: vsoch/pull-request-action@1.0.19
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PULL_REQUEST_BRANCH: master
-          PULL_REQUEST_TITLE: "[AUTOMATED] Sync updates from live branch 4.6"
+          PULL_REQUEST_TITLE: "[AUTOMATED] Sync updates from live branch 5.0"
           PULL_REQUEST_REVIEWERS: "gggina"
