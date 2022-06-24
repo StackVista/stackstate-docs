@@ -8,6 +8,74 @@ description: StackState SaaS
 Note that the release notes may include details of functionality that is currently only available in the StackState Self-Hosted product. 
 {% endhint %}
 
+## StackState v5.0.x
+
+### v5.0.0
+
+The StackState v5.0 release delivers brand new features and enhancements that help your team troubleshoot faster. Here are some highlights:
+
+* **[New 4T® Monitors](/use/checks-and-monitors/about-checks-and-monitors.md)** – adds a new, first-in-the-industry dimension to observability monitoring – the ability to now monitor topology and to set validation rules that span topology and multiple other parameters
+* **Improved Topology Visualizer and Right Panel** – substantially enhances user experience and increases productivity with a more modern, focused, easy-to-learn UI and more in-depth troubleshooting capabilities.
+* **New StackState CLI** – lets you instantly configure StackState, run queries, create monitors and more, directly from your command line, while sending output directly to other systems for GitOps integration.
+* **[Accuracy Feedback for Anomalies](/stackpacks/add-ons/aad.md#anomaly-feedback)** – gives users the ability to provide feedback about the usefulness of the anomalies reported by StackState, so we can continuously improve the accuracy of our algorithms.
+
+Details of the included features, improvements, bug fixes and updated StackPacks can be found below.
+
+**Features**
+
+- Part of the API of StackState 5.0.0 has been released with an OpenAPI specification to allow for easier consumption by API clients of StackState. The OpenAPI specification can be browsed at [https://dl.stackstate.com/stackstate-openapi/v5.0/openapi-v5.0.0.html](https://dl.stackstate.com/stackstate-openapi/v5.0/openapi-v5.0.0.html) STAC-16693
+- The topology visualizer has been revamped. It now features much cleaner user experience and multiple helpful navigation improvements including a [legend](/use/stackstate-ui/perspectives/topology-perspective.md#legend) that describes the components and relations displayed. STAC-16191
+- First release of a completely new, easier to install CLI, supporting the new features of StackState such as 4T Monitors and Service Tokens. STAC-15281
+- Anomalies can now be marked with a [thumbs-up or thumbs-down](/stackpacks/add-ons/aad.md#anomaly-feedback). This feedback can be exported via the CLI and sent to StackState to help further develop test sets and algorithms for the AAD. STAC-15270
+- The right panel in the StackState UI has been revamped. It now supports multiple tabs and chaining of selected elements.  STAC-14808
+- Introduced a new monitoring feature - 4T Monitors. STAC-14693
+
+**Improvements**
+
+- Introduced service tokens as a means of authenticating to StackState. Service tokens are not tied to a principal, but instead to a set of roles, allowing for service authentication. More information on creating and managing these can be found in the StackState documentation. STAC-15016
+- Introduced optional View access logging. When enabled, a new access log for StackState views is created under `logs/access/`. This log allows you to track how often specific views are accessed and by which user. To enable this feature, you need to enable the feature flag `featureSwitches.viewAccessLogs` in the StackState Api config. STAC-16369
+- The OIDC `refresh_token` is now cached to prevent re-authenticating the user if the OIDC server does not return a new `refresh_token` when the old one hasn't expired yet. STAC-16158
+- Updated the telemetry script API to stream results. More information can be found in the StackState documentation. STAC-16801
+- kafkaup-operator Helm chart: Added a configurable SecurityContext so that the container no longer requires privileged mode. STAC-16664
+- StackState Helm chart: Added configurable resource requests and limits for all containers. STAC-16443
+- Improved indexing speed for messages coming in on Kafka topics. STAC-15998
+
+
+**Bug fixes**
+
+- Fixed issue that incorrectly showed an error message when displaying a log stream. STAC-16222
+- Added more error context when JSON deserialization fails. STAC-16733
+- Fixed issue that prevented relation details being displayed in the right panel when a link was clicked in the full event details. STAC-16264
+- Fixed DNS lookup errors by explicitly setting a short DNS lookup cache timeout on the internal JDK DNS cache. This ensures that service lookups don't fail in containerized environments. STAC-15983
+- Fixed issue that caused groups with big names to be displayed outside of the visualizer canvas. STAC-16844
+- StackState Helm Chart: The `backup-scripts` ConfigMap now has a label so that it can be easily retrieved in the backup/restore scripts STAC-16447
+- Fixed scroll position after changing group. STAC-16284
+- Fixed error handling of expired sessions for OIDC and Keycloak authentication methods, especially in combination with API token. STAC-15781
+- Fixed suggestions in telemetry inspector for values with multiple dots (domains, IPs). STAC-15764
+- Fixed STQL query generation for relation based problems. STAC-13333
+- If the OIDC configuration is wrongly configured to obtain a username, the logging will now show all fields that can be selected to obtain the username from. STAC-16027
+
+
+**Security**
+
+- Upgraded ssl_client to 1.33.1-r7, patching the CVE-2022-28391 vulnerability. STAC-16426
+- Upgraded Log4j-over-slf4j to version 2.12.1, patching the CVE-2020-9493 vulnerability. STAC-16233
+- Upgraded libcrypto1.1 to 1.1.1n-r0, patching the CVE-2022-0778 vulnerability. STAC-16135
+- Upgraded libssl1.1 to 1.1.1l-r0 (Alpine) and 1.1.1f-1ubuntu2.12 (Ubuntu), patching the CVE-2022-0778 vulnerability. STAC-16134
+- Upgraded zlib to 1.2.12-r0, patching the CVE-2018-25032 vulnerability. STAC-16214
+- Upgraded libretls to 3.3.3p1-r3, patching the CVE-2022-0778 vulnerability. STAC-16153
+- Upgraded ElasticSearch to 7.17.2. STAC-16418
+
+**StackPack updates:**
+
+* [StackState Agent StackPack v4.5.2](/stackpacks/integrations/agent.md#release-notes)
+* [AWS v1.2.1](/stackpacks/integrations/aws/aws.md#release-notes)
+* [Dynatrace v1.4.2](/stackpacks/integrations/dynatrace.md#release-notes)
+* [Kubernetes v3.9.12](/stackpacks/integrations/kubernetes.md#release-notes)
+* [OpenShift v3.7.12](/stackpacks/integrations/openshift.md#release-notes)
+* [ServiceNow v5.3.3](/stackpacks/integrations/servicenow.md#release-notes)
+* [VMware vSphere v2.3.3](/stackpacks/integrations/vsphere.md#release-notes)
+
 ## StackState v4.6.x
 
 ### v4.6.1 (05-04-2022)
