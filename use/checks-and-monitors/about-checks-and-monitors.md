@@ -50,10 +50,10 @@ See how to [manage monitors](add-a-monitor.md) in StackState.
 
 ### Monitor execution
 
-Monitors are run by a dedicated subsystem of StackState called the Monitor runner. The main task of the Monitor runner is to schedule the execution of all existing monitors in such a way as to ensure that all of them produce viable results in a timely manner.
-For that purpose, the Monitor runner uses an interval parameter configured on a per-monitor basis - the `intervalSeconds`. The runner will attempt to schedule a Monitor execution every `intervalSeconds`, counting from the end of the previous execution cycle, in parallel to the other existing Monitors (subject to resource limits). For example, setting `intervalSeconds` of a Monitor definition to the value `600` will cause the Monitor runner to attempt to schedule the execution of this Monitor every ten minutes, assuming that the execution time itself is negligible.
+Monitors are run by a dedicated subsystem of StackState called the monitor runner. The main task of the monitor runner is to schedule the execution of all existing monitors in such a way as to ensure that all of them produce viable results in a timely manner.
+For that purpose, the monitor runner uses an interval parameter configured on a per-monitor basis - the `intervalSeconds`. The runner will attempt to schedule a monitor execution every `intervalSeconds`, counting from the end of the previous execution cycle, in parallel to the other existing Monitors (subject to resource limits). For example, setting `intervalSeconds` of a monitor definition to the value `600` will cause the monitor runner to attempt to schedule the execution of this monitor every ten minutes, assuming that the execution time itself is negligible.
 
-The runner is maintenance free - it starts whenever StackState starts and picks up any newly applied Monitor definitions automatically whenever they are created, changed or removed. Any changes to the Monitors are reflected with the next execution cycle and any execution issues are logged to the global StackState log file. Any such error logs are obtainable (in addition to being stored in the StackState log file) via a dedicated CLI command:
+The runner is maintenance free - it starts whenever StackState starts and picks up any newly applied monitor definitions automatically whenever they are created, changed or removed. Any changes to the Monitors are reflected with the next execution cycle and any execution issues are logged to the global StackState log file. Any such error logs are obtainable (in addition to being stored in the StackState log file) via a dedicated CLI command:
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
@@ -80,7 +80,7 @@ stac monitor status <id-or-identifier-of-a-monitor>
 The output of this command indicates the specific errors that occured along with the counts of how many times they happend in addition to health stream statistics associated with this monitor.
 
 {% hint style="success" "self-hosted info" %}
-The Monitor runner subsystem can be disabled via the configuration file by appending the following line at the end of the `etc/application_stackstate.conf` file:
+The monitor runner subsystem can be disabled via the configuration file by appending the following line at the end of the `etc/application_stackstate.conf` file:
 
 `stackstate.featureSwitches.monitorRunner = false`
 
@@ -88,19 +88,19 @@ The Monitor runner subsystem can be disabled via the configuration file by appen
 
 ### Monitor results
 
-The same as for Checks, Monitor results are in the right panel **Selection details** tab under the **Health** section when information about an element is displayed:
+The same as for checks, monitor results are in the right panel **Selection details** tab under the **Health** section when information about an element is displayed:
 
 ![Monitor result panel](../../.gitbook/assets/v50_monitor_result.png)
 
 The result panel displays among other information:
 
-- a **health state** produced by the associated Monitor, along with the time it has been updated,
+- a **health state** produced by the associated monitor, along with the time it has been updated,
 - **optional metric charts** of the data that resulted in this health state being generated,
-- the name of the Monitor associated with this result.
+- the name of the monitor associated with this result.
 
-The context menu of a Monitor result panel (...) allows for inspecting of the Monitor definition:
+The context menu of a monitor result panel (...) allows for inspecting of the monitor definition:
 
-- **Show monitor definition** - opens a modal window containing the full Monitor definition associated with this result.
+- **Show monitor definition** - opens a modal window containing the full monitor definition associated with this result.
 
 ## See also
 * [Health Synchronization](../../configure/health/health-synchronization)

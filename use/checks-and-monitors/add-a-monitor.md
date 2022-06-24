@@ -15,11 +15,11 @@ Most Monitors in StackState are created as part of a StackPack installed by the 
 * Details of the monitors provided by StackPacks can be found in [their respective documentation](../../stackpacks/integrations/README.md).
 * You can also [create a custom monitor](../../develop/developer-guides/monitors/how-to-create-monitors.md) from scratch using the StackState CLI.
 
-It might be beneficial to modify an existing Monitor definition to change its parameters, run interval or to disable it. All of these actions are done by utilizing the StackState CLI and are described in greater detail in the following sections.
+It might be beneficial to modify an existing monitor definition to change its parameters, run interval or to disable it. All of these actions are done by utilizing the StackState CLI and are described in greater detail in the following sections.
 
-## Change Monitor parameters or run interval
+## Change monitor parameters or run interval
 
-Monitor configuration can be changed by modifying their definition. Onec a Monitor to be modified is identified, either by inspecting the definition of a Monitor available under the context menu of a Monitor result panel, or otherwise by obtaining the Monitors identifier, a dedicated CLI command can be used to export the definition out of the system into a file named `path/to/export.stj`:
+Monitor configuration can be changed by modifying their definition. Once a monitor to be modified is identified, either by inspecting the definition of a monitor available under the context menu of a monitor result panel, or otherwise by obtaining the Monitors identifier, a dedicated CLI command can be used to export the definition out of the system into a file named `path/to/export.stj`:
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
@@ -30,7 +30,7 @@ Monitor configuration can be changed by modifying their definition. Onec a Monit
 {% endtab %}
 {% endtabs %}
 
-Afterwards, the file can be modified to change the Monitor `parameters` and `intervalSeconds` properties. Once modified, the Monitor can be reapplied in StackState by running another CLI command:
+Afterwards, the file can be modified to change the monitor `parameters` and `intervalSeconds` properties. Once modified, the monitor can be reapplied in StackState by running another CLI command:
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
@@ -41,11 +41,11 @@ Afterwards, the file can be modified to change the Monitor `parameters` and `int
 {% endtab %}
 {% endtabs %}
 
-Once reapplied, the updated Monitor definition will be in effect. If the `intervalSeconds` property has been modified, the execution freequency of the Monitor will be adjusted accordingly.
+Once reapplied, the updated monitor definition will be in effect. If the `intervalSeconds` property has been modified, the execution frequency of the monitor will be adjusted accordingly.
 
-## Disable a Monitor
+## Disable a monitor
 
-Monitors can be disabled by removing them. Once a Monitor to be disabled is identified, either by inspecting the definition of a Monitor available under the context menu of a Monitor result panel, or otherwise by obtaining the Monitors identifier, a dedicated CLI command can be used to remove it:
+Monitors can be disabled by removing them. Once a monitor to be disabled is identified, either by inspecting the definition of a monitor available under the context menu of a monitor result panel, or otherwise by obtaining the Monitors identifier, a dedicated CLI command can be used to remove it:
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
@@ -61,7 +61,7 @@ sts monitor delete --identifier <identifier-of-the-monitor>
 {% endtab %}
 {% endtabs %}
 
-Upon removal, all health states associated with the Monitor will also be removed.
+Upon removal, all health states associated with the monitor will also be removed.
 
 ## Monitor functions
 

@@ -45,18 +45,21 @@ Monitors in StackState are represented textually using the STJ file format. The 
 }
 ```
 
-In addition to the usual elements of an STJ file, the protocol version and timestamp, the snippet defines a single node of type `Monitor`. Here is a breakdown of the various fields supported by this definition:
-- `name` - a human readable name that shortly describes the operating principle of the Monitor,
-- `identifier` - a StackState-URN-formatted value that uniquely identifies this Monitor definition,
-- `description` - a longer, more in-depth description of the Monitor,
-- `remediationHint` - a short, markdown-enabled hint displayed whenever the validation rule represented by this Monitor triggers and results in an unhealthy state.
-- `function` - refers a specific Monitor Function to use as the basis of computation for this Monitor,
-- `arguments` - lists concrete values that are to be used as arguments to the Monitor Function invocation,
-- `intervalSeconds` - dictates how often to execute this particular Monitor; new executions are scheduled after `intervalSeconds`, counting from the time th last execution ended.
+In addition to the usual elements of an STJ file, the protocol version and timestamp, the snippet defines a single node of type `Monitor`. 
+
+The supported fields are:
+
+- **name** - a human-readable name that shortly describes the operating principle of the monitor.
+- **identifier** - a StackState-URN-formatted value that uniquely identifies this monitor definition.
+- **description** - a longer, more in-depth description of the monitor.
+- **remediationHint** - a short, markdown-enabled hint displayed whenever the validation rule represented by this monitor triggers and results in an unhealthy state.
+- **function** - refers to a specific monitor function to use as the basis of computation for this monitor.
+- **arguments** - lists concrete values that are to be used as arguments to the monitor function invocation.
+- **intervalSeconds** - dictates how often to execute this particular monitor; new executions are scheduled after `intervalSeconds`, counting from the time th last execution ended.
 
 ### Identifier
 
-An important field of the Monitor node is the `identifier` - it is a unique value of the StackState URN format that can be used together with the Monitor-specific StackState CLI commands. The identifier should be formatted as follows:
+An important field of the monitor node is the `identifier` - it is a unique value of the StackState URN format that can be used together with the monitor-specific StackState CLI commands. The identifier should be formatted as follows:
 
 `urn : <prefix> : monitor : <unique-monitor-identification>`
 
@@ -89,10 +92,10 @@ You can [create a custom monitor function](../custom-functions/monitor-functions
 
 ### Run interval
 
-The Monitor run interval determines how often a Monitor logic will be executed. It is expressed in seconds. For example, an `intervalSeconds: 60` configuration means that StackState will attempt to execute the Monitor function associated with the Monitor every 60 seconds. If the monitor function execution takes significant time, the next scheduled run will occur 60 seconds **after** the previous run finishes.
+The monitor run interval determines how often a monitor logic will be executed. It is expressed in seconds. For example, an `intervalSeconds: 60` configuration means that StackState will attempt to execute the monitor function associated with the Monitor every 60 seconds. If the monitor function execution takes significant time, the next scheduled run will occur 60 seconds **after** the previous run finishes.
 
 ## Creating a custom monitor
-In this article, we'll create a CPU metric monitor using an example Monitor function created in [another article](../custom-functions/monitor-functions.md). To create a custom monitor in StackState:
+In this article, we'll create a CPU metric monitor using an example monitor function created in [another article](../custom-functions/monitor-functions.md). To create a custom monitor in StackState:
 
 ### Create a new [STJ](../../develop/reference/stj/using_stj.md) import file.
 
@@ -108,9 +111,9 @@ In this article, we'll create a CPU metric monitor using an example Monitor func
 
 You can place multiple monitors on the same STJ file. You can also add other node types on the same import file.
 
-### Populate the Monitor node
+### Populate the monitor node
 
-A Monitor node of type `Monitor` needs to be added to the import file. This type of a node is supported in API version 1.0.39 and above. The required fields are the `name`, `identifier` and `description`. The `identifier` should be a value that uniquely identifies this specific monitor definition. `intervalSeconds`, `function` and `arguments` determine what validation rule and how often it is run. An optional parameter of `remediationHint` can be specified - it is a Markdown-encoded instruction of what to do if this Monitor produces an unhealthy health state. It is displayed on the interface together with the Monitor result panel.
+A monitor node of type `Monitor` needs to be added to the import file. This type of a node is supported in API version 1.0.39 and above. The required fields are the `name`, `identifier` and `description`. The `identifier` should be a value that uniquely identifies this specific monitor definition. `intervalSeconds`, `function` and `arguments` determine what validation rule and how often it is run. An optional parameter of `remediationHint` can be specified - it is a Markdown-encoded instruction of what to do if this monitor produces an unhealthy health state. It is displayed on the interface together with the monitor result panel.
 
 Configuring the monitor function is best done by utilizing the [`get` helper function](../../develop/reference/stj/stj_reference.md#get) paired with the `identifier` of the function itself. In this example the function is named `Metric above threshold` and its identifier is `urn:system:default:monitor-function:metric-above-threshold`.
 

@@ -49,7 +49,7 @@ Health can be sent to the StackState Receiver API using the `"health"` property 
             "message": "Provisioning failed. [Learn more](https://www.any-link.com)",
             "health": "critical",
             "topologyElementIdentifier": "server-2",
-            "name": "Health Monitor"
+            "name": "Health monitor"
           },
           {
             "checkStateId": "checkStateId3",
@@ -128,7 +128,7 @@ curl -X POST \
           "message": "Provisioning failed. [Learn more](https://www.any-link.com)",
           "health": "critical",
           "topologyElementIdentifier": "server-2",
-          "name": "Health Monitor"
+          "name": "Health monitor"
         },
         {
           "checkStateId": "checkStateId3",

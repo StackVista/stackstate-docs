@@ -6,13 +6,13 @@ description: StackState Self-hosted v5.0.x
 
 ## Overview
 
-Monitor Functions, much like any other type of function in StackState, are represented using the STJ file format. 
+Monitor functions, much like any other type of function in StackState, are represented using the STJ file format. 
 
 ## Monitor function definition
 
 ### STJ file format
 
-The following snippet represents an example Monitor Function definition:
+The following snippet represents an example monitor function definition:
 
 ```json
 {
@@ -36,17 +36,18 @@ The following snippet represents an example Monitor Function definition:
 }
 ```
 
-Much like the Monitor definition, the file contains the requisite STJ paramateres and defines a single node instance. For brevity, the specific parameter definitions and the function body have been ommited. These parts will be elaborated upon in the following sections.
+Much like the monitor definition, the file contains the requisite STJ paramateres and defines a single node instance. For brevity, the specific parameter definitions and the function body have been ommited. These parts will be elaborated upon in the following sections.
+
 The supported fields are:
 
-- `name` - a human-readble name of the function that ideally indicates its purpose,
-- `identifier` a StackState-URN-formatted values that uniquely identifies this particular function, it is used by the Monitor Definition during the invocation of this function,
-- `description` - a more thorough description of the logic encapsulated by this function,
-- `parameters` - a set of parameters "accepted" by this function, these allow the computation to be parameterized,
-- `script` - names or lists out the concrete algorithm to use for this computation; currently, Monitors only support scripts of type `ScriptFunctionBody` written using the `Groovy` language.
+- **name** - a human-readable name of the function that ideally indicates its purpose.
+- **identifier** a StackState-URN-formatted values that uniquely identifies this particular function, it is used by the monitor Definition during the invocation of this function.
+- **description** - a more thorough description of the logic encapsulated by this function.
+- **parameters** - a set of parameters "accepted" by this function, these allow the computation to be parameterized.
+- **script** - names or lists out the concrete algorithm to use for this computation; currently, monitors only support scripts of type `ScriptFunctionBody` written using the Groovy scripting language.
 
 ### Parameters
-A Monitor Function can use any number of parameters of an array of available types. These parameter types are not unlike the ones available to the [Check functions](./check-functions.md) with the one notable exception being the `SCRIPT_METRIC_QUERY` parameter type.
+A monitor function can use any number of parameters of an array of available types. These parameter types are not unlike the ones available to the [Check functions](./check-functions.md) with the one notable exception being the `SCRIPT_METRIC_QUERY` parameter type.
 
 `SCRIPT_METRIC_QUERY` parameter type represents a Telemetry Query and ensures that a well-formed Telemetry Query builder value is supplied to the function. Here's an example declaration of such a parameter:
 
@@ -82,12 +83,13 @@ Telemetry
   .aggregation('mean', '15s')
 ```
 
-A specialized telemetry query parameter type is useful as it ensures well-formedness of the above query - in case of any syntactic or type errors a suitable error will be reported and the system will prevent execution of the Monitor Function with potentially bogus values.
+A specialized telemetry query parameter type is useful as it ensures well-formedness of the above query - in case of any syntactic or type errors a suitable error will be reported and the system will prevent execution of the monitor function with potentially bogus values.
 
 ### Computing results
-Similarily to the other kinds of functions in StackState, the Monitor Function follows an arbitrarily complex algorithm encoded as a Groovy source script. It is fairly flexible in what it can do allowing for Turing-complete computation and even communication with external services.
 
-The Monitor Runner, which is responsible for the execution of Monitor Functions, expects every function to return a specific result type - an array of JSON-encoded `MonitorHealthState` objects. For example:
+Similar to other kinds of functions in StackState, the monitor function follows an arbitrarily complex algorithm encoded as a Groovy source script. It is fairly flexible in what it can do allowing for Turing-complete computation and even communication with external services.
+
+The monitor runner, which is responsible for the execution of monitor functions, expects every function to return a specific result type - an array of JSON-encoded `MonitorHealthState` objects. For example:
 
 ```groovy
 return [
@@ -102,14 +104,14 @@ return [
 ]
 ```
 
-Each object in this array represents a single Monitor result - usually, it is a one to one mapping between a specific metrics' time series and a topology element, but in general it is possible to express many-to-one mappings as well.
+Each object in this array represents a single monitor result - usually, it is a one to one mapping between a specific metrics' time series and a topology element, but in general it is possible to express many-to-one mappings as well.
 The supported fields are:
-- `id` - the identifier for this concrete Monitor result, it is used to deduplicate results arriving from different sources of computation,
+- `id` - the identifier for this concrete monitor result, it is used to deduplicate results arriving from different sources of computation,
 - `topologyIdentifier` - indicates to which Topology element this result "belongs",
 - `state` - indicates the resulting health state of the validation rule,
-- `displayTimeSeries` - an optional configuration of chart(s) that will be displayed on the StackState interface together with the Monitor result.
+- `displayTimeSeries` - an optional configuration of chart(s) that will be displayed on the StackState interface together with the monitor result.
 
-The `displayTimeSeries` field can optionally be used to instrument StackState to display a helpful metric chart (or multiple charts) together with the Monitor result. It is expected to be an array of JSON-encoded objects of type `DisplayTimeSeries` of the following shape:
+The `displayTimeSeries` field can optionally be used to instrument StackState to display a helpful metric chart (or multiple charts) together with the monitor result. It is expected to be an array of JSON-encoded objects of type `DisplayTimeSeries` of the following shape:
 
 ```groovy
 [
@@ -125,10 +127,10 @@ The meaning of different `DisplayTimeSeries` fields:
 - `query` - a Telemetry query used to fetch the metrics data to display on the interface,
 - `timeSeriesId` - an identifier of the concrete time series to use if the `query` produces multiple lines; when defined, the displayed chart will be limitted to just one line.
 
-The computation performed by a Monitor Function is restricted in numerous ways, including by restricting its access to certain classes (sandboxing) and by resource utilization (both in execution time and memory, compute usage). Some of these limits can be lifted by changing the default StackState configuration.
+The computation performed by a monitor function is restricted in numerous ways, including by restricting its access to certain classes (sandboxing) and by resource utilization (both in execution time and memory, compute usage). Some of these limits can be lifted by changing the default StackState configuration.
 
 ### Available APIs
-Monitor Functions can leverage existing StackState Script APIs, including:
+Monitor functions can leverage existing StackState Script APIs, including:
 
 - `Telemetry` - used to fetch Metric and Log data,
 - `Async` - allowing for combining multiple asynchronous results in one computation,
@@ -152,11 +154,11 @@ To use the above, experimental APIs they must be explicitly named in your StackS
 
 ## Create a custom monitor function
 
-The following example describes a step-by-step process of creating a Monitor function. In this case, a metric thereshold rule is introduced parameterized with the exact metrics query to use and the threshold itself.
+The following example describes a step-by-step process of creating a monitor function. In this case, a metric thereshold rule is introduced parameterized with the exact metrics query to use and the threshold itself.
 
 1. [Create an STJ file.](#create-an-stj-file)
-2. [Populate the Monitor function node.](#populate-the-monitor-function-node)
-3. [Populate the Monitor function body.](#populate-the-monitor-function-body)
+2. [Populate the monitor function node.](#populate-the-monitor-function-node)
+3. [Populate the monitor function body.](#populate-the-monitor-function-body)
 4. [Formalize the function parameters.](#formalize-the-function-parameters)
 5. [Upload to StackState.](#upload-to-stackstate)
 
@@ -174,17 +176,17 @@ The first step is to create an STJ import file following the usual format and fi
 }
 ```
 
-StackState expects a `_version` property to be present in each and every export file. Monitor functions are supported in versions `1.0.39` and up. Each export file can contain multiple Monitor function nodes and also nodes of other types.
+StackState expects a `_version` property to be present in each and every export file. monitor functions are supported in versions `1.0.39` and up. Each export file can contain multiple monitor function nodes and also nodes of other types.
 
-### Populate the Monitor function node
+### Populate the monitor function node
 
 The next step is the function node itself.
 
 ```json
 {
   "_type": "MonitorFunction",
-  "name": "The name of the Monitor Function",
-  "description": "A longer, meaningful description of a Monitor Function",
+  "name": "The name of the monitor function",
+  "description": "A longer, meaningful description of a monitor function",
   "identifier": "urn:system:default:monitor-function:a-name-of-the-monitor-function",
   "parameters": [
     ...
@@ -196,16 +198,16 @@ The next step is the function node itself.
 }
 ```
 
-Here you can define the basic information about the function such as its name and description to help you distinguish different Monitor functions.
-An important field is the `identifier` - it is a unique value of the StackState URN format that can be used to refer to this objects in various other places, such as an invocation of a Monitor function. The identifier should be formatted as follows:
+Here you can define the basic information about the function such as its name and description to help you distinguish different monitor functions.
+An important field is the `identifier` - it is a unique value of the StackState URN format that can be used to refer to this objects in various other places, such as an invocation of a monitor function. The identifier should be formatted as follows:
 
 `urn : <prefix> : monitor-function : <unique-function-identification>`
 
 The `prefix` is described in more detail in [topology identifiers](../../../configure/topology/identifiers.md), while the `unique-function-identification` is user-definable and free-form.
 
-### Populate the Monitor function body
+### Populate the monitor function body
 
-The most important fields of the Monitor function node are its `scriptBody` and `parameters`. In this step, we will focus on the body of the function and we'll determine the required parameters next.
+The most important fields of the monitor function node are its `scriptBody` and `parameters`. In this step, we will focus on the body of the function and we'll determine the required parameters next.
 
 As described above, the function we're creating will check a given metric against a given threshold and based on that produce health states for the affected topology. To make things concrete, let's start with a simple CPU usage metric:
 
@@ -241,7 +243,7 @@ metrics.map { result ->
 ```
 
 For each hostname, we check the resulting values to see if any of them are above the threshold of 90%, and if so we indicate a `CRITICAL` health state, otherwise a `CLEAR` one is reported.
-To make these results conform to the required format, we need to include a few more mandatory fields. The most important one is the `topologyIdentifier` which determines to which topology element a given Monitor result "belongs". We also give each monitor result a uniqe `id` (derived from the metrics that were used to create it), so that the system can match and replace successively supplied results accross time:
+To make these results conform to the required format, we need to include a few more mandatory fields. The most important one is the `topologyIdentifier` which determines to which topology element a given monitor result belongs. We also give each monitor result a uniqe `id` (derived from the metrics that were used to create it), so that the system can match and replace successively supplied results accross time:
 
 ```groovy
 def metrics = /* Same as above. */
@@ -266,8 +268,8 @@ metrics.map { result ->
 }
 ```
 
-With the above change, each timeseries is now validated against the threshold and reported as a Monitor health state. Each such result is uniquely identified by the metrics that were used to compute it, so any future changes based on the same metrics will result in health state updates instead of new states being created. Furthermore, we used the same metrics to extract the `tags.host` grouping from it and turned it into a specific topology identifier of a hostname represented in StackState. This topology identifier reconstruction, called topology mapping, is performed for all the groupped metric timeseries meaning it automatically applies to all the hosts in the topology that have CPU metrics associated with them.
-An improvement to the above definition can be made by introducing a result chart with each result. This is done by populating the optional `displayTimeseries` property of the Monitor health state:
+With the above change, each timeseries is now validated against the threshold and reported as a monitor health state. Each such result is uniquely identified by the metrics that were used to compute it, so any future changes based on the same metrics will result in health state updates instead of new states being created. Furthermore, we used the same metrics to extract the `tags.host` grouping from it and turned it into a specific topology identifier of a hostname represented in StackState. This topology identifier reconstruction, called topology mapping, is performed for all the groupped metric timeseries meaning it automatically applies to all the hosts in the topology that have CPU metrics associated with them.
+An improvement to the above definition can be made by introducing a result chart with each result. This is done by populating the optional `displayTimeseries` property of the monitor health state:
 
 ```groovy
 def metrics = /* Same as above. */
@@ -298,7 +300,7 @@ metrics.map { result ->
 }
 ```
 
-Each chart configuration supplied this way will be shown together with the Monitor result on the StackState UI. In the above case, the specific timeseries that resulted in the Monitor health state being computed will be displayed for host affected by this Monitor.
+Each chart configuration supplied this way will be shown together with the monitor result on the StackState UI. In the above case, the specific timeseries that resulted in the monitor health state being computed will be displayed for host affected by this monitor.
 
 The full function body created so far:
 
@@ -352,7 +354,7 @@ To parameterize this function and make it reusable for different metrics and thr
 
 ### Formalize the function parameters
 
-In the previous steps, we created a Monitor function and implemented the validation rule for CPU usage metrics, we determined that in order to make the function reusable, we need to extract three parameters - `metrics`, `threshold` and the `topologyIdentifierPattern`.
+In the previous steps, we created a monitor function and implemented the validation rule for CPU usage metrics, we determined that in order to make the function reusable, we need to extract three parameters - `metrics`, `threshold` and the `topologyIdentifierPattern`.
 
 The `threshold` and `topologyIdentifierPattern` are simple basic types, a floating point value and a string respectively. For the `metrics` parameter, we can utilize the aforementioned `SCRIPT_METRIC_QUERY` parameter type, which ensures well-formedness of the metrics query supplied as the value of this parameter:
 
@@ -445,8 +447,8 @@ Uploading the function to StackState can be done in one of three ways:
 
 - By utilizing the Import/Export facility under StackState settings.
 
-After the function is uploaded, it is generally available for any Monitor definition to invoke it.
-You can see [this article](../monitors/how-to-create-monitors.md) to learn how to create a custom Monitor that utilizes an existing Monitor function.
+After the function is uploaded, it is generally available for any monitor definition to invoke it.
+You can see [this article](../monitors/how-to-create-monitors.md) to learn how to create a custom monitor that utilizes an existing monitor function.
 
 ## See also
 
