@@ -15,5 +15,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PULL_REQUEST_BRANCH: master
-          PULL_REQUEST_TITLE: "[AUTOMATED] Sync updates from live branch 4.6"
+          PULL_REQUEST_TITLE: "[AUTOMATED] Sync updates from live branch 5.0"
           PULL_REQUEST_REVIEWERS: "gggina"
