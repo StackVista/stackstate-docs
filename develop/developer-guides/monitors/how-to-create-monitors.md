@@ -88,7 +88,7 @@ You can list the available monitor functions via the CLI command:
 {% endtab %}
 {% endtabs %}
 
-You can [create a custom monitor function](../custom-functions/monitor-functions.md) to customize how StackState processes the 4T data.
+You can [create a custom monitor function](../custom-functions/monitor-functions.md) to customize how StackState processes 4T data.
 
 ### Run interval
 

@@ -46,7 +46,7 @@ Monitors, similarily to Checks, use the 4T data collected by StackState to compu
 
 Monitors are a flexible way to define a custom set of monitoring rules. They can created manually, packaged as part of a StackPack, or integrated into any modern software development practice that leverages automation (for instance, GitOps).
 
-See how to [manage monitors](add-a-monitor.md) in StackState.
+See how to [manage monitors](manage-monitors.md) in StackState.
 
 ### Monitor execution
 
