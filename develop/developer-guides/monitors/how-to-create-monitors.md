@@ -192,12 +192,16 @@ This can be achieved by using the dedicated StackState CLI command:
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
-`sts monitor apply -f path/to/the/file.stj`
+```
+sts monitor apply -f path/to/the/file.stj
+```
 
 ➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 {% endtab %}
 {% tab title="CLI: stac" %}
-`stac monitor apply < path/to/the/file.stj`
+```
+stac monitor apply < path/to/the/file.stj
+```
 
 **Not running the `stac` CLI yet?**
 
