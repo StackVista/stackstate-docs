@@ -30,7 +30,7 @@ Monitor configuration can be changed by modifying their definition. Onec a Monit
 {% endtab %}
 {% endtabs %}
 
-Afterwards, the file can be modified to change the Monitor `parameters` & `intervalSeconds` properties. Once modified, the Monitor can be reapplied in StackState by running another CLI command:
+Afterwards, the file can be modified to change the Monitor `parameters` and `intervalSeconds` properties. Once modified, the Monitor can be reapplied in StackState by running another CLI command:
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}

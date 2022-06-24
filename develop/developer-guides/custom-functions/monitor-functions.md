@@ -36,7 +36,7 @@ The following snippet represents an example Monitor Function definition:
 }
 ```
 
-Much like the Monitor definition, the file contains the requisite STJ paramateres and defines a single node instance. For brevity, the specific parameter definitions & the function body have been ommited. These parts will be elaborated upon in the following sections.
+Much like the Monitor definition, the file contains the requisite STJ paramateres and defines a single node instance. For brevity, the specific parameter definitions and the function body have been ommited. These parts will be elaborated upon in the following sections.
 The supported fields are:
 
 - `name` - a human-readble name of the function that ideally indicates its purpose,
@@ -130,7 +130,7 @@ The computation performed by a Monitor Function is restricted in numerous ways, 
 ### Available APIs
 Monitor Functions can leverage existing StackState Script APIs, including:
 
-- `Telemetry` - used to fetch Metric & Log data,
+- `Telemetry` - used to fetch Metric and Log data,
 - `Async` - allowing for combining multiple asynchronous results in one computation,
 - `View` - StackState View related operations,
 - `Component` - StackState Component related operations.
