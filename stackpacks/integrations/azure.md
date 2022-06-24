@@ -26,7 +26,7 @@ Microsoft Azure is a cloud computing service created by Microsoft for building, 
 
 Azure is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
-![Data flow](../../.gitbook/assets/stackpack-azure.png)
+![Data flow](../../.gitbook/assets/stackpack-azure.svg)
 
 * The StackState Azure Agent is [a collection of Azure functions](azure.md#stackstate-azure-functions) that connect to the [Azure APIs](azure.md#rest-api-endpoints) at a configured interval to collect information about available resources.
   * `TimedStart` triggers data collection every 2 hours.
@@ -49,6 +49,7 @@ To set up the StackState Azure integration, you need to have:
   * `Contributor` role for the StackPack Resource Group to deploy and delete resources.
   * `Reader` role for each of the subscriptions the StackPack instance will monitor.
 * If StackState is installed on premise and behind a firewall, the [IP addresses used by Azure monitor \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/azure/azure-monitor/app/ip-addresses) need to be reachable.
+* StackState should not be configured to use a [custom trust store](/configure/security/self-signed-certificates.md).
 
 ### Install StackPack
 

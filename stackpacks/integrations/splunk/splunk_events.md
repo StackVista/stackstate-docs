@@ -2,7 +2,7 @@
 description: StackState Self-hosted v4.6.x
 ---
 
-# Splunk events
+# Splunk Events
 
 {% hint style="warning" %}
 **This page describes StackState version 4.6.**
@@ -12,20 +12,20 @@ Go to the [documentation for the latest StackState release](https://docs.stackst
 
 ## Overview
 
-The StackState Splunk integration collects events from Splunk by executing Splunk saved searches that have been specified in the StackState Agent V1 Splunk events check configuration. In order to receive Splunk events data in StackState, you will therefore need to add configuration to both Splunk and StackState Agent V1.
+When the [Splunk StackPack](splunk_stackpack.md) has been installed in StackState, you can configure the Splunk Events check on StackState Agent V1 to begin collecting Splunk events data.
+
+Events are collected from Splunk by executing Splunk saved searches that are configured in the StackState Agent V1 Splunk Events check. In order to receive Splunk events data in StackState, you will therefore need to add configuration to both Splunk and StackState Agent V1:
 
 * [In Splunk](splunk_events.md#splunk-saved-search), there should be at least one saved search that generates the events data you want to retrieve.
-* [In StackState Agent V1](splunk_events.md#agent-check), a Splunk events check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
+* [In StackState Agent V1](splunk_events.md#agent-check), a Splunk Events check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
 
-The Splunk events check on StackState Agent V1 will execute all configured Splunk saved searches periodically. Data will be requested from the last received event timestamp up until now.
-
-Splunk is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
+The Splunk Events check on StackState Agent V1 will execute all configured Splunk saved searches periodically. Data will be requested from the last received event timestamp up until now.
 
 ## Splunk saved search
 
 ### Fields used
 
-StackState Agent V1 executes the Splunk saved searches configured in the [Splunk events Agent check configuration file](splunk_events.md#agent-check) and pushes retrieved data to StackState as a telemetry stream. The following fields from the results of a saved search are sent to StackState:
+StackState Agent V1 executes the Splunk saved searches configured in the [Splunk Events Agent check configuration file](splunk_events.md#agent-check) and pushes retrieved data to StackState as a telemetry stream. The following fields from the results of a saved search are sent to StackState:
 
 | Field | Type | Required? | Description |
 | :--- | :--- | :--- | :--- |
@@ -62,16 +62,16 @@ The example Splunk saved search above would result in the following event data i
 
 ## Agent check
 
-### Configure the Splunk events check
+### Configure the Splunk Events check
 
-To enable the Splunk events integration and begin collecting events data from your Splunk instance, the Splunk events check must be configured on StackState Agent V1. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
+To enable the Splunk Events integration and begin collecting events data from your Splunk instance, the Splunk Events check must be configured on StackState Agent V1. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
 
 {% hint style="info" %}
-Example Splunk events Agent check configuration file:  
+Example Splunk Events Agent check configuration file:  
 [splunk\_event/conf.yaml.example \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_event/conf.yaml.example)
 {% endhint %}
 
-To configure the Splunk events Agent check:
+To configure the Splunk Events Agent check:
 
 1. Edit the StackState Agent V1 configuration file `/etc/sts-agent/conf.d/splunk_events.yaml`.
 2. Under **instances**, add details of your Splunk instance:
@@ -99,13 +99,13 @@ To configure the Splunk events Agent check:
 
 ### Uniquely identify a record
 
-To prevent sending duplicate events over multiple check runs, received saved search records must be uniquely identified for comparison. By default, a record is identified by the Splunk default fields `_bkt` and `_cd`. This behavior can be customized for each saved search by specifying `unique_key_fields` in the Splunk events Agent check configuration. Note that the specified `unique_key_fields` fields are mandatory fields for each record returned by the Splunk saved search.
+To prevent sending duplicate events over multiple check runs, received saved search records must be uniquely identified for comparison. By default, a record is identified by the Splunk default fields `_bkt` and `_cd`. This behavior can be customized for each saved search by specifying `unique_key_fields` in the Splunk Events Agent check configuration. Note that the specified `unique_key_fields` fields are mandatory fields for each record returned by the Splunk saved search.
 
 If it is not possible to uniquely identify a record by a combination of specific fields, the whole record can be used by setting `unique_key_fields: []` \(an empty list\).
 
 ### Disable the Agent check
 
-To disable the Splunk events Agent check:
+To disable the Splunk Events Agent check:
 
 1. Remove or rename the Agent integration configuration file, for example:
 
@@ -115,7 +115,7 @@ To disable the Splunk events Agent check:
 
 2. Restart the StackState Agent\(s\) to apply the configuration changes.
 
-## Splunk events in StackState
+## Splunk Events in StackState
 
 Events retrieved from splunk are available in StackState as a log telemetry stream in the `stackstate-generic-events` data source. This can be [mapped to associated components](../../../use/metrics-and-events/add-telemetry-to-element.md).
 
@@ -123,6 +123,6 @@ Events retrieved from splunk are available in StackState as a log telemetry stre
 
 * [StackState Splunk integration details](splunk_stackpack.md)
 * [Map telemetry to components](../../../use/metrics-and-events/add-telemetry-to-element.md)
-* [Example Splunk events configuration file - splunk\_event/conf.yaml.example \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_event/conf.yaml.example)
+* [Example Splunk Events configuration file - splunk\_event/conf.yaml.example \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_event/conf.yaml.example)
 * [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) 
 

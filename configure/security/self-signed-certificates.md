@@ -16,6 +16,10 @@ StackState has several points of interaction with external systems, for example 
 
 To mitigate this, StackState allows configuration of a custom trust store.
 
+{% hint style="info" %}
+Note that self-signed certificates are not compatible with the [StackState Azure integration](/stackpacks/integrations/azure.md).
+{% endhint %}
+
 ## Create a custom trust store
 
 You need to have the custom TLS certificate available. If you don't have that, you will need to [retrieve it via the browser](self-signed-certificates.md#retrieve-certificate-via-the-browser).
@@ -102,6 +106,45 @@ stackstate/stackstate
 * Include these arguments on every `helm upgrade` run.
 * The password and trust store are stored as a Kubernetes secret.
 {% endhint %}
+
+#### Base64 encoded trust stores
+
+If needed, the Java trust store can also be configured by passing Base64 encoded strings into Helm values.
+
+{% tabs %}
+{% tab title="Linux" %}
+
+To use a base64 encoded trust store, run the following `helm upgrade` command:
+
+```bash
+helm upgrade \
+  --install \
+  --namespace stackstate \
+  --values values.yaml \
+  --set 'stackstate.java.trustStoreBase64Encoded'=$(cat custom_cacerts | base64 -w0) \
+  --set 'stackstate.java.trustStorePassword'=changeit \
+stackstate \
+stackstate/stackstate
+```
+
+{% endtab %}
+{% tab title="MacOs" %}
+
+To use a base64 encoded trust store, run the following `helm upgrade` command:
+
+```bash
+helm upgrade \
+  --install \
+  --namespace stackstate \
+  --values values.yaml \
+  --set 'stackstate.java.trustStoreBase64Encoded'=$(cat custom_cacerts | base64) \
+  --set 'stackstate.java.trustStorePassword'=changeit \
+stackstate \
+stackstate/stackstate
+```
+
+{% endtab %}
+{% endtabs %}
 
 ### Linux
 

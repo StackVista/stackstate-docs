@@ -63,10 +63,12 @@ By default, metrics are also retrieved from kube-state-metrics if that is deploy
 
 The StackState ClusterCheck Agent is an additional StackState Agent V2 pod that is deployed only when [cluster checks are enabled](#enable-cluster-checks) in the Helm chart. When deployed, cluster checks configured on the [StackState Cluster Agent](#stackstate-cluster-agent) will be run by the StackState ClusterCheck Agent pod. 
 
-On large Kubernetes clusters, you can [run the `kubernetes_state` check on the ClusterCheck Agent](#kubernetes_state-check-as-a-cluster-check). This check gathers metrics from kube-state-metrics and sends them to StackState. The ClusterCheck Agent is also useful to run checks that do not need to run on a specific node and monitor non-containerized workloads such as:
+On large Kubernetes clusters, you can [run the `kubernetes_state` check on the ClusterCheck Agent](/stackpacks/integrations/kubernetes.md#configure-cluster-check-kubernetes_state-check). This check gathers metrics from kube-state-metrics and sends them to StackState. The ClusterCheck Agent is also useful to run checks that do not need to run on a specific node and monitor non-containerized workloads such as:
 
 * Out-of-cluster datastores and endpoints \(for example, RDS or CloudSQL\).
 * Load-balanced cluster services \(for example, Kubernetes services\).
+
+The [AWS check](/stackpacks/integrations/aws/aws.md#configure-the-aws-check) can be configured to run as a cluster check.
 
 ## Setup
 
@@ -160,43 +162,11 @@ clusterChecks:
   enabled: true
 ```
 
-### Kubernetes_state check as a cluster check
+The following integrations have checks that can be configured to run as cluster checks:
 
-The kubernetes\_state check is responsible for gathering metrics from kube-state-metrics and sending them to StackState. It is configured on the StackState Cluster Agent and, by default, runs in the StackState Agent pod that is on the same node as the kube-state-metrics pod.
-
-In a default deployment, all pods running a StackState Agent must be configured with sufficient CPU and memory requests and limits to run the check. This can consume a lot of memory in a large Kubernetes cluster. Since only one StackState Agent pod will actually run the check, a lot of CPU and memory resources will be allocated, but not be used.
-
-To remedy this situation, the kubernetes\_state check can be configured to run as a cluster check. In this case, only the [ClusterCheck Agent](#stackstate-clustercheck-agent-optional) requires resources to run the check and the allocation for other pods can be reduced.
-
-1. [Enable cluster checks](#enable-cluster-checks).
-2. Update the `values.yaml` file used to deploy the `cluster-agent`, for example:
-
-```yaml
-clusterChecks:
-# clusterChecks.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods.
-  enabled: true
-agent:
-  config:
-    override:
-# agent.config.override -- Disables kubernetes_state check on regular agent pods.
-    - name: auto_conf.yaml
-      path: /etc/stackstate-agent/conf.d/kubernetes_state.d
-      data: |
-clusterAgent:
-  config:
-    override:
-# clusterAgent.config.override -- Defines kubernetes_state check for clusterchecks agents. Auto-discovery
-#                                 with ad_identifiers does not work here. Use a specific URL instead.
-    - name: conf.yaml
-      path: /etc/stackstate-agent/conf.d/kubernetes_state.d
-      data: |
-        cluster_check: true
-
-        init_config:
-
-        instances:
-          - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
-```
+- **Kubernetes integration** - [Kubernetes_state check as a cluster check](/stackpacks/integrations/openshift.md#configure-cluster-check-kubernetes_state-check).
+- **OpenShift integration** - [OpenShift Kubernetes_state check as a cluster check](/stackpacks/integrations/openshift.md#configure-cluster-check-kubernetes_state-check).
+- **AWS integration** - [AWS check as a cluster check](/stackpacks/integrations/aws/aws.md#configure-the-aws-check).
 
 ### Advanced Agent configuration
 

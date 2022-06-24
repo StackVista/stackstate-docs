@@ -43,4 +43,4 @@ return Sts.createId(externalId, new HashSet([externalId] + identifiers), type)
 
 ## See also
 
-* [Identifiers](/configure/identifiers.md)
+* [Identifiers](/configure/topology/identifiers.md)

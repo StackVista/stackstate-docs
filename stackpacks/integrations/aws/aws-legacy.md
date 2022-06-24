@@ -18,7 +18,7 @@ The AWS \(Legacy\) StackPack has been deprecated. It is recommended to use the [
 
 Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in-depth monitoring of AWS services.
 
-![Data flow](../../../.gitbook/assets/stackpack-aws.png)
+![Data flow](../../../.gitbook/assets/stackpack-aws.svg)
 
 * Three AWS Lambdas collect topology data from AWS and push this to StackState:
   * `stackstate-topo-cron` scans AWS resources every hour using the AWS APIs and pushes this to StackState.

@@ -14,7 +14,7 @@ Go to the [documentation for the latest StackState release](https://docs.stackst
 
 This page details the requirements for all supported installations of StackState:
 
-* [Kuberentes and OpenShift](#kubernetes-and-openshift)
+* [Kubernetes and OpenShift](#kubernetes-and-openshift)
 * [KOTS](#kots)
 * [Linux](#linux)
 
