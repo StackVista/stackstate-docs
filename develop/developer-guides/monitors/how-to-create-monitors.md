@@ -94,10 +94,16 @@ You can [create a custom monitor function](../custom-functions/monitor-functions
 
 The monitor run interval determines how often a monitor logic will be executed. It is expressed in seconds. For example, an `intervalSeconds: 60` configuration means that StackState will attempt to execute the monitor function associated with the Monitor every 60 seconds. If the monitor function execution takes significant time, the next scheduled run will occur 60 seconds **after** the previous run finishes.
 
-## Creating a custom monitor
+## Create a custom monitor
 In this article, we'll create a CPU metric monitor using an example monitor function created in [another article](../custom-functions/monitor-functions.md). To create a custom monitor in StackState:
 
-### Create a new [STJ](../../develop/reference/stj/using_stj.md) import file.
+1. [Create a new STJ import file.](#create-a-new-stj-import-file)
+2. [Populate the monitor node.](#populate-the-monitor-node)
+3. [Populate the parameters of the monitor function invocation.](#populate-the-parameters-of-the-monitor-function-invocation)
+4. [Apply the newly created monitor in StackState.](#apply-the-newly-created-monitor-in-stackstate)
+5. [Verify that your newly created monitor is working correctly.](#verify-that-your-newly-created-monitor-is-working-correctly)
+
+### Create a new STJ import file
 
 ```json
 {
@@ -140,7 +146,7 @@ Configuring the monitor function is best done by utilizing the [`get` helper fun
 
 The invocation of the `get` helper function will automatically resolve to the ID of the desired function during import time.
 
-### Populate the parameters of the monitor function invocation.
+### Populate the parameters of the monitor function invocation
 
 The parameters are different for each monitor function. In the case of `Metric above threshold` we need to populate `thershold`, `metrics` and `topologyIdentifierPattern`:
 
@@ -198,7 +204,7 @@ This can be achieved by using the dedicated StackState CLI command:
 
 An alternative way is to include the newly created monitor in a custom StackPack and installing it.
 
-### Verify that your newly created monitor is working correctly.
+### Verify that your newly created monitor is working correctly
 
 You can check if your monitor is working correctly by invoking the CLI command:
 
