@@ -23,9 +23,6 @@ This page provides specific instructions and details of any required manual step
 
 #### v5.0.0
 
-{% tabs %}
-{% tab title="Kubernetes" %}
-
 * With the release of the new `sts` CLI, the CLI released with previous versions of StackState has been renamed to `stac`:
   * If you install the new `sts` CLI, you should [upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
   * The commands for the new `sts` CLI have changed. Check that any automation is using the correct CLI command (`sts` or `stac`). [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
