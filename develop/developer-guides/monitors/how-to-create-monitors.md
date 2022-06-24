@@ -69,7 +69,7 @@ The `prefix` is described in more detail in [topology identifiers](../../../conf
 
 Each monitor configured in StackState uses a monitor function to compute the health state results attached to the elements.
 
-Monitor functions are scripts that accept the 4T data as input, check the data based on some internal logic and output health state mappings for the affected topology elements. The function is run periodically by the monitor runner and it is responsible for detecting any changes in the data that can be considered to change an elements health state.
+Monitor functions are scripts that accept the 4T data as input, check the data based on some internal logic and output health state mappings for the affected topology elements. The function is run periodically by the monitor runner. It is responsible for detecting any changes in the data that can be considered to change an element's health state.
 
 You can list the available monitor functions via the CLI command:
 
@@ -96,7 +96,7 @@ The monitor run interval determines how often a monitor logic will be executed. 
 
 ## Create a custom monitor
 
-The steps below will create a CPU metric monitor using an example [monitor function](../custom-functions/monitor-functions.md). 
+The following example creates a CPU metric monitor using the example monitor function created on the [monitor functions](../custom-functions/monitor-functions.md) page. 
 
 To create a custom monitor in StackState:
 
@@ -122,7 +122,7 @@ You can place multiple monitors on the same STJ file. You can also add other nod
 
 ### Populate the monitor node
 
-A monitor node of type `Monitor` needs to be added to the import file. This type of a node is supported in API version 1.0.39 and above. The required fields are the `name`, `identifier` and `description`. The `identifier` should be a value that uniquely identifies this specific monitor definition. `intervalSeconds`, `function` and `arguments` determine what validation rule and how often it is run. An optional parameter of `remediationHint` can be specified - it is a Markdown-encoded instruction of what to do if this monitor produces an unhealthy health state. It is displayed on the interface together with the monitor result panel.
+A monitor node of type `Monitor` needs to be added to the import file. This type of node is supported in API version 1.0.39 and above. The required fields are the `name`, `identifier` and `description`. The `identifier` should be a value that uniquely identifies this specific monitor definition. `intervalSeconds`, `function` and `arguments` determine what validation rule and how often it is run. An optional parameter of `remediationHint` can be specified - it is a Markdown-encoded instruction of what to do if this monitor produces an unhealthy health state. It is displayed on the interface together with the monitor result panel.
 
 Configuring the monitor function is best done by utilizing the [`get` helper function](/develop/reference/stj/stj_reference.md#get) paired with the `identifier` of the function itself. In this example the function is named `Metric above threshold` and its identifier is `urn:system:default:monitor-function:metric-above-threshold`.
 
@@ -184,7 +184,7 @@ The parameters are different for each monitor function. In the case of `Metric a
 }
 ```
 
-Parameters, similarily to the `function` can be referred to by utilizing the `get` helper function.
+Similar to the `function`, parameters can be referred to by utilizing the `get` helper function.
 
 ### Apply the newly created monitor in StackState
 
