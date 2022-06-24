@@ -171,7 +171,7 @@ redirects:
   use/alerting: ./use/metrics-and-events/event-notifications.md
   configure/telemetry/browse_telemetry: ./use/metrics-and-events/browse-telemetry.md
   setup/upgrading: ./setup/upgrade-stackstate/README.md
-  configure/view_state_configuration: ./use/health-state/configure-view-health.md
+  configure/view_state_configuration: ./use/stackstate-ui/views/configure-view-health.md
   use/views/traces_perspective: ./use/stackstate-ui/perspectives/traces-perspective.md
   use/views/topology_perspective: ./use/stackstate-ui/perspectives/topology-perspective.md
   setup/installation/authentication: ./configure/security/authentication/README.md
@@ -231,7 +231,7 @@ redirects:
   use/problems/problem_notifications: ./use/problem-analysis/problem_notifications.md
   use/health-state-and-event-notifications/anomaly-health-checks: ./use/checks-and-monitors/anomaly-health-checks.md
   use/view_filters: ./use/stackstate-ui/filters.md
-  use/health-state-and-event-notifications/configure-view-health: ./use/health-state/configure-view-health.md
+  use/health-state-and-event-notifications/configure-view-health: ./use/stackstate-ui/views/configure-view-health.md
   setup/installation/kubernetes_install/development_setup: ./setup/install-stackstate/kubernetes_install/non_high_availability_setup.md
   use/explore_mode: ./use/stackstate-ui/explore_mode.md
   use/problems/problems: ./use/problem-analysis/about-problems.md
@@ -325,7 +325,7 @@ redirects:
   develop/reference/cli_reference: ./setup/cli/README.md
   setup/cli-install: ./setup/cli/README.md
   use/health-state/anomaly-health-checks: ./use/checks-and-monitors/anomaly-health-checks.md
-  use/health-state/configure-view-health: ./use/checks-and-monitors/configure-view-health.md
+  use/health-state/configure-view-health: ./use/stackstate-ui/views/configure-view-health.md
   use/health-state/about-health-state: ./use/concepts/health-state.md
   use/health-state/add-a-health-check: ./use/checks-and-monitors/add-a-health-check.md
   use/health-state: ./use/checks-and-monitors/README.md
