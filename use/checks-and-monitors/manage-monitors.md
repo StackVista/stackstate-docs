@@ -23,7 +23,9 @@ Monitor configuration can be changed by modifying their definition. Once a monit
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
-`sts settings describe --id <id-of-a-monitor> -f path/to/export.stj`
+```
+sts settings describe --id <id-of-a-monitor> -f path/to/export.stj
+```
 
 ➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 {% endtab %}

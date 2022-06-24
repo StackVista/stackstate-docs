@@ -75,12 +75,16 @@ You can list the available monitor functions via the CLI command:
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
-`sts settings list --type MonitorFunction`
+```
+sts settings list --type MonitorFunction
+```
 
 ➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 {% endtab %}
 {% tab title="CLI: stac" %}
-`stac graph list MonitorFunction`
+```
+stac graph list MonitorFunction
+```
 
 **Not running the `stac` CLI yet?**
 
