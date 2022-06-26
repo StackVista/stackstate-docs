@@ -125,6 +125,9 @@ childSpan.setAttribute('resource.name', 'AWS RDS');
 // You need to close the spans in the opposite order in which you opended them
 // For example we started with the parent and then the child, thus we need to close the child first
 // and then the parent span
+// 
+// NB: If you do not close your spans in the correct order then then Trace will still be sent to StackState but,
+// there might be a missing span, thus showing the incomplete data in StackState.
 childSpan.end();
 parentSpan.end();
 
