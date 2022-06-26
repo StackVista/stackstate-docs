@@ -39,12 +39,13 @@ You need to include **ALL** the keys below when creating a span as they all need
 ### Trace Perspective Name
   - `Key`
     - trace.perspective.name
-  - `Expected`
-    - This field can be any string value
+  - `Type`
+    - String
   - `Example`
-    - AWS RDS: Hello World Database
+    - RDS Database: Perspective Name
   - `Description`
-    - This is the core name of your component and trace in StackState. This will be used as the main identifier to spot your component in the Topology Perspective or on the horizontal lines within the Trace Perspective view within a trace.
+    - The `trace.perspective.name` is used to find your Span within a Trace in the Trace Perspective view.
+    - The horizontal bar within a Trace will have a floating text value containing the value you used in the `trace.perspective.name` key.
 
 {% tabs %}
 {% tab title="Trace Perspective" %}
@@ -64,15 +65,31 @@ You need to include **ALL** the keys below when creating a span as they all need
 ### Service Name
   - `Key`
     - service.name
-  - `Expected`
-    - This field can be any string value
+  - `Type`
+    - String
   - `Example`
-    - AWS RDS: Database
+    - RDS Database: Service Name
+  - `Advance Filter Example`
+    - name = "RDS Database: Service Name"
   - `Description`
     - The value from `service.name` is used as a primary means to identify your component within the StackState Topology Perspective
     - It also creates a `spans.serviceName` key within your Trace Perspective to allow you to identify if the trace in the Trace Perspective matches the component in the Topology Perspective.
 
 {% tabs %}
+{% tab title="Advanced Filter" %}
+
+**Example of how you can search for your `service.name` within the `Advanced Filter` section in the Topology view**
+
+1) When on the Topology Perspective page click on the second icon on your left navigation bar called `View Filters`
+2) This will bring up the `Filter Topology` view, Click on the second button called `Advanced`
+3) In the top input field you can fill in the following
+   1) `name = "<YOUR service.name VALUE>"`
+   2) For Example `name = "RDS Database: Service Name"`.
+4) This will then only show this new component.
+
+![Topology Perspective - service.name](../../../.gitbook/assets/otel_topology_view_filter.png)
+
+{% endtab %}
 {% tab title="Topology Perspective" %}
 
 **Example of where the service.name is displayed within the Topology Perspective**
