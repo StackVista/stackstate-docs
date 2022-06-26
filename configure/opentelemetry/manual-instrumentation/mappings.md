@@ -85,7 +85,7 @@ You need to include **ALL** the keys below when creating a span as they all need
 3) In the top input field you can fill in the following
    1) `name = "<YOUR service.name VALUE>"`
    2) For Example `name = "RDS Database: Service Name"`.
-4) This will then only show this new component.
+4) You will then see the component that was created with the trace.
 
 ![Topology Perspective - service.name](../../../.gitbook/assets/otel_topology_view_filter.png)
 
@@ -131,11 +131,11 @@ You need to include **ALL** the keys below when creating a span as they all need
   - `Key`
     - service.type
   - `Expected`
-    - This field can be any string value
+    - String
   - `Example`
     - AWS RDS
   - `Description`
-    - This will be the service displayed under your trace perspective for a specific trace.
+    - The `service.type` is used to identify the type of service within your span in the Trace Perspective view.
 
 {% tabs %}
 {% tab title="Trace Perspective - Span Properties" %}
@@ -155,7 +155,7 @@ You need to include **ALL** the keys below when creating a span as they all need
   - `Key`
     - service.identifier
   - `Expected`
-    - This field can be any string value
+    - String
   - `Example`
     - aws:rds:database:hello-world
   - `Description`
@@ -181,11 +181,12 @@ You need to include **ALL** the keys below when creating a span as they all need
 - `Key`
     - resource.name
 - `Expected`
-    - This field can be any string value
+    - String
 - `Example`
     - Database
 - `Description`
-    - This will be the resource.name will be displayed under your trace perspective for a specific trace.
+    - This resource name will be displayed under your trace perspective for a specific trace, allowing you to quickly identify what resource this trace is apart.
+    - Best practise would be to use this value to group similar resources, thus allowing you to easily identify a span.
 
 {% tabs %}
 {% tab title="Trace Perspective" %}
