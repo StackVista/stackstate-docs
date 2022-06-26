@@ -39,7 +39,7 @@ And the last interaction before the Trace is completed is another interaction wi
 
 ![Distributed Trace Second Child Span](../../.gitbook/assets/otel_distributed_trace_second_child_span.png)
 
-As you can see from the above, within this trace context, it had three span timed operations; thus, spans are a collection of timed operations that make up a trace.
+As you can see from the above, within this trace context, it had three span timed operations; thus, spans is a tree of timed operations that make up a trace.
 
 ### Concepts mentioned above
 
