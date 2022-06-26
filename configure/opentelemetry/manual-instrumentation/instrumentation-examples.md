@@ -72,9 +72,9 @@ The code snippet below will implement a solution creating the above-mentioned co
 The first step is to import the libraries that we will be using from OpenTelemetry. (Modules mentioned above)
 
 ```javascript
-import * as openTelemetryAPI from '@opentelemetry/api';
-import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-proto';
-import { BasicTracerProvider, BatchSpanProcessor, SimpleSpanProcessor } from '@opentelemetry/sdk-trace-base';
+import * as openTelemetry from '@opentelemetry/api';
+import { BasicTracerProvider, BatchSpanProcessor } from '@opentelemetry/sdk-trace-base';
+import { OTLPTraceExporter as OTLPTraceProtoExporter } from '@opentelemetry/exporter-trace-otlp-proto';
 ```
 
 ---
@@ -106,12 +106,16 @@ The next step is to create the basics that OpenTelemetry requires to start a tra
 
 ```javascript
 const provider = new BasicTracerProvider();
-const otlpTraceExporter = new OTLPTraceExporter({ url: stsTraceAgentOpenTelemetryEndpoint })
+const otlpTraceExporter = new OTLPTraceProtoExporter({ url: stsTraceAgentOpenTelemetryEndpoint })
 const batchSpanProcessor = new BatchSpanProcessor(otlpTraceExporter)
 provider.addSpanProcessor(batchSpanProcessor);
+provider.register();
 
 // Creating the tracer based on the identifier specified
-const tracer = openTelemetryAPI.trace.getTracer(tracerIdentifier.name, tracerIdentifier.version);
+const tracer = openTelemetry.trace.getTracer(
+    tracerIdentifier.name,
+    tracerIdentifier.version
+);
 ```
 
 ---
@@ -208,15 +212,15 @@ provider.forceFlush().finally(() => {
 
 ```javascript
 // Base Imports for OpenTelemetry
-import * as openTelemetryAPI from '@opentelemetry/api';
-import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-proto';
-import { BasicTracerProvider, BatchSpanProcessor, SimpleSpanProcessor } from '@opentelemetry/sdk-trace-base';
+import * as openTelemetry from '@opentelemetry/api';
+import { BasicTracerProvider, BatchSpanProcessor } from '@opentelemetry/sdk-trace-base';
+import { OTLPTraceExporter as OTLPTraceProtoExporter } from '@opentelemetry/exporter-trace-otlp-proto';
 
 // Change this variable to point to your StackState Trace Agent followed by the port and path
-// If you are using a env variable you can access the variable by using process.env.ENV_VARIABLE_NAME
-const stsTraceAgentOpenTelemetryEndpoint = "http://localhost:8126/open-telemetry"
+// If you are using an env variable you can access the variable by using process.env.ENV_VARIABLE_NAME
+const stsTraceAgentOpenTelemetryEndpoint = process.env.OTEL_EXPORTER_OTLP_TRACES_ENDPOINT
 
-// The tracer identier to allow StackState to identifier this instrumentations.
+// The tracer identifier to allow StackState to identify this instrumentation.
 // The name and version below should not be changed
 const tracerIdentifier = {
     name: "@opentelemetry/instrumentation-stackstate",
@@ -225,14 +229,18 @@ const tracerIdentifier = {
 
 // Creating a trace provider and exporter
 const provider = new BasicTracerProvider();
-const otlpTraceExporter = new OTLPTraceExporter({ url: stsTraceAgentOpenTelemetryEndpoint })
+const otlpTraceExporter = new OTLPTraceProtoExporter({ url: stsTraceAgentOpenTelemetryEndpoint })
 const batchSpanProcessor = new BatchSpanProcessor(otlpTraceExporter)
 provider.addSpanProcessor(batchSpanProcessor);
+provider.register();
 
 // Creating the tracer based on the identifier specified
-const tracer = openTelemetryAPI.trace.getTracer(tracerIdentifier.name, tracerIdentifier.version);
+const tracer = openTelemetry.trace.getTracer(
+    tracerIdentifier.name,
+    tracerIdentifier.version
+);
 
-// Creating a parent span. You need a identifier for this span inside the code
+// Creating a parent span. You need an identifier for this span inside the code
 // we will use the value 'RDS Database' but this does not matter.
 const rdsDatabase = tracer.startSpan('RDS Database', {
     root: true,
@@ -245,12 +253,13 @@ rdsDatabase.setAttribute('service.type', 'Database');
 rdsDatabase.setAttribute('service.identifier', 'rds:database:hello-world');
 rdsDatabase.setAttribute('resource.name', 'AWS RDS');
 
+
 // Creating a child span. You need a identifier for this span inside the code
 // we will use the value 'RDS Table' but this does not matter.
 const rdsDatabaseTable = tracer.startSpan(
     'RDS Table',
     undefined,
-    openTelemetryAPI.trace.setSpan(openTelemetryAPI.context.active(), rdsDatabase)
+    openTelemetry.trace.setSpan(openTelemetry.context.active(), rdsDatabase)
 );
 
 // Adding attributes to the child span
@@ -264,7 +273,7 @@ rdsDatabaseTable.setAttribute('resource.name', 'AWS RDS');
 // You need to close the spans in the opposite order in which you opended them
 // For example we started with the parent and then the child, thus we need to close the child first
 // and then the parent span
-// 
+
 // NB: If you do not close your spans in the correct order then then Trace will still be sent to StackState but,
 // there might be a missing span, thus showing the incomplete data in StackState.
 rdsDatabaseTable.end();
@@ -273,7 +282,7 @@ rdsDatabase.end();
 // NB: Optional Flush
 // For example this is required in a Lambda environment to force the OLTP HTTP to post before the script ends.
 provider.forceFlush().finally(() => {
-    console.log('Successfully Force Flushed The OTEL Provider')
+    console.log('Success')
 });
 ```
 {% endtab %}
