@@ -31,7 +31,7 @@ As seen in this picture below, it works as expected and all three components is 
 
 Now let's change the `http.status_code` of the second span to `400`
 
-As you can see with the image below, the second component successfully turned into a critical state
+As you can see with the image below, the second component turned into a critical state
 and the health status propagate upwards to the parent component.
 
 {% tabs %}
