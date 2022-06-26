@@ -17,7 +17,7 @@ StackState requires the following:
 - Tracer Name: `@opentelemetry/instrumentation-stackstate`
 - Version: `1.0.0`
 
-We will show how the above is implemented when we get to the code examples page. For now, it is good to know that is the above does not match what the StackState Agent is expecting then it will not be displayed on StackState. 
+We will show how the above is implemented when we get to the code examples page. For now, it is good to know that if the above does not match what the StackState Agent is expecting then it will not be displayed on StackState. 
 
 If you run you StackState Agent in debug mode then you should receive a message about an unknown instrumentation and the name that was passed to it
 
