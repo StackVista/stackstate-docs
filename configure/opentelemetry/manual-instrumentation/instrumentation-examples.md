@@ -142,6 +142,10 @@ rdsDatabase.setAttribute('service.identifier', 'rds:database:hello-world');
 rdsDatabase.setAttribute('resource.name', 'AWS RDS');
 ```
 
+Example of how the parent component will look like if you create the with the above code
+
+![Parent Component after StackState received the trace](../../../.gitbook/assets/otel_example_parent.png)
+
 ---
 
 ### Child Span
@@ -169,6 +173,11 @@ rdsDatabaseTable.setAttribute('service.type', 'Database Tables');
 rdsDatabaseTable.setAttribute('service.identifier', 'rds:database:table:users');
 rdsDatabaseTable.setAttribute('resource.name', 'AWS RDS');
 ```
+
+Example of how the child component will look like if you create the with the above code, and the relation to the parent
+
+![Parent Component after StackState received the trace](../../../.gitbook/assets/otel_example_child.png)
+
 
 ---
 
