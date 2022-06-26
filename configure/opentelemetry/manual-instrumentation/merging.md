@@ -2,9 +2,9 @@
 description: StackState Self-hosted v5.0.x
 ---
 
-# Merging with StackState components
+# Merging with Pre-Existing components
 Merging components allows you to do any of the following things
-- Add extra attributes into pre-existing StackState components.
+- Add extra attributes into pre-existing components.
 - Create custom relations for pre-existing components. 
 - Allows you to add a component relation to another propagating health in different ways (You can read more on the [span health state](/configure/opentelemetry/manual-instrumentation/health.md) page)
 

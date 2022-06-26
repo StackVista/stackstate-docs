@@ -4,7 +4,7 @@ description: StackState Self-hosted v5.0.x
 
 # Spans Relations
 
-Component and Span relations shows the relationship between StackState components, for example, the image below shows an example of a relation running from a parent to a child component, that child also then has another component as another child:
+Component and Span relations shows the relationship between pre-existing components, for example, the image below shows an example of a relation running from a parent to a child component, that child also then has another component as another child:
 
 ```text
 Service Name: Parent Component
