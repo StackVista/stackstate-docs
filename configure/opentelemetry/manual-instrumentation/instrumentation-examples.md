@@ -64,8 +64,9 @@ use this format but if you do attempt to write something from scratch remember t
 ---
 
 ## Code snippet
-
 The code snippet below will implement a solution creating the above-mentioned components.
+
+---
 
 ### Import
 The first step is to import the libraries that we will be using from OpenTelemetry. (Modules mentioned above)
@@ -75,6 +76,8 @@ import * as openTelemetryAPI from '@opentelemetry/api';
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-proto';
 import { BasicTracerProvider, BatchSpanProcessor, SimpleSpanProcessor } from '@opentelemetry/sdk-trace-base';
 ```
+
+---
 
 ### Core Definitions
 Now let's define a few values that we will use within the OpenTelemetry API code.
@@ -96,6 +99,8 @@ const tracerIdentifier = {
 }
 ```
 
+---
+
 ### OpenTelemetry Provider and Span processor
 The next step is to create the basics that OpenTelemetry requires to start a trace provider and something that can process spans
 
@@ -108,6 +113,8 @@ provider.addSpanProcessor(batchSpanProcessor);
 // Creating the tracer based on the identifier specified
 const tracer = openTelemetryAPI.trace.getTracer(tracerIdentifier.name, tracerIdentifier.version);
 ```
+
+---
 
 ### Root Span / Parent Span
 Now let's create the root span, For the root span we are creating a custom RDS Database entry (This database does not have to exist you control the span values).
@@ -131,6 +138,7 @@ rdsDatabase.setAttribute('service.identifier', 'rds:database:hello-world');
 rdsDatabase.setAttribute('resource.name', 'AWS RDS');
 ```
 
+---
 
 ### Child Span
 Now let's create a span that will have a relation with the parent span. Thus meaning if anything is wrong with the child span then the error will propagate up into the parent.
@@ -158,6 +166,8 @@ rdsDatabaseTable.setAttribute('service.identifier', 'rds:database:table:users');
 rdsDatabaseTable.setAttribute('resource.name', 'AWS RDS');
 ```
 
+---
+
 ### Closing The Parent and Child Span
 When you are done with a Span for example you have written into the database table, you need to close those spans.
 
@@ -173,6 +183,8 @@ rdsDatabaseTable.end();
 // Then we close the database span
 rdsDatabase.end();
 ```
+
+---
 
 ### Flushing the data
 This step is not always required, but good to know about. Sometimes a script might attempt to end before the actual span was sent away.
@@ -190,7 +202,9 @@ provider.forceFlush().finally(() => {
 });
 ```
 
-### Complete example from the snippets aboce
+---
+
+### Complete example from the snippets above
 
 ```javascript
 // Base Imports for OpenTelemetry
