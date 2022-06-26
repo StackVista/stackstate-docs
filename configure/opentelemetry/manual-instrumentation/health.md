@@ -27,7 +27,7 @@ In the following scenario we have 3 components that we created with the manual i
 
 As seen in this picture below, it works as expected and all three components is healthy.
 
-![Topology Perspective Healthy Manual Instrumentation Components](../../../.gitbook/assets/otel_traces_healthy_state_1_2_3_unmerged.png)
+![Topology Perspective Healthy Manual Instrumentation Components](../../../.gitbook/assets/otel_topology_perspective_healthy_component.png)
 
 Now let's change the `http.status_code` of the second span to `400`
 
@@ -36,10 +36,10 @@ and the health status propagate upwards to the parent component.
 
 {% tabs %}
 {% tab title="Healthy to Deviating" %}
-![Topology Perspective Single Deviating Manual Instrumentation Component](../../../.gitbook/assets/otel_traces_deviating_state_1_2_3_unmerged.png)
+![Topology Perspective Single Deviating Manual Instrumentation Component](../../../.gitbook/assets/otel_topology_perspective_deviating_component.png)
 {% endtab %}
 {% tab title="Deviating to Critical" %}
-![Topology Perspective Single Critical Manual Instrumentation Component](../../../.gitbook/assets/otel_traces_critical_state_1_2_3_unmerged.png)
+![Topology Perspective Single Critical Manual Instrumentation Component](../../../.gitbook/assets/otel_topology_perspective_critical_component.png)
 {% endtab %}
 {% endtabs %}
 
@@ -61,7 +61,7 @@ The one pre-existing is in a critical state and the second one in a healthy stat
 
 Below is an example of those 3 components we created and the 2 pre-existing AWS components.
 
-![Manual Instrumentation Components Unlinked To Pre-Existing Components](../../../.gitbook/assets/otel_traces_pre_merge.png)
+![Manual Instrumentation Components Unmerged To Pre-Existing Components](../../../.gitbook/assets/otel_components_unmerged.png)
 
 ### Merging with the healthy component
 
