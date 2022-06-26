@@ -69,7 +69,8 @@ You need to include **ALL** the keys below when creating a span as they all need
   - `Example`
     - AWS RDS: Database
   - `Description`
-    - The service name property will be a unique value attached to your span within your trace in the Trace Perspective.
+    - The value from `service.name` is used as a primary means to identify your component within the StackState Topology Perspective
+    - It also creates a `spans.serviceName` key within your Trace Perspective to allow you to identify if the trace in the Trace Perspective matches the component in the Topology Perspective.
 
 {% tabs %}
 {% tab title="Topology Perspective" %}
