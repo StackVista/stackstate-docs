@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.0.x
 
 StackState calculates and reports the health state for elements (components and relations) and views. The following health state types are reported:
 
-* [Own health state](#element-own-health-state) - Indicates the current health state of an element based on telemetry or health streams.
+* [Own health state](#element-own-health-state) - Indicates the current health state of an element based on configured health sources.
 * [Propagated health state](#propagated-health-state) - Highlights potential impact resulting from other unhealthy elements in the topology.
 * [View health state](#view-health-state) - Summarizes the health states and/or propagated health states of all elements in a view.
 
