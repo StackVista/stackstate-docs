@@ -312,11 +312,11 @@ redirects:
   use/concepts/components_relations#components: ./use/concepts/components.md
   use/concepts/components_relations#relations: ./use/concepts/relations.md
   use/concepts/components_relations#relation-types: ./use/concepts/relations.md
-  use/health-state/health-state-in-stackstate: ./use/health-state/about-health-state.md
-  use/health-state/health-state-in-stackstate#propagated-health-state: ./use/health-state/about-health-state.md
-  use/health-state/health-state-in-stackstate#view-health-state: ./use/health-state/about-health-state.md
-  use/health-state/health-state-in-stackstate#stackstate-health-checks: ./use/health-state/about-health-state.md
-  use/health-state/health-state-in-stackstate#health-checks: ./use/health-state/about-health-state.md
+  use/health-state/health-state-in-stackstate: ./use/concepts/health-state.md
+  use/health-state/health-state-in-stackstate#propagated-health-state: ./use/concepts/health-state.md
+  use/health-state/health-state-in-stackstate#view-health-state: ./use/concepts/health-state.md
+  use/health-state/health-state-in-stackstate#stackstate-health-checks: ./use/concepts/health-state.md
+  use/health-state/health-state-in-stackstate#health-checks: ./use/concepts/health-state.md
   use/stackstate-ui/perspectives/telemetry-perspective: ./use/stackstate-ui/perspectives/metrics-perspective.md
 
 # 5.0 docs
