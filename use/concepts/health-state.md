@@ -14,9 +14,40 @@ StackState calculates and reports the health state for elements (components and 
 
 Changes to a health state will generate events that can be used to trigger [event notifications](/use/metrics-and-events/event-notifications.md).
 
+## Health sources
+
+Health data is made available in StackState from a number of health sources. These health states are 
+
+#### StackState health checks
+
+StackState health checks can calculate a health state based on the telemetry or log streams available in StackState and defined for a topology element. This approach opens up the possibility to use the Autonomous Anomaly Detector \(AAD\) for anomaly health checks.
+
+* [How to add a health check](../checks-and-monitors/add-a-health-check.md)
+* [How to set up anomaly health checks](../checks-and-monitors/anomaly-health-checks.md)
+* [Differences between checks and monitors](/use/checks-and-monitors/about-checks-and-monitors.md)
+
+#### StackState monitors
+
+The StackState monitors system can compute a health state based on a configured algorithm that combines and processes the 4T data collected by StackState. Health states computed this way are bound to topology elements using health synchronization.
+
+* [How to add manage monitors](/use/checks-and-monitors/manage-monitors.md)
+* [Differences between checks and monitors](/use/checks-and-monitors/about-checks-and-monitors.md)
+
+#### External monitoring systems
+
+Health data from external monitoring systems can be sent to StackState using health synchronization. In this case, the state of a health check is calculated by an external system based on its own rules. The calculated health state is then sent to StackState as a health stream and bound to the associated topology element. This approach is useful if you have existing health checks defined externally, or if it is not viable to send telemetry or events data to StackState and translate the check rules.
+
+Existing StackPacks will provide health synchronization out of the box.
+
+{% hint style="success" "self-hosted info" %}
+
+You can set up a [custom health synchronization](../../configure/health/health-synchronization.md) to integrate with external monitoring systems that are not supported out of the box.
+{% endhint %}
+
+
 ## Element own health state
 
-StackState tracks a single own health state for each topology element (components, component groups and relations) based on information available from the [health checks](#health-checks) attached to it. The own health state is calculated as the most severe state reported by all health checks attached to the element. If no health checks are present, an `UNKNOWN` health state will be reported.
+StackState tracks a single own health state for each topology element (components, component groups and relations) based on information available from the [health sources](#health-sources) attached to it. The own health state is calculated as the most severe state reported by all health sources configured the element. If no health sources are present, an `UNKNOWN` health state will be reported.
 
 In the StackState UI, the color of an element represents its own health state. A topology element can have any of the following health states:
 
@@ -29,27 +60,6 @@ In the StackState UI, the color of an element represents its own health state. A
 
 The element will also have an outer color if it has an unhealthy [propagated health state](#propagated-health-state).
 
-### Health checks
-
-Health checks attached to an element each have a health state that is calculated internally by StackState or by an external monitoring system using health synchronization. The health state of the element itself is calculated as the most severe state reported by a health check attached to it. When a component or component group has a DEVIATING or CRITICAL state, a badge will appear on its icon in the topology visualization showing the number of health checks that are currently failing.
-
-#### StackState health checks
-
-StackState can calculate health checks based on telemetry or log streams defined for a topology element. When telemetry or events data is available in StackState, this approach opens up the possibility to use the Autonomous Anomaly Detector \(AAD\) for anomaly health checks.
-
-* [How to add a health check](../checks-and-monitors/add-a-health-check.md)
-* [How to set up anomaly health checks](../checks-and-monitors/anomaly-health-checks.md)
-
-#### External monitoring system
-
-Health data from external monitoring systems can be sent to StackState using health synchronization. In this case, the state of a health check is calculated by an external system based on its own rules. The calculated health state is then sent to StackState as a health stream and bound to the associated topology element. This approach is useful if you have existing health checks defined externally, or if it is not viable to send telemetry or events data to StackState and translate the check rules.
-
-Existing StackPacks will provide health synchronization out of the box.
-
-{% hint style="success" "self-hosted info" %}
-
-You can set up a [custom health synchronization](../../configure/health/health-synchronization.md) to integrate with external monitoring systems that are not supported out of the box.
-{% endhint %}
 
 ## Propagated health state
 
@@ -115,8 +125,8 @@ You can check the view health state in the following places in the StackState UI
 
 ## See also
 
-* [Add a health check based on telemetry streams available in StackState](../checks-and-monitors/add-a-health-check.md)
-* [Add a new monitor](../checks-and-monitors/manage-monitors.md)
+* [Add a health check based on telemetry streams available in StackState](/use/checks-and-monitors/add-a-health-check.md)
+* [Manage monitors](/use/checks-and-monitors/manage-monitors.md)
 * [Add Static Health from a CSV file](../../stackpacks/integrations/static_health.md "StackState Self-Hosted only")
 * [Set up a health synchronization](../../configure/health/health-synchronization.md "StackState Self-Hosted only")
 * [Configure the view health](../stackstate-ui/views/configure-view-health.md)
