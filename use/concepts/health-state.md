@@ -20,7 +20,7 @@ Health data in StackState can be derived from a number of health sources.
 
 ### StackState health checks
 
-StackState health checks can calculate a health state based on the telemetry or log streams available in StackState and defined for a topology element. This approach opens up the possibility to use the Autonomous Anomaly Detector \(AAD\) for anomaly health checks.
+StackState health checks calculate a health state based on the telemetry or log streams available in StackState and defined for a topology element. This approach opens up the possibility to use the Autonomous Anomaly Detector \(AAD\) for anomaly health checks.
 
 * [How to add a health check](../checks-and-monitors/add-a-health-check.md)
 * [How to set up anomaly health checks](../checks-and-monitors/anomaly-health-checks.md)
@@ -28,7 +28,7 @@ StackState health checks can calculate a health state based on the telemetry or 
 
 ### StackState monitors
 
-The StackState monitors system can compute a health state based on a configured algorithm that combines and processes the 4T data collected by StackState. Health states computed this way are bound to topology elements using health synchronization.
+The StackState monitors system compute a health state based on a configured algorithm that combines and processes the 4T data collected by StackState. Health states computed this way are bound to topology elements using health synchronization.
 
 * [How to add manage monitors](/use/checks-and-monitors/manage-monitors.md)
 * [Differences between checks and monitors](/use/checks-and-monitors/about-checks-and-monitors.md)
