@@ -18,7 +18,7 @@ Changes to a health state will generate events that can be used to trigger [even
 
 Health data is made available in StackState from a number of health sources. These health states are 
 
-#### StackState health checks
+### StackState health checks
 
 StackState health checks can calculate a health state based on the telemetry or log streams available in StackState and defined for a topology element. This approach opens up the possibility to use the Autonomous Anomaly Detector \(AAD\) for anomaly health checks.
 
@@ -26,14 +26,14 @@ StackState health checks can calculate a health state based on the telemetry or 
 * [How to set up anomaly health checks](../checks-and-monitors/anomaly-health-checks.md)
 * [Differences between checks and monitors](/use/checks-and-monitors/about-checks-and-monitors.md)
 
-#### StackState monitors
+### StackState monitors
 
 The StackState monitors system can compute a health state based on a configured algorithm that combines and processes the 4T data collected by StackState. Health states computed this way are bound to topology elements using health synchronization.
 
 * [How to add manage monitors](/use/checks-and-monitors/manage-monitors.md)
 * [Differences between checks and monitors](/use/checks-and-monitors/about-checks-and-monitors.md)
 
-#### External monitoring systems
+### External monitoring systems
 
 Health data from external monitoring systems can be sent to StackState using health synchronization. In this case, the state of a health check is calculated by an external system based on its own rules. The calculated health state is then sent to StackState as a health stream and bound to the associated topology element. This approach is useful if you have existing health checks defined externally, or if it is not viable to send telemetry or events data to StackState and translate the check rules.
 
