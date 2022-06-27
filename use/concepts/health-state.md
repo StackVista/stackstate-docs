@@ -16,7 +16,7 @@ Changes to a health state will generate events that can be used to trigger [even
 
 ## Health sources
 
-Health data is made available in StackState from a number of health sources. These health states are 
+Health data in StackState can be derived from a number of health sources.
 
 ### StackState health checks
 
