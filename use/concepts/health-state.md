@@ -22,6 +22,8 @@ Health data in StackState can be derived from a number of health sources.
 
 StackState health checks calculate a health state based on the telemetry or log streams available in StackState and defined for a topology element. This approach opens up the possibility to use the Autonomous Anomaly Detector \(AAD\) for anomaly health checks.
 
+Existing StackPacks will provide StackState health checks out of the box.
+
 * [How to add a health check](../checks-and-monitors/add-a-health-check.md)
 * [How to set up anomaly health checks](../checks-and-monitors/anomaly-health-checks.md)
 * [Differences between checks and monitors](/use/checks-and-monitors/about-checks-and-monitors.md)
