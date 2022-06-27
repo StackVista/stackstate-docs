@@ -35,7 +35,7 @@ The health state of a component is indicated by two colors:
 
 The direction of a relation's arrow indicates dependency. For example, `app -> db` means: `app` depends on `db`. Health propagates in the opposite direction to the arrows. So if the `db` component turns red, the outer color of the `app` component will turn red too.
 
-➡️ Learn more about [components](/use/concepts/components.md), [relations](/use/concepts/relations.md) and [health state](/use/health-state/about-health-state.md)
+➡️ Learn more about [components](/use/concepts/components.md), [relations](/use/concepts/relations.md) and [health state](/use/concepts/health-state.md)
 
 ![Component](/.gitbook/assets/v50_topology_elements.png)
 
