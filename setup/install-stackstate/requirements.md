@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x 
+description: StackState Self-hosted v5.0.x
 ---
 
 # Requirements
@@ -30,27 +30,34 @@ For a standard deployment, the StackState Helm chart will deploy backend service
 
 {% tabs %}
 {% tab title="Recommended setup" %}
-Requirements for the recommended high availability setup:
+Requirements for the recommended high availability setup with the backup enabled:
 
-* **Amazon EKS:** 8 instances of type `m5.2xlarge` or `m4.2xlarge`
-* **Azure AKS:** 8 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
-* **Virtual machines:** 8 nodes with `32GB memory`, `8 vCPUs`
+* Node requirements: minimum 8 vCPUs, minimum 32GB memory
+* Total of 54 vCPUs available for StackState
+* Total of 120 GB memory available for StackState
+* At least 3 nodes to make the data storing services redundant
+
+The recommended requirements include spare CPU/Memory capacity to ensure smooth application rolling update.
+
 {% endtab %}
 
 {% tab title="Minimal setup" %}
-Requirements for the minimal high availability setup: 
+Requirements for the minimal high availability setup with the backup enabled:
 
-* **Amazon EKS:** 5 instances of type `m5.2xlarge` or `m4.2xlarge`
-* **Azure AKS:** 5 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
-* **Virtual machines:** 5 nodes with `32GB memory`, `8 vCPUs`
+* Node requirements: minimum 8 vCPUs, minimum 32GB memory
+* Total of 36 vCPUs available for StackState
+* Total of 91 GB memory available for StackState
+* At least 3 nodes to make the data storing services redundant
+
 {% endtab %}
 
 {% tab title="Non-high availability setup" %}
 Optionally, a [non-high availability setup](/setup/install-stackstate/kubernetes_install/non_high_availability_setup.md) can be configured which has the following requirements:
 
-* **Amazon EKS:** 4 instances of type `m5.2xlarge` or `m4.2xlarge`
-* **Azure AKS:** 4 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
-* **Virtual machines:** 4 nodes with `32GB memory`, `8 vCPUs`
+* Node requirements: minimum 8 vCPUs, minimum 32GB memory
+* Total of 25 vCPUs available for StackState
+* Total of 56 GB memory available for StackState
+
 {% endtab %}
 {% endtabs %}
 
@@ -83,22 +90,22 @@ It is not recommended to set a ResourceQuota as this can interfere with resource
 If it is necessary to set a ResourceQuota for your implementation, the namespace resource limit should be set to match the node sizing requirements. For example, using the recommended node sizing for virtual machines \(6 nodes with `32GB memory`, `8 vCPUs`\), the namespace resource limit should be `6*32GB = 192GB` and `6*8 vCPUs = 48 vCPUs`.
 
 
-## KOTS 
+## KOTS
 
 ### Operating system
 
 KOTS requires a VM running a [supported OS \(kurl.sh\)](https://kurl.sh/docs/install-with-kurl/system-requirements).
 
-### Disk Partitioning 
+### Disk Partitioning
 
 For a KOTS deployment, the disks should be partitioned as follows:
 
 * `/` - at least 80GB
-* `/var/lib/longhorn` - at least 500GB 
+* `/var/lib/longhorn` - at least 700GB
 
 ### Latency
 
-The `/var/lib/longhorn` disk should have a latency of less than 10ms. 
+The `/var/lib/longhorn` disk should have a latency of less than 10ms.
 
 For example, the cloud VM instance/disk combinations below are known to provide sufficient performance for etcd and will pass the write latency preflight check.
 
@@ -110,21 +117,23 @@ For example, the cloud VM instance/disk combinations below are known to provide 
 
 For a standard deployment, KOTS deploys backend services in a redundant setup with 3 instances of each service. The nodes required for different environments are listed below:
 
-{% tabs %} 
-{% tab title="Recommended setup" %} 
-Requirements for the recommended high availability setup:
+{% tabs %}
+{% tab title="Recommended setup" %}
+Requirements for the recommended high availability setup with the backup enabled:
 
 * **Amazon EC2:** 8 instances of type `m5.2xlarge` or `m4.2xlarge`
 * **Azure:** 8 instances of type `D8s v3` or `D8as V4` (Intel or AMD CPUs)
 * **Virtual machines**: 8 nodes with 32GB memory, 8 vCPUs
 
 {% endtab %}
-{% tab title="Minimal setup" %} 
-Requirements for the recommended high availability setup:
+{% tab title="Minimal setup" %}
+Requirements for the minimal setup:
 
-* **Amazon EC2:** 5 instances of type `m5.2xlarge` or `m4.2xlarge`
-* **Azure:** 5 instances of type `D8s v3` or `D8as V4` (Intel or AMD CPUs)
-* **Virtual machines:** 5 nodes with 32GB memory, 8 vCPUs
+* **Amazon EC2:** 4 instances of type `m5.2xlarge` or `m4.2xlarge`
+* **Azure:** 4 instances of type `D8s v3` or `D8as V4` (Intel or AMD CPUs)
+* **Virtual machines:** 4 nodes with 32GB memory, 8 vCPUs
+
+The minimal setup implies 1 master and 3 worker nodes with the data storing services running in a single replica, and the backup disabled.
 
 {% endtab %}
 {% endtabs %}
