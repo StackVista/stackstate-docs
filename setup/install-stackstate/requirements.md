@@ -29,27 +29,34 @@ For a standard deployment, the StackState Helm chart will deploy backend service
 
 {% tabs %}
 {% tab title="Recommended setup" %}
-Requirements for the recommended high availability setup:
+Requirements for the recommended high availability setup with the backup enabled:
 
-* **Amazon EKS:** 8 instances of type `m5.2xlarge` or `m4.2xlarge`
-* **Azure AKS:** 8 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
-* **Virtual machines:** 8 nodes with `32GB memory`, `8 vCPUs`
+* Node requirements: minimum 8 vCPUs, minimum 32GB memory
+* Total of 54 vCPUs available for StackState
+* Total of 120 GB memory available for StackState
+* At least 3 nodes to make the data storing services redundant
+
+The recommended requirements include spare CPU/Memory capacity to ensure smooth application rolling update.
+
 {% endtab %}
 
 {% tab title="Minimal setup" %}
-Requirements for the minimal high availability setup: 
+Requirements for the minimal high availability setup with the backup enabled:
 
-* **Amazon EKS:** 5 instances of type `m5.2xlarge` or `m4.2xlarge`
-* **Azure AKS:** 5 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
-* **Virtual machines:** 5 nodes with `32GB memory`, `8 vCPUs`
+* Node requirements: minimum 8 vCPUs, minimum 32GB memory
+* Total of 36 vCPUs available for StackState
+* Total of 91 GB memory available for StackState
+* At least 3 nodes to make the data storing services redundant
+
 {% endtab %}
 
 {% tab title="Non-high availability setup" %}
 Optionally, a [non-high availability setup](/setup/install-stackstate/kubernetes_install/non_high_availability_setup.md) can be configured which has the following requirements:
 
-* **Amazon EKS:** 4 instances of type `m5.2xlarge` or `m4.2xlarge`
-* **Azure AKS:** 4 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
-* **Virtual machines:** 4 nodes with `32GB memory`, `8 vCPUs`
+* Node requirements: minimum 8 vCPUs, minimum 32GB memory
+* Total of 25 vCPUs available for StackState
+* Total of 56 GB memory available for StackState
+
 {% endtab %}
 {% endtabs %}
 
