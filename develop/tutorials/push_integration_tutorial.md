@@ -70,7 +70,7 @@ Press `ctrl-c` to stop the agent.
 
 When you log into your StackState instance, go to the **Explore Mode**. Using the topology filter, select all topology with the `example` label. This should result in a topology similar to the following:
 
-![](../../.gitbook/assets/example-topology.png)
+![](../../.gitbook/assets/v50_example-topology.png)
 
 Note that the components you see are hardcoded in the `example` agent check. The components appear in the **Example** domain and **Applications** and **Hosts** layers. The check produces two application components that StackState has grouped together. This is shown as a circle icon. Select the group to display the individual components that make up the group in the right panel **Selection details** tab.
 
@@ -235,7 +235,7 @@ You can change the `alert_level` field in the `custom-event.json` file to try ou
 
 When the component turns `CRITICAL`, this is what you should see:
 
-![](../../.gitbook/assets/example-health-state.png)
+![](../../.gitbook/assets/v50_example-health-state.png)
 
 ## Cleaning your StackState instance
 
