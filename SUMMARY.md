@@ -257,6 +257,7 @@
   * [Mirroring Telemetry](develop/developer-guides/mirroring.md)
   * [Monitors](develop/developer-guides/monitors/README.md)
     * [Create monitors](develop/developer-guides/monitors/how-to-create-monitors.md)
+    * [Monitor execution](develop/developer-guides/monitors/monitor-execution.md)
   * [StackPack development](develop/developer-guides/stackpack/README.md)
     * [How to create a StackPack](develop/developer-guides/stackpack/develop_stackpacks.md)
     * [Packaging](develop/developer-guides/stackpack/prepare_package.md)
