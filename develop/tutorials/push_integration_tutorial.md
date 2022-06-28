@@ -17,7 +17,7 @@ Push-based integrations are built in Python and run as part of the StackState ag
 
 ## Setup
 
-The [push integration tutorial repository \(github.com\)](https://github.com/StackVista/push-integration-tutorial) contains a sample project that sets up an Agent check called `example` that sends topology into StackState. It uses docker to run the StackState Agent to execute the check.
+The [push integration tutorial repository \(github.com\)](https://github.com/StackVista/push-integration-tutorial) contains a sample project that sets up an Agent check called `example` that sends topology into StackState. It uses Docker to run the StackState Agent to execute the check.
 
 Clone the repository to your laptop to get started.
 
@@ -50,7 +50,7 @@ export STS_API_KEY=my-api-key
 export STS_STS_URL=https://stackstate.acme.com/stsAgent
 ```
 
-If you are running the Agent from a container and StackState on your local machine \(eg via our Kubernetes helm charts\) you can refer the Agent in the docker container to your local StackState:
+If you are running the Agent from a container and StackState on your local machine \(eg via our Kubernetes helm charts\) you can refer the Agent in the Docker container to your local StackState:
 
 ```text
 export STS_STS_URL=https://host.docker.internal/stsAgent
@@ -60,7 +60,7 @@ That's it, you are now ready to run the agent.
 
 ## Run the sample check using the Agent
 
-The sample project contains a `run.sh` shell script that runs the StackState Agent in a docker container. It reads the configuration from this sample project and executes the `example` check.
+The sample project contains a `run.sh` shell script that runs the StackState Agent in a Docker container. It reads the configuration from this sample project and executes the `example` check.
 
 When you run the agent, it writes logging to its standard output. The Agent has debugging turned on by default \(check the `stackstate.yaml` file\) so it is fairly verbose.
 

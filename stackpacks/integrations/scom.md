@@ -103,7 +103,7 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
        username: <username>
        password: <password>
        auth_mode: Network
-       integration_mode: api    # can be API or powershell, default API
+       integration_mode: api    # can be api or powershell, default api
        max_number_of_requests: 10000   # default 10000
        criteria : "(FullName LIKE 'Microsoft.Windows.Computer:%')" # an Operations Manager Data Query
      ```

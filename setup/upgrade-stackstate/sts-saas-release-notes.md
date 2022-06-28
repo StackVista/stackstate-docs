@@ -180,7 +180,7 @@ Details of the included improvements and bug fixes can be found below.
 - Set sync counters back to 0 after a sync reset operation. STAC-15088
 - Fixed issue that caused incorrect metric data to create spurious indices in ElasticSearch. STAC-14978
 - Fixed issue that caused Kubernetes synchronization to fail when processing specific data. STAC-14811
-- Resolved several vulnerabilities in `stackstate-ailab` docker image. STAC-14760
+- Resolved several vulnerabilities in `stackstate-ailab` Docker image. STAC-14760
 - Fixed issue that caused long anomalies to be reported with severity HIGH instead of MEDIUM. STAC-14756
 - Fixed issue that caused StackState to stop receiving health synchronization data after Kafka has rebalanced partitions to consumers. STAC-14676
 

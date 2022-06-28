@@ -25,7 +25,7 @@ Automatic instrumentation for Java uses the `java-agent` instrumentation capabil
 
 Instrumentation may come from an auto-instrumentation, the OpenTracing api, or a mixture of both. Instrumentation generally captures the following info:
 
-* Timing duration is captured using the JVM's nanotime clock unless a timestamp is provided from the OpenTracing api
+* Timing duration is captured using the JVM's nanotime clock unless a timestamp is provided from the OpenTracing API
 * Key/value tag pairs
 * Errors and stacktraces which are unhandled by the application
 * A total count of traces \(requests\) flowing through the system

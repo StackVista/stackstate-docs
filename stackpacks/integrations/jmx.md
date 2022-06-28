@@ -95,7 +95,7 @@ instances:
 * `java_bin_path` - \(Optional\) - Should be set if the Agent cannot find your java executable.
 * `java_options` - \(Optional\) - Java JVM options
 * `trust_store_path` and `trust_store_password` - \(Optional\) - Should be set if ssl is enabled.
-* `process_name_regex` - \(Optional\) - Instead of specifying a host and port or jmx\_url, the Agent can connect using the attach api. This requires the JDK to be installed and the path to tools.jar to be set.
+* `process_name_regex` - \(Optional\) - Instead of specifying a host and port or jmx\_url, the Agent can connect using the attach API. This requires the JDK to be installed and the path to tools.jar to be set.
 * `tools_jar_path` - \(Optional\) - To be set when process\_name\_regex is set.
 * `refresh_beans` - \(Optional\) - Refresh period for refreshing the matching MBeans list.  Default is 600 seconds.  Decreasing this value may result in increased CPU usage.
 

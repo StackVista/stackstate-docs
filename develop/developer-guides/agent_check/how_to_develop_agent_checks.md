@@ -288,7 +288,7 @@ In the example below, a check state is created in StackState with the health val
 * The check is attached to the component or relation matching the `topology_element_identifier`.
 * The `check_state_id` is used to distinguish check states within the current health stream.
 
-Check states can be send through the health synchronization api, using the `self.health.check_state()` functions in the `AgentCheck` interface. The example below shows how to submit the data:
+Check states can be send through the health synchronization API, using the `self.health.check_state()` functions in the `AgentCheck` interface. The example below shows how to submit the data:
 
 ```text
 from stackstate_checks.base import Health
