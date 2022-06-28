@@ -56,7 +56,7 @@ StackState accepts topology information in the following JSON format:
 
 ```text
 {
-   "apiKey":"your api key",
+   "apiKey":"your API key",
    "collection_timestamp":1585818978,
    "internalHostname":"lnx-343242.srv.stackstate.com",
    "events":{},

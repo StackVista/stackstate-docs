@@ -20,7 +20,7 @@ You can configure a proxy URL environment variable or JVM system property.
 
 ### Costs
 
-The AWS lightweight agent uses Amazon resources (Lambda and Kinesis) for which Amazon will charge a minimal fee. Amazon also charges a fee for the use of CloudWatch metrics. Metrics are only retrieved when viewed or when a check is configured on a CloudWatch metric.
+The AWS lightweight Agent uses Amazon resources (Lambda and Kinesis) for which Amazon will charge a minimal fee. Amazon also charges a fee for the use of CloudWatch metrics. Metrics are only retrieved when viewed or when a check is configured on a CloudWatch metric.
 
 ### Timeout
 The default read timeout for AWS is set to 30 seconds. You can specify custom read timeout with the `AWS_CLI_READ_TIMEOUT` environment variable. 

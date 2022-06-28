@@ -269,8 +269,8 @@ Detailed information about ports per process.
       </td>
       <td style="text-align:left">
         <p>50010: Datanode API (needs to be open for clients)</p>
-        <p>50020: IPC api (communication within HDFS cluster)</p>
-        <p>50075: HTTP api (optional)</p>
+        <p>50020: IPC API (communication within HDFS cluster)</p>
+        <p>50075: HTTP API (optional)</p>
       </td>
     </tr>
     <tr>
@@ -301,7 +301,7 @@ Detailed information about ports per process.
       <td style="text-align:left"><b>StackState</b>
       </td>
       <td style="text-align:left">
-        <p>7070: HTTP api &amp; user interface</p>
+        <p>7070: HTTP API &amp; user interface</p>
         <p>7071: Admin API for health checks and admin operations. Typically you
           want to use this only from `localhost`</p>
       </td>

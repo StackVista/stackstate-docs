@@ -68,7 +68,7 @@ Docker:
 * Hosts, processes, and containers
 * Network connections between processes, containers and services including network traffic telemetry
 * Telemetry for hosts, processes, and containers
-* Trace agent support
+* Trace Agent support
 
 When additional checks have been enabled on the Agent, data from other external systems will be integrated. Refer to the individual integration pages for details of the data retrieved from each system.
 

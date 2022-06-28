@@ -4,7 +4,7 @@ description: StackState Self-hosted v5.0.x
 
 # How to develop Agent checks
 
-This document covers how to create your first check with Agent v2 Check API. Following topics are covered in this document: the agent directory structure, configuring your check, writing your first check, sending topology, metrics, events, and service checks as well as how to add external Python dependencies and putting it all together.
+This document covers how to create your first check with Agent v2 Check API. Following topics are covered in this document: the Agent directory structure, configuring your check, writing your first check, sending topology, metrics, events, and service checks as well as how to add external Python dependencies and putting it all together.
 
 ## Installing Agent v2 StackPack
 
@@ -82,7 +82,7 @@ The _init\_config_ section allows you to have an arbitrary number of global conf
 
 ### instances
 
-The _instances_ section is a list of instances that this check will be run against. Your `check(...)` method is run once per instance each collection interval. This means that every check will support multiple instances out of the box. A check instance is an object that should contain all configuration items needed to monitor a specific instance. An instance is passed into the execution of the `check` method in the `instance` parameter. `collection_interval` can be added to define how often the check should be run. If the value is set to 30, it means that this check will be scheduled for collection every 30 seconds. If the check runtime exceeds the `collection_interval`, the Agent will warn in the agent log with `Check <name> did not finish execution with the defined collection_interval time '<time>', skipping execution...`. The default is `40`, if no `collection_interval` is specified. The `collection_interval` setting has superseded the `min_collection_interval` setting that was used before. The agent will still accept the `min_collection_interval` setting and interpret it as if the `collection_interval` was specified.
+The _instances_ section is a list of instances that this check will be run against. Your `check(...)` method is run once per instance each collection interval. This means that every check will support multiple instances out of the box. A check instance is an object that should contain all configuration items needed to monitor a specific instance. An instance is passed into the execution of the `check` method in the `instance` parameter. `collection_interval` can be added to define how often the check should be run. If the value is set to 30, it means that this check will be scheduled for collection every 30 seconds. If the check runtime exceeds the `collection_interval`, the Agent will warn in the Agent log with `Check <name> did not finish execution with the defined collection_interval time '<time>', skipping execution...`. The default is `40`, if no `collection_interval` is specified. The `collection_interval` setting has superseded the `min_collection_interval` setting that was used before. The Agent will still accept the `min_collection_interval` setting and interpret it as if the `collection_interval` was specified.
 
 To synchronize multiple instances in StackState you have to create a multi-tenant StackPack.
 
@@ -116,7 +116,7 @@ class ExampleCheck(AgentCheck):
         instance_url = instance['url']
         return AgentIntegrationInstance("example", instance_url)
 
-    # check is the entry point of your agent check, `instance` is a dictionary containing the instance that was read from conf.yaml  
+    # check is the entry point of your Agent check, `instance` is a dictionary containing the instance that was read from conf.yaml  
     def check(self, instance):
         self.log.debug("starting check for instance: %s" % instance)
         ...
@@ -270,7 +270,7 @@ class ExampleCheck(AgentCheck):
 ...
 ```
 
-This function specifies what health synchronization stream this agent check will produce to. Having this function defined will enable the `self.health` api on the Agent Check.
+This function specifies what health synchronization stream this Agent check will produce to. Having this function defined will enable the `self.health` API on the Agent Check.
 
 ### Health Synchronization Snapshots
 
@@ -342,7 +342,7 @@ We create a `MetricStream` on the `system.cpu.usage` metric with some conditions
 
 ### Send Service Checks
 
-Service Checks are used to submit the state of the agent integration instance. Service checks can be submitted using the `self.service_check` method in the `AgentCheck` interface. Service check data is also stored in the `StackState Generic Events` data source.
+Service Checks are used to submit the state of the Agent integration instance. Service checks can be submitted using the `self.service_check` method in the `AgentCheck` interface. Service check data is also stored in the `StackState Generic Events` data source.
 
 The example below submits a service check to StackState when it is verified that the check was configured correctly and it can communicate with the instance that is monitored:
 
@@ -362,7 +362,7 @@ The service check can produce the following states:
 
 ### Add Python Dependencies
 
-Sometimes your check may require some external dependencies. To solve this problem the StackState agent is shipped with Python and pip embedded. When installing the dependencies needed by your custom check you should use the embedded pip to do so. This executable for pip can be found here:
+Sometimes your check may require some external dependencies. To solve this problem the StackState Agent is shipped with Python and pip embedded. When installing the dependencies needed by your custom check you should use the embedded pip to do so. This executable for pip can be found here:
 
 For Linux, you should find it at:
 
@@ -394,7 +394,7 @@ C:\Program Files\StackState\StackState Agent\embedded\agent.exe check <CHECK_NAM
 
 This executes your check once and displays the results.
 
-Once you are happy with the result of your check, you can restart the StackState Agent service and your check will be scheduled alongside the other agent checks.
+Once you are happy with the result of your check, you can restart the StackState Agent service and your check will be scheduled alongside the other Agent checks.
 
 For Linux:
 

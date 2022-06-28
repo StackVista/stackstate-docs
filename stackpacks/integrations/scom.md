@@ -103,7 +103,7 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
        username: <username>
        password: <password>
        auth_mode: Network
-       integration_mode: api    # can be api or powershell, default api
+       integration_mode: api    # can be API or powershell, default API
        max_number_of_requests: 10000   # default 10000
        criteria : "(FullName LIKE 'Microsoft.Windows.Computer:%')" # an Operations Manager Data Query
      ```
@@ -149,7 +149,7 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
        # min_collection_interval: 60 # use in place of collection_interval for Agent v2.14.x or earlier 
        collection_interval: 60
      instances:
-     - integration_mode: powershell    # api or powershell, default api
+     - integration_mode: powershell    # API or powershell, default API
      ```
 2. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
 {% endtab %}

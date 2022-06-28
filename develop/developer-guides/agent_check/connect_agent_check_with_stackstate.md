@@ -15,7 +15,7 @@ Install the Custom Synchronization StackPack from the StackState UI **StackPacks
 * **Instance type \(source identifier\)** - `TopologyInstance`
 * **Instance URL**
 
-These are directly mapped to the `TopologyInstance` supplied in the `get_instance_key` function of your agent check.
+These are directly mapped to the `TopologyInstance` supplied in the `get_instance_key` function of your Agent check.
 
 In the example Agent check below StackState, the Custom Synchronization StackPack **Instance type** would be `example` and the **Instance URL** would be `instance_url`.
 

@@ -106,7 +106,7 @@ Example:
 
 ```text
 docker run -ti --rm\
-    -e STS_API_KEY=<api key>
+    -e STS_API_KEY=<STACKSTATE_API_KEY>
     -v /path/to/self-signed-certs:/etc/ssl/certs \
     -e STS_STS_URL=https://stackstate.infra.company.tld:7077/stsAgent \
     -e STS_APM_URL=https://stackstate.infra.company.tld:7077/stsAgent \

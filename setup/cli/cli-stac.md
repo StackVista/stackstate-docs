@@ -152,7 +152,7 @@ instances:
   default:
     base_api:
       url: "https://stackstate.mycompany.com"
-      # Get the api token from the user interface, see https://stackstate.mycompany.com/#/cli
+      # Get the API token from the user interface, see https://stackstate.mycompany.com/#/cli
       apitoken_auth:
         token: '???'
       ## HTTP basic authentication.
@@ -167,7 +167,7 @@ instances:
         #password: '???'
     admin_api:
       url: "https://stackstate.mycompany.com/admin"
-      # Get the api token from the user interface, see https://stackstate.mycompany.com/#/cli
+      # Get the API token from the user interface, see https://stackstate.mycompany.com/#/cli
       apitoken_auth:
         token: '???'
       ## HTTP basic authentication.

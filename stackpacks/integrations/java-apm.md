@@ -41,7 +41,7 @@ Download the [java trace client](https://github.com/StackVista/sts-trace-java/re
 * Set the following jvm arguments when running your java application
   * -Dsts.service.name=`{{service-name}}`
   * -Dsts.agent.host=`{{host-of-the-stackstate-agent}}`
-  * -Dsts.agent.port=`8126 {the default port for the trace agent api}`
+  * -Dsts.agent.port=`8126 {the default port for the trace Agent API}`
   * -javaagent:`{path/of/downloaded-jar.jar}`  
 * Once above steps are done,the java trace client will start sending collected traces to the StackState Trace Agent which will then be forwarded to StackState.
 
@@ -50,7 +50,7 @@ Download the [java trace client](https://github.com/StackVista/sts-trace-java/re
 * Set the following jvm arguments in your `environment` variables when running your container
   * -Dsts.service.name=`{{service-name}}`
   * -Dsts.agent.host=`{{host-of-the-stackstate-agent}}`
-  * -Dsts.agent.port=`8126 {the default port for the trace agent api}`
+  * -Dsts.agent.port=`8126 {the default port for the trace Agent API}`
   * -javaagent:`{path/of/downloaded-jar.jar}` 
 
 Eg. running a container, setting the jvm arguments as part of `MAVEN_OPTS`.
@@ -63,7 +63,7 @@ Eg. running a container, setting the jvm arguments as part of `MAVEN_OPTS`.
       MAVEN_OPTS: |
         -Dsts.service.name=`{{service-name}}`
         -Dsts.agent.host=`{{host-of-the-stackstate-agent}}`
-        -Dsts.agent.port=`8126 {the default port for the trace agent api}`
+        -Dsts.agent.port=`8126 {the default port for the trace Agent API}`
         -javaagent:`{path/of/downloaded-jar.jar}`
 ```
 
@@ -72,7 +72,7 @@ Eg. running a container, setting the jvm arguments as part of `MAVEN_OPTS`.
 * Set the following jvm arguments in your `env` variables for the container when running your pod
   * -Dsts.service.name=`{{service-name}}`
   * -Dsts.agent.host=`{{host-of-the-stackstate-agent}}`
-  * -Dsts.agent.port=`8126 {the default port for the trace agent api}`
+  * -Dsts.agent.port=`8126 {the default port for the trace Agent API}`
   * -javaagent:`{path/of/downloaded-jar.jar}`
 
 Eg. running a container in a pod, setting the jvm arguments as part of `MAVEN_OPTS`.
@@ -85,7 +85,7 @@ Eg. running a container in a pod, setting the jvm arguments as part of `MAVEN_OP
         value: |
         -Dsts.service.name=`{{service-name}}`
         -Dsts.agent.host=`{{host-of-the-stackstate-agent}}`
-        -Dsts.agent.port=`8126 {the default port for the trace agent api}`
+        -Dsts.agent.port=`8126 {the default port for the trace Agent API}`
         -javaagent:`{path/of/downloaded-jar.jar}`
 ```
 

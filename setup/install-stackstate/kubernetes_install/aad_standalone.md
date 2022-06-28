@@ -96,7 +96,7 @@ By default, the AAD Kubernetes Service is configured to use kubernetes `token` a
       ...
   stackstate:
     authType: api-token
-    apiToken: <stackstate api token>
+    apiToken: <STACKSTATE_API_TOKEN>
   ...
 
 * Cookie authentication. This type of auth is not recommended and exists only for troubleshooting/testing purposes.

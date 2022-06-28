@@ -86,7 +86,7 @@ To remedy this situation, the kubernetes\_state check can be configured to run a
   agent:
     config:
       override:
-  # agent.config.override -- Disables kubernetes_state check on regular agent pods.
+  # agent.config.override -- Disables kubernetes_state check on regular Agent pods.
       - name: auto_conf.yaml
         path: /etc/stackstate-agent/conf.d/kubernetes_state.d
         data: |

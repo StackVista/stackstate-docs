@@ -17,11 +17,11 @@ Push-based integrations are built in Python and run as part of the StackState ag
 
 ## Setup
 
-[This repository](https://github.com/StackVista/push-integration-tutorial) contains a sample project that sets up an agent check called `example` that sends topology into StackState. It uses docker to run the StackState agent to execute the check.
+The [push integration tutorial repository \(github.com\)](https://github.com/StackVista/push-integration-tutorial) contains a sample project that sets up an Agent check called `example` that sends topology into StackState. It uses docker to run the StackState Agent to execute the check.
 
 Clone the repository to your laptop to get started.
 
-The `stackstate.yaml` file is the main agent configuration file. It tells the agent where to find StackState and what API key to use.
+The `stackstate.yaml` file is the main Agent configuration file. It tells the Agent where to find StackState and what API key to use.
 
 The `example` check consists of two files:
 
@@ -41,7 +41,7 @@ Instance URL: example://example-1
 
 ## Prepare the tutorial
 
-The StackState agent container uses the root directory of this repository for it's configuration files.
+The StackState Agent container uses the root directory of this repository for it's configuration files.
 
 Before running the example, you need to configure the sample project with your StackState instance URL and API key.
 
@@ -50,7 +50,7 @@ export STS_API_KEY=my-api-key
 export STS_STS_URL=https://stackstate.acme.com/stsAgent
 ```
 
-If you are running the agent from a container and StackState on your local machine \(eg via our Kubernetes helm charts\) you can refer the agent in the docker container to your local StackState:
+If you are running the Agent from a container and StackState on your local machine \(eg via our Kubernetes helm charts\) you can refer the Agent in the docker container to your local StackState:
 
 ```text
 export STS_STS_URL=https://host.docker.internal/stsAgent
@@ -60,9 +60,9 @@ That's it, you are now ready to run the agent.
 
 ## Run the sample check using the Agent
 
-The sample project contains a `run.sh` shell script that runs the StackState agent in a docker container. It reads the configuration from this sample project and executes the `example` check.
+The sample project contains a `run.sh` shell script that runs the StackState Agent in a docker container. It reads the configuration from this sample project and executes the `example` check.
 
-When you run the agent, it writes logging to its standard output. The agent has debugging turned on by default \(check the `stackstate.yaml` file\) so it is fairly verbose.
+When you run the agent, it writes logging to its standard output. The Agent has debugging turned on by default \(check the `stackstate.yaml` file\) so it is fairly verbose.
 
 Once the check has run successfully, the topology data produced by the `example` check will be sent to StackState.
 
@@ -74,7 +74,7 @@ When you log into your StackState instance, go to the **Explore Mode**. Using th
 
 ![](../../.gitbook/assets/v50_example-topology.png)
 
-Note that the components you see are hardcoded in the `example` agent check. The components appear in the **Example** domain and **Applications** and **Hosts** layers. The check produces two application components that StackState has grouped together. This is shown as a circle icon. Select the group to display the individual components that make up the group in the right panel **Selection details** tab.
+Note that the components you see are hardcoded in the `example` Agent check. The components appear in the **Example** domain and **Applications** and **Hosts** layers. The check produces two application components that StackState has grouped together. This is shown as a circle icon. Select the group to display the individual components that make up the group in the right panel **Selection details** tab.
 
 Select a component to display detailed information about it in the right panel **Selection details** tab. You'll see the component's labels and other metadata that the check sent.
 

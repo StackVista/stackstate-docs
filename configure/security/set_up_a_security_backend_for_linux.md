@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.0.x
 
 This document explains the process of setting up a security backend on a Linux system. You can find more information in the [Secrets Management section](secrets_management.md).
 
-## Security agent requirements
+## Security Agent requirements
 
 The Agent V2 runs the `secret_backend_command` executable as a sub-process. On Linux, the executable set as `secret_backend_command` is required to:
 

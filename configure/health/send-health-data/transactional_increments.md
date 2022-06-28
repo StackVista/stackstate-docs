@@ -13,7 +13,7 @@ Health can be sent to the StackState Receiver API using the `"health"` property 
 {% tabs %}
 {% tab title="Example health `transactional_increments` JSON" %}
 ```javascript
-   "apiKey":"your api key",
+   "apiKey":"your API key",
    "collection_timestamp":1585818978,
    "internalHostname":"lnx-343242.srv.stackstate.com",
    "events":{},
@@ -68,7 +68,7 @@ Every health Transactional Increments data payload has the following details:
 * **increment** - An increment objects needs to be present on every message. This enables StackState to track the complete chain of messages and be able to detect when a retransmission of data, or an unexpected gap in the data is occurring. It carries the following fields as increment metadata:
   * **checkpoint** - Object providing the checkpoint that belongs the the `check_states` present in the message, it contains two fields:
     * **offset** - The offset asigned to the messages by the streaming pipeline (e.g. Kafka offset)
-    * **batch_index** - Optional. When using a single message to accumulate several `check_states` the batch index represents the latest index that is present in the message, allowing to send big batches in separate api calls.
+    * **batch_index** - Optional. When using a single message to accumulate several `check_states` the batch index represents the latest index that is present in the message, allowing to send big batches in separate API calls.
   * **previous_checkpoint** - Optional. Represents the previously communicated checkpoint, can be empty on the very first transmission on the substream. It allows StackState to keep track if there could be any data missing from upstream.
 * **stream** - Object providing identification regarding which snapshots and `check_states` belong together. It contains the following fields:
   * **urn** - Data source and stream ID encoded as a StackState [URN](/configure/topology/identifiers.md) that matches the following convention: `urn:health:<sourceId>:<streamId>` where `<sourceId>` is the name if the external data source and `<streamId>` is a unique identifier for the health data stream.
