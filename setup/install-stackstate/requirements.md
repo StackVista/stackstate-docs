@@ -30,19 +30,22 @@ For a standard deployment, the StackState Helm chart will deploy backend service
 
 {% tabs %}
 {% tab title="Recommended setup" %}
-Requirements for the recommended high availability setup with the backup enabled:
+
+{% hint style="info" %}
+The recommended requirements include spare CPU/Memory capacity to ensure smooth application rolling update.
+{% endhint %}
+
+Requirements for the recommended high availability setup with backups enabled:
 
 * Node requirements: minimum 8 vCPUs, minimum 32GB memory
 * Total of 54 vCPUs available for StackState
 * Total of 120 GB memory available for StackState
 * At least 3 nodes to make the data storing services redundant
 
-The recommended requirements include spare CPU/Memory capacity to ensure smooth application rolling update.
-
 {% endtab %}
 
 {% tab title="Minimal setup" %}
-Requirements for the minimal high availability setup with the backup enabled:
+Requirements for the minimal high availability setup with backups enabled:
 
 * Node requirements: minimum 8 vCPUs, minimum 32GB memory
 * Total of 36 vCPUs available for StackState
@@ -119,7 +122,7 @@ For a standard deployment, KOTS deploys backend services in a redundant setup wi
 
 {% tabs %}
 {% tab title="Recommended setup" %}
-Requirements for the recommended high availability setup with the backup enabled:
+Requirements for the recommended high availability setup with backups enabled:
 
 * **Amazon EC2:** 8 instances of type `m5.2xlarge` or `m4.2xlarge`
 * **Azure:** 8 instances of type `D8s v3` or `D8as V4` (Intel or AMD CPUs)
