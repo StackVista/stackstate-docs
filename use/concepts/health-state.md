@@ -34,7 +34,7 @@ The StackState monitors system compute a health state based on a configured algo
 
 Existing StackPacks will provide StackState monitors out of the box.
 
-* [How to add manage monitors](/use/checks-and-monitors/manage-monitors.md)
+* [How to manage monitors](/use/checks-and-monitors/manage-monitors.md)
 * [Differences between checks and monitors](/use/checks-and-monitors/about-checks-and-monitors.md)
 
 ### External monitoring systems

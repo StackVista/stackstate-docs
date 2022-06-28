@@ -9,6 +9,7 @@
 * [Concepts](use/concepts/README.md)
   * [The 4T data model](use/concepts/4t_data_model.md)
   * [Components](use/concepts/components.md)
+  * [Health state](use/concepts/health-state.md)
   * [Relations](use/concepts/relations.md)
   * [Layers, Domains and Environments](use/concepts/layers_domains_environments.md)
   * [Perspectives](use/concepts/perspectives.md)
@@ -22,6 +23,7 @@
 * [Views](use/stackstate-ui/views/README.md)
   * [About views](use/stackstate-ui/views/about_views.md)
   * [Create and edit views](use/stackstate-ui/views/create_edit_views.md)
+  * [Configure the view health](use/stackstate-ui/views/configure-view-health.md)
   * [Manage event handlers](/use/stackstate-ui/views/manage-event-handlers.md)
   * [Visualization settings](use/stackstate-ui/views/visualization_settings.md)
 * [Perspectives](use/stackstate-ui/perspectives/README.md)
@@ -32,12 +34,11 @@
 * [Timeline and time travel](use/stackstate-ui/timeline-time-travel.md)
 * [Keyboard shortcuts](use/stackstate-ui/keyboard-shortcuts.md)
 
-## 🚦 Health state
+## 🚦 Checks and monitors
 
-* [About health state](use/concepts/health-state.md)
+* [About checks and monitors](use/checks-and-monitors/about-checks-and-monitors.md)
 * [Add a health check](use/checks-and-monitors/add-a-health-check.md)
 * [Anomaly health checks](use/checks-and-monitors/anomaly-health-checks.md)
-* [Configure the view health](use/stackstate-ui/views/configure-view-health.md)
 
 ## 🛑 Problem analysis
 

@@ -126,4 +126,4 @@ Any result returned by the closure passed to `catchError` gets automatically fla
 
 ## See also
 
-* [Streaming script result](./streaming-script-result.md)
+* [Streaming script result](streaming-script-result.md)
