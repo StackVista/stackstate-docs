@@ -4,6 +4,8 @@ description: StackState Self-hosted v5.0.x
 
 # Send events to StackState from an external system
 
+## Overview
+
 This tutorial shows you how to send events from external systems to StackState.
 
 StackState creates a real-time map over your IT landscape and tracks all changes that occur. These changes are visible as events in the [Events Perspective](../../use/stackstate-ui/perspectives/events_perspective.md).
