@@ -18,7 +18,7 @@ To create a custom monitor in StackState:
 4. [Apply the newly created monitor in StackState.](#apply-the-newly-created-monitor-in-stackstate)
 5. [Verify that your newly created monitor is working correctly.](#verify-that-your-newly-created-monitor-is-working-correctly)
 
-### Create a new STJ import file
+## Create a new STJ import file
 
 ```json
 {
@@ -32,7 +32,7 @@ To create a custom monitor in StackState:
 
 You can place multiple monitors on the same STJ file. You can also add other node types on the same import file.
 
-### Populate the monitor node
+## Populate the monitor node
 
 A monitor node of type `Monitor` needs to be added to the import file. This type of node is supported in API version 1.0.39 and above. The required fields are the `name`, `identifier` and `description`. The `identifier` should be a value that uniquely identifies this specific monitor definition. `intervalSeconds`, `function` and `arguments` determine what validation rule and how often it is run. An optional parameter of `remediationHint` can be specified - it is a Markdown-encoded instruction of what to do if this monitor produces an unhealthy health state. It is displayed on the interface together with the monitor result panel.
 
@@ -61,7 +61,7 @@ Configuring the monitor function is best done by utilizing the [`get` helper fun
 
 The invocation of the `get` helper function will automatically resolve to the ID of the desired function during import time.
 
-### Populate the parameters of the monitor function invocation
+## Populate the parameters of the monitor function invocation
 
 The parameters are different for each monitor function. In the case of `Metric above threshold` we need to populate `thershold`, `metrics` and `topologyIdentifierPattern`:
 
@@ -98,7 +98,7 @@ The parameters are different for each monitor function. In the case of `Metric a
 
 Similar to the `function`, parameters can be referred to by utilizing the `get` helper function.
 
-### Apply the newly created monitor in StackState
+## Apply the newly created monitor in StackState
 
 This can be achieved by using the dedicated StackState CLI command:
 
@@ -123,7 +123,7 @@ stac monitor apply < path/to/the/file.stj
 
 An alternative way is to include the newly created monitor in a custom StackPack and installing it.
 
-### Verify that your newly created monitor is working correctly
+## Verify that your newly created monitor is working correctly
 
 You can check if your monitor is working correctly by invoking the CLI command:
 
