@@ -313,5 +313,5 @@ stac subscription update new-license-key
 ```
 
 {% hint style="info" %}
-Note that it is not necessary to do this via the CLI. StackState will also offer this option in the UI when a license is about to expire or has expired.
+Note that it is not necessary to do this using the CLI. StackState will also offer this option in the UI when a license is about to expire or has expired.
 {% endhint %}

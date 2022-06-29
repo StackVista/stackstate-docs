@@ -50,12 +50,12 @@ In addition to the usual elements of an STJ file, the protocol version and times
 The supported fields are:
 
 - **name** - a human-readable name that shortly describes the operating principle of the monitor.
-- **identifier** - a StackState-URN-formatted value that uniquely identifies this monitor definition.
 - **description** - a longer, more in-depth description of the monitor.
+- **identifier** - a StackState-URN-formatted value that uniquely identifies this monitor definition. For more details, see [identifier](#identifier).
 - **remediationHint** - a short, markdown-enabled hint displayed whenever the validation rule represented by this monitor triggers and results in an unhealthy state.
-- **function** - refers to a specific monitor function to use as the basis of computation for this monitor.
+- **function** - the specific monitor function to use as the basis of computation for this monitor. For more details. see [monitor function](#monitor-function).
 - **arguments** - lists concrete values that are to be used as arguments to the monitor function invocation.
-- **intervalSeconds** - dictates how often to execute this particular monitor; new executions are scheduled after `intervalSeconds`, counting from the time th last execution ended.
+- **intervalSeconds** - dictates how often to execute this particular monitor; new executions are scheduled after the specified number of seconds, counting from the time that the last execution ended. For more details, see [run interval](#run-interval).
 
 ### Identifier
 
@@ -63,15 +63,16 @@ An important field of the monitor node is the `identifier` - it is a unique valu
 
 `urn : <prefix> : monitor : <unique-monitor-identification>`
 
-The `prefix` is described in more detail in [topology identifiers](../../../configure/topology/identifiers.md), while the `unique-monitor-identification` is user-definable and free-form.
+* The `<prefix>` is described in more detail in [topology identifiers](../../../configure/topology/identifiers.md).
+* The `<unique-monitor-identification>` is user-definable and free-form.
 
 ### Monitor function
 
-Each monitor configured in StackState uses a monitor function to compute the health state results attached to the elements.
+Each monitor configured in StackState uses a monitor function to compute the health state results that are attached to the elements.
 
-Monitor functions are scripts that accept the 4T data as input, check the data based on some internal logic and output health state mappings for the affected topology elements. The function is run periodically by the monitor runner. It is responsible for detecting any changes in the data that can be considered to change an element's health state.
+Monitor functions are scripts that accept 4T data as input, check the data based on some internal logic and output health state mappings for the affected topology elements. The function is run periodically by the monitor runner (at the configured `intervalSeconds`). The monitor function is responsible for detecting any changes in the data that can be considered to change an element's health state.
 
-You can list the available monitor functions via the CLI command:
+You can list the available monitor functions using the CLI command:
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
@@ -100,7 +101,7 @@ You can [create a custom monitor function](../custom-functions/monitor-functions
 
 ### Run interval
 
-The monitor run interval determines how often a monitor logic will be executed. It is expressed in seconds. For example, an `intervalSeconds: 60` configuration means that StackState will attempt to execute the monitor function associated with the Monitor every 60 seconds. If the monitor function execution takes significant time, the next scheduled run will occur 60 seconds **after** the previous run finishes.
+The monitor run interval determines how often a monitor logic will be executed. This is configured in the monitor STJ file as a number of seconds using the `intervalSeconds` field. For example, an `intervalSeconds: 60` configuration means that StackState will attempt to execute the monitor function associated with the monitor every 60 seconds. If the monitor function execution takes significant time, the next scheduled run will occur 60 seconds after the previous run finishes.
 
 ## Create a custom monitor
 

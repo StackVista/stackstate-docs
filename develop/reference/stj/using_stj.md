@@ -90,11 +90,11 @@ Loop over an array or map of data.
 {% endtab %}
 {% endtabs %}
 
-## StackState Functions
+## StackState handlebars functions
 
 StackState adds a number of function to the handlebars syntax. You can use these to create complex JSON results.
 
-➡️ [Learn more about the available functions](stj_reference.md).
+➡️ [Learn more about the available handlebars functions](stj_reference.md).
 
 ## Component and relation templates
 

@@ -458,7 +458,7 @@ stac graph import < path/to/file.stj
 
 After the function has been uploaded, it will be generally available for any monitor definition to invoke it.
 
-➡️ [Learn how to create a custom monitor that utilizes an existing monitor function](../monitors/how-to-create-monitors.md)
+➡️ [Learn how to create a custom monitor that utilizes an existing monitor function](../monitors/create-custom-monitors.md)
 
 ## See also
 
