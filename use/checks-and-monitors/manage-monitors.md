@@ -125,9 +125,13 @@ Upon removal, all health states associated with the monitor will also be removed
 
 ## Disable the monitor runner
 
+{% hint style="success" "self-hosted info" %}
+
 The monitor runner subsystem can be disabled in the StackState configuration by appending the following line at the end of the file `etc/application_stackstate.conf`:
 
 `stackstate.featureSwitches.monitorRunner = false`
+
+{% endhint %}
 
 ## See also
 
