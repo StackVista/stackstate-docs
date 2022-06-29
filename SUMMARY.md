@@ -228,7 +228,8 @@
   * [Set up a security backend for Windows](configure/security/set_up_a_security_backend_for_windows.md)
 * [Logging](configure/logging/README.md)
   * [Enable logging for functions](configure/logging/enable-logging.md)
-  * [StackState log files](configure/logging/stackstate-log-files.md)
+  * [Kubernetes logs](configure/logging/kubernetes-logs.md)
+  * [Linux logs](configure/logging/linux-logs.md)
 
 ## 📖 Develop
 
