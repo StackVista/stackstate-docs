@@ -92,7 +92,6 @@
   * [Analytics](use/stackstate-ui/analytics.md)
   * [Keyboard shortcuts](use/stackstate-ui/keyboard-shortcuts.md)
 * [Checks and monitors](use/checks-and-monitors/README.md)
-  * [About checks and monitors](use/checks-and-monitors/about-checks-and-monitors.md)
   * [Checks](use/checks-and-monitors/checks.md)
   * [Monitors](use/checks-and-monitors/monitors.md)
   * [Add a health check](use/checks-and-monitors/add-a-health-check.md)
