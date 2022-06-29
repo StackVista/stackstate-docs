@@ -77,7 +77,7 @@ redirects:
   configure/secrets_management: ./configure/security/secrets_management.md
   configure/how_to_set_up_a_security_backend_for_linux: ./configure/security/set_up_a_security_backend_for_linux.md
   configure/how_to_set_up_a_security_backend_for_windows: configure/security/set_up_a_security_backend_for_windows.md
-  configure/stackstate_log_files: ./configure/logging/stackstate-log-files.md
+  configure/stackstate_log_files: ./configure/logging/README.md
   configure/security/permissions: ./configure/security/rbac/rbac_permissions.md
   configure/security/how_to_set_up_roles: ./configure/security/rbac/rbac_roles.md
   configure/security/scopes_in_rbac: ./configure/security/rbac/rbac_scopes.md
@@ -167,7 +167,7 @@ redirects:
 # 4.2 docs
 
   use/baselining: ./use/concepts/anomaly-detection.md
-  setup/stackstate_log_files: ./configure/logging/stackstate-log-files.md
+  setup/stackstate_log_files: ./configure/logging/README.md
   use/alerting: ./use/metrics-and-events/event-notifications.md
   configure/telemetry/browse_telemetry: ./use/metrics-and-events/browse-telemetry.md
   setup/upgrading: ./setup/upgrade-stackstate/README.md
@@ -186,7 +186,7 @@ redirects:
 
 # 4.3 docs
 
-  configure/logging/stackstate_log_files: ./configure/logging/stackstate-log-files.md
+  configure/logging/stackstate_log_files: ./configure/logging/README.md
   configure/telemetry/baseline-functions: ./develop/developer-guides/custom-functions/README.md
   configure/topology/propagation: ./develop/developer-guides/custom-functions/propagation-functions.md
   configure/topology/how_to_configure_component_actions: ./develop/developer-guides/custom-functions/component-actions.md
@@ -329,3 +329,4 @@ redirects:
   use/health-state/about-health-state: ./use/concepts/health-state.md
   use/health-state/add-a-health-check: ./use/checks-and-monitors/add-a-health-check.md
   use/health-state: ./use/checks-and-monitors/README.md
+  configure/logging/stackstate-log-files: ./configure/logging/README.md

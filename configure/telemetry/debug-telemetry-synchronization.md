@@ -106,7 +106,7 @@ The following logs may be useful when debugging telemetry synchronization:
 * There is a pod for the StackState Receiver.
 * There is a pod for each Kafka-to-Elasticsearch process. These processes are responsible for getting telemetry data to Elasticsearch. Note that there are processes for metrics, events, and traces. For example, the pod `stackstate-mm2es` is responsible for metrics.
 
-➡️ [Learn more about StackState logs on Kubernetes](/configure/logging/stackstate-log-files.md#kubernetes)
+➡️ [Learn more about StackState logs on Kubernetes](/configure/logging/kubernetes-logs.md)
 {% endtab %}
 {% tab title="Linux" %}
 When deployed on Linux, StackState log files are located in the directory:
@@ -121,7 +121,7 @@ The following log files may be useful when debugging telemetry synchronization:
 * **kafkaToEs:** `/opt/stackstate/var/log/kafka-to-es` - contains logs for the processes that are responsible for getting telemetry data to Elasticsearch. Note that there are separate processes for metrics, events, and traces.
 * **ElasticSearch:** `/opt/stackstate/var/log/elasticsearch7`
 
-➡️ [Learn more about the StackState log files](/configure/logging/stackstate-log-files.md#linux)
+➡️ [Learn more about the StackState log files](/configure/logging/linux-logs.md)
 {% endtab %}
 {% endtabs %}
 
@@ -135,6 +135,6 @@ StackState Agent log files are located in the directory:
 
 ## See also
 
-* [Working with StackState log files](/configure/logging/stackstate-log-files.md)
+* [Working with StackState log files](/configure/logging/README.md)
 * [Browse telemetry](/use/metrics-and-events/browse-telemetry.md)
 * [Add a telemetry stream to an element](/use/metrics-and-events/add-telemetry-to-element.md)
