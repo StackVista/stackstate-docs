@@ -13,7 +13,8 @@ For debugging purposes, it may be helpful to enable logging for a StackState fun
 To enable logging for an instance of a function, use its ID to set a logging level in the StackState CLI. Note that the function itself will have an ID and each instance of the function relating to a component or view in StackState will have a separate ID.
 
 {% hint style="info" %}
-The logging level should be set using the ID for an instance of a function, not the ID of the function itself.
+* The logging level should be set using the ID for an instance of a function, not the ID of the function itself.
+* The [`stac` CLI](/setup/cli/cli-stac.md) is required to set the logging level. It is not possible to set the logging level of a function instance using the new `sts` CLI.
 {% endhint %}
 
 1. Find the ID for the instance of the function that you want to enable logging for:
@@ -26,12 +27,29 @@ The logging level should be set using the ID for an instance of a function, not 
    ```text
    stac serverlog setlevel <id> DEBUG
    ```
+   
 
-3. Monitor the `stackstate.log` using the function instance ID.
+## Monitor logging for a function
 
-   ```text
-   tail -f stackstate.log | grep <id>
-   ```
+{% tabs %}
+{% tab title="Kubernetes" %}
+
+After logging has been enabled for the function instance, monitor the log on the [Kubernetes pod associated with the function type](/configure/logging/kubernetes-logs.md#pod-or-container-logs).
+
+```commandline
+kubectl logs -f <pod-name> --all-containers=true
+```
+
+{% endtab %}
+{% tab title="Linux" %}
+After logging has been enabled for the function instance, monitor the `stackstate.log` using the function instance ID.
+
+```text
+tail -f stackstate.log | grep <id>
+```
+{% endtab %}
+{% endtabs %}
+
 
 ## Add logging statements to a function
 
