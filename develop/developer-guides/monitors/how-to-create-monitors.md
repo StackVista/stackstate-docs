@@ -92,7 +92,11 @@ stac graph list MonitorFunction
 {% endtab %}
 {% endtabs %}
 
+{% hint style="success" "self-hosted info" %}
+
 You can [create a custom monitor function](../custom-functions/monitor-functions.md) to customize how StackState processes 4T data.
+
+{% endhint %}
 
 ### Run interval
 
