@@ -14,7 +14,7 @@ To enable logging for an instance of a function, use its ID to set a logging lev
 
 {% hint style="info" %}
 * The logging level should be set using the ID for an instance of a function, not the ID of the function itself.
-* The `stac` CLI is required to set the logging level
+* The [`stac` CLI](/setup/cli/cli-stac.md) is required to set the logging level. It is not possible to set the logging level of a function instance using the new `sts` CLI.
 {% endhint %}
 
 1. Find the ID for the instance of the function that you want to enable logging for:
@@ -34,7 +34,7 @@ To enable logging for an instance of a function, use its ID to set a logging lev
 {% tabs %}
 {% tab title="Kubernetes" %}
 
-After logging has been enabled for the function instance, monitor the log on the [Kubernetes pod associated with the function type](/configure/logging/kubernetes-logs.md#logs-on-kubernetes-pods).
+After logging has been enabled for the function instance, monitor the log on the [Kubernetes pod associated with the function type](/configure/logging/kubernetes-logs.md#pod-or-container-logs).
 
 ```commandline
 kubectl logs -f <pod-name> --all-containers=true

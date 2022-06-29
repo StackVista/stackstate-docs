@@ -227,9 +227,9 @@
   * [Set up a security backend for Linux](configure/security/set_up_a_security_backend_for_linux.md)
   * [Set up a security backend for Windows](configure/security/set_up_a_security_backend_for_windows.md)
 * [Logging](configure/logging/README.md)
-  * [Enable logging for functions](configure/logging/enable-logging.md)
   * [Kubernetes logs](configure/logging/kubernetes-logs.md)
   * [Linux logs](configure/logging/linux-logs.md)
+  * [Enable logging for functions](configure/logging/enable-logging.md)
 
 ## 📖 Develop
 
