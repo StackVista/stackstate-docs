@@ -63,7 +63,39 @@ stac monitor apply < path/to/export.stj
 
 Once reapplied, the updated monitor definition will be in effect. If the `intervalSeconds` property has been modified, the execution frequency of the monitor will be adjusted accordingly.
 
-## Disable a monitor
+## Apply changes to a monitor
+
+The runner is maintenance free - it starts whenever StackState starts and picks up any newly applied monitor definitions automatically whenever they are created, changed or removed. Any changes to the Monitors are reflected with the next execution cycle and any execution issues are logged to the global StackState log file. 
+
+## Monitor status
+
+The status of a monitor can be obtained via the StackState CLI:
+
+{% tabs %}
+{% tab title="CLI: sts (new)" %}
+```
+# By ID
+sts monitor status --id <id-of-a-monitor>
+# By Identifier
+sts monitor status --identifier <identifier-of-a-monitor>
+```
+
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endtab %}
+{% tab title="CLI: stac" %}
+```
+stac monitor status <id-or-identifier-of-a-monitor>
+```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% endtabs %}
+
+The output of this command indicates the specific errors that occurred along with the counts of how many times they happened and the health stream statistics associated with this monitor. Any execution issues are also logged in the global StackState log file.
+
+## Disable a single monitor
 
 Monitors can be disabled by removing them. Once a monitor to be disabled is identified, either by inspecting the definition of a monitor available under the context menu of a monitor result panel, or otherwise by obtaining the Monitors identifier, a dedicated CLI command can be used to remove it:
 
@@ -91,14 +123,11 @@ stac monitor delete --identifier <identifier-of-the-monitor>
 
 Upon removal, all health states associated with the monitor will also be removed.
 
-## Monitor functions
+## Disable the monitor runner
 
-Each monitor configured in StackState uses a monitor function to compute the health state results attached to the elements.
+The monitor runner subsystem can be disabled in the StackState configuration by appending the following line at the end of the file `etc/application_stackstate.conf`:
 
-Monitor functions are scripts that accept 4T data as input, check the data based on some internal logic and output health state mappings for the affected topology elements. The function is run periodically by the monitor runner and it is responsible for detecting any changes in the data that can be considered to change an element's health state.
-
-* Details of the monitor functions provided by StackPacks can be found in [the StackPack documentation](../../stackpacks/integrations/README.md).
-* You can [create a custom monitor function](../../develop/developer-guides/custom-functions/monitor-functions.md) to customize how StackState processes the 4T data.
+`stackstate.featureSwitches.monitorRunner = false`
 
 ## See also
 
