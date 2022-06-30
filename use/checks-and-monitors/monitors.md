@@ -50,7 +50,7 @@ Details of the monitor functions provided by StackPacks can be found in [the Sta
 
 {% hint style="success" "self-hosted info" %}
 
-You can [create a custom monitor function](../../develop/developer-guides/custom-functions/monitor-functions.md) to customize how StackState processes the 4T data.
+You can [screate custom monitor function](../../develop/developer-guides/custom-functions/monitor-functions.md) to customize how StackState processes the 4T data.
 
 {% endhint %}
 

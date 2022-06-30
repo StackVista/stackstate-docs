@@ -95,7 +95,7 @@ stac graph list MonitorFunction
 
 {% hint style="success" "self-hosted info" %}
 
-You can [create a custom monitor function](../custom-functions/monitor-functions.md) to customize how StackState processes 4T data.
+You can [screate custom monitor function](../custom-functions/monitor-functions.md) to customize how StackState processes 4T data.
 
 {% endhint %}
 
