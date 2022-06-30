@@ -23,10 +23,10 @@ To enable logging for an instance of a function, use its ID to set a logging lev
 {% endhint %}
 
 1. Find the ID for the instance of the function that you want to enable logging for:
-   * [Check IDs](enable-logging.md#check-and-propagation-ids)
-   * [Event handler IDs](enable-logging.md#event-handler-ids)
-   * [Propagation IDs](enable-logging.md#check-and-propagation-ids)
-   * [View health state configuration IDs](enable-logging.md#view-health-state-configuration-ids)
+   * [Check IDs](enable-logging.md#check-function-ids)
+   * [Event handler IDs](enable-logging.md#event-handler-function-ids)
+   * [Propagation IDs](enable-logging.md#propagation-function-ids)
+   * [View health state configuration IDs](enable-logging.md#view-health-state-configuration-function-ids)
 2. Use the [`stac` CLI](/setup/cli/cli-stac.md) to set the logging level for the ID, for example:
 
    ```text
