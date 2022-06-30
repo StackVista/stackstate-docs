@@ -26,14 +26,14 @@ Below is a table with a summary of all the span keys that's required
 
 You need to include **ALL** the keys below when creating a span as they all need to be provided before the component will appear on your StackState instance.
 
-| ***Key***                   |  ***Type***  | ***Required***  | ***Allowed Value*** | ***Example***                |
-|:----------------------------|:------------:|:---------------:|:-------------------:|:-----------------------------|
-| [trace.perspective.name](#Trace Perspective Name) |   `string`   |     **yes**     |     Any string      | RDS Database: Perspective Name|
-| **service.name**            |   `string`   |     **yes**     |     Any string      | RDS Database: Service Name            |
-| **service.type**            |   `string`   |     **yes**     |     Any string      | AWS RDS                      |
-| **service.identifier**      |   `string`   |     **yes**     |     Any string      | aws:rds:database:hello-world |
-| **resource.name**           |   `string`   |     **yes**     |     Any string      | Database                     |
-| **http.status_code**        |   `number`   |     **no**      |     HTTP status     | 200                          |
+| ***Key***                                  |  ***Type***  | ***Required***  | ***Allowed Value*** | ***Example***                |
+|:-------------------------------------------|:------------:|:---------------:|:-------------------:|:-----------------------------|
+| [trace.perspective.name] (http://test.com) |   `string`   |     **yes**     |     Any string      | RDS Database: Perspective Name|
+| **service.name**                           |   `string`   |     **yes**     |     Any string      | RDS Database: Service Name            |
+| **service.type**                           |   `string`   |     **yes**     |     Any string      | AWS RDS                      |
+| **service.identifier**                     |   `string`   |     **yes**     |     Any string      | aws:rds:database:hello-world |
+| **resource.name**                          |   `string`   |     **yes**     |     Any string      | Database                     |
+| **http.status_code**                       |   `number`   |     **no**      |     HTTP status     | 200                          |
 
 ## Span mapping requirements - Breakdown
 ### Trace Perspective Name
