@@ -57,14 +57,25 @@ Logging statements can be added to StackState functions and monitored in the `st
 
 Retrieve the ID for a specific instance of a function:
 
-* [Check IDs](enable-logging.md#check-and-propagation-ids)
-* [Event handler IDs](enable-logging.md#event-handler-ids)
-* [Propagation IDs](enable-logging.md#check-and-propagation-ids)
-* [View health state configuration IDs](enable-logging.md#view-health-state-configuration-ids)
+* [Check function IDs](enable-logging.md#check-function-ids)
+* [Event handler function IDs](enable-logging.md#event-handler-function-ids)
+* [Propagation function IDs](enable-logging.md#propagation-function-ids)
+* [View health state configuration function IDs](enable-logging.md#view-health-state-configuration-function-ids)
 
-### StackState CLI
+### Check function IDs
 
-#### Event handler IDs
+The ID for a check or propagation on a specific component can be found in the StackState UI. These are the IDs for the component's instance of a check function or propagation function.
+
+1. Select a component to open detailed information about it in the right panel **Selection details** tab.
+2. Click on **...** and select **Show JSON**.
+3. Find the section for `"checks"` or `"propagation"`.
+4. Find the check or propagation that you want to enable logging for and copy the value from the field `id`.
+
+![Show JSON](../../.gitbook/assets/v50_show-json.png)
+
+* Use the ID to [enable logging](enable-logging.md#set-the-logging-level-for-a-function-instance) for the component's check or propagation functions.
+
+### Event handler function IDs
 
 The ID for an event handler can be found using the [StackState CLI](../../setup/cli/README.md). This is the ID for an instance of an event handler function.
 
@@ -95,7 +106,11 @@ sts settings list --type EventHandler
 {% endtab %}
 {% endtabs %}
 
-#### View health state configuration IDs
+### Propagation function IDs
+
+Propagation function IDs can be found in the StackState UI. For details on how to do this, see the instructions for [retrieving check function IDs](#check-function-ids).
+
+### View health state configuration function IDs
 
 The ID for a view health state configuration can be found using the [StackState CLI](../../setup/cli/README.md). This is the ID for a view's instance of a view health state configuration function.
 
@@ -171,21 +186,6 @@ sts settings describe --ids <VIEW_ID>
 {% endtab %}
 
 {% endtabs %}
-
-### StackState UI
-
-#### Check and propagation IDs
-
-The ID for a check or propagation on a specific component can be found in the StackState UI. These are the IDs for the component's instance of a check function or propagation function.
-
-1. Select a component to open detailed information about it in the right panel **Selection details** tab.
-2. Click on **...** and select **Show JSON**.
-3. Find the section for `"checks"` or `"propagation"`.
-4. Find the check or propagation that you want to enable logging for and copy the value from the field `id`.
-
-![Show JSON](../../.gitbook/assets/v50_show-json.png)
-
-* Use the ID to [enable logging](enable-logging.md#set-the-logging-level-for-a-function-instance) for the component's check or propagation functions.
 
 ## See also
 
