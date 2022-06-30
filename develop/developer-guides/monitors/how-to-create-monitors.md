@@ -73,24 +73,24 @@ Monitor functions are scripts that accept the 4T data as input, check the data b
 
 You can list the available monitor functions via the CLI command:
 
-{% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tabs %}[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: sts (new)" %}[](http://not.a.link "StackState Self-Hosted only")
 ```
 sts settings list --type MonitorFunction
 ```
 
-➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
-{% endtab %}
-{% tab title="CLI: stac" %}
-```
-stac graph list MonitorFunction
-```
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
+```[](http://not.a.link "StackState Self-Hosted only")
+stac graph list MonitorFunction[](http://not.a.link "StackState Self-Hosted only")
+```[](http://not.a.link "StackState Self-Hosted only")
 
-**Not running the `stac` CLI yet?**
+**Not running the `stac` CLI yet?**[](http://not.a.link "StackState Self-Hosted only")
 
-➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
-{% endtab %}
-{% endtabs %}
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade "StackState Self-Hosted only")
+{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
+{% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 
 You can [create a custom monitor function](../custom-functions/monitor-functions.md) to customize how StackState processes 4T data.
 
