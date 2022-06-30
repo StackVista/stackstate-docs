@@ -48,11 +48,19 @@ docker run -d \
     -v /var/run/docker.sock:/var/run/docker.sock:ro \
     -v /proc/:/host/proc/:ro \
     -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
+    -v /etc/passwd:/etc/passwd:ro \
+    -v /sys/kernel/debug:/sys/kernel/debug \
     -e STS_API_KEY="<STACKSTATE_RECEIVER_API_KEY>" \
     -e STS_STS_URL="<STACKSTATE_RECEIVER_API_ADDRESS>" \
+    -e STS_PROCESS_AGENT_URL="<STACKSTATE_RECEIVER_API_ADDRESS>" \
+    -e STS_PROCESS_AGENT_ENABLED="true" \
+    -e STS_NETWORK_TRACING_ENABLED="true" \
+    -e STS_PROTOCOL_INSPECTION_ENABLED="true" \
+    -e STS_APM_URL="<STACKSTATE_RECEIVER_API_ADDRESS>" \
+    -e STS_APM_ENABLED="true" \
     -e HOST_PROC="/host/proc" \
     -e HOST_SYS="/host/sys" \
-    docker.io/stackstate/stackstate-agent-2:latest
+    docker.io/stackstate/stackstate-agent-2:2.17.0
 ```
 
 ### Docker compose
@@ -67,7 +75,7 @@ To run StackState Agent V2 with Docker compose:
 
    ```text
    stackstate-agent:
-    image: docker.io/stackstate/stackstate-agent-2:latest
+    image: docker.io/stackstate/stackstate-agent-2:2.17.0
     network_mode: "host"
     pid: "host"
     privileged: true
@@ -81,7 +89,11 @@ To run StackState Agent V2 with Docker compose:
       STS_API_KEY: "<STACKSTATE_RECEIVER_API_KEY>"
       STS_STS_URL: "<STACKSTATE_RECEIVER_API_ADDRESS>"
       STS_PROCESS_AGENT_URL: "<STACKSTATE_RECEIVER_API_ADDRESS>"
+      STS_PROCESS_AGENT_ENABLED: "true"
+      STS_NETWORK_TRACING_ENABLED: "true"
+      STS_PROTOCOL_INSPECTION_ENABLED: "true"
       STS_APM_URL: "<STACKSTATE_RECEIVER_API_ADDRESS>"
+      STS_APM_ENABLED: "true"
       HOST_PROC: "/host/proc"
       HOST_SYS: "/host/sys"
    ```
@@ -107,7 +119,7 @@ To run StackState Cluster Agent in Docker Swarm mode:
 
    ```yaml
    stackstate-agent:
-       image: docker.io/stackstate/stackstate-cluster-agent:latest
+       image: docker.io/stackstate/stackstate-cluster-agent:2.17.0
        deploy:
          placement:
            constraints: [ node.role == manager ]
@@ -166,7 +178,7 @@ For example, the Agent Docker configuration below includes a volume with a check
 
 ```text
 stackstate-agent:
-    image: docker.io/stackstate/stackstate-agent-2:latest
+    image: docker.io/stackstate/stackstate-agent-2:2.17.0
     network_mode: "host"
     pid: "host"
     privileged: true
