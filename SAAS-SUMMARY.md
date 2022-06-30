@@ -91,4 +91,8 @@
 ## 📖 Reference
 
 * [StackState Query Language \(STQL\)](develop/reference/stql_reference.md)
+* [StackState Template JSON \(STJ\)](develop/reference/stj/README.md)
+  * [Using STJ](develop/reference/stj/using_stj.md)
+  * [Template functions](develop/reference/stj/stj_reference.md)
+* [StackState CLI](setup/cli/cli-sts.md)
 * [StackState SaaS release notes](setup/upgrade-stackstate/sts-saas-release-notes.md)

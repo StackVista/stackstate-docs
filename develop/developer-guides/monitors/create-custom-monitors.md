@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.0.x
 
 Monitors can be attached to any number of elements in the StackState topology to calculate a health state based on 4T data. Each monitor consists of a monitor definition and a monitor function. Monitors are created and managed by StackPacks, you can also create custom monitors and monitor functions outside of a StackPack without having to modify any configuration.
 
-The following example creates a CPU metric monitor using the example monitor function created on the [monitor functions](../custom-functions/monitor-functions.md) page. 
+The following example creates a CPU metric monitor using an example monitor function. 
 
 To create a custom monitor in StackState:
 
@@ -172,7 +172,8 @@ stac monitor preview <id-or-identifier-of-a-monitor>
 
 ## See also
 
+* [Custom monitor functions](/develop/developer-guides/custom-functions/monitor-functions.md "StackState Self-Hosted only")
 * [StackState CLI](/setup/cli/README.md)
 * [StackState Template JSON \(STJ\)](/develop/reference/stj/README.md)
-* [Develop your own StackPacks](/stackpacks/sdk.md)
+* [Develop your own StackPacks](/stackpacks/sdk.md "StackState Self-Hosted only")
 * [Integrations](/stackpacks/integrations/README.md)
