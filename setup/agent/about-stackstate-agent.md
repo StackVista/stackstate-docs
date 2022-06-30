@@ -44,7 +44,7 @@ Deployment instructions, commands to work with StackState Agent V2 and other pla
 
 ### Receiver API address
 
-StackState Agent connects to the StackState Receiver API at the following address:
+StackState Agent connects to the StackState Receiver API at the configured address.
 
 {% tabs %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="Kubernetes" %}[](http://not.a.link "StackState Self-Hosted only")
@@ -72,7 +72,7 @@ For the StackState SaaS product, the StackState Receiver API address will be pro
 
 ### Receiver API key
 
-StackState Agent requires the StackState Receiver API key to communicate with the StackState Receiver API:
+StackState Agent requires the StackState Receiver API key to communicate with the StackState Receiver API.
 
 {% tabs %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="Kubernetes" %}[](http://not.a.link "StackState Self-Hosted only")
