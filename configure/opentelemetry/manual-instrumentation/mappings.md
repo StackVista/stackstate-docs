@@ -152,7 +152,7 @@ You need to include **ALL** the keys below when creating a span as they all need
 {% endtabs %}
 
 ### Service Identifier 
-#### ([Used for Merging Components](/configure/opentelemetry/manual-instrumentation/merging.md))
+[Used for Merging Component will elaborate on this](/configure/opentelemetry/manual-instrumentation/merging.md)
   - `Key`
     - service.identifier
   - `Expected`
@@ -204,7 +204,7 @@ You need to include **ALL** the keys below when creating a span as they all need
 {% endtabs %}
 
 ### HTTP Status Code 
-#### ([Health State](/configure/opentelemetry/manual-instrumentation/health.md))
+[Health State page will elaborate on this](/configure/opentelemetry/manual-instrumentation/health.md)
   - `Key`
     - http.status_code
   - `Expected`
