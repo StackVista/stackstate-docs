@@ -9,13 +9,13 @@ Merging components allows you to do any of the following things
 - Allows you to add a component relation to another propagating health in different ways (You can read more on the [span health state](/configure/opentelemetry/manual-instrumentation/health.md) page)
 
 ## Important to know when merging
-When you merge your custom instrumentation with a StackState component, it might seem that your component disappeared; it did not.
+When you merge your custom instrumentation with a pre-existing StackState component, it might seem that your component disappeared; it did not.
 The component you are merging with will inherit all the properties, health, and relations. This means that
 yes, you do not see your component anymore, but that's because the component you merged with will now act as the
 original component it initially appeared as, and the component you created.
 
 ## Merging inheritance
-When you merge your component with a StackState component, the StackState component will contain all the labels, telemetry, and health from your original component.
+When you merge your component with a pre-existing StackState component, the StackState component will contain all the labels, telemetry, and health from your merged component.
 
 For example, here we have an unmerged child component; below are all the `labels` and `identifiers` for this child component.
 
@@ -36,7 +36,7 @@ This is the same for the health checks and telemetry on the right side.
 Now let's see the result after merging our child component with the pre-existing StackState component.
 
 Let's look at the `identifiers` and `labels` again. As you can see in the image below the
-`identifiers` stayed the same but the `labels` merged, This StackState component now contain the values from both.
+`identifiers` stayed the same but the `labels` merged, This StackState merged component now contain the values from both.
 
 ![Topology Perspective - Labels and Identifiers After Merge](../../../.gitbook/assets/otel_after_merge_labels.png)
 
