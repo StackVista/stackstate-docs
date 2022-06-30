@@ -36,9 +36,13 @@
 
 ## 🚦 Checks and monitors
 
-* [About checks and monitors](use/checks-and-monitors/about-checks-and-monitors.md)
+* [Checks](use/checks-and-monitors/checks.md)
 * [Add a health check](use/checks-and-monitors/add-a-health-check.md)
 * [Anomaly health checks](use/checks-and-monitors/anomaly-health-checks.md)
+* [Monitors](use/checks-and-monitors/monitors.md)
+* [Add a custom monitor](develop/developer-guides/monitors/create-custom-monitors.md)
+* [Manage monitors](use/checks-and-monitors/manage-monitors.md)
+* [Monitor STJ format](develop/developer-guides/monitors/monitor-stj-file-format.md)
 
 ## 🛑 Problem analysis
 
