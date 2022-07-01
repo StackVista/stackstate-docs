@@ -205,7 +205,7 @@
   * [The AAD status UI](configure/anomaly-detection/aad-status-ui.md)
 * [OpenTelemetry](configure/opentelemetry/README.md)
   * [Prerequisites](configure/opentelemetry/prerequisites.md)
-  * [About OpenTelemetry instrumentation](configure/opentelemetry/about-opentelemetry-instrumentation.md)
+  * [OpenTelemetry instrumentation](configure/opentelemetry/opentelemetry-instrumentation.md)
   * [StackState Manual Instrumentation](configure/opentelemetry/manual-instrumentation/README.md)
     * [Tracer and Span mappings](configure/opentelemetry/manual-instrumentation/mappings.md)
     * [Component Relations](configure/opentelemetry/manual-instrumentation/relations.md)
