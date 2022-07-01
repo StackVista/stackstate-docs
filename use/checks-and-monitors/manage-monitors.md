@@ -80,7 +80,7 @@ For example, to run the monitor every 5 minutes, set the `intervalSeconds` to `3
 {% endtab %}
 {% endtabs %}
 
-## Monitor status
+## Check the monitor status
 
 The status of a monitor can be obtained via the StackState CLI:
 
@@ -130,7 +130,9 @@ sts monitor delete --identifier <identifier-of-the-monitor>
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 
+{% hint style="info" %}
 Upon removal, all health states associated with the monitor will also be removed.
+{% endhint %}
 
 ## Disable the monitor runner
 
