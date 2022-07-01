@@ -68,7 +68,7 @@ The monitor runner schedules monitor execution using an interval parameter that 
 
 To set a new run interval for a monitor, adjust the `intervalSeconds` parameter in the monitor STJ definition and follow the instructions to [make and apply changes to the monitor](#make-and-apply-changes-to-a-monitor). 
 
-For example:
+For example, to run the monitor every 5 minutes, set the `intervalSeconds` to `300`:
 
 {% tabs %}
 {% tab title="Monitor STJ definition" %}
@@ -87,7 +87,7 @@ For example:
       "arguments": [
         ...
       ],
-      "intervalSeconds": 60
+      "intervalSeconds": 300
     }
   ]
 }
