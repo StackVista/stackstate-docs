@@ -23,15 +23,15 @@ It might be beneficial to modify an existing monitor definition to change its pa
 
 Monitor configuration can be changed by modifying their definition. Once a monitor to be modified is identified, either by inspecting the definition of a monitor available under the context menu of a monitor result panel, or otherwise by obtaining the Monitors identifier, a dedicated CLI command can be used to export the definition out of the system into a file named `path/to/export.stj`:
 
-{% tabs %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: sts (new)" %}[](http://not.a.link "StackState Self-Hosted only")
+{% tabs %}
+{% tab title="CLI: sts (new)" %}
 
 ```
 sts settings describe --ids <id-of-a-monitor> -f path/to/export.stj
 ```
 
 ➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
+{% endtab %}
 {% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
 ```[](http://not.a.link "StackState Self-Hosted only")
 stac monitor describe <id-or-identifier-of-a-monitor> > path/to/export.stj
@@ -41,7 +41,7 @@ stac monitor describe <id-or-identifier-of-a-monitor> > path/to/export.stj
 
 ➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade "StackState Self-Hosted only")
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
+{% endtabs %}
 
 Afterwards, the file can be modified to change the monitor `parameters` and `intervalSeconds` properties. Once modified, the monitor can be reapplied in StackState by running another CLI command:
 
