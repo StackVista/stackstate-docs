@@ -124,7 +124,7 @@ Descriptions of parameters that are commonly used many monitor functions can be 
 * [Telemetry query](#telemetry-query) - a query that collects the telemetry to be passed to the monitor function.
 * [Topology identifier pattern](#topology-identifier-pattern) - the pattern of the topology element identifiers to which the monitor function should assign the calculated health states.
 
-### Numeric values
+#### Numeric values
 The most common and simple monitor function parameter types are numeric values. They are declared the following way with a function definition:
 
 ```json
@@ -149,55 +149,7 @@ Once declared this way, they can be supplied by:
 
 Parameters marked as `multiple` can be supplied more than once, meaning they represent a set of values. Parameters marked as `required` have to be supplied at least once. If a parameter is not `required`, then it can be optionally omitted.
 
-### Topology Query
-Monitor functions that utilize Topology often take a Topology Query as a parameter. The declaration can look something like the following:
-
-```json
-{
-  "_type": "Parameter",
-  "type": "STRING",
-  "name": "topologyQuery",
-  "required": true,
-  "multiple": false
-}
-```
-
-To supply a value of a topology query to a Monitor function when defining a Monitor:
-
-```json
-{
-  "_type": "ArgumentStringVal",
-  "parameter": {{ get "<identifier-of-the-function>" "Type=Parameter;Name=topologyQuery" }},
-  "value": "type = 'database' OR type = 'database-shard'"
-}
-```
-
-### Telemetry Query
-Monitor functions that utilize Telemetry tend to be parameterized with the exact telemetry query to use for their computation. The declaration can either expect a string value of a metric name, or a full-fledged Telemetry Query:
-
-```json
-{
-  "_type": "Parameter",
-  "type": "SCRIPT_METRIC_QUERY",
-  "name": "telemetryQuery",
-  "required": true,
-  "multiple": false
-}
-```
-
-To supply a value of the Telemetry Query one must utilize the Telemetry Script API available in StackState:
-
-```json
-{
-  "_type": "ArgumentScriptMetricQueryVal",
-  "parameter": {{ get "<identifier-of-the-function>" "Type=Parameter;Name=telemetryQuery" }},
-  "value": "Telemetry.query('StackState Metrics', '').metricField('system.cpu.iowait').groupBy('tags.host').start('-10m').aggregation('mean', '1m')"
-}
-```
-
-The query value must evaluate to a telemetry query, otherwise it won't pass the argument validation that is performed before the function execution begins.
-
-### Topology Identifier Pattern
+#### Topology Identifier Pattern
 Monitor functions that don't process any topology directly still have to produce results that attach to topology elements by way of matching the topology identifier that can be found on those elements. In those cases, one can expect a function declaration to include a special parameter that represents the pattern of a topology identifier:
 
 ```json
