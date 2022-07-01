@@ -34,7 +34,7 @@ sts settings describe --ids <id-of-a-monitor> -f path/to/export.stj
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
 ```[](http://not.a.link "StackState Self-Hosted only")
-stac monitor describe <id-or-identifier-of-a-monitor> > path/to/export.stj[](http://not.a.link "StackState Self-Hosted only")
+stac monitor describe <id-or-identifier-of-a-monitor> > path/to/export.stj
 ```[](http://not.a.link "StackState Self-Hosted only")
 
 **Not running the `stac` CLI yet?**[](http://not.a.link "StackState Self-Hosted only")
@@ -55,7 +55,7 @@ sts monitor apply -f path/to/export.stj
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
 ```[](http://not.a.link "StackState Self-Hosted only")
-stac monitor apply < path/to/export.stj[](http://not.a.link "StackState Self-Hosted only")
+stac monitor apply < path/to/export.stj
 ```[](http://not.a.link "StackState Self-Hosted only")
 
 **Not running the `stac` CLI yet?**[](http://not.a.link "StackState Self-Hosted only")
@@ -89,7 +89,7 @@ sts monitor status --identifier <identifier-of-a-monitor>
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
 ```[](http://not.a.link "StackState Self-Hosted only")
-stac monitor status <id-or-identifier-of-a-monitor>[](http://not.a.link "StackState Self-Hosted only")
+stac monitor status <id-or-identifier-of-a-monitor
 ```[](http://not.a.link "StackState Self-Hosted only")
 
 **Not running the `stac` CLI yet?**[](http://not.a.link "StackState Self-Hosted only")
@@ -117,7 +117,7 @@ sts monitor delete --identifier <identifier-of-the-monitor>
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
 ```[](http://not.a.link "StackState Self-Hosted only")
-stac monitor delete --identifier <identifier-of-the-monitor>[](http://not.a.link "StackState Self-Hosted only")
+stac monitor delete --identifier <identifier-of-the-monitor>
 ```[](http://not.a.link "StackState Self-Hosted only")
 
 **Not running the `stac` CLI yet?**[](http://not.a.link "StackState Self-Hosted only")
