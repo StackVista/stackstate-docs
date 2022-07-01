@@ -117,7 +117,9 @@ The parameter binding syntax is common for all parameter types, and utilizes the
 
 During an invocation of a monitor function, the parameter value is interpreted and instantiated beforehand with all of the requisite validations applied to it. Assuming it passes type and value validations, it will become available in the body of the function as a global value of the same name, with the assigned value.
 
-Descriptions of parameters that are commonly used many monitor functions can be found below:
+**Common parameters**
+
+Descriptions of parameters that are commonly used by monitor functions can be found below:
 
 * [Numeric values](#numeric-values) - a simple numeric value.
 * [Topology query](#topology-query) - a query to return a subset of the topology.
