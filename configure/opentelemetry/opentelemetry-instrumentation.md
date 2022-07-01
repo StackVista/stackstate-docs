@@ -126,8 +126,8 @@ When OpenTelemetry captures spans, it will fall under an instrumentation. This w
 `HTTP status codes` and the `instrumentation-aws-sdk` for capturing `AWS calls`, will generate a span in two different instrumentations.
 
 
-## In distributed traces
-As we mentioned above a trace contains multiple spans for example:
+### In distributed traces
+As we mentioned above, a trace contains multiple spans for example:
 
 ```shell
 Trace [

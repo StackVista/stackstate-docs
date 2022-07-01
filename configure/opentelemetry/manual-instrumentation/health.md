@@ -2,7 +2,7 @@
 description: StackState Self-hosted v5.0.x
 ---
 
-# Span Health State
+# Span health state
 
 If you have not seen the health state span mapping `http.status_code` on the [Tracer and Span mappings]() page, head over the that page first
 to understand how the health state is mapped into your span. 

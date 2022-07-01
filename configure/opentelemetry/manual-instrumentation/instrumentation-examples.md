@@ -4,19 +4,11 @@ description: StackState Self-hosted v5.0.x
 
 # Manual instrumentation mappings for StackState
 
-## Prerequisites
+## Overview
 
-To set up a OpenTelemetry manual instrumentation, you need to have:
-* [StackState Agent](/setup/agent/about-stackstate-agent.md) v2.17 (or later)
-* StackState Agent should have [traces enabled](/setup/agent/advanced-agent-configuration.md#enable-traces). If traces are not enabled on the Agent, OpenTelemetry will not generate any data.
-* The Agent StackPack should be installed in StackState.
+Below is a code snippet showing the basics required to send custom instrumentation to StackState.
 
-## Code Implementation
-
-Below is a code snippet showing the basics required to send custom instrumentation
-to StackState.
-
-We are creating two components.
+We will create two components.
 
 - RDS Database
 - RDS Table
@@ -27,14 +19,19 @@ the [health state propagates](/configure/opentelemetry/manual-instrumentation/he
 This is where your best judgment will come into play; best would be to play around with the parent spans, child spans, etc., and see
 what result do you receive on StackState.
 
+## Example: JavaScript and NodeJS
 
-{% tabs %}
-{% tab title="JavaScript & NodeJS" %}
+The following example implements a solution that crates the above-mentioned components.
 
-## Prerequisites
+### Prerequisites
+
+To set up a OpenTelemetry manual instrumentations, you need to have:
+
+* [StackState Agent](/setup/agent/about-stackstate-agent.md) v2.17 (or later)
+* [Traces enabled](/setup/agent/advanced-agent-configuration.md#enable-traces) on StackState Agent. If traces are not enabled on the Agent, OpenTelemetry will not generate any data.
+* The [Agent StackPack](/stackpacks/integrations/agent.md) should be installed in StackState.
+
 For NodeJS and Javascript, we are not explaining the setup to get to this point but rather the code example and libraries that was used.
-
----
 
 You should install the following npm libraries using npm or yarn
 
@@ -42,31 +39,21 @@ You should install the following npm libraries using npm or yarn
 - [@opentelemetry/sdk-trace-base](https://www.npmjs.com/package/@opentelemetry/sdk-trace-base)
 - [@opentelemetry/exporter-trace-otlp-proto](https://www.npmjs.com/package/@opentelemetry/exporter-trace-otlp-proto)
 
----
+### What the StackState Agent expects
 
-## What the StackState Agent expects
-The StackState Agent is expecting you to send the [following keys in every single span](/configure/opentelemetry/manual-instrumentation/mappings.md):
+The StackState Agent expects you to send the [following keys in every single span](/configure/opentelemetry/manual-instrumentation/mappings.md):
 - `trace.perspective.name`
 - `service.name`
 - `service.type`
 - `service.identifier`
 - `resource.name`
 
----
-
 ***The most important part to remember is*** that the StackState Agent only accept the data in a [Protobuf Format](https://developers.google.com/protocol-buffers), Our examples below will
 use this format but if you do attempt to write something from scratch remember that this is a requirement.
 
-### In this NodeJs / Javascript example, The protobuf module responsible for handling Protobuf is the following line:
+In this NodeJs / Javascript example, The protobuf module responsible for handling Protobuf is the following line:
 
 `import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-proto';`
-
----
-
-## Code snippet
-The code snippet below will implement a solution creating the above-mentioned components.
-
----
 
 ### Import
 The first step is to import the libraries that we will be using from OpenTelemetry. (Modules mentioned above)
@@ -77,7 +64,6 @@ import { BasicTracerProvider, BatchSpanProcessor } from '@opentelemetry/sdk-trac
 import { OTLPTraceExporter as OTLPTraceProtoExporter } from '@opentelemetry/exporter-trace-otlp-proto';
 ```
 
----
 
 ### Core Definitions
 Now let's define a few values that we will use within the OpenTelemetry API code.
@@ -185,7 +171,7 @@ Example of how the child component will look like if you create the with the abo
 
 ---
 
-### Closing The Parent and Child Span
+### Close The Parent and Child Span
 When you are done with a Span for example you have written into the database table, you need to close those spans.
 
 You need to close the spans in the opposite order in which you opened them
@@ -203,7 +189,7 @@ rdsDatabase.end();
 
 ---
 
-### Flushing the data
+### Flush the data
 This step is not always required, but good to know about. Sometimes a script might attempt to end before the actual span was sent away.
 
 A good example of this will be a Lambda execution, StackState will never receive the data as the execution stopped the second the Lambda was done. To get past this
@@ -221,7 +207,9 @@ provider.forceFlush().finally(() => {
 
 ---
 
-### Complete example from the snippets above
+### Complete example
+
+The code block below contains the complete example for JavaScript and NodeJS including all of the code snippets above.
 
 ```javascript
 // Base Imports for OpenTelemetry
