@@ -143,11 +143,13 @@ Includes the content of another file inside this template. This can come in hand
 include "<filename>" "<encoding>"
 ```
 
-1. **filename** - The name of the file to include from the StackPack. The file must exist in the `provisioning` directory or one of its sub-directories \(see [StackPack packaging](../../developer-guides/stackpack/prepare_package.md).
-2. **encoding** \(optional, default = `handlebars`\) - Choice of:
+* **filename** - The name of the file to include from the StackPack. The file must exist in the `provisioning` directory or one of its sub-directories.
+* **encoding** \(optional, default = `handlebars`\) - Choice of:
    * `handlebars` - Included file will be interpreted as StackState Templated JSON.
    * `identity` - Included file will be not be interpreted, but simply will be included as text.
    * `base64` - Included file will be loaded using a BASE64 encoding. This is possible for the image types: `png`, `jpg`, `gif` and `svg`.
+
+For details on the filename, see [StackPack packaging](../../developer-guides/stackpack/prepare_package.md "StackState Self-Hosted only")
 
 #### Examples
 

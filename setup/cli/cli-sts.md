@@ -15,12 +15,12 @@ The new `sts` CLI will eventually replace the [`stac` CLI](cli-stac.md), however
 {% hint style="warning" %}
 **The new `sts` CLI works with StackState version 5.0 and above.**
 
-If you are running an older version of StackState, use the [`stac` CLI](cli-stac.md).
+If you are running an older version of StackState, use the [`stac` CLI](cli-stac.md  "StackState Self-Hosted only").
 {% endhint %}
 
-1. If it is installed, upgrade the old `sts` CLI to `stac`:
-   * [Check if the old `sts` CLI is installed](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running).
-   * [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
+1. If it is installed, upgrade the old `sts` CLI to `stac`:[](http://not.a.link "StackState Self-Hosted only")
+   * [Check if the old `sts` CLI is installed](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only").
+   * [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade "StackState Self-Hosted only").
 2. Follow the steps below to install the new `sts` CLI:
 
 {% tabs %}

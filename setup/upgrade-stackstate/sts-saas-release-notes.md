@@ -70,11 +70,11 @@ Details of the included features, improvements, bug fixes and updated StackPacks
 
 * [StackState Agent StackPack v4.5.2](/stackpacks/integrations/agent.md#release-notes)
 * [AWS v1.2.1](/stackpacks/integrations/aws/aws.md#release-notes)
-* [Dynatrace v1.4.2](/stackpacks/integrations/dynatrace.md#release-notes)
+* [Dynatrace v1.4.2](/stackpacks/integrations/dynatrace.md#release-notes "StackState Self-Hosted only")
 * [Kubernetes v3.9.12](/stackpacks/integrations/kubernetes.md#release-notes)
 * [OpenShift v3.7.12](/stackpacks/integrations/openshift.md#release-notes)
-* [ServiceNow v5.3.3](/stackpacks/integrations/servicenow.md#release-notes)
-* [VMware vSphere v2.3.3](/stackpacks/integrations/vsphere.md#release-notes)
+* [ServiceNow v5.3.3](/stackpacks/integrations/servicenow.md#release-notes "StackState Self-Hosted only")
+* [VMware vSphere v2.3.3](/stackpacks/integrations/vsphere.md#release-note "StackState Self-Hosted only"s)
 
 ## StackState v4.6.x
 
