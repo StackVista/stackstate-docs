@@ -2,14 +2,16 @@
 description: StackState Self-hosted v5.0.x
 ---
 
-# What is a OpenTelemetry instrumentation
+# About OpenTelemetry instrumentation
+
+## Overview
+
 To understand what OpenTelemetry instrumentation is, we first need to understand the concept of distributed tracing,
 how a trace looks and what the content of a trace contains. 
-As a side note, If you are unfamiliar with OpenTelemetry
-you can visit their docs page [What is OpenTelemetry?](https://opentelemetry.io/docs/concepts/what-is-opentelemetry/) to get more
-information about OpenTelemetry and what it is.
+As a side note, If you are unfamiliar with OpenTelemetry you can visit their docs page [What is OpenTelemetry? \(opentelemetry.io\)](https://opentelemetry.io/docs/concepts/what-is-opentelemetry/) to get more information about OpenTelemetry and what it is.
 
-## What is a distributed trace?
+## Distributed traces
+
 Distributed tracing is a way of tracking code or application requests as it flows through the system as a whole.
 Things like latency, errors, success statuses, and more can be tracked and monitored.
 All the timed operations and data mentioned above will be captured and grouped within separate spans.
@@ -21,7 +23,8 @@ Below is an example of a Trace that contains two spans, one Lambda parent span, 
 The above is a snippet of the [Trace Perspective](/use/stackstate-ui/perspectives/traces-perspective.md) within StackState.
 
 
-## What is a span inside a trace
+## Spans
+
 A span represents each unit of work that has been done within the lifespan of the trace.
 A request's whole lifecycle, from creation to fulfillment, is represented by a trace.
 
@@ -41,21 +44,19 @@ And the last interaction before the Trace is completed is another interaction wi
 
 As you can see from the above, within this trace context, it had three span timed operations; thus, spans is a tree of timed operations that make up a trace.
 
-### Concepts mentioned above
-
 A span can be one of two types, a `parent span` or a `child span.` It **can not be both**, and if it is a child span, then there should be a pre-existing parent span that it can be linked to.
 
 A span works with the concept that you open a span and then close it when it reaches a certain point in your code.
 This will then determine the duration of your span and, eventually, your trace.
 
-#### Parent span
+### Parent span
 - A parent span, also referred to as a root span, contains the end-to-end latency of an entire request.
 - For example, if we execute a Lambda script, The script execution will be created as the parent span. All the other
   things monitored and executed inside this Lambda will be captured as children span.
 - The parent span should be the last span you close. This is usually either at the end of your script execution or after you close your last child span
 - A parent span does not require a child span; it can be standalone if it is not a part of anything.
 
-#### Child span
+### Child span
 - A child span is started by a parent span and might involve calling a function, the database, another service, etc. In the example mentioned above, a child span may be a function that determines if the item is accessible. Child spans offer insight into every element of a request.
 - If we take the same example as above where the parent span is a Lambda script, then the children spans will be the SQS, SNS, etc. requests that happen inside the Lambda script.
 
@@ -74,11 +75,12 @@ The above will look as follows:
   - Parent Span
 ```
 
-## How does a child span link to a parent span
-A parent span will contain an id, for example, `span-id: id-001`. When a child span's created, it can contain a key-value pair that states the following, `parent-span: id-001` and its own unique
-span id, for example, `span-id: id-002`.
+### The link between child and parent spans
 
-One thing that makes the structure unique is that this can be a chain of infinite children; for example, the next child can have a parent-id of a previous child, making it nested even deeper.
+A parent span will contain an ID, for example, `span-id: id-001`. When a child span's created, it can contain a key-value pair that states the following, `parent-span: id-001` and its own unique
+span ID, for example, `span-id: id-002`.
+
+One thing that makes the structure unique is that this can be a chain of infinite children; for example, the next child can have a parent-ID of a previous child, making it nested even deeper.
 
 For example, below, we have a root parent that has a child, that child has a child, and then that child will have a final child:
 
@@ -99,10 +101,10 @@ Span =>                |
   parentSpanId: 003 <--|
 ```
 
-As you can see from the above, each following span parent id has the id from the previous span.
+As you can see from the above, each following span parent ID has the ID from the previous span.
 
 
-## Why create parent and children spans?
+### Why create parent and children spans?
 We want to create relations between different span timed operations, how they affect each other, and their relational flow.
 
 You can head over to the [manual instrumentation component relations](/configure/opentelemetry/manual-instrumentation/relations.md) page to get a full
@@ -110,7 +112,7 @@ breakdown of how StackState relations work, how parent-child spans are shown on 
 components and how the health state uses these relations to propagate health.
 
 
-## What does a span consist off
+### Span contents
 Each span has a context that defines the request it is a part of.
 Request, error, and duration information from Spans can be utilized to troubleshoot performance and availability problems.
 
@@ -118,12 +120,12 @@ To give your actions additional context, you may also include span characteristi
 Key-value pairs called span attributes can be used to give more context to a span about the particular action it records.
 
 
-## What is an OpenTelemetry instrumentation
+## OpenTelemetry instrumentation
 When OpenTelemetry captures spans, it will fall under an instrumentation. This will be the library identifier that was used to capture the span information, for example `instrumentation-http` for
 `HTTP status codes` and the `instrumentation-aws-sdk` for capturing `AWS calls`, will generate a span in two different instrumentations.
 
 
-## How does OpenTelemetry instrumentations fit into a distributed traces
+## OpenTelemetry instrumentations in distributed traces
 As we mentioned above a trace contains multiple spans for example:
 
 ```shell
@@ -161,7 +163,7 @@ This allows us to capture unique data for a specific type of instrumentation and
 
 
 ## OpenTelemetry support in StackState
-StackState currently supports two types of instrumentations.
+StackState currently supports two types of instrumentations:
 
 - An ***out-of-the-box*** solution specifically for AWS using a Lambda layer for all your ***NodeJS*** functions. 
   - This solution does not require you to write any code, but only supports certain services
