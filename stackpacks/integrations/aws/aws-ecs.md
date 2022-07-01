@@ -56,6 +56,7 @@ When used in conjunction with one of our language specific trace clients, eg. [S
       ...
 ```
 
+
 #### Advanced Agent configurations
 
 The Agent can be configured to tune the process blacklist, or turn off specific features when not needed. For details, see [advanced Agent configuration](/setup/agent/advanced-agent-configuration.md).
