@@ -151,6 +151,66 @@ Once declared this way, they can be supplied by:
 
 Parameters marked as `multiple` can be supplied more than once, meaning they represent a set of values. Parameters marked as `required` have to be supplied at least once. If a parameter is not `required`, then it can be optionally omitted.
 
+#### Topology Query
+
+Monitor functions that utilize Topology often times take a Topology Query as a parameter. 
+
+{% tabs %}
+{% tab title="Monitor function STJ definition" %}
+The declaration of a topology query in a monitor function STJ definition can look something like the following:
+```json
+...
+"parameters": [{
+  "_type": "Parameter",
+  "type": "STRING",
+  "name": "topologyQuery",
+  "required": true,
+  "multiple": false
+},
+]
+...
+```
+{% endtab %}
+{% tab title="Monitor STJ definition" %}
+To supply a value of a topology query to a omnitor function when defining a monitor:
+
+```json
+...
+{
+  "_type": "ArgumentStringVal",
+  "parameter": {{ get "<identifier-of-the-function>" "Type=Parameter;Name=topologyQuery" }},
+  "value": "type = 'database' OR type = 'database-shard'"
+}
+...
+```
+{% endtab %}
+{% endtabs %}
+
+#### Telemetry Query
+Monitor functions that utilize Telemetry tend to be parameterized with the exact telemetry query to use for their computation. The declaration can either expect a string value of a metric name, or a full-fledged Telemetry Query:
+
+```json
+{
+  "_type": "Parameter",
+  "type": "SCRIPT_METRIC_QUERY",
+  "name": "telemetryQuery",
+  "required": true,
+  "multiple": false
+}
+```
+
+To supply a value of the Telemetry Query one must utilize the Telemetry Script API available in StackState:
+
+```json
+{
+  "_type": "ArgumentScriptMetricQueryVal",
+  "parameter": {{ get "<identifier-of-the-function>" "Type=Parameter;Name=telemetryQuery" }},
+  "value": "Telemetry.query('StackState Metrics', '').metricField('system.cpu.iowait').groupBy('tags.host').start('-10m').aggregation('mean', '1m')"
+}
+```
+
+The query value must evaluate to a telemetry query, otherwise it won't pass the argument validation that is performed before the function execution begins.
+
 #### Topology Identifier Pattern
 Monitor functions that don't process any topology directly still have to produce results that attach to topology elements by way of matching the topology identifier that can be found on those elements. In those cases, one can expect a function declaration to include a special parameter that represents the pattern of a topology identifier:
 
@@ -189,10 +249,10 @@ This query groups its results by two fields: `host` and `region`. Both of these 
 If the common topology identifier scheme utilized by the topology looks as follows, then the different parts of the identifier can be replaced by references to `host` or `region`:
 
 ```groovy
-# An example identifier as found on the topology elements:
+# Example identifier as found on a topology element:
 'urn:host:/eu-west-1/i-244e275aef2a83dd'
 
-# A topology identifier pattern that'll match the example identifier one applied to the above query results:
+# Topology identifier pattern that matches the above example identifier:
 'urn:host:/${region}/${host}'
 ```
 
