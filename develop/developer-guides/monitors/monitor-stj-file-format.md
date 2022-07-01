@@ -150,8 +150,6 @@ The declaration of a numeric value in a monitor function STJ definition can look
 ]
 ...
 ```
-
-Note that parameters marked as `required` have to be supplied at least once. If a parameter is not `required`, then it can be optionally omitted.
 {% endtab %}
 {% tab title="Monitor STJ definition" %}
 To supply a value to the `value` parameter defined in the monitor function, the monitor STJ definition would look something like the following:
@@ -188,7 +186,6 @@ The declaration of a topology query in a monitor function STJ definition can loo
 ]
 ...
 ```
-Note that parameters marked as `required` have to be supplied at least once. If a parameter is not `required`, then it can be optionally omitted.
 {% endtab %}
 {% tab title="Monitor STJ definition" %}
 To supply a value to the `topologyQuery` parameter defined in the monitor function, the monitor STJ definition would look something like the following:
@@ -205,30 +202,40 @@ To supply a value to the `topologyQuery` parameter defined in the monitor functi
 {% endtab %}
 {% endtabs %}
 
-#### Telemetry Query
-Monitor functions that utilize Telemetry tend to be parameterized with the exact telemetry query to use for their computation. The declaration can either expect a string value of a metric name, or a full-fledged Telemetry Query:
+#### Telemetry query
+Monitor functions that utilize Telemetry tend to be parameterized with the exact telemetry query to use for their computation. 
 
+{% tabs %}
+{% tab title="Monitor function STJ definition" %}
+The declaration of a telemetry query can either expect a string value of a metric name, or a full-fledged Telemetry Query:
 ```json
-{
+...
+"parameters": [{
   "_type": "Parameter",
   "type": "SCRIPT_METRIC_QUERY",
   "name": "telemetryQuery",
   "required": true,
   "multiple": false
-}
+},
+  ...
+]
+...
 ```
-
-To supply a value of the Telemetry Query one must utilize the Telemetry Script API available in StackState:
+{% endtab %}
+{% tab title="Monitor STJ definition" %}
+To supply a value to the `telemetryQuery` parameter defined in the monitor function, the monitor STJ definition would look something like the following. Note that the provided `value` must utilize the StackState Telemetry Script API and evaluate to a telemetry query, otherwise it will not pass the argument validation that is performed before the function execution begins. 
 
 ```json
+...
 {
   "_type": "ArgumentScriptMetricQueryVal",
   "parameter": {{ get "<identifier-of-the-function>" "Type=Parameter;Name=telemetryQuery" }},
   "value": "Telemetry.query('StackState Metrics', '').metricField('system.cpu.iowait').groupBy('tags.host').start('-10m').aggregation('mean', '1m')"
 }
+...
 ```
-
-The query value must evaluate to a telemetry query, otherwise it won't pass the argument validation that is performed before the function execution begins.
+{% endtab %}
+{% endtabs %}
 
 #### Topology Identifier Pattern
 Monitor functions that don't process any topology directly still have to produce results that attach to topology elements by way of matching the topology identifier that can be found on those elements. In those cases, one can expect a function declaration to include a special parameter that represents the pattern of a topology identifier:
