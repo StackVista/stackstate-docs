@@ -173,7 +173,7 @@ The declaration of a topology query in a monitor function STJ definition can loo
 ```
 {% endtab %}
 {% tab title="Monitor STJ definition" %}
-To supply a value to the `topologyQuery` parameter in the monitor function, the monitor definition would look something like the following:
+To supply a value to the `topologyQuery` parameter defined in the monitor function, the monitor STJ definition would look something like the following:
 
 ```json
 ...
