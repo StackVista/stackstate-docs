@@ -23,26 +23,16 @@ It might be beneficial to modify an existing monitor definition to change its pa
 
 Monitor configuration can be changed by modifying the monitor definition. 
 
-1. FInd the ID of the monitor to be modified. This can be done by either:
-   * In the StackState UI: Inspect the monitor definition using the context menu (...) of the [monitor result panel](/use/checks-and-monitors/monitors.md#monitor-results).
-   * Another way ???
+1. Find the ID or the identifier of the monitor to be modified. For example:
+   * **In the StackState UI:** Inspect the monitor definition using the context menu (...) of the [monitor result panel](/use/checks-and-monitors/monitors.md#monitor-results).
+   * **In the StackState CLI:** List the monitors using `sts monitor list` or `stac monitor list`.
 2. Export the monitor definition into a file named `path/to/export.stj`:
-   ```
-   # new sts CLI
-   sts settings describe --ids <id-of-a-monitor> -f path/to/export.stj
-   
-   # stac CLI
-   stac monitor describe <id-or-identifier-of-a-monitor> > path/to/export.stj
-   ```
+   * **new `sts` CLI**: `sts settings describe --ids <id-of-a-monitor> -f path/to/export.stj`
+   * **`stac` CLI**: `stac monitor describe <id-or-identifier-of-a-monitor> > path/to/export.stj`[](http://not.a.link "StackState Self-Hosted only")
 3. Modify the exported file to change the monitor `parameters` or `intervalSeconds`. 
 4. Apply the changes to the monitor:
-   ```
-   # new sts CLI:
-   sts monitor apply -f path/to/export.stj
-   
-   # stac CLI
-   stac monitor apply < path/to/export.stj
-   ```
+   * **new `sts` CLI**: `sts monitor apply -f path/to/export.stj`
+   * **`stac` CLI**: `stac monitor apply < path/to/export.stj`[](http://not.a.link "StackState Self-Hosted only")
 
 Once applied, the updated monitor definition will be in effect. Changes will be reflected with the next execution cycle. 
 
@@ -96,7 +86,7 @@ sts monitor status --identifier <identifier-of-a-monitor>
 ➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
-`stac monitor status <id-or-identifier-of-a-monitor`[](http://not.a.link "StackState Self-Hosted only")
+`stac monitor status <id-or-identifier-of-a-monitor>`[](http://not.a.link "StackState Self-Hosted only")
 
 **Not running the `stac` CLI yet?**[](http://not.a.link "StackState Self-Hosted only")
 
@@ -122,7 +112,7 @@ sts monitor run --identifier <identifier-of-a-monitor>
 ➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
-`stac monitor preview <id-or-identifier-of-a-monitor`[](http://not.a.link "StackState Self-Hosted only")
+`stac monitor preview <id-or-identifier-of-a-monitor>`[](http://not.a.link "StackState Self-Hosted only")
 
 **Not running the `stac` CLI yet?**[](http://not.a.link "StackState Self-Hosted only")
 
@@ -131,6 +121,10 @@ sts monitor run --identifier <identifier-of-a-monitor>
 {% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 
 ## Disable a single monitor
+
+{% hint style="info" %}
+When a monitor is disabled (removed), all health states associated with the monitor will also be removed and they will no longer be visible in the StackState UI.
+{% endhint %}
 
 Monitors can be disabled by removing them. Once a monitor to be disabled is identified, either by inspecting the definition of a monitor available under the context menu of a monitor result panel, or otherwise by obtaining the Monitors identifier, a dedicated CLI command can be used to remove it:
 
@@ -153,10 +147,6 @@ sts monitor delete --identifier <identifier-of-the-monitor>
 ➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade "StackState Self-Hosted only")
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
-
-{% hint style="info" %}
-Upon removal, all health states associated with the monitor will also be removed.
-{% endhint %}
 
 ## Disable the monitor runner
 
