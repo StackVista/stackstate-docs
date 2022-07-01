@@ -27,7 +27,7 @@ In the following scenario we have 3 components that we created with the manual i
 
 As seen in this picture below, it works as expected and all three components is healthy.
 
-![Topology Perspective Healthy Manual Instrumentation Components](../../../.gitbook/assets/otel_topology_perspective_healthy_component.png)
+![Topology Perspective Healthy Manual Instrumentation Components](../../../.gitbook/assets/v50_otel_topology_perspective_healthy_component.png)
 
 Now let's change the `http.status_code` of the second span to `400`
 
@@ -36,10 +36,10 @@ and the health status propagate upwards to the parent component.
 
 {% tabs %}
 {% tab title="Healthy to Deviating" %}
-![Topology Perspective Single Deviating Manual Instrumentation Component](../../../.gitbook/assets/otel_topology_perspective_deviating_component.png)
+![Topology Perspective Single Deviating Manual Instrumentation Component](../../../.gitbook/assets/v50_otel_topology_perspective_deviating_component.png)
 {% endtab %}
 {% tab title="Deviating to Critical" %}
-![Topology Perspective Single Critical Manual Instrumentation Component](../../../.gitbook/assets/otel_topology_perspective_critical_component.png)
+![Topology Perspective Single Critical Manual Instrumentation Component](../../../.gitbook/assets/v50_otel_topology_perspective_critical_component.png)
 {% endtab %}
 {% endtabs %}
 
@@ -61,7 +61,7 @@ The one pre-existing is in a critical state and the second one in a healthy stat
 
 Below is an example of those 3 components we created and the 2 pre-existing AWS components.
 
-![Manual Instrumentation Components Unmerged To Pre-Existing Components](../../../.gitbook/assets/otel_components_unmerged.png)
+![Manual Instrumentation Components Unmerged To Pre-Existing Components](../../../.gitbook/assets/v50_otel_components_unmerged.png)
 
 ### Merging with the healthy component
 
@@ -69,13 +69,13 @@ Now let's get a `service.identifier` from the bottom right green component calle
 
 As you can see in the image below, this component has an identifier of `arn:aws:lambda:eu-west-1:965323806078:function:otel-example-custom-instrumentation-dev-create-custom-component`
 
-![Topology Perspective Properties View - Identifier Preview](../../../.gitbook/assets/otel_traces_merge_with_healthy.png)
+![Topology Perspective Properties View - Identifier Preview](../../../.gitbook/assets/v50_otel_traces_merge_with_healthy.png)
 
 So let's merge our second span component with this AWS Lambda component by adding that identifier into our manual instrumentation for the second component.
 
 This produces the following result:
 
-![OTEL Component Merged With Pre-Existing Healthy Component](../../../.gitbook/assets/otel_traces_merge_with_healthy_complete.png)
+![OTEL Component Merged With Pre-Existing Healthy Component](../../../.gitbook/assets/v50_otel_traces_merge_with_healthy_complete.png)
 
 As you can see the relations had now successfully been drawn between the components and the merged one, the health state also stayed `200` as expected
 seeing that both components was `200` to start with
@@ -86,13 +86,13 @@ Now let's get a `service.identifier` from the bottom left red component called `
 
 As you can see in the image below, this component has an identifier of `arn:aws:lambda:eu-west-1:965323806078:function:otel-example-custom-instrumentation-dev-force-error`
 
-![Topology Perspective Properties View - Identifier Preview](../../../.gitbook/assets/otel_traces_merge_with_critical.png)
+![Topology Perspective Properties View - Identifier Preview](../../../.gitbook/assets/v50_otel_traces_merge_with_critical.png)
 
 So let's merge our second span component with this AWS Lambda component by adding that identifier into our manual instrumentation for the second component.
 
 This produces the following result:
 
-![OTEL Component Merged With Pre-Existing Critical Component](../../../.gitbook/assets/otel_traces_merge_with_critical_complete.png)
+![OTEL Component Merged With Pre-Existing Critical Component](../../../.gitbook/assets/v50_otel_traces_merge_with_critical_complete.png)
 
 As you can see the deviating or critical state will always take precedence regardless of merged component states. If one of the two components that has been merged
 goes into a critical/deviating state then it will be indicated as above.
