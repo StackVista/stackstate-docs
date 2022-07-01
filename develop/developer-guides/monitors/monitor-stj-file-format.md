@@ -123,8 +123,8 @@ Descriptions of parameters that are commonly used by monitor functions can be fo
 
 * [Numeric values](#numeric-values) - a simple numeric value.
 * [Topology query](#topology-query) - a query to return a subset of the topology.
-* [Telemetry query](#telemetry-query) - a query that collects the telemetry to be passed to the monitor function.
-* [Topology identifier pattern](#topology-identifier-pattern) - the pattern of the topology element identifiers to which the monitor function should assign the calculated health states.
+* [Telemetry query](#telemetry-query) - a query that returns the telemetry to be passed to the monitor function.
+* [Topology identifier pattern](#topology-identifier-pattern) - the pattern of the topology element identifiers to which the monitor function should assign calculated health states.
 
 #### Numeric values
 The most common and simple monitor function parameter types are numeric values. They are declared the following way with a function definition:
