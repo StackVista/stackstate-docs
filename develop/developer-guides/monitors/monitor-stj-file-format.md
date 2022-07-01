@@ -237,30 +237,42 @@ To supply a value to the `telemetryQuery` parameter defined in the monitor funct
 {% endtab %}
 {% endtabs %}
 
-#### Topology Identifier Pattern
-Monitor functions that don't process any topology directly still have to produce results that attach to topology elements by way of matching the topology identifier that can be found on those elements. In those cases, one can expect a function declaration to include a special parameter that represents the pattern of a topology identifier:
+#### Topology identifier pattern
+Monitor functions that don't process any topology directly still have to produce results that attach to topology elements by way of matching the topology identifier that can be found on those elements. In those cases, one can expect a function declaration to include a special parameter that represents the pattern of a topology identifier.
 
+% tabs %}
+{% tab title="Monitor function STJ definition" %}
+The declaration of a topology identifier pattern would look something like the following:
 ```json
-{
+...
+"parameters": [{
   "_type": "Parameter",
   "type": "STRING",
   "name": "topologyIdentifierPattern",
   "required": true,
   "multiple": false
-}
+},
+  ...
+]
+...
 ```
-
-The value supplied to that function once processed by the function logic should result in a valid topology identifier to be produced. It therefore likely needs to include various escape sequences of values that will be interpolated into the resulting value by the Monitor function:
+{% endtab %}
+{% tab title="Monitor STJ definition" %}
+The `topologyIdentifierPattern` value supplied to the monitor function should result in a valid topology identifier once processed by the function logic. It therefore likely needs to include various escape sequences of values that will be interpolated into the resulting value by the monitor function:
 
 ```json
+...
 {
   "_type": "ArgumentStringVal",
   "parameter": {{ get "<identifier-of-the-function>" "Type=Parameter;Name=topologyIdentifierPattern" }},
   "value": "urn:host:/${tags.host}"
 }
+...
 ```
+{% endtab %}
+{% endtabs %}
 
-The exact value to use for this parameter depends on the topology avaliable in StackState (or more precisely on its identifier scheme), and on the values supplied by the Monitor function for interpolation (or more precisely the type of data processed by the function). In the most common case, a topology identifier pattern parameter is used in conjunction with a Telemetry query parameter - then the fields used for the query grouping (listed in its `.groupBy()` step) will also be available for the interpolation of topology identifier values. For example, consider the following query:
+The exact value to use for this parameter depends on the topology available in StackState (or more precisely on its identifier scheme), and on the values supplied by the monitor function for interpolation (or more precisely the type of data processed by the function). In the most common case, a topology identifier pattern parameter is used in conjunction with a [telemetry query parameter](#telemetry-query) - in this case, the fields used for the telemetry query grouping (listed in its `.groupBy()` step) will also be available for the interpolation of topology identifier values. For example, consider the following query:
 
 ```groovy
 Telemetry
@@ -271,7 +283,7 @@ Telemetry
   .aggregation('mean', '1m')
 ```
 
-This query groups its results by two fields: `host` and `region`. Both of these values will be available for value interpolation of an exact topology identifier to use and each different `host` and `region` pair can be used either individually or together to form a unique topology identifier.
+The telmetry query above groups its results by two fields: `host` and `region`. Both of these values will be available for value interpolation of an exact topology identifier to use, and each different `host` and `region` pair can be used either individually or together to form a unique topology identifier.
 If the common topology identifier scheme utilized by the topology looks as follows, then the different parts of the identifier can be replaced by references to `host` or `region`:
 
 ```groovy
