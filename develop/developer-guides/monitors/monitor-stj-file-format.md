@@ -117,6 +117,11 @@ The parameter binding syntax is common for all parameter types, and utilizes the
 
 During an invocation of a monitor function, the parameter value is interpreted and instantiated beforehand with all of the requisite validations applied to it. Assuming it passes type and value validations, it will become available in the body of the function as a global value of the same name, with the assigned value.
 
+{% hint style="info" %}
+* Parameters marked as `required` in the monitor function STJ definition must be supplied at least once. If a parameter is not `required`, then it can be optionally omitted.
+* Parameters marked as `multiple` in the monitor function STJ definition can be supplied more than once, meaning that they represent a set of values.
+{% endhint %}
+
 **Common parameters**
 
 Descriptions of parameters that are commonly used by monitor functions can be found below:
@@ -127,29 +132,41 @@ Descriptions of parameters that are commonly used by monitor functions can be fo
 * [Topology identifier pattern](#topology-identifier-pattern) - the pattern of the topology element identifiers to which the monitor function should assign calculated health states.
 
 #### Numeric values
-The most common and simple monitor function parameter types are numeric values. They are declared the following way with a function definition:
+The most common and simple monitor function parameter types are numeric values. 
 
+{% tabs %}
+{% tab title="Monitor function STJ definition" %}
+The declaration of a numeric value in a monitor function STJ definition can look something like the following:
 ```json
-{
+...
+"parameters": [{
   "_type": "Parameter",
   "type": "DOUBLE",
   "name": "value",
   "required": true,
   "multiple": false
-}
+  },
+  ...
+]
+...
 ```
 
-Once declared this way, they can be supplied by:
+Note that parameters marked as `required` have to be supplied at least once. If a parameter is not `required`, then it can be optionally omitted.
+{% endtab %}
+{% tab title="Monitor STJ definition" %}
+To supply a value to the `value` parameter defined in the monitor function, the monitor STJ definition would look something like the following:
 
 ```json
+...
 {
   "_type": "ArgumentDoubleVal",
   "parameter": {{ get "<identifier-of-the-function>" "Type=Parameter;Name=value" }},
   "value": 23.5
 }
+...
 ```
-
-Parameters marked as `multiple` can be supplied more than once, meaning they represent a set of values. Parameters marked as `required` have to be supplied at least once. If a parameter is not `required`, then it can be optionally omitted.
+{% endtab %}
+{% endtabs %}
 
 #### Topology Query
 
@@ -171,6 +188,7 @@ The declaration of a topology query in a monitor function STJ definition can loo
 ]
 ...
 ```
+Note that parameters marked as `required` have to be supplied at least once. If a parameter is not `required`, then it can be optionally omitted.
 {% endtab %}
 {% tab title="Monitor STJ definition" %}
 To supply a value to the `topologyQuery` parameter defined in the monitor function, the monitor STJ definition would look something like the following:
