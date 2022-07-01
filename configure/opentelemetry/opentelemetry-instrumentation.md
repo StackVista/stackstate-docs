@@ -75,7 +75,7 @@ The above will look as follows:
   - Parent Span
 ```
 
-### The link between child and parent spans
+### The link between parent and child spans
 
 A parent span will contain an ID, for example, `span-id: id-001`. When a child span's created, it can contain a key-value pair that states the following, `parent-span: id-001` and its own unique
 span ID, for example, `span-id: id-002`.
@@ -121,11 +121,12 @@ Key-value pairs called span attributes can be used to give more context to a spa
 
 
 ## OpenTelemetry instrumentation
+
 When OpenTelemetry captures spans, it will fall under an instrumentation. This will be the library identifier that was used to capture the span information, for example `instrumentation-http` for
 `HTTP status codes` and the `instrumentation-aws-sdk` for capturing `AWS calls`, will generate a span in two different instrumentations.
 
 
-## OpenTelemetry instrumentations in distributed traces
+## In distributed traces
 As we mentioned above a trace contains multiple spans for example:
 
 ```shell
@@ -162,7 +163,7 @@ As you can see, the different types of spans have been grouped under what the li
 This allows us to capture unique data for a specific type of instrumentation and look for it specifically under that instrumentation name.
 
 
-## OpenTelemetry support in StackState
+### Support in StackState
 StackState currently supports two types of instrumentations:
 
 - An ***out-of-the-box*** solution specifically for AWS using a Lambda layer for all your ***NodeJS*** functions. 
