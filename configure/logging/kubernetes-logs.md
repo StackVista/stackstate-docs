@@ -59,7 +59,7 @@ kubectl logs -p -c <container-name> <pod-name>
 
 ### Synchronization logs
 
-All synchronization logs can be found in a `stackstate-sync-<suffix>`. You can use the synchronization name to locate specific log information in a log snapshot.
+All synchronization logs can be found in a pod `stackstate-sync-<suffix>`. You can use the synchronization name to locate specific log information in a log snapshot.
 
 For example:
 
