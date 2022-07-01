@@ -150,7 +150,10 @@ You can also preview the results it generates by invoking the CLI command:
 {% tabs %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="CLI: sts (new)" %}[](http://not.a.link "StackState Self-Hosted only")
 ```
-sts monitor preview <id-or-identifier-of-a-monitor>
+# By ID
+sts monitor run --id <id-of-a-monitor>
+# By Identifier
+sts monitor run --identifier <identifier-of-a-monitor>
 ```
 
 ➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")

@@ -302,6 +302,6 @@ The monitor run interval determines how often a monitor logic will be executed. 
 ## See also
 
 * [Create a custom monitor](create-custom-monitors.md)
-* [Monitor functions](/develop/developer-guides/custom-functions/monitor-functions.md)
+* [Monitor functions](/develop/developer-guides/custom-functions/monitor-functions.md "StackState Self-Hosted only")
 * [Manage monitors](/use/checks-and-monitors/manage-monitors.md)
 * [STJ file format](/develop/reference/stj/using_stj.md)
