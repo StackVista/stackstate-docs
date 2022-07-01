@@ -38,9 +38,7 @@ The context menu of each monitor result (...) allows for inspecting of the monit
 
 - **Show monitor definition** - opens a modal window containing the full monitor definition associated with this result.
 
-## Monitor execution
-
-### Monitor functions
+## Monitor functions
 
 Each monitor configured in StackState uses a monitor function to compute the health state results attached to the elements.
 
@@ -53,14 +51,6 @@ Details of the monitor functions provided by StackPacks can be found in [the Sta
 You can [screate custom monitor function](../../develop/developer-guides/custom-functions/monitor-functions.md) to customize how StackState processes the 4T data.
 
 {% endhint %}
-
-### Monitor runner
-
-Monitors are run by a dedicated subsystem of StackState called the monitor runner. The main task of the monitor runner is to schedule the execution of all existing monitors in such a way as to ensure that all of them produce viable results in a timely manner.
-
-### Run interval
-
-The monitor runner schedules monitor execution using an interval parameter that is configured on a per-monitor basis - the `intervalSeconds`. The runner will attempt to schedule a monitor execution every `intervalSeconds`, counting from the end of the previous execution cycle, in parallel to the other existing Monitors (subject to resource limits). For example, setting `intervalSeconds` of a monitor definition to the value `600` will cause the monitor runner to attempt to schedule the execution of this monitor every ten minutes, assuming that the execution time itself is negligible.
 
 ## See also
 
