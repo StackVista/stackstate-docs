@@ -251,7 +251,7 @@ The declaration of a topology identifier pattern would look something like the f
   "name": "topologyIdentifierPattern",
   "required": true,
   "multiple": false
-},
+  },
   ...
 ]
 ...
@@ -269,10 +269,8 @@ The `topologyIdentifierPattern` value supplied to the monitor function should re
 }
 ...
 ```
-{% endtab %}
-{% endtabs %}
 
-The exact value to use for this parameter depends on the topology available in StackState (or more precisely on its identifier scheme), and on the values supplied by the monitor function for interpolation (or more precisely the type of data processed by the function). In the most common case, a topology identifier pattern parameter is used in conjunction with a [telemetry query parameter](#telemetry-query) - in this case, the fields used for the telemetry query grouping (listed in its `.groupBy()` step) will also be available for the interpolation of topology identifier values. For example, consider the following query:
+The exact `value` to use for this parameter depends on the topology available in StackState (or more precisely on its identifier scheme), and on the values supplied by the monitor function for interpolation (or more precisely the type of data processed by the function). In the most common case, a topology identifier pattern parameter is used in conjunction with a [telemetry query parameter](#telemetry-query) - in this case, the fields used for the telemetry query grouping (listed in its `.groupBy()` step) will also be available for the interpolation of topology identifier values. For example, consider the following query:
 
 ```groovy
 Telemetry
@@ -283,7 +281,7 @@ Telemetry
   .aggregation('mean', '1m')
 ```
 
-The telmetry query above groups its results by two fields: `host` and `region`. Both of these values will be available for value interpolation of an exact topology identifier to use, and each different `host` and `region` pair can be used either individually or together to form a unique topology identifier.
+The telemetry query above groups its results by two fields: `host` and `region`. Both of these values will be available for value interpolation of an exact topology identifier to use, and each different `host` and `region` pair can be used either individually or together to form a unique topology identifier.
 If the common topology identifier scheme utilized by the topology looks as follows, then the different parts of the identifier can be replaced by references to `host` or `region`:
 
 ```groovy
@@ -293,6 +291,8 @@ If the common topology identifier scheme utilized by the topology looks as follo
 # Topology identifier pattern that matches the above example identifier:
 'urn:host:/${region}/${host}'
 ```
+{% endtab %}
+{% endtabs %}
 
 
 ### Run interval
