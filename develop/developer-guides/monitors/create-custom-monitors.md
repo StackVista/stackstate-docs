@@ -102,24 +102,22 @@ Similar to the `function`, parameters can be referred to by utilizing the `get` 
 
 This can be achieved by using the dedicated StackState CLI command:
 
-{% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tabs %}[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: sts (new)" %}[](http://not.a.link "StackState Self-Hosted only")
 ```
 sts monitor apply -f path/to/the/file.stj
 ```
 
-➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
-{% endtab %}
-{% tab title="CLI: stac" %}
-```
-stac monitor apply < path/to/the/file.stj
-```
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
+`stac monitor apply < path/to/the/file.stj`[](http://not.a.link "StackState Self-Hosted only")
 
-**Not running the `stac` CLI yet?**
+**Not running the `stac` CLI yet?**[](http://not.a.link "StackState Self-Hosted only")
 
-➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
-{% endtab %}
-{% endtabs %}
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade "StackState Self-Hosted only")
+{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
+{% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 
 An alternative way is to include the newly created monitor in a custom StackPack and installing it.
 
@@ -127,8 +125,8 @@ An alternative way is to include the newly created monitor in a custom StackPack
 
 You can check if your monitor is working correctly by invoking the CLI command:
 
-{% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tabs %}[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: sts (new)" %}[](http://not.a.link "StackState Self-Hosted only")
 ```
 # By ID
 sts monitor status --id <id-of-a-monitor>
@@ -136,39 +134,35 @@ sts monitor status --id <id-of-a-monitor>
 sts monitor status --identifier <identifier-of-a-monitor>
 ```
 
-➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
-{% endtab %}
-{% tab title="CLI: stac" %}
-```
-stac monitor status <id-or-identifier-of-a-monitor>
-```
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
+`stac monitor status <id-or-identifier-of-a-monitor>`[](http://not.a.link "StackState Self-Hosted only")
 
-**Not running the `stac` CLI yet?**
+**Not running the `stac` CLI yet?**[](http://not.a.link "StackState Self-Hosted only")
 
-➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
-{% endtab %}
-{% endtabs %}
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade "StackState Self-Hosted only")
+{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
+{% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 
 You can also preview the results it generates by invoking the CLI command:
 
-{% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tabs %}[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: sts (new)" %}[](http://not.a.link "StackState Self-Hosted only")
 ```
 sts monitor preview <id-or-identifier-of-a-monitor>
 ```
 
-➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
-{% endtab %}
-{% tab title="CLI: stac" %}
-```
-stac monitor preview <id-or-identifier-of-a-monitor>
-```
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
+`stac monitor preview <id-or-identifier-of-a-monitor>`[](http://not.a.link "StackState Self-Hosted only")
 
-**Not running the `stac` CLI yet?**
+**Not running the `stac` CLI yet?**[](http://not.a.link "StackState Self-Hosted only")
 
-➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
-{% endtab %}
-{% endtabs %}
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade "StackState Self-Hosted only")
+{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
+{% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 
 ## See also
 

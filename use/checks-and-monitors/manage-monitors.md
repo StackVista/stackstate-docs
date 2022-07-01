@@ -80,7 +80,7 @@ For example, to run the monitor every 5 minutes, set the `intervalSeconds` to `3
 {% endtab %}
 {% endtabs %}
 
-## Check the monitor status
+## Check the status of a monitor
 
 The status of a monitor can be obtained via the StackState CLI:
 
@@ -105,6 +105,30 @@ sts monitor status --identifier <identifier-of-a-monitor>
 {% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 
 The output of this command indicates the specific errors that occurred along with the counts of how many times they happened and the health stream statistics associated with this monitor. Any execution issues are also logged in the global StackState log file.
+
+## Preview a monitor
+
+You can use the CLI run a monitor and preview its output without persisting its results. 
+
+{% tabs %}[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: sts (new)" %}[](http://not.a.link "StackState Self-Hosted only")
+```
+# By ID
+sts monitor run --id <id-of-a-monitor>
+# By Identifier
+sts monitor run --identifier <identifier-of-a-monitor>
+```
+
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
+`stac monitor preview <id-or-identifier-of-a-monitor`[](http://not.a.link "StackState Self-Hosted only")
+
+**Not running the `stac` CLI yet?**[](http://not.a.link "StackState Self-Hosted only")
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade "StackState Self-Hosted only")
+{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
+{% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 
 ## Disable a single monitor
 
