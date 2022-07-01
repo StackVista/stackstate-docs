@@ -135,6 +135,19 @@ Descriptions of parameters that are commonly used by monitor functions can be fo
 The most common and simple monitor function parameter types are numeric values. 
 
 {% tabs %}
+{% tab title="Monitor STJ definition" %}
+To supply a value to the `value` parameter defined in the monitor function, the monitor STJ definition would look something like the following:
+
+```json
+...
+{
+  "_type": "ArgumentDoubleVal",
+  "parameter": {{ get "<identifier-of-the-function>" "Type=Parameter;Name=value" }},
+  "value": 23.5
+}
+...
+```
+{% endtab %}
 {% tab title="Monitor function STJ definition" %}
 The declaration of a numeric value in a monitor function STJ definition can look something like the following:
 ```json
@@ -151,19 +164,6 @@ The declaration of a numeric value in a monitor function STJ definition can look
 ...
 ```
 {% endtab %}
-{% tab title="Monitor STJ definition" %}
-To supply a value to the `value` parameter defined in the monitor function, the monitor STJ definition would look something like the following:
-
-```json
-...
-{
-  "_type": "ArgumentDoubleVal",
-  "parameter": {{ get "<identifier-of-the-function>" "Type=Parameter;Name=value" }},
-  "value": 23.5
-}
-...
-```
-{% endtab %}
 {% endtabs %}
 
 #### Topology Query
@@ -171,6 +171,19 @@ To supply a value to the `value` parameter defined in the monitor function, the 
 Monitor functions that utilize Topology often times take a Topology Query as a parameter. 
 
 {% tabs %}
+{% tab title="Monitor STJ definition" %}
+To supply a value to the `topologyQuery` parameter defined in the monitor function, the monitor STJ definition would look something like the following:
+
+```json
+...
+{
+  "_type": "ArgumentStringVal",
+  "parameter": {{ get "<identifier-of-the-function>" "Type=Parameter;Name=topologyQuery" }},
+  "value": "type = 'database' OR type = 'database-shard'"
+}
+...
+```
+{% endtab %}
 {% tab title="Monitor function STJ definition" %}
 The declaration of a topology query in a monitor function STJ definition can look something like the following:
 ```json
@@ -187,25 +200,25 @@ The declaration of a topology query in a monitor function STJ definition can loo
 ...
 ```
 {% endtab %}
-{% tab title="Monitor STJ definition" %}
-To supply a value to the `topologyQuery` parameter defined in the monitor function, the monitor STJ definition would look something like the following:
-
-```json
-...
-{
-  "_type": "ArgumentStringVal",
-  "parameter": {{ get "<identifier-of-the-function>" "Type=Parameter;Name=topologyQuery" }},
-  "value": "type = 'database' OR type = 'database-shard'"
-}
-...
-```
-{% endtab %}
 {% endtabs %}
 
 #### Telemetry query
 Monitor functions that utilize Telemetry tend to be parameterized with the exact telemetry query to use for their computation. 
 
 {% tabs %}
+{% tab title="Monitor STJ definition" %}
+To supply a value to the `telemetryQuery` parameter defined in the monitor function, the monitor STJ definition would look something like the following. Note that the provided `value` must utilize the StackState Telemetry Script API and evaluate to a telemetry query, otherwise it will not pass the argument validation that is performed before the function execution begins. 
+
+```json
+...
+{
+  "_type": "ArgumentScriptMetricQueryVal",
+  "parameter": {{ get "<identifier-of-the-function>" "Type=Parameter;Name=telemetryQuery" }},
+  "value": "Telemetry.query('StackState Metrics', '').metricField('system.cpu.iowait').groupBy('tags.host').start('-10m').aggregation('mean', '1m')"
+}
+...
+```
+{% endtab %}
 {% tab title="Monitor function STJ definition" %}
 The declaration of a telemetry query can either expect a string value of a metric name, or a full-fledged Telemetry Query:
 ```json
@@ -222,41 +235,12 @@ The declaration of a telemetry query can either expect a string value of a metri
 ...
 ```
 {% endtab %}
-{% tab title="Monitor STJ definition" %}
-To supply a value to the `telemetryQuery` parameter defined in the monitor function, the monitor STJ definition would look something like the following. Note that the provided `value` must utilize the StackState Telemetry Script API and evaluate to a telemetry query, otherwise it will not pass the argument validation that is performed before the function execution begins. 
-
-```json
-...
-{
-  "_type": "ArgumentScriptMetricQueryVal",
-  "parameter": {{ get "<identifier-of-the-function>" "Type=Parameter;Name=telemetryQuery" }},
-  "value": "Telemetry.query('StackState Metrics', '').metricField('system.cpu.iowait').groupBy('tags.host').start('-10m').aggregation('mean', '1m')"
-}
-...
-```
-{% endtab %}
 {% endtabs %}
 
 #### Topology identifier pattern
 Monitor functions that don't process any topology directly still have to produce results that attach to topology elements by way of matching the topology identifier that can be found on those elements. In those cases, one can expect a function declaration to include a special parameter that represents the pattern of a topology identifier.
 
 {% tabs %}
-{% tab title="Monitor function STJ definition" %}
-The declaration of a topology identifier pattern would look something like the following:
-```json
-...
-"parameters": [{
-  "_type": "Parameter",
-  "type": "STRING",
-  "name": "topologyIdentifierPattern",
-  "required": true,
-  "multiple": false
-  },
-  ...
-]
-...
-```
-{% endtab %}
 {% tab title="Monitor STJ definition" %}
 The `topologyIdentifierPattern` value supplied to the monitor function should result in a valid topology identifier once processed by the function logic. It therefore likely needs to include various escape sequences of values that will be interpolated into the resulting value by the monitor function:
 
@@ -290,6 +274,22 @@ If the common topology identifier scheme utilized by the topology looks as follo
 
 # Topology identifier pattern that matches the above example identifier:
 'urn:host:/${region}/${host}'
+```
+{% endtab %}
+{% tab title="Monitor function STJ definition" %}
+The declaration of a topology identifier pattern would look something like the following:
+```json
+...
+"parameters": [{
+  "_type": "Parameter",
+  "type": "STRING",
+  "name": "topologyIdentifierPattern",
+  "required": true,
+  "multiple": false
+  },
+  ...
+]
+...
 ```
 {% endtab %}
 {% endtabs %}
