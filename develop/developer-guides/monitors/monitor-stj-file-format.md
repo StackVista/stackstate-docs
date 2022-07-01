@@ -240,7 +240,7 @@ To supply a value to the `telemetryQuery` parameter defined in the monitor funct
 #### Topology identifier pattern
 Monitor functions that don't process any topology directly still have to produce results that attach to topology elements by way of matching the topology identifier that can be found on those elements. In those cases, one can expect a function declaration to include a special parameter that represents the pattern of a topology identifier.
 
-% tabs %}
+{% tabs %}
 {% tab title="Monitor function STJ definition" %}
 The declaration of a topology identifier pattern would look something like the following:
 ```json
