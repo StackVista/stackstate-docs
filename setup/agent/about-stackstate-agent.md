@@ -66,7 +66,7 @@ The `<STACKSTATE_RECEIVER_BASE_URL>` is set during StackState installation. For 
 {% tab title="StackState SaaS" %}[](http://not.a.link "StackState Self-Hosted only")
 For the StackState SaaS product, the StackState Receiver API address will be provided on the StackState UI Agent StackPack page after the StackPack has been installed.
 
-[Go to the StackState SaaS product documentation](https://docs.stackstate.com/v/stackstate-saas/ "StackState Self-Hosted only")
+[➡️ Go to the StackState SaaS product documentation](https://docs.stackstate.com/v/stackstate-saas/ "StackState Self-Hosted only")
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 
@@ -87,7 +87,7 @@ For StackState running on Linux, the Receiver API Key is set during installation
 {% tab title="StackState SaaS" %}[](http://not.a.link "StackState Self-Hosted only")
 For the StackState SaaS product, the StackState Receiver API key will be provided on the StackState UI Agent StackPack page after the StackPack has been installed.
 
-[Go to the StackState SaaS product documentation](https://docs.stackstate.com/v/stackstate-saas/ "StackState Self-Hosted only")
+[➡️ Go to the StackState SaaS product documentation](https://docs.stackstate.com/v/stackstate-saas/ "StackState Self-Hosted only")
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 
