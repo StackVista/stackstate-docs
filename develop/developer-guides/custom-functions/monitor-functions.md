@@ -47,6 +47,7 @@ The supported fields are:
 - **script** - names or lists out the concrete algorithm to use for this computation; currently, monitors only support scripts of type `ScriptFunctionBody` written using the Groovy scripting language.
 
 ### Parameters
+
 A monitor function can use any number of parameters of an array of available types. These parameter types are not unlike the ones available to the [Check functions](check-functions.md) with the one notable exception being the `SCRIPT_METRIC_QUERY` parameter type.
 
 `SCRIPT_METRIC_QUERY` parameter type represents a Telemetry Query and ensures that a well-formed Telemetry Query builder value is supplied to the function. Here's an example declaration of such a parameter:
@@ -462,6 +463,7 @@ After the function has been uploaded, it will be generally available for any mon
 
 ## See also
 
+* [Monitor STJ format](/develop/developer-guides/monitors/monitor-stj-file-format.md)
 * [StackState CLI](../../../setup/cli/README.md)
 * [StackState Template JSON \(STJ\)](../../reference/stj/README.md)
 * [Develop your own StackPacks](../../../stackpacks/sdk.md)
