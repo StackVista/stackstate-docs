@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Autonomous Anomaly Detector
@@ -30,13 +30,13 @@ Each identified anomaly is given a severity. This can be HIGH, MEDIUM or LOW. Th
 | 🟧 **MEDIUM** (orange) | Reported for anomalous data observed for a short period of time or slightly anomalous data observed for a longer period of time. Reported less frequently than LOW severity and more frequently than HIGH severity anomalies. Useful for root cause analysis and can offer additional insight into HIGH severity anomalies reported on the stream. |
 | 🟨 **LOW** (yellow) | Reported when slightly anomalous data is observed. The most frequently reported anomaly severity. Less frequent occurrences of LOW severity anomalies indicates a higher reliability of anomaly reports from the AAD. |
 
-![HIGH, MEDIUM and LOW severity anomalies](/.gitbook/assets/v46_anomaly_severity_inspector.png)
+![HIGH, MEDIUM and LOW severity anomalies](/.gitbook/assets/v50_anomaly_severity_inspector.png)
 
 ### Anomaly events
 
-When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream Anomaly` event is generated. Anomaly events are listed on the Events Perspective and will also be reported as one of the [Probable Causes for any associated problem](../../use/problem-analysis/problem_investigation.md#probable-causes). Clicking on the event will open the Event Details pane on the right-hand side of the screen.
+When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream Anomaly` event is generated. Anomaly events are listed on the Events Perspective and will also be reported as one of the [Probable Causes for any associated problem](../../use/problem-analysis/problem_investigation.md#probable-causes). Select an event to display detailed information about it in the right panel **Selection details** tab.
 
-![Metric stream anomaly event details pane](../../.gitbook/assets/v46_event_metric_stream_anomaly.png)
+![Metric stream anomaly event detailed information](../../.gitbook/assets/v50_event_metric_stream_anomaly.png)
 
 * **Metric Stream** - The name of the metric stream on which the anomaly was detected.
 * **Severity** - The [anomaly severity](#anomaly-severity). Anomaly events are only generated for HIGH severity anomalies.
@@ -44,6 +44,30 @@ When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream An
 * **Anomaly interval** - The time period during which anomalous behaviour was detected. This is also shaded on the metric chart.
 * **Description** - A description of the observed anomaly.
 * **Elements** - The name of the element (or elements) on which the metric stream is attached
+
+### Anomaly feedback
+
+{% hint style="info" %}
+Note that feedback is not used to train the running instance of the AAD.
+{% endhint %}
+
+Models are selected by the AAD and optimized for each metric stream. The quality of the anomalies reported is determined to a large extent by how well the selected model describes the stream that it runs on. The StackState team works with representative datasets to develop new models and optimize the hyperparameters used for model selection and training the AAD. 
+
+To enable improvement of the AAD, users can add feedback to reported anomalies. This feedback can then be used by StackState to assist in the ongoing development of the AAD.
+
+{% hint style="success" "self-hosted info" %}
+
+Use the StackState CLI to [export anomaly feedback](/configure/anomaly-detection/export-anomaly-feedback.md) ready to send to StackState.
+
+{% endhint %}
+
+The feedback sent to StackState consists of:
+* **Thumbs-up, Thumbs-down** votes - Each user can cast one vote per reported anomaly.
+* **Comments** - Free-form text entered by users. Note that any comments added to an anomaly will be included in the feedback sent to StackState. Take care not to include sensitive data in comments.
+* **Anomaly details** - The description, interval, severity (score), model information, metric query and element, stream names.
+* **Metric data** - Data from the metric stream leading up to the anomaly.
+
+![Add feedback to an anomaly](/.gitbook/assets/v50_anomaly_feedback.png)
 
 ## Installation
     
@@ -55,19 +79,19 @@ When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream An
 
 ### Install the AAD StackPack
 
-To install the AAD StackPack, simply press the INSTALL button. No other actions need to be taken. A [training period](aad.md#training-period) is required before AAD can begin to report anomalies.
+To install the AAD StackPack, simply press the **INSTALL** button. No other actions need to be taken. A [training period](aad.md#training-period) is required before AAD can begin to report anomalies.
 
 ### Training period
 
-The AAD will need to train on your data before it can begin reporting anomalies. With data collected in 1 minute buckets, the AAD requires a 2 hour training period. If historic data exists for relevant metric streams, this will also be used for training the AAD. In this case, the first results can be expected within an hour.  Up to a day of data is used for training.  After the initial training, the AAD will continuously refine its model and adapt to changes in the data.
+The AAD will need to train on your data before it can begin reporting anomalies. With data collected in 1 minute buckets, the AAD requires a 2 hour training period. If historic data exists for relevant metric streams, this will also be used for training the AAD. In this case, the first results can be expected within an hour.  Up to a day of data is used for training.  After the initial training, the AAD will continuously refine its model and adapt to any changes in the data.
 
 ## Frequently Asked Questions
 
 ### How are metric streams selected?
 
-The AAD scales to large environments by autonomously prioritizing metric streams based on its knowledge of the 4T data model and user feedback. The metric stream selection algorithm ranks metric streams based on the criteria below:
+The AAD scales to large environments by autonomously prioritizing metric streams based on its knowledge of the 4T data model and the stream priority defined by users. The metric stream selection algorithm ranks metric streams based on the criteria below:
 
-* The top ranking is given to metric streams with [anomaly health checks](../../use/health-state/anomaly-health-checks.md).
+* The top ranking is given to metric streams with [anomaly health checks](../../use/checks-and-monitors/anomaly-health-checks.md).
 * Components in views that have the most stars by the most users are ranked highest.
 * From those components, the metric streams with the highest priorities are ranked highest. See [how to set the priority for a stream](../../use/metrics-and-events/set-telemetry-stream-priority.md).
 * Anomaly detection will be disabled on streams if more than 20% of their time is flagged as anomalous.
@@ -85,11 +109,11 @@ After an initial [training period](aad.md#training-period), the AAD ensures that
 
 ### Can anomalies trigger alerts?
 
-Yes. The AAD itself does not alert on anomalies found, but [anomaly health checks](../../use/health-state/anomaly-health-checks.md) can be added to components to automatically change the health status of the component to `DEVIATING`. This health state change event can then trigger notifications by [adding an event handler](../../use/stackstate-ui/views/manage-event-handlers.md) to a view.
+Yes. The AAD itself does not alert on anomalies found, but [anomaly health checks](../../use/checks-and-monitors/anomaly-health-checks.md) can be added to components to automatically change the health status of the component to `DEVIATING`. This health state change event can then trigger notifications by [adding an event handler](../../use/stackstate-ui/views/manage-event-handlers.md) to a view.
 
 ## Uninstall
 
-To uninstall the AAD StackPack, simply press the UNINSTALL button. No other actions need to be taken.
+To uninstall the AAD StackPack, simply press the **UNINSTALL** button. No other actions need to be taken.
 
 ## Release Notes
 
@@ -101,4 +125,4 @@ To uninstall the AAD StackPack, simply press the UNINSTALL button. No other acti
 ## See also
 
 * [Anomaly detection](../../use/concepts/anomaly-detection.md)
-* [Anomaly health checks](../../use/health-state/anomaly-health-checks.md)
+* [Anomaly health checks](../../use/checks-and-monitors/anomaly-health-checks.md)

@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 ## Overview 
@@ -15,7 +15,7 @@ Before you start the installation of KOTS and StackState:
 
   - A 100GB partition.
   - 50GB of space available for `/var/lib`.
-  - A separate disk of 500GB mounted at `/var/lib/longhorn`.
+  - A separate disk of 600GB mounted at `/var/lib/longhorn`.
   - For an offline/Airgap install, at least 25GB available for `/tmp`.
 
 ## Install KOTS (online install)
@@ -34,45 +34,57 @@ To install KOTS and StackState, you need to have:
 
 ### Installation
 
-  1. Connect to the master node of your cluster via SSH and run the command:
-      
-      ```
-      curl -sSL https://k8s.kurl.sh/stackstate-beta | sudo bash
-      ```
+1. Connect to the master node of your cluster via SSH and run the command:
+    ```
+    curl -sSL https://k8s.kurl.sh/stackstate-beta | sudo bash
+    ```
 
-      This command will download and set up the embedded Kubernetes cluster. It will take 15-20 minutes to run, after which the system will show some commands to allow you to connect the other nodes. It will also output the following information that will be required later:
-        - The commands needed to set up worker and master nodes.
-        - A password that should be saved. This will be used later to access the KOTS console.
- 
-  2. Once the install has completed on the master node, copy/paste the commands provided to add the extra workers and, if running HA, optional master nodes as appropriate. The command will be similar to this:
-   
-     ```
-     # Example Command
-     curl -sSL https://kurl.sh/stackstate-beta/join.sh | sudo bash -s \
-     kubernetes-master-address=1.2.3.4:6444 \
-     kubeadm-token=asdfasdfasdf \
-     kubeadm-token-ca-hash=sha256:a1b10bc55692dfa88c53odkdd69698fdec03009c9cd96d472851cf43f0a \
-     docker-registry-ip=10.1.2.3.4 \
-     kubernetes-version=v1.21.9 \
-     secondary-host=172.31.1.1 \
-     secondary-host=172.31.1.2 \
-     primary-host=172.31.3.4 \
-     primary-host=172.31.5.6 \
-     secondary-host=172.31.5.7 \
-     primary-host=172.31.9.10 \
-     secondary-host=172.31.11.12 \
-     secondary-host=172.31.12.13
-     ```  
+    This command will download and set up the embedded Kubernetes cluster. It will take 15-20 minutes to run, after which the system will show some commands to allow you to connect the other nodes. It will also output the following information that will be required later:
+      * The commands needed to set up worker and master nodes.
+      * A password that should be saved. This will be used later to access the KOTS console.
+
+1. Once the install has completed on the master node, copy/paste the commands provided to add the extra workers and, if running HA, optional master nodes as appropriate. The command will be similar to this:
+    ```
+    # Example Command
+    curl -sSL https://kurl.sh/stackstate-beta/join.sh | sudo bash -s \
+    kubernetes-master-address=1.2.3.4:6444 \
+    kubeadm-token=asdfasdfasdf \
+    kubeadm-token-ca-hash=sha256:a1b10bc55692dfa88c53odkdd69698fdec03009c9cd96d472851cf43f0a \
+    docker-registry-ip=10.1.2.3.4 \
+    kubernetes-version=v1.21.9 \
+    secondary-host=172.31.1.1 \
+    secondary-host=172.31.1.2 \
+    primary-host=172.31.3.4 \
+    primary-host=172.31.5.6 \
+    secondary-host=172.31.5.7 \
+    primary-host=172.31.9.10 \
+    secondary-host=172.31.11.12 \
+    secondary-host=172.31.12.13
+    ```  
+
+    **If you do not see these commands**, continue to complete the steps described below. New commands to add extra nodes can be generated later from **Cluster Management** in the KOTS Admin panel. For example, [http://1.2.3.4:8800/cluster/manager](http://1.2.3.4:8800/cluster/manager).
+
+1. Once all master and worker nodes have connected to the cluster, run the following script on the master node. This script will ensure that only 10Gi of disk space on `/var/lib/longhorn` is reserved by Longhorn:
+    ```
+    #!/usr/bin/env bash
+    set -Exo pipefail
+
+    NODE_TYPE="nodes.v1beta1.longhorn.io"
+    LONGHORN_NAMESPACE="longhorn-system"
+    STORAGE_RESERVED=10737418240 # 10 Gi
+
+    NODES=$(kubectl get ${NODE_TYPE} -n ${LONGHORN_NAMESPACE} -o name)
+
+    kubectl patch -n ${LONGHORN_NAMESPACE} ${NODES} --type='json'  -p "[{\"op\": \"replace\", \"path\": \"/spec/disks/default-disk-ca1000000000/storageReserved\", \"value\": ${STORAGE_RESERVED}}]"
+    ```
   
-     **If you do not see these commands**, continue to complete the steps described below. New commands to add extra nodes can be generated later from **Cluster Management** in the KOTS Admin panel. For example, [http://1.2.3.4:8800/cluster/manager](http://1.2.3.4:8800/cluster/manager).
+1. Log in to the URL provided for the KOTS Admin Panel. This will be of the form [http://1.2.3.4:8800](http://1.2.3.4:8800). Use the password generated in step 1.
 
-  3. Log in to the URL provided for the KOTS Admin Panel. This will be of the form [http://1.2.3.4:8800](http://1.2.3.4:8800). Use the password generated in step 1.
+1. Skip/set up the TLS certificate as needed following the onscreen prompts.
 
-  4. Skip/set up the TLS certificate as needed following the onscreen prompts.
+1. Upload the StackState KOTS license file to the KOTS UI. If you do not have a license file, or the incorrect type please contact your StackState sales person or [StackState support](https://support.stackstate.com/).
 
-  5. Upload the StackState KOTS license file to the KOTS UI. If you do not have a license file, or the incorrect type please contact your StackState sales person or [StackState support](https://support.stackstate.com/).
-
-  6. The KOTS UI will then direct you to the KOTS Admin screen to configure StackState.
+1. The KOTS UI will then direct you to the KOTS Admin screen to configure StackState.
 
 
    

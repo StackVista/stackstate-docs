@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Explore mode
@@ -10,11 +10,11 @@ The StackState explore mode provides an unfiltered view of your topology with. T
 
 Up to 10,000 components can be displayed at any time, if there are already more items than this in your topology, you will need to [add a filter](explore_mode.md#add-a-filter) before any data will be displayed.
 
-![Explore mode](../../.gitbook/assets/v46_explore_mode.png)
+![Explore mode](../../.gitbook/assets/v50_explore_mode.png)
 
 ## Perspectives
 
-![Perspectives](../../.gitbook/assets/v46_perspective_buttons.png)
+![Perspectives](../../.gitbook/assets/v50_perspective_buttons.png)
 
 As in any StackState view, explore mode gives you access to data from your IT landscape in all available [StackState perspectives](../concepts/perspectives.md). Each perspective shows different data from the filtered \(or unfiltered\) components. Use the perspective buttons across the top of the screen to switch between them:
 
@@ -25,13 +25,13 @@ As in any StackState view, explore mode gives you access to data from your IT la
 
 ## Add a filter
 
-![View Filters](../../.gitbook/assets/v46_view_filters.png)
+![View Filters](../../.gitbook/assets/v50_view_filters.png)
 
-You can zoom in on a specific area of your IT landscape using basic filters by writing an advanced filter query. Click the **View Filters** icon on the left of the screen to open the [View Filters pane](filters.md).
+You can zoom in on a specific area of your IT landscape using basic filters by writing an advanced filter query. Click the **View Filters** icon on the left to open the [View Filters panel](filters.md).
 
 ## Save filters as a view
 
-![Save view as](../../.gitbook/assets/v46_save_view_as.png)
+![Save view as](../../.gitbook/assets/v50_save_view_as.png)
 
 When you change the displayed components using a filter, the **Save view** button will appear at the top of the screen. This allows you to save the applied filters and access them directly from the [Views](views/about_views.md) menu.
 

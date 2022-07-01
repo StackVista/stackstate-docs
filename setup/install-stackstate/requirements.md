@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Requirements
@@ -8,7 +8,7 @@ description: StackState Self-hosted v4.6.x
 
 This page details the requirements for all supported installations of StackState:
 
-* [Kuberentes and OpenShift](#kubernetes-and-openshift)
+* [Kubernetes and OpenShift](#kubernetes-and-openshift)
 * [KOTS](#kots)
 * [Linux](#linux)
 

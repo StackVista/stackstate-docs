@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # HTTP - script API
@@ -14,21 +14,21 @@ The permission `execute-restricted-scripts` is required to execute scripts using
 
 Submit HTTP get request.
 
-**Args:**
+### Args
 
 * `uri` - uri of the HTTP server.
 
-**Builder methods:**
+### Builder methods
 
 * `.timeout(time: Duration)` - make the request timeout after [time](time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
 * `.header(name: String, value: String)` - specify the header.
 
-**Return type:**
+### Return type
 
 * Async: HttpScriptApiTextResponse or HttpScriptApiJsonResponse if `.jsonResponse()` is used.
 
-Example:
+### Examples
 
 ```text
 Http.get("https://www.google.com/?q=apples")
@@ -41,11 +41,11 @@ Http.get("https://www.google.com/?q=apples")
 
 Submit HTTP put request.
 
-**Args:**
+### Args
 
 * `uri` - uri of the HTTP server.
 
-**Builder methods:**
+### Builder methods
 
 * `.timeout(time: Duration)` - make the request timeout after [time](time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
@@ -56,11 +56,11 @@ Submit HTTP put request.
 * `.jsonBody()` - get the body of the JSON response.
 * `.jsonResponse()`  - get the JSON response.
 
-**Return type:**
+### Return type
 
 * `AsyncScriptResult[HttpScriptApiTextResponse]` or `AsyncScriptResult[HttpScriptApiJsonResponse]` if `.jsonResponse()` is used.
 
-Example:
+### Examples
 
 ```text
 Http.put("http://http_server:8080/api")
@@ -76,11 +76,11 @@ Http.put("http://http_server:8080/api")
 
 Submit HTTP post request.
 
-**Args:**
+### Args
 
 * `uri` - uri of the HTTP server.
 
-**Builder methods:**
+### Builder methods
 
 * `.timeout(time: Duration)` - make the request timeout after [time](time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
@@ -91,11 +91,11 @@ Submit HTTP post request.
 * `.jsonBody()` - get the body of the JSON response.
 * `.jsonResponse()` - get the JSON response.
 
-**Return type:**
+### Return type
 
 * `AsyncScriptResult[HttpScriptApiTextResponse]` or `AsyncScriptResult[HttpScriptApiJsonResponse]` if `.jsonResponse()` is used.
 
-Example:
+### Examples
 
 ```text
 Http.post("http://http_server:8080/api")
@@ -115,21 +115,21 @@ Http.post("http://http_server:8080/api")
 
 Submit HTTP delete request.
 
-**Args:**
+### Args
 
 * `uri` - uri of the HTTP server.
 
-**Builder methods:**
+### Builder methods
 
 * `.timeout(time: Duration)` - make the request timeout after [time](time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
 * `.header(name: String, value: String)` - specify the header.
 
-**Return type:**
+### Return type
 
 * `AsyncScriptResult[HttpScriptApiTextResponse]` or `AsyncScriptResult[HttpScriptApiJsonResponse]` if `.jsonResponse()` is used.
 
-Example:
+### Examples
 
 ```text
 Http.delete("http://http_server:8080/api")
@@ -153,11 +153,11 @@ Http.options("http://http_server:8080/api")
 
 Submit HTTP patch request.
 
-**Args:**
+### Args
 
 * `uri` - uri of the HTTP server.
 
-**Builder methods:**
+### Builder methods
 
 * `.timeout(time: Duration)` - make the request timeout after [time](time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
@@ -168,11 +168,11 @@ Submit HTTP patch request.
 * `.jsonBody()` - get the body of the JSON response.
 * `.jsonResponse()`  - get the JSON response.
 
-**Return type:**
+### Return type
 
 * `AsyncScriptResult[HttpScriptApiTextResponse]` or `AsyncScriptResult[HttpScriptApiJsonResponse]` if `.jsonResponse()` is used.
 
-Example:
+### Examples
 
 ```text
 Http.patch("http://http_server:8080/api")
@@ -186,21 +186,21 @@ Http.patch("http://http_server:8080/api")
 
 Submit HTTP head request.
 
-**Args:**
+### Args
 
 * `uri` - uri of the HTTP server.
 
-**Builder methods:**
+### Builder methods
 
 * `.timeout(time: Duration)` - make the request timeout after [time](time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
 * `.header(name: String, value: String)` - specify the header.
 
-**Return type:**
+### Return type
 
 * `AsyncScriptResult[HttpScriptApiTextResponse]` or `AsyncScriptResult[HttpScriptApiJsonResponse]` if `.jsonResponse()` is used.
 
-Example:
+### Examples
 
 ```text
 Http.head("http://http_server:8080/api")

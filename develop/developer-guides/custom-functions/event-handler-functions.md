@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Event handler functions
@@ -31,7 +31,7 @@ Advanced StackState users can write their own custom event handler functions tha
 4. Click **CREATE** to save the event handler function. 
    * The new event handler function will be listed on the **Event Handler Functions** page and available in the **Run event handler** drop-down when you [add an event handler](/use/stackstate-ui/views/manage-event-handlers.md#add-event-handler) that listens to one of the configured **Supported Event Types**.
 
-![Add a custom event handler function](../../../.gitbook/assets/v46_event_handler_functions.png)
+![Add a custom event handler function](../../../.gitbook/assets/v50_event_handler_functions.png)
 
 ## Parameters
 

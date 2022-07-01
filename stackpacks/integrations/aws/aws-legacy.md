@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # AWS \(Legacy\)
@@ -12,7 +12,7 @@ The AWS \(Legacy\) StackPack has been deprecated. It is recommended to use the [
 
 Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in-depth monitoring of AWS services.
 
-![Data flow](../../../.gitbook/assets/stackpack-aws.png)
+![Data flow](../../../.gitbook/assets/stackpack-aws.svg)
 
 * Three AWS Lambdas collect topology data from AWS and push this to StackState:
   * `stackstate-topo-cron` scans AWS resources every hour using the AWS APIs and pushes this to StackState.
@@ -232,7 +232,7 @@ When the AWS integration is enabled, three [views](../../../use/stackstate-ui/vi
 
 ### AWS actions in StackState
 
-Components retrieved from AWS will have an additional [action](/use/stackstate-ui/perspectives/topology-perspective.md#actions) available in the component context menu and component details pane on the right-hand side of the screen. This provides a deep link through to the relevant AWS console at the correct point.
+Components retrieved from AWS will have an additional [action](/use/stackstate-ui/perspectives/topology-perspective.md#actions) available in the component context menu and in the right panel **Selection details** tab when the component is selected. This provides a deep link through to the relevant AWS console at the correct point.
 
 For example, in the StackState Topology Perspective:
 

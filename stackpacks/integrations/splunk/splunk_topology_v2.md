@@ -1,29 +1,29 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
-# Splunk topology V2
+# Splunk Topology V2
 
 {% hint style="info" %}
-This page describes the Splunk topology V2 integration with StackState Agent V2.
+This page describes the Splunk Topology V2 integration with StackState Agent V2.
 
-**If you are currently running a Splunk topology V1 integration using StackState Agent V1:** See the instructions on how to configure the [Splunk topology V1](splunk_topology.md) check or [upgrade](splunk_topology_upgrade_v1_to_v2.md) your integration to use StackState Agent V2.
+**If you are currently running a Splunk Topology V1 integration using StackState Agent V1:** See the instructions on how to configure the [Splunk Topology V1](splunk_topology.md) check or [upgrade](splunk_topology_upgrade_v1_to_v2.md) your integration to use StackState Agent V2.
 {% endhint %}
 
 ## Overview
 
-The StackState Splunk topology V2 integration collects topology from Splunk by executing Splunk saved searches from [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md). In order to receive Splunk topology data in StackState, configuration needs to be added to both Splunk and StackState Agent V2:
+When the [Splunk StackPack](splunk_stackpack.md) has been installed in StackState, you can configure the Splunk Topology V2 check on StackState Agent V2 to begin collecting Splunk topology data.
+
+The StackState Splunk Topology V2 integration collects topology from Splunk by executing Splunk saved searches from [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md). In order to receive Splunk topology data in StackState, configuration needs to be added to both Splunk and StackState Agent V2:
 
 * [In Splunk](splunk_topology_v2.md#splunk-saved-search) - there should be at least one saved search that generates the topology data you want to retrieve.
 * [In StackState Agent V2](splunk_topology_v2.md#agent-check) - a Splunk topology check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
 
 The Splunk topology check on StackState Agent V2 will execute all configured Splunk saved searches periodically to retrieve a snapshot of the topology at the current time.
 
-Splunk is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
-
 ## Splunk saved search
 
-In the Splunk Topology V2 integration, StackState Agent V2 executes the Splunk saved searches configured in the [Splunk topology V2 Agent check](splunk_topology_v2.md#agent-check) and pushes retrieved data to StackState as components and relations. The fields from the results of a saved search that are sent to StackState are described below.
+In the Splunk Topology V2 integration, StackState Agent V2 executes the Splunk saved searches configured in the [Splunk Topology V2 Agent check](splunk_topology_v2.md#agent-check) and pushes retrieved data to StackState as components and relations. The fields from the results of a saved search that are sent to StackState are described below.
 
 ### Topology components
 
@@ -108,7 +108,7 @@ The example Splunk saved search above would result in the following topology rel
 
 ### Configure the Splunk V2 topology check
 
-To enable the Splunk topology V2 integration and begin collecting component and relation data from your Splunk instance, the Splunk topology V2 check must be configured on StackState Agent V2. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
+To enable the Splunk Topology V2 integration and begin collecting component and relation data from your Splunk instance, the Splunk Topology V2 check must be configured on StackState Agent V2. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
 
 {% hint style="info" %}
 Example Splunk topology Agent check configuration file:  

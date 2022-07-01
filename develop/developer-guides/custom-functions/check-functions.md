@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Check functions
 
 ## Overview
 
-Check functions are run by [health checks](../../../use/health-state/add-a-health-check.md) in StackState. They can process metric data, logs or events to trigger a change in health status of a component or relation. A number of check functions are shipped together with StackState, or you can write your own check function as a groovy script.
+Check functions are run by [health checks](../../../use/checks-and-monitors/add-a-health-check.md) in StackState. They can process metric data, logs or events to trigger a change in health status of a component or relation. A number of check functions are shipped together with StackState, or you can write your own check function as a groovy script.
 
 ## Create a custom check function
 
@@ -20,10 +20,10 @@ To add a custom check function:
    * **User parameters** - These are parameters that must be entered by the user when a check is added to a component. For details, see the section on [parameters](check-functions.md#parameters).
    * **Return** - The type of state returned by the function. 
    * **Script** - The groovy script run by the function. Returns a [result](check-functions.md#result).
-   * **Identifier** - Optional. A unique identifier \(URN\) for the check function. For details, see [identifiers](../../../configure/identifiers.md#about-identifiers-in-stackstate).
+   * **Identifier** - Optional. A unique identifier \(URN\) for the check function. For details, see [identifiers](../../../configure/topology/identifiers.md#about-identifiers-in-stackstate).
 4. Click **CREATE** to save the check function.
    * The check function will be listed in the StackState UI page **Settings** &gt; **Functions** &gt; **Check Functions**. It can be exported from here to add to a template and include in a custom StackPack.
-   * If return type `Health state` was selected, the new check function will be available when you [add a StackState health check](../../../use/health-state/add-a-health-check.md).
+   * If return type `Health state` was selected, the new check function will be available when you [add a StackState health check](../../../use/checks-and-monitors/add-a-health-check.md).
 
 ![Add a custom check function](../../../.gitbook/assets/add-check-function.png)
 
@@ -259,7 +259,7 @@ The example below shows a check function that listens to anomaly events. The fun
 ## See also
 
 * [Send notifications in response to events](/use/stackstate-ui/views/manage-event-handlers.md)
-* [Add a health check to a component or relation](../../../use/health-state/add-a-health-check.md)
+* [Add a health check to a component or relation](../../../use/checks-and-monitors/add-a-health-check.md)
 * [Telemetry streams](../../../use/metrics-and-events/telemetry_streams.md)
 * [Autonomous Anomaly Detector](../../../stackpacks/add-ons/aad.md)
 * [StackPack development](../stackpack/)

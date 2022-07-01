@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Push data to StackState from an external system
@@ -70,11 +70,11 @@ Press `ctrl-c` to stop the agent.
 
 When you log into your StackState instance, go to the **Explore Mode**. Using the topology filter, select all topology with the `example` label. This should result in a topology similar to the following:
 
-![](../../.gitbook/assets/example-topology.png)
+![](../../.gitbook/assets/v50_example-topology.png)
 
-Note that the components you see are hardcoded in the `example` agent check. The components appear in the **Example** domain and **Applications** and **Hosts** layers. The check produces two application components that StackState has grouped together. This is shown as a hexagon icon. Click on the group to access the individual components that make up the group.
+Note that the components you see are hardcoded in the `example` agent check. The components appear in the **Example** domain and **Applications** and **Hosts** layers. The check produces two application components that StackState has grouped together. This is shown as a circle icon. Select the group to display the individual components that make up the group in the right panel **Selection details** tab.
 
-Click on one of the components to open the **Component Details pane**. You'll see the component's labels and other meta-data the check sent.
+Select a component to display detailed information about it in the right panel **Selection details** tab. You'll see the component's labels and other metadata that the check sent.
 
 ## Merge topology
 
@@ -88,13 +88,13 @@ In our sample check, this code defines the extra identifiers:
     ...
 ```
 
-Our documentation contains a description of the [identifiers used by various StackPacks](../../configure/identifiers.md).
+Our documentation contains a description of the [identifiers used by various StackPacks](../../configure/topology/identifiers.md).
 
 ## Add a custom telemetry stream to a component
 
 The sample check we are running also sends telemetry \(metrics\) to StackState, one metric stream for each of the application components. Let's find that telemetry data and map it to one of our applications.
 
-Find the sample check's components in StackState and click on the **some-application-1** component. The Component Details pane opens on the right, showing the metadata of this component.
+Find the sample check's components in StackState and select the **some-application-1** component. Detailed information about the component is displayed in the right panel **Selection details** tab, showing the metadata of this component.
 
 In the **Telemetry** section, click **ADD NEW STREAM**. This opens the Stream Wizard and allows you to add a new stream. Enter **Gauge** as the name for the stream and select the **StackState Metrics** datasource.
 
@@ -106,15 +106,15 @@ In the Stream Creation screen, fill in the following parameters:
 
 The stream preview on the right should show the incoming metric values. Here is what that looks like:
 
-![](../../.gitbook/assets/v46_example-telemetry-stream.png)
+![](../../.gitbook/assets/v50_example-telemetry-stream.png)
 
-Click on the **Save** button to permanently add the stream to the **some-application-1** component.
+Click the **Save** button to permanently add the stream to the **some-application-1** component.
 
 ## Add a custom telemetry stream to all components of a type
 
 The **some-application-1** component now has our telemetry stream. The sample check, however, also produces telemetry for the second application component. To map a stream to all components of a certain type, we need to update the component's _template_.
 
-Select the **some-application-1** component again and in the Component Details pane, find the triple dots menu in the top-right corner. There, select the **Edit template** option. This brings up the **Template Editor**.
+Select the **some-application-1** component again to display detailed information about it in the right panel **Selection details** tab. Find the triple dots menu in the top-right corner. There, select the **Edit template** option. This brings up the **Template Editor**.
 
 In the Template Editor you can edit the template used to create components based on data coming in from your sample check. It shows the following information:
 
@@ -165,7 +165,7 @@ The end result should look something like this:
 }],
 ```
 
-![](../../.gitbook/assets/v46_example-template-editor.png)
+![](../../.gitbook/assets/v50_example-template-editor.png)
 
 Go ahead and save the template. Be aware that you may need to _unlock_ it before this succeeds.
 
@@ -198,7 +198,7 @@ switch(healthState) {
 
 Here is what that looks like:
 
-![](../../.gitbook/assets/v46_example-check-function.png)
+![](../../.gitbook/assets/v50_example-check-function.png)
 
 Finally save the check function.
 
@@ -210,7 +210,7 @@ TS=`date +%s`; cat custom-event.json | sed -e "s/##TIMESTAMP##/$TS/" | curl -H "
 
 Just execute a few of these so we have a few datapoints to work with.
 
-Next, let's create a _log stream_ for the component. Find the **a-host** component and open the Component Details pane. In the **Telemetry** section, click **ADD NEW STREAM**. This opens the Stream Wizard and allows you to add a new stream. Enter **External monitor** as the name for the stream and select the **StackState Generic Events** datasource.
+Next, let's create a _log stream_ for the component. Find the **a-host** component and select it to display detailed information about the component in the right panel **Selection details** tab. In the **Telemetry** section, click **ADD NEW STREAM**. This opens the Stream Wizard and allows you to add a new stream. Enter **External monitor** as the name for the stream and select the **StackState Generic Events** datasource.
 
 In the Stream Creation screen, select to output as a **Log stream** at the top. Then fill in the following parameters:
 
@@ -219,7 +219,7 @@ In the Stream Creation screen, select to output as a **Log stream** at the top. 
 
 Here is what that looks like:
 
-![](../../.gitbook/assets/v46_example-log-stream-editor.png)
+![](../../.gitbook/assets/v50_example-log-stream-editor.png)
 
 You should already see the test events you sent in the log stream. Go ahead and save the stream.
 
@@ -235,7 +235,7 @@ You can change the `alert_level` field in the `custom-event.json` file to try ou
 
 When the component turns `CRITICAL`, this is what you should see:
 
-![](../../.gitbook/assets/example-health-state.png)
+![](../../.gitbook/assets/v50_example-health-state.png)
 
 ## Cleaning your StackState instance
 

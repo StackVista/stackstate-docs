@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Send health data over HTTP
 
 ## Overview
 
-StackState can synchronize health information from your own data sources either via HTTP or the [StackState CLI](/setup/cli-install.md).
+StackState can synchronize health information from your own data sources either via HTTP or the [StackState CLI](/setup/cli/README.md).
 
 ## StackState Receiver API
 
@@ -15,22 +15,24 @@ The StackState Receiver API accepts topology, telemetry and health data in a com
 {% tabs %}
 {% tab title="Kubernetes" %}
 ```text
-https://<baseUrl>/receiver/stsAgent/intake?api_key=<API_KEY>
+https://<STACKSTATE_BASE_URL>/receiver/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>
 ```
 
-Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see [Kubernetes install - configuration parameters](/setup/install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml).
+The `<STACKSTATE_BASE_URL>` and `<STACKSTATE_RECEIVER_API_KEY>` are set during StackState installation, for details see [Kubernetes install - configuration parameters](/setup/install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml).
 {% endtab %}
 
 {% tab title="Linux" %}
 ```text
-https://<baseUrl>:<receiverPort>/stsAgent/intake?api_key=<API_KEY>
+https://<STACKSTATE_BASE_URL>:<STACKSTATE_RECEIVER_PORT>/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>
 ```
 
-Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see [Linux install - configuration parameters](/setup/install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install).
+Both the `<STACKSTATE_BASE_URL>` and <STACKSTATE_RECEIVER_API_KEY>` are set during StackState installation, for details see [Linux install - configuration parameters](/setup/install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install).
 {% endtab %}
 {% endtabs %}
 
-## Common JSON object
+## JSON 
+
+### Common JSON object
 
 Topology, telemetry and health data are sent to the receiver API via HTTP POST. There is a common JSON object used for all messages.
 
@@ -46,6 +48,8 @@ Topology, telemetry and health data are sent to the receiver API via HTTP POST. 
 }
 ```
 
+### JSON health payload
+
 StackState accepts health data based on a chosen [consistency model](/configure/health/health-synchronization.md#consistency-models). The message that can be sent for each model are described on the pages below:
 
 * [Repeat Snapshots JSON](/configure/health/send-health-data/repeat_snapshots.md)
@@ -54,8 +58,7 @@ StackState accepts health data based on a chosen [consistency model](/configure/
 
 ## See also
 
-* [Install the StackState CLI](/setup/cli-install.md)
-* [StackState CLI reference](/develop/reference/cli_reference.md)
+* [Install the StackState CLI](/setup/cli)
 * [Send topology data over HTTP](/configure/topology/send-topology-data.md)
 * [Send telemetry data over HTTP](/configure/telemetry/send_telemetry.md)
 

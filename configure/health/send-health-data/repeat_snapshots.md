@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 ## Overview
@@ -15,7 +15,7 @@ Health can be sent to the StackState Receiver API using the `"health"` property 
 ```javascript
 
 {
-   "apiKey":"your api key",
+   "apiKey":"<STACKSTATE_RECEIVER_API_KEY>",
    "collection_timestamp":1585818978,
    "internalHostname":"lnx-343242.srv.stackstate.com",
    "events":{},
@@ -46,7 +46,7 @@ Health can be sent to the StackState Receiver API using the `"health"` property 
             "message": "Provisioning failed. [Learn more](https://www.any-link.com)",
             "health": "critical",
             "topologyElementIdentifier": "server-2",
-            "name": "Health Monitor"
+            "name": "Health monitor"
           }
         ]
       }
@@ -63,7 +63,7 @@ Every health Repeat Snapshots data payload has the following details:
   * **expiry_interval_s** - Time in seconds. The time to wait after the last update before an external check is deleted by StackState. Required when using sub streams.
 * **stop_snapshot** - Optional. An end of a snapshot will be processed after processing the`check_states`.
 * **stream** - Object providing identification regarding which snapshots and `check_states` belong together. It contains the following fields:
-  * **urn** - Data source and stream ID encoded as a StackState [URN](/configure/identifiers.md) that matches the following convention: `urn:health:<sourceId>:<streamId>` where `<sourceId>` is the name if the external data source and `<streamId>` is a unique identifier for the health data stream.
+  * **urn** - Data source and stream ID encoded as a StackState [URN](/configure/topology/identifiers.md) that matches the following convention: `urn:health:<sourceId>:<streamId>` where `<sourceId>` is the name if the external data source and `<streamId>` is a unique identifier for the health data stream.
   * **sub_stream_id** - Optional. Identifier for a sub set of the stream health data. When the stream data is distributed and reported by several agents, this allows snapshot lifecycles per `sub_stream_id`
 * **check_states** - A list of check states. Each check state can have the following fields:
   * **checkStateId** - Identifier for the check state in the external system
@@ -75,13 +75,13 @@ Every health Repeat Snapshots data payload has the following details:
 
 ## Send health to StackState
 
-Health can be sent in one JSON message via HTTP POST or using the StackState CLI command [sts health send](/develop/reference/cli_reference.md#sts-health-send). In the example below, a snapshot containing two check states is sent to StackState from a single external monitoring system.
+Health can be sent in one JSON message via HTTP POST or using the `stac` CLI command `stac health send`. In the example below, a snapshot containing two check states is sent to StackState from a single external monitoring system.
 
 {% tabs %}
 {% tab title="curl" %}
 ```javascript
 curl -X POST \
- 'http://<stackstateURL>/stsAgent/intake?api_key=<API_KEY>' \
+ 'http://<STACKSTATE_BASE_URL>/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>' \
  -H 'Content-Type: application/json' \
  -d '{
   "collection_timestamp": 1548857167,
@@ -113,7 +113,7 @@ curl -X POST \
           "message": "Provisioning failed. [Learn more](https://www.any-link.com)",
           "health": "critical",
           "topologyElementIdentifier": "server-2",
-          "name": "Health Monitor"
+          "name": "Health monitor"
         }
       ]
     }
@@ -121,21 +121,27 @@ curl -X POST \
 }'
 ```
 {% endtab %}
-{% tab title="StackState CLI `sts health send`" %}
+{% tab title="CLI: stac" %}
 ```
-sts health send start urn:health:sourceId:streamId \
+stac health send start urn:health:sourceId:streamId \
   --repeat-interval-seconds 300
 
-sts health send check-state urn:health:sourceId:streamId \
+stac health send check-state urn:health:sourceId:streamId \
   checkStateId1 "Disk Usage" "server-1" deviating \
   --message "Deviating Server Running out of disk space" --consistency-model="REPEAT_SNAPSHOTS"
 
-sts health send check-state urn:health:sourceId:streamId \
-  checkStateId2 "Health Monitor" "server-2" critical \
+stac health send check-state urn:health:sourceId:streamId \
+  checkStateId2 "Health monitor" "server-2" critical \
   --message "Provisioning failed. [Learn more](https://www.any-link.com)" --consistency-model="REPEAT_SNAPSHOTS"
 
-sts health send stop urn:health:sourceId:streamId
+stac health send stop urn:health:sourceId:streamId
 ```
+**Not running the `stac` CLI yet?**
 
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 {% endtab %}
 {% endtabs %}

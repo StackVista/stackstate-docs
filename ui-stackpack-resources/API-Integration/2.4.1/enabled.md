@@ -47,4 +47,4 @@ To install more API-Integration Agents follow the instructions below.
 
 ### Uninstall
 
-To uninstall this API-Integration StackPack click on 'Uninstall'. This will remove all configuration to work with API-Integration Agents. The historical data will be preserved.
+To uninstall this API-Integration StackPack click **UNINSTALL**. This will remove all configuration to work with API-Integration Agents. The historical data will be preserved.

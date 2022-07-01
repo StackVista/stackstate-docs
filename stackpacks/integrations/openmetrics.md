@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # OpenMetrics
@@ -76,7 +76,7 @@ Example OpenMetrics Agent check configuration file:
 [openmetrics/conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/openmetrics/stackstate_checks/openmetrics/data/conf.yaml.example)
 {% endhint %}
 
-1. Edit the StackState Agent V2 configuration file `/etc/sts-agent/conf.d/openmetrics.d/conf.yaml` to include details of the OpenMetrics endpoint and the metrics to be retrieved.
+1. Edit the StackState Agent V2 configuration file `/etc/stackstate-agent/conf.d/openmetrics.d/conf.yaml` to include details of the OpenMetrics endpoint and the metrics to be retrieved.
    - **prometheus_url** - the URL exposing metrics in the OpenMetrics format
    - **namespace** - the namespace to be prepended to all metrics.
    - **metrics** - a list of metrics to be fetched from the OpenMetrics endpoint at `prometheus_url`. Either a string representing the metric name or a mapping to rename the metric`<EXPOSED_METRIC>:<SENT_METRIC>`. This list should contain at least one metric.
@@ -160,7 +160,7 @@ By default, all metrics are retrieved from the specified OpenMetrics endpoint an
 
 Retrieved metrics will not automatically be mapped to topology elements. They can be browsed using the [telemetry inspector](/use/metrics-and-events/browse-telemetry.md) or added to a component as a telemetry stream. Select the data source **StackState Multi Metrics** and type the configured `namespace` in the **Select** box to get a full list of all available metrics. 
 
-![Inspect OpenMetrics telemetry](/.gitbook/assets/v46_openmetrics_stream.png)
+![Inspect OpenMetrics telemetry](/.gitbook/assets/v50_openmetrics_stream.png)
 
 ### Events
 

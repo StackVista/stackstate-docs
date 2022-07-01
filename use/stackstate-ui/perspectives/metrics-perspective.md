@@ -1,23 +1,23 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Metrics Perspective
 
 The Metrics Perspective shows metrics for the selected [view](../views/about_views.md). StackState will automatically deliver all the relevant information for any part of your landscape, so you don't need to pre-define the streams you want to see.
 
-![Metrics Perspective](../../../.gitbook/assets/v46_metrics-perspective.png)
+![Metrics Perspective](../../../.gitbook/assets/v50_metrics-perspective.png)
 
 ## Component selection
 
 Metrics for up to **5** components can be displayed. When you open the Metrics Perspective, StackState will show the metrics for all components in your view. If there are more than 5 components in the view, StackState selects the top 5 components as follows:
 
-* The 5 components that most recently changed their health state to either CRITICAL or DEVIATING.
+* The 5 components that most recently changed their health state to either `CRITICAL` or `DEVIATING`.
 * If there are no unhealthy components, the 5 components that most recently changed their health state.
 
 You can manually change the components for which metrics are displayed using the **Component Selector**:
 
-![](../../../.gitbook/assets/v46_metrics-components-selector.png)
+![](../../../.gitbook/assets/v50_metrics-components-selector.png)
 
 The component selection can be adjusted as follows:
 
@@ -27,7 +27,7 @@ The component selection can be adjusted as follows:
 
 ## Filtering
 
-The **View Filters** pane on the left-hand side of the StackState UI can be used to filter the sub-set of topology for which metrics are displayed. 
+The **View Filters** panel on the left of the StackState UI can be used to filter the sub-set of topology for which metrics are displayed. 
 
 ➡️ [Learn more about Topology Filters](../filters.md#filter-topology)
 

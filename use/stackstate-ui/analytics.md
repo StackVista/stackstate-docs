@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Analytics
@@ -37,7 +37,7 @@ Results of queries are typically displayed in raw JSON form, unless there is a p
 * Telemetry predictions, see [Prediction.predictMetrics](../../develop/reference/scripting/script-apis/prediction.md#function-predictmetrics)
 * STML reports, see [UI.showReport](../../develop/reference/scripting/script-apis/ui.md#function-showreport)
 
-![Analytics preview](../../.gitbook/assets/v46_analytics.png)
+![Analytics preview](../../.gitbook/assets/v50_analytics.png)
 
 ## Queries
 
@@ -69,7 +69,7 @@ Topology
 
 This analytical query first gets all metrics streams of components from the `Production` environment that are of the type `Database`. The result of that query is then used to build up telemetry queries against these metric streams.
 
-The full list of available functions can be found [in the Script API documentation](../../develop/reference/scripting/script-apis/). To learn about chaining, see [async script results](../../develop/reference/scripting/async_script_result.md).
+The full list of available functions can be found [in the Script API documentation](../../develop/reference/scripting/script-apis/). To learn about chaining, see [async script results](../../develop/reference/scripting/async-script-result.md).
 
 ### Example queries
 

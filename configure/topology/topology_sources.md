@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Topology sources
@@ -12,7 +12,7 @@ Topology sources are used to get data from the Kafka bus, which receives the dat
 
 To add a new topology data source, click **ADD STS DATA SOURCE** from the screen **Settings** &gt; **Topology Synchronization** &gt; **Sts sources** and enter the required configuration.
 
-![ADD STS DATA SOURCE screen](../../.gitbook/assets/v46_add_sts_data_source.png)
+![ADD STS DATA SOURCE screen](../../.gitbook/assets/v50_add_sts_data_source.png)
 
 The screen contains the following fields:
 

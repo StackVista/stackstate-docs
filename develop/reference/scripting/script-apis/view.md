@@ -1,18 +1,18 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # View - script API
 
-## Function `getAll`
+## Function: `getAll`
 
 Returns a list of all views.
 
-**Args:**
+### Args
 
 None
 
-**Return type:**
+### Return type
 
 `AsyncScriptResult[List[QueryViewResponse]]`
 
@@ -38,7 +38,7 @@ The `ViewInfo` type has the following fields:
 
 If this flag is set the query response will contain the `viewInfo` holding star count. The stars count is available on this path `viewResponse.viewInfo.stars.count`
 
-**Examples:**
+### Examples
 
 The following example collects the names of all components in all views.
 
@@ -75,16 +75,16 @@ Returns a list of all problems in a view.
   * `contributingProblems.causeName` - the name of the topology element contributing to this problem.
   * `contributingProblems.causeType` - the type of the topology element contributing to this problem.
   * `contributingProblems.failingCheckNames` - the names of the checks that are failing at the moment of fetching this problem contributor.
-  * `contributingProblems.healthState` - the current health state of the contributor, either deviating or critical.
-  * `contributingProblems.propagatedHealthState` - the propagated health state of the contributor, either deviating or critical.
+  * `contributingProblems.healthState` - the current health state of the contributor, either `DEVIATING` or `CRITICAL`.
+  * `contributingProblems.propagatedHealthState` - the propagated health state of the contributor, either `DEVIATING` or `CRITICAL`.
 * `problemId` - the ID of the problem
 * `rootCause` - the root cause component for the queried problem:
     * `rootCause.causeId` - the ID of the root cause topology component, the bottom-most component in the problem cluster.
     * `rootCause.causeName` - the name of the root cause topology component.
     * `rootCause.causeType` - the type of the root cause component.
     * `rootCause.failingCheckNames` - the names of the checks that are failing at the moment of fetching the root cause component .
-    * `rootCause.healthState` - the current health state of the root cause component, either deviating or critical.
-    * `rootCause.propagatedHealthState` - the propagated health state of the root cause component, either deviating or critical.
+    * `rootCause.healthState` - the current health state of the root cause component, either `DEVIATING` or `CRITICAL`.
+    * `rootCause.propagatedHealthState` - the propagated health state of the root cause component, either `DEVIATING` or `CRITICAL`.
 * `viewId` - the ID of the queried view.
 
 ### Builder methods

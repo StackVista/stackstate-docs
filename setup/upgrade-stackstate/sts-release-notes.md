@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # StackState release notes
@@ -10,6 +10,77 @@ This page includes release notes for the StackState self-hosted product.
 
 * For StackPack release notes, see the page [StackPack versions](stackpack-versions.md).
 * For StackState Agent release notes, see [StackState Agent on GitHub \(github.com\)](https://github.com/StackVista/stackstate-agent/blob/master/stackstate-changelog.md).
+
+## StackState v5.0.x
+
+Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
+
+### v5.0.0
+
+The StackState v5.0 release delivers brand new features and enhancements that help your team troubleshoot faster. Here are some highlights:
+
+* **[New 4T® Monitors](/use/checks-and-monitors/about-checks-and-monitors.md)** – adds a new, first-in-the-industry dimension to observability monitoring – the ability to now monitor topology and to set validation rules that span topology and multiple other parameters
+* **Improved Topology Visualizer and Right Panel** – substantially enhances user experience and increases productivity with a more modern, focused, easy-to-learn UI and more in-depth troubleshooting capabilities.
+* **[New StackState CLI](/setup/cli/cli-comparison.md)** – lets you instantly configure StackState, run queries, create monitors and more, directly from your command line, while sending output directly to other systems for GitOps integration.
+* **[Accuracy Feedback for Anomalies](/stackpacks/add-ons/aad.md#anomaly-feedback)** – gives users the ability to provide feedback about the usefulness of the anomalies reported by StackState, so we can continuously improve the accuracy of our algorithms.
+
+Details of the included features, improvements, bug fixes and updated StackPacks can be found below.
+
+**Features**
+
+- Introduced a new monitoring feature - 4T Monitors. STAC-14693
+- Part of the API of StackState 5.0.0 has been released with an OpenAPI specification to allow for easier consumption by API clients of StackState. The OpenAPI specification can be browsed at [https://dl.stackstate.com/stackstate-openapi/v5.0/openapi-v5.0.0.html](https://dl.stackstate.com/stackstate-openapi/v5.0/openapi-v5.0.0.html) STAC-16693
+- The topology visualizer has been revamped. It now features much cleaner user experience and multiple helpful navigation improvements including a [legend](/use/stackstate-ui/perspectives/topology-perspective.md#legend) that describes the components and relations displayed. STAC-16191
+- First release of a [completely new, easier to install CLI](/setup/cli/cli-sts.md), supporting the new features of StackState such as 4T Monitors and Service Tokens. STAC-15281
+- Anomalies can now be marked with a [thumbs-up or thumbs-down](/stackpacks/add-ons/aad.md#anomaly-feedback). This feedback can be exported via the CLI and sent to StackState to help further develop test sets and algorithms for the AAD. STAC-15270
+- The right panel in the StackState UI has been revamped. It now supports multiple tabs and chaining of selected elements.  STAC-14808
+
+
+**Improvements**
+
+- Introduced [service tokens](/configure/security/authentication/service_tokens.md) as a means of authenticating to StackState. Service tokens are not tied to a principal, but instead to a set of roles, allowing for service authentication. More information on creating and managing these can be found in the StackState documentation. STAC-15016
+- Introduced optional View access logging. When enabled, a new access log for StackState views is created under `logs/access/`. This log allows you to track how often specific views are accessed and by which user. To enable this feature, you need to enable the feature flag `featureSwitches.viewAccessLogs` in the StackState Api config. STAC-16369
+- The OIDC `refresh_token` is now cached to prevent re-authenticating the user if the OIDC server does not return a new `refresh_token` when the old one hasn't expired yet. STAC-16158
+- Updated the [telemetry script API](/develop/reference/scripting/script-apis/telemetry.md) to stream results. More information can be found in the StackState documentation. STAC-16801
+- kafkaup-operator Helm chart: Added a configurable SecurityContext so that the container no longer requires privileged mode. STAC-16664
+- StackState Helm chart: Added configurable resource requests and limits for all containers. STAC-16443
+- Improved indexing speed for messages coming in on Kafka topics. STAC-15998
+
+
+**Bug fixes**
+
+- Fixed issue that incorrectly showed an error message when displaying a log stream. STAC-16222
+- Added more error context when JSON deserialization fails. STAC-16733
+- Fixed issue that prevented relation details being displayed in the right panel when a link was clicked in the full event details. STAC-16264
+- Fixed DNS lookup errors by explicitly setting a short DNS lookup cache timeout on the internal JDK DNS cache. This ensures that service lookups don't fail in containerized environments. STAC-15983
+- Fixed issue that caused groups with big names to be displayed outside of the visualizer canvas. STAC-16844
+- StackState Helm Chart: The `backup-scripts` ConfigMap now has a label so that it can be easily retrieved in the backup/restore scripts STAC-16447
+- Fixed scroll position after changing group. STAC-16284
+- Fixed error handling of expired sessions for OIDC and Keycloak authentication methods, especially in combination with API token. STAC-15781
+- Fixed suggestions in telemetry inspector for values with multiple dots (domains, IPs). STAC-15764
+- Fixed STQL query generation for relation based problems. STAC-13333
+- If the OIDC configuration is wrongly configured to obtain a username, the logging will now show all fields that can be selected to obtain the username from. STAC-16027
+
+
+**Security**
+
+- Upgraded ssl_client to 1.33.1-r7, patching the CVE-2022-28391 vulnerability. STAC-16426
+- Upgraded Log4j-over-slf4j to version 2.12.1, patching the CVE-2020-9493 vulnerability. STAC-16233
+- Upgraded libcrypto1.1 to 1.1.1n-r0, patching the CVE-2022-0778 vulnerability. STAC-16135
+- Upgraded libssl1.1 to 1.1.1l-r0 (Alpine) and 1.1.1f-1ubuntu2.12 (Ubuntu), patching the CVE-2022-0778 vulnerability. STAC-16134
+- Upgraded zlib to 1.2.12-r0, patching the CVE-2018-25032 vulnerability. STAC-16214
+- Upgraded libretls to 3.3.3p1-r3, patching the CVE-2022-0778 vulnerability. STAC-16153
+- Upgraded ElasticSearch to 7.17.2. STAC-16418
+
+**StackPack updates:**
+
+* [StackState Agent StackPack v4.5.2](/stackpacks/integrations/agent.md#release-notes)
+* [AWS v1.2.1](/stackpacks/integrations/aws/aws.md#release-notes)
+* [Dynatrace v1.4.2](/stackpacks/integrations/dynatrace.md#release-notes)
+* [Kubernetes v3.9.12](/stackpacks/integrations/kubernetes.md#release-notes)
+* [OpenShift v3.7.12](/stackpacks/integrations/openshift.md#release-notes)
+* [ServiceNow v5.3.3](/stackpacks/integrations/servicenow.md#release-notes)
+* [VMware vSphere v2.3.3](/stackpacks/integrations/vsphere.md#release-notes)
 
 ## StackState v4.6.x
 
@@ -86,6 +157,17 @@ Details of the included improvements, bug fixes and StackPack updates can be fou
 ## StackState v4.5.x
 
 Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
+
+### v4.5.6
+
+**Improvements**
+
+- Added support for base64 encoded trust stores. STAC-16004
+
+**Bug fixes**
+
+- If the OIDC configuration is wrongly configured to obtain a username, the logging will show all fields that can be selected to obtain the username from. STAC-16027
+- Security fixes for CVE-2022-24407. STAC-15939
 
 ### v4.5.5
 
@@ -184,18 +266,25 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 - Fixed issue that caused incorrect service metric aggregation under certain circumstances. STAC-13591
 - Fixed issue that caused the process manager logs to be truncated. STAC-12875
 
-## StackState v4.4.x
 
-Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
+## Unsupported versions
 
-### v4.4.3
+The versions below have reached End of Life \(EOL\) and are no longer be supported.
+
+{% hint style="warning" %}
+These releases are susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046.
+{% endhint %}
+
+### StackState v4.4.x (EOL)
+
+#### v4.4.3 (EOL)
 
 **Bug fixes**
 
 - The StackState Helm chart now depends on an internalised version of the MinIO Helm chart. STAC-15194
 - Removed vulnerable JNDI lookup feature from log4j2 library (CVE-2021-44228). STAC-15179
 
-### v4.4.2
+#### v4.4.2 (EOL)
 
 {% hint style="warning" %}
 This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.4.3](#v4.4.3).
@@ -213,7 +302,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 - Fixed issue that caused a loop when logging in with OIDC when 'stackstate.baseUrl' contained a trailing '/'. STAC-13964
 - Fixed issue that caused backup functionality to fail on OpenShift. STAC-13772
 
-### v4.4.1
+#### v4.4.1 (EOL)
 
 {% hint style="warning" %}
 This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Ressolved in version v4.4.3](#v4.4.3).
@@ -230,7 +319,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 - Fixed issue that caused the health synchronization to occasionally keep restarting. STAC-13829
 - Fixed issue that occasionally caused auto propagation to enter a loop and fail to terminate. STAC-13725
 
-### v4.4.0
+#### v4.4.0 (EOL)
 
 {% hint style="warning" %}
 This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.4.3](#v4.4.3).
@@ -270,15 +359,6 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 * Fixed issue that prevented certain views from opening from the View Overview page. STAC-13244
 * Fixed crash when accessing the logs API. STAC-13149
 * Backup PVC is created on installation of StackState chart to prevent Helm hanging. STAC-12696
-
-
-## Unsupported versions
-
-The versions below have reached End of Life \(EOL\) and are no longer be supported.
-
-{% hint style="warning" %}
-These releases are susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046.
-{% endhint %}
 
 ### StackState v4.3.x (EOL)
 
@@ -342,7 +422,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 
 **Improvements**
 
-* The CLI will now issue a deprecation warning when not using the new API token based authentication. For details, see the [CLI authentication docs](/setup/cli-install.md#authentication). STAC-12567
+* The CLI will now issue a deprecation warning when not using the new API token based authentication. For details, see the [CLI authentication docs](/setup/cli/README.md). STAC-12567
 * Any change to a check will update the check state data and fire a change event. STAC-12472
 
 **Bug fixes**
@@ -359,18 +439,18 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 **Features**
 
 * [Show configuration changes](../../use/problem-analysis/problem_investigation.md#element-properties-changed-events) for faster root cause analysis. STAC-12441
-* [Alert on anomalies](../../use/health-state/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. STAC-11798
+* [Alert on anomalies](../../use/checks-and-monitors/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. STAC-11798
 * [Drill down on Problems](../../use/problem-analysis/about-problems.md) for faster investigation. STAC-10481
 
 **Improvements**
 
-* Introduced [check functions that alert on anomalies](../../use/health-state/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. Previous anomaly detection functions and baseline streams and functions are deprecated and will be removed in StackState v4.4. STAC-12256
+* Introduced [check functions that alert on anomalies](../../use/checks-and-monitors/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. Previous anomaly detection functions and baseline streams and functions are deprecated and will be removed in StackState v4.4. STAC-12256
 * The [Autonomous Anomaly Detector \(AAD\)](../../stackpacks/add-ons/aad.md) is now enabled by default in the Kubernetes distribution. STAC-12024
 * It is now possible to [configure whether ClusterRoles and ClusterRoleBindings need to be installed](../install-stackstate/kubernetes_install/required_permissions.md#disable-automatic-creation-of-cluster-wide-resources) by the StackState Helm chart using the flag `cluster-role.enabled`. STAC-11749
 * StackState HDFS pods now run without privileges in Kubernetes. STAC-11741
-* Added support for interacting with external systems using [self-signed certificates](../../configure/security/self-signed-cert.md). STAC-11738
+* Added support for interacting with external systems using [self-signed certificates](/configure/security/self-signed-certificates.md). STAC-11738
 * The field specifying the [role to use for Keycloak authentication](../../configure/security/authentication/keycloak.md) \(default field name: `roles`\) is now configurable using the `groupsField` configuration parameter. STAC-11609
-* StackState now supports [API tokens for authentication of the StackState CLI](../cli-install.md#authentication). This allows the StackState CLI to work with Keycloak or OIDC as an authentication provider. STAC-11608
+* StackState now supports [API tokens for authentication of the StackState CLI](../cli/README.md). This allows the StackState CLI to work with Keycloak or OIDC as an authentication provider. STAC-11608
 * The CLI will now issue a deprecation warning when not using the new API token based authentication. STAC-12567
 * Added support for [backup and restore procedure for self-hosted Kubernetes](../data-management/backup_restore/kubernetes_backup.md) setup. STAC-11548
 * It is now possible to use component actions when time-traveling. STAC-11462

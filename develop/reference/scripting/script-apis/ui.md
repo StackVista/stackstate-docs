@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # UI - script API
@@ -10,9 +10,9 @@ These functions only work in the context of scripts that are executed by a user 
 
 ## Function: baseUrl
 
-Returns the baseUrl of the StackState instance as configured in the `application.conf` or `values.yaml`.
+Returns the baseUrl of the StackState instance (`<STACKSTATE_BASE_URL>`) as configured in the `application.conf` or `values.yaml`.
 
-**Examples:**
+### Examples
 
 Return the base URL from the StackState configuration.
 
@@ -24,15 +24,15 @@ UI.baseUrl()
 
 Creates a URL builder that can be used to generate URLs that can be linked back in StackState.
 
-**Args:**
+### Args
 
 No arguments.
 
-**Return type:**
+### Return type
 
 PerspectiveUrlBuilder
 
-**Builder methods:**
+### Builder methods
 
 * `view(viewURN)` or `explore()` - returns a `PerspectiveUrlBuilder` for either the specified view or the exploration mode with the following methods:
   * `at(time: instant)` -  specifies a [time](time.md) for which the view query should be executed.
@@ -63,7 +63,7 @@ PerspectiveUrlBuilder
   * `showIndirectRelations()` - enables rendering of indirect relations on the Topology Perspective
   * `url()` - gives the final URL of the view.
 
-**Examples:**
+### Examples
 
 Create a URL to a view at a specific time.
 
@@ -93,15 +93,15 @@ UI.createUrl().explore().topologyQuery('environment IN ("Production") AND health
 
 Opens a new tab in the user's browser to some URL.
 
-**Args:**
+### Args
 
 * `url` - the URL to redirect the browser to.
 
-**Return type:**
+### Return type
 
 * Async: URLRedirectResponse
 
-**Examples:**
+### Examples
 
 Open the stackstate.com website in a new tab in the browser.
 
@@ -113,17 +113,17 @@ UI.redirectToURL("http://wwww.stackstate.com")
 
 Shows a report in the user-interface. The user-interface will open a dialog with the report in it. You can also see the result of these reports in the preview of the analytics environment.
 
-**Args:**
+### Args
 
 * `reportName` - Name of the report. In a dialog with the report, the name of the report will be in the title bar.
 * `stmlContent` - The report markup. See [StackState Markup Language](../../stml/) for more information on how to format a report.
 * Optional `data` - A map with data elements that can be referenced by the STML.
 
-**Return type:**
+### Return type
 
 * Async: ShowStmlReport
 
-**Examples:**
+### Examples
 
 The following example will show a nice shopping list report:
 
@@ -146,15 +146,15 @@ Sets the user-interface to the Topology Perspective and changes the SQTL query.
 
 If the user is currently in an unsaved view, the user receives a prompt dialog asking whether they are okay in navigating to another part of the topology. If the user continues the action they will loose their current view.
 
-**Args:**
+### Args
 
 * `query` - [STQL query](../../stql_reference.md) that selects what part of the topology is shown.
 
-**Return type:**
+### Return type
 
 * Async: ShowTopologyByQuery
 
-**Examples:**
+### Examples
 
 Redirects the user-interface to show the Azure topology.
 

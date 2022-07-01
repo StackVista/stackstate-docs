@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Events Perspective
 
 The Events Perspective shows events and changes for the elements in the current [view](../views/about_views.md) or filtered topology.
 
-![The Events Perspective](/.gitbook/assets/v46_events-perspective.png)
+![The Events Perspective](/.gitbook/assets/v50_events-perspective.png)
 
 ## Events
 
@@ -33,29 +33,29 @@ All events in StackState have a category assigned based on the event type and so
 
 ### Event properties
 
-Click on an event to display an overview of the event details in the **Properties** pane on the right of the screen. Events from external systems will also include links through to relevant information in the source system here:
+Select an event to display detailed information about it in the right panel **View summary** tab. Events from external systems will also include links through to relevant information in the source system here:
 
 * **Elements** - The components and/or relations involved in the event.
 * **Event type** - A description of the event type.
-* **Event time** - The time at which the event occurred. For events from an external system, this will be the timestamp from the external system. Click on the timestamp to [time travel](events_perspective.md#time-travel) to the topology at the moment that the event occurred.
-* **Processed time** - For external events, this is the time that the event was received by StackState. For internally generated events that affect the graph database, this is the time data was stored in the graph database. Click on the timestamp to [time travel](events_perspective.md#time-travel) to the topology at the moment that the event was processed by StackState.
+* **Event time** - The time at which the event occurred. For events from an external system, this will be the timestamp from the external system. Click the timestamp to [time travel](events_perspective.md#time-travel) to the topology at the moment that the event occurred.
+* **Processed time** - For external events, this is the time that the event was received by StackState. For internally generated events that affect the graph database, this is the time data was stored in the graph database. Click the timestamp to [time travel](events_perspective.md#time-travel) to the topology at the moment that the event was processed by StackState.
 * **Links** - Direct links to an external source of an event. For example, a ServiceNow change request or JIRA ticket.
 * **Description** - Additional information about the event. For example, the context of the event or its importance.
 * **SHOW ALL PROPERTIES** - Click to access all data included in the event.
 
-![Properties of an event](../../../.gitbook/assets/v46_event-properties.png)
+![Properties of an event](../../../.gitbook/assets/v50_event-properties.png)
 
 ## Filter displayed events
 
-The events displayed in the Events Perspective and in the Events list in the details panes on the right-hand of the StackState UI can be filtered in the **View filters** pane on the left-hand side of the StackState UI.
+The events displayed in the Events Perspective and in the Events list in the right panel **View summary** tab can be filtered in the **View filters** panel on the left of the StackState UI.
 
 ### Filter by source component
 
-The [topology filters](../filters.md#filter-topology) set in the **View Filters** pane define the elements \(components and relations\) for which events will be displayed. Only events relating to elements that match the applied topology filters or the view itself will be visible. You can adjust the components for which events are displayed by updating the topology filters.
+The [topology filters](../filters.md#filter-topology) set in the **View Filters** panel define the elements \(components and relations\) for which events will be displayed. Only events relating to elements that match the applied topology filters or the view itself will be visible. You can adjust the components for which events are displayed by updating the topology filters.
 
 ### Filter by properties
 
-The [event filters](../filters.md#filter-events) set in the **View Filters** pane can be used to refine the events displayed based on event category, type, source system and tags.
+The [event filters](../filters.md#filter-events) set in the **View Filters** panel can be used to refine the events displayed based on event category, type, source system and tags.
 
 ### Filter by timestamp
 
@@ -74,11 +74,11 @@ For example:
 
 * Adjust the **Telemetry interval** to increase or decrease the number of events displayed.
 * Adjust the **Topology time** to time travel to the topology available at that point in history. Events generated within the selected telemetry interval by topology elements that existed at the topology time will be displayed.
-* Click on a timestamp from the **Properties** of an event to jump to this topology time. This will update the events list to display events that were generated:
+* Click a timestamp from the **Properties** of an event to jump to this topology time. This will update the events list to display events that were generated:
   * by topology elements that existed at that moment in time.
   * within the specified telemetry interval \(this will be adjusted to fit the selected timestamp if required\).
 
-![Timeline](../../../.gitbook/assets/v46_timeline.png)
+![Timeline](../../../.gitbook/assets/v50_timeline.png)
 
 ## See also
 

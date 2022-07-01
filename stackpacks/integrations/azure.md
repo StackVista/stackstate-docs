@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Azure
@@ -20,7 +20,7 @@ Microsoft Azure is a cloud computing service created by Microsoft for building, 
 
 Azure is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
-![Data flow](../../.gitbook/assets/stackpack-azure.png)
+![Data flow](../../.gitbook/assets/stackpack-azure.svg)
 
 * The StackState Azure Agent is [a collection of Azure functions](azure.md#stackstate-azure-functions) that connect to the [Azure APIs](azure.md#rest-api-endpoints) at a configured interval to collect information about available resources.
   * `TimedStart` triggers data collection every 2 hours.
@@ -43,6 +43,7 @@ To set up the StackState Azure integration, you need to have:
   * `Contributor` role for the StackPack Resource Group to deploy and delete resources.
   * `Reader` role for each of the subscriptions the StackPack instance will monitor.
 * If StackState is installed on premise and behind a firewall, the [IP addresses used by Azure monitor \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/azure/azure-monitor/app/ip-addresses) need to be reachable.
+* StackState should not be configured to use a [custom trust store](/configure/security/self-signed-certificates.md).
 
 ### Install StackPack
 
@@ -65,18 +66,18 @@ To enable the Azure integration and begin collecting data from Azure, you will n
 {% tab title="Bash" %}
 ```text
 ./stackstate.monitor.sh \
-    <Azure tenantId> \
-    {{config.baseUrl}} \
-    {{config.apiKey}} \
-    <Azure subscriptionId> \
-    <Azure clientId> \
-    <Azure clientSecret> \
-    <Azure resourceGroupName>
+    <AZURE_tenantId> \
+    <STACKSTATE_BASE_URL> \
+    <STACKSTATE_RECEIVER_API_KEY> \
+    <AZURE_subscriptionId> \
+    <AZURE_clientId> \
+    <AZURE_clientSecret> \
+    <AZURE_resourceGroupName>
 ```
 
-You can also specify two additional (positional) arguments after the `<Azure resourceGroupName>`: 
-- The StackPack Instance URL (topology identifier), default `{tenant ID}_{first 25 chars of client ID}`.
-- The Azure function App name, default `{tenant ID}_{first 25 chars of client ID}`.
+You can also specify two additional (positional) arguments after the `<AZURE_resourceGroupName>`: 
+- The StackPack Instance URL (topology identifier), default `{tenantId}_{first 25 chars of client ID}`.
+- The Azure function App name, default `{tenantId}_{first 25 chars of client ID}`.
 
 {% endtab %}
 
@@ -85,18 +86,18 @@ You can also specify two additional (positional) arguments after the `<Azure res
 az login
 az login
 ./stackstate.monitor.ps1 `
--tenantId <your tenantId> `
--stsApiUrl {{config.baseUrl} `
--stsApiKey {{config.apiKey}} `
--subscriptionId <azure subscriptionId> `
--servicePrincipalId <Client Id> `
--servicePrincipalSecret <Client Secret> `
--resourceGroupName <Resource GroupName to deploy to>
+-tenantId <AZURE_tenantId> `
+-stsApiUrl <STACKSTATE_BASE_URL> `
+-stsApiKey <STACKSTATE_RECEIVER_API_KEY> `
+-subscriptionId <AZURE_subscriptionId> `
+-servicePrincipalId <AZURE_clientId> `
+-servicePrincipalSecret <AZURE_clientSecret> `
+-resourceGroupName <AZURE_resourceGroupName>
 ```
 
 You can also specify two additional arguments: 
-- `-stsInstanceUrl` - The StackPack Instance URL (topology identifier), default `{tenant ID}_{first 25 chars of client ID}`.
-- `-functionAppName` - The Azure function App name, default `{tenant ID}_{first 25 chars of client ID}`.
+- `-stsInstanceUrl` - The StackPack Instance URL (topology identifier), default `{tenantId}_{first 25 chars of client ID}`.
+- `-functionAppName` - The Azure function App name, default `{tenantId}_{first 25 chars of client ID}`.
 
 {% endtab %}
 {% endtabs %}
@@ -221,7 +222,7 @@ To do so, you can use the scripts in the manual installation zip file you downlo
 ```bash
 ./stackstate.monitor.deprovisioning.sh \
     <your TENANT_ID> \
-    {{config.baseUrl}}
+    <STACKSTATE_BASE_URL>
 ```
 {% endtab %}
 
@@ -229,7 +230,7 @@ To do so, you can use the scripts in the manual installation zip file you downlo
 ```text
 ./stackstate.monitor.deprovisioning.ps1 `
 -tenantId <your TENANT_ID> `
--stsApiUrl {{config.baseUrl}}
+-stsApiUrl <STACKSTATE_BASE_URL>
 ```
 {% endtab %}
 {% endtabs %}

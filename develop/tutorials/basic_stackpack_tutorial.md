@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Create a simple StackPack
@@ -36,13 +36,25 @@ zip -r ./tutorial-stackpack-0.0.1.sts stackpack.conf provisioning resources
 
 ## Importing the StackPack
 
-The StackPack must be imported into StackState before it can be installed. This can be done using the [StackState CLI](../../setup/cli-install.md). Please make sure it is installed and configured to connect with your StackState instance.
+The StackPack must be imported into StackState before it can be installed. This can be done using the [StackState CLI](/setup/cli/README.md). Please make sure it is installed and configured to connect with your StackState instance.
 
 The following command installs our new tutorial StackPack in StackState:
+
+{% tabs %}
+{% tab title="CLI: sts (new)" %}
+
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 
 ```text
 sts stackpack upload tutorial-stackpack-0.0.1.sts
 ```
+{% endtab %}
+{% tab title="CLI: stac" %}
+```text
+stac stackpack upload tutorial-stackpack-0.0.1.sts
+```
+{% endtab %}
+{% endtabs %}
 
 {% hint style="info" %}
 The StackState CLI requires a `conf.d` configuration folder in the directory it is running from. This may require you to run the CLI from a different location. If so, remember to use an absolute path to refer to the StackPack binary.
@@ -74,17 +86,17 @@ When the StackPack has received your data, it will show a message indicating suc
 
 When you log into your StackState instance, go to the **Explore Mode**. Using the topology filter, select all topology with the `tutorial` label. This should result in a topology similar to the following:
 
-![](../../.gitbook/assets/v46_tutorial_component.png)
+![](../../.gitbook/assets/v50_tutorial_component.png)
 
 Note that the components you see are constructed from the JSON data you sent in. The components appear in the **Tutorial Domain** domain and **Tutorial Components** layers.
 
-Click on the component to open the **Component Details pane**. You'll see the component's labels and other meta-data you sent.
+Select a component to display detailed information about it in the right panel **Selection details** tab. You'll see the component's labels and other meta-data you sent.
 
 ## Making a change to the StackPack
 
 Now we are going to make a change to the tutorial StackPack. Let's say you want to add a telemetry stream to all of the components that the StackPack creates. This requires a change to the StackPack's component template. We are going to make this change in StackState and then update the StackPack with our changes.
 
-Select the **myDummyApp** component and in the Component Details pane, find the triple dots menu in the top-right corner. There, select the **Edit template** option. This brings up the **Template Editor**.
+Select the **myDummyApp** component to display detailed information about it in the right panel **Selection details** tab. Find the triple dots menu in the top-right corner. There, select the **Edit template** option. This brings up the **Template Editor**.
 
 In the Template Editor you can edit the template used to create components based on data coming in from your sample check. It shows the following information:
 
@@ -125,7 +137,7 @@ The [Push Integration tutorial](push_integration_tutorial.md) describes in more 
 
 Use the **Preview** button to see what the resulting component will look like.
 
-![](../../.gitbook/assets/v46_example-template-editor.png)
+![](../../.gitbook/assets/v50_example-template-editor.png)
 
 Go ahead and save the template. Be aware that you may need to [_unlock_](../../stackpacks/about-stackpacks.md#locked-configuration-items) it before this succeeds.
 
@@ -229,7 +241,7 @@ This should produce a `0.0.2` version of the StackPack. Upload the StackPack to 
 
 Navigate to the **StackPacks** page in StackState and find the **Tutorial** StackPack. If the StackPack is still installed, you should see that there is a new version available. This is what that message looks like:
 
-![](../../.gitbook/assets/v46_stackpack_upgrade_available.png)
+![](../../.gitbook/assets/v50_stackpack_upgrade_available.png)
 
 {% hint style="info" %}
 If you don't see the Tutorial StackPack, or you see an older version of the StackPack than you uploaded, try refreshing the page.
@@ -237,19 +249,19 @@ If you don't see the Tutorial StackPack, or you see an older version of the Stac
 
 You can use the **Upgrade now** button to upgrade the StackPack to the new version. StackState will perform the upgrade, but because you have unlocked a template earlier, you will see the following warning:
 
-![](../../.gitbook/assets/v46_stackpack_upgrade_warning.png)
+![](../../.gitbook/assets/v50_stackpack_upgrade_warning.png)
 
 Push the **Overwrite** button to overwrite your local modifications with those in the new version of the StackPack. The component template will be locked again after the upgrade.
 
 Pass the **Waiting for data** stage again with the `curl` command we used earlier and your upgrade is complete.
 
 {% hint style="info" %}
-It is also possible to install and upgrade a StackPack via the CLI, see the [CLI documentation](../../setup/cli-install.md) for more information.
+It is also possible to install and upgrade a StackPack via the CLI, see the [CLI documentation](../../setup/cli/README.md) for more information.
 {% endhint %}
 
 If you navigate to your **myDummyApp** component, you should now see the stream you added to the template:
 
-![](../../.gitbook/assets/v46_myDummyApp_stream.png)
+![](../../.gitbook/assets/v50_myDummyApp_stream.png)
 
 ## Cleaning your StackState instance
 

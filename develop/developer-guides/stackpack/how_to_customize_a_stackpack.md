@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Customize a StackPack
@@ -107,5 +107,5 @@ The `Custom Synchronization` StackPack installed as an integration prerequisite,
 
 You can go ahead to Settings page section `Topology Synchronization` and rename it, add a description if needed. It is recommended to change the default value of the `ComponentType` from `Auto-synced Component` to something that represents a generic component in your data source. The same goes for `Layer`, `Domain` and `Environment` which defaults to `Auto-synced Components`, `Auto-synced Domain`,`Auto-synced Environment` respectively. As this template is using the `getOrCreate` functionality, these values are auto-created by StackState if they don't already exist. Find more on [Templates](../../reference/stj/using_stj.md).
 
-Once you have completed all the changes, you can click on `update` and confirm the popup dialog to unlock this Template from the `Custom Synchronization` StackPack.
+Once you have completed all the changes, you can click **UPDATE** and confirm the popup dialog to unlock this Template from the `Custom Synchronization` StackPack.
 

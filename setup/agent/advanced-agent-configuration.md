@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Advanced Agent configuration
@@ -127,7 +127,7 @@ Specify the `values.yaml` file during installation / upgrade of the StackState A
 helm upgrade --install \
 --namespace stackstate \
 --create-namespace \
---set-string 'stackstate.apiKey=<your-api-key>' \
+--set-string 'stackstate.apiKey=<STACKSTATE_RECEIVER_API_KEY>' \
 ... (set all custom fields)
 --values values.yaml
 stackstate-cluster-agent stackstate/cluster-agent

@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # ID extractor functions
@@ -8,15 +8,11 @@ description: StackState Self-hosted v4.6.x
 
 ID extraction is used in the topology synchronization process to turn external data into External Topology. It extracts the unique identity and identifiers for components and relations. 
 
-## Data extracted
-
-## ID extractor function
-
 ID extractor functions are powered by a Groovy script, which is executed on each to be processed topology element. The function is therefore stateless. There is a separate ID extractor for components and relations.
 
 A list of all ID extractor functions in your StackState instance is available in the StackState UI, go to the page **Settings** > **Topology Synchronization** > **Id Extractors**. You can also create your own ID extractor here by clicking **ADD ID EXTRACTOR FUNCTION**.
 
-![Id extractor](../../../.gitbook/assets/v46_idextractor.png)
+![Id extractor](../../../.gitbook/assets/v50_idextractor.png)
 
 An ID extractor function has parameters. Only one parameter is required - the system parameter `element` that is of type JSON. This is input to the script for execution. In topology synchronization, the `element` will contain the element payload. The ID Extractor can produce the following information from the external data in the `element` parameter:
 
@@ -41,4 +37,4 @@ return Sts.createId(externalId, new HashSet([externalId] + identifiers), type)
 
 ## See also
 
-* [Identifiers](/configure/identifiers.md)
+* [Identifiers](/configure/topology/identifiers.md)

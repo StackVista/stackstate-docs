@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Permissions
@@ -30,21 +30,34 @@ StackState comes with four predefined roles:
   * `execute-restricted-scripts`
   * `update-permissions`
   * `upload-stackpacks`
-  * **Guests** \(`stackstate-guest`\): Have read access, as you can see below when we use the StackState CLI to show granted permissions for the role:
+  * **Guests** \(`stackstate-guest`\): Have read access, as you can see below when we use the `stac` CLI to show granted permissions for the role:
 
-    ```text
-      $ sts permission show stackstate-guest
-      subject           permission                 resource
-      ----------------  -------------------------  ----------
-      stackstate-guest  access-cli                 system
-      stackstate-guest  access-explore             system
-      stackstate-guest  perform-custom-query       system
-      stackstate-guest  read-permissions           system
-      stackstate-guest  update-visualization       system
-      stackstate-guest  manage-star-view           system
-      stackstate-guest  execute-component-actions  system
-      stackstate-guest  access-view                everything
-    ```
+{% tabs %}
+{% tab title="CLI: stac" %}
+
+```text
+$ stac permission show stackstate-guest
+subject           permission                 resource
+----------------  -------------------------  ----------
+stackstate-guest  access-cli                 system
+stackstate-guest  access-explore             system
+stackstate-guest  perform-custom-query       system
+stackstate-guest  read-permissions           system
+stackstate-guest  update-visualization       system
+stackstate-guest  manage-star-view           system
+stackstate-guest  execute-component-actions  system
+stackstate-guest  access-view                everything
+```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
 
 ### Default and custom role names
 
@@ -111,36 +124,36 @@ System permissions scope user capabilities, such as access to settings, query ex
 
 See also the full list of [view permissions](rbac_permissions.md#view-permissions).
 
-| Permission | Purpose | Guest | Power user | Admin | Platform Admin |
-| :--- | :--- | :---: | :---: | :---: | :---: |
-| `access-cli` | Access the CLI page. This provides the API key to use for authentication with the StackState CLI. | ✅ | ✅ | ✅ | ✅ |
-| `access-explore` | Access the Explore page. | ✅ | ✅ | ✅ | - |
-| `execute-component-actions` | Execute component actions. | ✅ | ✅ | ✅ | - |
-| `manage-star-view` | Add and remove stars from views. | ✅ | ✅ | ✅ | ✅ |
-| `perform-custom-query` | Access the topology filter. | ✅ | ✅ | ✅ | - |
-| `read-permissions` | List all granted permissions across the entire system via the CLI. | ✅ | ✅ | ✅ | - |
-| `update-visualization` | Change visualization settings. | ✅ | ✅ | ✅ | - |
-| `access-analytics` | Access the Analytics page. | - | ✅ | ✅ | - |
-| `access-admin-api` | Access the administrator API. | - | - | - | ✅ |
-| `access-log-data` | Access StackState logs via the CLI. | - | ✅ | ✅ | ✅ |
-| `access-synchronization-data` | Access StackState synchronization status and data via the CLI. | - | ✅ | ✅ | - |
-| `access-topic-data` | Access StackState receiver data via the CLI. | - | ✅ | ✅ | - |
-| `create-views` | Create views. | - | ✅ | ✅ | - |
-| `execute-component-templates` | Invoke a component template API extension \(internal use only\). | - | ✅ | ✅ | - |
-| `execute-node-sync` | Reset or delete a synchronization. | - | ✅ | ✅ | - |
-| `execute-scripts` | Execute a query in the StackState UI Analytics environment. The `execute-restricted-scripts` permission is also required to execute scripts using the HTTP script API. | - | ✅ | ✅ | - |
-| `import-settings` | Import settings. | - | ✅ | ✅ | - |
-| `export-settings` | Export settings. | - | ✅ | ✅ | - |
-| `manage-annotations` | Persist and fetch Anomaly annotations in StackState. | - | ✅ | ✅ | - |
-| `manage-event-handlers` | Create or edit event handlers. | - | ✅ | ✅ | - |
-| `manage-telemetry-streams` | Create or edit new streams for components via the UI. | - | ✅ | ✅ | - |
-| `manage-topology-elements` | Create/update/delete topology elements. | - | ✅ | ✅ | - |
-| `manage-stackpacks` | Install/upgrade/uninstall StackPacks. | - | ✅ | ✅ | - |
-| `read-settings` | Access the Settings page. | - | ✅ | ✅ | - |
-| `update-settings` | Update settings. | - | ✅ | ✅ | - |
+| Permission | Purpose                                                                                                                                                                          | Guest | Power user | Admin | Platform Admin |
+| :--- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :---: | :---: | :---: | :---: |
+| `access-cli` | Access the CLI page. This provides the API key to use for authentication with the StackState CLI.                                                                                | ✅ | ✅ | ✅ | ✅ |
+| `access-explore` | Access the Explore page.                                                                                                                                                         | ✅ | ✅ | ✅ | - |
+| `execute-component-actions` | Execute component actions.                                                                                                                                                       | ✅ | ✅ | ✅ | - |
+| `manage-star-view` | Add and remove stars from views.                                                                                                                                                 | ✅ | ✅ | ✅ | ✅ |
+| `perform-custom-query` | Access the topology filter.                                                                                                                                                      | ✅ | ✅ | ✅ | - |
+| `read-permissions` | List all granted permissions across the entire system via the CLI.                                                                                                               | ✅ | ✅ | ✅ | - |
+| `update-visualization` | Change visualization settings.                                                                                                                                                   | ✅ | ✅ | ✅ | - |
+| `access-analytics` | Access the Analytics page.                                                                                                                                                       | - | ✅ | ✅ | - |
+| `access-admin-api` | Access the administrator API.                                                                                                                                                    | - | - | - | ✅ |
+| `access-log-data` | Access StackState logs via the CLI.                                                                                                                                              | - | ✅ | ✅ | ✅ |
+| `access-synchronization-data` | Access StackState synchronization status and data via the CLI.                                                                                                                   | - | ✅ | ✅ | - |
+| `access-topic-data` | Access StackState Receiver data via the CLI.                                                                                                                                     | - | ✅ | ✅ | - |
+| `create-views` | Create views.                                                                                                                                                                    | - | ✅ | ✅ | - |
+| `execute-component-templates` | Invoke a component template API extension \(internal use only\).                                                                                                                 | - | ✅ | ✅ | - |
+| `execute-node-sync` | Reset or delete a synchronization.                                                                                                                                               | - | ✅ | ✅ | - |
+| `execute-scripts` | Execute a query in the StackState UI Analytics environment. The `execute-restricted-scripts` permission is also required to execute scripts using the HTTP script API.           | - | ✅ | ✅ | - |
+| `import-settings` | Import settings.                                                                                                                                                                 | - | ✅ | ✅ | - |
+| `export-settings` | Export settings.                                                                                                                                                                 | - | ✅ | ✅ | - |
+| `manage-annotations` | Persist and fetch Anomaly annotations in StackState.                                                                                                                             | - | ✅ | ✅ | - |
+| `manage-event-handlers` | Create or edit event handlers.                                                                                                                                                   | - | ✅ | ✅ | - |
+| `manage-telemetry-streams` | Create or edit new streams for components via the UI.                                                                                                                            | - | ✅ | ✅ | - |
+| `manage-topology-elements` | Create/update/delete topology elements.                                                                                                                                          | - | ✅ | ✅ | - |
+| `manage-stackpacks` | Install/upgrade/uninstall StackPacks.                                                                                                                                            | - | ✅ | ✅ | - |
+| `read-settings` | Access the Settings page.                                                                                                                                                        | - | ✅ | ✅ | - |
+| `update-settings` | Update settings.                                                                                                                                                                 | - | ✅ | ✅ | - |
 | `execute-restricted-scripts` | Execute scripts using the [HTTP script API](../../../develop/reference/scripting/script-apis/http.md) in the StackState UI analytics environment. Also requires execute-scripts. | - | - | ✅ | - |
-| `update-permissions` | Grant/revoke permissions or modify subjects. | - | - | ✅ | - |
-| `upload-stackpacks` | Upload new \(versions of\) StackPacks. | - | - | ✅ | - |
+| `update-permissions` | Grant/revoke permissions or modify subjects.                                                                                                                                     | - | - | ✅ | - |
+| `upload-stackpacks` | Upload new \(versions of\) StackPacks.                                                                                                                                           | - | - | ✅ | - |
 
 ### View permissions
 
@@ -160,7 +173,7 @@ See also the full list of [system permissions](rbac_permissions.md#system-permis
 
 The permissions in the table below are required to access specific pages in the StackState UI. Without these permissions, the associated page will be hidden in the StackState UI and will not be accessible via its URL.
 
-![Main menu with all permissions granted](../../../.gitbook/assets/v46_main_menu.png)
+![Main menu with all permissions granted](../../../.gitbook/assets/v50_main_menu.png)
 
 | Page | Description | Permission | Guest | Power user | Admin | Platform admin |
 | :--- | :--- | :--- | :---: | :---: | :---: | :---: |
@@ -189,9 +202,9 @@ The permissions listed below are required to work with topology in StackState:
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
 
-### Component/relation details
+### Detailed information about components and relations
 
-The permissions listed below are required to carry out specific actions in the component or relation details pane.
+The permissions listed below are required to carry out specific actions in the right panel **Selection details** tab when detailed information about an element is displayed.
 
 | Action | Permission | Guest | Power user | Admin | Platform admin |
 | :--- | :--- | :---: | :---: | :---: | :---: |
@@ -265,17 +278,43 @@ See the full list of [permissions for pre-defined roles](rbac_permissions.md#all
 
 List all permissions:
 
+{% tabs %}
+{% tab title="CLI: stac" %}
+
 ```text
-sts permission list
+stac permission list
 ```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
 
 ### Show granted permissions
 
 Show the permissions granted to a specific role.
 
+{% tabs %}
+{% tab title="CLI: stac" %}
+
 ```text
-sts permission show [role-name]
+stac permission show [role-name]
 ```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
 
 ### Grant permissions
 
@@ -283,41 +322,106 @@ sts permission show [role-name]
 
 Provide a subject with permission to open a view:
 
+{% tabs %}
+{% tab title="CLI: stac" %}
+
 ```text
-sts permission grant [subject-handle] access-view [view-name]
+stac permission grant [subject-handle] access-view [view-name]
 ```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
 
 #### Allow a user to create \(save\) views
 
 Provide a subject with the system permission to create \(save\) views:
 
+{% tabs %}
+{% tab title="CLI: stac" %}
+
 ```text
-sts permission grant [subject-handle] create-views system
+stac permission grant [subject-handle] create-views system
 ```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
 
 #### Allow a user to check StackState settings
 
 Provide a subject with the system permission to check StackState settings:
 
+{% tabs %}
+{% tab title="CLI: stac" %}
+
 ```text
-sts permission grant [subject-handle] read-settings system
+stac permission grant [subject-handle] read-settings system
 ```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
 
 #### Allow a user to add or edit event handlers
 
 Provide a subject with the system permission to add new event handlers and edit existing event handlers:
 
+{% tabs %}
+{% tab title="CLI: stac" %}
+
 ```text
-sts permission grant [subject-handle] manage-event-handlers system
+stac permission grant [subject-handle] manage-event-handlers system
 ```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
 
 ### Revoke permissions
 
 Revoke permissions for a subject to open a view:
 
+{% tabs %}
+{% tab title="CLI: stac" %}
+
 ```text
-sts permission revoke [subject-handle] access-view [view-name]
+stac permission revoke [subject-handle] access-view [view-name]
 ```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
 
 ## StackState UI with no permissions
 

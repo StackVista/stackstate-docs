@@ -1,12 +1,22 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # About Agent checks
 
 ## Overview
 
-Agent checks are Python scripts that are periodically executed by a StackState Agent. They are an easy way to periodically pull data \(i.e. polling\) from the system you are integrating with and push it to StackState.
+Agent Checks can be used to monitor a wide variety of technologies. Some examples are:
+
+* [MySQL](/stackpacks/integrations/mysql.md)
+* [Tomcat](/stackpacks/integrations/apache-tomcat.md)
+* API endpoints
+* [SAP](/stackpacks/integrations/sap.md)
+* [VSphere](/stackpacks/integrations/vsphere.md)
+
+An Agent check is a Python script that is executed periodically by a StackState Agent. This is an easy way to periodically pull data \(i.e. polling\) from the system you are integrating with and push it to StackState.
+
+Code examples for the open source StackState Agent checks can be found on GitHub at [https://github.com/StackVista/stackstate-agent-integrations](https://github.com/StackVista/stackstate-agent-integrations). If you would like to create your own Agent check, a simple starting point is to begin with our [sample Agent integration \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/agent_integration_sample).
 
 ## When to use Agent checks
 

@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # 💠 OpenShift
@@ -23,7 +23,7 @@ The OpenShift integration collects topology data in an OpenShift cluster as well
   * [Topology data](openshift.md#topology) is translated into components and relations.
   * [Tags](openshift.md#tags) defined in OpenShift are added to components and relations in StackState.
   * Relevant [metrics data](openshift.md#metrics) is mapped to associated components and relations in StackState. All retrieved metrics data is stored and accessible within StackState.
-  * [OpenShift events](openshift.md#events) are available in the StackState UI Events Perspective and listed in the details pane on the right of the StackState UI.
+  * [OpenShift events](openshift.md#events) are available in the StackState UI Events Perspective and listed in the right panel **View summary** tab.
   * [Objects changes events](openshift.md#events) are created for every detected change to `spec` or `metadata` in OpenShift objects
 
 ## Setup
@@ -56,7 +56,7 @@ Install the OpenShift StackPack from the StackState UI **StackPacks** &gt; **Int
 
 If the Agent StackPack is not already installed, this will be automatically installed together with the OpenShift StackPack. This is required to work with the StackState Agent, which will need to be deployed on each node in the OpenShift cluster.
 
-### Deploy the StackState Agent and Cluster Agent
+### Deploy: Agent and Cluster Agent
 
 For the OpenShift integration to retrieve topology, events and metrics data, you will need to have the following installed on your OpenShift cluster:
 
@@ -69,6 +69,57 @@ For the OpenShift integration to retrieve topology, events and metrics data, you
 {% hint style="info" %}
 To integrate with other services, a separate instance of the [StackState Agent](../../setup/agent/about-stackstate-agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on an OpenShift cluster with checks that integrate with other services.
 {% endhint %}
+
+### Configure cluster check: Kubernetes_state check
+
+The kubernetes\_state check is responsible for gathering metrics from kube-state-metrics and sending them to StackState. It is configured on the StackState Cluster Agent and, by default, runs in the StackState Agent pod that is on the same node as the kube-state-metrics pod.
+
+In a default deployment, all pods running a StackState Agent must be configured with sufficient CPU and memory requests and limits to run the check. This can consume a lot of memory in a large OpenShift cluster. Since only one StackState Agent pod will actually run the check, a lot of CPU and memory resources will be allocated, but not be used.
+
+To remedy this situation, the kubernetes\_state check can be configured to run as a cluster check. In this case, only the [ClusterCheck Agent](/setup/agent/openshift.md#stackstate-clustercheck-agent-optional) requires resources to run the check and the allocation for other pods can be reduced.
+
+1. Update the `values.yaml` file used to deploy the `cluster-agent`, for example:
+  ```yaml
+  clusterChecks:
+  # clusterChecks.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods.
+    enabled: true
+  agent:
+    config:
+      override:
+  # agent.config.override -- Disables kubernetes_state check on regular agent pods.
+      - name: auto_conf.yaml
+        path: /etc/stackstate-agent/conf.d/kubernetes_state.d
+        data: |
+  clusterAgent:
+    config:
+      override:
+  # clusterAgent.config.override -- Defines kubernetes_state check for clusterchecks agents. Auto-discovery
+  #                                 with ad_identifiers does not work here. Use a specific URL instead.
+      - name: conf.yaml
+        path: /etc/stackstate-agent/conf.d/kubernetes_state.d
+        data: |
+          cluster_check: true
+  
+          init_config:
+  
+          instances:
+            - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
+  ```
+
+2. Deploy the `cluster_agent` using the updated `values.yaml`:
+  ```yaml
+  helm upgrade --install \
+  --namespace stackstate \
+  --create-namespace \
+  --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
+  --set-string 'stackstate.cluster.name'='<OPENSHIFT_CLUSTER_NAME>' \
+  --set-string 'stackstate.cluster.authToken=<CLUSTER_AUTH_TOKEN>' \
+  --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
+  --set 'agent.scc.enabled'=true \
+  --set 'kube-state-metrics.securityContext.enabled'=false \
+  --values values.yaml \
+  stackstate-cluster-agent stackstate/cluster-agent    
+  ```
 
 ### Status
 
@@ -97,17 +148,19 @@ The OpenShift integration retrieves the following data:
 #### Events
 
 The OpenShift integration retrieves all OpenShift events from the OpenShift cluster. In addition to this, `Element Properties Change` events will be generated in StackState for changes in Kubernetes objects.
+* All [OpenShift events](#openshift-events) are retrieved from the Kubernetes cluster. 
+* StackState `Element Properties Change` events will be generated for [changes detected in an OpenShift object](#object-change-events).
 
 ##### OpenShift events
 
 The OpenShift integration retrieves all events from the OpenShift cluster. The table below shows which event category will be assigned to each event type in StackState:
 
-| StackState event category | OpenShift events                                                                                                                                                                                                                                                                                                                                                               |  |
-| :--- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :--- |
-| **Activities** | `BackOff` `ContainerGCFailed` `ExceededGracePeriod` `FileSystemResizeSuccessful` `ImageGCFailed` `Killing` `NodeAllocatableEnforced` `NodeNotReady` `NodeSchedulable` `Preempting` `Pulling` `Pulled` `Rebooted` `Scheduled` `Starting` `Started` `SuccessfulAttachVolume` `SuccessfulDetachVolume` `SuccessfulMountVolume` `SuccessfulUnMountVolume` `VolumeResizeSuccessful` |  |
-| **Alerts** | `NotTriggerScaleUp`                                                                                                                                                                                                                                                                                                                                                            |  |
-| **Changes** | `Created` \(created container\) `NodeReady` `SandboxChanged` `SuccesfulCreate`                                                                                                                                                                                                                                                                                                 |  |
-| **Others** | All other events                                                                                                                                                                                                                                                                                                                                                               |  |
+| StackState event category | OpenShift events                                                                                                                                                                                                                                                                                                                                                               |
+| :--- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Activities** | `BackOff` `ContainerGCFailed` `ExceededGracePeriod` `FileSystemResizeSuccessful` `ImageGCFailed` `Killing` `NodeAllocatableEnforced` `NodeNotReady` `NodeSchedulable` `Preempting` `Pulling` `Pulled` `Rebooted` `Scheduled` `Starting` `Started` `SuccessfulAttachVolume` `SuccessfulDetachVolume` `SuccessfulMountVolume` `SuccessfulUnMountVolume` `VolumeResizeSuccessful` |
+| **Alerts** | `NotTriggerScaleUp`                                                                                                                                                                                                                                                                                                                                                            |
+| **Changes** | `Created` \(created container\) `NodeReady` `SandboxChanged` `SuccesfulCreate`                                                                                                                                                                                                                                                                                                 |
+| **Others** | All other events                                                                                                                                                                                                                                                                                                                                                               |
 
 ##### Object change events
 
@@ -151,12 +204,11 @@ The OpenShift integration makes all metrics from the OpenShift cluster available
 
 All retrieved metrics can be browsed or added to a component as a telemetry stream. Select the data source **StackState Metrics** and type `kubernetes` in the **Select** box to get a full list of all available metrics.
 
-![Add an OpenShift metrics stream to a component](../../.gitbook/assets/v46_add_k8s_stream.png)
+![Add an OpenShift metrics stream to a component](../../.gitbook/assets/v50_add_k8s_stream.png)
 
 #### Topology
 
 The OpenShift integration retrieves components and relations for the OpenShift cluster.
-
 
 {% hint style="info" %}
 **StackState Agent versions prior to 2.16:** Topology information is only gathered from OpenShift clusters that use the Docker container runtime.
@@ -240,14 +292,14 @@ For further details, refer to the [OpenShift API documentation \(openshift.com\)
 
 ### Component actions
 
-A number of [actions](../../use/stackstate-ui/perspectives/topology-perspective.md#actions) are added to StackState when the OpenShift StackPack is installed. They are available from the **Actions** section on the right of the screen when an OpenShift component is selected or from the component context menu, displayed when you hover over an OpenShift component in the Topology Perspective
+A number of [actions](../../use/stackstate-ui/perspectives/topology-perspective.md#actions) are added to StackState when the OpenShift StackPack is installed. They are available from the **Actions** section in the right panel **Selection details** tab when an OpenShift component is selected or from the component context menu, displayed when you hover over an OpenShift component in the Topology Perspective
 
 | Action | Available for component types | Description |
 | :--- | :--- | :--- |
 | **Show configuration and storage** | pods containers | Display the selected pod or container with its configmaps, secrets and volumes |
 | **Show dependencies \(deep\)** | deployment replicaset replicationcontroller statefulset daemonset job cronjob pod | Displays all dependencies \(up to 6 levels deep\) of the selected pod or workload. |
 | **Show pods** | deployment replicaset replicationcontroller statefulset daemonset job cronjob | Displays the pods for the selected workload. |
-| **Show pods & services** | namespace | Opens a view for the pods/services in the selected namespace |
+| **Show pods and services** | namespace | Opens a view for the pods/services in the selected namespace |
 | **Show services** | namespace | Open a view for the service and ingress components in the selected namespace |
 | **Show workloads** | namespace | Show workloads in the selected namespace |
 
@@ -278,16 +330,21 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 To uninstall the OpenShift StackPack, go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **OpenShift** screen and click **UNINSTALL**. All OpenShift StackPack specific configuration will be removed from StackState.
 
-To uninstall the StackState Cluster Agent and the StackState Agent from your OpenShift cluster, run a Helm uninstall:
-
-```text
-helm uninstall <release_name> --namespace <namespace>
-
-# If you used the standard install command provided when you installed the StackPack
-helm uninstall stackstate-cluster-agent --namespace stackstate
-```
+See the OpenShift Agent documentation for instructions on [how to uninstall the StackState Cluster Agent and the StackState Agent](/setup/agent/openshift.md#uninstall) from your Openshift cluster.
 
 ## Release notes
+
+**OpenShift StackPack v3.7.13 (2022-06-21)**
+
+- Bug Fix: Fixed description for services/ingresses view.
+
+**OpenShift StackPack v3.7.12 (2022-06-03)**
+
+- Improvement: Updated documentation.
+
+**OpenShift StackPack v3.7.11 (2022-05-23)**
+
+- Bug Fix: Fixed broken link in integration StackState Agent V2 integration documentation.
 
 **OpenShift StackPack v3.7.10 (2022-03-02)**
 
@@ -297,18 +354,6 @@ helm uninstall stackstate-cluster-agent --namespace stackstate
 
 * Bug Fix: Support nodes without instanceId
 
-**OpenShift StackPack v3.7.8 (2021-10-06)**
-
-* Bug Fix: Fix metrics for generic events
-
-**OpenShift StackPack v3.7.7 (2021-08-20)**
-
-* Improvement: Add description to Views
-
-**OpenShift StackPack v3.7.5 \(2021-07-14\)**
-
-* Improvement: Documentation update
-* Improvement: Update of `stackstate.url` for the installation documentation of the StackState Agent
 
 ## See also
 

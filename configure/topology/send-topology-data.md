@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Topology synchronization
@@ -19,18 +19,18 @@ The StackState Receiver API accepts topology, telemetry and health data in a com
 {% tabs %}
 {% tab title="Kubernetes" %}
 ```text
-https://<baseUrl>/receiver/stsAgent/intake?api_key=<API_KEY>
+https://<STACKSTATE_BASE_URL>/receiver/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>
 ```
 
-Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see [Kubernetes install - configuration parameters](/setup/install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml).
+The `<STACKSTATE_BASE_URL>` and `<STACKSTATE_RECEIVER_API_KEY>` are set during StackState installation, for details see [Kubernetes install - configuration parameters](/setup/install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml).
 {% endtab %}
 
 {% tab title="Linux" %}
 ```text
-https://<baseUrl>:<receiverPort>/stsAgent/intake?api_key=<API_KEY>
+https://<STACKSTATE_BASE_URL>:<STACKSTATE_RECEIVER_PORT>/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>
 ```
 
-Both the `baseUrl` and `API_KEY` are set during StackState installation, for details see [Linux install - configuration parameters](/setup/install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install).
+The `<STACKSTATE_BASE_URL>` and <STACKSTATE_RECEIVER_API_KEY>` are set during StackState installation, for details see [Linux install - configuration parameters](/setup/install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install).
 {% endtab %}
 {% endtabs %}
 
@@ -54,8 +54,6 @@ Topology, telemetry and health data are sent to the receiver API via HTTP POST. 
 
 StackState accepts topology information in the following JSON format:
 
-{% tabs %}
-{% tab title="Example health `transactional_increments` JSON" %}
 ```text
 {
    "apiKey":"your api key",
@@ -79,30 +77,32 @@ StackState accepts topology information in the following JSON format:
                "externalId":"nginx3.e5dda204-d1b2-11e6-a015-0242ac110005",
                "type":{
                   "name":"docker"
-               },
+                  },
                "data":{
                   "ip_addresses":[
                      "172.17.0.8"
                   ],
                   "labels":["label1", "category:"label2"],
                   "framework_id":"fc998b77-e2d1-4be5-b15c-1af7cddabfed-0000",
-                  "docker":{
-                     "image":"nginx",
-                     "network":"BRIDGE",
-                     "port_mappings":[
-                        {
-                           "container_port":31945,
-                           "host_port":31945,
-                           "protocol":"tcp"
-                        }
-                     ],
-                     "privileged":false
-                  },
                   "task_name":"nginx3",
                   "slave_id":"fc998b77-e2d1-4be5-b15c-1af7cddabfed-S0"
+                  },
+               "sourceProperties":{
+                 "docker":{
+                    "image":"nginx",
+                    "network":"BRIDGE",
+                    "port_mappings":[
+                       {
+                          "container_port":31945,
+                          "host_port":31945,
+                          "protocol":"tcp"
+                       }
+                    ],
+                    "privileged":false
+                    }
+                  },
                }
-            }
-         ],
+            ],
          "relations":[
             {
                "externalId":"nginx3.e5dda204-d1b2-11e6-a015-0242ac110005->nginx5.0df4bc1e-c695-4793-8aae-a30eba54c9d6",
@@ -120,8 +120,6 @@ StackState accepts topology information in the following JSON format:
    ]
 }
 ```
-{% endtab %}
-{% endtabs %}
 
 The JSON contains the following fields:
 
@@ -139,6 +137,7 @@ The JSON contains the following fields:
   * **externalId**: A unique ID for this component. This has to be unique for this instance.
   * **type**: A named parameter for this type.
   * **data**: A JSON blob of arbitrary data.
+  * **sourceProperties**: Optional. A JSON blob of arbitrary data. When populated, the contents of this field will be displayed in the StackState UI component properties in place of the `data` field.  The `data` field will still be accessible in templates and the various functions that make use of this data
 * **relations**: A list of relations. Each relation has the following fields:
   * **externalId**: A unique ID for this relation. This has to be unique for this instance.
   * **type**: A named parameter for this type.

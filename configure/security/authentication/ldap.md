@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # LDAP
@@ -45,6 +45,8 @@ stackstate:
           - dc: com
         rolesKey: cn
         groupMemberKey: member
+        # to return all nested groups, use:
+        # groupMemberKey: "member:1.2.840.113556.1.4.1941:"
 
     # map the groups from LDAP to the
     # 4 standard subjects in StackState (guest, powerUser, admin and platformAdmin)
@@ -70,7 +72,7 @@ Follow the steps below to configure StackState to authenticate using LDAP:
    * **usernameKey** - The name of the attribute that stores the username, value is matched against the username provided on the login screen.
    * **emailKey** - The name of the attribute that is used as the email address in StackState.
    * **rolesKey** - The name of the attribute that stores the group name.
-   * **groupMemberKey** - The name of the attribute that indicates whether a user is a member of a group. The constructed LDAP filter follows this pattern: `<groupMemberKey>=<user.dn>,ou=groups,dc=acme,dc=com`.
+   * **groupMemberKey** - The name of the attribute that indicates whether a user is a member of a group. The constructed LDAP filter follows this pattern: `<groupMemberKey>=<user.dn>,ou=groups,dc=acme,dc=com`. To return all nested groups, use `groupMemberKey: "member:1.2.840.113556.1.4.1941:"`.
 2. In `authentication.yaml` - map user roles from LDAP to the correct StackState subjects \(see the example above\):
    * **roles** - for details, see the [default StackState roles](../rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](../rbac/).
 3. Store the file `authentication.yaml` together with the `values.yaml` from the StackState installation instructions.
@@ -131,7 +133,7 @@ stackstate/stackstate
 To configure StackState to authenticate using an LDAP authentication server on Linux, LDAP details and user role mapping needs to be added to the file `application_stackstate.conf`. For example:
 
 {% tabs %}
-{% tab title="application\_stackstate.conf" %}
+{% tab title="application_stackstate.conf" %}
 ```javascript
 authorization {
   // map the groups from the LDAP to the
@@ -181,6 +183,8 @@ authentication {
         ]
         rolesKey = cn
         groupMemberKey = member
+        // to return all nested groups, use:
+        // groupMemberKey: "member:1.2.840.113556.1.4.1941:"
       }
     }
   }
@@ -202,7 +206,7 @@ Follow the steps below to configure StackState to authenticate using LDAP:
    * **usernameKey** - The name of the attribute that stores the username, value is matched against the username provided on the login screen.
    * **emailKey** - The name of the attribute that is used as the email address in StackState.
    * **rolesKey** - The name of the attribute that stores the group name.
-   * **groupMemberKey** - The name of the attribute that indicates whether a user is a member of a group. The constructed LDAP filter follows this pattern: `<groupMemberKey>=<user.dn>,ou=groups,dc=acme,dc=com`.
+   * **groupMemberKey** - The name of the attribute that indicates whether a user is a member of a group. The constructed LDAP filter follows this pattern: `<groupMemberKey>=<user.dn>,ou=groups,dc=acme,dc=com`.  To return all nested groups, use `groupMemberKey: "member:1.2.840.113556.1.4.1941:"`.
 2. In `application_stackstate.conf` - map the LDAP groups to the correct StackState groups using **guestGroups**, **powerUserGroups**, **adminGroups** and **platformAdminGroups** \(see the example above\). For details, see the [default StackState roles](../rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](../rbac/).
 3. Restart StackState to apply the changes.
 

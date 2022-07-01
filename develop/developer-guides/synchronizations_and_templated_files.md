@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Synchronizations and templated files
@@ -82,13 +82,13 @@ Once you have installed the `Custom Synchronization` StackPack, it creates a Com
 
 You can go ahead and rename it, add a description if needed. It is recommended to change the default value of the `ComponentType` from `Auto-synced Component` to something that represents a generic component in your data source. The same goes for `Layer`, `Domain` and `Environment` which defaults to `Auto-synced Components`, `Auto-synced Domain`,`Auto-synced Environment` respectively. As this template is using the `getOrCreate` functionality, these values are auto-created by StackState if they don't already exist. Find more on Templates [here](../reference/stj/using_stj.md).
 
-Once you have completed all the changes, you can click on `update` and confirm the popup dialog to unlock this Template from the `Custom Synchronization` StackPack.
+Once you have completed all the changes, you can click **UPDATE** and confirm the popup dialog to unlock this Template from the `Custom Synchronization` StackPack.
 
 ### 8. Configure Sts Sources - Topology Sources
 
 Once you have installed the `Custom Synchronization` StackPack, it creates a StackState DataSource called `Internal kafka`. This data source is a good starting point for your StackPack. You can change the name of it, add a description if needed. You can observe the `Integration Type` and `Kafka Topic` are a representation of the information you supplied in the `Custom Synchronization` StackPack instance details. More on Topology Sources [here](../../configure/topology/topology_sources.md)
 
-Once you have completed all the changes, you can click on `update` and confirm the popup dialog to unlock this StackState DataSource from the `Custom Synchronization` StackPack.
+Once you have completed all the changes, you can click **UPDATE** and confirm the popup dialog to unlock this StackState DataSource from the `Custom Synchronization` StackPack.
 
 ### 9. Configure Synchronizations
 
@@ -120,7 +120,7 @@ Verify all the changes and click "Save". On the popup dialog that appears right 
 
 ### 10. Export the StackState Configuration
 
-When your integration is working and has a shape that you expect, you can convert StackState's configuration into a StackPack template file. To do this go to the Settings page and at the bottom of the left menu, you can find an Import/Export section. Click on the `STS-EXPORT-ALL-{Date}.conf` button on the main screen. This exports all of StackState's configuration into a config file format.
+When your integration is working and has a shape that you expect, you can convert StackState's configuration into a StackPack template file. To do this go to the **Settings** page and at the bottom of the left menu, you can find an Import/Export section. Click on the `STS-EXPORT-ALL-{Date}.conf` button on the main screen. This exports all of StackState's configuration into a config file format.
 
 The configuration file has the following format:
 

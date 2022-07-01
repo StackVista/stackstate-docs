@@ -1,19 +1,19 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Component actions
 
 ## Overview
 
-This how to describes the steps to create a [component action](../../../configure/topology/component_actions.md) that is available for specific components. Component actions can be executed from the component context menu in the StackState Topology Perspective or the details pane on the right of the StackState UI.
+This how-to describes the steps to create a [component action](../../../configure/topology/component_actions.md) that is available for specific components. Component actions can be executed from the component context menu in the StackState Topology Perspective or the right panel **Selection details** tab when detailed information about a component is displayed.
 
 ## Add or edit a component action
 
 The component actions available in StackState can be managed in the StackState UI from the page **Settings** &gt; **Actions** &gt; **Component Actions**.
 
 * To add a new component action, click the **ADD COMPONENT ACTION** button.
-* To edit an existing component action, click on the **...** menu to the right of its description and select **Edit**.
+* To edit an existing component action, click the **...** menu to the right of its description and select **Edit**.
 
 ![Component Actions](../../../.gitbook/assets/component_actions.png)
 
@@ -60,7 +60,7 @@ Other properties of the component can be accessed using the [component script AP
 
 ### Identifier
 
-Providing an identifier is optional, but is necessary when you want to store your component action in a StackPack. A valid [identifier](../../../configure/identifiers.md) for a component action is a URN that follows the convention:
+Providing an identifier is optional, but is necessary when you want to store your component action in a StackPack. A valid [identifier](../../../configure/topology/identifiers.md) for a component action is a URN that follows the convention:
 
 ```text
 urn:stackpack:{stackpack-name}:component-action:{component-action-name}

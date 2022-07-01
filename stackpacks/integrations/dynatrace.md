@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # 💠 Dynatrace
@@ -18,7 +18,7 @@ Dynatrace is a [StackState core integration](/stackpacks/integrations/about_inte
 * Agent V2 pushes [retrieved data](dynatrace.md#data-retrieved) to StackState.
     * [Topology data](dynatrace.md#topology) is translated into components and relations. 
     * [Tags](dynatrace.md#tags) defined in Dynatrace are added to components and relations in StackState. Any defined StackState tags are used by StackState when the topology is retrieved.
-    * [Events](dynatrace.md#events) are available in the StackState Events Perspective and listed in the details pane of the StackState UI.
+    * [Events](dynatrace.md#events) are available in the StackState Events Perspective and listed in the StackState UI right panel **View summary** tab.
 
 ## Setup
 
@@ -51,7 +51,7 @@ If only the Dynatrace topology check is enabled, no Dynatrace events data will b
 
 To enable the Dynatrace topology check and begin collecting topology data from Dynatrace, add the following configuration to StackState Agent V2:
 
-1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/dynatrace_topology.d/conf.yaml` to include details of your Dynatrace instance:
+1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/dynatrace_topology.d/conf.yaml` to include details of your Dynatrace instance:
    * **url** - the base URL of the Dynatrace instance.
      - SaaS url example - https://{your-environment-id}.live.dynatrace.com
      - Managed url example - https://{your-domain}/e/{your-environment-id} 
@@ -107,7 +107,7 @@ If only the Dynatrace health check is enabled, no Dynatrace topology data will b
 
 To enable the Dynatrace health check and begin collecting events from Dynatrace, add the following configuration to StackState Agent V2:
 
-1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/dynatrace_health.d/conf.yaml` to include details of your Dynatrace instance:
+1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/dynatrace_health.d/conf.yaml` to include details of your Dynatrace instance:
    * **url** - the base URL of the Dynatrace instance.
      - SaaS url example - https://{your-environment-id}.live.dynatrace.com
      - Managed url example - https://{your-domain}/e/{your-environment-id} 
@@ -200,11 +200,11 @@ Refer to the Dynatrace documentation for details on [how to create an API Token]
 
 The [Dynatrace health check](#dynatrace-health-check) retrieves all events and their parameters from Dynatrace for the configured `relative time` (default 1 hour).
 
-| Dynatrace event severity | Available in StackState as |
-| :--- | :--- |
-| `INFO` | Events are mapped to the associated component. They are listed on the StackState events perspective and in the Component Details pane. |
-| `PERFORMANCE`, `RESOURCE_CONTENTION`, `MONITORING_UNAVAILABLE`, `ERROR` | Events are added to a StackState health stream. These event severities will result in a DEVIATING state on the associated component. |
-| `AVAILABILITY`, `CUSTOM_ALERT` | Events are added to a StackState health stream. These event severities will result in a CRITICAL state on the associated component. |
+| Dynatrace event severity | Available in StackState as                                                                                                                       |
+| :--- |:-------------------------------------------------------------------------------------------------------------------------------------------------|
+| `INFO` | Events are mapped to the associated component. They are listed on the StackState Events Perspective and in the right panel **View summary** tab. |
+| `PERFORMANCE`, `RESOURCE_CONTENTION`, `MONITORING_UNAVAILABLE`, `ERROR` | Events are added to a StackState health stream. These event severities will result in a `DEVIATING` state on the associated component.             |
+| `AVAILABILITY`, `CUSTOM_ALERT` | Events are added to a StackState health stream. These event severities will result in a CRITICAL state on the associated component.              |
 
 
 #### Metrics
@@ -245,7 +245,7 @@ When the Dynatrace integration is enabled, the following additional keys can be 
 
 For example, to filter a view by Dynatrace Management Zone, add the key `dynatrace-managementZones:<value>` to the **Labels** filter box.
 
-![Use a Dynatrace topology filter](../../.gitbook/assets/v46_dynatrace-filter.png)
+![Use a Dynatrace topology filter](../../.gitbook/assets/v50_dynatrace-filter.png)
 
 ### Open source
 
@@ -275,21 +275,23 @@ To uninstall the Dynatrace StackPack and disable the Dynatrace checks:
 
 ## Release notes
 
-**Dynatrace StackPack v1.4.0 \(2022-04-06\)**
+**Dynatrace StackPack v1.4.2 (2022-06-03)**
 
-* Features: Added Dynatrace support for synthetic checks, introduced a new component type synthetic monitor. Synthetic checks and custom devices added as layer.
+- Improvement: Updated documentation
+
+**Dynatrace StackPack v1.4.1 (2022-05-31)**
+
+- BugFix: Fixed component action issue where applications would not successfully redirect to Dynatrace. [STAC-16661](https://stackstate.atlassian.net/browse/STAC-16661)
+
+**Dynatrace StackPack v1.4.0 (2022-04-06)**
+
+- Features: Dynatrace support for synthetic checks, introduced a new component type synthetic monitor (requires StackState Agent v2.17 or later)
+- Features: Synthetic checks and custom devices added as layer
+- BugFix: Fixed showing component actions when component merges. [STAC-14517](https://stackstate.atlassian.net/browse/STAC-14517)
 
 **Dynatrace StackPack v1.3.0 \(2021-10-12\)**
 
-* Features: Support of Agent 2.15 release that sends Health State snapshots with new Dynatrace topology and health checks. 
-
-**Dynatrace StackPack 1.2.0 (2021-09-02)**
-
-* Features: Introduced a new component type named Custom-Device 
-
-**Dynatrace StackPack v1.1.2 \(2021-06-24\)**
-
-* Improvement: Changed which events send DEVIATING health state
+- Features: Support of Agent 2.15 release that sends Health State snapshots with new Dynatrace topology and health checks.
 
 
 ## See also

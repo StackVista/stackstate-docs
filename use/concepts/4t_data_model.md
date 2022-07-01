@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v4.6.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # The 4T data model
@@ -16,7 +16,7 @@ Each of these sources defines one or multiple subgraphs of the stack’s topolog
 
 ## Telemetry
 
-![Telemetry](../../.gitbook/assets/4T_Telemetry_UnderDaHood-1.png)
+![Telemetry](../../.gitbook/assets/v50_4T_Telemetry_UnderDaHood.png)
 
 StackState is able to ingest telemetry data \(metrics, events, and logs\) from external IT systems such as monitoring, provisioning, deployment, and configuration management tools, or StackState’s agent. The telemetry is combined with the topology data to create a comprehensive picture of your IT environment and how it is functioning in real-time.
 
