@@ -80,6 +80,8 @@
     * [Advanced Agent configuration](setup/agent/advanced-agent-configuration.md)
   * [AWS](stackpacks/integrations/aws/README.md)
     * [AWS](stackpacks/integrations/aws/aws.md)
+    * [StackState/Agent IAM role: EC2](stackpacks/integrations/aws/aws-sts-ec2.md)
+    * [StackState/Agent IAM role: EKS](stackpacks/integrations/aws/aws-sts-eks.md)
     * [AWS ECS](stackpacks/integrations/aws/aws-ecs.md)
     * [AWS X-ray](stackpacks/integrations/aws/aws-x-ray.md)
     * [OpenTelemetry - NodeJS](stackpacks/integrations/aws/opentelemetry-nodejs.md)
