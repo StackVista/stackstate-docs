@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # 💠 Kubernetes
@@ -23,7 +23,7 @@ The Kubernetes integration collects topology data in a Kubernetes cluster as wel
   * [Topology data](kubernetes.md#topology) is translated into components and relations.
   * [Tags](kubernetes.md#tags) defined in Kubernetes are added to components and relations in StackState.
   * [Metrics data](kubernetes.md#metrics) is stored and accessible within StackState. Relevant metrics data is mapped to associated components and relations in StackState.
-  * [Kubernetes events](kubernetes.md#events) are available in the StackState UI Events Perspective and listed in the details pane on the right of the StackState UI.
+  * [Kubernetes events](kubernetes.md#events) are available in the StackState UI Events Perspective and listed in the StackState UI right panel **View summary** tab.
   * [Objects changes events](kubernetes.md#events) are created for every detected change to `spec` or `metadata` in Kubernetes objects
 
 ## Setup
@@ -111,10 +111,10 @@ To remedy this situation, the kubernetes\_state check can be configured to run a
   helm upgrade --install \
   --namespace stackstate \
   --create-namespace \
-  --set-string 'stackstate.apiKey'='<your-api-key>' \
-  --set-string 'stackstate.cluster.name'='<your-cluster-name>' \
-  --set-string 'stackstate.cluster.authToken=<your-cluster-token>' \
-  --set-string 'stackstate.url'='<stackstate-receiver-api-address>' \
+  --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
+  --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
+  --set-string 'stackstate.cluster.authToken=<CLUSTER_AUTH_TOKEN>' \
+  --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
   --values values.yaml \
   stackstate-cluster-agent stackstate/cluster-agent    
   ```
@@ -150,14 +150,14 @@ The Kubernetes integration retrieves the following data:
 
 ##### Kubernetes events
 
-The table below shows which event category will be assigned to each event type in StackState:
+The Kubernetes integration retrieves all events from the Kubernetes cluster.  The table below shows which event category will be assigned to each event type in StackState:
 
 | StackState event category | Kubernetes events |
-| :--- | :--- |
-| **Activities** | `BackOff` `ContainerGCFailed` `ExceededGracePeriod` `FileSystemResizeSuccessful` `ImageGCFailed` `Killing` `NodeAllocatableEnforced` `NodeNotReady` `NodeSchedulable` `Preempting` `Pulling` `Pulled` `Rebooted` `Scheduled` `Starting` `Started` `SuccessfulAttachVolume` `SuccessfulDetachVolume` `SuccessfulMountVolume` `SuccessfulUnMountVolume` `VolumeResizeSuccessful` |
-| **Alerts** | `NotTriggerScaleUp` |
-| **Changes** | `Created` \(created container\) `NodeReady` `SandboxChanged` `SuccessfulCreate` `SuccessfulDelete` `Completed` |
-| **Others** | All other events |
+|:--------------------------| :--- |
+| **Activities**            | `BackOff` `ContainerGCFailed` `ExceededGracePeriod` `FileSystemResizeSuccessful` `ImageGCFailed` `Killing` `NodeAllocatableEnforced` `NodeNotReady` `NodeSchedulable` `Preempting` `Pulling` `Pulled` `Rebooted` `Scheduled` `Starting` `Started` `SuccessfulAttachVolume` `SuccessfulDetachVolume` `SuccessfulMountVolume` `SuccessfulUnMountVolume` `VolumeResizeSuccessful` |
+| **Alerts**                | `NotTriggerScaleUp` |
+| **Changes**               | `Created` \(created container\) `NodeReady` `SandboxChanged` `SuccessfulCreate` `SuccessfulDelete` `Completed` |
+| **Others**                | All other events |
 
 ##### Object change events
 
@@ -191,7 +191,7 @@ Note that, in order to reduce noise of changes, the following object properties 
 * `status` (except for `Node`, `Pod` and `PersistentVolume` objects)
 {% endhint %}
 
-You can also see the current [or past](../../use/stackstate-ui/timeline-time-travel.md#topology-time) YAML definition of the object in the [Component properties](/use/concepts/components.md#component-details-pane):
+You can also see the current [or past](../../use/stackstate-ui/timeline-time-travel.md#topology-time) YAML definition of the object in the [Component properties](/use/concepts/components.md#detailed-component-information):
 
 ![Kubernetes Component properties](../../.gitbook/assets/k8s-component-properties-yaml.png)
 
@@ -231,7 +231,7 @@ The following Kubernetes topology data is available in StackState as components:
 
 The following relations between components are retrieved:
 
-* Container → Volume
+* Container → PersistentVolume, Volume 
 * CronJob → Job
 * DaemonSet → Pod
 * Deployment → ReplicaSet
@@ -289,14 +289,14 @@ For further details, refer to the [Kubernetes API documentation \(kubernetes.io\
 
 ### Component actions
 
-A number of [actions](../../use/stackstate-ui/perspectives/topology-perspective.md#actions) are added to StackState when the Kubernetes StackPack is installed. They are available from the **Actions** section on the right of the screen when a Kubernetes component is selected or from the component context menu, displayed when you hover over a Kubernetes component in the Topology Perspective
+A number of [actions](../../use/stackstate-ui/perspectives/topology-perspective.md#actions) are added to StackState when the Kubernetes StackPack is installed. They are available from the **Actions** section in the right panel **Selection details** tab when a Kubernetes component is selected or from the component context menu, displayed when you hover over a Kubernetes component in the Topology Perspective
 
 | Action | Available for component types | Description |
 | :--- | :--- | :--- |
 | **Show configuration and storage** | pods containers | Display the selected pod or container with its configmaps, secrets and volumes |
 | **Show dependencies \(deep\)** | deployment replicaset replicationcontroller statefulset daemonset job cronjob pod | Displays all dependencies \(up to 6 levels deep\) of the selected pod or workload. |
 | **Show pods** | deployment replicaset replicationcontroller statefulset daemonset job cronjob | Displays the pods for the selected workload. |
-| **Show pods & services** | namespace | Opens a view for the pods/services in the selected namespace |
+| **Show pods and services** | namespace | Opens a view for the pods/services in the selected namespace |
 | **Show services** | namespace | Open a view for the service and ingress components in the selected namespace |
 | **Show workloads** | namespace | Show workloads in the selected namespace |
 
@@ -327,7 +327,25 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 To uninstall the Kubernetes StackPack, go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **Kubernetes** screen and click **UNINSTALL**. All Kubernetes StackPack specific configuration will be removed from StackState.
 
+See the Kubernetes Agent documentation for instructions on [how to uninstall the StackState Cluster Agent and the StackState Agent](/setup/agent/kubernetes.md#uninstall) from your Kubernetes cluster.
+
 ## Release notes
+
+**Kubernetes StackPack v3.9.13 (2022-06-21)**
+
+- Bug Fix: Fixed description for services/ingresses view.
+
+**Kubernetes StackPack v3.9.12 (2022-06-03)**
+
+- Improvement: Updated documentation.
+
+**Kubernetes StackPack v3.9.11 (2022-05-23)**
+
+- Bug Fix: Fixed broken link in integration StackState Agent V2 integration documentation.
+
+**Kubernetes StackPack v3.9.10 (2022-04-11)**
+
+- Bug Fix: Show kubernetes view names on StackPack instance
 
 **Kubernetes StackPack v3.9.9 (2022-03-02)**
 
@@ -337,18 +355,6 @@ To uninstall the Kubernetes StackPack, go to the StackState UI **StackPacks** &g
 
 * Bug Fix: Support nodes without instanceId
 
-**Kubernetes StackPack v3.9.7 (2021-10-06)**
-
-* Bug Fix: Fix metrics for generic events
-
-**Kubernetes StackPack v3.9.6 (2021-08-20)**
-
-* Improvement: Add description to Views
-
-**Kubernetes StackPack v3.9.5 \(2021-07-14\)**
-
-* Improvement: Documentation update
-* Improvement: Update of `stackstate.url` for the installation documentation of the StackState Agent
 
 ## See also
 

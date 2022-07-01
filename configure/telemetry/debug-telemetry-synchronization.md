@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Debug telemetry synchronization
@@ -31,7 +31,7 @@ The first step in troubleshooting a telemetry issue is to identify if all metric
 **If the problem affects all integrations:**
 
 * Check the [StackState Agents](#stackstate-agent) for connecting to the external source system or StackState.
-* Check the [StackState receiver](#stackstate-receiver) for problems decoding incoming data.
+* Check the [StackState Receiver](#stackstate-receiver) for problems decoding incoming data.
 
 ## How telemetry is synchronized
 
@@ -43,13 +43,13 @@ Telemetry is either pushed to StackState by a StackState Agent, or pulled from a
 
 1. StackState Agent:
    * Connects to a data source to collect data.
-   * Connects to the StackState receiver to push collected data to StackState (in JSON format).
+   * Connects to the StackState Receiver to push collected data to StackState (in JSON format).
    * Read the [troubleshooting steps for StackState Agent](#stackstate-agent)
-2. StackState receiver:
+2. StackState Receiver:
    * Extracts topology and telemetry payloads from the received JSON.
-   * Read the [troubleshooting steps for StackState receiver](#stackstate-receiver).
+   * Read the [troubleshooting steps for StackState Receiver](#stackstate-receiver).
 3. Elasticsearch in StackState:
-   * Stores telemetry data received via the StackState receiver. 
+   * Stores telemetry data received via the StackState Receiver. 
    * Read the [troubleshooting steps for Elasticsearch](#elasticsearch). 
 4. StackState plugins:
    * Pull data from AWS, Azure, external Elasticsearch, Prometheus or Splunk at the `Minimum live stream polling interval (seconds)` configured for the data source.
@@ -71,11 +71,11 @@ Note that for the Kubernetes and OpenShift integrations, different Agent types s
 - **StackState Agents (node Agents):** Supply metrics from the node on which they are deployed only. If cluster checks are not enabled, this will include metrics from kube-state-metrics if it is deployed on the same node.
 - **ClusterCheck Agent:** When cluster checks are enabled, supplies metrics from kube-state-metrics.
 
-### StackState receiver
+### StackState Receiver
 
-The StackState receiver receives JSON data from the StackState Agent. 
+The StackState Receiver receives JSON data from the StackState Agent. 
 
-- Check the [StackState receiver logs](#stackstate) for JSON deserialization errors..
+- Check the [StackState Receiver logs](#stackstate) for JSON deserialization errors..
 
 ### Elasticsearch
 
@@ -106,7 +106,7 @@ The following logs may be useful when debugging telemetry synchronization:
 * There is a pod for the StackState Receiver.
 * There is a pod for each Kafka-to-Elasticsearch process. These processes are responsible for getting telemetry data to Elasticsearch. Note that there are processes for metrics, events, and traces. For example, the pod `stackstate-mm2es` is responsible for metrics.
 
-➡️ [Learn more about StackState logs on Kubernetes](/configure/logging/stackstate-log-files.md#kubernetes)
+➡️ [Learn more about StackState logs on Kubernetes](/configure/logging/kubernetes-logs.md)
 {% endtab %}
 {% tab title="Linux" %}
 When deployed on Linux, StackState log files are located in the directory:
@@ -121,7 +121,7 @@ The following log files may be useful when debugging telemetry synchronization:
 * **kafkaToEs:** `/opt/stackstate/var/log/kafka-to-es` - contains logs for the processes that are responsible for getting telemetry data to Elasticsearch. Note that there are separate processes for metrics, events, and traces.
 * **ElasticSearch:** `/opt/stackstate/var/log/elasticsearch7`
 
-➡️ [Learn more about the StackState log files](/configure/logging/stackstate-log-files.md#linux)
+➡️ [Learn more about the StackState log files](/configure/logging/linux-logs.md)
 {% endtab %}
 {% endtabs %}
 
@@ -135,6 +135,6 @@ StackState Agent log files are located in the directory:
 
 ## See also
 
-* [Working with StackState log files](/configure/logging/stackstate-log-files.md)
+* [Working with StackState log files](/configure/logging/README.md)
 * [Browse telemetry](/use/metrics-and-events/browse-telemetry.md)
 * [Add a telemetry stream to an element](/use/metrics-and-events/add-telemetry-to-element.md)

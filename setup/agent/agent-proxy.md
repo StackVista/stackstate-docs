@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Use an HTTP/HTTPS proxy
@@ -96,8 +96,8 @@ docker run -d \
  -v /var/run/docker.sock:/var/run/docker.sock:ro \
  -v /proc/:/host/proc/:ro \
  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
- -e STS_API_KEY="API_KEY" \
- -e STS_STS_URL="<stackstate-receiver-api-address>" \
+ -e STS_API_KEY="<STACKSTATE_RECEIVER_API_KEY>>" \
+ -e STS_STS_URL="<STACKSTATE_RECEIVER_API_ADDRESS>" \
  -e HOST_PROC="/host/proc" \
  -e HTTP_PROXY="http://example.com:1234" \
  -e HTTPS_PROXY="https://example.com:1234" \
@@ -241,8 +241,8 @@ docker run -d \
  -v /var/run/docker.sock:/var/run/docker.sock:ro \
  -v /proc/:/host/proc/:ro \
  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
- -e STS_API_KEY="API_KEY" \
- -e STS_STS_URL="<stackstate-receiver-api-address>" \
+ -e STS_API_KEY="<STACKSTATE_RECEIVER_API_KEY>" \
+ -e STS_STS_URL="<STACKSTATE_RECEIVER_API_ADDRESS>" \
  -e HOST_PROC="/host/proc" \
  -e STS_PROXY_HTTP="http://example.com:1234" \
  -e STS_PROXY_HTTPS="https://example.com:1234" \

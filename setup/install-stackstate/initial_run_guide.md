@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Initial run guide
@@ -35,9 +35,9 @@ To access the StackState UI:
 {% endtab %}
 
 {% tab title="Linux" %}
-The StackState UI can be accessed using the `STACKSTATE_BASE_URL` specified during installation:
+The StackState UI can be accessed using the `<STACKSTATE_BASE_URL>` specified during installation:
 
-`https://STACKSTATE_BASE_URL:7070`
+`https://<STACKSTATE_BASE_URL>:7070`
 {% endtab %}
 
 {% tab title="OpenShift" %}

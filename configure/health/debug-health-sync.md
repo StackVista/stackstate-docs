@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Debug health synchronization
 
 ## Overview
 
-The [StackState CLI](../../setup/cli-install.md) can be used to troubleshoot a health synchronization and fix issues that might prevent health data from being correctly ingested and displayed in StackState. This page describes the general troubleshooting steps to take when debugging a health synchronization, as well as the CLI commands used, and a description of the error messages returned.
+The [StackState CLI](/setup/cli/README.md) can be used to troubleshoot a health synchronization and fix issues that might prevent health data from being correctly ingested and displayed in StackState. This page describes the general troubleshooting steps to take when debugging a health synchronization, as well as the CLI commands used, and a description of the error messages returned.
 
 ## General troubleshooting steps
 
@@ -17,11 +17,24 @@ When debugging the health synchronization there are some common verification ste
 3. Investigate further:
    * **Stream present** - [Check the stream status](debug-health-sync.md#show-stream-status), this will show the metrics latency of the stream and any [errors](debug-health-sync.md#error-messages).
    * **Streams / sub streams present, but there are no check states** - Confirm that the payload sent to the Receiver API adheres to the [health payload specification](send-health-data.md).
-   * **No streams / sub streams are present** - Use the CLI command below to verify that health data sent to the Receiver API is arriving in StackState. 
+   * **No streams / sub streams are present** - Use the CLI command below to verify that health data sent to the Receiver API is arriving in StackState:
 
-     ```text
-     sts topic show sts_health_sync
-     ```
+{% tabs %}
+{% tab title="CLI: stac" %}
+
+```text
+stac topic show sts_health_sync
+```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
 
 ## Common issues
 
@@ -42,22 +55,38 @@ The main reason for this is that the latency of the health synchronization is hi
 
 Returns a list of all current synchronized health streams and the number of sub streams included in each.
 
+{% tabs %}
+{% tab title="CLI: stac" %}
+
 ```javascript
 # List streams
-sts health list-streams
+stac health list-streams
 
 stream urn                                            sub stream count
 --------------------------------------------------  ------------------
 urn:health:sourceId:streamId                                         1
 ```
 
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
+
 ### List sub streams
 
 Returns a list of all sub streams for a given stream URN, together with the number of check states in each.
 
+{% tabs %}
+{% tab title="CLI: stac" %}
+
 ```javascript
 # List sub streams
-sts health list-sub-streams urn:health:sourceId:streamId 
+stac health list-sub-streams urn:health:sourceId:streamId 
 
 sub stream id                     check state count
 ------------------------------  -------------------
@@ -65,13 +94,27 @@ subStreamId1                                     20
 subStreamId2                                     17
 ```
 
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
+
+
 ### Show stream status
 
 The stream status command returns the aggregated stream latency and throughput metrics. This is helpful when debugging why a health check takes a long time to land on the expected topology elements. It will help diagnose if the frequency of data sent to StackState should be adjusted. The output contains a section `Errors for non-existing sub streams:` as some errors are only relevant when a sub stream could not be created, for example `StreamMissingSubStream`. Sub stream errors can be any of the documented [error messages](debug-health-sync.md#error-messages).
 
+{% tabs %}
+{% tab title="CLI: stac" %}
+
 ```javascript
 # Show a stream status
-sts health show urn:health:sourceId:streamId
+stac health show urn:health:sourceId:streamId
 
 Aggregate metrics for the stream and all substreams:
 
@@ -90,13 +133,25 @@ error message                                                                   
 Sub stream `substream with id `subStreamId2`` not started when receiving snapshot stop                          6
 ```
 
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
+
 ### Show sub stream status
 
 The sub stream status provides useful information to verify that check states sent to StackState from an external system could be bound and linked to existing topology elements. This information is helpful to debug why a specific check is not visible on the expected topology element.
 
+{% tabs %}
+{% tab title="CLI: stac" %}
 ```javascript
 # Show a sub stream status.
-sts health show urn:health:sourceId:streamId -s "subStreamId3"
+stac health show urn:health:sourceId:streamId -s "subStreamId3"
 
 Synchronized check state count: 32
 Repeat interval (Seconds): 120
@@ -118,6 +173,18 @@ check states updated (per second)  -                                        -   
 check states deleted (per second)  -
 ```
 
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
+
+
+
 {% hint style="info" %}
 A sub stream status will show the metadata related to the consistency model:
 * **Repeat Snapshots** - Show repeat interval and expiry
@@ -129,13 +196,15 @@ A sub stream status will show the metadata related to the consistency model:
 The sub stream status can be expanded to include details of matched and unmatched check states using the `-t` command line argument. This is helpful to identify any health states that are not attached to a topology element.
 In the example below, `checkStateId2` is listed under `Check states with identifier which has no matching topology element`. This means that it was not possible to match the check state to a topology element with the identifier `server-2`. 
 
+{% tabs %}
+{% tab title="CLI: stac" %}
 
 ```javascript
 # Show a sub stream status matched/unmatched check states.
-sts health show urn:health:sourceId:streamId -s "subStreamId3" -t
+stac health show urn:health:sourceId:streamId -s "subStreamId3" -t
 # If we configured our stream to not use explicit substreams then a default 
 # sub stream can be reached by omitting the optional substreamId parameter as in: 
-#sts health show urn:health:sourceId:streamId -t
+#stac health show urn:health:sourceId:streamId -t
 
 Check states with identifier matching exactly 1 topology element: 32
 
@@ -151,24 +220,60 @@ check state id    topology element identifier    number of matched topology elem
 ----------------  -----------------------------  -------------------------------------
 ```
 
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
+
 ### Delete a health stream
 
 The `delete` stream functionality is helpful while setting up a health synchronization in StackState. It allows you to experiment, delete the data and start over again clean. You can also delete a stream and drop its data when you are sure that you do not want to keep using it.
 
+{% tabs %}
+{% tab title="CLI: stac" %}
+
 ```javascript
 # Delete a health synchronization stream
-sts health delete urn:health:sourceId:streamId
+stac health delete urn:health:sourceId:streamId
 ```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
 
 ### Clear health stream errors
 
 The `clear-errors` option removes all errors from a health stream. This is helpful while setting up a health synchronization in StackState, or, for the case of the `TRANSACTIONAL_INCREMENTS` consistency model, when some errors can't be removed organically. For example, a request to delete a check state might raise an error if the check state is not known to StackState. The only way to suppress such an error would be to use the `clear-errors` command.
 
+{% tabs %}
+{% tab title="CLI: stac" %}
+
 ```javascript
 # Clear health stream errors
-sts health clear-errors urn:health:sourceId:streamId 
+stac health clear-errors urn:health:sourceId:streamId 
 
 ```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
 
 ## Error messages
 
@@ -198,6 +303,5 @@ For example a `SubStreamStopWithoutStart` will be closed once the health synchro
 
 ## See also
 
-* [Install the StackState CLI](../../setup/cli-install.md)
-* [StackState CLI reference](../../develop/reference/cli_reference.md)
+* [Install the StackState CLI](/setup/cli/README.md)
 

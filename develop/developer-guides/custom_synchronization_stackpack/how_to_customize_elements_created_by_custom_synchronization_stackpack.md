@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # How to customize elements created by the Custom Synchronization StackPack
@@ -30,7 +30,7 @@ The `getOrCreate` function tries to resolve a node by first its identifier and t
 getOrCreate <identifier> <create-identifier> Type=<type>;Name=<name>
 ```
 
-Once you have completed all the changes, you can click on `update` and confirm the popup dialog to unlock this Template from the `Custom Synchronization` StackPack.
+Once you have completed all the changes, you can click **UPDATE** and confirm the popup dialog to unlock this Template from the `Custom Synchronization` StackPack.
 
 ## 4. Prepare Id Extractor Functions
 
@@ -42,5 +42,5 @@ You can find more on [Id Extractors page](../custom-functions/id-extractor-funct
 
 Once you have installed the `Custom Synchronization` StackPack, it creates a StackState DataSource called `Internal kafka`. This data source is a good starting point for your StackPack. You can change the name of it, add a description if needed. You can observe the `Integration Type` and `Kafka Topic` are a representation of the information you supplied in the `Custom Synchronization` StackPack instance details. More on [Topology Sources.](../../../configure/topology/topology_sources.md)
 
-Once you have completed all the changes, you can click on `update` and confirm the popup dialog to unlock this StackState DataSource from the `Custom Synchronization` StackPack.
+Once you have completed all the changes, you can click **UPDATE** and confirm the popup dialog to unlock this StackState DataSource from the `Custom Synchronization` StackPack.
 

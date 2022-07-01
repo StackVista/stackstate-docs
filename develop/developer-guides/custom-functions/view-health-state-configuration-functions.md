@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # View health state configuration functions
@@ -32,7 +32,7 @@ The methods `countHealthState` and `countPropagatedHealthState` return a count o
 viewSummary.countPropagatedHealthState(propagatedHealthStates.DEVIATING)
 ```
 
-Note that `countPropagatedHealthState` will return a count of all elements with a specified propagated state. As both the originating component and all relations have a propagated health state these will be included in the returned count. This means that a DEVIATING propagated health state count of a view with one deviating component will be three. Two for the components \(originating and propagated\) and one for the relation.
+Note that `countPropagatedHealthState` will return a count of all elements with a specified propagated state. As both the originating component and all relations have a propagated health state these will be included in the returned count. This means that a `DEVIATING` propagated health state count of a view with one deviating component will be three. Two for the components \(originating and propagated\) and one for the relation.
 
 In the script example below, `minCriticalHealthStates` and `minDeviatingHealthStates` are user parameters. These are named in the view health state configuration function and set by the user when the view health state is configured.
 
@@ -61,7 +61,7 @@ The states of all components and relations in the view can be accessed as a list
 * `healthState`
 * `propagatedHealthState`
 
-This can be used to query particular elements in the view. In the example below, a CRITICAL state will be returned if any component of type DB reports a DEVIATING state. In all other cases a CLEAR state will be returned:
+This can be used to query particular elements in the view. In the example below, a CRITICAL state will be returned if any component of type DB reports a `DEVIATING` state. In all other cases a CLEAR state will be returned:
 
 ```groovy
 if (viewSummary.getStates().any{elementState -> (elementState.type == "DB") && (elementState.healthState >= healthStates.DEVIATING ) } ) {
@@ -73,5 +73,5 @@ if (viewSummary.getStates().any{elementState -> (elementState.type == "DB") && (
 
 ## See also
 
-* [Configure the view health](../../../use/health-state/configure-view-health.md)
+* [Configure the view health](../../../use/stackstate-ui/views/configure-view-health.md)
 

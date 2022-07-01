@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Autonomous Anomaly Detector
@@ -34,9 +34,9 @@ Each identified anomaly is given a severity. This can be HIGH, MEDIUM or LOW. Th
 
 ### Anomaly events
 
-When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream Anomaly` event is generated. Anomaly events are listed on the Events Perspective and will also be reported as one of the [Probable Causes for any associated problem](../../use/problem-analysis/problem_investigation.md#probable-causes). Clicking on the event will open the Event Details pane on the right-hand side of the screen.
+When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream Anomaly` event is generated. Anomaly events are listed on the Events Perspective and will also be reported as one of the [Probable Causes for any associated problem](../../use/problem-analysis/problem_investigation.md#probable-causes). Select an event to display detailed information about it in the right panel **Selection details** tab.
 
-![Metric stream anomaly event details pane](../../.gitbook/assets/v50_event_metric_stream_anomaly.png)
+![Metric stream anomaly event detailed information](../../.gitbook/assets/v50_event_metric_stream_anomaly.png)
 
 * **Metric Stream** - The name of the metric stream on which the anomaly was detected.
 * **Severity** - The [anomaly severity](#anomaly-severity). Anomaly events are only generated for HIGH severity anomalies.
@@ -57,7 +57,7 @@ To enable improvement of the AAD, users can add feedback to reported anomalies. 
 
 {% hint style="success" "self-hosted info" %}
 
-Use the StackState CLI to [export anomaly feedback](/configure/telemetry/export-anomaly-feedback.md) ready to send to StackState.
+Use the StackState CLI to [export anomaly feedback](/configure/anomaly-detection/export-anomaly-feedback.md) ready to send to StackState.
 
 {% endhint %}
 
@@ -91,7 +91,7 @@ The AAD will need to train on your data before it can begin reporting anomalies.
 
 The AAD scales to large environments by autonomously prioritizing metric streams based on its knowledge of the 4T data model and the stream priority defined by users. The metric stream selection algorithm ranks metric streams based on the criteria below:
 
-* The top ranking is given to metric streams with [anomaly health checks](../../use/health-state/anomaly-health-checks.md).
+* The top ranking is given to metric streams with [anomaly health checks](../../use/checks-and-monitors/anomaly-health-checks.md).
 * Components in views that have the most stars by the most users are ranked highest.
 * From those components, the metric streams with the highest priorities are ranked highest. See [how to set the priority for a stream](../../use/metrics-and-events/set-telemetry-stream-priority.md).
 * Anomaly detection will be disabled on streams if more than 20% of their time is flagged as anomalous.
@@ -109,7 +109,7 @@ After an initial [training period](aad.md#training-period), the AAD ensures that
 
 ### Can anomalies trigger alerts?
 
-Yes. The AAD itself does not alert on anomalies found, but [anomaly health checks](../../use/health-state/anomaly-health-checks.md) can be added to components to automatically change the health status of the component to `DEVIATING`. This health state change event can then trigger notifications by [adding an event handler](../../use/stackstate-ui/views/manage-event-handlers.md) to a view.
+Yes. The AAD itself does not alert on anomalies found, but [anomaly health checks](../../use/checks-and-monitors/anomaly-health-checks.md) can be added to components to automatically change the health status of the component to `DEVIATING`. This health state change event can then trigger notifications by [adding an event handler](../../use/stackstate-ui/views/manage-event-handlers.md) to a view.
 
 ## Uninstall
 
@@ -125,4 +125,4 @@ To uninstall the AAD StackPack, simply press the **UNINSTALL** button. No other 
 ## See also
 
 * [Anomaly detection](../../use/concepts/anomaly-detection.md)
-* [Anomaly health checks](../../use/health-state/anomaly-health-checks.md)
+* [Anomaly health checks](../../use/checks-and-monitors/anomaly-health-checks.md)

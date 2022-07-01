@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 ## Overview
@@ -26,7 +26,7 @@ To install KOTS and StackState, you need to have:
 1. Log in to the Replicated Vendor portal and select **Embedded Cluster**.
 1. Download the **Latest Embedded Kubernetes Installer**. Copy the link or download the files as required.
 1. Put this on every server that will be in the cluster, both workers and the master node(s).
-1. Unpack the **Latest Embedded Kubernetes Installer** file .
+1. Unpack the **Latest Embedded Kubernetes Installer** file.
    ```
    tar -zxf stackstate-beta.tar.gz
    ```

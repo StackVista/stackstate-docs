@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Data retention
@@ -12,17 +12,43 @@ StackState imposes data retention limits to save storage space and improve perfo
 
 By default topology graph data will be retained for 8 days. This works in a way that the latest state of topology graph will always be retained; only history older than 8 days will be removed. You can check and alter the configured retention period this using the StackState CLI.
 
+{% tabs %}
+{% tab title="CLI: stac" %}
+
 ```text
 # Check the current retention period
-sts graph retention get-window
+stac graph retention get-window
 ```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
 
 In some cases, it may be useful to keep historical data for more than eight days.
 
+{% tabs %}
+{% tab title="CLI: stac" %}
+
 ```text
 # Set the configured retention period to 10 days
-sts graph retention set-window --window 864000000
+stac graph retention set-window --window 864000000
 ```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
 
 \(note that time value is provided in milliseconds - 10 days equals 864000000 milliseconds\)
 
@@ -30,26 +56,65 @@ Note that by adding more time to the data retention period, the amount of data s
 
 After the new retention window is applied, you can schedule a new removal with this command:
 
+{% tabs %}
+{% tab title="CLI: stac" %}
+
 ```text
 # Schedule a new removal
-sts graph retention set-window --schedule-removal
+stac graph retention set-window --schedule-removal
 ```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
 
 After changing the retention period to a smaller window, you may end up with some data that is already expired and will wait there until the next scheduled cleanup. To schedule an additional removal of expired data, use the following command:
 
 Note that this may take some time to have an effect.
 
+{% tabs %}
+{% tab title="CLI: stac" %}
+
 ```text
 # Schedule removal of expired data
-sts graph retention remove-expired-data
+stac graph retention remove-expired-data
 ```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
 
 However, if you would like to perform data deletion without having to wait for an additional scheduled cleanup, you can use `--immediately` argument:
 
+{% tabs %}
+{% tab title="CLI: stac" %}
+
 ```text
 # Remove expired data immediately
-sts graph retention remove-expired-data --immediately
+stac graph retention remove-expired-data --immediately
 ```
+
+**Not running the `stac` CLI yet?**
+
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+{% endtab %}
+{% endtabs %}
 
 ## Retention of events, metrics and traces
 

@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Re-Install StackState
@@ -50,7 +50,7 @@ This process will save the existing system configuration, but will delete any da
      
   7. When you have confirmed that there are no StackState pods or disks:
      1. Log in to the KOTS UI.
-     2. Click on **Version History**.
+     2. Click **Version History**.
      3. Click **Redeploy**.
 
 ## Full reinstall 

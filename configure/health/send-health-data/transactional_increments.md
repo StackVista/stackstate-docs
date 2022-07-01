@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 ## Overview
@@ -22,7 +22,7 @@ Health can be sent to the StackState Receiver API using the `"health"` property 
    "health":[
       {
         "consistency_model": "TRANSACTIONAL_INCREMENTS",
-        "incrment": {
+        "increment": {
               "checkpoint": {
                   "offset": 5,
                   "batch_index": 102
@@ -49,7 +49,7 @@ Health can be sent to the StackState Receiver API using the `"health"` property 
             "message": "Provisioning failed. [Learn more](https://www.any-link.com)",
             "health": "critical",
             "topologyElementIdentifier": "server-2",
-            "name": "Health Monitor"
+            "name": "Health monitor"
           },
           {
             "checkStateId": "checkStateId3",
@@ -84,13 +84,13 @@ Every health Transactional Increments data payload has the following details:
 
 ## Send health to StackState
 
-Health can be sent in one JSON message via HTTP POST or using the StackState CLI command [sts health send](/develop/reference/cli_reference.md#sts-health-send). In the example below, a snapshot containing two check states is sent to StackState from a single external monitoring system.
+Health can be sent in one JSON message via HTTP POS. In the example below, a snapshot containing two check states is sent to StackState from a single external monitoring system.
 
 {% tabs %}
 {% tab title="curl" %}
 ```javascript
 curl -X POST \
- 'http://<stackstateURL>/stsAgent/intake?api_key=<API_KEY>' \
+ 'http://<STACKSTATE_BASE_URL>/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>' \
  -H 'Content-Type: application/json' \
  -d '{
   "collection_timestamp": 1548857167,
@@ -102,7 +102,7 @@ curl -X POST \
   "health": [
     {
       "consistency_model": "TRANSACTIONAL_INCREMENTS",
-      "incrment": {
+      "increment": {
             "checkpoint": {
                 "offset": 5,
                 "batch_index": 102
@@ -128,7 +128,7 @@ curl -X POST \
           "message": "Provisioning failed. [Learn more](https://www.any-link.com)",
           "health": "critical",
           "topologyElementIdentifier": "server-2",
-          "name": "Health Monitor"
+          "name": "Health monitor"
         },
         {
           "checkStateId": "checkStateId3",
@@ -140,11 +140,14 @@ curl -X POST \
 }'
 ```
 {% endtab %}
-{% tab title="StackState CLI" %}
-```
-Sending of Transactional increments check_states is not available in the CLI, 
-but all the debugging and introspection features can still be used.
-```
+{% tab title="CLI: stac" %}
+
+Sending of Transactional increments check_states is not available in the CLI, but all the debugging and introspection features can still be used.
 
 {% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+Sending of Transactional increments check_states is not available in the CLI. Use the `stac` CLI for debugging and introspection features.
+{% endtab %}
+
 {% endtabs %}

@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Timeline and time travel
@@ -35,7 +35,7 @@ The telemetry interval can be set in the following ways:
 
 * **Zoom out**
 
-![Click on the magnifying glass to double the size of the telemetry interval](../../.gitbook/assets/v50_telemetry_interval_zoom_out.png)
+![Click the magnifying glass to double the size of the telemetry interval](../../.gitbook/assets/v50_telemetry_interval_zoom_out.png)
 
 * **Use the telemetry interval jumper arrows**
 
@@ -77,7 +77,7 @@ The topology time can be set in the following ways:
 
 * **Click a timestamp**
 
-![Click on a timestamp to jump to that specific topology time](../../.gitbook/assets/v50_topology_time_timestamp.png)
+![Click a timestamp to jump to that specific topology time](../../.gitbook/assets/v50_topology_time_timestamp.png)
 
 #### Topology time outside the telemetry interval
 
@@ -100,7 +100,7 @@ To stop time travelling and return the topology time to live mode, click **Go li
 
 The health state of a view during the selected telemetry interval is displayed as a color in the timeline **Health** line.
 
-Health state information is available when [health state is enabled](../health-state/configure-view-health.md) for the current view as long as the topology displayed results from the original topology filter saved in the view.
+Health state information is available when [health state is enabled](views/configure-view-health.md) for the current view as long as the topology displayed results from the original topology filter saved in the view.
 
 {% hint style="info" %}
 If the topology filters have been edited and not saved, no health state information will be available.

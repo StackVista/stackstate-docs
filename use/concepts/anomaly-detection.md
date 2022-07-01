@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Anomaly detection
@@ -20,7 +20,7 @@ Additionally, identified anomalies are available as StackState Events and can be
 
 ![Anomaly events](../../.gitbook/assets/v50_anomaly-events-in-events-perspective.png)
 
-Finally, [anomaly health checks](../health-state/anomaly-health-checks.md) can be configured for the most important metric streams to alert on problems before they occur.
+Finally, [anomaly health checks](../checks-and-monitors/anomaly-health-checks.md) can be configured for the most important metric streams to alert on problems before they occur.
 
 ➡️ [Learn more about the Autonomous Anomaly Detector](../../stackpacks/add-ons/aad.md)
 

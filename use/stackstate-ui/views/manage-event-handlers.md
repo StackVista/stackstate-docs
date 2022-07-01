@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Manage event handlers
@@ -10,7 +10,7 @@ Event handlers attached to a StackState view listen to generated StackState even
 
 ## Configured event handlers
 
-When you open the **Manage Event Handlers** pane on the left-hand side of the StackState UI, a list of all event handlers currently configured for the view is displayed. You can add, edit and remove event handlers from here.
+When you open the **Manage Event Handlers** panel on the left of the StackState UI, a list of all event handlers currently configured for the view is displayed. You can add, edit and remove event handlers from here.
 
 ## Add event handler
 
@@ -51,7 +51,7 @@ StackState ships with the following event handler functions that track **health 
 ## See also
 
 * [Event types for event notifications](/use/metrics-and-events/event-notification.mds#event-types-for-notifications)
-* [Add a health check](/use/health-state/add-a-health-check.md)
+* [Add a health check](/use/checks-and-monitors/add-a-health-check.md)
 * [Configure an SMTP server to send email event notifications](/configure/topology/configure-email-event-notifications.md "StackState Self-Hosted only")
 * [Create a custom event handler function](/develop/developer-guides/custom-functions/event-handler-functions.md "StackState Self-Hosted only")
 * [Create a Slack Webhook \(slack.com\)](https://api.slack.com/messaging/webhooks)

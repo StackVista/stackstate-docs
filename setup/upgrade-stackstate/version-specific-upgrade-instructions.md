@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Version specific upgrade instructions
@@ -23,27 +23,54 @@ This page provides specific instructions and details of any required manual step
 
 #### v5.0.0
 
-No manual action required.
-
-StackPack updates:
+* With the release of the new `sts` CLI, the CLI released with previous versions of StackState has been renamed to `stac`:
+  * If you install the new `sts` CLI, you should [upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
+  * The commands for the new `sts` CLI have changed. Check that any automation is using the correct CLI command (`sts` or `stac`). [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+* This version of StackState includes a breaking change to the output of the [Telemetry Script API](/develop/reference/scripting/script-apis/telemetry.md). The output uses the new [StreamingScriptApi](/develop/reference/scripting/streaming-script-result.md) and the data format changed. Any script making use of that API needs to be adapted to deal with the new output format. 
+* StackPack updates:
+  * [StackState Agent StackPack v4.5.2](/stackpacks/integrations/agent.md#release-notes)
+  * [AWS v1.2.1](/stackpacks/integrations/aws/aws.md#release-notes)
+  * [Dynatrace v1.4.2](/stackpacks/integrations/dynatrace.md#release-notes)
+  * [Kubernetes v3.9.12](/stackpacks/integrations/kubernetes.md#release-notes)
+  * [OpenShift v3.7.12](/stackpacks/integrations/openshift.md#release-notes)
+  * [ServiceNow v5.3.3](/stackpacks/integrations/servicenow.md#release-notes)
+  * [VMware vSphere v2.3.3](/stackpacks/integrations/vsphere.md#release-notes)
 
 {% endtab %}
 {% tab title="KOTS" %}
 
 #### v5.0.0
 
-No manual action required.
-
-StackPack updates:
+* With the release of the new `sts` CLI, the CLI released with previous versions of StackState has been renamed to `stac`:
+  * If you install the new `sts` CLI, you should [upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
+  * The commands for the new `sts` CLI have changed. Check that any automation is using the correct CLI command (`sts` or `stac`). [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+* This version of StackState includes a breaking change to the output of the [Telemetry Script API](/develop/reference/scripting/script-apis/telemetry.md). The output uses the new [StreamingScriptApi](/develop/reference/scripting/streaming-script-result.md) and the data format changed. Any script making use of that API needs to be adapted to deal with the new output format.
+* StackPack updates:
+  * [StackState Agent StackPack v4.5.2](/stackpacks/integrations/agent.md#release-notes)
+  * [AWS v1.2.1](/stackpacks/integrations/aws/aws.md#release-notes)
+  * [Dynatrace v1.4.2](/stackpacks/integrations/dynatrace.md#release-notes)
+  * [Kubernetes v3.9.12](/stackpacks/integrations/kubernetes.md#release-notes)
+  * [OpenShift v3.7.12](/stackpacks/integrations/openshift.md#release-notes)
+  * [ServiceNow v5.3.3](/stackpacks/integrations/servicenow.md#release-notes)
+  * [VMware vSphere v2.3.3](/stackpacks/integrations/vsphere.md#release-notes)
 
 {% endtab %}
 {% tab title="Linux" %}
 
 #### v5.0.0
 
-No manual action required.
-
-StackPack updates:
+* With the release of the new `sts` CLI, the CLI released with previous versions of StackState has been renamed to `stac`:
+  * If you install the new `sts` CLI, you should [upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
+  * The commands for the new `sts` CLI have changed. Check that any automation is using the correct CLI command (`sts` or `stac`). [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+* This version of StackState includes a breaking change to the output of the [Telemetry Script API](/develop/reference/scripting/script-apis/telemetry.md). The output uses the new [StreamingScriptApi](/develop/reference/scripting/streaming-script-result.md) and the data format changed. Any script making use of that API needs to be adapted to deal with the new output format.
+* StackPack updates:
+  * [StackState Agent StackPack v4.5.2](/stackpacks/integrations/agent.md#release-notes)
+  * [AWS v1.2.1](/stackpacks/integrations/aws/aws.md#release-notes)
+  * [Dynatrace v1.4.2](/stackpacks/integrations/dynatrace.md#release-notes)
+  * [Kubernetes v3.9.12](/stackpacks/integrations/kubernetes.md#release-notes)
+  * [OpenShift v3.7.12](/stackpacks/integrations/openshift.md#release-notes)
+  * [ServiceNow v5.3.3](/stackpacks/integrations/servicenow.md#release-notes)
+  * [VMware vSphere v2.3.3](/stackpacks/integrations/vsphere.md#release-notes)
 
 {% endtab %}
 {% endtabs %}
@@ -154,6 +181,10 @@ No manual action required.
 
 {% endtab %}
 {% endtabs %}
+
+## Unsupported versions
+
+The versions below have reached End of Life \(EOL\) and are no longer be supported.
 
 ### Upgrade to v4.4.x
 
@@ -325,7 +356,7 @@ No manual action required.
   * Guest users will no longer be able to create or edit event handlers.
   * Power Users will no longer be able to execute scripts using the HTTP script API.
   * Admin users will not be affected.
-* Baselines have been deprecated and will be removed in v4.4. To reflect this, baseline functions and check functions that use baselines have been renamed. Templates that resolve these functions by name will stop working after upgrade to StackState 4.3. The function identifiers have not changed and can still be used to reference functions, however, it is advised that you migrate to using the [Autonomous Anomaly Detector](../../use/health-state/anomaly-health-checks.md).
+* Baselines have been deprecated and will be removed in v4.4. To reflect this, baseline functions and check functions that use baselines have been renamed. Templates that resolve these functions by name will stop working after upgrade to StackState 4.3. The function identifiers have not changed and can still be used to reference functions, however, it is advised that you migrate to using the [Autonomous Anomaly Detector](../../use/checks-and-monitors/anomaly-health-checks.md).
 * A Slack integration StackPack is now available that includes a new Slack event handler. Existing Slack event handlers will continue to run in StackState v4.3, however, the old Slack event handler has been deprecated and will be removed in a future release of StackState. To continue using Slack event notifications, it is advised to install the Slack StackPack and [configure view event handlers](/use/stackstate-ui/views/manage-event-handlers.md) to use the new Slack event handler in place of the old `Notify via slack for component health state change. (deprecated)` and `Notify via slack for view health state change.(deprecated)`.
 * Dynatrace StackPack - The location of the Dynatrace check config file has moved. If you choose to upgrade to the version of the Dynatrace StackPack shipped with StackState v4.3, the Agent check configuration file should also be moved. The new location is `/etc/sts-agent/conf.d/dynatrace.d/conf.yaml` the previous location was `/etc/sts-agent/conf.d/dynatrace_topology.d/conf.yaml`.
 {% endtab %}
@@ -346,15 +377,11 @@ No manual action required.
   * Guest users will no longer be able to create or edit event handlers.
   * Power Users will no longer be able to execute scripts using the HTTP script API.
   * Admin users will not be affected.
-* Baselines have been deprecated and will be removed in v4.4. To reflect this, baseline functions and check functions that use baselines have been renamed. Templates that resolve these functions by name will stop working after upgrade to StackState 4.3. The function identifiers have not changed and can still be used to reference functions, however, it is advised that you migrate to using the [Autonomous Anomaly Detector](../../use/health-state/anomaly-health-checks.md).
+* Baselines have been deprecated and will be removed in v4.4. To reflect this, baseline functions and check functions that use baselines have been renamed. Templates that resolve these functions by name will stop working after upgrade to StackState 4.3. The function identifiers have not changed and can still be used to reference functions, however, it is advised that you migrate to using the [Autonomous Anomaly Detector](../../use/checks-and-monitors/anomaly-health-checks.md).
 * A Slack integration StackPack is now available that includes a new Slack event handler. Existing Slack event handlers will continue to run in StackState v4.3, however, the old Slack event handler has been deprecated and will be removed in a future release of StackState. To continue using Slack event notifications, it is advised to install the Slack StackPack and [configure view event handlers](/use/stackstate-ui/views/manage-event-handlers.md) to use the new Slack event handler in place of the old `Notify via slack for component health state change. (deprecated)` and `Notify via slack for view health state change.(deprecated)`.
 * Dynatrace StackPack - The location of the Dynatrace check config file has moved. If you choose to upgrade to the version of the Dynatrace StackPack shipped with StackState v4.3, the Agent check configuration file should also be moved. The new location is `/etc/sts-agent/conf.d/dynatrace.d/conf.yaml` the previous location was `/etc/sts-agent/conf.d/dynatrace_topology.d/conf.yaml`.
 {% endtab %}
 {% endtabs %}
-
-## Unsupported versions
-
-The versions below have reached End of Life \(EOL\) and are no longer be supported.
 
 ### Upgrade to v4.2.x
 

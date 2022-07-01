@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # About views
@@ -24,7 +24,7 @@ Not all views are manually created. Many [StackPacks](../../../stackpacks/about-
 
 Every view that a user has permission to access is listed on the **all views** screen in the StackState UI. To open this screen, click **all views** from the main menu or **Views** in the top bar breadcrumbs. Views marked with a star are listed directly in the main menu for easy access.
 
-Click on a view name to open the topology perspective for that view.
+Click a view name to open the topology perspective for that view.
 
 ## Starred views
 
@@ -35,9 +35,9 @@ To add or remove a star:
 * For the current view: Click the star icon to the right of its name in the top bar to add or remove the star.
 * For any view: Click **all views** from the main menu to open a list of all views. Click the star icon to the right of a view name to add or remove its star.
 
-## The View Details pane
+## View Summary
 
-When you first open a view, the View Details pane will be visible on the right-hand side of the StackState UI. This shows the following information:
+When you first open a view, the **View Summary** will be visible in the right panel. This shows the following information:
 
 * **View properties** - The view health state, query and last updated timestamp.
 * **Components** - A summary of the number of components in the view.
@@ -46,7 +46,7 @@ When you first open a view, the View Details pane will be visible on the right-h
 
 ## View health state
 
-A view is also a tool to define a clear selection of components for which you want to receive a event notifications. Typically, these are services that provide business value to a team's \(internal\) customers. StackState can define a single health state for any given set of components stored as a view - the [view health state](../../health-state/about-health-state.md#view-health-state). The view health state reflects the health state of components and relations within the view. It can be calculated based on a simple count, but it could also be something more complex, for example:
+A view is also a tool to define a clear selection of components for which you want to receive a event notifications. Typically, these are services that provide business value to a team's \(internal\) customers. StackState can define a single health state for any given set of components stored as a view - the [view health state](../../concepts/health-state.md#view-health-state). The view health state reflects the health state of components and relations within the view. It can be calculated based on a simple count, but it could also be something more complex, for example:
 
 * Report view health state `CLEAR` if service A and service B are working fine.
 * Report view health `DEVIATING` if service A has a problem.
@@ -56,9 +56,9 @@ A view is also a tool to define a clear selection of components for which you wa
 
 To enable view health state, set `View Health State Enabled` to **on** when you [create or edit a view](create_edit_views.md). 
 
-To disable a view health state, [edit the view](about_views.md#delete-or-edit-a-view) and set `View Health State Enabled` to **off**.
+To disable a view health state, [edit the view](/use/stackstate-ui/views/create_edit_views.md) and set `View Health State Enabled` to **off**.
 
-➡️ [Learn more about how to configure the view health state](../../health-state/configure-view-health.md).
+➡️ [Learn more about how to configure the view health state](configure-view-health.md).
 
 ### Event notifications for view health state changes
 
@@ -78,6 +78,6 @@ Through a combination of configuration of permissions and scope, it is possible 
 ## See also
 
 * [Create and edit views](create_edit_views.md)
-* [Health state for a view](../../health-state/about-health-state.md#view-health-state)  
+* [Health state for a view](../../concepts/health-state.md#view-health-state)  
 * [Visualization settings](visualization_settings.md)
 * [Send event notifications for view health state changes](/use/stackstate-ui/views/manage-event-handlers.md)

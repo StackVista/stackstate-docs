@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # Troubleshooting
@@ -22,7 +22,7 @@ Here is a quick guide for troubleshooting the startup of StackState on Kubernete
    kubectl get pods
    ```
 
-3. [Check the logs](../../configure/logging/stackstate-log-files.md) for errors.
+3. [Check the logs](/configure/logging/README.md) for errors.
 4. Check the Knowledge base on the [StackState Support site](https://support.stackstate.com/).
 {% endtab %}
 

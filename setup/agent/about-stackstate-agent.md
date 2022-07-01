@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.0.x 
 ---
 
 # About the StackState Agent
@@ -48,17 +48,17 @@ StackState Agent connects to the StackState Receiver API.
 {% tab title="Kubernetes" %}[](http://not.a.link "StackState Self-Hosted only")
 For StackState running on Kubernetes, the Receiver API is hosted by default at:[](http://not.a.link "StackState Self-Hosted only")
 
-`https://<baseUrl>/receiver/stsAgent`[](http://not.a.link "StackState Self-Hosted only")
+`https://<STACKSTATE_BASE_URL>/receiver/stsAgent`[](http://not.a.link "StackState Self-Hosted only")
 
-The `baseUrl` is set during StackState installation. For details see [Kubernetes install - configuration parameters](../../setup/install-stackstate/kubernetes_install/install_stackstate.md#generate-valuesyaml "StackState Self-Hosted only").
+The `<STACKSTATE_BASE_URL>` is set during StackState installation. For details see [Kubernetes install - configuration parameters](../../setup/install-stackstate/kubernetes_install/install_stackstate.md#generate-valuesyaml "StackState Self-Hosted only").
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 
 {% tab title="Linux" %}[](http://not.a.link "StackState Self-Hosted only")
 For StackState running on Linux, the Receiver API is hosted by default at:[](http://not.a.link "StackState Self-Hosted only")
 
-`https://<baseUrl>:7077/stsAgent`[](http://not.a.link "StackState Self-Hosted only")
+`https://<STACKSTATE_RECEIVER_BASE_URL>/stsAgent`[](http://not.a.link "StackState Self-Hosted only")
 
-The `baseUrl` is set during StackState installation. For details see [Linux install - configuration parameters](../../setup/install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install "StackState Self-Hosted only").
+The `<STACKSTATE_RECEIVER_BASE_URL>` is set during StackState installation. For details see [Linux install - configuration parameters](../../setup/install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install "StackState Self-Hosted only").
 
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="StackState SaaS" %}[](http://not.a.link "StackState Self-Hosted only")
