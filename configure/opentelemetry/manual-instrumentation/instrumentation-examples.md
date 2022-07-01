@@ -55,7 +55,7 @@ In this NodeJs / Javascript example, The protobuf module responsible for handlin
 
 `import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-proto';`
 
-### Import
+### 1 - Import
 The first step is to import the libraries that we will be using from OpenTelemetry. (Modules mentioned above)
 
 ```javascript
@@ -65,7 +65,7 @@ import { OTLPTraceExporter as OTLPTraceProtoExporter } from '@opentelemetry/expo
 ```
 
 
-### Core Definitions
+### 2 - Core definitions
 Now let's define a few values that we will use within the OpenTelemetry API code.
 
 The first one will be where your StackState Trace Agent lives in the following format: `http://<host>:<trace port>/open-telemetry`
@@ -87,7 +87,7 @@ const tracerIdentifier = {
 
 ---
 
-### OpenTelemetry Provider and Span processor
+### 3 - OpenTelemetry provider and span processor
 The next step is to create the basics that OpenTelemetry requires to start a trace provider and something that can process spans
 
 ```javascript
@@ -106,7 +106,7 @@ const tracer = openTelemetry.trace.getTracer(
 
 ---
 
-### Root Span / Parent Span
+### 4 - Root span / parent span
 Now let's create the root span, For the root span we are creating a custom RDS Database entry (This database does not have to exist you control the span values).
 
 Example Database
@@ -136,7 +136,7 @@ Example of how the parent component will look like if you create the with the ab
 
 ---
 
-### Child Span
+### 5 - Child span
 Now let's create a span that will have a relation with the parent span. Thus meaning if anything is wrong with the child span then the error will propagate up into the parent.
 
 Let's use a Table from the non exist Database as a child, this allows us to add a critical health state on the child if a write operation to this table failed.
@@ -171,7 +171,7 @@ Example of how the child component will look like if you create the with the abo
 
 ---
 
-### Close The Parent and Child Span
+### 6 - Close the parent and child span
 When you are done with a Span for example you have written into the database table, you need to close those spans.
 
 You need to close the spans in the opposite order in which you opened them
@@ -189,7 +189,7 @@ rdsDatabase.end();
 
 ---
 
-### Flush the data
+### 7 - Flush the data
 This step is not always required, but good to know about. Sometimes a script might attempt to end before the actual span was sent away.
 
 A good example of this will be a Lambda execution, StackState will never receive the data as the execution stopped the second the Lambda was done. To get past this
@@ -207,7 +207,7 @@ provider.forceFlush().finally(() => {
 
 ---
 
-### Complete example
+### The complete example
 
 The code block below contains the complete example for JavaScript and NodeJS including all of the code snippets above.
 
