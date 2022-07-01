@@ -35,7 +35,7 @@ sts settings describe --ids <id-of-a-monitor> -f path/to/export.stj
 {% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
 ```[](http://not.a.link "StackState Self-Hosted only")
 stac monitor describe <id-or-identifier-of-a-monitor> > path/to/export.stj
-```[](http://not.a.link "StackState Self-Hosted only")
+```
 
 **Not running the `stac` CLI yet?**[](http://not.a.link "StackState Self-Hosted only")
 
