@@ -25,6 +25,7 @@ Monitor configuration can be changed by modifying their definition. Once a monit
 
 {% tabs %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="CLI: sts (new)" %}[](http://not.a.link "StackState Self-Hosted only")
+
 ```
 sts settings describe --ids <id-of-a-monitor> -f path/to/export.stj
 ```
