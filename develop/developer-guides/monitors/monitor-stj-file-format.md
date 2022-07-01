@@ -49,11 +49,11 @@ The supported fields are:
 
 - **name** - a human-readable name that shortly describes the operating principle of the monitor.
 - **description** - a longer, more in-depth description of the monitor.
-- **identifier** - a StackState-URN-formatted value that uniquely identifies this monitor definition. For more details, see [identifier](#identifier).
+- **identifier** - a StackState-URN-formatted value that uniquely identifies this monitor definition. For more details see [identifier](#identifier).
 - **remediationHint** - a short, markdown-enabled hint displayed whenever the validation rule represented by this monitor triggers and results in an unhealthy state.
-- **function** - the specific monitor function to use as the basis of computation for this monitor. For more details. see [monitor function](#monitor-function).
-- **arguments** - lists concrete values that are to be used as arguments to the monitor function invocation.
-- **intervalSeconds** - dictates how often to execute this particular monitor; new executions are scheduled after the specified number of seconds, counting from the time that the last execution ended. For more details, see [run interval](#run-interval).
+- **function** - the specific monitor function to use as the basis of computation for this monitor. For more details see [monitor function](#monitor-function).
+- **arguments** - lists concrete values that are to be used for parameters in the monitor function invocation. For more details and descriptions of commonly used parameters, see [arguments](#arguments).
+- **intervalSeconds** - dictates how often to execute this particular monitor; new executions are scheduled after the specified number of seconds, counting from the time that the last execution ended. For more details see [run interval](#run-interval).
 
 ## Field information
 
@@ -74,30 +74,174 @@ Monitor functions are scripts that accept 4T data as input, check the data based
 
 You can list the available monitor functions using the CLI command:
 
-{% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tabs %}[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: sts (new)" %}[](http://not.a.link "StackState Self-Hosted only")
 ```
 sts settings list --type MonitorFunction
 ```
 
-➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
-{% endtab %}
-{% tab title="CLI: stac" %}
-```
-stac graph list MonitorFunction
-```
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
+`stac graph list MonitorFunction`[](http://not.a.link "StackState Self-Hosted only")
 
-**Not running the `stac` CLI yet?**
+**Not running the `stac` CLI yet?**[](http://not.a.link "StackState Self-Hosted only")
 
-➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
-{% endtab %}
-{% endtabs %}
+➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade "StackState Self-Hosted only")
+{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
+{% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 
 {% hint style="success" "self-hosted info" %}
 
-You can [screate custom monitor function](../custom-functions/monitor-functions.md) to customize how StackState processes 4T data.
+You can [create custom monitor function](../custom-functions/monitor-functions.md) to customize how StackState processes 4T data.
 
 {% endhint %}
+
+### Arguments
+
+The arguments defined in the monitor STJ definition should match the parameters defined in the monitor function STJ definition. 
+
+The parameter binding syntax is common for all parameter types, and utilizes the following format:
+
+```json
+{
+  "_type": "<type-of-the-parameter",
+  "parameter": {{ get "<identifier-of-the-function>" "Type=Parameter;Name=<name-of-the-parameter>" }},
+  "value": "<value-of-the-parameter>"
+}
+```
+
+* **_type** - The type of the parameter.
+* **parameter** - A reference to the concrete instance of a parameter within a function's parameter list. The `Name` must match the name specified in the monitor function.
+* **value** - the value of the parameter to pass to the monitor function. 
+
+During an invocation of a monitor function, the parameter value is interpreted and instantiated beforehand with all of the requisite validations applied to it. Assuming it passes type and value validations, it will become available in the body of the function as a global value of the same name, with the assigned value.
+
+Descriptions of parameters that are commonly used many monitor functions can be found below:
+
+* [Numeric values](#numeric-values) - a simple numeric value.
+* [Topology query](#topology-query) - a query to return a subset of the topology.
+* [Telemetry query](#telemetry-query) - a query that collects the telemetry to be passed to the monitor function.
+* [Topology identifier pattern](#topology-identifier-pattern) - the pattern of the topology element identifiers to which the monitor function should assign the calculated health states.
+
+### Numeric values
+The most common and simple monitor function parameter types are numeric values. They are declared the following way with a function definition:
+
+```json
+{
+  "_type": "Parameter",
+  "type": "DOUBLE",
+  "name": "value",
+  "required": true,
+  "multiple": false
+}
+```
+
+Once declared this way, they can be supplied by:
+
+```json
+{
+  "_type": "ArgumentDoubleVal",
+  "parameter": {{ get "<identifier-of-the-function>" "Type=Parameter;Name=value" }},
+  "value": 23.5
+}
+```
+
+Parameters marked as `multiple` can be supplied more than once, meaning they represent a set of values. Parameters marked as `required` have to be supplied at least once. If a parameter is not `required`, then it can be optionally omitted.
+
+### Topology Query
+Monitor functions that utilize Topology often take a Topology Query as a parameter. The declaration can look something like the following:
+
+```json
+{
+  "_type": "Parameter",
+  "type": "STRING",
+  "name": "topologyQuery",
+  "required": true,
+  "multiple": false
+}
+```
+
+To supply a value of a topology query to a Monitor function when defining a Monitor:
+
+```json
+{
+  "_type": "ArgumentStringVal",
+  "parameter": {{ get "<identifier-of-the-function>" "Type=Parameter;Name=topologyQuery" }},
+  "value": "type = 'database' OR type = 'database-shard'"
+}
+```
+
+### Telemetry Query
+Monitor functions that utilize Telemetry tend to be parameterized with the exact telemetry query to use for their computation. The declaration can either expect a string value of a metric name, or a full-fledged Telemetry Query:
+
+```json
+{
+  "_type": "Parameter",
+  "type": "SCRIPT_METRIC_QUERY",
+  "name": "telemetryQuery",
+  "required": true,
+  "multiple": false
+}
+```
+
+To supply a value of the Telemetry Query one must utilize the Telemetry Script API available in StackState:
+
+```json
+{
+  "_type": "ArgumentScriptMetricQueryVal",
+  "parameter": {{ get "<identifier-of-the-function>" "Type=Parameter;Name=telemetryQuery" }},
+  "value": "Telemetry.query('StackState Metrics', '').metricField('system.cpu.iowait').groupBy('tags.host').start('-10m').aggregation('mean', '1m')"
+}
+```
+
+The query value must evaluate to a telemetry query, otherwise it won't pass the argument validation that is performed before the function execution begins.
+
+### Topology Identifier Pattern
+Monitor functions that don't process any topology directly still have to produce results that attach to topology elements by way of matching the topology identifier that can be found on those elements. In those cases, one can expect a function declaration to include a special parameter that represents the pattern of a topology identifier:
+
+```json
+{
+  "_type": "Parameter",
+  "type": "STRING",
+  "name": "topologyIdentifierPattern",
+  "required": true,
+  "multiple": false
+}
+```
+
+The value supplied to that function once processed by the function logic should result in a valid topology identifier to be produced. It therefore likely needs to include various escape sequences of values that will be interpolated into the resulting value by the Monitor function:
+
+```json
+{
+  "_type": "ArgumentStringVal",
+  "parameter": {{ get "<identifier-of-the-function>" "Type=Parameter;Name=topologyIdentifierPattern" }},
+  "value": "urn:host:/${tags.host}"
+}
+```
+
+The exact value to use for this parameter depends on the topology avaliable in StackState (or more precisely on its identifier scheme), and on the values supplied by the Monitor function for interpolation (or more precisely the type of data processed by the function). In the most common case, a topology identifier pattern parameter is used in conjunction with a Telemetry query parameter - then the fields used for the query grouping (listed in its `.groupBy()` step) will also be available for the interpolation of topology identifier values. For example, consider the following query:
+
+```groovy
+Telemetry
+  .query('StackState Metrics', '')
+  .metricField('system.cpu.iowait')
+  .groupBy('host', 'region')
+  .start('-10m')
+  .aggregation('mean', '1m')
+```
+
+This query groups its results by two fields: `host` and `region`. Both of these values will be available for value interpolation of an exact topology identifier to use and each different `host` and `region` pair can be used either individually or together to form a unique topology identifier.
+If the common topology identifier scheme utilized by the topology looks as follows, then the different parts of the identifier can be replaced by references to `host` or `region`:
+
+```groovy
+# An example identifier as found on the topology elements:
+'urn:host:/eu-west-1/i-244e275aef2a83dd'
+
+# A topology identifier pattern that'll match the example identifier one applied to the above query results:
+'urn:host:/${region}/${host}'
+```
+
 
 ### Run interval
 
