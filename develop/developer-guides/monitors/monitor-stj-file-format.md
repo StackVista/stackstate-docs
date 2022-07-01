@@ -166,13 +166,14 @@ The declaration of a topology query in a monitor function STJ definition can loo
   "name": "topologyQuery",
   "required": true,
   "multiple": false
-},
+  },
+  ...
 ]
 ...
 ```
 {% endtab %}
 {% tab title="Monitor STJ definition" %}
-To supply a value of a topology query to a omnitor function when defining a monitor:
+To supply a value to the `topologyQuery` parameter in the monitor function, the monitor definition would look something like the following:
 
 ```json
 ...
