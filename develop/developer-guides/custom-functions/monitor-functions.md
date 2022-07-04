@@ -56,7 +56,6 @@ A monitor function can use any number of parameters of an array of available typ
 "parameters": [{
   "_type": "Parameter",
   "name": "metrics",
-  "id": -1,
   "type": "SCRIPT_METRIC_QUERY",
   "required": true,
   "multiple": false
@@ -68,7 +67,7 @@ The above declaration represents a single Telemetry Query accepting parameter na
 ```json
 "arguments": [{
   "_type": "ArgumentScriptMetricQueryVal",
-  "parameter": -1,
+  "parameter": {{ get "<identifier-of-the-function>" "Type=Parameter;Name=metrics" }},
   "script": "Telemetry.query('StackState Metrics', '').groupBy('tags.pid', 'tags.createTime', 'host').metricField('cpu_systemPct').start('-1m').aggregation('mean', '15s')"
 }]
 ```
