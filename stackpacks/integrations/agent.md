@@ -117,7 +117,7 @@ To uninstall StackState Agent V2, see the [StackState Agent documentation](../..
 * Improvement: Supported additional identifiers for Disk component
 
 
-## See also
+## See also [](http://not.a.link "StackState Self-Hosted only")
 
-* [StackState Agent documentation](../../setup/agent/)
+* [StackState Agent documentation](../../setup/agent/ "StackState Self-Hosted only")
 

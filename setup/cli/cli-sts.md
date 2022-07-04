@@ -8,19 +8,23 @@ description: StackState Self-hosted v5.0.x
 
 The new StackState `sts` CLI provides easy access to the functionality provided by the StackState APIs. It can be used for automate using StackState data, configure StackState and to develop StackPacks.
 
-The new `sts` CLI will eventually replace the [`stac` CLI](cli-stac.md), however, not all commands are currently supported. For an overview of the differences and overlap between the new and the old CLI, see the [CLI comparison page](/setup/cli/cli-comparison.md).
+{% hint style="success" "self-hosted info" %}
+
+The new `sts` CLI will eventually replace the [`stac` CLI](cli-stac.md), however, not all commands are currently supported. For an overview of the differences and overlap between the new `sts` CLI and the `stac` CLI, see the [CLI comparison page](/setup/cli/cli-comparison.md).
+
+{% endhint %}
 
 ## Install the new `sts` CLI
 
 {% hint style="warning" %}
 **The new `sts` CLI works with StackState version 5.0 and above.**
 
-If you are running an older version of StackState, use the [`stac` CLI](cli-stac.md).
+If you are running an older version of StackState, use the [`stac` CLI](cli-stac.md  "StackState Self-Hosted only").
 {% endhint %}
 
-1. If it is installed, upgrade the old `sts` CLI to `stac`:
-   * [Check if the old `sts` CLI is installed](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running).
-   * [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
+1. If it is installed, upgrade the old `sts` CLI to `stac`:[](http://not.a.link "StackState Self-Hosted only")
+   * [Check if the old `sts` CLI is installed](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only").
+   * [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade "StackState Self-Hosted only").
 2. Follow the steps below to install the new `sts` CLI:
 
 {% tabs %}
