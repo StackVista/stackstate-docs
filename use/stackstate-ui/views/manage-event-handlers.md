@@ -40,9 +40,11 @@ StackState ships with the following event handler functions that track **health 
 
 
 {% hint style="success" "self-hosted info" %}
+
 * An email event handler is available that sends details of a health state change event using a [configured SMTP server](/configure/topology/configure-email-event-notifications.md).
 * You can [create your own custom event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md). 
 * A full list of the event handler functions available in your StackState instance can be found in the StackState UI, go to **Settings** &gt; **Functions** &gt; **Event Handler Functions**
+* 
 {% endhint %}
 
 ## See also

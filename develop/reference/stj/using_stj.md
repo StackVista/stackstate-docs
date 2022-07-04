@@ -100,7 +100,7 @@ StackState adds a number of function to the handlebars syntax. You can use these
 
 Templates are used to create topology. 
 
-➡️ [Learn more about component and relation templates](/configure/topology/sync.md#template-functions)
+➡️ [Learn more about component and relation templates](/configure/topology/sync.md#template-functions "StackState Self-Hosted only")
 
 ## See also
 
