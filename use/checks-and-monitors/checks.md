@@ -40,9 +40,7 @@ Note that both of the options above are disabled when in time-travelling mode - 
 
 ## See also
 
-* [Health Synchronization](../../configure/health/health-synchronization "StackState Self-Hosted only")
-* [StackState Template JSON \(STJ\)](../../develop/reference/stj/README.md)
-* [StackState Query Language \(STQL\)](../../develop/reference/stql_reference.md)
-* [StackState `sts` CLI](/setup/cli/cli-sts.md)
+* [Add a check to an element](add-a-health-check.md)
+* [Anomaly health checks](anomaly-health-checks.md)
+* [Monitors](monitors.md)
 * [StackPacks](../../stackpacks/about-stackpacks.md)
-* [Identifiers](../../configure/topology/identifiers.md "StackState Self-Hosted only")

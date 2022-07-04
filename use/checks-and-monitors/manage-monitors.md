@@ -160,5 +160,5 @@ The monitor runner subsystem can be disabled in the StackState configuration by 
 
 ## See also
 
-* [StackState CLI](../../setup/cli/README.md)
+* [StackState `sts` CLI](../../setup/cli/cli-sts.md)
 * [Integrations](../../stackpacks/integrations/README.md)

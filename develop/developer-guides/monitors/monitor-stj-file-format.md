@@ -63,7 +63,7 @@ An important field of the monitor node is the `identifier` - it is a unique valu
 
 `urn : <prefix> : monitor : <unique-monitor-identification>`
 
-* The `<prefix>` is described in more detail in [topology identifiers](../../../configure/topology/identifiers.md).
+* The `<prefix>` is described in more detail in [topology identifiers](../../../configure/topology/identifiers.md "StackState Self-Hosted only").
 * The `<unique-monitor-identification>` is user-definable and free-form.
 
 ### Monitor function
