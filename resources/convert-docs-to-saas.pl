@@ -17,7 +17,7 @@ $NON_SAAS_EDITION_NAME="StackState Self-Hosted";
 sub process_file_or_folder {
   if(-d $_) {
     if (/^\..+$/) {
-      print "... Skipping and pruning $File::Find::name\n";
+      print " .. Skipping and pruning $File::Find::name\n";
       $File::Find::prune = 1;
     }
   } elsif(-f $_) {
@@ -33,12 +33,12 @@ sub read_file {
 }
 
 sub remove_selfhosted_links {
-  #print "... Checking for StackState Self-Hosted links\n";
+  #print " .. Checking for StackState Self-Hosted links\n";
   my @lines = @_;
   my @output;
   for $line (@lines) {
     if($line =~ /\[.*\]\(.* "$NON_SAAS_EDITION_NAME only"\)/) {
-      print "... Removing StackState Self-Hosted link: $line";
+      print " .. Removing StackState Self-Hosted link: $line";
     } else {
       push @output, $line;
     }
@@ -55,7 +55,7 @@ sub de_link_and_edit_geek_boxes {
     if($line =~ /{% hint style="success" "self-hosted info" %}/) {
       print "ERROR: missed geek box end! $line" unless ($selfhosted_box == 0);
       print ">>> Found geek box start: $line";
-      print "updating geek box heading";
+      print " .. updating geek box heading\n";
       $line =  '{% hint style="success" "self-hosted info" %}
 
 **StackState Self-Hosted**
@@ -65,13 +65,12 @@ Extra information for the [StackState Self-Hosted product](https://docs.stacksta
     ';
       $selfhosted_box = 1;
     } elsif($line =~ /{% endhint %}/) {
-      print "ERROR: missed geek box start! $line" unless ($selfhosted_box == 1);
-      # print "... Found geek box end: $line";
+      print "<<< Found box end \n" unless ($selfhosted_box == 1);
       $selfhosted_box = 0;
     } elsif($selfhosted_box == 1 && $line =~ /\[.*\]\(.*\)/) {
-      print "... De-linking geek box link: $line";
+      print " .. De-linking geek box link: $line";
       $line =~ s/\[([^\]]*)\]\([^\)]*\)/$1/g;
-      print "... De-linked line: $line";
+      print " .. De-linked line: $line";
     }
     push @output, $line;
   }
@@ -89,7 +88,7 @@ sub write_file {
 
 sub process_file {
   if(/.*\.md/) {
-    print "Processing MD file $File::Find::name\n";
+    print "\nProcessing MD file $File::Find::name\n";
     my @lines = read_file($_);
     @lines = remove_selfhosted_links(@lines);
     @lines = de_link_and_edit_geek_boxes(@lines);
@@ -106,6 +105,9 @@ sub get_saas_pages {
   for $line (@summary) {
     if($line =~ /\[.*\]\((.*)\)/) {
       push @files, $1;
+    }
+    else {
+      print "Can't match line $line\n";
     }
   }
   return @files;
