@@ -59,4 +59,4 @@ You can [create a custom monitor function](../../develop/developer-guides/custom
 * [StackState Query Language \(STQL\)](../../develop/reference/stql_reference.md)
 * [StackState `sts` CLI](../../setup/cli/cli-sts.md)
 * [StackPacks](../../stackpacks/about-stackpacks.md)
-* [Identifiers](../../configure/topology/identifiers.md)
+* [Identifiers](../../configure/topology/identifiers.md "StackState Self-Hosted only")

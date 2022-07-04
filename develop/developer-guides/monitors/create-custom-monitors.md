@@ -170,7 +170,7 @@ sts monitor run --identifier <identifier-of-a-monitor>
 ## See also
 
 * [Custom monitor functions](/develop/developer-guides/custom-functions/monitor-functions.md "StackState Self-Hosted only")
-* [StackState CLI](/setup/cli/README.md)
+* [StackState `sts` CLI](/setup/cli/cli-sts.md)
 * [StackState Template JSON \(STJ\)](/develop/reference/stj/README.md)
 * [Develop your own StackPacks](/stackpacks/sdk.md "StackState Self-Hosted only")
 * [Integrations](/stackpacks/integrations/README.md)
