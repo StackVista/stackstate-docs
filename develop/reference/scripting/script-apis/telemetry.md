@@ -36,7 +36,7 @@ The output format of the Telemetry API changed in StackState v5.0. If you are ru
 * `start(time: Instant)` - sets the [start time](time.md) of the query, for example `-3h`.
 * `end(time: Instant)` - sets the [end time](time.md) of the query, for example `-1h`.
 * `window(start: Instant, end: Instant)` - sets query [time range](time.md). Use only `start` to get all telemetry up to now or only `end` to get all telemetry up to an instant in time.
-* `limit(points: Int)` - limits the number of points returned, applicable to none aggregated queries.
+* `limit(points: Int)` - limits the number of points returned, applicable to non-aggregated queries.
 * `metricField(fieldName: String)` - optional, but may be required for some data sources. Sets a field that holds metric value. 
 * `compileQuery()` - returns the telemetry query that was created with this function and the builder methods. After this builder method no more builder methods can be called.
 

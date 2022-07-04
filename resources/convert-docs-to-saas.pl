@@ -38,7 +38,7 @@ sub remove_selfhosted_links {
   my @output;
   for $line (@lines) {
     if($line =~ /\[.*\]\(.* "$NON_SAAS_EDITION_NAME only"\)/) {
-      print " .. Removing StackState Self-Hosted link: $line";
+      print " .. Removing line: $line";
     } else {
       push @output, $line;
     }
@@ -71,6 +71,9 @@ Extra information for the [StackState Self-Hosted product](https://docs.stacksta
       print " .. De-linking geek box link: $line";
       $line =~ s/\[([^\]]*)\]\([^\)]*\)/$1/g;
       print " .. De-linked line: $line";
+    } elsif($line =~ "description: StackState Self-hosted v") {
+      print " .. Updating page description\n";
+      $ line = "description: StackState SaaS\n";
     }
     push @output, $line;
   }
@@ -88,7 +91,7 @@ sub write_file {
 
 sub process_file {
   if(/.*\.md/) {
-    print "\nProcessing MD file $File::Find::name\n";
+    print "\nProcessing MD file: $File::Find::name\n";
     my @lines = read_file($_);
     @lines = remove_selfhosted_links(@lines);
     @lines = de_link_and_edit_geek_boxes(@lines);
