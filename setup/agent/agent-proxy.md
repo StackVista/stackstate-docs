@@ -353,7 +353,7 @@ To update the configuration file for an Agent running in a Docker container:
      http: http://example.com:1234
    ```
 
-2. Mount the config files as a volume into the container running the Agent as described in [Docker Agent integration configuration](/setup/agent/docker.md#integration-configuration).
+2. Mount the config files as a volume into the container running the Agent as described in [Docker Agent integration configuration](/setup/agent/docker.md#external-integration-configuration).
 {% endtab %}
 {% tab title="Windows" %}
 

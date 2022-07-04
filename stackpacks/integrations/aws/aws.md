@@ -107,7 +107,7 @@ The necessary resources can be deployed for one account in a single region using
 The table below includes links to deploy the template in popular AWS regions. For any regions not listed, follow the steps described for the [StackState template deployment](aws.md#stackstate-template-deployment).
 
 {% hint style="info" %}
-* To use [OpenTelemetry Traces](/stackpacks/integrations/aws/opentelemetry-nodejs.md), set the `IncludeOpenTelemetryTracing` value to `true`.
+* To use [OpenTelemetry Traces](/stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md), set the `IncludeOpenTelemetryTracing` value to `true`.
 * You must be logged in to the target AWS account in the web console.
 {% endhint %}
 
@@ -133,7 +133,7 @@ The template requires the following parameters:
 * **MainRegion** - The primary AWS region. This can be any region, as long as this region is the same for every template deployed within the AWS account. Global resources will be deployed in this region such as the IAM role and S3 bucket. Example: `us-east-1`.
 * **StsAccountId** - The 12-digit AWS account ID that is going to be monitored. This will be the AWS account that the IAM role can be assumed from, to perform actions on the target AWS account. Example: `0123456789012`.
 * **ExternalId** - A shared secret that the StackState Agent will present when assuming a role. Use the same value across all AWS accounts that the Agent is monitoring. Example: `uniquesecret!1`.
-* **IncludeOpenTelemetryTracing** - Default: `disabled`. Set to `enabled` to include the OpenTelemetry layer in your deployment. This is required to [retrieve OpenTelemetry traces from AWS Lambda scripts running NodeJS](/stackpacks/integrations/aws/opentelemetry-nodejs.md).
+* **IncludeOpenTelemetryTracing** - Default: `disabled`. Set to `enabled` to include the OpenTelemetry layer in your deployment. This is required to [retrieve OpenTelemetry traces from AWS Lambda scripts running NodeJS](/stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md).
 
 For more information on how to use StackSets, check the AWS documentation on [working with AWS CloudFormation StackSets \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
 
@@ -343,7 +343,7 @@ Metrics data is pulled at a configured interval directly from AWS by the StackSt
 
 #### Topology
 
-The AWS service data shown below is available in StackState as components with the associated relations. The retrieved topology can be further enhanced by enabling [OpenTelemetry traces](/stackpacks/integrations/aws/opentelemetry-nodejs.md).
+The AWS service data shown below is available in StackState as components with the associated relations. The retrieved topology can be further enhanced by enabling [OpenTelemetry traces](/stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md).
 
 | Service | Resource | Relations |
 | :--- | :--- | :--- |
@@ -392,7 +392,7 @@ The AWS service data shown below is available in StackState as components with t
 
 OpenTelemetry creates traces from the AWS services that your Lambdas interacts with. Retrieved traces are available in the Traces Perspective and are also used to enhance the retrieved topology. 
 
-➡️ [Learn more about how to set up and use OpenTelemetry](/stackpacks/integrations/aws/opentelemetry-nodejs.md)
+➡️ [Learn more about how to set up and use OpenTelemetry](/stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md)
 
 ### Required AWS resources
 
@@ -666,7 +666,7 @@ Find out how to [uninstall using a specific AWS profile or an IAM role \(docs.aw
 
 ## See also
 
-* [Use and set up OpenTelemetry for NodeJS](/stackpacks/integrations/aws/opentelemetry-nodejs.md)
+* [Use and set up OpenTelemetry for NodeJS](/stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md)
 * [AWS policies](aws-policies.md)
 * [StackState AWS \(Legacy\) integration](aws-legacy.md "StackState Self-Hosted only")
 * [Working with AWS CloudFormation StackSets \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html)

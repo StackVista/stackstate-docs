@@ -16,7 +16,7 @@ Service Name: Parent Component
 
 An example of the above displayed in StackState will show up as follows:
 
-![Topology Perspective - Unmerged OTEL Components](../../../.gitbook/assets/v50_otel_topology_perspective_healthy_component.png)
+![Topology Perspective - Unmerged OTEL Components](../../../../.gitbook/assets/v50_otel_topology_perspective_healthy_component.png)
 
 These relations are based on the parent and child structure. A relationship is drawn from a parent component 
 to a child component. 
@@ -48,7 +48,7 @@ Service Name: Parent Component [Propagated 400 Status]
 
 A visual example of this will be as follows:
 
-![Topology Perspective - OTEL Components Critical State](../../../.gitbook/assets/v50_otel_topology_perspective_critical_component.png)
+![Topology Perspective - OTEL Components Critical State](../../../../.gitbook/assets/v50_otel_topology_perspective_critical_component.png)
 
 
 So remember to create your parent and children spans in the correct order as it may affect the flow of the health state.
@@ -59,13 +59,13 @@ Relations are retained when merging components; this allows you to create a pare
 and then merge that child component with an existing component. This will then create a relationship between the pre-existing component
 and parent components. For example, here we have the three components as described above:
 
-![Topology Perspective - OTEL Components and Pre-Existing Components](../../../.gitbook/assets/v50_otel_components_unmerged.png)
+![Topology Perspective - OTEL Components and Pre-Existing Components](../../../../.gitbook/assets/v50_otel_components_unmerged.png)
 
 If we then merge our middle component `Service Name: Child Component` with the existing healthy Lambda component `otel-example-custom-instrumentation-dev-create-custom-component` in the bottom right corner.
 You will then notice that the middle component disappeared as it merged with the Lambda component, and now the Lambda has relations with the first and third components as it
 inherited the same relation mappings.
 
-![Topology Perspective - Merged with Healthy Component](../../../.gitbook/assets/v50_otel_traces_merge_with_healthy_complete.png)
+![Topology Perspective - Merged with Healthy Component](../../../../.gitbook/assets/v50_otel_traces_merge_with_healthy_complete.png)
 
 ## Multiple children
 
@@ -79,6 +79,6 @@ Service Name: Parent Component
 ---> Service Name: Child 2 Component
 ```
 
-![Topology Perspective - OTEL Components with Multiple Children](../../../.gitbook/assets/v50_otel_traces_multiple_children.png)
+![Topology Perspective - OTEL Components with Multiple Children](../../../../.gitbook/assets/v50_otel_traces_multiple_children.png)
 
 

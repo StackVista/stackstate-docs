@@ -18,7 +18,7 @@ All the timed operations and data mentioned above will be captured and grouped w
 Below is an example of a Trace that contains two spans, one Lambda parent span, and one SNS child span.
 (Parent and child span definitions will be explained a bit further down inside this documentation)
 
-![Distributed Trace Sample](../../.gitbook/assets/v50_otel_distributed_trace_sample.png)
+![Distributed Trace Sample](../../../.gitbook/assets/v50_otel_distributed_trace_sample.png)
 
 The above is a snippet of the [Trace Perspective](/use/stackstate-ui/perspectives/traces-perspective.md) within StackState.
 
@@ -32,15 +32,15 @@ For example, in the trace captured below, three time operations occurred.
 
 The first was the Lambda that we monitored with OpenTelemetry, as seen in the screenshot below; this is the parent span.
 
-![Distributed Trace Parent Span](../../.gitbook/assets/v50_otel_distributed_trace_parent_span.png)
+![Distributed Trace Parent Span](../../../.gitbook/assets/v50_otel_distributed_trace_parent_span.png)
 
 The second interaction inside the Lambda script was with an SQS Queue
 
-![Distributed Trace Child Span](../../.gitbook/assets/v50_otel_distributed_trace_child_span.png)
+![Distributed Trace Child Span](../../../.gitbook/assets/v50_otel_distributed_trace_child_span.png)
 
 And the last interaction before the Trace is completed is another interaction with a second SQS Queue.
 
-![Distributed Trace Second Child Span](../../.gitbook/assets/v50_otel_distributed_trace_second_child_span.png)
+![Distributed Trace Second Child Span](../../../.gitbook/assets/v50_otel_distributed_trace_second_child_span.png)
 
 As you can see from the above, within this trace context, it had three span timed operations; thus, spans is a tree of timed operations that make up a trace.
 
@@ -107,7 +107,7 @@ As you can see from the above, each following span parent ID has the ID from the
 ### Why create parent and children spans?
 We want to create relations between different span timed operations, how they affect each other, and their relational flow.
 
-You can head over to the [manual instrumentation component relations](/configure/opentelemetry/manual-instrumentation/relations.md) page to get a full
+You can head over to the [manual instrumentation component relations](/stackpacks/integrations/opentelemetry/opentelemetry/manual-instrumentation/relations.md) page to get a full
 breakdown of how StackState relations work, how parent-child spans are shown on StackState, and how relations are created between
 components and how the health state uses these relations to propagate health.
 
@@ -168,10 +168,10 @@ StackState currently supports two types of instrumentations:
 
 - An ***out-of-the-box*** solution specifically for AWS using a Lambda layer for all your ***NodeJS*** functions. 
   - This solution does not require you to write any code, but only supports certain services
-  - Visit the [AWS OpenTelemetry integrations page](/stackpacks/integrations/aws/opentelemetry-nodejs.md) for more information regarding the [supported AWS services](/stackpacks/integrations/aws/opentelemetry-nodejs.md#supported-services) and how to install and use this Lambda layer.
+  - Visit the [AWS OpenTelemetry integrations page](/stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md) for more information regarding the [supported AWS services](/stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md#supported-services) and how to install and use this Lambda layer.
 - **Manual instrumentation** using the [OpenTelemetry API](https://opentelemetry.io/docs/instrumentation/)
   - This gives you the ability to create and display a custom component with a health state within StackState using the [OpenTelemetry API](https://opentelemetry.io/docs/instrumentation/).
-  - To learn more about how to implement a manual instrumentation specifically for StackState, head over to the [manual instrumentation tracer and span mappings](/configure/opentelemetry/manual-instrumentation/mappings.md) page
+  - To learn more about how to implement a manual instrumentation specifically for StackState, head over to the [manual instrumentation tracer and span mappings](/stackpacks/integrations/opentelemetry/opentelemetry/manual-instrumentation/mappings.md) page
 
 
 

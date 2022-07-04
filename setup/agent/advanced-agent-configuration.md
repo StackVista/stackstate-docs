@@ -17,7 +17,7 @@ The StackState Agent collection interval can be configured. This will reduce the
 To configure the collection interval of the Kubernetes and system level integrations, create a `values.yaml` file with the below contents and specify this when you install/upgrade the StackState Agent. In this `values.yaml` example, the `min_collection_interval` has been set to double the default setting. This should result in a noticeable drop in the amount of data produced. If required, you can increase the interval further, however, the aim should be to find a balance between the frequency of data collection and the amount of data received by StackState: 
 
 {% hint style="info" %}
-Note that the `values.yaml` example below includes configuration to [enable clusterChecks](/setup/agent/kubernetes.md#enable-cluster-checks) and [run the Kubernetes_state check as a cluster check](/setup/agent/kubernetes.md#kubernetes_state-check-as-a-cluster-check).
+Note that the `values.yaml` example below includes configuration to [enable clusterChecks](/setup/agent/kubernetes.md#enable-cluster-checks) and [run the Kubernetes_state check as a cluster check](/stackpacks/integrations/kubernetes.md#configure-cluster-check-kubernetes_state-check).
 {% endhint %}
 
 ```yaml
@@ -153,7 +153,7 @@ To reduce data production in StackState Agent running in a Docker container:
         process: 30
         connections: 30
     ```
-3. Mount the config files as a volume into the container running the Agent as described in [Docker Agent integration configuration](/setup/agent/docker.md#integration-configuration).
+3. Mount the config files as a volume into the container running the Agent as described in [Docker Agent integration configuration](/setup/agent/docker.md#external-integration-configuration).
 
 {% endtab %}
 

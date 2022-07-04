@@ -84,7 +84,7 @@
     * [StackState/Agent IAM role: EKS](stackpacks/integrations/aws/aws-sts-eks.md)
     * [AWS ECS](stackpacks/integrations/aws/aws-ecs.md)
     * [AWS X-ray](stackpacks/integrations/aws/aws-x-ray.md)
-    * [OpenTelemetry - NodeJS](stackpacks/integrations/aws/opentelemetry-nodejs.md)
+    * [OpenTelemetry - NodeJS](stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md)
     * [Policies for AWS](stackpacks/integrations/aws/aws-policies.md)
   * [Kubernetes](stackpacks/integrations/kubernetes.md)
   * [OpenShift](stackpacks/integrations/openshift.md)
