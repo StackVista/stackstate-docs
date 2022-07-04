@@ -47,7 +47,8 @@ The supported fields are:
 - **script** - names or lists out the concrete algorithm to use for this computation; currently, monitors only support scripts of type `ScriptFunctionBody` written using the Groovy scripting language.
 
 ### Parameters
-A monitor function can use any number of parameters of an array of available types. These parameter types are not unlike the ones available to the [Check functions](./check-functions.md) with the one notable exception being the `SCRIPT_METRIC_QUERY` parameter type.
+
+A monitor function can use any number of parameters of an array of available types. These parameter types are not unlike the ones available to the [Check functions](check-functions.md) with the one notable exception being the `SCRIPT_METRIC_QUERY` parameter type.
 
 `SCRIPT_METRIC_QUERY` parameter type represents a Telemetry Query and ensures that a well-formed Telemetry Query builder value is supplied to the function. Here's an example declaration of such a parameter:
 
@@ -55,7 +56,6 @@ A monitor function can use any number of parameters of an array of available typ
 "parameters": [{
   "_type": "Parameter",
   "name": "metrics",
-  "id": -1,
   "type": "SCRIPT_METRIC_QUERY",
   "required": true,
   "multiple": false
@@ -67,7 +67,7 @@ The above declaration represents a single Telemetry Query accepting parameter na
 ```json
 "arguments": [{
   "_type": "ArgumentScriptMetricQueryVal",
-  "parameter": -1,
+  "parameter": {{ get "<identifier-of-the-function>" "Type=Parameter;Name=metrics" }},
   "script": "Telemetry.query('StackState Metrics', '').groupBy('tags.pid', 'tags.createTime', 'host').metricField('cpu_systemPct').start('-1m').aggregation('mean', '15s')"
 }]
 ```
@@ -458,10 +458,11 @@ stac graph import < path/to/file.stj
 
 After the function has been uploaded, it will be generally available for any monitor definition to invoke it.
 
-➡️ [Learn how to create a custom monitor that utilizes an existing monitor function](../monitors/how-to-create-monitors.md)
+➡️ [Learn how to create a custom monitor that utilizes an existing monitor function](../monitors/create-custom-monitors.md)
 
 ## See also
 
+* [Monitor STJ format](/develop/developer-guides/monitors/monitor-stj-file-format.md)
 * [StackState CLI](../../../setup/cli/README.md)
 * [StackState Template JSON \(STJ\)](../../reference/stj/README.md)
 * [Develop your own StackPacks](../../../stackpacks/sdk.md)

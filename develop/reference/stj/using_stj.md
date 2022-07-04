@@ -90,17 +90,17 @@ Loop over an array or map of data.
 {% endtab %}
 {% endtabs %}
 
-## StackState Functions
+## StackState handlebars functions
 
 StackState adds a number of function to the handlebars syntax. You can use these to create complex JSON results.
 
-➡️ [Learn more about the available functions](stj_reference.md).
+➡️ [Learn more about the available handlebars functions](stj_reference.md).
 
 ## Component and relation templates
 
 Templates are used to create topology. 
 
-➡️ [Learn more about component and relation templates](/configure/topology/sync.md#template-functions)
+➡️ [Learn more about component and relation templates](/configure/topology/sync.md#template-functions "StackState Self-Hosted only")
 
 ## See also
 
