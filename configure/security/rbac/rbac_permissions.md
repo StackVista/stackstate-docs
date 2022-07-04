@@ -131,13 +131,13 @@ See also the full list of [view permissions](rbac_permissions.md#view-permission
 | `execute-component-actions` | Execute component actions.                                                                                                                                                       | ✅ | ✅ | ✅ | - |
 | `manage-star-view` | Add and remove stars from views.                                                                                                                                                 | ✅ | ✅ | ✅ | ✅ |
 | `perform-custom-query` | Access the topology filter.                                                                                                                                                      | ✅ | ✅ | ✅ | - |
-| `read-permissions` | List all granted permissions across the entire system via the CLI.                                                                                                               | ✅ | ✅ | ✅ | - |
+| `read-permissions` | List all granted permissions across the entire system using the CLI.                                                                                                               | ✅ | ✅ | ✅ | - |
 | `update-visualization` | Change visualization settings.                                                                                                                                                   | ✅ | ✅ | ✅ | - |
 | `access-analytics` | Access the Analytics page.                                                                                                                                                       | - | ✅ | ✅ | - |
 | `access-admin-api` | Access the administrator API.                                                                                                                                                    | - | - | - | ✅ |
-| `access-log-data` | Access StackState logs via the CLI.                                                                                                                                              | - | ✅ | ✅ | ✅ |
-| `access-synchronization-data` | Access StackState synchronization status and data via the CLI.                                                                                                                   | - | ✅ | ✅ | - |
-| `access-topic-data` | Access StackState Receiver data via the CLI.                                                                                                                                     | - | ✅ | ✅ | - |
+| `access-log-data` | Access StackState logs using the CLI.                                                                                                                                              | - | ✅ | ✅ | ✅ |
+| `access-synchronization-data` | Access StackState synchronization status and data using the CLI.                                                                                                                   | - | ✅ | ✅ | - |
+| `access-topic-data` | Access StackState Receiver data using the CLI.                                                                                                                                     | - | ✅ | ✅ | - |
 | `create-views` | Create views.                                                                                                                                                                    | - | ✅ | ✅ | - |
 | `execute-component-templates` | Invoke a component template API extension \(internal use only\).                                                                                                                 | - | ✅ | ✅ | - |
 | `execute-node-sync` | Reset or delete a synchronization.                                                                                                                                               | - | ✅ | ✅ | - |
@@ -264,7 +264,7 @@ The permissions listed below are required to access and manage StackState platfo
 | Action | Permission | Guest | Power user | Admin | Platform Admin |
 | :--- | :--- | :---: | :---: | :---: | :---: |
 | Access the administrator API. | `access-admin-api` | - | - | - | ✅ |
-| Access StackState logs via the CLI. | `access-log-data` | - | ✅ | ✅ | ✅ |
+| Access StackState logs using the CLI. | `access-log-data` | - | ✅ | ✅ | ✅ |
 
 See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
 

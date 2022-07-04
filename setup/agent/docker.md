@@ -34,10 +34,10 @@ In [Docker swarm mode](#docker-swarm-mode), StackState Cluster Agent running on 
 
 To start a single Docker container with StackState Agent V2, run the command below.
 
-* `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation. For details see:
-   * [StackState Kubernetes install - configuration parameters](../install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml) 
-   * [StackState Linux install - configuration parameters](../install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install) 
-* `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. For details see [StackState Receiver API address](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api-address).
+* `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
+* `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
+
+For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api).
 
 ```text
 docker run -d \
@@ -48,11 +48,19 @@ docker run -d \
     -v /var/run/docker.sock:/var/run/docker.sock:ro \
     -v /proc/:/host/proc/:ro \
     -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
+    -v /etc/passwd:/etc/passwd:ro \
+    -v /sys/kernel/debug:/sys/kernel/debug \
     -e STS_API_KEY="<STACKSTATE_RECEIVER_API_KEY>" \
     -e STS_STS_URL="<STACKSTATE_RECEIVER_API_ADDRESS>" \
+    -e STS_PROCESS_AGENT_URL="<STACKSTATE_RECEIVER_API_ADDRESS>" \
+    -e STS_PROCESS_AGENT_ENABLED="true" \
+    -e STS_NETWORK_TRACING_ENABLED="true" \
+    -e STS_PROTOCOL_INSPECTION_ENABLED="true" \
+    -e STS_APM_URL="<STACKSTATE_RECEIVER_API_ADDRESS>" \
+    -e STS_APM_ENABLED="true" \
     -e HOST_PROC="/host/proc" \
     -e HOST_SYS="/host/sys" \
-    docker.io/stackstate/stackstate-agent-2:latest
+    docker.io/stackstate/stackstate-agent-2:2.17.0
 ```
 
 ### Docker compose
@@ -60,14 +68,13 @@ docker run -d \
 To run StackState Agent V2 with Docker compose:
 
 1. Add the following configuration to the compose file on each node where the Agent will run.
-   * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation. For details see:
-      * [StackState Kubernetes install - configuration parameters](../install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml) 
-      * [StackState Linux install - configuration parameters](../install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install) 
-   * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. For details see [StackState Receiver API address](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api-address).
+   * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
+   * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
+   For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api).
 
    ```text
    stackstate-agent:
-    image: docker.io/stackstate/stackstate-agent-2:latest
+    image: docker.io/stackstate/stackstate-agent-2:2.17.0
     network_mode: "host"
     pid: "host"
     privileged: true
@@ -81,7 +88,11 @@ To run StackState Agent V2 with Docker compose:
       STS_API_KEY: "<STACKSTATE_RECEIVER_API_KEY>"
       STS_STS_URL: "<STACKSTATE_RECEIVER_API_ADDRESS>"
       STS_PROCESS_AGENT_URL: "<STACKSTATE_RECEIVER_API_ADDRESS>"
+      STS_PROCESS_AGENT_ENABLED: "true"
+      STS_NETWORK_TRACING_ENABLED: "true"
+      STS_PROTOCOL_INSPECTION_ENABLED: "true"
       STS_APM_URL: "<STACKSTATE_RECEIVER_API_ADDRESS>"
+      STS_APM_ENABLED: "true"
       HOST_PROC: "/host/proc"
       HOST_SYS: "/host/sys"
    ```
@@ -99,15 +110,14 @@ In Docker Swarm mode, the StackState Cluster Agent can be deployed on the manage
 To run StackState Cluster Agent in Docker Swarm mode:
 
 1. Create a file `docker-compose.yml` with the following content. Update to include details of your StackState instance:
-   * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation. For details see:
-      * [StackState Kubernetes install - configuration parameters](../install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml) 
-      * [StackState Linux install - configuration parameters](../install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install) 
-   * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. For details see [StackState Receiver API address](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api-address).
+   * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
+   * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
+   For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api).
    * `<CLUSTER_NAME>` is the name you would like to give this cluster
 
    ```yaml
    stackstate-agent:
-       image: docker.io/stackstate/stackstate-cluster-agent:latest
+       image: docker.io/stackstate/stackstate-cluster-agent:2.17.0
        deploy:
          placement:
            constraints: [ node.role == manager ]
@@ -166,7 +176,7 @@ For example, the Agent Docker configuration below includes a volume with a check
 
 ```text
 stackstate-agent:
-    image: docker.io/stackstate/stackstate-agent-2:latest
+    image: docker.io/stackstate/stackstate-agent-2:2.17.0
     network_mode: "host"
     pid: "host"
     privileged: true

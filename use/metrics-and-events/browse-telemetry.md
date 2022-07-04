@@ -22,7 +22,7 @@ Within the telemetry inspector you can adjust the selected metric as well as the
 
 When anomaly detection is enabled for a metric stream, users can give feedback on reported anomalies in the form of a thumbs-up (*"well spotted!"*) or thumbs-down (*"false positive"*). For more elaborate feedback, it is also possible to add comments. Feedback added to anomalies will be used by the StackState team to further develop and improve the AAD.
 
-{% hint style="info" "self-hosted info" %}
+{% hint style="success" "self-hosted info" %}
 In a self-hosted installation, feedback must be [exported and sent to StackState](/configure/anomaly-detection/export-anomaly-feedback.md) for the StackState team to be able to access it.
 {% endhint %}
 

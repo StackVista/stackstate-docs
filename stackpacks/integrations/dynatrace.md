@@ -68,7 +68,7 @@ To enable the Dynatrace topology check and begin collecting topology data from D
         # SaaS url example - https://{your-environment-id}.live.dynatrace.com
         # Managed url example - https://{your-domain}/e/{your-environment-id} 
         token: <token>  # API-Token to connect to Dynatrace
-        # verify: True  # By default its True
+        # verify: True  # default `True`
         # cert: /path/to/cert.pem
         # keyfile: /path/to/key.pem
         # timeout: 10
@@ -77,6 +77,7 @@ To enable the Dynatrace topology check and begin collecting topology data from D
         # relative_time : <relative_time> # default 'hour'
         # custom_device_relative_time: 1h
         # custom_device_fields: +fromRelationships,+toRelationships,+tags,+managementZones,+properties.dnsNames,+properties.ipAddress
+        # custom_device_ip: True  # default `True`, requires Agent v2.17 or later.
         # tags:
         #   - foo:bar
     
@@ -85,16 +86,17 @@ To enable the Dynatrace topology check and begin collecting topology data from D
    - **domain** - The domain to use for imported topology (default dynatrace).
    - **environment** - The environment to use for imported topology (default production).
 3. Other optional configuration options are:
-   - **collection_interval** - The frequency with which topology data is retrieved from Dynatrace. If you have a large amount of topology data to collect from Dynatrace, the topology check will need to run for longer . Default `300` seconds.
+   - **collection_interval** - The frequency with which topology data is retrieved from Dynatrace. If you have a large amount of topology data to collect from Dynatrace, the topology check will need to run for longer. Default `300` seconds.
    - **verify** - To verify the certificate for HTTPS.
    - **cert** - The path to the certificate file for HTTPS verification.
    - **keyfile** - The path to public key of certificate for https verification.
    - **timeout** - Timeout for requests.
    - **relative_time** - The relative timeframe for retrieving topology.
    - **custom_device_relative_time** - The relative timeframe for retrieving custom devices.
-   - **custom_device_fields** - Which Custom Device property fields will be used.
+   - **custom_device_fields** - The Custom Device property fields that should be used.
+   - **custom_device_ip** - Use IP address to generate Custom Device identifiers. Set to `False` if there are multiple Custom Devices using the same IP to prevent incorrect merging of Custom Device components. Default `True`. Requires Agent v2.17 or later. 
    - **tags** - custom tags appended to all components, useful for filtering.
-4. [Restart the StackState Agent\(s\)](https://l.stackstate.com/ui-stackpack-restart-agent) to apply the configuration changes.
+4. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
 5. Once the Agent has restarted, wait for data to be collected from Dynatrace and sent to StackState.
 
 #### Dynatrace Health Check
@@ -185,6 +187,7 @@ The API endpoints used in the StackState integration are listed below:
 * `/api/v1/entity/services`
 * `/api/v1/events`
 * `/api/v2/entities`
+* `/api/v1/synthetic/monitors`
 
 
 {% hint style="info" %}
@@ -218,10 +221,10 @@ The Dynatrace integration also understands StackState [common tags](../../config
 
 The [Dynatrace topology check](#dynatrace-topology-check) retrieves the following topology data from Dynatrace:
 
-| Data | Description |
-| :--- | :--- |
-| Components | Smartscape Applications, Hosts, Processes, Process-Groups, Services and Custom Devices. |
-| Relations | Relations between the imported components are included in the component data retrieved from Dynatrace. |
+| Data | Description                                                                                                                                                   |
+| :--- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Components | Smartscape Applications, Hosts, Processes, Process-Groups, Services, Custom Devices. Synthetic Monitors are also available when running Agent v2.17 or later. |
+| Relations | Relations between the imported components are included in the component data retrieved from Dynatrace.                                                        |
 
 {% hint style="info" %}
 The Dynatrace integration understands StackState [common tags](../../configure/topology/tagging.md#common-tags). These StackState tags can be assigned to elements in Dynatrace to influence the way that the resulting topology is built in StackState. For example, by placing a component in a specific layer or domain.

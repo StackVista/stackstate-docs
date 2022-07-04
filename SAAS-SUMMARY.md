@@ -9,6 +9,7 @@
 * [Concepts](use/concepts/README.md)
   * [The 4T data model](use/concepts/4t_data_model.md)
   * [Components](use/concepts/components.md)
+  * [Health state](use/concepts/health-state.md)
   * [Relations](use/concepts/relations.md)
   * [Layers, Domains and Environments](use/concepts/layers_domains_environments.md)
   * [Perspectives](use/concepts/perspectives.md)
@@ -22,7 +23,8 @@
 * [Views](use/stackstate-ui/views/README.md)
   * [About views](use/stackstate-ui/views/about_views.md)
   * [Create and edit views](use/stackstate-ui/views/create_edit_views.md)
-  * [Manage event handlers](/use/stackstate-ui/views/manage-event-handlers.md)
+  * [Configure the view health](use/stackstate-ui/views/configure-view-health.md)
+  * [Manage event handlers](use/stackstate-ui/views/manage-event-handlers.md)
   * [Visualization settings](use/stackstate-ui/views/visualization_settings.md)
 * [Perspectives](use/stackstate-ui/perspectives/README.md)
   * [Topology Perspective](use/stackstate-ui/perspectives/topology-perspective.md)
@@ -32,12 +34,15 @@
 * [Timeline and time travel](use/stackstate-ui/timeline-time-travel.md)
 * [Keyboard shortcuts](use/stackstate-ui/keyboard-shortcuts.md)
 
-## 🚦 Health state
+## 🚦 Checks and monitors
 
-* [About health state](use/concepts/health-state.md)
+* [Checks](use/checks-and-monitors/checks.md)
 * [Add a health check](use/checks-and-monitors/add-a-health-check.md)
 * [Anomaly health checks](use/checks-and-monitors/anomaly-health-checks.md)
-* [Configure the view health](use/stackstate-ui/views/configure-view-health.md)
+* [Monitors](use/checks-and-monitors/monitors.md)
+* [Add a custom monitor](develop/developer-guides/monitors/create-custom-monitors.md)
+* [Manage monitors](use/checks-and-monitors/manage-monitors.md)
+* [Monitor STJ format](develop/developer-guides/monitors/monitor-stj-file-format.md)
 
 ## 🛑 Problem analysis
 
@@ -75,6 +80,8 @@
     * [Advanced Agent configuration](setup/agent/advanced-agent-configuration.md)
   * [AWS](stackpacks/integrations/aws/README.md)
     * [AWS](stackpacks/integrations/aws/aws.md)
+    * [StackState/Agent IAM role: EC2](stackpacks/integrations/aws/aws-sts-ec2.md)
+    * [StackState/Agent IAM role: EKS](stackpacks/integrations/aws/aws-sts-eks.md)
     * [AWS ECS](stackpacks/integrations/aws/aws-ecs.md)
     * [AWS X-ray](stackpacks/integrations/aws/aws-x-ray.md)
     * [OpenTelemetry - NodeJS](stackpacks/integrations/aws/opentelemetry-nodejs.md)
@@ -86,4 +93,8 @@
 ## 📖 Reference
 
 * [StackState Query Language \(STQL\)](develop/reference/stql_reference.md)
+* [StackState Template JSON \(STJ\)](develop/reference/stj/README.md)
+  * [Using STJ](develop/reference/stj/using_stj.md)
+  * [Template functions](develop/reference/stj/stj_reference.md)
+* [StackState CLI](setup/cli/cli-sts.md)
 * [StackState SaaS release notes](setup/upgrade-stackstate/sts-saas-release-notes.md)

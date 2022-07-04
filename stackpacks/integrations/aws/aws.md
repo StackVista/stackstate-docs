@@ -520,8 +520,10 @@ The following labels will be added to imported AWS topology in StackState:
 * All tags that exist for the imported element in AWS.
 * All `tags` specified for the associated instance in the [Agent AWS check configuration](#configure-the-aws-check). You can add a custom label to all topology imported by an instance of the AWS StackPack by adding it to the Agent AWS check configuration.
 
-{% hint style="info" %}
+{% hint style="success" "self-hosted info" %}
+
 Note that topology with the label `stackpack:aws` was imported by the [AWS \(Legacy\) integration](/stackpacks/integrations/aws/aws-legacy.md "StackState Self-Hosted only").
+
 {% endhint %}
 
 #### AWS tags used to build StackState topology
@@ -666,7 +668,7 @@ Find out how to [uninstall using a specific AWS profile or an IAM role \(docs.aw
 
 * [Use and set up OpenTelemetry for NodeJS](/stackpacks/integrations/aws/opentelemetry-nodejs.md)
 * [AWS policies](aws-policies.md)
-* [StackState AWS \(Legacy\) integration](aws-legacy.md)
+* [StackState AWS \(Legacy\) integration](aws-legacy.md "StackState Self-Hosted only")
 * [Working with AWS CloudFormation StackSets \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html)
 * [Uninstall using a specific AWS profile or an IAM role \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html)
 

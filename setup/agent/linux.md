@@ -48,10 +48,10 @@ StackState Agent V2 is installed using an install script.
 
 If you have access to the internet on the machine where the Agent will be installed, use one of the commands below to run the `install.sh` script. The Agent installer package will be downloaded automatically.
 
-* `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation. For details see:
-   * [StackState Kubernetes install - configuration parameters](../install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml) 
-   * [StackState Linux install - configuration parameters](../install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install) 
-* `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. For details see [StackState Receiver API address](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api-address).
+* `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
+* `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
+
+For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api).
 
 {% tabs %}
 {% tab title="cURL" %}
@@ -85,10 +85,9 @@ If you do not have access to the internet on the machine where the Agent will be
    * **DEB Download link:** `https://stackstate-agent-2.s3.amazonaws.com/<Key_from_DEB_installer_package_list>`
    * **RPM Download link:** `https://stackstate-agent-2-rpm.s3.amazonaws.com/<Key_from_RPM_installer_package_list>`
 4. Use the command below to set the required environment variables and run the installer script.
-   * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation. For details see:
-      * [StackState Kubernetes install - configuration parameters](../install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml) 
-      * [StackState Linux install - configuration parameters](../install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install) 
-   * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. For details see [StackState Receiver API address](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api-address).
+   * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
+   * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState.
+   For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api).
 
 ```text
 STS_API_KEY="<STACKSTATE_RECEIVER_API_KEY>" \

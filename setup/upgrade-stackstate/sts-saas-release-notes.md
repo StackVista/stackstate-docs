@@ -14,7 +14,7 @@ Note that the release notes may include details of functionality that is current
 
 The StackState v5.0 release delivers brand new features and enhancements that help your team troubleshoot faster. Here are some highlights:
 
-* **[New 4T® Monitors](/use/checks-and-monitors/about-checks-and-monitors.md)** – adds a new, first-in-the-industry dimension to observability monitoring – the ability to now monitor topology and to set validation rules that span topology and multiple other parameters
+* **[New 4T® Monitors](/use/checks-and-monitors/monitors.md)** – adds a new, first-in-the-industry dimension to observability monitoring – the ability to now monitor topology and to set validation rules that span topology and multiple other parameters
 * **Improved Topology Visualizer and Right Panel** – substantially enhances user experience and increases productivity with a more modern, focused, easy-to-learn UI and more in-depth troubleshooting capabilities.
 * **New StackState CLI** – lets you instantly configure StackState, run queries, create monitors and more, directly from your command line, while sending output directly to other systems for GitOps integration.
 * **[Accuracy Feedback for Anomalies](/stackpacks/add-ons/aad.md#anomaly-feedback)** – gives users the ability to provide feedback about the usefulness of the anomalies reported by StackState, so we can continuously improve the accuracy of our algorithms.
@@ -70,11 +70,11 @@ Details of the included features, improvements, bug fixes and updated StackPacks
 
 * [StackState Agent StackPack v4.5.2](/stackpacks/integrations/agent.md#release-notes)
 * [AWS v1.2.1](/stackpacks/integrations/aws/aws.md#release-notes)
-* [Dynatrace v1.4.2](/stackpacks/integrations/dynatrace.md#release-notes)
 * [Kubernetes v3.9.12](/stackpacks/integrations/kubernetes.md#release-notes)
 * [OpenShift v3.7.12](/stackpacks/integrations/openshift.md#release-notes)
-* [ServiceNow v5.3.3](/stackpacks/integrations/servicenow.md#release-notes)
-* [VMware vSphere v2.3.3](/stackpacks/integrations/vsphere.md#release-notes)
+* Dynatrace v1.4.2
+* ServiceNow v5.3.3
+* VMware vSphere v2.3.3
 
 ## StackState v4.6.x
 

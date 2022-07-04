@@ -46,7 +46,8 @@ Schedule a Daemon Service in AWS using StackState Agent V2 ECS Task:
 
 #### Integrate with Java traces
 
-When used in conjunction with one of our language specific trace clients, eg. [StackState Java Trace Client](../java-apm.md) to allow automatic merging of components within StackState make sure to configure you app to use the host’s pid namespace:
+When used in conjunction with one of our language specific trace clients to allow automatic merging of components within StackState make sure to configure you app to use the host’s pid namespace:
+
 
 ```text
   "containerDefinitions": [
@@ -55,6 +56,9 @@ When used in conjunction with one of our language specific trace clients, eg. [S
       "pidMode": "host", # ensure pid's match with processes reported by the StackState process agent
       ...
 ```
+
+For example, using the [StackState Java Trace Client](../java-apm.md "StackState Self-Hosted only").
+
 
 #### Advanced Agent configurations
 

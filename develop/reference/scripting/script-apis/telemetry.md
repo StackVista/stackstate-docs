@@ -142,7 +142,7 @@ The output format of the Telemetry API changed in StackState v5.0. If you are ru
   {% endtab %}
   {% endtabs %}
 
-#### Process the [StreamingScriptResult](./../streaming-script-result.md) result data, getting the ids of the resulting timeSeries
+#### Process the [StreamingScriptResult](../streaming-script-result.md) result data, getting the ids of the resulting timeSeries
 
   {% tabs %}
   {% tab title="Query" %}
@@ -230,4 +230,4 @@ The output format of the Telemetry API changed in StackState v5.0. If you are ru
 
 ## See also
 
-* [Streaming script result](./../streaming-script-result.md)
+* [Streaming script result](../streaming-script-result.md)

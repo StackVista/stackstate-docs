@@ -26,7 +26,7 @@ Existing StackPacks will provide StackState health checks out of the box.
 
 * [How to add a health check](../checks-and-monitors/add-a-health-check.md)
 * [How to set up anomaly health checks](../checks-and-monitors/anomaly-health-checks.md)
-* [Differences between checks and monitors](/use/checks-and-monitors/about-checks-and-monitors.md)
+* [About StackState checks](../checks-and-monitors/checks.md)
 
 ### StackState monitors
 
@@ -34,8 +34,8 @@ The StackState monitors system compute a health state based on a configured algo
 
 Existing StackPacks will provide StackState monitors out of the box.
 
-* [How to add manage monitors](/use/checks-and-monitors/manage-monitors.md)
-* [Differences between checks and monitors](/use/checks-and-monitors/about-checks-and-monitors.md)
+* [How to manage monitors](/use/checks-and-monitors/manage-monitors.md)
+* [About StackState monitors](../checks-and-monitors/monitors.md)
 
 ### External monitoring systems
 
