@@ -27,7 +27,7 @@ This page provides specific instructions and details of any required manual step
   * If you install the new `sts` CLI, you should [upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
   * The commands for the new `sts` CLI have changed. Check that any automation is using the correct CLI command (`sts` or `stac`). [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 * Version 5.0.0 of StackState includes a breaking change to the output of the [Telemetry Script API](/develop/reference/scripting/script-apis/telemetry.md). The output uses the new [StreamingScriptApi](/develop/reference/scripting/streaming-script-result.md) and the data format changed. Any script making use of that API needs to be adapted to deal with the new output format. 
-* The versions of Kubernetes and OpenShift that are supported to run StackState have been updated. Refer to the requirements documentation for details of all supported platforms: [requirements > supported versions](/setup/install-stackstate/requirements.md#supported-versions).
+* The versions of Kubernetes and OpenShift that are supported to run StackState have been updated - AKS and EKS 1.19 are no longer supported. Refer to the requirements documentation for details of all supported platforms: [requirements > supported versions](/setup/install-stackstate/requirements.md#supported-versions).
 * StackPack updates:
   * [StackState Agent StackPack v4.5.2](/stackpacks/integrations/agent.md#release-notes)
   * [AWS v1.2.1](/stackpacks/integrations/aws/aws.md#release-notes)
