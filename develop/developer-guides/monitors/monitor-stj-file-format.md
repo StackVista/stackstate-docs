@@ -35,7 +35,7 @@ Monitors in StackState are represented textually using the [STJ file format](/de
       }, {
         "_type": "ArgumentScriptMetricQueryVal",
         "parameter": {{ get "urn:system:default:monitor-function:metric-above-threshold" "Type=Parameter;Name=query" }},
-        "script": "Telemetry\n.query(\"StackState Metrics\", \"\")\n.metricField(\"system.cpu.system\")\n.groupBy(\"tags.host\")\n.start(\"-1m\")\n.aggregation(\"mean\", \"15s\")"
+        "script": "Telemetry\n.query('StackState Metrics', '')\n.metricField('system.cpu.system')\n.groupBy('tags.host')\n.start('-1m')\n.aggregation('mean', '15s')"
       }],
       "intervalSeconds": 60
     }
@@ -203,7 +203,12 @@ The declaration of a topology query in a monitor function STJ definition can loo
 {% endtabs %}
 
 #### Telemetry query
-Monitor functions that utilize Telemetry tend to be parameterized with the exact telemetry query to use for their computation. 
+Monitor functions that utilize telemetry tend to be parameterized with the exact telemetry query to use for their computation. The telemetry query should be built using the StackState Telemetry Script API. The following fields are particularly useful in telemetry queries that are passed to monitor functions:
+
+* `groupBy(fields)` - when a monitor will produce a health state for multiple components, use the `groupBy` field to produce multiple time series as a set of unique values for the defined `fields`.
+* `aggregation(type, interval)` - aggregates each time series by the defined `type`. Each aggregated value is constructed out of a data span the size of the defined `interval`.
+
+➡️ [Learn more about the Telemetry script API](/develop/reference/scripting/script-apis/telemetry.md "StackState Self-Hosted only")
 
 {% tabs %}
 {% tab title="Monitor STJ definition" %}
