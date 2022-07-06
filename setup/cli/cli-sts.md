@@ -40,6 +40,8 @@ Open a **Powershell** terminal (version 5.1 or later), change the `<URL>` and `<
 . { iwr -useb https://dl.stackstate.com/stackstate-cli/install.ps1 } | iex; install -StsUrl "<URL>" -StsApiToken "<API-TOKEN>"
 ```
 
+Alternatively, go to the **CLI** page in the StackState UI and copy the **Quick installation** command for **Windows** - this is pre-filled with the correct `<URL>` and `<API-TOKEN>` for your StackState instance.
+
 {% endtab %}
 {% tab title="Manual install steps" %}
 
@@ -92,6 +94,8 @@ Open a terminal, change the `<URL>` and `<API-TOKEN>` and run the command below.
 curl -o- https://dl.stackstate.com/stackstate-cli/install.sh | STS_URL="<URL>" STS_API_TOKEN="<API-TOKEN>" bash
 ```
 
+Alternatively, go to the **CLI** page in the StackState UI and copy the **Quick installation** command for **MacOS** - this is pre-filled with the correct `<URL>` and `<API-TOKEN>` for your StackState instance.
+
 {% endtab %}
 
 {% tab title="Manual install steps" %}
@@ -123,6 +127,8 @@ Open a terminal, change the `<URL>` and `<API-TOKEN>` and run the command below.
 curl -o- https://dl.stackstate.com/stackstate-cli/install.sh | STS_URL="<URL>" STS_API_TOKEN="<API-TOKEN>" bash
 ```
 
+Alternatively, go to the **CLI** page in the StackState UI and copy the **Quick installation** command for **Linux** - this is pre-filled with the correct `<URL>` and `<API-TOKEN>` for your StackState instance.
+
 {% endtab %}
 
 {% tab title="Manual install steps" %}
@@ -150,6 +156,8 @@ To run the latest version of the CLI using Docker execute:
 ```bash
 docker run stackstate/stackstate-cli2
 ```
+
+Alternatively, go to the **CLI** page in the StackState UI and copy the **Quick installation** command for **Docker** - this is pre-filled with the correct `<URL>` and `<API-TOKEN>` required to configure the CLI for your StackState instance.
 
 You can now run CLI commands by adding appending them to the end of the `docker run` command (e.g. `docker run stackstate/stackstate-cli2 version`).
 

@@ -36,7 +36,7 @@ The steps below describe how to install the `stac` CLI on Linux using the standa
 
 3. \(optional\) Add the file to your PATH to use `stac` CLI commands from [anywhere on the command line](https://unix.stackexchange.com/questions/3809/how-can-i-make-a-program-executable-from-everywhere).
 4. To configure the StackState CLI, do one of the following:
-   * [Launch the configuration wizard](#configuration-wizard-linux-and-windows-install).
+   * [Launch the configuration wizard](#configuration-wizard-linux-and-windows-install) (recommended).
    * [Manually add configuration](#manual-configuration-docker).
 
 ### Windows install
@@ -53,8 +53,8 @@ The steps below describe how to install the StackState CLI on Windows using the 
 2. Rename the downloaded file to be `stac.exe`.
 3. \(optional\) Add the file to your PATH to use `stac` CLI commands from [anywhere on the command line](https://stackoverflow.com/questions/4822400/register-an-exe-so-you-can-run-it-from-any-command-line-in-windows).
 4. To configure the StackState CLI, do one of the following:
-   * [Launch the configuration wizard](#configuration-wizard-linux-and-windows-install).
-   * [Manually add configuration]#manual-configuration-docker).
+   * [Launch the configuration wizard](#configuration-wizard-linux-and-windows-install) (recommended).
+   * [Manually add configuration](#manual-configuration-docker).
 
 ### Docker install \(macOS, Linux, Windows\)
 
@@ -100,7 +100,7 @@ After a new installation, the `stac` CLI must be configured with the API connect
 The standalone executable StackState CLI on Linux or Windows includes a wizard to guide you through configuration. If you installed the Docker version of the `stac` CLI on macOS, Linux or Windows, the configuration file must be manually created.
 
 * **Linux or Windows install \(standalone executable\)**: [Configuration wizard](#configuration-wizard-linux-and-windows-install).
-* **Docker install**: [Create the configuration file manually](#manual-configuration-docker).
+* **macOS \(Docker\)**: [Create the configuration file manually](#manual-configuration-docker).
 
 ### Configuration wizard \(Linux and Windows install\)
 
