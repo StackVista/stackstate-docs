@@ -12,6 +12,10 @@ The StackState `stac` CLI provides easy access to the functionality provided by 
 
 A standalone executable is available to run the `stac` CLI on [Linux](#linux-install) and [Windows](#windows-install). You can also run the `stac` CLI [inside a Docker container](#docker-install-macos-linux-windows) on Linux, Windows or macOS.
 
+{% hint style="info" %}
+You can install and run the `stac` CLI on the same machine as the [new `sts` CLI](/setup/cli/cli-sts.md).
+{% endhint %}
+
 ### Linux install
 
 The steps below describe how to install the `stac` CLI on Linux using the standalone executable file. If you prefer, you can run the `stac` CLI [inside a Docker container](#docker-install-macos-linux-windows) .

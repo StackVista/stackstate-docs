@@ -10,7 +10,8 @@ The new StackState `sts` CLI provides easy access to the functionality provided 
 
 {% hint style="success" "self-hosted info" %}
 
-The new `sts` CLI will eventually replace the [`stac` CLI](cli-stac.md), however, not all commands are currently supported. For an overview of the differences and overlap between the new `sts` CLI and the `stac` CLI, see the [CLI comparison page](/setup/cli/cli-comparison.md).
+* The new `sts` CLI will eventually replace the [`stac` CLI](cli-stac.md), however, not all commands are currently supported. For an overview of the differences and overlap between the new `sts` CLI and the `stac` CLI, see the [CLI comparison page](/setup/cli/cli-comparison.md).
+* In the meantime, you can install and run as the new `sts` CLI on the same machine as the `stac` CLI.
 
 {% endhint %}
 
