@@ -12,6 +12,10 @@ The StackState `stac` CLI provides easy access to the functionality provided by 
 
 A standalone executable is available to run the `stac` CLI on [Linux](#linux-install) and [Windows](#windows-install). You can also run the `stac` CLI [inside a Docker container](#docker-install-macos-linux-windows) on Linux, Windows or macOS.
 
+{% hint style="info" %}
+You can install and run the `stac` CLI on the same machine as the [new `sts` CLI](/setup/cli/cli-sts.md).
+{% endhint %}
+
 ### Linux install
 
 The steps below describe how to install the `stac` CLI on Linux using the standalone executable file. If you prefer, you can run the `stac` CLI [inside a Docker container](#docker-install-macos-linux-windows) .
@@ -22,7 +26,7 @@ The steps below describe how to install the `stac` CLI on Linux using the standa
 
 **Installation:**
 
-1. Download the Linux executable `sts-cli-VERSION-linux64` from [https://download.stackstate.com](https://download.stackstate.com).
+1. Download the Linux executable `sts-cli-VERSION-linux64` from [https://download.stackstate.com](https://download.stackstate.com) where the `VERSION` is the same as the StackState version you are running. For example, download `sts-cli-5.0.0-linux64` if you are running StackState v5.0.0.
 2. Rename the downloaded file to be `stac` and make it executable:
 
    ```text
@@ -45,7 +49,7 @@ The steps below describe how to install the StackState CLI on Windows using the 
 
 **Installation:**
 
-1. Download the executable `sts-cli-VERSION-windows.exe` from [https://download.stackstate.com](https://download.stackstate.com).
+1. Download the executable `sts-cli-VERSION-windows.exe` from [https://download.stackstate.com](https://download.stackstate.com) where the `VERSION` is the same as the StackState version you are running. For example, download `sts-cli-5.0.0-windows.exe` if you are running StackState v5.0.0.
 2. Rename the downloaded file to be `stac.exe`.
 3. \(optional\) Add the file to your PATH to use `stac` CLI commands from [anywhere on the command line](https://stackoverflow.com/questions/4822400/register-an-exe-so-you-can-run-it-from-any-command-line-in-windows).
 4. To configure the StackState CLI, do one of the following:
@@ -64,7 +68,7 @@ The StackState CLI can be run inside a Docker container on Linux, Windows or mac
 
 **Installation:**
 
-1. Download the ZIP file `sts-cli-VERSION.zip` from [https://download.stackstate.com](https://download.stackstate.com).
+1. Download the ZIP file `sts-cli-VERSION.zip` from [https://download.stackstate.com](https://download.stackstate.com) where the `VERSION` is the same as the StackState version you are running. For example, download `sts-cli-5.0.0.zip` if you are running StackState v5.0.0.
 
    The ZIP archive contains the following files:
 
