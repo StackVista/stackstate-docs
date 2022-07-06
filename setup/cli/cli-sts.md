@@ -220,7 +220,7 @@ The new `sts` CLI supports configuration and management of different (authentica
 
 ### Configuration options
 
-You do not need a configuration file to run the `sts` CLI. You can also configure the CLI through a combination of environment variables and flags.
+You do not need a configuration file to run the new `sts` CLI. You can also configure the CLI through a combination of environment variables and flags.
 
 If multiple types of configuration are presented to the CLI the order of processing will be:
 
@@ -253,11 +253,11 @@ Open a **Powershell** terminal and run:
 . { iwr -useb https://dl.stackstate.com/stackstate-cli/install.ps1 } | iex; uninstall
 ```
 
-The `sts` CLI and all associated configuration are now removed for the current user.
+The new `sts` CLI and all associated configuration are now removed for the current user.
 {% endtab %}
 
 {% tab title="Manual" %}
-Open a **Powershell** terminal and run each step one-by-one or all at once. The `sts` CLI and all associated configuration will be removed for the current user.
+Open a **Powershell** terminal and run each step one-by-one or all at once. The new `sts` CLI and all associated configuration will be removed for the current user.
 
 1. Remove binary:
    ```powershell
@@ -294,24 +294,24 @@ Open a terminal and run:
 curl -o- https://dl.stackstate.com/stackstate-cli/uninstall.sh | bash
 ```
 
-The `sts` CLI and all associated configuration are now removed for the current user.
+The new `sts` CLI and all associated configuration are now removed for the current user.
 {% endtab %}
 
 {% tab title="Manual" %}
-To manually uninstall the `sts` CLI, follow the steps below.
+To manually uninstall the new `sts` CLI, follow the steps below.
 
 1. Open a terminal.
-2. To remove the `sts` CLI, run the command:
+2. To remove the new `sts` CLI, run the command:
    ```bash
    rm -r /usr/local/bin/sts
    ```
 
-3. To remove the `sts` CLI configuration, run the command:
+3. To remove the new `sts` CLI configuration, run the command:
    ```bash
    rm -r ~/.config/stackstate-cli
    ```
 
-The `sts` CLI and all associated configuration are now removed for the current user.
+The new `sts` CLI and all associated configuration are now removed for the current user.
 {% endtab %}
 {% endtabs %}
 
@@ -326,24 +326,24 @@ Open a terminal and run:
 curl -o- https://dl.stackstate.com/stackstate-cli/uninstall.sh | bash
 ```
 
-The `sts` CLI and all associated configuration are now removed for the current user.
+The new `sts` CLI and all associated configuration are now removed for the current user.
 {% endtab %}
 
 {% tab title="Manual" %}
-To manually uninstall the `sts` CLI, follow the steps below.
+To manually uninstall the new `sts` CLI, follow the steps below.
 
 1. Open a terminal.
-2. To remove the `sts` CLI, run the command:
+2. To remove the new `sts` CLI, run the command:
    ```bash
    rm -r /usr/local/bin/sts
    ```
 
-3. To remove the `sts` CLI configuration, run the command:
+3. To remove the new `sts` CLI configuration, run the command:
    ```bash
    rm -r ~/.config/stackstate-cli
    ```
 
-The `sts` CLI and all associated configuration are now removed for the current user.
+The new `sts` CLI and all associated configuration are now removed for the current user.
 {% endtab %}
 {% endtabs %}
 
