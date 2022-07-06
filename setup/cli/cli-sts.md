@@ -314,7 +314,7 @@ To manually uninstall the new `sts` CLI, follow the steps below.
    rm -r /usr/local/bin/sts
    ```
 
-3. To remove the new `sts` CLI configuration, run the command:
+3. To remove configuration for the new `sts` CLI, run the command:
    ```bash
    rm -r ~/.config/stackstate-cli
    ```
@@ -346,7 +346,7 @@ To manually uninstall the new `sts` CLI, follow the steps below.
    rm -r /usr/local/bin/sts
    ```
 
-3. To remove the new `sts` CLI configuration, run the command:
+3. To remove configuration for the new `sts` CLI, run the command:
    ```bash
    rm -r ~/.config/stackstate-cli
    ```
