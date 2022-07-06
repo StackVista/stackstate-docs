@@ -264,7 +264,7 @@ Open a **Powershell** terminal and run each step one-by-one or all at once. The 
    rm -R $CLI_PATH 2>1  > $null
    ```
 
-2.Remove config:
+2. Remove config:
    ```powershell
    rm -R $env:USERPROFILE+"\.config\stackstate-cli" 2>1  > $null
    ```
@@ -297,11 +297,18 @@ The `sts` CLI and all associated configuration are now removed for the current u
 {% endtab %}
 
 {% tab title="Manual" %}
-Open a terminal and run:
+To manually uninstall the `sts` CLI, follow the steps below.
 
-```bash
-rm -r /usr/local/bin/sts ~/.config/stackstate-cli
-```
+1. Open a terminal.
+2. To remove the `sts` CLI, run the command:
+   ```bash
+   rm -r /usr/local/bin/sts
+   ```
+
+3. To remove the `sts` CLI configuration, run the command:
+   ```bash
+   rm -r ~/.config/stackstate-cli
+   ```
 
 The `sts` CLI and all associated configuration are now removed for the current user.
 {% endtab %}
@@ -322,11 +329,18 @@ The `sts` CLI and all associated configuration are now removed for the current u
 {% endtab %}
 
 {% tab title="Manual" %}
-Open a terminal and run:
+To manually uninstall the `sts` CLI, follow the steps below.
 
-```bash
-rm -r /usr/local/bin/sts ~/.config/stackstate-cli
-```
+1. Open a terminal.
+2. To remove the `sts` CLI, run the command:
+   ```bash
+   rm -r /usr/local/bin/sts
+   ```
+
+3. To remove the `sts` CLI configuration, run the command:
+   ```bash
+   rm -r ~/.config/stackstate-cli
+   ```
 
 The `sts` CLI and all associated configuration are now removed for the current user.
 {% endtab %}
