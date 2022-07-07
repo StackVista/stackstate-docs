@@ -377,7 +377,7 @@ In case of a Mirror request failure the Mirror may reply with the following erro
   ```text
   {
   "_type": "MetricNotFoundError",
-  "metric": "service_request_seconds"
+  "metric": "service_request_seconds",
   "details": "Metric is not configured."
   }
   ```
@@ -396,7 +396,7 @@ In case of a Mirror request failure the Mirror may reply with the following erro
   ```text
   {
   "_type": "RemoteMirrorError",
-  "summary": "Arbitrary remote error summary"
+  "summary": "Arbitrary remote error summary",
   "details": "Arbitrary remote error details"
   }
   ```
