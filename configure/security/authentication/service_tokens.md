@@ -29,7 +29,7 @@ Use "sts service-token [command] --help" for more information about a command.
 
 ### Create service tokens
 
-To create a service token you can use the new `sts` CLI.
+To create a service token for an installed instance of StackState, you can use the new `sts` CLI.
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
@@ -75,26 +75,6 @@ Command not available in the `stac` CLI, use the new `sts` CLI.
 {% endtab %}
 {% endtabs %}
 
-### List service tokens
-
-The ID, name, expiration date and roles of all created service tokens can be seen using the new `sts` CLI. For example:
-
-{% tabs %}
-{% tab title="CLI: sts (new)" %}
-```bash
-> sts service-token list
-ID              | NAME             | EXPIRATION | ROLES
-107484341630693 | my-service-token |            | [stackstate-power-user]
-```
-
-➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
-{% endtab %}
-{% tab title="CLI: stac" %}
-
-Command not available in the `stac` CLI, use the new `sts` CLI.
-{% endtab %}
-{% endtabs %}
-
 ### Set up a bootstrap service token
 
 When installing StackState, it is possible to bootstrap it with a (temporary) service token. This allows for using the CLI without first interacting with StackState and obtaining an API token from the UI. In order to set this up, you can add the following snippet to the StackState configuration file:
@@ -114,6 +94,8 @@ stackstate:
           - stackstate-power-user
         ttl: 24h
 ```
+
+Follow the steps below to configure StackState to create a bootstrap service token:
 
 1. In `authentication.yaml` - add the bootstrap token:
    * **token** - The token that will be created on (initial) start of StackState.
@@ -170,6 +152,26 @@ Follow the steps below to configure StackState to create a bootstrap service tok
    * **ttl** - Optional. The time-to-live for the token, expressed as a duration string.
 2. Restart StackState to apply the changes.
 
+{% endtab %}
+{% endtabs %}
+
+### List service tokens
+
+The ID, name, expiration date and roles of all created service tokens can be seen using the new `sts` CLI. For example:
+
+{% tabs %}
+{% tab title="CLI: sts (new)" %}
+```bash
+> sts service-token list
+ID              | NAME             | EXPIRATION | ROLES
+107484341630693 | my-service-token |            | [stackstate-power-user]
+```
+
+➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endtab %}
+{% tab title="CLI: stac" %}
+
+Command not available in the `stac` CLI, use the new `sts` CLI.
 {% endtab %}
 {% endtabs %}
 
