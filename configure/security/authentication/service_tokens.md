@@ -27,6 +27,8 @@ Available Commands:
 Use "sts service-token [command] --help" for more information about a command.
 ```
 
+It is also possible to [set up a bootstrap service token](#set-up-a-bootstrap-service-token) when installing StackState.
+
 ### Create service tokens
 
 To create a service token for an installed instance of StackState, you can use the new `sts` CLI.
