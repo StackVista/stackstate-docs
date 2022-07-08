@@ -19,7 +19,7 @@ StackState Self-hosted can be used to observe an extensive set of technologies t
 ### Using StackState
 
 {% content-ref url="https://stackstate.com/" %}
-[EXTERNAL LINK](https://stackstate.com/)
+[EXTERNAL LINK](this text)
 {% endcontent-ref %}
 
 {% page-ref page="getting_started.md" %}
