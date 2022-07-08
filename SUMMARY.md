@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Welcome to the StackState Docs!](README.md)
+* [New front page](new-frontpage.md)
 * [Getting Started](getting_started.md)
 
 ## 🚀 Setup
