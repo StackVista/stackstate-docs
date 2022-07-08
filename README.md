@@ -1,4 +1,5 @@
 ---
+coverY: 0
 layout: landing
 description: StackState Self-hosted v5.0.x
 ---
