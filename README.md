@@ -18,13 +18,7 @@ StackState Self-hosted can be used to observe an extensive set of technologies t
 
 ### Test
 
-{% page-ref page="https://stackstate.com/" %}
-
-gina
-
-{% content-ref page="https://stackstate.com/" %}
-[STACKSTSATE](https://stackstate.com/)
-{% endcontent-ref %}
+{% page-ref page="https://stackstate.com/" page-title="stackstate website" "%}
 
 ### Using StackState
 
