@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.0.x
 
 This tutorial shows you how to create push-based integrations for StackState.
 
-Push-based integrations are built in Python and run as part of the StackState agent. Each Python integration is called a `check` and it can:
+Push-based integrations are built in Python and run as part of the StackState Agent. Each Python integration is called a `check` and it can:
 
 * retrieve information from external systems
 * convert the information into topology
@@ -30,24 +30,24 @@ The `example` check consists of two files:
 
 ## Prepare StackState
 
-Before you get started, StackState must be configured to handle the data we will be sending from the sample check. The sample check sends data in a format that is consumed by the built-in **Custom Synchronization StackPack**. After installing this StackPack, StackState will know how to interpret the sample check data and turn it into topology.
+Before you get started, StackState must be configured to handle the data we will be sending from the sample check. The sample check sends data in a format that is consumed by the built-in **Custom Synchronization StackPack**. 
 
-Configure the StackPack with the following values so they match with the data the check sends:
+1. In the StackState UI, go to the page **StackPacks** > **Integrations** > **Custom Synchronization**.
+2. Install a new instance of the StackPack specifying with the following values. This will match the data sent by the sample check:
+   * **Instance type (source identifier):** `example`
+   * **Instance URL:** `example://example-1`
 
-```text
-Instance type (source identifier): example
-Instance URL: example://example-1
-```
+After the StackPack has been installed, StackState will know how to interpret the sample check data and turn it into topology.
 
 ## Prepare the tutorial
 
-The StackState Agent container uses the root directory of this repository for it's configuration files.
+The StackState Agent will run inside a Docker container. This container uses the root directory of push integration tutorial repository for its configuration files.
 
-Before running the example, you need to configure the sample project with your StackState instance URL and API key.
+Before running the example check, you need to configure the sample project with your StackState instance URL and API key.
 
 ```text
-export STS_API_KEY=my-api-key
-export STS_STS_URL=https://stackstate.acme.com/stsAgent
+export STS_API_KEY=<STACKSTATE_API_KEY>
+export STS_STS_URL=<STACKSTATE_BASE_URL>:<STACKSTATE_RECEIVER_PORT>/stsAgent
 ```
 
 If you are running the Agent from a container and StackState on your local machine \(eg via our Kubernetes helm charts\) you can refer the Agent in the Docker container to your local StackState:
@@ -56,17 +56,17 @@ If you are running the Agent from a container and StackState on your local machi
 export STS_STS_URL=https://host.docker.internal/stsAgent
 ```
 
-That's it, you are now ready to run the agent.
+That's it, you are now ready to run the Agent.
 
 ## Run the sample check using the Agent
 
 The sample project contains a `run.sh` shell script that runs the StackState Agent in a Docker container. It reads the configuration from this sample project and executes the `example` check.
 
-When you run the agent, it writes logging to its standard output. The Agent has debugging turned on by default \(check the `stackstate.yaml` file\) so it is fairly verbose.
+When you run the Agent, it writes logging to its standard output. The Agent has debugging turned on by default \(check the `stackstate.yaml` file\) so it is fairly verbose.
 
 Once the check has run successfully, the topology data produced by the `example` check will be sent to StackState.
 
-Press `ctrl-c` to stop the agent.
+Press `ctrl-c` to stop the Agent.
 
 ## See the topology in StackState
 
