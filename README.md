@@ -18,7 +18,7 @@ StackState Self-hosted can be used to observe an extensive set of technologies t
 
 ### Test
 
-{% page-ref page="https://stackstate.com/" title="STACKSTATE" %}
+{% page-ref page="https://stackstate.com/" %}
 
 gina
 
