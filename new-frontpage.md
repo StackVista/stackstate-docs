@@ -20,21 +20,14 @@ StackState Self-hosted can be used to observe an extensive set of technologies t
 
 <details>
 
-<summary>Set up StackState</summary>
+<summary>StackState user guide</summary>
 
-* [Install StackState](/setup/install-stackstate)
-* [Upgrade StackState](/setup/upgrade-stackstate)
-* [StackState Agent](/setup/agent)
-* [StackState CLI](/setup/cli)
-* [Data management](/setup/data-management)
-
-</details>
-
-<details>
-
-<summary>Using StackState</summary>
-
-Expanding box content
+* [Concepts](/use/concepts)
+* [StackState UI](/use/stackstate-ui)
+* [Checks and monitors](/use/checks-and-monitors)
+* [Problem analysis](/use/problem-analysis)
+* [Metrics and events](/use/metrics-and-events)
+* [Glossary](/use/glossary.md)
 
 </details>
 
@@ -43,6 +36,18 @@ Expanding box content
 <summary>Integrations and add-ons</summary>
 
 Expanding box content
+
+</details>
+
+<details>
+
+<summary>Set up StackState</summary>
+
+* [Install StackState](/setup/install-stackstate)
+* [Upgrade StackState](/setup/upgrade-stackstate)
+* [StackState Agent](/setup/agent)
+* [StackState CLI](/setup/cli)
+* [Data management](/setup/data-management)
 
 </details>
 
