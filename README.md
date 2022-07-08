@@ -1,5 +1,6 @@
 ---
-description: StackState Self-hosted v5.0.x 
+layout: landing
+description: StackState Self-hosted v5.0.x
 ---
 
 # Welcome to the StackState Self-hosted product docs!
