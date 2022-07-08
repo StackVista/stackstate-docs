@@ -23,7 +23,7 @@ StackState Self-hosted can be used to observe an extensive set of technologies t
 gina
 
 {% content-ref page="https://stackstate.com/" %}
-[Quick start guide](saas-quick-start-guide.md)
+[STACKSTSATE](https://stackstate.com/)
 {% endcontent-ref %}
 
 ### Using StackState
