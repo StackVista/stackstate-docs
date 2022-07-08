@@ -12,10 +12,6 @@ StackState SaaS can be used to observe cloud technologies, such as Kubernetes an
 
 ### Get started
 
-{% content-ref url="SAAS-README.md" %}
-[NOT EXTERNAL LINK](SAAS-README.md)
-{% endcontent-ref %}
-
 {% content-ref url="saas-quick-start-guide.md" %}
 [Quick start guide](saas-quick-start-guide.md)
 {% endcontent-ref %}
