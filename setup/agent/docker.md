@@ -16,17 +16,39 @@ In Docker Swarm mode, the StackState Cluster Agent can be deployed on the manage
 
 ## Monitoring
 
-StackState Agent V2 will synchronize the following data with StackState from the host it is running on:
+StackState Agent V2 will retrieve the following topology and metrics data from the host it is running on.
 
-* Hosts, processes, and containers
-* Network connections between processes/containers/services including network traffic telemetry
-* Telemetry for hosts, processes, and containers
+### Topology
+
+* Hosts, processes and containers
+* Network connections between processes/containers/services 
 
 In [Docker swarm mode](#docker-swarm-mode), StackState Cluster Agent running on the manager node will synchronize the following topology data for a Docker cluster:
 
 * Containers
 * Services
 * Relations between containers and services
+
+### Metrics
+
+Telemetry for hosts, processes and containers is retrieved, as well as network traffic telemetry for network connections between processes/containers/services.
+
+* Container Restart
+* Container State
+* CPU amount of seconds throttled
+* CPU number of times throttled
+* CPU threads count
+* CPU time - System (percentage / second)
+* CPU time - Total (percentage / second)
+* CPU time - User (percentage / second)
+* IO read (bytes / second)
+* IO written (bytes / second)
+* Memory - Cache (bytes)
+* Memory - Resident (bytes)
+* Network received (bytes / second)
+* Network received (packets / second)
+* Network sent (bytes / second)
+* Network sent (packets / second)
 
 ## Setup
 
