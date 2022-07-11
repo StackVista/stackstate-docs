@@ -10,7 +10,8 @@ The new StackState `sts` CLI provides easy access to the functionality provided 
 
 {% hint style="success" "self-hosted info" %}
 
-The new `sts` CLI will eventually replace the [`stac` CLI](cli-stac.md), however, not all commands are currently supported. For an overview of the differences and overlap between the new `sts` CLI and the `stac` CLI, see the [CLI comparison page](/setup/cli/cli-comparison.md).
+* The new `sts` CLI will eventually replace the [`stac` CLI](cli-stac.md), however, not all commands are currently supported. For an overview of the differences and overlap between the new `sts` CLI and the `stac` CLI, see the [CLI comparison page](/setup/cli/cli-comparison.md).
+* In the meantime, you can install and run as the new `sts` CLI on the same machine as the `stac` CLI.
 
 {% endhint %}
 
@@ -38,6 +39,8 @@ Open a **Powershell** terminal (version 5.1 or later), change the `<URL>` and `<
 ```powershell
 . { iwr -useb https://dl.stackstate.com/stackstate-cli/install.ps1 } | iex; install -StsUrl "<URL>" -StsApiToken "<API-TOKEN>"
 ```
+
+Alternatively, go to the **CLI** page in the StackState UI and copy the **Quick installation** command for **Windows** - this is pre-filled with the correct `<URL>` and `<API-TOKEN>` for your StackState instance.
 
 {% endtab %}
 {% tab title="Manual install steps" %}
@@ -91,6 +94,8 @@ Open a terminal, change the `<URL>` and `<API-TOKEN>` and run the command below.
 curl -o- https://dl.stackstate.com/stackstate-cli/install.sh | STS_URL="<URL>" STS_API_TOKEN="<API-TOKEN>" bash
 ```
 
+Alternatively, go to the **CLI** page in the StackState UI and copy the **Quick installation** command for **MacOS** - this is pre-filled with the correct `<URL>` and `<API-TOKEN>` for your StackState instance.
+
 {% endtab %}
 
 {% tab title="Manual install steps" %}
@@ -122,6 +127,8 @@ Open a terminal, change the `<URL>` and `<API-TOKEN>` and run the command below.
 curl -o- https://dl.stackstate.com/stackstate-cli/install.sh | STS_URL="<URL>" STS_API_TOKEN="<API-TOKEN>" bash
 ```
 
+Alternatively, go to the **CLI** page in the StackState UI and copy the **Quick installation** command for **Linux** - this is pre-filled with the correct `<URL>` and `<API-TOKEN>` for your StackState instance.
+
 {% endtab %}
 
 {% tab title="Manual install steps" %}
@@ -149,6 +156,8 @@ To run the latest version of the CLI using Docker execute:
 ```bash
 docker run stackstate/stackstate-cli2
 ```
+
+Alternatively, go to the **CLI** page in the StackState UI and copy the **Quick installation** command for **Docker** - this is pre-filled with the correct `<URL>` and `<API-TOKEN>` required to configure the CLI for your StackState instance.
 
 You can now run CLI commands by adding appending them to the end of the `docker run` command (e.g. `docker run stackstate/stackstate-cli2 version`).
 
@@ -219,7 +228,7 @@ The new `sts` CLI supports configuration and management of different (authentica
 
 ### Configuration options
 
-You do not need a configuration file to run the `sts` CLI. You can also configure the CLI through a combination of environment variables and flags.
+You do not need a configuration file to run the new `sts` CLI. You can also configure the CLI through a combination of environment variables and flags.
 
 If multiple types of configuration are presented to the CLI the order of processing will be:
 
@@ -252,11 +261,11 @@ Open a **Powershell** terminal and run:
 . { iwr -useb https://dl.stackstate.com/stackstate-cli/install.ps1 } | iex; uninstall
 ```
 
-The `sts` CLI and all associated configuration are now removed for the current user.
+The new `sts` CLI and all associated configuration are now removed for the current user.
 {% endtab %}
 
 {% tab title="Manual" %}
-Open a **Powershell** terminal and run each step one-by-one or all at once. The `sts` CLI and all associated configuration will be removed for the current user.
+Open a **Powershell** terminal and run each step one-by-one or all at once. The new `sts` CLI and all associated configuration will be removed for the current user.
 
 1. Remove binary:
    ```powershell
@@ -264,7 +273,7 @@ Open a **Powershell** terminal and run each step one-by-one or all at once. The 
    rm -R $CLI_PATH 2>1  > $null
    ```
 
-2.Remove config:
+2. Remove config:
    ```powershell
    rm -R $env:USERPROFILE+"\.config\stackstate-cli" 2>1  > $null
    ```
@@ -293,17 +302,24 @@ Open a terminal and run:
 curl -o- https://dl.stackstate.com/stackstate-cli/uninstall.sh | bash
 ```
 
-The `sts` CLI and all associated configuration are now removed for the current user.
+The new `sts` CLI and all associated configuration are now removed for the current user.
 {% endtab %}
 
 {% tab title="Manual" %}
-Open a terminal and run:
+To manually uninstall the new `sts` CLI, follow the steps below.
 
-```bash
-rm -r /usr/local/bin/sts ~/.config/stackstate-cli
-```
+1. Open a terminal.
+2. To remove the new `sts` CLI, run the command:
+   ```bash
+   rm -r /usr/local/bin/sts
+   ```
 
-The `sts` CLI and all associated configuration are now removed for the current user.
+3. To remove configuration for the new `sts` CLI, run the command:
+   ```bash
+   rm -r ~/.config/stackstate-cli
+   ```
+
+The new `sts` CLI and all associated configuration are now removed for the current user.
 {% endtab %}
 {% endtabs %}
 
@@ -318,17 +334,24 @@ Open a terminal and run:
 curl -o- https://dl.stackstate.com/stackstate-cli/uninstall.sh | bash
 ```
 
-The `sts` CLI and all associated configuration are now removed for the current user.
+The new `sts` CLI and all associated configuration are now removed for the current user.
 {% endtab %}
 
 {% tab title="Manual" %}
-Open a terminal and run:
+To manually uninstall the new `sts` CLI, follow the steps below.
 
-```bash
-rm -r /usr/local/bin/sts ~/.config/stackstate-cli
-```
+1. Open a terminal.
+2. To remove the new `sts` CLI, run the command:
+   ```bash
+   rm -r /usr/local/bin/sts
+   ```
 
-The `sts` CLI and all associated configuration are now removed for the current user.
+3. To remove configuration for the new `sts` CLI, run the command:
+   ```bash
+   rm -r ~/.config/stackstate-cli
+   ```
+
+The new `sts` CLI and all associated configuration are now removed for the current user.
 {% endtab %}
 {% endtabs %}
 
