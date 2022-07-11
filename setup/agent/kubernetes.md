@@ -68,7 +68,7 @@ The [AWS check](/stackpacks/integrations/aws/aws.md#configure-the-aws-check) can
 
 ### Supported versions
 
-StackState Agent v2.17.1 is supported to monitor the following versions of Kubernetes:
+StackState Agent v2.17.x is supported to monitor the following versions of Kubernetes:
 
 * Kubernetes 1.16 - 1.21
 * EKS (with Kubernetes 1.16 - 1.21)

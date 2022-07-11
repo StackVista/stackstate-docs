@@ -68,7 +68,7 @@ The [AWS check](/stackpacks/integrations/aws/aws.md#configure-the-aws-check) can
 
 ### Supported versions
 
-StackState Agent v2.17.1 is supported to monitor the following versions of OpenShift:
+StackState Agent v2.17.x is supported to monitor the following versions of OpenShift:
 
 * OpenShift 4.3 - 4.8
 * Default networking
