@@ -2,16 +2,20 @@
 description: StackState Self-hosted v5.0.x
 ---
 
-# Manual instrumentation mappings for StackState
-Before we jump into the nitty-gritty of the actual code we can write for a OpenTelemetry instrumentation, let's first look
-at what key-value pairs we require within our spans, and where it is found inside the StackState UI.
+# Tracer and span mappings
 
-You will have to include the span key values when you create your spans inside the manual OpenTelemetry instrumentation.
+## Overview
+
+Before we jump into the nitty-gritty of the actual code we can write for a OpenTelemetry instrumentation, let's first look at the key-value pairs that are in spans and where this can be found in the StackState UI.
+
+The span key values should be included when you create spans inside the manual OpenTelemetry instrumentation.
 
 We will get to a few code examples later on in the documentation.
 
-## Defining a tracer name and version that StackState understands
-For StackState to understand your data, a tracer name and version needs to be passed to with your instrumentation.
+## Tracer name and version
+
+For StackState to understand your data, a tracer name and version needs to be passed with your instrumentation.
+
 StackState requires the following:
 
 - Tracer Name: `@opentelemetry/instrumentation-stackstate`
@@ -19,15 +23,17 @@ StackState requires the following:
 
 We will show how the above is implemented when we get to the code examples page. For now, it is good to know that if the above does not match what the StackState Agent is expecting then it will not be displayed on StackState. 
 
-If you run you StackState Agent in debug mode then you should receive a message about an unknown instrumentation and the name that was passed to it
+If you run StackState Agent in debug mode then you should receive a message about an unknown instrumentation and the name that was passed to it
 
 ## Span mapping requirements 
 
 ### Summary
 
-Below is a table with a summary of all the span keys that are required.
+The table below provides a summary of all the span keys that can be provided and are required. Further details of each key can be found in the sections below.
 
-You need to include ALL of the keys below when creating a span as they all need to be provided before the component will appear on your StackState instance.
+{% hint style="info" %}
+Note that ALL the keys listed as required must be provided when creating a span. If any required keys are missing, the component will not appear in your StackState instance.
+{% endhint %}
 
 | **Key**                                              |  **Type**  | **Required**  | **Allowed Value** | **Example**                         |
 |:-----------------------------------------------------|:----------:|:-------------:|:-----------------:|:------------------------------------|
@@ -38,16 +44,15 @@ You need to include ALL of the keys below when creating a span as they all need 
 | [resource.name](tracer-and-span-mappings.md#resource-name)           |  `string`  |    **yes**    |    Any string     | Database                            |
 | [http.status_code](tracer-and-span-mappings.md#http-status-code)     |  `number`  |    **no**     |    HTTP status    | 200                                 |
 
-### Traces Perspective Name
-  - `Key`
-    - trace.perspective.name
-  - `Type`
-    - String
-  - `Example`
-    - RDS Database: Perspective Name
-  - `Description`
-    - The `trace.perspective.name` is used to find your Span within a Trace in the Traces Perspective view.
-    - The horizontal bar within a Trace will have a floating text value containing the value you used in the `trace.perspective.name` key.
+### Traces Perspective name
+
+The `trace.perspective.name` is used to find your Span within a Trace in the StackState UI [Traces Perspective](/use/stackstate-ui/perspectives/traces-perspective.md). The horizontal bar within a Trace will have a floating text value containing the specified `trace.perspective.name` key.
+
+| |                          |
+|:---|:-------------------------|
+| **Key** | `trace.perspective.name` |
+| **Type** | `string`                 |
+| **Example** | `RDS Database: Perspective Name`  |
 
 #### Examples
 
@@ -56,7 +61,7 @@ You need to include ALL of the keys below when creating a span as they all need 
 
 **Example of where the trace.perspective.name is displayed within the Traces Perspective**
 
-1) In your top navigation bar click on the `trace perspective` icon
+1) In the navigation bar, click **Traces Perspective**
 2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your trace).
 3) You will notice that a horizontal graph line will contain the name of your component as seen below.
 
@@ -67,17 +72,14 @@ You need to include ALL of the keys below when creating a span as they all need 
 
 
 ### Service Name
-  - `Key`
-    - service.name
-  - `Type`
-    - String
-  - `Example`
-    - RDS Database: Service Name
-  - `Advance Filter Example`
-    - name = "RDS Database: Service Name"
-  - `Description`
-    - The value from `service.name` is used as a primary means to identify your component within the StackState Topology Perspective
-    - It also creates a `spans.serviceName` key within your Traces Perspective to allow you to identify if the trace in the Traces Perspective matches the component in the Topology Perspective.
+
+The value from `service.name` is used as a primary means to identify a component in the StackState Topology Perspective. A `spans.serviceName` key is also created in the Traces Perspective to identify if the trace in the Traces Perspective matches the component in the Topology Perspective.
+
+| |                |
+|:---|:---------------|
+| **Key** | `service.name` |
+| **Type** | `string`        |
+| **Example** | `RDS Database: Service Name` |
 
 #### Examples
 
@@ -134,14 +136,14 @@ You need to include ALL of the keys below when creating a span as they all need 
 
 
 ### Service Type
-  - `Key`
-    - service.type
-  - `Expected`
-    - String
-  - `Example`
-    - AWS RDS
-  - `Description`
-    - The `service.type` is used to identify the type of service within your span in the Traces Perspective view.
+
+The `service.type` is used to identify the type of service in the span in the StackState UI [Traces Perspective](/use/stackstate-ui/perspectives/traces-perspective.md).
+
+| |                |
+|:---|:---------------|
+| **Key** | `service.type` |
+| **Type** | `string`        |
+| **Example** | `AWS RDS` |
 
 #### Examples
 
@@ -150,7 +152,7 @@ You need to include ALL of the keys below when creating a span as they all need 
 
 **Example of where the service.type is displayed within the Traces Perspective Span properties view**
 
-1) In your top navigation bar click on the `trace perspective` icon
+1) In the navigation bar, click **Traces Perspective**
 2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your trace).
 3) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
 4) A row with the key `service` will contain the value you defined, as seen below in the image.
@@ -160,16 +162,18 @@ You need to include ALL of the keys below when creating a span as they all need 
 {% endtabs %}
 
 ### Service Identifier 
-[Used for Merging Component will elaborate on this](/stackpacks/integrations/opentelemetry/manual-instrumentation/merging.md)
-  - `Key`
-    - service.identifier
-  - `Expected`
-    - String
-  - `Example`
-    - aws:rds:database:hello-world
-  - `Description`
-    - This value will be added to the identifier list on your component within StackState.
-    - ***NB. Components with the same service identifiers will merge into one component, This allows you to merge multiple components and create relations, or merge with an existing StackState component. You can read more about this on the [merging with pre-existing components](/stackpacks/integrations/opentelemetry/manual-instrumentation/merging.md) page***
+
+The service identifier is used for merging components. The provided value will be added to the identifier list on the component in StackState. 
+
+Components with the same service identifiers will merge into one component. This allows multiple components to be merged to create relations. COmponents can also bo merged with existing StackState components.
+
+➡️ [Learn more about merging components](/stackpacks/integrations/opentelemetry/manual-instrumentation/merging.md)
+
+| |                |
+|:---|:---------------|
+| **Key** | `service.identifier` |
+| **Type** | `string`        |
+| **Example** | `aws:rds:database:hello-world` |
 
 #### Examples
 
@@ -189,15 +193,14 @@ You need to include ALL of the keys below when creating a span as they all need 
 
 
 ### Resource Name
-- `Key`
-    - resource.name
-- `Expected`
-    - String
-- `Example`
-    - Database
-- `Description`
-    - This resource name will be displayed under your trace perspective for a specific trace, allowing you to quickly identify what resource this trace is apart.
-    - Best practise would be to use this value to group similar resources, thus allowing you to easily identify a span.
+
+The resource name is displayed in the Traces Perspective for a specific trace, allowing you to quickly identify what resource each trace is a part of. Best practise would be to use this value to group similar resources, thus allowing you to easily identify a span.
+
+| |                |
+|:---|:---------------|
+| **Key** | `resource.name` |
+| **Type** | `string`        |
+| **Example** | `Database` |
 
 #### Examples
 
@@ -215,20 +218,17 @@ You need to include ALL of the keys below when creating a span as they all need 
 {% endtab %}
 {% endtabs %}
 
-### HTTP Status Code 
-[Health state page will elaborate on this](/stackpacks/integrations/opentelemetry/manual-instrumentation/span-health.md)
-  - `Key`
-    - http.status_code
-  - `Expected`
-    - A valid HTTP status for example `200`, `400` or higher
-  - `Example`
-    - 200
-  - `Description`
-    - This controls the health state for the component in StackState. 
-    - If you post a `400` or higher than the component will go into CRITICAL state
-      or if you post a `200` then your component will be healthy. This allows you to control the health state of your component
-    - For a more advanced breakdown head over to the [OpenTelemetry Custom Instrumentation - Health state Page](/stackpacks/integrations/opentelemetry/manual-instrumentation/span-health.md) for a more in-depth explanation, 
-      how health state works with merging components, and what is metrics is displayed by default with the health state and custom instrumentation.
+### HTTP status code 
+
+The HTTP status code controls the health state for the component in StackState. A `400` or higher will put the component into a CRITICAL state, while a `200` will result in a healthy component. This allows you to control the health state of the component in StackState.
+
+➡️ [Learn how the span health state works](/stackpacks/integrations/opentelemetry/manual-instrumentation/span-health.md)
+
+| |                    |
+|:---|:-------------------|
+| **Key** | `http.status_code` |
+| **Type** | `number`           |
+| **Example** | `200`              |
 
 #### Examples
 
@@ -236,7 +236,7 @@ You need to include ALL of the keys below when creating a span as they all need 
 {% tab title="Topology Perspective (Healthy)" %}
 **You will see the following color on your component if you post a `http.status_code` of `200`**
 
-This means that your component is in a healthy state.
+This means that your component is in a CLEAR (healthy) state.
 
 ![Health state - http.status_code](../../../../.gitbook/assets/v50_otel_health_state_http_status.png)
 {% endtab %}
