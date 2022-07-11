@@ -13,11 +13,11 @@ The page explains how health state in StackState works with custom instrumentati
 
 In the following scenario, three components were created with the manual instrumentation:
 
-1. **Parent component** - the root span.
+1. **Parent Component** - the root span.
    - Added `http.status_code` of `200`
-2. **Child component** - the second span. Has the parent span ID of the first (root) span.
+2. **Child Component** - the second span. Has the parent span ID of the first (root) span.
    - Added `http.status_code` of `200`
-3. **Child 2 component** - the third span. Has the parent span ID of the second span
+3. **Child 2 Component** - the third span. Has the parent span ID of the second span
    - Added `http.status_code` of `200`
 
 As seen below, it works as expected and all three components are healthy - they have a CLEAR state.
@@ -26,7 +26,7 @@ As seen below, it works as expected and all three components are healthy - they 
 
 Now, let's change the `http.status_code` of the second span to `400`
 
-As you can see below, the **Child component** turned into a DEVIATING and then a CRITICAL state and this unhealthy health state propagates upwards to the **Parent component**.
+As you can see below, the **Child Component** turned into a DEVIATING and then a CRITICAL state and this unhealthy health state propagates upwards to the **Parent Component**.
 
 {% tabs %}
 {% tab title="CLEAR to DEVIATING" %}
@@ -43,11 +43,11 @@ Now we want to test how health state works when merging with a pre-existing comp
 
 In the following scenario, three components were created with the manual instrumentation:
 
-1. **Parent component** - the root span.
+1. **Parent Component** - the root span.
    - Added `http.status_code` of `200`
-2. **Child component** - the second span. Has the parent span ID of the first (root) span.
+2. **Child Component** - the second span. Has the parent span ID of the first (root) span.
    - Added `http.status_code` of `200`
-3. **Child 2 component** - the third span. Has the parent span ID of the second span.
+3. **Child 2 Component** - the third span. Has the parent span ID of the second span.
    - Added `http.status_code` of `200`
 
 This time, two pre-existing AWS components are included in the filter so that we can see them on StackState. One pre-existing component is in a CRITICAL state and one is in a CLEAR (healthy) state. The three created components and the two pre-existing AWS components can be seen in the screenshot below. No components have been merged here.
@@ -62,7 +62,7 @@ As you can see in the image below, this component has an identifier of `arn:aws:
 
 ![Topology Perspective Properties View - Identifier Preview](../../../../.gitbook/assets/v50_otel_traces_merge_with_healthy.png)
 
-We can merge the **Child component** with this healthy AWS Lambda component. To do this, we need to add the identifier for the AWS component into the manual instrumentation for the **Child component**.
+We can merge the **Child Component** with this healthy AWS Lambda component. To do this, we need to add the identifier for the AWS component into the manual instrumentation for the **Child Component**.
 
 This produces the following result:
 
@@ -78,7 +78,7 @@ As you can see in the image below, this component has an identifier of `arn:aws:
 
 ![Topology Perspective Properties View - Identifier Preview](../../../../.gitbook/assets/v50_otel_traces_merge_with_critical.png)
 
-We can merge the **Child component** with the unhealthy AWS Lambda component by adding the identifier into the manual instrumentation for the **Child component**.
+We can merge the **Child Component** with the unhealthy AWS Lambda component by adding the identifier into the manual instrumentation for the **Child Component**.
 
 This produces the following result:
 
