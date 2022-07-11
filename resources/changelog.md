@@ -26,3 +26,7 @@ Ravan hit some problems with the "end metrics over http" instructions. Discussed
     - `<ingress-url>/receiver/stsAgent`
   - The curl example only included the Linux endpoint - updated to make clearer
   - There is an additional endpoint `<ingress-url>/receiver/stsAgent/api/v1/series` that accepts a different payload format. This is not to be used, it is there only for backwards compatibility to accept datadog data.
+
+Mo was looking for extra info about the Docker integration
+
+- Added list of metrics retrieved by the Docker Agent for containers. Info comes from Zandre van Heerden
