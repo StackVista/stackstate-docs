@@ -14,16 +14,20 @@ We will get to a few code examples later on in the documentation.
 
 ## Tracer name and version
 
-For StackState to understand your data, a tracer name and version needs to be passed with your instrumentation.
+For StackState to understand your data, a tracer **name** and **version** needs to be passed with your instrumentation.
 
-StackState requires the following:
+StackState Agent requires the following name and version to be set:
 
-- Tracer Name: `@opentelemetry/instrumentation-stackstate`
-- Version: `1.0.0`
+- **Tracer name:** `@opentelemetry/instrumentation-stackstate`
+- **Version:** `1.0.0`
 
-We will show how the above is implemented when we get to the code examples page. For now, it is good to know that if the above does not match what the StackState Agent is expecting then it will not be displayed on StackState. 
+➡️ [See how this is implemented in doce examples](code-examples.md)
 
-If you run StackState Agent in debug mode then you should receive a message about an unknown instrumentation and the name that was passed to it
+{% hint style="info" %}
+If the tracer name passed to StackState Agent does not exactly match the value specified above, received data will not be displayed in StackState. 
+
+Running StackState Agent in debug mode will return a message about an unknown instrumentation and the tracer name that was passed to it in the case that a wrong tracer name was passed with the instrumentation.
+{% endhint %}
 
 ## Span mapping requirements 
 
@@ -32,7 +36,7 @@ If you run StackState Agent in debug mode then you should receive a message abou
 The table below provides a summary of all the span keys that can be provided and are required. Further details of each key can be found in the sections below.
 
 {% hint style="info" %}
-Note that ALL the keys listed as required must be provided when creating a span. If any required keys are missing, the component will not appear in your StackState instance.
+Note that ALL the keys listed as required must be provided when creating a span. If any required keys are missing, the component will not appear in StackState.
 {% endhint %}
 
 | **Key**                                              |  **Type**  | **Required**  | **Allowed Value** | **Example**                         |
@@ -46,7 +50,7 @@ Note that ALL the keys listed as required must be provided when creating a span.
 
 ### Traces Perspective name
 
-The `trace.perspective.name` is used to find your Span within a Trace in the StackState UI [Traces Perspective](/use/stackstate-ui/perspectives/traces-perspective.md). The horizontal bar within a Trace will have a floating text value containing the specified `trace.perspective.name` key.
+The `trace.perspective.name` is used to find your span within a trace in the StackState UI [Traces Perspective](/use/stackstate-ui/perspectives/traces-perspective.md). The horizontal bar within a Trace will have a floating text value containing the specified `trace.perspective.name` key.
 
 | |                          |
 |:---|:-------------------------|
@@ -62,7 +66,7 @@ The `trace.perspective.name` is used to find your Span within a Trace in the Sta
 **Example of where the trace.perspective.name is displayed within the Traces Perspective**
 
 1) In the navigation bar, click **Traces Perspective**
-2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your trace).
+2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your span).
 3) You will notice that a horizontal graph line will contain the name of your component as seen below.
 
 ![Traces Perspective - trace.perspective.name key](/.gitbook/assets/v50_otel_trace_perspective_name.png)
