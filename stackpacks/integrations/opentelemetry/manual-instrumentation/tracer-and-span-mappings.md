@@ -27,7 +27,7 @@ If the tracer name passed to StackState Agent does not exactly match the value s
 
 ➡️ [See how this is implemented in code examples](code-examples.md#2-core-definitions)
 
-Run StackState Agent in debug mode to return a message in the case that a wrong tracer name is used. The message will warn about an unknown instrumentation and state the tracer name that was passed to it.
+Running StackState Agent in debug mode will return a message in the case that a wrong tracer name is used. The message will warn about an unknown instrumentation and state the tracer name that was passed to it.
 
 ## Span mapping requirements 
 
@@ -152,7 +152,7 @@ The `service.type` is used to identify the type of service in the span in the St
 #### Examples
 
 {% tabs %}
-{% tab title="Traces Perspective - Span properties" %}
+{% tab title="Span properties" %}
 
 **Example of where the service.type is displayed within the Traces Perspective Span properties view**
 
@@ -253,7 +253,7 @@ This means that your component is in a CRITICAL state.
 ![Health state - CRITICAL - http.status_code](../../../../.gitbook/assets/v50_otel_health_state_critical_http_status.png)
 {% endtab %}
 
-{% tab title="Traces Perspective - Span properties" %}
+{% tab title="Span properties" %}
 
 **The http status can be found in the following location regardless of what the HTTP status actually is**
 
