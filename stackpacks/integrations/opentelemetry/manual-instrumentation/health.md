@@ -57,7 +57,7 @@ This time, two pre-existing AWS components are included in the filter so that we
 
 ## Merge with a healthy component
 
-Now let's get a `service.identifier` from the bottom right CLEAR (green) component called `otel-example-custom-component`.
+Now let's get a `service.identifier` from the bottom right CLEAR (green) component called `otel-example-custom-instrumentation-dev-create-custom-component`.
 
 As you can see in the image below, this component has an identifier of `arn:aws:lambda:eu-west-1:965323806078:function:otel-example-custom-instrumentation-dev-create-custom-component`
 
@@ -65,7 +65,7 @@ As you can see in the image below, this component has an identifier of `arn:aws:
 
 We can merge the **Child Component** with this healthy AWS Lambda component. To do this, we need to add the identifier for the AWS component into the manual instrumentation for the **Child Component**.
 
-This produces the following result - all of the properties, health, and relations of the **Child Component** are inherited by the component named `otel-example-custom-component`:
+This produces the following result - all of the properties, health, and relations of the **Child Component** are inherited by the component named `otel-example-custom-instrumentation-dev-create-custom-component`:
 
 ![OTEL Component Merged With Pre-Existing Healthy Component](../../../../.gitbook/assets/v50_otel_traces_merge_with_healthy_complete.png)
 
