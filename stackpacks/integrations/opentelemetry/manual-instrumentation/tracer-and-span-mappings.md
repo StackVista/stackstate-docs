@@ -16,18 +16,18 @@ We will get to a few code examples later on in the documentation.
 
 For StackState to understand your data, a tracer **name** and **version** needs to be passed with your instrumentation.
 
-StackState Agent requires the following name and version to be set:
+StackState requires the following name and version to be set:
 
 - **Tracer name:** `@opentelemetry/instrumentation-stackstate`
 - **Version:** `1.0.0`
 
-➡️ [See how this is implemented in doce examples](code-examples.md)
-
 {% hint style="info" %}
-If the tracer name passed to StackState Agent does not exactly match the value specified above, received data will not be displayed in StackState. 
-
-Running StackState Agent in debug mode will return a message about an unknown instrumentation and the tracer name that was passed to it in the case that a wrong tracer name was passed with the instrumentation.
+If the tracer name passed to StackState Agent does not exactly match the value specified above, received data will not be displayed in StackState.
 {% endhint %}
+
+➡️ [See how this is implemented in code examples](code-examples.md#2-core-definitions)
+
+Run StackState Agent in debug mode to return a message in the case that a wrong tracer name is used. The message will warn about an unknown instrumentation and state the tracer name that was passed to it.
 
 ## Span mapping requirements 
 
