@@ -133,7 +133,7 @@
   * [💠 Kubernetes](stackpacks/integrations/kubernetes.md)
   * [💠 OpenShift](stackpacks/integrations/openshift.md)
   * [💠 OpenTelemetry](stackpacks/integrations/opentelemetry/README.md)
-    * [What's an instrumentation](stackpacks/integrations/opentelemetry/opentelemetry-instrumentation.md)
+    * [What's an instrumentation](stackpacks/integrations/opentelemetry/what-is-an-otel-instrumentation.md)
     * [AWS NodeJS Instrumentation](stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md)
     * [Manual Instrumentation](stackpacks/integrations/opentelemetry/manual-instrumentation/README.md)
       * [Prerequisites](stackpacks/integrations/opentelemetry/prerequisites.md)
