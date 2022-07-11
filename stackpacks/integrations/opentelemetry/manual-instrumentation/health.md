@@ -65,7 +65,7 @@ As you can see in the image below, this component has an identifier of `arn:aws:
 
 We can merge the **Child Component** with this healthy AWS Lambda component. To do this, we need to add the identifier for the AWS component into the manual instrumentation for the **Child Component**.
 
-This produces the following result:
+This produces the following result - all of the properties, health, and relations of the **Child Component** are now inherited by the component **otel-example-custom-instrumentation-dev-create-custom-component**:
 
 ![OTEL Component Merged With Pre-Existing Healthy Component](../../../../.gitbook/assets/v50_otel_traces_merge_with_healthy_complete.png)
 
@@ -81,7 +81,7 @@ As you can see in the image below, this component has an identifier of `arn:aws:
 
 We can merge the **Child Component** with the unhealthy AWS Lambda component by adding the identifier into the manual instrumentation for the **Child Component**.
 
-This produces the following result:
+This produces the following result - all of the properties, health, and relations of the **Child Component** are now inherited by the component **`otel-example-custom-instrumentation-dev-force-error**:
 
 ![OTEL Component Merged With Pre-Existing Critical Component](../../../../.gitbook/assets/v50_otel_traces_merge_with_critical_complete.png)
 
