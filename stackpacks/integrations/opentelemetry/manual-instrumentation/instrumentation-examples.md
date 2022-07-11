@@ -14,7 +14,7 @@ We will create two components.
 - RDS Table
 
 And we want a [relationship between the database and table](/stackpacks/integrations/opentelemetry/manual-instrumentation/relations.md) flowing down from the database to the table. This will allow
-the [health state propagates](/stackpacks/integrations/opentelemetry/manual-instrumentation/health.md) up to the database if something is wrong with the table.
+the [health state propagates](/stackpacks/integrations/opentelemetry/manual-instrumentation/span-health.md) up to the database if something is wrong with the table.
 
 This is where your best judgment will come into play; best would be to play around with the parent spans, child spans, etc., and see
 what result do you receive on StackState.

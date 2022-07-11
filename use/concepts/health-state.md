@@ -2,7 +2,7 @@
 description: StackState Self-hosted v5.0.x 
 ---
 
-# About health state
+# Health state
 
 ## Overview
 

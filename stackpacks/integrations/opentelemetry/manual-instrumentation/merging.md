@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.0.x
 Merging components allows you to do any of the following things
 - Add extra attributes into pre-existing components.
 - Create custom relations for pre-existing components. 
-- Allows you to add a component relation to another propagating health in different ways (You can read more on the [span health state](/stackpacks/integrations/opentelemetry/manual-instrumentation/health.md) page)
+- Allows you to add a component relation to another propagating health in different ways (You can read more on the [span health state](/stackpacks/integrations/opentelemetry/manual-instrumentation/span-health.md) page)
 
 ## Important to know when merging
 When you merge your custom instrumentation with a pre-existing StackState component, it might seem that your component disappeared; it did not.
@@ -53,7 +53,7 @@ For example, if you select a component and click on the `SHOW ALL PROPERTIES` bu
 
 It will open a dialog; within this dialog, you can see the identifiers. If you reuse any of these within your span, it will merge with that component, We will have a few visual examples further down in the documentation.
 
-![Topology Perspective - Component Properties - Identifiers](../../../../.gitbook/assets/v50_otel_relation_example_b.png)
+![Topology Perspective - Component properties - Identifiers](../../../../.gitbook/assets/v50_otel_relation_example_b.png)
 
 
 ## Merging with a StackState component
@@ -78,7 +78,7 @@ Now let's add a few pre-existing Lambda functions into the picture. We are focus
 If we click on that Lambda function, we will be able to see what the identifier is by using
 the same `service identifier` `arn:aws:lambda:eu-west-1:965323806078:function:otel-example-custom-instrumentation-dev-create-custom-component` in our second component it will merge with that pre-existing component.
 
-![Topology Perspective - Component Properties - Identifier](../../../../.gitbook/assets/v50_otel_traces_merge_with_healthy.png)
+![Topology Perspective - Component properties - Identifier](../../../../.gitbook/assets/v50_otel_traces_merge_with_healthy.png)
 
 That will result in the following happening. As you can see, the component we merged now has new relations, and those relations
 are the same ones our component had as the merged component inherited the same relations

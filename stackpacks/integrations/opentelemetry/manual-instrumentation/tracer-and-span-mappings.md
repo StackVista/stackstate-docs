@@ -146,9 +146,9 @@ You need to include ALL of the keys below when creating a span as they all need 
 #### Examples
 
 {% tabs %}
-{% tab title="Traces Perspective - Span Properties" %}
+{% tab title="Traces Perspective - Span properties" %}
 
-**Example of where the service.type is displayed within the Traces Perspective Span Properties view**
+**Example of where the service.type is displayed within the Traces Perspective Span properties view**
 
 1) In your top navigation bar click on the `trace perspective` icon
 2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your trace).
@@ -176,7 +176,7 @@ You need to include ALL of the keys below when creating a span as they all need 
 {% tabs %}
 {% tab title="Component properties" %}
 
-**Example of where the service.identifier is displayed within the Topology Perspective Component Properties view**
+**Example of where the service.identifier is displayed within the Topology Perspective Component properties view**
 
 1) Click on your component in the StackState Topology Perspective
 2) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
@@ -216,7 +216,7 @@ You need to include ALL of the keys below when creating a span as they all need 
 {% endtabs %}
 
 ### HTTP Status Code 
-[Health state page will elaborate on this](/stackpacks/integrations/opentelemetry/manual-instrumentation/health.md)
+[Health state page will elaborate on this](/stackpacks/integrations/opentelemetry/manual-instrumentation/span-health.md)
   - `Key`
     - http.status_code
   - `Expected`
@@ -227,7 +227,7 @@ You need to include ALL of the keys below when creating a span as they all need 
     - This controls the health state for the component in StackState. 
     - If you post a `400` or higher than the component will go into CRITICAL state
       or if you post a `200` then your component will be healthy. This allows you to control the health state of your component
-    - For a more advanced breakdown head over to the [OpenTelemetry Custom Instrumentation - Health state Page](/stackpacks/integrations/opentelemetry/manual-instrumentation/health.md) for a more in-depth explanation, 
+    - For a more advanced breakdown head over to the [OpenTelemetry Custom Instrumentation - Health state Page](/stackpacks/integrations/opentelemetry/manual-instrumentation/span-health.md) for a more in-depth explanation, 
       how health state works with merging components, and what is metrics is displayed by default with the health state and custom instrumentation.
 
 #### Examples
@@ -249,7 +249,7 @@ This means that your component is in a CRITICAL state.
 ![Health state - CRITICAL - http.status_code](../../../../.gitbook/assets/v50_otel_health_state_critical_http_status.png)
 {% endtab %}
 
-{% tab title="Traces Perspective - Span Properties" %}
+{% tab title="Traces Perspective - Span properties" %}
 
 **The http status can be found in the following location regardless of what the HTTP status actually is**
 

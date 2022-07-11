@@ -139,7 +139,7 @@
       * [Prerequisites](stackpacks/integrations/opentelemetry/manual-instrumentation/prerequisites.md)
       * [Tracer and span mappings](stackpacks/integrations/opentelemetry/manual-instrumentation/tracer-and-span-mappings.md)
       * [Component relations](stackpacks/integrations/opentelemetry/manual-instrumentation/relations.md)
-      * [Span heath state](stackpacks/integrations/opentelemetry/manual-instrumentation/health.md)
+      * [Span heath state](stackpacks/integrations/opentelemetry/manual-instrumentation/span-health.md)
       * [Merging components](stackpacks/integrations/opentelemetry/manual-instrumentation/merging.md)
       * [StackState instrumentation examples](stackpacks/integrations/opentelemetry/manual-instrumentation/instrumentation-examples.md)
   * [💠 ServiceNow](stackpacks/integrations/servicenow.md)
