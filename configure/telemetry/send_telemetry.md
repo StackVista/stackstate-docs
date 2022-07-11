@@ -29,6 +29,8 @@ https://<STACKSTATE_BASE_URL>:<STACKSTATE_RECEIVER_PORT>/stsAgent/intake?api_key
 ```
 
 The `<STACKSTATE_BASE_URL>` and `<STACKSTATE_RECEIVER_API_KEY>` are set during StackState installation, for details see [Linux install - configuration parameters](../../setup/install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install).
+
+Note that if a [reverse proxy](/setup/install-stackstate/linux_install/reverse_proxy.md) has been set up for your StackState instance, you should use the port and path that have been configured to access StackState running at port `7070` in place of `<STACKSTATE_BASE_URL>:<STACKSTATE_RECEIVER_PORT>`.
 {% endtab %}
 {% endtabs %}
 
@@ -91,13 +93,13 @@ The `timestamp` and `value` are used to plot the metric as a time series. The `n
 
 ### Send metrics to StackState
 
-Multiple metrics can be sent in one JSON message via HTTP POST. For example:
+Multiple metrics can be sent in one JSON message via HTTP POST to the [StackState Receiver API address](#stackstate-receiver-api). For example:
 
 {% tabs %}
 {% tab title="curl" %}
 ```javascript
 curl -X POST \
- 'http://<STACKSTATE_BASES_URL>/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>' \
+ 'http://<STACKSTATE_RECEIVER_API_ADDRESS> \
  -H 'Content-Type: application/json' \
  -d '{
   "collection_timestamp": 1548857167,
