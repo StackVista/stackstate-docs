@@ -24,7 +24,7 @@ StackState Agent V2 will synchronize the following data from the host it is runn
 
 ### Supported versions
 
-StackState Agent V2.17.0 is supported to run on:
+StackState Agent V2.17.1 is supported to run on:
 
 * Windows 10 or higher
 * Windows Server 2012 or higher
