@@ -20,7 +20,7 @@ Below is an example of a Trace that contains two spans, one Lambda parent span, 
 
 ![Distributed Trace Sample](../../../.gitbook/assets/v50_otel_distributed_trace_sample.png)
 
-The above is a snippet of the [Trace Perspective](/use/stackstate-ui/perspectives/traces-perspective.md) within StackState.
+The above is a snippet of the [Traces Perspective](/use/stackstate-ui/perspectives/traces-perspective.md) within StackState.
 
 
 ## Spans
@@ -107,9 +107,7 @@ As you can see from the above, each following span parent ID has the ID from the
 ### Why create parent and children spans?
 We want to create relations between different span timed operations, how they affect each other, and their relational flow.
 
-You can head over to the [manual instrumentation component relations](/stackpacks/integrations/opentelemetry/opentelemetry/manual-instrumentation/relations.md) page to get a full
-breakdown of how StackState relations work, how parent-child spans are shown on StackState, and how relations are created between
-components and how the health state uses these relations to propagate health.
+You can head over to the [manual instrumentation component relations](/stackpacks/integrations/opentelemetry/manual-instrumentation/relations.md) page to get a full breakdown of how StackState relations work, how parent-child spans are shown on StackState, and how relations are created between components and how the health state uses these relations to propagate health.
 
 
 ### Span contents
@@ -171,7 +169,7 @@ StackState currently supports two types of instrumentations:
   - Visit the [AWS OpenTelemetry integrations page](/stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md) for more information regarding the [supported AWS services](/stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md#supported-services) and how to install and use this Lambda layer.
 - **Manual instrumentation** using the [OpenTelemetry API](https://opentelemetry.io/docs/instrumentation/)
   - This gives you the ability to create and display a custom component with a health state within StackState using the [OpenTelemetry API](https://opentelemetry.io/docs/instrumentation/).
-  - To learn more about how to implement a manual instrumentation specifically for StackState, head over to the [manual instrumentation tracer and span mappings](/stackpacks/integrations/opentelemetry/opentelemetry/manual-instrumentation/mappings.md) page
+  - To learn more about how to implement a manual instrumentation specifically for StackState, head over to the [manual instrumentation tracer and span mappings](/stackpacks/integrations/opentelemetry/manual-instrumentation/tracer-and-span-mappings.md) page
 
 
 

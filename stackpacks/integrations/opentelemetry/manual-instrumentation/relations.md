@@ -36,7 +36,7 @@ Service Name: Parent Component
      ---> Service Name: Child 2 Component
 ```
 
-Then that will only result in the following components showing a propagated critical state.
+Then that will only result in the following components showing a propagated CRITICAL state.
 
 ```text
 Service Name: Parent Component [Propagated 400 Status]
@@ -48,7 +48,7 @@ Service Name: Parent Component [Propagated 400 Status]
 
 A visual example of this will be as follows:
 
-![Topology Perspective - OTEL Components Critical State](../../../../.gitbook/assets/v50_otel_topology_perspective_critical_component.png)
+![Topology Perspective - OTEL Components CRITICAL State](../../../../.gitbook/assets/v50_otel_topology_perspective_critical_component.png)
 
 
 So remember to create your parent and children spans in the correct order as it may affect the flow of the health state.

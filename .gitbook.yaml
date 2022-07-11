@@ -330,3 +330,4 @@ redirects:
   use/health-state/add-a-health-check: ./use/checks-and-monitors/add-a-health-check.md
   use/health-state: ./use/checks-and-monitors/README.md
   configure/logging/stackstate-log-files: ./configure/logging/README.md
+  stackpacks/integrations/aws/opentelemetry-nodejs: ./stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md

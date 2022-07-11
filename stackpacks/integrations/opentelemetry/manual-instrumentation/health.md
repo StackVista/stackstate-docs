@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.0.x
 
 The page explains how health state in StackState works with custom instrumentations in specific scenarios. Before reading further:
 
-* If you have not already read about the health state span mapping `http.status_code`, head over to the page [tracer and span mappings](/stackpacks/integrations/opentelemetry/manual-instrumentation/mappings.md) to understand how the health state is mapped to a span. 
+* If you have not already read about the health state span mapping `http.status_code`, head over to the page [tracer and span mappings](/stackpacks/integrations/opentelemetry/manual-instrumentation/tracer-and-span-mappings.md) to understand how the health state is mapped to a span. 
 * If you are not familiar with how health state works in StackState, see the page [about health state](/use/concepts/health-state.md) to learn about the types of element health state available, what propagated health state is and how it works.
 * To understand how custom instrumentations will be merged with existing components in StackState, see the page [Merging components](merging.md).
 
@@ -31,10 +31,10 @@ As you can see below, the **Child Component** turned into a DEVIATING and then a
 
 {% tabs %}
 {% tab title="CLEAR to DEVIATING" %}
-![Topology Perspective Single Deviating Manual Instrumentation Component](../../../../.gitbook/assets/v50_otel_topology_perspective_deviating_component.png)
+![Topology Perspective Single DEVIATING Manual Instrumentation Component](../../../../.gitbook/assets/v50_otel_topology_perspective_deviating_component.png)
 {% endtab %}
 {% tab title="DEVIATING to CRITICAL" %}
-![Topology Perspective Single Critical Manual Instrumentation Component](../../../../.gitbook/assets/v50_otel_topology_perspective_critical_component.png)
+![Topology Perspective Single CRITICAL Manual Instrumentation Component](../../../../.gitbook/assets/v50_otel_topology_perspective_critical_component.png)
 {% endtab %}
 {% endtabs %}
 
@@ -83,7 +83,7 @@ We can merge the **Child Component** with the unhealthy AWS Lambda component by 
 
 This produces the following result - all of the properties, health, and relations of the **Child Component** are inherited by the component named `otel-example-custom-instrumentation-dev-force-error`:
 
-![OTEL Component Merged With Pre-Existing Critical Component](../../../../.gitbook/assets/v50_otel_traces_merge_with_critical_complete.png)
+![OTEL Component Merged With Pre-Existing CRITICAL Component](../../../../.gitbook/assets/v50_otel_traces_merge_with_critical_complete.png)
 
 The original component has a `200` (CLEAR) status and the component that it merged with has a `400` status. As you can see, the DEVIATING or CRITICAL state will always take precedence. If one of the components that has been merged changes to have a CRITICAL or DEVIATING state, it will be indicated as shown above.
 

@@ -415,7 +415,7 @@ An event stream health check includes the details listed below. Note that a cust
 * **stream\_id** - the identifier of the stream the check should run on.
 * **name** - the name the check will have in StackState.
 * **description** - the description for the check in StackState.
-* **remediation\_hint** - the remediation hint to display when the check return a critical health state.
+* **remediation\_hint** - the remediation hint to display when the check return a CRITICAL health state.
 * **contains\_key** - for check `contains_key_value` only. The key that should be contained in the event.
 * **contains\_value** - for check `contains_key_value` only. The value that should be contained in the event.
 * **found\_health\_state** - for check `contains_key_value` only. The health state to return when this tag and value is found.
@@ -491,9 +491,9 @@ A metric stream health check has the details listed below. Note that a custom\_h
 
 * **name** - the name the health check will have in StackState.
 * **description** - the description for the health check in StackState.
-* **deviating\_value** - the threshold at which point the check will return a deviating health state.
-* **critical\_value** - the threshold at which point the check will return a critical health state.
-* **remediation\_hint** - the remediation hint to display when the check returns a critical health state.
+* **deviating\_value** - the threshold at which point the check will return a DEVIATING health state.
+* **critical\_value** - the threshold at which point the check will return a CRITICAL health state.
+* **remediation\_hint** - the remediation hint to display when the check returns a CRITICAL health state.
 * **max\_window** - the max window size for the metrics.
 * **percentile** - for `maximum_percentile` and `minimum_percentile` checks only. The percentile value to use for the calculation. 
 * stream identifier\(s\):  
@@ -528,7 +528,7 @@ class ServiceCheckHealthChecks(object):
         `stream_id` the identifier of the stream this check should run on
         `name` the name this check will have in StackState
         `description` the description for this check in StackState
-        `remediation_hint` the remediation hint to display when this check return a critical health state
+        `remediation_hint` the remediation hint to display when this check return a CRITICAL health state
         """
 ```
 

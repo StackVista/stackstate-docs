@@ -21,22 +21,24 @@ We will show how the above is implemented when we get to the code examples page.
 
 If you run you StackState Agent in debug mode then you should receive a message about an unknown instrumentation and the name that was passed to it
 
-## Span mapping requirements - Summary
-Below is a table with a summary of all the span keys that's required
+## Span mapping requirements 
 
-You need to include **ALL** the keys below when creating a span as they all need to be provided before the component will appear on your StackState instance.
+### Summary
 
-| ***Key***                                                      |  ***Type***  | ***Required***  | ***Allowed Value*** | ***Example***                |
-|:---------------------------------------------------------------|:------------:|:---------------:|:-------------------:|:-----------------------------|
-| [trace.perspective.name](mappings.md#trace-perspective-name) |   `string`   |     **yes**     |     Any string      | RDS Database: Perspective Name|
-| [service.name](mappings.md#service-name)                     |   `string`   |     **yes**     |     Any string      | RDS Database: Service Name            |
-| [service.type](mappings.md#service-type)                     |   `string`   |     **yes**     |     Any string      | AWS RDS                      |
-| [service.identifier](mappings.md#service-identifier)         |   `string`   |     **yes**     |     Any string      | aws:rds:database:hello-world |
-| [resource.name](mappings.md#resource-name)                   |   `string`   |     **yes**     |     Any string      | Database                     |
-| [http.status_code](mappings.md#http-status-code)             |   `number`   |     **no**      |     HTTP status     | 200                          |
+Below is a table with a summary of all the span keys that are required.
 
-## Span mapping requirements - Breakdown
-### Trace Perspective Name
+You need to include ALL of the keys below when creating a span as they all need to be provided before the component will appear on your StackState instance.
+
+| **Key**                                              |  **Type**  | **Required**  | **Allowed Value** | **Example**                         |
+|:-----------------------------------------------------|:----------:|:-------------:|:-----------------:|:------------------------------------|
+| [trace.perspective.name](#trace-perspective-name)    |  `string`  |    **yes**    |    Any string     | RDS Database: Perspective Name      |
+| [service.name](tracer-and-span-mappings.md#service-name)             |  `string`  |    **yes**    |    Any string     | RDS Database: Service Name          |
+| [service.type](tracer-and-span-mappings.md#service-type)             |  `string`  |    **yes**    |    Any string     | AWS RDS                             |
+| [service.identifier](tracer-and-span-mappings.md#service-identifier) |  `string`  |    **yes**    |    Any string     | aws:rds:database:hello-world        |
+| [resource.name](tracer-and-span-mappings.md#resource-name)           |  `string`  |    **yes**    |    Any string     | Database                            |
+| [http.status_code](tracer-and-span-mappings.md#http-status-code)     |  `number`  |    **no**     |    HTTP status    | 200                                 |
+
+### Traces Perspective Name
   - `Key`
     - trace.perspective.name
   - `Type`
@@ -44,19 +46,21 @@ You need to include **ALL** the keys below when creating a span as they all need
   - `Example`
     - RDS Database: Perspective Name
   - `Description`
-    - The `trace.perspective.name` is used to find your Span within a Trace in the Trace Perspective view.
+    - The `trace.perspective.name` is used to find your Span within a Trace in the Traces Perspective view.
     - The horizontal bar within a Trace will have a floating text value containing the value you used in the `trace.perspective.name` key.
 
-{% tabs %}
-{% tab title="Trace Perspective" %}
+#### Examples
 
-**Example of where the trace.perspective.name is displayed within the Trace Perspective**
+{% tabs %}
+{% tab title="Traces Perspective" %}
+
+**Example of where the trace.perspective.name is displayed within the Traces Perspective**
 
 1) In your top navigation bar click on the `trace perspective` icon
 2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your trace).
 3) You will notice that a horizontal graph line will contain the name of your component as seen below.
 
-![Trace Perspective - trace.perspective.name key](../../../../.gitbook/assets/v50_otel_trace_perspective_name.png)
+![Traces Perspective - trace.perspective.name key](/.gitbook/assets/v50_otel_trace_perspective_name.png)
 
 {% endtab %}
 {% endtabs %}
@@ -73,7 +77,9 @@ You need to include **ALL** the keys below when creating a span as they all need
     - name = "RDS Database: Service Name"
   - `Description`
     - The value from `service.name` is used as a primary means to identify your component within the StackState Topology Perspective
-    - It also creates a `spans.serviceName` key within your Trace Perspective to allow you to identify if the trace in the Trace Perspective matches the component in the Topology Perspective.
+    - It also creates a `spans.serviceName` key within your Traces Perspective to allow you to identify if the trace in the Traces Perspective matches the component in the Topology Perspective.
+
+#### Examples
 
 {% tabs %}
 {% tab title="Advanced Filter" %}
@@ -100,7 +106,7 @@ You need to include **ALL** the keys below when creating a span as they all need
 ![Topology Perspective - service.name](../../../../.gitbook/assets/v50_otel_topology_view_perspective_name.png)
 
 {% endtab %}
-{% tab title="Topology Perspective - Component Properties" %}
+{% tab title="Component properties" %}
 
 **Example of where the service.name is displayed within the Topology Perspective within your component properties**
 
@@ -109,19 +115,19 @@ You need to include **ALL** the keys below when creating a span as they all need
 3) A row with the key `name` will contain the value you defined, as seen below in the image.
 4) Your component will also contain a new label called service-name, this will also represent your component name.
 
-![Topology Perspective - Component Properties - service.name](../../../../.gitbook/assets/v50_otel_topology_perspective_service_name.png)
+![Component properties - service.name](../../../../.gitbook/assets/v50_otel_topology_perspective_service_name.png)
 
 {% endtab %}
-{% tab title="Trace Perspective" %}
+{% tab title="Traces Perspective" %}
 
-**Example of where the service.name is displayed within the Trace Perspective**
+**Example of where the service.name is displayed within the Traces Perspective**
 
 1) In your top navigation bar click on the `trace perspective` menu item.
 2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your trace).
 3) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
 4) A row with the key `span.serviceName` will contain the value you defined, as seen below in the image.
 
-![Trace Perspective - service.name](../../../../.gitbook/assets/v50_otel_traces_service_name.png)
+![Traces Perspective - service.name](../../../../.gitbook/assets/v50_otel_traces_service_name.png)
 
 {% endtab %}
 {% endtabs %}
@@ -135,24 +141,26 @@ You need to include **ALL** the keys below when creating a span as they all need
   - `Example`
     - AWS RDS
   - `Description`
-    - The `service.type` is used to identify the type of service within your span in the Trace Perspective view.
+    - The `service.type` is used to identify the type of service within your span in the Traces Perspective view.
+
+#### Examples
 
 {% tabs %}
-{% tab title="Trace Perspective - Span Properties" %}
+{% tab title="Traces Perspective - Span Properties" %}
 
-**Example of where the service.type is displayed within the Trace Perspective Span Properties view**
+**Example of where the service.type is displayed within the Traces Perspective Span Properties view**
 
 1) In your top navigation bar click on the `trace perspective` icon
 2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your trace).
 3) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
 4) A row with the key `service` will contain the value you defined, as seen below in the image.
 
-![Trace Perspective - service.type](../../../../.gitbook/assets/v50_otel_traces_service_type.png)
+![Traces Perspective - service.type](../../../../.gitbook/assets/v50_otel_traces_service_type.png)
 {% endtab %}
 {% endtabs %}
 
 ### Service Identifier 
-[Used for Merging Component will elaborate on this](/stackpacks/integrations/opentelemetry/opentelemetry/manual-instrumentation/merging.md)
+[Used for Merging Component will elaborate on this](/stackpacks/integrations/opentelemetry/manual-instrumentation/merging.md)
   - `Key`
     - service.identifier
   - `Expected`
@@ -161,17 +169,19 @@ You need to include **ALL** the keys below when creating a span as they all need
     - aws:rds:database:hello-world
   - `Description`
     - This value will be added to the identifier list on your component within StackState.
-    - ***NB. Components with the same service identifiers will merge into one component, This allows you to merge multiple components and create relations, or merge with an existing StackState component. You can read more about this on the [merging with pre-existing components](/stackpacks/integrations/opentelemetry/opentelemetry/manual-instrumentation/merging.md) page***
+    - ***NB. Components with the same service identifiers will merge into one component, This allows you to merge multiple components and create relations, or merge with an existing StackState component. You can read more about this on the [merging with pre-existing components](/stackpacks/integrations/opentelemetry/manual-instrumentation/merging.md) page***
+
+#### Examples
 
 {% tabs %}
-{% tab title="Topology Perspective - Component Properties" %}
+{% tab title="Component properties" %}
 
 **Example of where the service.identifier is displayed within the Topology Perspective Component Properties view**
 
 1) Click on your component in the StackState Topology Perspective
 2) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
 3) The row with the key `identifiers` will contain the value you defined, as seen below in the image.
-4) ***NB. It is recommended to go and read the [merging with pre-existing components](/stackpacks/integrations/opentelemetry/opentelemetry/manual-instrumentation/merging.md) page to know how this value can be leverage to create relations***
+4) ***NB. It is recommended to go and read the [merging with pre-existing components](/stackpacks/integrations/opentelemetry/manual-instrumentation/merging.md) page to know how this value can be leverage to create relations***
 
 ![Topology Perspective - service.identifier](../../../../.gitbook/assets/v50_otel_traces_service_identifier.png)
 {% endtab %}
@@ -189,22 +199,24 @@ You need to include **ALL** the keys below when creating a span as they all need
     - This resource name will be displayed under your trace perspective for a specific trace, allowing you to quickly identify what resource this trace is apart.
     - Best practise would be to use this value to group similar resources, thus allowing you to easily identify a span.
 
-{% tabs %}
-{% tab title="Trace Perspective" %}
+#### Examples
 
-**Example of where the resource.name is displayed within the Trace Perspective**
+{% tabs %}
+{% tab title="Traces Perspective" %}
+
+**Example of where the resource.name is displayed within the Traces Perspective**
 
 1) In your top navigation bar click on the `trace perspective` menu item.
 2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your trace).
 3) The section on your right side will contain a row with the key `Resource`, the value displayed next to the key will be the one you defined.
 
-![Trace Perspective - resource.name](../../../../.gitbook/assets/v50_otel_traces_trace_resource.png)
+![Traces Perspective - resource.name](../../../../.gitbook/assets/v50_otel_traces_trace_resource.png)
 
 {% endtab %}
 {% endtabs %}
 
 ### HTTP Status Code 
-[Health State page will elaborate on this](/stackpacks/integrations/opentelemetry/opentelemetry/manual-instrumentation/health.md)
+[Health state page will elaborate on this](/stackpacks/integrations/opentelemetry/manual-instrumentation/health.md)
   - `Key`
     - http.status_code
   - `Expected`
@@ -213,10 +225,12 @@ You need to include **ALL** the keys below when creating a span as they all need
     - 200
   - `Description`
     - This controls the health state for the component in StackState. 
-    - If you post a `400` or higher than the component will go into critical state
+    - If you post a `400` or higher than the component will go into CRITICAL state
       or if you post a `200` then your component will be healthy. This allows you to control the health state of your component
-    - For a more advanced breakdown head over to the [OpenTelemetry Custom Instrumentation - Health State Page](/stackpacks/integrations/opentelemetry/opentelemetry/manual-instrumentation/health.md) for a more in-depth explanation, 
+    - For a more advanced breakdown head over to the [OpenTelemetry Custom Instrumentation - Health state Page](/stackpacks/integrations/opentelemetry/manual-instrumentation/health.md) for a more in-depth explanation, 
       how health state works with merging components, and what is metrics is displayed by default with the health state and custom instrumentation.
+
+#### Examples
 
 {% tabs %}
 {% tab title="Topology Perspective (Healthy)" %}
@@ -224,18 +238,18 @@ You need to include **ALL** the keys below when creating a span as they all need
 
 This means that your component is in a healthy state.
 
-![Health State - http.status_code](../../../../.gitbook/assets/v50_otel_health_state_http_status.png)
+![Health state - http.status_code](../../../../.gitbook/assets/v50_otel_health_state_http_status.png)
 {% endtab %}
 
-{% tab title="Topology Perspective (Critical)" %}
+{% tab title="Topology Perspective (CRITICAL)" %}
 **You will see the following color on your component if you post a `http.status_code` of `400` or higher**
 
-This means that your component is in a critical state.
+This means that your component is in a CRITICAL state.
 
-![Health State - Critical - http.status_code](../../../../.gitbook/assets/v50_otel_health_state_critical_http_status.png)
+![Health state - CRITICAL - http.status_code](../../../../.gitbook/assets/v50_otel_health_state_critical_http_status.png)
 {% endtab %}
 
-{% tab title="Trace Perspective - Span Properties" %}
+{% tab title="Traces Perspective - Span Properties" %}
 
 **The http status can be found in the following location regardless of what the HTTP status actually is**
 
@@ -244,6 +258,6 @@ This means that your component is in a critical state.
 3) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
 4) The row with the value `http.status_code` will contain the value you defined, as seen below in the image.
 
-![Health State - Healthy - http.status_code](../../../../.gitbook/assets/v50_otel_health_state_healthy_http_status.png)
+![Health state - Healthy - http.status_code](../../../../.gitbook/assets/v50_otel_health_state_healthy_http_status.png)
 {% endtab %}
 {% endtabs %}

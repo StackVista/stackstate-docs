@@ -137,7 +137,7 @@
     * [AWS NodeJS Instrumentation](stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md)
     * [Manual Instrumentation](stackpacks/integrations/opentelemetry/manual-instrumentation/README.md)
       * [Prerequisites](stackpacks/integrations/opentelemetry/manual-instrumentation/prerequisites.md)
-      * [Tracer and span mappings](stackpacks/integrations/opentelemetry/manual-instrumentation/mappings.md)
+      * [Tracer and span mappings](stackpacks/integrations/opentelemetry/manual-instrumentation/tracer-and-span-mappings.md)
       * [Component relations](stackpacks/integrations/opentelemetry/manual-instrumentation/relations.md)
       * [Span heath state](stackpacks/integrations/opentelemetry/manual-instrumentation/health.md)
       * [Merging components](stackpacks/integrations/opentelemetry/manual-instrumentation/merging.md)
