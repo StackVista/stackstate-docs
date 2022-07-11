@@ -2,101 +2,88 @@
 description: StackState Self-hosted v5.0.x
 ---
 
-# Span health state
+# Overview
 
-If you have not seen the health state span mapping `http.status_code` on the [Tracer and Span mappings]() page, head over the that page first
-to understand how the health state is mapped into your span. 
+The page explains how health state in StackState works with custom instrumentations in specific scenarios. Before reading further:
 
-You should also be familiar on how health states works within StackState, for this you can head over to the [about health state](/use/health-state/about-health-state.md) page to
-learn more about what [types of health state](/use/health-state/about-health-state.md#element-health-state) there is,
-what does [propagated health state](/use/health-state/about-health-state.md#propagated-health-state) mean and how it works.
-
-The purpose of this page is to assist in knowing what happens within certain scenarios in regard to health
-state and custom instrumentations.
-
+* If you have not already read about the health state span mapping `http.status_code`, head over to the page [tracer and span mappings](/stackpacks/integrations/opentelemetry/manual-instrumentation/mappings.md) to understand how the health state is mapped to a span. 
+* If you are not familiar with how health state works in StackState, see the page [about health state](/use/concepts/health-state.md) to learn about the types of element health state available, what propagated health state is and how it works.
 
 # Health state without merging
-In the following scenario we have 3 components that we created with the manual instrumentation
 
-- First is the root span
-  - Added `http.status_code` of `200`
-- The second span has the parent span id of the first span
-    - Added `http.status_code` of `200`
-- The third span has the parent span id of the second span
-    - Added `http.status_code` of `200`
+In the following scenario, three components were created with the manual instrumentation:
 
-As seen in this picture below, it works as expected and all three components is healthy.
+1. **Parent component** - the root span.
+   - Added `http.status_code` of `200`
+2. **Child component** - the second span. Has the parent span ID of the first (root) span.
+   - Added `http.status_code` of `200`
+3. **Child 2 component** - the third span. Has the parent span ID of the second span
+   - Added `http.status_code` of `200`
+
+As seen below, it works as expected and all three components are healthy - they have a CLEAR state.
 
 ![Topology Perspective Healthy Manual Instrumentation Components](../../../../.gitbook/assets/v50_otel_topology_perspective_healthy_component.png)
 
-Now let's change the `http.status_code` of the second span to `400`
+Now, let's change the `http.status_code` of the second span to `400`
 
-As you can see with the image below, the second component turned into a critical state
-and the health status propagate upwards to the parent component.
+As you can see below, the **Child component** turned into a DEVIATING and then a CRITICAL state and this unhealthy health state propagates upwards to the **Parent component**.
 
 {% tabs %}
-{% tab title="Healthy to Deviating" %}
+{% tab title="CLEAR to DEVIATING" %}
 ![Topology Perspective Single Deviating Manual Instrumentation Component](../../../../.gitbook/assets/v50_otel_topology_perspective_deviating_component.png)
 {% endtab %}
-{% tab title="Deviating to Critical" %}
+{% tab title="DEVIATING to CRITICAL" %}
 ![Topology Perspective Single Critical Manual Instrumentation Component](../../../../.gitbook/assets/v50_otel_topology_perspective_critical_component.png)
 {% endtab %}
 {% endtabs %}
 
-
 # Health state with merging
-Now we want to test how health state works with a pre-existing components.
 
-In the following scenario we have 3 components that we created with the manual instrumentation
+Now we want to test how health state works when merging with a pre-existing component. For details on how custom instrumentations will be merged with existing components in StackState, see the page [Merging components](merging.md).
 
-- First is the root span
-    - Added `http.status_code` of `200`
-- The second span has the parent span id of the first span
-    - Added `http.status_code` of `200`
-- The third span has the parent span id of the second span
-    - Added `http.status_code` of `200`
+In the following scenario, three components were created with the manual instrumentation:
 
-This time we included two pre-existing components into our filter so that we can see them on StackState.
-The one pre-existing is in a critical state and the second one in a healthy state. 
+1. **Parent component** - the root span.
+   - Added `http.status_code` of `200`
+2. **Child component** - the second span. Has the parent span ID of the first (root) span.
+   - Added `http.status_code` of `200`
+3. **Child 2 component** - the third span. Has the parent span ID of the second span.
+   - Added `http.status_code` of `200`
 
-Below is an example of those 3 components we created and the 2 pre-existing AWS components.
+This time, two pre-existing AWS components are included in the filter so that we can see them on StackState. One pre-existing component is in a CRITICAL state and one is in a CLEAR (healthy) state. The three created components and the two pre-existing AWS components can be seen in the screenshot below. No components have been merged here.
 
 ![Manual Instrumentation Components Unmerged To Pre-Existing Components](../../../../.gitbook/assets/v50_otel_components_unmerged.png)
 
-### Merging with the healthy component
+## Merge with a healthy component
 
-Now let's get a `service.identifier` from the bottom right green component called `otel-example-custom-instrumentation-dev-create-custom-component`
+Now let's get a `service.identifier` from the bottom right CLEAR (green) component called `otel-example-custom-instrumentation-dev-create-custom-component`.
 
 As you can see in the image below, this component has an identifier of `arn:aws:lambda:eu-west-1:965323806078:function:otel-example-custom-instrumentation-dev-create-custom-component`
 
 ![Topology Perspective Properties View - Identifier Preview](../../../../.gitbook/assets/v50_otel_traces_merge_with_healthy.png)
 
-So let's merge our second span component with this AWS Lambda component by adding that identifier into our manual instrumentation for the second component.
+We can merge the **Child component** with this healthy AWS Lambda component. To do this, we need to add the identifier for the AWS component into the manual instrumentation for the **Child component**.
 
 This produces the following result:
 
 ![OTEL Component Merged With Pre-Existing Healthy Component](../../../../.gitbook/assets/v50_otel_traces_merge_with_healthy_complete.png)
 
-As you can see the relations had now successfully been drawn between the components and the merged one, the health state also stayed `200` as expected
-seeing that both components was `200` to start with
+As you can see, the relations have now successfully been drawn between the components and the merged one. The health state of the resulting component stayed as CLEAR, this is as expected seeing as both components had a `200` state to start with.
 
-### Merging with the critical component
+## Merge with an unhealthy component
 
-Now let's get a `service.identifier` from the bottom left red component called `otel-example-custom-instrumentation-dev-force-error` and remove the current one we use on the right.
+Now let's get a `service.identifier` from the bottom left CRITICAL (red) component called `otel-example-custom-instrumentation-dev-force-error` and remove the current one that we are using on the right.
 
 As you can see in the image below, this component has an identifier of `arn:aws:lambda:eu-west-1:965323806078:function:otel-example-custom-instrumentation-dev-force-error`
 
 ![Topology Perspective Properties View - Identifier Preview](../../../../.gitbook/assets/v50_otel_traces_merge_with_critical.png)
 
-So let's merge our second span component with this AWS Lambda component by adding that identifier into our manual instrumentation for the second component.
+We can merge the **Child component** with the unhealthy AWS Lambda component by adding the identifier into the manual instrumentation for the **Child component**.
 
 This produces the following result:
 
 ![OTEL Component Merged With Pre-Existing Critical Component](../../../../.gitbook/assets/v50_otel_traces_merge_with_critical_complete.png)
 
-As you can see the deviating or critical state will always take precedence regardless of merged component states. If one of the two components that has been merged
-goes into a critical/deviating state then it will be indicated as above.
+The original component has a `200` (CLEAR) status and the component that it merged with has a `400` status. As you can see, the DEVIATING or CRITICAL state will always take precedence. If one of the components that has been merged changes to have a CRITICAL or DEVIATING state, it will be indicated as shown above.
 
-The state will then be propagated up to the parent relations, so even tho your component has 200 the one you merged with had a 400 status thus that 400 will propagate upwards.
-
-
+The unhealthy state will then propagate upwards to the parent relations.
