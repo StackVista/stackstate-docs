@@ -51,7 +51,7 @@ In the following scenario, three components were created with the manual instrum
 3. **Child 2 Component** - the third span. Has the parent span ID of the second span.
    - Added `http.status_code` of `200`
 
-This time, two pre-existing AWS components are included in the filter so that we can see them on StackState. One pre-existing component is in a CRITICAL state and one is in a CLEAR (healthy) state. The three created components and the two pre-existing AWS components can be seen in the screenshot below. No components have been merged here.
+This time, two pre-existing AWS components are included in the filter so that we can see them in StackState. One pre-existing component is in a CRITICAL state and one is in a CLEAR (healthy) state. The three created components and the two pre-existing AWS components can be seen in the screenshot below. No components have been merged here.
 
 ![Manual Instrumentation Components Unmerged To Pre-Existing Components](../../../../.gitbook/assets/v50_otel_components_unmerged.png)
 
@@ -65,7 +65,7 @@ As you can see in the image below, this component has an identifier of `arn:aws:
 
 We can merge the **Child Component** with this healthy AWS Lambda component. To do this, we need to add the identifier for the AWS component into the manual instrumentation for the **Child Component**.
 
-This produces the following result - all of the properties, health, and relations of the **Child Component** are now inherited by the component **otel-example-custom-instrumentation-dev-create-custom-component**:
+This produces the following result - all of the properties, health, and relations of the **Child Component** are inherited by the component named `otel-example-custom-instrumentation-dev-create-custom-component`:
 
 ![OTEL Component Merged With Pre-Existing Healthy Component](../../../../.gitbook/assets/v50_otel_traces_merge_with_healthy_complete.png)
 
@@ -81,7 +81,7 @@ As you can see in the image below, this component has an identifier of `arn:aws:
 
 We can merge the **Child Component** with the unhealthy AWS Lambda component by adding the identifier into the manual instrumentation for the **Child Component**.
 
-This produces the following result - all of the properties, health, and relations of the **Child Component** are now inherited by the component **`otel-example-custom-instrumentation-dev-force-error**:
+This produces the following result - all of the properties, health, and relations of the **Child Component** are inherited by the component named `otel-example-custom-instrumentation-dev-force-error`:
 
 ![OTEL Component Merged With Pre-Existing Critical Component](../../../../.gitbook/assets/v50_otel_traces_merge_with_critical_complete.png)
 
