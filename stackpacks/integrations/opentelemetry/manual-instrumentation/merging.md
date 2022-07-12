@@ -16,7 +16,7 @@ Components with the [same identifier](#component-identifier) will be merged toge
 {% hint style="info" %}
 **Important to know when merging:**
 
-When a custom instrumentation is merged with a pre-existing StackState component, it might seem that custom instrumentation component disappeared; it did not. All properties of the custom instrumentation component are inherited by the component with which it merged.
+When a custom instrumentation is merged with a pre-existing StackState component, it might seem that custom instrumentation component disappeared; it did not. All properties of the custom instrumentation component are inherited by the component with which it merges.
 {% endhint %}
 
 ## Merging inheritance
