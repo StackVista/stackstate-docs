@@ -13,13 +13,13 @@ Components from a custom instrumentation can be merged with pre-existing compone
 
 In StackState, components with the [same identifier](#component-identifier) will be merged together. After merging, the original component will [inherit all properties](#merging-inheritance) from the component that merged with it. The component that was merged will no longer be visible.
 
-## Merging inheritance
-
 {% hint style="info" %}
 **Important to know when merging:**
 
 When a custom instrumentation is merged with a pre-existing StackState component, it might seem that custom instrumentation component disappeared; it did not.
 {% endhint %}
+
+## Merging inheritance
 
 When a custom instrumentation component is merged with a pre-existing component, the component with which it is merged will inherit all the properties, health, and relations from the custom instrumentation component. This means that, although the custom instrumentation component will no longer be visible, the component that it merged with now acts as both the original component and the custom instrumentation component. The resulting component will now contain, for example, all the labels, telemetry, and health from the custom instrumentation component.
 
