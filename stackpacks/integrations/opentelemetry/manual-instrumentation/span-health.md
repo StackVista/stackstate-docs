@@ -59,13 +59,13 @@ To test how health state works when merging with a pre-existing component, we ca
 
 All five components can be seen in the screenshot below - no components have been merged here.
 
-![Scenario with pre-existing components](../../../../.gitbook/assets/v50_otel_components_unmerged.png)
+![Scenario with pre-existing components](../../../../.gitbook/assets/v50_otel_scenario_pre-existing_components.png)
 
 ## Merge with a healthy component
 
 Starting from the [scenario with pre-existing components](#scenario-with-pre-existing-components) described above, we can merge with a healthy component to see what happens with the health state and propagated health state. 
 
-![Scenario with pre-existing components](../../../../.gitbook/assets/v50_otel_components_unmerged.png)
+![Scenario with pre-existing components](../../../../.gitbook/assets/v50_otel_scenario_pre-existing_components.png)
 
 Let's get a `service.identifier` from the bottom right CLEAR (green) component called `otel-example-custom-instrumentation-dev-create-custom-component`.
 
@@ -85,7 +85,7 @@ As you can see, the relations have now successfully been drawn between the compo
 
 Starting from the [scenario with pre-existing components](#scenario-with-pre-existing-components) described above, we can merge with an unhealthy component to see what happens with the health state and propagated health state. 
 
-![Scenario with pre-existing components](../../../../.gitbook/assets/v50_otel_components_unmerged.png)
+![Scenario with pre-existing components](../../../../.gitbook/assets/v50_otel_scenario_pre-existing_components.png)
 
 Let's get a `service.identifier` from the bottom left CRITICAL (red) component called `otel-example-custom-instrumentation-dev-force-error` and remove the current one that we are using on the right.
 

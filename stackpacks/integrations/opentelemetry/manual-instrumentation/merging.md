@@ -73,7 +73,7 @@ That will create the following components with relations.
 
 Now let's add a few pre-existing Lambda functions into the picture. We are focusing on the healthy Lambda function in the bottom right corner.
 
-![Topology Perspective - OTEL Components and Pre-Existing Components](../../../../.gitbook/assets/v50_otel_components_unmerged.png)
+![Topology Perspective - OTEL Components and Pre-Existing Components](../../../../.gitbook/assets/v50_otel_scenario_pre-existing_components.png)
 
 If we click on that Lambda function, we will be able to see what the identifier is by using
 the same `service identifier` `arn:aws:lambda:eu-west-1:965323806078:function:otel-example-custom-instrumentation-dev-create-custom-component` in our second component it will merge with that pre-existing component.

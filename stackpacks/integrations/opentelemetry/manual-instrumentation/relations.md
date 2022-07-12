@@ -61,7 +61,7 @@ So remember to create your parent and children spans in the correct order as it 
 Relations are retained when merging components; this allows you to create a parent component, create a child component for this parent
 and then merge that child component with an existing component. This will then create a relationship between the pre-existing component that the child component merged with and the parent component. For example, here we have the three components as described above:
 
-![Topology Perspective - OTEL Components and Pre-Existing Components](../../../../.gitbook/assets/v50_otel_components_unmerged.png)
+![Topology Perspective - OTEL Components and Pre-Existing Components](../../../../.gitbook/assets/v50_otel_scenario_pre-existing_components.png)
 
 If we then merge our middle component `Service Name: Child Component` with the existing healthy Lambda component `otel-example-custom-instrumentation-dev-create-custom-component` in the bottom right corner:
 
