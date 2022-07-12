@@ -2,22 +2,28 @@
 description: StackState Self-hosted v5.0.x
 ---
 
-# Merging with Pre-Existing components
-Merging components allows you to do any of the following things
+# Merging components
+
+## Overview
+
+Components from a custom instrumentation can be merged with pre-existing components in StackState. This allows you to:
 - Add extra attributes into pre-existing components.
 - Create custom relations for pre-existing components. 
-- Allows you to add a component relation to another propagating health in different ways (You can read more on the [span health state](/stackpacks/integrations/opentelemetry/manual-instrumentation/span-health.md) page)
+- Add a component relation to another propagating health in different ways (You can read more on the [span health state](/stackpacks/integrations/opentelemetry/manual-instrumentation/span-health.md) )
 
-## Important to know when merging
-When you merge your custom instrumentation with a pre-existing StackState component, it might seem that your component disappeared; it did not.
-The component you are merging with will inherit all the properties, health, and relations. This means that
-yes, you do not see your component anymore, but that's because the component you merged with will now act as the
-original component it initially appeared as, and the component you created.
+In StackState, components with the [same identifier](#component-identifier) will be merged together. After merging, the original component will [inherit all properties](#merging-inheritance) from the component that merged with it. The component that was merged will no longer be visible.
 
 ## Merging inheritance
-When you merge your component with a pre-existing StackState component, the StackState component will contain all the labels, telemetry, and health from your merged component.
 
-For example, here we have an unmerged child component; below are all the `labels` and `identifiers` for this child component.
+{% hint style="info" %}
+**Important to know when merging:**
+
+When a custom instrumentation is merged with a pre-existing StackState component, it might seem that custom instrumentation component disappeared; it did not.
+{% endhint %}
+
+When a custom instrumentation component is merged with a pre-existing component, the component with which it is merged will inherit all the properties, health, and relations from the custom instrumentation component. This means that, although the custom instrumentation component will no longer be visible, the component that it merged with now acts as both the original component and the custom instrumentation component. The resulting component will now contain, for example, all the labels, telemetry, and health from the custom instrumentation component.
+
+The example below shows an unmerged child component; below are all the `labels` and `identifiers` for this child component.
 
 ![Topology Perspective - Labels and Identifiers](../../../../.gitbook/assets/v50_otel_unmerged_child.png)
 
@@ -44,8 +50,9 @@ The same can be seen in the health checks and telemetry. You will notice that th
 
 ![Topology Perspective - Component Merged Health State](../../../../.gitbook/assets/v50_otel_after_merge_health.png)
 
-## How do components merge
-If two components on the StackState topology view have the same `identifier` it will merge those two components.
+## Component identifier
+
+If two components in StackState have the same `identifier`, StackState will merge those two components.
 
 For example, if you select a component and click on the `SHOW ALL PROPERTIES` button on the right panel
 
@@ -56,7 +63,8 @@ It will open a dialog; within this dialog, you can see the identifiers. If you r
 ![Topology Perspective - Component properties - Identifiers](../../../../.gitbook/assets/v50_otel_relation_example_b.png)
 
 
-## Merging with a StackState component
+## Example: Merging a component
+
 Let's take the following example; we have three components that we create, all having the previous one as their parent span.
 
 ```text
