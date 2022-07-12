@@ -42,7 +42,7 @@ As you can see below, the **Child Component** turned into a DEVIATING and then a
 
 ## Scenario with pre-existing components
 
-To test how health state works when merging with a pre-existing component, we can use the following scenario:
+To test how health state works when merging with a pre-existing component, we can use the following scenario with a total of five components:
 
 * Three components were created with the manual instrumentation:
 
@@ -53,17 +53,17 @@ To test how health state works when merging with a pre-existing component, we ca
   3. **Child 2 Component** - the third span. Has the parent span ID of the second span.
      - Added `http.status_code` of `200`
 
-* Two pre-existing AWS components are also visible in StackState:
+* Two pre-existing AWS components are also visible:
   * One pre-existing component is in a CRITICAL state .
   * One pre-existing component is in a CLEAR (healthy) state. 
 
-The three created components and the two pre-existing AWS components can be seen in the screenshot below. No components have been merged here.
+All five components can be seen in the screenshot below - no components have been merged here.
 
 ![Manual Instrumentation Components Unmerged To Pre-Existing Components](../../../../.gitbook/assets/v50_otel_components_unmerged.png)
 
 ## Merge with a healthy component
 
-Starting with the [scenario with pre-existing components](#scenario-with-pre-existing-components), we can merge some components to see what happens with the health state and propagated health state. Let's get a `service.identifier` from the bottom right CLEAR (green) component called `otel-example-custom-instrumentation-dev-create-custom-component`.
+Starting from the [scenario with pre-existing components](#scenario-with-pre-existing-components) described above, we can merge with a healthy component to see what happens with the health state and propagated health state. Let's get a `service.identifier` from the bottom right CLEAR (green) component called `otel-example-custom-instrumentation-dev-create-custom-component`.
 
 As you can see in the image below, this component has an identifier of `arn:aws:lambda:eu-west-1:965323806078:function:otel-example-custom-instrumentation-dev-create-custom-component`
 
@@ -79,7 +79,7 @@ As you can see, the relations have now successfully been drawn between the compo
 
 ## Merge with an unhealthy component
 
-Starting with the [scenario with pre-existing components](#scenario-with-pre-existing-components), we can merge some components to see what happens with the health state and propagated health state. Let's get a `service.identifier` from the bottom left CRITICAL (red) component called `otel-example-custom-instrumentation-dev-force-error` and remove the current one that we are using on the right.
+Starting from the [scenario with pre-existing components](#scenario-with-pre-existing-components) described above, we can merge with an unhealthy component to see what happens with the health state and propagated health state. Let's get a `service.identifier` from the bottom left CRITICAL (red) component called `otel-example-custom-instrumentation-dev-force-error` and remove the current one that we are using on the right.
 
 As you can see in the image below, this component has an identifier of `arn:aws:lambda:eu-west-1:965323806078:function:otel-example-custom-instrumentation-dev-force-error`
 
@@ -94,3 +94,5 @@ This produces the following result - all of the properties, health, and relation
 The original component has a `200` (CLEAR) status and the component that it merged with has a `400` status. As you can see, the DEVIATING or CRITICAL state will always take precedence. If one of the components that has been merged changes to have a CRITICAL or DEVIATING state, it will be indicated as shown above.
 
 The unhealthy state will then propagate upwards to the parent relations.
+
+➡️ [Learn more about health state propagation](/use/concepts/health-state.md#propagated-health-state)
