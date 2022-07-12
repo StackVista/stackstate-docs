@@ -2,9 +2,11 @@
 description: StackState Self-hosted v5.0.x
 ---
 
-# Spans Relations
+# Relations between components
 
-Component and Span relations shows the relationship between pre-existing components, for example, the image below shows an example of a relation running from a parent to a child component, that child also then has another component as another child:
+## Overview
+
+Component and span relations show the relationship between components in StackState. For example, the image below shows a relation running from a parent to a child component, that child also then has another component as a child component:
 
 ```text
 Service Name: Parent Component
@@ -18,15 +20,15 @@ An example of the above displayed in StackState will show up as follows:
 
 ![Topology Perspective - Unmerged OTEL Components](../../../../.gitbook/assets/v50_otel_topology_perspective_healthy_component.png)
 
-These relations are based on the parent and child structure. A relationship is drawn from a parent component 
-to a child component. 
+These relations are based on the parent and child structure. A relationship is drawn from a parent component to a child component. 
 
-This means that `Service Name: Child Component` has the parent id set as `Service Name: Parent Component`
-and `Service Name: Child 2 Component` has the parent id set as `Service Name: Child Component`
+This means that:
+* `Service Name: Child Component` has the parent ID set as `Service Name: Parent Component`
+* `Service Name: Child 2 Component` has the parent ID set as `Service Name: Child Component`
 
-## Health State Flow
+## Health state propagation
 
-Important to also remember that the health state only propagates up, so that means if we have the following
+In StackState, the health state of a component will propagate upwards through the dependency tree. This means that in the following situation:
 
 ```text
 Service Name: Parent Component
@@ -36,7 +38,7 @@ Service Name: Parent Component
      ---> Service Name: Child 2 Component
 ```
 
-Then that will only result in the following components showing a propagated CRITICAL state.
+The following components will have a propagated CRITICAL state:
 
 ```text
 Service Name: Parent Component [Propagated 400 Status]
@@ -46,30 +48,31 @@ Service Name: Parent Component [Propagated 400 Status]
      ---> Service Name: Child 2 Component
 ```
 
-A visual example of this will be as follows:
+A visual example of this in the StackState UI will be as follows:
 
 ![Topology Perspective - OTEL Components CRITICAL State](../../../../.gitbook/assets/v50_otel_topology_perspective_critical_component.png)
 
+So remember to create your parent and children spans in the correct order as it may affect the propagation of health state.
 
-So remember to create your parent and children spans in the correct order as it may affect the flow of the health state.
+➡️ [Learn more about health state propagation](/use/concepts/health-state.md#propagated-health-state)
 
 ## Relations when merging
 
 Relations are retained when merging components; this allows you to create a parent component, create a child component for this parent
-and then merge that child component with an existing component. This will then create a relationship between the pre-existing component
-and parent components. For example, here we have the three components as described above:
+and then merge that child component with an existing component. This will then create a relationship between the pre-existing component that the child component merged with and the parent component. For example, here we have the three components as described above:
 
 ![Topology Perspective - OTEL Components and Pre-Existing Components](../../../../.gitbook/assets/v50_otel_components_unmerged.png)
 
-If we then merge our middle component `Service Name: Child Component` with the existing healthy Lambda component `otel-example-custom-instrumentation-dev-create-custom-component` in the bottom right corner.
-You will then notice that the middle component disappeared as it merged with the Lambda component, and now the Lambda has relations with the first and third components as it
-inherited the same relation mappings.
+If we then merge our middle component `Service Name: Child Component` with the existing healthy Lambda component `otel-example-custom-instrumentation-dev-create-custom-component` in the bottom right corner:
+
+* The middle component will disappear (merged with the Lambda component)
+* The Lambda component will have relations to the first and third components (inherited relation mappings from the middle component).
 
 ![Topology Perspective - Merged with Healthy Component](../../../../.gitbook/assets/v50_otel_traces_merge_with_healthy_complete.png)
 
 ## Multiple children
 
-It is also good to know that a single parent can have multiple children. This allows you to build a tree with branches of relations, for example
+It is also good to know that a single parent can have multiple children. This allows you to build a tree with branches of relations, for example:
 
 ```text
 Service Name: Parent Component

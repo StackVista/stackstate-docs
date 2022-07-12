@@ -75,7 +75,7 @@ The `trace.perspective.name` is used to find your span within a trace in the Sta
 {% endtabs %}
 
 
-### Service Name
+### Service name
 
 The value from `service.name` is used as a primary means to identify a component in the StackState Topology Perspective. A `spans.serviceName` key is also created in the Traces Perspective to identify if the trace in the Traces Perspective matches the component in the Topology Perspective.
 
@@ -139,7 +139,7 @@ The value from `service.name` is used as a primary means to identify a component
 {% endtabs %}
 
 
-### Service Type
+### Service type
 
 The `service.type` is used to identify the type of service in the span in the StackState UI [Traces Perspective](/use/stackstate-ui/perspectives/traces-perspective.md).
 
@@ -165,7 +165,7 @@ The `service.type` is used to identify the type of service in the span in the St
 {% endtab %}
 {% endtabs %}
 
-### Service Identifier 
+### Service identifier 
 
 The service identifier is used for merging components. The provided value will be added to the identifier list on the component in StackState. 
 
@@ -196,7 +196,7 @@ Components with the same service identifiers will merge into one component. This
 {% endtabs %}
 
 
-### Resource Name
+### Resource name
 
 The resource name is displayed in the Traces Perspective for a specific trace, allowing you to quickly identify what resource each trace is a part of. Best practise would be to use this value to group similar resources, thus allowing you to easily identify a span.
 
