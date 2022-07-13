@@ -9,7 +9,7 @@ description: StackState Self-hosted v5.0.x
 Components from a custom instrumentation can be merged with pre-existing components in StackState. This allows you to:
 - Add extra attributes into pre-existing components.
 - Create custom relations for pre-existing components. 
-- Add a component relation to another propagating health in different ways (You can read more on the [span health state](/stackpacks/integrations/opentelemetry/manual-instrumentation/span-health.md) )
+- Influence the propagation of health state. For details, see the page [Span health state](span-health.md).
 
 Components with the [same identifier](#component-identifier) will be merged together in StackState. After merging, the original component will [inherit all properties](#merging-inheritance) from the component that merged with it. The component that was merged will no longer be visible.
 
