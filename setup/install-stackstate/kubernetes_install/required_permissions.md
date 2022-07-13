@@ -21,6 +21,9 @@ The automatic creation of cluster-wide resources during installation of StackSta
 ```yaml
 cluster-role:
   enabled: false
+anomaly-detection:
+  cluster-role:
+    enabled: false
 ```
 {% endtab %}
 {% endtabs %}
@@ -69,6 +72,9 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: stackstate-api
+  namespace: stackstate
+- kind: ServiceAccount
+  name: anomaly-detection-sa
   namespace: stackstate
 ```
 {% endtab %}
