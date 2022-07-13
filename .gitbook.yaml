@@ -252,7 +252,9 @@ redirects:
 
   configure/topology/topology_synchronization: ./configure/topology/send-topology-data.md
   configure/topology/debugging_topology_synchronization: ./configure/topology/debug-topology-synchronization.md
+  develop/stql_reference: ./develop/reference/stql_reference.md
   get-started/getting-started: ./getting_started.md
+  setup/installation: ./setup/install-stackstate/README.md
   setup/installation/README: ./setup/install-stackstate/README.md
   setup/installation/initial_run_guide: ./setup/install-stackstate/initial_run_guide.md
   setup/installation/kubernetes_install/: ./setup/install-stackstate/kubernetes_install/README.md
@@ -275,6 +277,7 @@ redirects:
   setup/installation/linux_install/production-installation: ./setup/install-stackstate/linux_install/production-installation.md
   setup/installation/linux_install/reverse_proxy: ./setup/install-stackstate/linux_install/reverse_proxy.md
   setup/installation/openshift_install: ./setup/install-stackstate/openshift_install.md
+  stackpacks/integrations/manualtopo: ./stackpacks/integrations/static_topology.md
   setup/requirements: ./setup/install-stackstate/requirements.md
   stackpacks/integrations/centos: ./setup/agent/linux.md
   stackpacks/integrations/debian: ./setup/agent/linux.md
@@ -290,11 +293,8 @@ redirects:
   use/introduction-to-stackstate/layers_domains_and_environments: ./use/concepts/layers_domains_environments.md
   use/introduction-to-stackstate/perspectives: ./use/concepts/perspectives.md
   use/introduction-to-stackstate/stackstate_architecture: ./use/concepts/stackstate_architecture.md
-  stackpacks/integrations/manualtopo: ./stackpacks/integrations/static_topology.md
   use/problem-analysis/problems: ./use/problem-analysis/about-problems.md
   use/metrics-and-events/send-event-notifications: ./use/metrics-and-events/event-notifications.md
-  setup/installation: ./setup/install-stackstate/README.md
-  develop/stql_reference: ./develop/reference/stql_reference.md
 
 # 4.6 docs
 
