@@ -65,7 +65,7 @@ If you click on a log stream, you can see the log stream in a popup. Again, ther
 
 ## Problems
 
-To quickly find the cause of any deviating component, head to the right panel in the selected view where you can find the **Problems** section in the **View summary** tab. It reduces the cognitive flow and provides immediate understanding of ongoing problems. The Problems section will show you the cause of problems in your view. This summary is based on the components impacted in your current view combined with all \(potential\) causes. Problems are automatically clustered by their root cause.
+To quickly find the cause of any DEVIATING component, head to the right panel in the selected view where you can find the **Problems** section in the **View summary** tab. It reduces the cognitive flow and provides immediate understanding of ongoing problems. The Problems section will show you the cause of problems in your view. This summary is based on the components impacted in your current view combined with all \(potential\) causes. Problems are automatically clustered by their root cause.
 
 Problems and issues are displayed in the following order:
 

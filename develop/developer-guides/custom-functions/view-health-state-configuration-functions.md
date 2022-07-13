@@ -32,7 +32,7 @@ The methods `countHealthState` and `countPropagatedHealthState` return a count o
 viewSummary.countPropagatedHealthState(propagatedHealthStates.DEVIATING)
 ```
 
-Note that `countPropagatedHealthState` will return a count of all elements with a specified propagated state. As both the originating component and all relations have a propagated health state these will be included in the returned count. This means that a `DEVIATING` propagated health state count of a view with one deviating component will be three. Two for the components \(originating and propagated\) and one for the relation.
+Note that `countPropagatedHealthState` will return a count of all elements with a specified propagated state. As both the originating component and all relations have a propagated health state these will be included in the returned count. This means that a `DEVIATING` propagated health state count of a view with one DEVIATING component will be three. Two for the components \(originating and propagated\) and one for the relation.
 
 In the script example below, `minCriticalHealthStates` and `minDeviatingHealthStates` are user parameters. These are named in the view health state configuration function and set by the user when the view health state is configured.
 

@@ -168,7 +168,7 @@ The StackState Agent V2 configuration is located in the file `/etc/stackstate-ag
 
 StackState Agent V2 can be configured to reduce data production, tune the process blacklist, or turn off specific features when not needed. The required settings are described in detail on the page [advanced Agent configuration](advanced-agent-configuration.md).
 
-### Integration configuration
+### External integration configuration
 
 StackState Agent V2 can be configured to run checks that integrate with external systems. Each integration has its own configuration file that is used by the associated Agent check. Configuration files for integrations that will run through the StackState Agent in Docker should be added as a volume to the directory `/etc/stackstate-agent/conf.d/` when the container is started.
 
