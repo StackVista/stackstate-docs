@@ -321,13 +321,22 @@ redirects:
 
 # 5.0 docs
 
+  configure/logging/stackstate-log-files: ./configure/logging/README.md
+  configure/opentelemetry: ./stackpacks/integrations/opentelemetry.md
+  configure/opentelemetry/prerequisites: ./stackpacks/integrations/opentelemetry/manual-instrumentation/prerequisites.md
+  configure/opentelemetry/opentelemetry-instrumentation: ./stackpacks/integrations/opentelemetry/about-instrumentations.md
+  configure/opentelemetry/manual-instrumentation: ./stackpacks/integrations/opentelemetry/manual-instrumentation.md
+  configure/opentelemetry/manual-instrumentation/mappings: ./stackpacks/integrations/opentelemetry/manual-instrumentation/tracer-and-span-mappings.md
+  configure/opentelemetry/manual-instrumentation/relations: ./stackpacks/integrations/opentelemetry/manual-instrumentation/relations.md
+  configure/opentelemetry/manual-instrumentation/health: ./stackpacks/integrations/opentelemetry/manual-instrumentation/span-health.md
+  configure/opentelemetry/manual-instrumentation/merging: ./stackpacks/integrations/opentelemetry/manual-instrumentation/merging.md
+  configure/opentelemetry/manual-instrumentation/instrumentation-examples: ./stackpacks/integrations/opentelemetry/manual-instrumentation/code-examples.md
   develop/reference/scripting/async_script_result: ./develop/reference/scripting/async-script-result.md
   develop/reference/cli_reference: ./setup/cli/README.md
   setup/cli-install: ./setup/cli/README.md
+  stackpacks/integrations/aws/opentelemetry-nodejs: ./stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md
   use/health-state/anomaly-health-checks: ./use/checks-and-monitors/anomaly-health-checks.md
   use/health-state/configure-view-health: ./use/stackstate-ui/views/configure-view-health.md
   use/health-state/about-health-state: ./use/concepts/health-state.md
   use/health-state/add-a-health-check: ./use/checks-and-monitors/add-a-health-check.md
   use/health-state: ./use/checks-and-monitors/README.md
-  configure/logging/stackstate-log-files: ./configure/logging/README.md
-  stackpacks/integrations/aws/opentelemetry-nodejs: ./stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md
