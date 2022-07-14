@@ -94,7 +94,7 @@ The StackState Agent, Cluster Agent and kube-state-metrics can be installed toge
    * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
    * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
 
-   * For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#communicate-with-stackstate).
+   * For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
 
    - Note that [additional optional configuration](#helm-chart-values) can be added to the standard helm command.
 

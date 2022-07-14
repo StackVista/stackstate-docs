@@ -37,7 +37,7 @@ To start a single Docker container with StackState Agent V2, run the command bel
 * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
 * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
 
-For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#communicate-with-stackstate).
+For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
 
 ```text
 docker run -d \
@@ -70,7 +70,7 @@ To run StackState Agent V2 with Docker compose:
 1. Add the following configuration to the compose file on each node where the Agent will run.
    * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
    * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
-   For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#communicate-with-stackstate).
+   For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
 
    ```bash
    stackstate-agent:
@@ -112,7 +112,7 @@ To run StackState Cluster Agent in Docker Swarm mode:
 1. Create a file `docker-compose.yml` with the following content. Update to include details of your StackState instance:
    * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
    * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
-   For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#communicate-with-stackstate).
+   For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
    * `<CLUSTER_NAME>` is the name you would like to give this cluster
 
    ```bash

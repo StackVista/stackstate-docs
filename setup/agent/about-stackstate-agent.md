@@ -32,6 +32,10 @@ To integrate with an external system, an Agent must be deployed in a location th
 
 Documentation for the available StackState integrations, including how to configure the associated Agent checks, can be found on the [StackPacks &gt; Integrations pages](../../stackpacks/integrations/).
 
+### Open source
+
+StackState Agent V2 is open source and can be found on GitHub at: [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
+
 ### Overhead
 
 StackState Agent V2 consists of up to four different processes - `stackstate-agent`, `trace-agent`, `process-agent` and `cluster-agent`. To run the basic Agent, the resources named below are required. These were observed running StackState Agent V2 v2.13.0 on a c5.xlarge instance with 4 vCPU cores and 8GB RAM. They give an indication of the overhead for the most simple set up. Actual resource usage will increase based on the Agent configuration running. This can be impacted by factors such as the Agent processes that are enabled, the number and nature of checks running, whether network connection tracking and protocol inspection are enabled, and the number of Kubernetes pods from which metrics are collected on the same host as the Agent.
@@ -64,11 +68,7 @@ StackState Agent V2 consists of up to four different processes - `stackstate-age
 
 On Kubernetes, limits are placed on CPU and memory usage of the Agent, Cluster Agent and Cluster checks. These can be configured in the [Agent Helm chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent).
 
-### Open source
-
-StackState Agent V2 is open source and can be found on GitHub at: [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
-
-## Running the StackState Agent
+## Running the Agent
 
 ### Deployment
 
@@ -131,9 +131,9 @@ For the StackState SaaS product, the StackState Receiver API key will be provide
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 
-## Troubleshooting
+### Troubleshooting
 
-### Log files and log level
+#### Log files and log level
 
 For details of how to set the log level for the Agent and access the log files, see the platform-specific Agent pages:
 
@@ -143,7 +143,7 @@ For details of how to set the log level for the Agent and access the log files, 
 * [StackState Agent V2 on OpenShift](openshift.md#troubleshooting)
 * [StackState Agent V2 on Windows](windows.md#troubleshooting)
 
-### Support knowledge base
+#### Support knowledge base
 
 Troubleshooting steps for any known issues can be found in the [StackState support knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=agent).
 

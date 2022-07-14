@@ -41,7 +41,7 @@ StackState Agent V2 is installed using a [PowerShell \(docs.microsoft.com\)](htt
 * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
 * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
 
-For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#communicate-with-stackstate).
+For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
 {% endhint %}
 
 #### Online install

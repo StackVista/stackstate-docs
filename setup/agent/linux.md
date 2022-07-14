@@ -51,7 +51,7 @@ If you have access to the internet on the machine where the Agent will be instal
 * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
 * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
 
-For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#communicate-with-stackstate).
+For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
 
 {% tabs %}
 {% tab title="cURL" %}
@@ -87,7 +87,7 @@ If you do not have access to the internet on the machine where the Agent will be
 4. Use the command below to set the required environment variables and run the installer script.
    * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
    * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState.
-   For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#communicate-with-stackstate).
+   For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
 
 ```text
 STS_API_KEY="<STACKSTATE_RECEIVER_API_KEY>" \

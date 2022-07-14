@@ -27,7 +27,7 @@ If the tracer name passed to StackState Agent does not exactly match the value s
 
 ➡️ [See how this is implemented in code examples](code-examples.md#2-core-definitions)
 
-Running StackState Agent in debug mode will return a message in the case that a wrong tracer name is used. The message will warn about an unknown instrumentation and state the tracer name that was passed to it.
+When the [log level in StackState Agent](/setup/agent/about-stackstate-agent.md#troubleshooting) is to `DEBUG`, a message will be returned if a wrong tracer name has been used. The message will warn about an unknown instrumentation and state the tracer name that was passed to it.
 
 ## Span mapping requirements 
 
