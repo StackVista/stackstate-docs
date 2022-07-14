@@ -24,9 +24,9 @@ The OpenShift integration collects topology data in an OpenShift cluster, as wel
 
 | Component | Pod name |
 | :--- | :--- |
-| [StackState Cluster Agent](openshift.md#cluster-agent) | `stackstate-cluster-agent` |
-| [StackState Agent](openshift.md#agent) | `stackstate-cluster-agent-agent` |
-| [StackState ClusterCheck Agent \(optional\)](openshift.md#clustercheck-agent-optional)| `stackstate-cluster-agent-clusterchecks` |
+| [Agent](openshift.md#agent) | `stackstate-cluster-agent-agent` |
+| [Cluster Agent](openshift.md#cluster-agent) | `stackstate-cluster-agent` |
+| [ClusterCheck Agent \(optional\)](openshift.md#clustercheck-agent-optional)| `stackstate-cluster-agent-clusterchecks` |
 
 {% hint style="info" %}
 To integrate with other services, a separate instance of the StackState Agent should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on an OpenShift cluster with checks that integrate with other services.
