@@ -275,7 +275,7 @@ If StackState Agent is running on a Linux VM:
     - **log_bucket_name** - The S3 bucket that the agent should read events from. This value should only be set in custom implementations.
     - **tags** - Optional. Can be used to apply specific tags to all reported data in StackState.
 
-3. [Restart the StackState Agent](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
+3. [Restart the StackState Agent](/setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 4. Once the Agent has restarted, wait for data to be collected from AWS and sent to StackState.
 {% endtab %}
 {% endtabs %}
