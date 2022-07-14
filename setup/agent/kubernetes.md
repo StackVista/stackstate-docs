@@ -221,11 +221,12 @@ To find the status of an Agent check:
 
 Logs for the Agent can be found in the `agent` pod, where the StackState Agent is running. 
 
-### Set log level
+### Debug mode
 
 By default, the log level of the Agent is set to `INFO`. To assist in troubleshooting, the Agent log level can be set to `DEBUG`. This will enable verbose logging and all errors encountered will be reported in the Agent log files.
 
-To set the log level to `DEBUG` for an Agent running on Kubernetes, set `'agent.logLevel'='debug'` in the helm command when deploying the Agent. To also include the topology/telemetry payloads sent to StackState in the Agent log, set `--set-string 'global.extraEnv.open.STS_LOG_PAYLOADS'='true'`.
+* To set the log level to `DEBUG` for an Agent running on Kubernetes, set `'agent.logLevel'='debug'` in the helm command when deploying the Agent. 
+* To also include the topology/telemetry payloads sent to StackState in the Agent log, set `--set-string 'global.extraEnv.open.STS_LOG_PAYLOADS'='true'`.
 
 For example:
 

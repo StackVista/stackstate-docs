@@ -272,7 +272,7 @@ Inside the running container, StackState Agent V2 logs are in the following file
 * `/var/log/stackstate-agent/agent.log`
 * `/var/log/stackstate-agent/process-agent.log`
 
-### Set log level
+### Debug mode
 
 By default, the log level of the Agent container is set to `INFO`. To assist in troubleshooting, the Agent log level can be set to `DEBUG`. This will enable verbose logging and all errors encountered will be reported in the Agent log files.
 

@@ -154,7 +154,7 @@ Logs for the Agent subsystems can be found in the following files:
 * `C:\ProgramData\StackState\logs\agent.log`
 * `C:\ProgramData\StackState\logs\process-agent.log`
 
-### Set log level
+### Debug mode
 
 By default, the log level of the Agent is set to `INFO`. To assist in troubleshooting, the Agent log level can be set to `DEBUG`. This will enable verbose logging and all errors encountered will be reported in the Agent log files.
 
