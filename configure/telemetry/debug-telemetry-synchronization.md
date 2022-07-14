@@ -127,7 +127,7 @@ The following log files may be useful when debugging telemetry synchronization:
 
 ### StackState Agent
 
-For details of the log files for StackState Agent, see the platform-specific Agent pages:
+For details of the StackState Agent log files, see the platform-specific Agent pages:
 
 * [StackState Agent V2 on Docker](/setup/agent/docker.md#log-files)
 * [StackState Agent V2 on Kubernetes](/setup/agent/kubernetes.md#log-files)
