@@ -10,7 +10,7 @@ The StackState Agent functions as a collector and gateway. It connects to extern
 
 ## About the Agent
 
-## Architecture
+### Architecture
 
 StackState Agent V2 can be run on Linux or Windows systems or inside a Docker container. It is not necessary to deploy the StackState Agent on every machine to retrieve data. Each deployed StackState Agent can run multiple checks to collect data from different external systems.
 
@@ -32,11 +32,7 @@ To integrate with an external system, an Agent must be deployed in a location th
 
 Documentation for the available StackState integrations, including how to configure the associated Agent checks, can be found on the [StackPacks &gt; Integrations pages](../../stackpacks/integrations/).
 
-### Open source
-
-StackState Agent V2 is open source and can be found on GitHub at: [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
-
-### Agent overhead
+### Overhead
 
 StackState Agent V2 consists of up to four different processes - `stackstate-agent`, `trace-agent`, `process-agent` and `cluster-agent`. To run the basic Agent, the resources named below are required. These were observed running StackState Agent V2 v2.13.0 on a c5.xlarge instance with 4 vCPU cores and 8GB RAM. They give an indication of the overhead for the most simple set up. Actual resource usage will increase based on the Agent configuration running. This can be impacted by factors such as the Agent processes that are enabled, the number and nature of checks running, whether network connection tracking and protocol inspection are enabled, and the number of Kubernetes pods from which metrics are collected on the same host as the Agent.
 
@@ -68,7 +64,11 @@ StackState Agent V2 consists of up to four different processes - `stackstate-age
 
 On Kubernetes, limits are placed on CPU and memory usage of the Agent, Cluster Agent and Cluster checks. These can be configured in the [Agent Helm chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent).
 
-## Running StackState Agent
+### Open source
+
+StackState Agent V2 is open source and can be found on GitHub at: [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
+
+## Running the StackState Agent
 
 ### Deployment
 
@@ -80,7 +80,7 @@ Deployment instructions, commands to work with StackState Agent V2 and other pla
 * [StackState Agent V2 on OpenShift](openshift.md)
 * [StackState Agent V2 on Windows](windows.md)
 
-### Communicate with StackState
+### Connect to StackState
 
 #### Receiver API address
 
@@ -131,7 +131,7 @@ For the StackState SaaS product, the StackState Receiver API key will be provide
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 
-### Troubleshooting
+## Troubleshooting
 
 ### Log files and log level
 
