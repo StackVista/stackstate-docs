@@ -247,6 +247,10 @@ helm upgrade --install \
    stackstate-cluster-agent stackstate/cluster-agent
 ```
 
+### Support knowledge base
+
+Troubleshooting steps for any known issues can be found in the [StackState support knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=agent).
+
 ## Uninstall
 
 To uninstall the StackState Cluster Agent and the StackState Agent from your OpenShift cluster, run a Helm uninstall:

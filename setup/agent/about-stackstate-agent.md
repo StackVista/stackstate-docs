@@ -135,7 +135,7 @@ For the StackState SaaS product, the StackState Receiver API key will be provide
 
 #### Log files and debug mode
 
-For details of how to set the log level to debug mode for the Agent and access the log files, see the platform-specific Agent pages:
+For details of how to set the Agent log level to debug and access the Agent logs, see the platform-specific Agent pages:
 
 * [StackState Agent V2 on Docker](docker.md#troubleshooting)
 * [StackState Agent V2 on Kubernetes](kubernetes.md#troubleshooting)

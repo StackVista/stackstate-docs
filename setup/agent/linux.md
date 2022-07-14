@@ -224,7 +224,7 @@ By default, the log level of the Agent is set to `INFO`. To assist in troublesho
 To set the log level to `DEBUG` for an Agent running on Linux:
 
 1. Edit the file `/etc/stackstate-agent/stackstate.yaml`
-2. Add the line:
+2. To set the log level to `DEBUG`, add the line:
     ```
     log_level: debug
     ```
