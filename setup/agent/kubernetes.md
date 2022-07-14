@@ -94,7 +94,7 @@ The StackState Agent, Cluster Agent and kube-state-metrics can be installed toge
    * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
    * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
 
-   * For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api).
+   * For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#communicate-with-stackstate).
 
    - Note that [additional optional configuration](#helm-chart-values) can be added to the standard helm command.
 
@@ -102,7 +102,7 @@ The StackState Agent, Cluster Agent and kube-state-metrics can be installed toge
 helm upgrade --install \ 
    --namespace stackstate \
    --create-namespace \
-   --set-string <STACKSTATE_RECEIVER_API_KEY> \
+   --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
    --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
    --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
    stackstate-cluster-agent stackstate/cluster-agent
@@ -129,10 +129,10 @@ For example:
 helm upgrade --install \
 --namespace stackstate \
 --create-namespace \
---set-string 'stackstate.apiKey=<STACKSTATE_RECEIVER_API_KEY>' \
---set-string 'stackstate.cluster.name=<KUBERNETES_CLUSTER_NAME>' \
---set-string 'stackstate.cluster.authToken=<CLUSTER_AUTH_TOKEN>' \
---set-string 'stackstate.url=<STACKSTATE_RECEIVER_API_ADDRESS>' \
+--set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
+--set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
+--set-string 'stackstate.cluster.authToken'='<CLUSTER_AUTH_TOKEN>' \
+--set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
 stackstate-cluster-agent stackstate/cluster-agent
 ```
 
@@ -214,6 +214,33 @@ To find the status of an Agent check:
    ```
    
 3. Look for the check name under the `Checks` section.
+
+## Troubleshooting
+
+### Log files
+
+TODO
+
+### Set log level
+
+By default, the log level of the Agent is set to `INFO`. To assist in troubleshooting, the Agent log level can be set to `DEBUG`. This will enable verbose logging and all errors encountered will be reported in the Agent log files.
+
+To set the log level to `DEBUG` for an Agent running on Kubernetes, set `'agent.logLevel'='debug'` in the helm command when deploying the Agent. For example:
+
+```bash
+helm upgrade --install \ 
+   --namespace stackstate \
+   --create-namespace \
+   --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
+   --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
+   --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
+   --set 'agent.logLevel'='debug' \
+   stackstate-cluster-agent stackstate/cluster-agent
+```
+
+### Support knowledge base
+
+Troubleshooting steps for any known issues can be found in the [StackState support knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=agent).
 
 ## Uninstall
 

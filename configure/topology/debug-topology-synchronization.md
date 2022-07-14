@@ -42,7 +42,7 @@ A topology synchronized using StackState Agent follows the process described bel
 ### StackState Agent
 
 For integrations that run through StackState Agent, StackState Agent is a good place to start an investigation.
-- Check the [StackState Agent log](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) for hints that it has problems connecting to StackState.
+- Check the [StackState Agent log](/setup/agent/about-stackstate-agent.md#deployment) for hints that it has problems connecting to StackState.
 - The integration can be triggered manually using the `stackstate-agent check <check_name> -l debug` command on your terminal. This command will not send any data to StackState. Instead, it will return the topology and telemetry collected to standard output along with any generated log messages.
 
 ### StackState Receiver

@@ -146,7 +146,7 @@ No manual action required.
 
 #### v4.5.1
 
-* Adds compatibility with StackState Agent v2.15.0. Read how to [upgrade StackState Agent](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2).
+* Adds compatibility with StackState Agent v2.15.0. Read how to [upgrade StackState Agent](/setup/agent/about-stackstate-agent.md#deployment).
 
 #### v4.5.0
 
@@ -173,7 +173,7 @@ No manual action required.
 
 #### v4.5.1
 
-* Adds compatibility with StackState Agent v2.15.0. Read how to [upgrade StackState Agent](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2).
+* Adds compatibility with StackState Agent v2.15.0. Read how to [upgrade StackState Agent](/setup/agent/about-stackstate-agent.md#deployment).
 
 #### v4.5.0
 
