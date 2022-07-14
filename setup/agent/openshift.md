@@ -67,7 +67,7 @@ The following checks can be configured to run as a cluster check:
 
 ## Setup
 
-### Supported versions
+### Supported OpenShift versions
 
 StackState Agent v2.17.x is supported to monitor the following versions of OpenShift:
 
