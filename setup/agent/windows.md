@@ -165,7 +165,11 @@ To set the log level to `DEBUG` for an Agent running on Windows:
     ```
     log_level: debug
     ```
-3. Save the file and [restart the Agent](#start-stop-or-restart-the-agent) for changes to be applied.
+3. To also include the topology/telemetry payloads sent to StackState in the Agent log, add the line:
+    ```
+    log_payloads: true
+    ```
+4. Save the file and [restart the Agent](#start-stop-or-restart-the-agent) for changes to be applied.
 
 
 ### Support knowledge base

@@ -276,11 +276,10 @@ Inside the running container, StackState Agent V2 logs are in the following file
 
 By default, the log level of the Agent container is set to `INFO`. To assist in troubleshooting, the Agent log level can be set to `DEBUG`. This will enable verbose logging and all errors encountered will be reported in the Agent log files.
 
-To set the log level to `DEBUG` for an Agent running on Docker, use the `STS_LOG_LEVEL` environment variable:
+To set the log level to `DEBUG` for an Agent running on Docker, use the `STS_LOG_LEVEL` environment variable. Other optional logging settings:
 
-```text
-STS_LOG_LEVEL: "DEBUG"
-```
+* `STS_LOG_PAYLOADS: "true"` - include the topology/telemetry payloads sent to StackState in the Agent log.
+* `STS_LOG_TO_CONSOLE: "true"` - write log output to the container stdout.
 
 For example:
 

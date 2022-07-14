@@ -162,6 +162,10 @@ To upgrade the Agents running in your OpenShift cluster, run the helm upgrade co
 
 ## Configure
 
+### Advanced Agent configuration
+
+StackState Agent V2 can be configured to reduce data production, tune the process blacklist, or turn off specific features when not needed. The required settings are described in detail on the page [advanced Agent configuration](advanced-agent-configuration.md).
+
 ### Enable cluster checks
 
 Optionally, the chart can be configured to start an additional StackState Agent V2 pod as a [StackState ClusterCheck Agent](openshift.md#clustercheck-agent-optional) pod. Cluster checks that are configured on the [StackState Cluster Agent](openshift.md#cluster-agent) will then be run by the deployed StackState ClusterCheck Agent pod.
@@ -179,13 +183,9 @@ The following integrations have checks that can be configured to run as cluster 
 - **OpenShift integration** - [OpenShift Kubernetes_state check as a cluster check](/stackpacks/integrations/openshift.md#configure-cluster-check-kubernetes_state-check).
 - **AWS integration** - [AWS check as a cluster check](/stackpacks/integrations/aws/aws.md#configure-the-aws-check).
 
-### Advanced Agent configuration
-
-StackState Agent V2 can be configured to reduce data production, tune the process blacklist, or turn off specific features when not needed. The required settings are described in detail on the page [advanced Agent configuration](advanced-agent-configuration.md).
-
 ### External integration configuration
 
-To integrate with other external services, a separate instance of the [StackState Agent](about-stackstate-agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on an OpenShift cluster with checks that integrate with other services.
+To integrate with other external services, a separate instance of the [StackState Agent](about-stackstate-agent.md) should be deployed on a standalone VM. Other than [cluster checks](#enable-cluster-checks), it is not currently possible to configure a StackState Agent deployed on an OpenShift cluster with checks that integrate with other services.
 
 ## Commands
 
@@ -222,13 +222,15 @@ To find the status of an Agent check:
 
 ### Log files
 
-TODO
+Logs for the Agent can be found in the `agent` pod, where the StackState Agent is running. 
 
 ### Set log level
 
 By default, the log level of the Agent is set to `INFO`. To assist in troubleshooting, the Agent log level can be set to `DEBUG`. This will enable verbose logging and all errors encountered will be reported in the Agent log files.
 
-To set the log level to `DEBUG` for an Agent running on OpenShift, set `'agent.logLevel'='debug'` in the helm command when deploying the Agent. For example:
+To set the log level to `DEBUG` for an Agent running on OpenShift, set `'agent.logLevel'='debug'` in the helm command when deploying the Agent. To also include the topology/telemetry payloads sent to StackState in the Agent log, set `--set-string 'global.extraEnv.open.STS_LOG_PAYLOADS'='true'`.
+
+For example:
 
 ```bash
 helm upgrade --install \ 
@@ -237,6 +239,7 @@ helm upgrade --install \
    --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
    --set-string 'stackstate.cluster.name'='<OPENSHIFT_CLUSTER_NAME>' \
    --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
+   --set-string 'global.extraEnv.open.STS_LOG_PAYLOADS'='true' \
    --set 'agent.logLevel'='debug' \
    --set 'agent.scc.enabled'=true \
    --set 'kube-state-metrics.securityContext.enabled'=false \
