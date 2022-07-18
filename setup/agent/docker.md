@@ -31,24 +31,7 @@ In [Docker swarm mode](#docker-swarm-mode), StackState Cluster Agent running on 
 
 ### Metrics
 
-Telemetry for hosts, processes and containers is retrieved, as well as network traffic telemetry for network connections between processes/containers/services.
-
-* Container Restart
-* Container State
-* CPU amount of seconds throttled
-* CPU number of times throttled
-* CPU threads count
-* CPU time - System (percentage / second)
-* CPU time - Total (percentage / second)
-* CPU time - User (percentage / second)
-* IO read (bytes / second)
-* IO written (bytes / second)
-* Memory - Cache (bytes)
-* Memory - Resident (bytes)
-* Network received (bytes / second)
-* Network received (packets / second)
-* Network sent (bytes / second)
-* Network sent (packets / second)
+Telemetry for hosts, processes and containers is retrieved, as well as network traffic telemetry for network connections between processes/containers/services. For details, see the metrics [data retrieved](#data-retrieved).
 
 ## Setup
 
