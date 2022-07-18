@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState SaaS
 ---
 
 # Monitor STJ file format
@@ -63,7 +63,6 @@ An important field of the monitor node is the `identifier` - it is a unique valu
 
 `urn : <prefix> : monitor : <unique-monitor-identification>`
 
-* The `<prefix>` is described in more detail in [topology identifiers](../../../configure/topology/identifiers.md "StackState Self-Hosted only").
 * The `<unique-monitor-identification>` is user-definable and free-form.
 
 ### Monitor function
@@ -74,26 +73,21 @@ Monitor functions are scripts that accept 4T data as input, check the data based
 
 You can list the available monitor functions using the CLI command:
 
-{% tabs %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: sts (new)" %}[](http://not.a.link "StackState Self-Hosted only")
 ```
 sts settings list --type MonitorFunction
 ```
 
-➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
-`stac graph list MonitorFunction`[](http://not.a.link "StackState Self-Hosted only")
 
-**Not running the `stac` CLI yet?**[](http://not.a.link "StackState Self-Hosted only")
 
-➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade "StackState Self-Hosted only")
-{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 
 {% hint style="success" "self-hosted info" %}
 
-You can [create custom monitor function](../custom-functions/monitor-functions.md) to customize how StackState processes 4T data.
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
+You can create custom monitor function to customize how StackState processes 4T data.
 
 {% endhint %}
 
@@ -208,7 +202,6 @@ Monitor functions that utilize telemetry tend to be parameterized with the exact
 * `groupBy(fields)` - when a monitor will produce a health state for multiple components, use the `groupBy` field to produce multiple time series as a set of unique values for the defined `fields`.
 * `aggregation(type, interval)` - aggregates each time series by the defined `type`. Each aggregated value is constructed out of a data span the size of the defined `interval`.
 
-➡️ [Learn more about the Telemetry script API](/develop/reference/scripting/script-apis/telemetry.md "StackState Self-Hosted only")
 
 {% tabs %}
 {% tab title="Monitor STJ definition" %}
@@ -307,6 +300,5 @@ The monitor run interval determines how often a monitor logic will be executed. 
 ## See also
 
 * [Create a custom monitor](create-custom-monitors.md)
-* [Monitor functions](/develop/developer-guides/custom-functions/monitor-functions.md "StackState Self-Hosted only")
 * [Manage monitors](/use/checks-and-monitors/manage-monitors.md)
 * [STJ file format](/develop/reference/stj/using_stj.md)

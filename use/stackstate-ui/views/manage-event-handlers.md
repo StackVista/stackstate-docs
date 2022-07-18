@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x 
+description: StackState SaaS
 ---
 
 # Manage event handlers
@@ -41,8 +41,13 @@ StackState ships with the following event handler functions that track **health 
 
 {% hint style="success" "self-hosted info" %}
 
-* An email event handler is available that sends details of a health state change event using a [configured SMTP server](/configure/topology/configure-email-event-notifications.md).
-* You can [create your own custom event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md). 
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
+* An email event handler is available that sends details of a health state change event using a configured SMTP server.
+* You can create your own custom event handler functions. 
 * A full list of the event handler functions available in your StackState instance can be found in the StackState UI, go to **Settings** &gt; **Functions** &gt; **Event Handler Functions**
 
 {% endhint %}
@@ -52,6 +57,4 @@ StackState ships with the following event handler functions that track **health 
 
 * [Event types for event notifications](/use/metrics-and-events/event-notification.mds#event-types-for-notifications)
 * [Add a health check](/use/checks-and-monitors/add-a-health-check.md)
-* [Configure an SMTP server to send email event notifications](/configure/topology/configure-email-event-notifications.md "StackState Self-Hosted only")
-* [Create a custom event handler function](/develop/developer-guides/custom-functions/event-handler-functions.md "StackState Self-Hosted only")
 * [Create a Slack Webhook \(slack.com\)](https://api.slack.com/messaging/webhooks)

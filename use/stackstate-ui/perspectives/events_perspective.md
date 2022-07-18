@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x 
+description: StackState SaaS
 ---
 
 # Events Perspective
@@ -24,7 +24,12 @@ StackState works with three different kinds of events, note that not all of thes
 
 {% hint style="success" "self-hosted info" %}
 
-You can also use the StackState CLI or an HTTP POST to [send events to StackState](../../../configure/telemetry/send_telemetry.md#events).
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
+You can also use the StackState CLI or an HTTP POST to send events to StackState.
 {% endhint %}
 
 ### Event category

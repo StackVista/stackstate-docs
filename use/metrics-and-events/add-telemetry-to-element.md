@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x 
+description: StackState SaaS
 ---
 
 # Add a telemetry stream
@@ -59,4 +59,3 @@ The following aggregation methods are available:
 * [Monitor the health of an element](../checks-and-monitors/add-a-health-check.md)
 * [Browse data in a telemetry stream](browse-telemetry.md)
 * [Set a priority for the telemetry stream](/use/metrics-and-events/set-telemetry-stream-priority.md)
-* [Use templates to add telemetry streams to your own integrations](../../configure/telemetry/telemetry_synchronized_topology.md "StackState Self-Hosted only")
