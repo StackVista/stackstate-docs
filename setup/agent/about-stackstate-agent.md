@@ -8,7 +8,9 @@ description: StackState SaaS
 
 The StackState Agent functions as a collector and gateway. It connects to external systems to retrieve data and pushes this to StackState.
 
-## StackState Agent architecture
+## About the Agent
+
+### Architecture
 
 StackState Agent V2 can be run on Linux or Windows systems or inside a Docker container. It is not necessary to deploy the StackState Agent on every machine to retrieve data. Each deployed StackState Agent can run multiple checks to collect data from different external systems.
 
@@ -27,7 +29,7 @@ Extra information for the [StackState Self-Hosted product](https://docs.stacksta
 The API Integration Agent \(Legacy\) can be run on Linux.
 {% endhint %}
 
-## Integrate with external systems
+### Integrations
 
 In StackState, the [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md) includes all the settings required to integrate with a number of external systems. Data from other external systems can be retrieved by installing additional StackPacks in StackState.
 
@@ -35,34 +37,11 @@ To integrate with an external system, an Agent must be deployed in a location th
 
 Documentation for the available StackState integrations, including how to configure the associated Agent checks, can be found on the [StackPacks &gt; Integrations pages](../../stackpacks/integrations/).
 
-## Deploy and run StackState Agent V2
-
-Deployment instructions, commands to work with StackState Agent V2 and other platform-specific details can be found on the pages listed below:
-
-* [StackState Agent V2 on Docker](docker.md)
-* [StackState Agent V2 on Kubernetes](kubernetes.md)
-* [StackState Agent V2 on Linux](linux.md)
-* [StackState Agent V2 on OpenShift](openshift.md)
-* [StackState Agent V2 on Windows](windows.md)
-
-### StackState Receiver API address
-
-StackState Agent connects to the StackState Receiver API.
-
-
-
-
-
-
-
-For the StackState SaaS product, the address of the StackState Receiver API will be provided on the StackState UI StackPack page after a StackPack has been installed.
-
-
-## Open source
+### Open source
 
 StackState Agent V2 is open source and can be found on GitHub at: [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent).
 
-## Agent overhead
+### Processes and overhead
 
 StackState Agent V2 consists of up to four different processes - `stackstate-agent`, `trace-agent`, `process-agent` and `cluster-agent`. To run the basic Agent, the resources named below are required. These were observed running StackState Agent V2 v2.13.0 on a c5.xlarge instance with 4 vCPU cores and 8GB RAM. They give an indication of the overhead for the most simple set up. Actual resource usage will increase based on the Agent configuration running. This can be impacted by factors such as the Agent processes that are enabled, the number and nature of checks running, whether network connection tracking and protocol inspection are enabled, and the number of Kubernetes pods from which metrics are collected on the same host as the Agent.
 
@@ -93,6 +72,60 @@ StackState Agent V2 consists of up to four different processes - `stackstate-age
 {% endtabs %}
 
 On Kubernetes, limits are placed on CPU and memory usage of the Agent, Cluster Agent and Cluster checks. These can be configured in the [Agent Helm chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent).
+
+## Running the Agent
+
+### Deployment
+
+Deployment instructions, commands to work with StackState Agent V2 and other platform-specific details can be found on the pages listed below:
+
+* [StackState Agent V2 on Docker](docker.md)
+* [StackState Agent V2 on Kubernetes](kubernetes.md)
+* [StackState Agent V2 on Linux](linux.md)
+* [StackState Agent V2 on OpenShift](openshift.md)
+* [StackState Agent V2 on Windows](windows.md)
+
+### Connect to StackState
+
+#### Receiver API address
+
+StackState Agent connects to the StackState Receiver API at the configured address.
+
+
+
+
+
+
+
+For the StackState SaaS product, the StackState Receiver API address will be provided on the StackState UI Agent StackPack page after the StackPack has been installed.
+
+
+#### Receiver API key
+
+StackState Agent requires the StackState Receiver API key to communicate with the StackState Receiver API.
+
+
+
+
+For the StackState SaaS product, the StackState Receiver API key will be provided on the StackState UI Agent StackPack page after the StackPack has been installed.
+
+
+### Troubleshooting
+
+#### Log files and debug mode
+
+For details of how to set the Agent log level to debug and access the Agent logs, see the platform-specific Agent pages:
+
+* [StackState Agent V2 on Docker](docker.md#troubleshooting)
+* [StackState Agent V2 on Kubernetes](kubernetes.md#troubleshooting)
+* [StackState Agent V2 on Linux](linux.md#troubleshooting)
+* [StackState Agent V2 on OpenShift](openshift.md#troubleshooting)
+* [StackState Agent V2 on Windows](windows.md#troubleshooting)
+
+#### Support knowledge base
+
+Troubleshooting steps for any known issues can be found in the [StackState support knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=agent).
+
 
 ## Release notes
 

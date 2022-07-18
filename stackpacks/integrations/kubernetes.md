@@ -15,14 +15,14 @@ The Kubernetes integration is used to create a near real-time synchronization of
 
 ![Data flow](../../.gitbook/assets/stackpack-kubernetes.svg)
 
-The Kubernetes integration collects topology data in an OpenShift cluster as well as metrics and events.
+The Kubernetes integration collects topology data in a Kubernetes cluster as well as metrics and events.
 
-* Data is retrieved by the deployed [StackState Agents](../../setup/agent/kubernetes.md#stackstate-agent-types) and then pushed to StackState via the Agent StackPack and the Kubernetes StackPack.
+* Data is retrieved by the deployed [StackState Agents](../../setup/agent/kubernetes.md#agent-types) and then pushed to StackState via the Agent StackPack and the Kubernetes StackPack.
 * In StackState:
   * [Topology data](kubernetes.md#topology) is translated into components and relations.
   * [Tags](kubernetes.md#tags) defined in Kubernetes are added to components and relations in StackState.
   * [Metrics data](kubernetes.md#metrics) is stored and accessible within StackState. Relevant metrics data is mapped to associated components and relations in StackState.
-  * [Kubernetes events](kubernetes.md#events) are available in the StackState UI Events Perspective and listed in the details pane on the right of the StackState UI.
+  * [Kubernetes events](kubernetes.md#events) are available in the StackState UI Events Perspective and listed in the StackState UI right panel **View summary** tab.
   * [Objects changes events](kubernetes.md#events) are created for every detected change to `spec` or `metadata` in Kubernetes objects
 
 ## Setup
@@ -55,7 +55,7 @@ Install the Kubernetes StackPack from the StackState UI **StackPacks** &gt; **In
 
 If the Agent StackPack is not already installed, this will be automatically installed together with the Kubernetes StackPack. This is required to work with the StackState Agent, which will need to be deployed on each node in the Kubernetes cluster.
 
-### Deploy the StackState Agent and Cluster Agent
+### Deploy: Agent and Cluster Agent
 
 For the Kubernetes integration to retrieve topology, events and metrics data, you will need to have the following installed on your Kubernetes cluster:
 
@@ -68,6 +68,55 @@ For the Kubernetes integration to retrieve topology, events and metrics data, yo
 {% hint style="info" %}
 To integrate with other services, a separate instance of the [StackState Agent](../../setup/agent/about-stackstate-agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on a Kubernetes cluster with checks that integrate with other services.
 {% endhint %}
+
+### Configure cluster check: Kubernetes_state check
+
+The kubernetes\_state check is responsible for gathering metrics from kube-state-metrics and sending them to StackState. It is configured on the StackState Cluster Agent and, by default, runs in the StackState Agent pod that is on the same node as the kube-state-metrics pod.
+
+In a default deployment, all pods running a StackState Agent must be configured with sufficient CPU and memory requests and limits to run the check. This can consume a lot of memory in a large Kubernetes cluster. Since only one StackState Agent pod will actually run the check, a lot of CPU and memory resources will be allocated, but not be used.
+
+To remedy this situation, the kubernetes\_state check can be configured to run as a cluster check. In this case, only the [ClusterCheck Agent](/setup/agent/kubernetes.md#clustercheck-agent-optional) requires resources to run the check and the allocation for other pods can be reduced.
+
+1. Update the `values.yaml` file used to deploy the `cluster-agent`, for example:
+  ```yaml
+  clusterChecks:
+  # clusterChecks.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods.
+    enabled: true
+  agent:
+    config:
+      override:
+  # agent.config.override -- Disables kubernetes_state check on regular agent pods.
+      - name: auto_conf.yaml
+        path: /etc/stackstate-agent/conf.d/kubernetes_state.d
+        data: |
+  clusterAgent:
+    config:
+      override:
+  # clusterAgent.config.override -- Defines kubernetes_state check for clusterchecks agents. Auto-discovery
+  #                                 with ad_identifiers does not work here. Use a specific URL instead.
+      - name: conf.yaml
+        path: /etc/stackstate-agent/conf.d/kubernetes_state.d
+        data: |
+          cluster_check: true
+  
+          init_config:
+  
+          instances:
+            - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
+  ```
+
+2. Deploy the `cluster_agent` using the updated `values.yaml`:
+  ```yaml
+  helm upgrade --install \
+  --namespace stackstate \
+  --create-namespace \
+  --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
+  --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
+  --set-string 'stackstate.cluster.authToken=<CLUSTER_AUTH_TOKEN>' \
+  --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
+  --values values.yaml \
+  stackstate-cluster-agent stackstate/cluster-agent    
+  ```
 
 ### Status
 
@@ -95,18 +144,19 @@ The Kubernetes integration retrieves the following data:
 
 #### Events
 
-The Kubernetes integration retrieves all Kubernetes events from the Kubernetes cluster. In addition to this, `Element Properties Change` events will be generated in StackState for changes in Kubernetes objects.
+* All [Kubernetes events](#kubernetes-events) are retrieved from the Kubernetes cluster. 
+* StackState `Element Properties Change` events will be generated for [changes detected in a Kubernetes object](#object-change-events).
 
 ##### Kubernetes events
 
-The table below shows which event category will be assigned to each event type in StackState:
+The Kubernetes integration retrieves all events from the Kubernetes cluster.  The table below shows which event category will be assigned to each event type in StackState:
 
 | StackState event category | Kubernetes events |
-| :--- | :--- |
-| **Activities** | `BackOff` `ContainerGCFailed` `ExceededGracePeriod` `FileSystemResizeSuccessful` `ImageGCFailed` `Killing` `NodeAllocatableEnforced` `NodeNotReady` `NodeSchedulable` `Preempting` `Pulling` `Pulled` `Rebooted` `Scheduled` `Starting` `Started` `SuccessfulAttachVolume` `SuccessfulDetachVolume` `SuccessfulMountVolume` `SuccessfulUnMountVolume` `VolumeResizeSuccessful` |
-| **Alerts** | `NotTriggerScaleUp` |
-| **Changes** | `Created` \(created container\) `NodeReady` `SandboxChanged` `SuccesfulCreate` |
-| **Others** | All other events |
+|:--------------------------| :--- |
+| **Activities**            | `BackOff` `ContainerGCFailed` `ExceededGracePeriod` `FileSystemResizeSuccessful` `ImageGCFailed` `Killing` `NodeAllocatableEnforced` `NodeNotReady` `NodeSchedulable` `Preempting` `Pulling` `Pulled` `Rebooted` `Scheduled` `Starting` `Started` `SuccessfulAttachVolume` `SuccessfulDetachVolume` `SuccessfulMountVolume` `SuccessfulUnMountVolume` `VolumeResizeSuccessful` |
+| **Alerts**                | `NotTriggerScaleUp` |
+| **Changes**               | `Created` \(created container\) `NodeReady` `SandboxChanged` `SuccessfulCreate` `SuccessfulDelete` `Completed` |
+| **Others**                | All other events |
 
 ##### Object change events
 
@@ -140,7 +190,7 @@ Note that, in order to reduce noise of changes, the following object properties 
 * `status` (except for `Node`, `Pod` and `PersistentVolume` objects)
 {% endhint %}
 
-You can also see current [or past](../../use/stackstate-ui/timeline-time-travel.md#topology-time) YAML definition of the object in the ["Component properties"](../../getting_started#component-relation-details):
+You can also see the current [or past](../../use/stackstate-ui/timeline-time-travel.md#topology-time) YAML definition of the object in the [Component properties](/use/concepts/components.md#detailed-component-information):
 
 ![Kubernetes Component properties](../../.gitbook/assets/k8s-component-properties-yaml.png)
 
@@ -150,7 +200,7 @@ The Kubernetes integration makes all metrics from the Kubernetes cluster availab
 
 All retrieved metrics can be browsed or added to a component as a telemetry stream. Select the data source **StackState Metrics** and type `kubernetes` in the **Select** box to get a full list of all available metrics.
 
-![Add a Kubernetes metrics stream to a component](../../.gitbook/assets/v46_add_k8s_stream.png)
+![Add a Kubernetes metrics stream to a component](../../.gitbook/assets/v50_add_k8s_stream.png)
 
 #### Topology
 
@@ -180,7 +230,7 @@ The following Kubernetes topology data is available in StackState as components:
 
 The following relations between components are retrieved:
 
-* Container → Volume
+* Container → PersistentVolume, Volume 
 * CronJob → Job
 * DaemonSet → Pod
 * Deployment → ReplicaSet
@@ -238,14 +288,14 @@ For further details, refer to the [Kubernetes API documentation \(kubernetes.io\
 
 ### Component actions
 
-A number of [actions](../../use/stackstate-ui/perspectives/topology-perspective.md#actions) are added to StackState when the Kubernetes StackPack is installed. They are available from the **Actions** section on the right of the screen when a Kubernetes component is selected or from the component context menu, displayed when you hover over a Kubernetes component in the Topology Perspective
+A number of [actions](../../use/stackstate-ui/perspectives/topology-perspective.md#actions) are added to StackState when the Kubernetes StackPack is installed. They are available from the **Actions** section in the right panel **Selection details** tab when a Kubernetes component is selected or from the component context menu, displayed when you hover over a Kubernetes component in the Topology Perspective
 
 | Action | Available for component types | Description |
 | :--- | :--- | :--- |
 | **Show configuration and storage** | pods containers | Display the selected pod or container with its configmaps, secrets and volumes |
 | **Show dependencies \(deep\)** | deployment replicaset replicationcontroller statefulset daemonset job cronjob pod | Displays all dependencies \(up to 6 levels deep\) of the selected pod or workload. |
 | **Show pods** | deployment replicaset replicationcontroller statefulset daemonset job cronjob | Displays the pods for the selected workload. |
-| **Show pods & services** | namespace | Opens a view for the pods/services in the selected namespace |
+| **Show pods and services** | namespace | Opens a view for the pods/services in the selected namespace |
 | **Show services** | namespace | Open a view for the service and ingress components in the selected namespace |
 | **Show workloads** | namespace | Show workloads in the selected namespace |
 
@@ -276,7 +326,25 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 To uninstall the Kubernetes StackPack, go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **Kubernetes** screen and click **UNINSTALL**. All Kubernetes StackPack specific configuration will be removed from StackState.
 
+See the Kubernetes Agent documentation for instructions on [how to uninstall the StackState Cluster Agent and the StackState Agent](/setup/agent/kubernetes.md#uninstall) from your Kubernetes cluster.
+
 ## Release notes
+
+**Kubernetes StackPack v3.9.13 (2022-06-21)**
+
+- Bug Fix: Fixed description for services/ingresses view.
+
+**Kubernetes StackPack v3.9.12 (2022-06-03)**
+
+- Improvement: Updated documentation.
+
+**Kubernetes StackPack v3.9.11 (2022-05-23)**
+
+- Bug Fix: Fixed broken link in integration StackState Agent V2 integration documentation.
+
+**Kubernetes StackPack v3.9.10 (2022-04-11)**
+
+- Bug Fix: Show kubernetes view names on StackPack instance
 
 **Kubernetes StackPack v3.9.9 (2022-03-02)**
 
@@ -286,18 +354,6 @@ To uninstall the Kubernetes StackPack, go to the StackState UI **StackPacks** &g
 
 * Bug Fix: Support nodes without instanceId
 
-**Kubernetes StackPack v3.9.7 (2021-10-06)**
-
-* Bug Fix: Fix metrics for generic events
-
-**Kubernetes StackPack v3.9.6 (2021-08-20)**
-
-* Improvement: Add description to Views
-
-**Kubernetes StackPack v3.9.5 \(2021-07-14\)**
-
-* Improvement: Documentation update
-* Improvement: Update of `stackstate.url` for the installation documentation of the StackState Agent
 
 ## See also
 

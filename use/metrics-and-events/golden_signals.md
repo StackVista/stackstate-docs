@@ -56,13 +56,13 @@ By default, the following request rate streams are set for processes and service
 - HTTP Success rate (req/s)
 
 
-![HTTP total requests per second](../../.gitbook/assets/v46_http-req-sec.png)
+![HTTP total requests per second](../../.gitbook/assets/v50_http-req-sec.png)
 
 ### Errors
 
 StackState allows you to monitor on any specific HTTP error code or one of the 4xx or 5xx error groups, as explained above. If your SLO specifies a limit for the rate of errors in your system, you can [add a check](#checks).
 
-![HTTP 5xx error rate](../../.gitbook/assets/v46_http-error-rate.png)
+![HTTP 5xx error rate](../../.gitbook/assets/v50_http-error-rate.png)
 
 ### Saturation
 
@@ -74,13 +74,13 @@ There are many ways StackState can help monitor the saturation of a system, for 
 
 ## Checks
 
-From StackState Agent v2.13, [Anomaly health checks](/use/health-state/anomaly-health-checks.md) monitoring golden signals will automatically be added for streams with HTTP traffic. 
+From StackState Agent v2.13, [Anomaly health checks](/use/checks-and-monitors/anomaly-health-checks.md) monitoring golden signals will automatically be added for streams with HTTP traffic. 
 
-To help meet a specific SLA (Service Level Agreement), you can [add health checks](/use/health-state/about-health-state.md#health-checks) in StackState. Examples of using a check function to monitor error percentage and response time are given below.
+To help meet a specific SLA (Service Level Agreement), you can [add health checks](/use/concepts/health-state.md#stackstate-health-checks) in StackState. Examples of using a check function to monitor error percentage and response time are given below.
 
 ### Example: Error percentage
 
-The `Error percentage` check function can be used to monitor two streams - one reporting errors and one reporting a total. A DEVIATING or CRITICAL health state will be returned if the percentage of errors/total crosses the specified `DeviatingThresholdPercentage` or `CriticalThresholdPercentage`.
+The `Error percentage` check function can be used to monitor two streams - one reporting errors and one reporting a total. A `DEVIATING` or `CRITICAL` health state will be returned if the percentage of errors/total crosses the specified `DeviatingThresholdPercentage` or `CriticalThresholdPercentage`.
 
 If your SLO defines that a service can have a maximum of 5% of requests failing, you can create a check using the `Error percentage` function and set the `CriticalThresholdPercentage` to `5.0`:
 

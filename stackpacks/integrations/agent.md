@@ -79,6 +79,11 @@ To uninstall StackState Agent V2, see the [StackState Agent documentation](../..
 
 ## Release notes
 
+**Agent V2 StackPack v4.5.1 (2022-04-08)**
+
+- Improvement: Added a Deprovisioning screen when uninstalling the StackState Agent V2 StackPack.
+
+
 **Agent V2 StackPack v4.5.0 (2022-03-02)**
 
 - Feature: Automatically add OpenTelemetry HTTP health checks
@@ -106,15 +111,6 @@ To uninstall StackState Agent V2, see the [StackState Agent documentation](../..
 
 * Improvement: Supported additional identifiers for Disk component
 
-**Agent V2 StackPack v4.4.9 \(2021-11-17\)**
 
-* Improvement: Updated supported platforms documentation.
 
-**Agent V2 StackPack v4.4.8 \(2021-07-23\)**
-
-* Improvement: Documentation updated
-
-## See also
-
-* [StackState Agent documentation](../../setup/agent/)
 

@@ -18,25 +18,26 @@ In Docker Swarm mode, the StackState Cluster Agent can be deployed on the manage
 
 StackState Agent V2 will synchronize the following data with StackState from the host it is running on:
 
-* Hosts, processes, and containers
-* Network connections between processes/containers/services including network traffic telemetry
-* Telemetry for hosts, processes, and containers
+* Hosts, processes, and containers.
+* Network connections between processes/containers/services including network traffic telemetry.
+* Telemetry for hosts, processes, and containers. For more details, see the [list of metrics retrieved](#metrics).
 
 In [Docker swarm mode](#docker-swarm-mode), StackState Cluster Agent running on the manager node will synchronize the following topology data for a Docker cluster:
 
-* Containers
-* Services
-* Relations between containers and services
+* Containers.
+* Services.
+* Relations between containers and services.
 
 ## Setup
 
-### StackState Receiver API address
-
-StackState Agent connects to the StackState Receiver API at the specified [StackState Receiver API address](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api-address). The correct address to use is specific to your installation of StackState.
-
 ### Single container
 
-To start a single Docker container with StackState Agent V2, run the following command:
+To start a single Docker container with StackState Agent V2, run the command below.
+
+* `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
+* `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
+
+For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
 
 ```text
 docker run -d \
@@ -47,22 +48,33 @@ docker run -d \
     -v /var/run/docker.sock:/var/run/docker.sock:ro \
     -v /proc/:/host/proc/:ro \
     -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
-    -e STS_API_KEY="API_KEY" \
-    -e STS_STS_URL="<stackstate-receiver-api-address>" \
+    -v /etc/passwd:/etc/passwd:ro \
+    -v /sys/kernel/debug:/sys/kernel/debug \
+    -e STS_API_KEY="<STACKSTATE_RECEIVER_API_KEY>" \
+    -e STS_STS_URL="<STACKSTATE_RECEIVER_API_ADDRESS>" \
+    -e STS_PROCESS_AGENT_URL="<STACKSTATE_RECEIVER_API_ADDRESS>" \
+    -e STS_PROCESS_AGENT_ENABLED="true" \
+    -e STS_NETWORK_TRACING_ENABLED="true" \
+    -e STS_PROTOCOL_INSPECTION_ENABLED="true" \
+    -e STS_APM_URL="<STACKSTATE_RECEIVER_API_ADDRESS>" \
+    -e STS_APM_ENABLED="true" \
     -e HOST_PROC="/host/proc" \
     -e HOST_SYS="/host/sys" \
-    docker.io/stackstate/stackstate-agent-2:latest
+    docker.io/stackstate/stackstate-agent-2:2.17.1
 ```
 
 ### Docker compose
 
 To run StackState Agent V2 with Docker compose:
 
-1. Add the following configuration to the compose file on each node where the Agent will run:
+1. Add the following configuration to the compose file on each node where the Agent will run.
+   * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
+   * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
+   For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
 
-   ```text
+   ```bash
    stackstate-agent:
-    image: docker.io/stackstate/stackstate-agent-2:latest
+    image: docker.io/stackstate/stackstate-agent-2:2.17.1
     network_mode: "host"
     pid: "host"
     privileged: true
@@ -73,15 +85,19 @@ To run StackState Agent V2 with Docker compose:
       - "/etc/passwd:/etc/passwd:ro"
       - "/sys/kernel/debug:/sys/kernel/debug"
     environment:
-      STS_API_KEY: "API_KEY"
-      STS_STS_URL: "<stackstate-receiver-api-address>"
-      STS_PROCESS_AGENT_URL: "<stackstate-receiver-api-address>"
-      STS_APM_URL: "<stackstate-receiver-api-address>"
+      STS_API_KEY: "<STACKSTATE_RECEIVER_API_KEY>"
+      STS_STS_URL: "<STACKSTATE_RECEIVER_API_ADDRESS>"
+      STS_PROCESS_AGENT_URL: "<STACKSTATE_RECEIVER_API_ADDRESS>"
+      STS_PROCESS_AGENT_ENABLED: "true"
+      STS_NETWORK_TRACING_ENABLED: "true"
+      STS_PROTOCOL_INSPECTION_ENABLED: "true"
+      STS_APM_URL: "<STACKSTATE_RECEIVER_API_ADDRESS>"
+      STS_APM_ENABLED: "true"
       HOST_PROC: "/host/proc"
       HOST_SYS: "/host/sys"
    ```
 
-2. Run the command:
+3. Run the command:
 
    ```text
    docker-compose up -d
@@ -94,14 +110,14 @@ In Docker Swarm mode, the StackState Cluster Agent can be deployed on the manage
 To run StackState Cluster Agent in Docker Swarm mode:
 
 1. Create a file `docker-compose.yml` with the following content. Update to include details of your StackState instance:
+   * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
+   * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
+   For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
+   * `<CLUSTER_NAME>` is the name you would like to give this cluster
 
-   * **STS\_API\_KEY** - the API Key for your StackState instance
-   * **STS\_STS\_URL** - the URL of the StackState Receiver API
-   * **STS\_CLUSTER\_NAME** - the name you would like to give this cluster
-
-   ```yaml
+   ```bash
    stackstate-agent:
-       image: docker.io/stackstate/stackstate-cluster-agent:latest
+       image: docker.io/stackstate/stackstate-cluster-agent:2.17.1
        deploy:
          placement:
            constraints: [ node.role == manager ]
@@ -110,13 +126,13 @@ To run StackState Cluster Agent in Docker Swarm mode:
          - /etc/passwd:/etc/passwd:ro
          - /sys/kernel/debug:/sys/kernel/debug
        environment:
-         STS_API_KEY: "API_KEY"
-         STS_STS_URL: "<stackstate-receiver-api-address>"
+         STS_API_KEY: "<STACKSTATE_RECEIVER_API_KEY>"
+         STS_STS_URL: "<STACKSTATE_RECEIVER_API_ADDRESS>"
          STS_COLLECT_SWARM_TOPOLOGY: "true"
          STS_LOG_LEVEL: "debug"
          STS_LOG_TO_CONSOLE: "true"
          DOCKER_SWARM: "true"
-         STS_CLUSTER_NAME: <cluster_name>
+         STS_CLUSTER_NAME: <CLUSTER_NAME>
    ```
 
 2. Run the command:
@@ -152,15 +168,15 @@ The StackState Agent V2 configuration is located in the file `/etc/stackstate-ag
 
 StackState Agent V2 can be configured to reduce data production, tune the process blacklist, or turn off specific features when not needed. The required settings are described in detail on the page [advanced Agent configuration](advanced-agent-configuration.md).
 
-### Integration configuration
+### External integration configuration
 
 StackState Agent V2 can be configured to run checks that integrate with external systems. Each integration has its own configuration file that is used by the associated Agent check. Configuration files for integrations that will run through the StackState Agent in Docker should be added as a volume to the directory `/etc/stackstate-agent/conf.d/` when the container is started.
 
 For example, the Agent Docker configuration below includes a volume with a check configuration file for the ServiceNow integration:
 
-```text
+```bash
 stackstate-agent:
-    image: docker.io/stackstate/stackstate-agent-2:latest
+    image: docker.io/stackstate/stackstate-agent-2:2.17.1
     network_mode: "host"
     pid: "host"
     privileged: true
@@ -172,8 +188,8 @@ stackstate-agent:
       - "/sys/kernel/debug:/sys/kernel/debug"
       - "/etc/stackstate-agent/conf.d/servicenow.d/conf.yaml:/servicenow.d/conf.yaml:ro"
     environment:
-      STS_API_KEY: "API_KEY"
-      STS_STS_URL: "<stackstate-receiver-api-address>"
+      STS_API_KEY: "<STACKSTATE_RECEIVER_API_KEY>"
+      STS_STS_URL: "<STACKSTATE_RECEIVER_API_ADDRESS>"
       HOST_PROC: "/host/proc"
       HOST_SYS: "/host/sys"
 ```
@@ -256,13 +272,48 @@ Inside the running container, StackState Agent V2 logs are in the following file
 * `/var/log/stackstate-agent/agent.log`
 * `/var/log/stackstate-agent/process-agent.log`
 
-### Set log level
+### Debug mode
 
-To troubleshoot the StackState Agent container, set the logging level to `debug` using the `STS_LOG_LEVEL` environment variable:
+By default, the log level of the Agent container is set to `INFO`. To assist in troubleshooting, the Agent log level can be set to `DEBUG`. This will enable verbose logging and all errors encountered will be reported in the Agent log files.
 
-```text
-STS_LOG_LEVEL: "DEBUG"
+To set the log level to `DEBUG` for an Agent running on Docker, use the `STS_LOG_LEVEL` environment variable. Other optional logging settings:
+
+* `STS_LOG_PAYLOADS: "true"` - include the topology/telemetry payloads sent to StackState in the Agent log.
+* `STS_LOG_TO_CONSOLE: "true"` - write log output to the container stdout.
+
+For example:
+
+{% tabs %}
+{% tab title="Docker compose" %}
+```bash
+stackstate-agent:
+  image: docker.io/stackstate/stackstate-agent-2:2.17.1
+  network_mode: "host"
+  pid: "host"
+  privileged: true
+  volumes:
+    - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    - "/proc/:/host/proc/:ro"
+    - "/sys/fs/cgroup/:/host/sys/fs/cgroup:ro"
+    - "/etc/passwd:/etc/passwd:ro"
+    - "/sys/kernel/debug:/sys/kernel/debug"
+  environment:
+    STS_API_KEY: "<STACKSTATE_RECEIVER_API_KEY>"
+    STS_STS_URL: "<STACKSTATE_RECEIVER_API_ADDRESS>"
+    STS_PROCESS_AGENT_URL: "<STACKSTATE_RECEIVER_API_ADDRESS>"
+    STS_PROCESS_AGENT_ENABLED: "true"
+    STS_NETWORK_TRACING_ENABLED: "true"
+    STS_PROTOCOL_INSPECTION_ENABLED: "true"
+    STS_APM_URL: "<STACKSTATE_RECEIVER_API_ADDRESS>"
+    STS_APM_ENABLED: "true"
+    HOST_PROC: "/host/proc"
+    HOST_SYS: "/host/sys"
+    STS_LOG_LEVEL: "debug"
+    STS_LOG_TO_CONSOLE: "true"
+    STS_LOG_PAYLOADS: "true"
 ```
+{% endtab %}
+{% endtabs %}
 
 ### Support knowledge base
 
@@ -276,6 +327,33 @@ To uninstall StackState Agent V2, stop the Docker container it is running in and
 docker stop stackstate-agent
 docker container rm stackstate-agent
 ```
+
+## Data retrieved
+
+### Metrics
+
+The metrics listed below are retrieved for containers. Telemetry for hosts and processes, as well as network traffic telemetry for network connections between processes/containers/services is also retrieved.
+
+**Metrics for containers**
+
+* Container Restart
+* Container State
+* CPU amount of seconds throttled
+* CPU number of times throttled
+* CPU threads count
+* CPU time - System (percentage / second)
+* CPU time - Total (percentage / second)
+* CPU time - User (percentage / second)
+* IO read (bytes / second)
+* IO written (bytes / second)
+* Memory - Cache (bytes)
+* Memory - Resident (bytes)
+* Network received (bytes / second)
+* Network received (packets / second)
+* Network sent (bytes / second)
+* Network sent (packets / second)
+
+
 
 ## See also
 

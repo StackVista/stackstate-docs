@@ -14,13 +14,13 @@ The StackState Autonomous Anomaly Detector \(AAD\) StackPack works fully autonom
 
 Once the anomalies are identified, they are displayed in the MetricStream charts as in the example below:
 
-![Anomaly example](../../.gitbook/assets/v46_anomaly_severity.png)
+![Anomaly example](../../.gitbook/assets/v50_anomaly_severity.png)
 
 Additionally, identified anomalies are available as StackState Events and can be viewed in the [Events Perspective](../stackstate-ui/perspectives/events_perspective.md) when event category `Anomalies` is selected in the filter.
 
-![Anomaly events](../../.gitbook/assets/v46_anomaly-events-in-events-perspective.png)
+![Anomaly events](../../.gitbook/assets/v50_anomaly-events-in-events-perspective.png)
 
-Finally, [anomaly health checks](../health-state/anomaly-health-checks.md) can be configured for the most important metric streams to alert on problems before they occur.
+Finally, [anomaly health checks](../checks-and-monitors/anomaly-health-checks.md) can be configured for the most important metric streams to alert on problems before they occur.
 
 ➡️ [Learn more about the Autonomous Anomaly Detector](../../stackpacks/add-ons/aad.md)
 

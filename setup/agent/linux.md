@@ -37,10 +37,6 @@ StackState Agent is tested to run on the Linux versions listed below with 64bit 
 | RHEL | RHEL 7 | Network tracer available from RHEL 8. |
 | Ubuntu | Ubuntu 15.04 \(Vivid Vervet\) | Network tracer available from Ubuntu 16.04 \(LTS\) \(Xenial Xerus\). |
 
-### StackState Receiver API address
-
-StackState Agent connects to the StackState Receiver API at the specified [StackState Receiver API address](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api-address). The correct address to use is specific to your installation of StackState.
-
 ### Install
 
 StackState Agent V2 is installed using an install script.
@@ -48,38 +44,36 @@ StackState Agent V2 is installed using an install script.
 * [Online install](linux.md#online-install) - If you have access to the internet on the machine where the Agent will be installed. 
 * [Offline install](linux.md#offline-install) - If you **do not** have access to the internet on the machine where the Agent will be installed.
 
-{% hint style="info" %}
-The `apiKey` and `baseUrl` specified when running the install script are set during StackState installation, for details see:
-
-* [StackState Kubernetes install - configuration parameters](../install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml) 
-* [StackState Linux install - configuration parameters](../install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install) 
-{% endhint %}
-
 #### Online install
 
-If you have access to the internet on the machine where the Agent will be installed, use one of the commands below to run the install.sh script. The Agent installer package will be downloaded automatically.
+If you have access to the internet on the machine where the Agent will be installed, use one of the commands below to run the `install.sh` script. The Agent installer package will be downloaded automatically.
+
+* `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
+* `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
+
+For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
 
 {% tabs %}
 {% tab title="cURL" %}
 ```text
 curl -o- https://stackstate-agent-2.s3.amazonaws.com/install.sh | \
-STS_API_KEY="{{config.apiKey}}" \
-STS_URL="<stackstate-receiver-api-address>" bash
+STS_API_KEY="<STACKSTATE_RECEIVER_API_KEY>" \
+STS_URL="<STACKSTATE_RECEIVER_API_ADDRESS>" bash
 ```
 {% endtab %}
 
 {% tab title="wget" %}
 ```text
 wget -qO- https://stackstate-agent-2.s3.amazonaws.com/install.sh | \
-STS_API_KEY="{{config.apiKey}}" \
-STS_URL="<stackstate-receiver-api-address>" bash
+STS_API_KEY="STACKSTATE_RECEIVER_API_KEY" \
+STS_URL="<STACKSTATE_RECEIVER_API_ADDRESS>" bash
 ```
 {% endtab %}
 {% endtabs %}
 
 #### Offline install
 
-If you do not have access to the internet on the machine where the Agent will be installed, you will need to download both the install script and the Agent installer package before you install. You can then set the environment variable `STS_INSTALL_NO_REPO=yes` and specify the path to the downloaded installer package when you run the install.sh script.
+If you do not have access to the internet on the machine where the Agent will be installed, you will need to download both the install script and the Agent installer package before you install. You can then set the environment variable `STS_INSTALL_NO_REPO=yes` and specify the path to the downloaded installer package when you run the `install.sh` script.
 
 1. Download the install script and copy this to the host where it will be installed:
    * [https://stackstate-agent-2.s3.amazonaws.com/install.sh](https://stackstate-agent-2.s3.amazonaws.com/install.sh)
@@ -90,14 +84,17 @@ If you do not have access to the internet on the machine where the Agent will be
    For example, to download the DEB installer package for `agent_2.13.0-1_amd64.deb`, use:  `https://stackstate-agent-2.s3.amazonaws.com/pool/stable/s/st/stackstate-agent_2.13.0-1_amd64.deb`
    * **DEB Download link:** `https://stackstate-agent-2.s3.amazonaws.com/<Key_from_DEB_installer_package_list>`
    * **RPM Download link:** `https://stackstate-agent-2-rpm.s3.amazonaws.com/<Key_from_RPM_installer_package_list>`
-4. Use the command below to set the required environment variables and run the installer script:
+4. Use the command below to set the required environment variables and run the installer script.
+   * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
+   * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState.
+   For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
 
-   ```text
-    STS_API_KEY="{{config.apiKey}}" \
-    STS_URL="<stackstate-receiver-api-address>" \
-    STS_INSTALL_NO_REPO=yes \
-    ./install.sh <path_to_local_Agent_installer_package>
-   ```
+```text
+STS_API_KEY="<STACKSTATE_RECEIVER_API_KEY>" \
+STS_URL="<STACKSTATE_RECEIVER_API_ADDRESS>" \
+STS_INSTALL_NO_REPO=yes \
+./install.sh <PATH_TO_LOCAL_AGENT_INSTALLER_PACKAGE>
+```
 
 ### Upgrade
 
@@ -137,7 +134,7 @@ sudo apt-get upgrade <agent_installer_package>.deb
 
 ### Agent configuration
 
-The StackState Agent V2 configuration is located in the file `/etc/stackstate-agent/stackstate.yaml`. The `apiKey` and `baseUrl` specified during installation will be added here by the install script. No further configuration should be required, however, a number of advanced configuration options are available.
+The StackState Agent V2 configuration is located in the file `/etc/stackstate-agent/stackstate.yaml`. The `<STACKSTATE_RECEIVER_API_KEY>` and `<STACKSTATE_BASE_URL>` specified during installation will be added here by the install script. No further configuration should be required, however, a number of advanced configuration options are available.
 
 ### Advanced Agent configuration
 
@@ -215,10 +212,27 @@ To troubleshoot the Agent, try to [check the Agent status](linux.md#status-and-i
 
 ### Log files
 
-Logs for the subsystems are in the following files:
+Logs for the Agent subsystems can be found in the following files:
 
 * `/var/log/stackstate-agent/agent.log`
 * `/var/log/stackstate-agent/process-agent.log`
+
+### Debug mode
+
+By default, the log level of the Agent is set to `INFO`. To assist in troubleshooting, the Agent log level can be set to `DEBUG`. This will enable verbose logging and all errors encountered will be reported in the Agent log files.
+
+To set the log level to `DEBUG` for an Agent running on Linux:
+
+1. Edit the file `/etc/stackstate-agent/stackstate.yaml`
+2. To set the log level to `DEBUG`, add the line:
+    ```
+    log_level: debug
+    ```
+3. To also include the topology/telemetry payloads sent to StackState in the Agent log, add the line:
+    ```
+    log_payloads: true
+    ```
+4. Save the file and [restart the Agent](#start-stop-or-restart-the-agent) for changes to be applied.
 
 ### Support knowledge base
 

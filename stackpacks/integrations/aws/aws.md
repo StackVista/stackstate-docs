@@ -28,26 +28,21 @@ To set up the StackState AWS integration, you need to have:
 
 * [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md) installed on a machine which can connect to both AWS and StackState.
 * AWS CLI version 2.0.4 or later is installed on the environment where StackState is running.
-* The following [AWS accounts](#aws-accounts):
+* The following AWS accounts:
   * At least one target AWS account that will be monitored.
-  * An AWS account for the StackState Agent to use when retrieving data from the target AWS accounts. It is recommended to use a separate shared account for this and not use any of the accounts that will be monitored by StackState.
+  * An AWS account for StackState and the StackState Agent to use when retrieving data from the target AWS account(s). It is recommended to use a separate shared account for this and not use any of the accounts that will be monitored by StackState, but this is not required. 
+  * A user or role with a policy attached that contains the action to allow assuming the role stsIntegrationRole in the account that will be monitored. For details see the StackState docs on the required AWS policy.
 
 ### AWS accounts
 
-It is recommended to have two different AWS accounts: One that is being monitored (the monitor account) and another for the StackState Agent (the Agent account).
+It is recommended to have two different AWS accounts: One that is being monitored and another used for data collection.
 
-* **Monitor account** - used to [deploy a CloudFormation Stack](#deploy-the-aws-cloudformation-stack). The cloudFormation stack will create an IAM role that has the permissions required to retrieve data from this monitor account (`StackStateAwsIntegrationRole`). 
-* **Agent account** - used to retrieve data from the monitor account. StackState Agent must have permissions to assume the role `StackStateAwsIntegrationRole` created by the monitor account's CloudFormation Stack. This can come from either:
-  * An [IAM role attached to the EC2 instance](#iam-role-for-agent-on-ec2) where the Agent runs.
-  * An [AWS user configured in the AWS check](#configure-the-aws-check) on the Agent.
+* **Monitor Account** - used to [deploy a CloudFormation Stack](#deploy-the-aws-cloudformation-stack). The CloudFormation stack will create an IAM role that has the permissions required to retrieve data from this Monitor Account (`StackStateAwsIntegrationRole`). 
+* **Data Collection Account** - used by StackState and StackState Agent to retrieve data from the Monitor Account. An AWS policy granting permissions to assume the role `StackStateAwsIntegrationRole` in the Monitor Account is required. 
 
-The IAM role of the Agent account queries AWS data from the monitor account by assuming the role `StackStateAwsIntegrationRole`. This data is then returned to the StackState Agent where it is processed and sent on to StackState.
+#### AWS policy
 
-![AWS roles used to retrieve data](/.gitbook/assets/aws-roles.svg)
-
-#### IAM role for Agent on EC2
-
-If StackState Agent runs in an AWS environment, an IAM role can be attached to the EC2 instance that it runs on. The Agent will then use this role by default. The IAM role must have the following IAM policy. This policy grants the IAM principal permission to assume the role created in each target AWS account:
+The policy below grants permission to assume the role `StackStateAwsIntegrationRole` that is created in each target AWS Monitor Account when the CloudFormation Stack is deployed. This policy is required by StackState and StackState Agent to collect data from the AWS Monitor Account. The policy should be created and attached to the AWS user(s) or IAM role(s) that will be used by StackState and the StackState Agent:
 
 ```javascript
 {
@@ -62,11 +57,38 @@ If StackState Agent runs in an AWS environment, an IAM role can be attached to t
 }
 ```
 
-If StackState Agent does not run in an AWS environment, or if a role with the required policy is not available on the Agent's EC2 instance, an AWS user must be [configured in the AWS check](#configure-the-aws-check) on the Agent.
+The policy can be made available to StackState and the StackState Agent in one of the following ways:
+
+* **If StackState and/or StackState Agent run on EC2 or EKS AND the Data Collection Account and Monitor Account are in the same AWS organization**: 
+  * [Attach an IAM role to the EC2 instance or EKS pod](#iam-role-on-ec2-or-eks).
+* **In all other situations**: 
+  * StackState: Attach the policy to the user [configured when the AWS StackPack instance is installed](#install-the-aws-stackpack).
+  * StackState Agent: Attach the policy to the user [configured in the Agent AWS check](#configure-the-aws-check).
+
+#### IAM role on EC2 or EKS
+
+StackState Agent collects topology, logs and (if configured) VPC flow logs, and StackState pulls CloudWatch metrics from AWS.  If StackState Agent and/or StackState run in an AWS environment and the Data Collection Account and Monitor Account are in the same AWS organization, an IAM role can be attached to the EC2 instance or EKS pod that they run on and used for authentication. This removes the need to specify an AWS Access Key ID and Secret when a StackPack instance is installed or in the Agent AWS check configuration.
+
+{% hint style="info" %}
+Note: The AWS Data Collection Account and Monitor Account must be a part of the same AWS organization to be able to authenticate using an IAM role in this way. For details, see the AWS documentation on [AWS organizations \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html).  
+{% endhint %}
+
+To attach an IAM role and use it for authentication:
+
+1. If you did not already do so, in AWS, [create the required AWS policy](#aws-policy).
+2. Attach the created policy to the relevant IAM role:
+   * [StackState/Agent running on EC2](aws-sts-ec2.md)
+   * [StackState/Agent running on EKS](aws-sts-eks.md)
+3. **To use the IAM role for StackState (CloudWatch metrics)**: When you install an AWS StackPack instance, set the following parameter values:
+   * **AWS Access Key ID**: `use-role` 
+   * **AWS Secret Access Key**: `use-role` 
+4. **To use the IAM role for StackState Agent**: 
+   * **Agent on EC2**: When you configure the AWS check, leave empty quotes for the parameters `aws_access_key_id` and `aws_secret_access_key`.
+   * **Agent on EKS**: When you configure the AWS check as a cluster check (required for an Agent running on Kubernetes), leave empty quotes for the parameters `aws_access_key_id` and `aws_secret_access_key` in the `values.yaml` file used to deploy the Cluster Agent.
 
 ### Deploy the AWS CloudFormation Stack
 
-The StackState AWS CloudFormation Stack should be deployed in each AWS account that you will monitor. It provides the minimum level of access required for the StackState Agent to collect topology, telemetry and logs.
+The StackState AWS CloudFormation Stack should be deployed in each AWS account that you will monitor. It provides the minimum level of access required for StackState and the StackState Agent to collect topology, telemetry and logs.
 
 * [Quick deployment](aws.md#quick-deployment) - Deploy all resources to a region in an account using a link.
 * [StackState CloudFormation template](aws.md#stackstate-template-deployment) - Download the StackState CloudFormation template to integrate into your own deployment workflow.
@@ -84,20 +106,20 @@ The necessary resources can be deployed for one account in a single region using
 The table below includes links to deploy the template in popular AWS regions. For any regions not listed, follow the steps described for the [StackState template deployment](aws.md#stackstate-template-deployment).
 
 {% hint style="info" %}
-* To use [OpenTelemetry Traces](/stackpacks/integrations/aws/opentelemetry-nodejs.md), set the `IncludeOpenTelemetryTracing` value to `true`.
+* To use [OpenTelemetry Traces](/stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md), set the `IncludeOpenTelemetryTracing` value to `true`.
 * You must be logged in to the target AWS account in the web console.
 {% endhint %}
 
-| Region Name | Template deployment link                                                                                                                                                                                                                                                                                                                           |
-| :--- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Ireland | [eu-west-1 \(console.aws.amazon.com\)](https://eu-west-1.console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.2.cfn.yaml&stackName=stackstate-resources)                |
-| Frankfurt | [eu-central-1 \(console.aws.amazon.com\)](https://eu-central-1.console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.2.cfn.yaml&stackName=stackstate-resources)       |
-| N. Virginia | [us-east-1 \(console.aws.amazon.com\)](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.2.cfn.yaml&stackName=stackstate-resources)                |
-| Ohio | [us-east-2 \(console.aws.amazon.com\)](https://us-east-2.console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.2.cfn.yaml&stackName=stackstate-resources)                |
-| N. California | [us-west-1 \(console.aws.amazon.com\)](https://us-west-1.console.aws.amazon.com/cloudformation/home?region=us-west-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.2.cfn.yaml&stackName=stackstate-resources)                |
-| Hong Kong | [ap-east-1 \(console.aws.amazon.com\)](https://ap-east-1.console.aws.amazon.com/cloudformation/home?region=ap-east-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.2.cfn.yaml&stackName=stackstate-resources)                |
-| Singapore | [ap-southeast-1 \(console.aws.amazon.com\)](https://ap-southeast-1.console.aws.amazon.com/cloudformation/home?region=ap-southeast-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.2.cfn.yaml&stackName=stackstate-resources) |
-| Sydney | [ap-southeast-2 \(console.aws.amazon.com\)](https://ap-southeast-2.console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.2.cfn.yaml&stackName=stackstate-resources) |
+| Region Name | Template deployment link                                                                                                                                                                                                                                                                                                                             |
+| :--- |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Ireland | [eu-west-1 \(console.aws.amazon.com\)](https://eu-west-1.console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.2.cfn.yaml&stackName=stackstate-resources)                  |
+| Frankfurt | [eu-central-1 \(console.aws.amazon.com\)](https://eu-central-1.console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.2.cfn.yaml&stackName=stackstate-resources)         |
+| N. Virginia | [us-east-1 \(console.aws.amazon.com\)](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.2.cfn.yaml&stackName=stackstate-resources)                  |
+| Ohio | [us-east-2 \(console.aws.amazon.com\)](https://us-east-2.console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.2.cfn.yaml&stackName=stackstate-resources)                  |
+| N. California | [us-west-1 \(console.aws.amazon.com\)](https://us-west-1.console.aws.amazon.com/cloudformation/home?region=us-west-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.2.cfn.yaml&stackName=stackstate-resources)                  |
+| Hong Kong | [ap-east-1 \(console.aws.amazon.com\)](https://ap-east-1.console.aws.amazon.com/cloudformation/home?region=ap-east-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.2.cfn.yaml&stackName=stackstate-resources)                  |
+| Singapore | [ap-southeast-1 \(console.aws.amazon.com\)](https://ap-southeast-1.console.aws.amazon.com/cloudformation/home?region=ap-southeast-1#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.2.cfn.yaml&stackName=stackstate-resources)   |
+| Sydney | [ap-southeast-2 \(console.aws.amazon.com\)](https://ap-southeast-2.console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?templateURL=https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.2.cfn.yaml&stackName=stackstate-resources)   |
 
 #### StackState template deployment
 
@@ -110,42 +132,114 @@ The template requires the following parameters:
 * **MainRegion** - The primary AWS region. This can be any region, as long as this region is the same for every template deployed within the AWS account. Global resources will be deployed in this region such as the IAM role and S3 bucket. Example: `us-east-1`.
 * **StsAccountId** - The 12-digit AWS account ID that is going to be monitored. This will be the AWS account that the IAM role can be assumed from, to perform actions on the target AWS account. Example: `0123456789012`.
 * **ExternalId** - A shared secret that the StackState Agent will present when assuming a role. Use the same value across all AWS accounts that the Agent is monitoring. Example: `uniquesecret!1`.
-* **IncludeOpenTelemetryTracing** - Default: `disabled`. Set to `enabled` to include the OpenTelemetry layer in your deployment. This is required to [retrieve OpenTelemetry traces from AWS Lambda scripts running NodeJS](/stackpacks/integrations/aws/opentelemetry-nodejs.md).
+* **IncludeOpenTelemetryTracing** - Default: `disabled`. Set to `enabled` to include the OpenTelemetry layer in your deployment. This is required to [retrieve OpenTelemetry traces from AWS Lambda scripts running NodeJS](/stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md).
 
 For more information on how to use StackSets, check the AWS documentation on [working with AWS CloudFormation StackSets \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
 
 ### Install the AWS StackPack
 
-Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters, these will be used by StackState to query live telemetry from the AWS account. To create topology in StackState, you must [configure the AWS check](#configure-the-aws-check) on StackState Agent V2.
+Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters, these will be used by StackState to configure the StackPack instance within StackState and query live telemetry from the AWS account. To create topology in StackState, you will also need to configure the AWS check on StackState Agent V2.
 
 * **Role ARN** - the ARN of the IAM Role created by the cloudFormation stack. For example, `arn:aws:iam::<account id>:role/StackStateAwsIntegrationRole` where `<account id>` is the 12-digit AWS account ID that is being monitored. 
 * **External ID** - a shared secret that StackState will present when assuming a role. Use the same value across all AWS accounts. For example, `uniquesecret!1`
-* **AWS Access Key ID** - The Access Key ID of the IAM user used to collect CloudWatch metrics.
-* **AWS Secret Access Key** - The Secret Access Key of the IAM user used to collect CloudWatch metrics.
-
-{% hint style="success" "self-hosted info" %}
-
-**StackState Self-Hosted**
-
-Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
-
-    
-**Authenticate with an IAM role**
-
-If StackState is running within AWS, an IAM role can be used for authentication by the CloudWatch plugin when collecting metrics from CloudWatch: 
-
-1. In AWS EC2 or EKS: Create the required policy and attach it to the relevant IAM role.
-2. When you install an AWS StackPack instance: Enter the value `use-role` for **AWS Access Key ID** and **AWS Secret Access Key**.
-{% endhint %}
+* **AWS Access Key ID** - The Access Key ID of the IAM user that will be used by StackState to collect CloudWatch metrics. This is the same as the IAM user used by the Agent to collect topology data and logs from AWS. If StackState is running within AWS, it may also be possible to [authenticate with an IAM role](#iam-role-on-ec2-or-eks).
+* **AWS Secret Access Key** - The Secret Access Key of the IAM user that will be used by StackState to collect CloudWatch metrics. This is the same as the IAM user used by the Agent to collect topology data and logs from AWS. If StackState is running within AWS, it may also be possible to [authenticate with an IAM role](#iam-role-on-ec2-or-eks).
 
 ### Configure the AWS check
 
-To enable the AWS check and begin collecting data from AWS, add the following configuration to StackState Agent V2:
+To enable the AWS check and begin collecting topology and log data from AWS, add the configuration below to StackState Agent V2.
+
+{% tabs %}
+{% tab title="Agent on Kubernetes" %}
+
+If StackState Agent is running on Kubernetes, the AWS check should be configured as a [cluster check](/setup/agent/kubernetes.md#enable-cluster-checks).
+
+1. If you do not already have it, you will need to add the StackState helm repository to the local helm client:
+
+   ```text
+    helm repo add stackstate https://helm.stackstate.io
+    helm repo update
+   ```
+   
+2. Update the `values.yaml` file used to deploy the `cluster-agent` with details of your AWS instance:
+    - **aws_access_key_id** - The AWS Access Key ID. Leave empty quotes to [use an attached IAM role](/stackpacks/integrations/aws/aws-sts-eks.md).
+    - **aws_secret_access_key** - The AWS Secret Access Key. Leave empty quotes to [use an attached IAM role](/stackpacks/integrations/aws/aws-sts-eks.md).
+    - **external_id** - The same external ID used to create the CloudFormation stack in every account and region.
+    - **role_arn** - In the example `arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole`, substitute 123456789012 with the target AWS account ID to read.
+    - **regions** - The Agent will only attempt to find resources in the specified regions. `global` is a special region for global resources, such as Route53.
+    ```yaml
+    clusterChecks:
+    # clusterChecks.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods.
+      enabled: true
+
+    clusterAgent:
+      config:
+        override:
+    #clusterAgent.config.override -- Defines kubernetes_state check for clusterchecks agents. Auto-discovery
+    #with ad_identifiers does not work here. Use a specific URL instead.
+        - name: conf.yaml
+          path: /etc/stackstate-agent/conf.d/aws_topology.d
+          data: |
+            cluster_check: true
+
+            init_config:
+              aws_access_key_id: ''
+              aws_secret_access_key: ''
+              external_id: uniquesecret!1 
+              # full_run_interval: 3600
+
+            instances:
+            - role_arn: arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole
+                regions:
+                - global
+                - eu-west-1
+                collection_interval: 60 # The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
+                # apis_to_run:
+                #   - ec2
+                # log_bucket_name: '' 
+                # tags:
+                #   - foo:bar
+    ```
+
+3. Deploy the `cluster_agent` using the updated `values.yaml`:
+   * **Kubernetes:**
+    ```yaml
+    helm upgrade --install \
+    --namespace stackstate \
+    --create-namespace \
+    --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
+    --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
+    --set-string 'stackstate.cluster.authToken=<CLUSTER_AUTH_TOKEN>' \
+    --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
+    --values values.yaml \
+    stackstate-cluster-agent stackstate/cluster-agent    
+    ```
+
+   * **OpenShift:**
+
+    ```yaml
+    helm upgrade --install \
+    --namespace stackstate \
+    --create-namespace \
+    --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
+    --set-string 'stackstate.cluster.name'='<OPENSHIFT_CLUSTER_NAME>' \
+    --set-string 'stackstate.cluster.authToken=<CLUSTER_AUTH_TOKEN>' \
+    --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
+    --set 'agent.scc.enabled'=true \
+    --set 'kube-state-metrics.securityContext.enabled'=false \
+    --values values.yaml \
+    stackstate-cluster-agent stackstate/cluster-agent    
+    ```
+
+{% endtab %}
+{% tab title="Agent on Linux VM" %}
+
+If StackState Agent is running on a Linux VM:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/aws_topology.d/conf.yaml` to include details of your AWS instances:
     
-    - **aws_access_key_id** - The AWS Access Key ID. Leave empty quotes if the Agent is running on an [EC2 instance with an IAM role attached](#iam-role-for-agent-on-ec2).
-    - **aws_secret_access_key** - The AWS Secret Access Key. Leave empty quotes if the Agent is running on an [EC2 instance with an IAM role attached](#iam-role-for-agent-on-ec2).
+    - **aws_access_key_id** - The AWS Access Key ID. Leave empty quotes to [use an attached IAM role](/stackpacks/integrations/aws/aws-sts-ec2.md).
+    - **aws_secret_access_key** - The AWS Secret Access Key. Leave empty quotes to [use an attached IAM role](/stackpacks/integrations/aws/aws-sts-ec2.md).
     - **external_id** - The same external ID used to create the CloudFormation stack in every account and region.
     - **role_arn** - In the example `arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole`, substitute 123456789012 with the target AWS account ID to read.
     - **regions** - The Agent will only attempt to find resources in the specified regions. `global` is a special region for global resources, such as Route53.
@@ -180,8 +274,10 @@ To enable the AWS check and begin collecting data from AWS, add the following co
     - **log_bucket_name** - The S3 bucket that the agent should read events from. This value should only be set in custom implementations.
     - **tags** - Optional. Can be used to apply specific tags to all reported data in StackState.
 
-3. [Restart the StackState Agent](/setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
+3. [Restart the StackState Agent](/setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 4. Once the Agent has restarted, wait for data to be collected from AWS and sent to StackState.
+{% endtab %}
+{% endtabs %}
 
 ### Configure VPC FlowLogs
 
@@ -215,7 +311,7 @@ In the StackState AWS integration, CloudWatch metrics are pulled directly by Sta
 
 ### Status
 
-To check the status of the AWS integration, run the status subcommand and look for aws\_topology under `Running Checks`:
+To check the status of the AWS integration, run the status subcommand and look for `aws_topology` under `Running Checks`:
 
 ```bash
 sudo stackstate-agent status
@@ -246,7 +342,7 @@ Metrics data is pulled at a configured interval directly from AWS by the StackSt
 
 #### Topology
 
-The AWS service data shown below is available in StackState as components with the associated relations. The retrieved topology can be further enhanced by enabling [OpenTelemetry traces](/stackpacks/integrations/aws/opentelemetry-nodejs.md).
+The AWS service data shown below is available in StackState as components with the associated relations. The retrieved topology can be further enhanced by enabling [OpenTelemetry traces](/stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md).
 
 | Service | Resource | Relations |
 | :--- | :--- | :--- |
@@ -295,7 +391,7 @@ The AWS service data shown below is available in StackState as components with t
 
 OpenTelemetry creates traces from the AWS services that your Lambdas interacts with. Retrieved traces are available in the Traces Perspective and are also used to enhance the retrieved topology. 
 
-➡️ [Learn more about how to use and setup OpenTelemetry here](/stackpacks/integrations/aws/opentelemetry-nodejs.md)
+➡️ [Learn more about how to set up and use OpenTelemetry](/stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md)
 
 ### Required AWS resources
 
@@ -406,7 +502,7 @@ When the AWS integration is enabled, three [views](../../../use/stackstate-ui/vi
 
 ### AWS actions in StackState
 
-Components retrieved from AWS will have an additional [action](/use/stackstate-ui/perspectives/topology-perspective.md#actions) available in the component context menu and component details pane on the right-hand side of the screen. This provides a deep link through to the relevant AWS console at the correct point.
+Components retrieved from AWS will have an additional [action](/use/stackstate-ui/perspectives/topology-perspective.md#actions) available in the component context menu and in the right panel **Selection details** tab when the component is selected. This provides a deep link through to the relevant AWS console at the correct point.
 
 For example, in the StackState Topology Perspective:
 
@@ -415,15 +511,30 @@ For example, in the StackState Topology Perspective:
 
 ### Tags and labels
 
-On import, all topology in StackState will be given the label `stackpack:aws-v2`. 
+#### Tags added as labels in StackState
 
+The following labels will be added to imported AWS topology in StackState:
 
-Any tags that exist in AWS will be added to the StackState topology as labels. In addition, the following special tags can be added in AWS to influence how the topology is built in StackState:
+* `stackpack:aws-v2` 
+* All tags that exist for the imported element in AWS.
+* All `tags` specified for the associated instance in the [Agent AWS check configuration](#configure-the-aws-check). You can add a custom label to all topology imported by an instance of the AWS StackPack by adding it to the Agent AWS check configuration.
 
-| Tag | Description |
-| :--- | :--- |
-| `stackstate-identifier` | Adds the specified value as an identifier to the StackState component |
-| `stackstate-environment` | Places the StackState component in the environment specified |
+{% hint style="success" "self-hosted info" %}
+
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
+
+{% endhint %}
+
+#### AWS tags used to build StackState topology
+
+The special tags listed below can be added in AWS to influence how the imported topology is built in StackState:
+
+* `stackstate-identifier` - The specified value will be added as an identifier to the StackState component.
+* `stackstate-environment` - The StackState component will be placed in the specified environment.
 
 ## Troubleshooting
 
@@ -434,48 +545,118 @@ Check the StackState support site for:
 
 ## Uninstall
 
+### Uninstall StackPack
+
 To uninstall the StackState AWS StackPack, click the _Uninstall_ button from the StackState UI **StackPacks** &gt; **Integrations** &gt; **AWS** screen. This will remove all AWS specific configuration in StackState.
 
-Once the AWS StackPack has been uninstalled, you will need to delete the StackState AWS Cloudformation stack from the AWS account being monitored. This can be done using the [web console](aws.md#web-console) or the [command line](aws.md#command-line).
+### Remove AWS resources
 
-### Web console
+To clean up the remaining resources inside your AWS account, remove any configured VPC flow logs and delete the StackState AWS Cloudformation stack from the AWS account being monitored. This can be done using the [AWS web console](aws.md#aws-web-console) or the [AWS CLI](aws.md#aws-cli).
 
-To delete the StackState AWS Cloudformation stack from an AWS account using the web console: If the template is in the main region, the S3 bucket used by StackState must be emptied as CloudFormation can't delete an empty bucket. Follow these steps:
+#### AWS Web console
 
-1. Disable the EventBridge rule. Go to EventBridge, and find the rule name starting with `stackstate-resources-StsEventBridgeRule`. Open this rule, and press the "Disable" button.
-2. Delete all flowlogs that send to this bucket. Go to the VPC service, and select each VPC in the VPCs list. Look in the FlowLogs tab in the details section, and delete any flowlogs that are sent to the S3 bucket starting with `stackstate-logs`.
-3. Go to the S3 service. Select \(don't open\) the bucket named `stackstate-logs-${AccountId}` where `${AccountId}` is the 12-digit identifier of your AWS account.
-4. Select "Empty", and follow the steps to delete all objects in the bucket.
-5. Go to the CloudFormation service. Select the CloudFormation template. This will be named `stackstate-resources` if created via the quick deploy method, otherwise the name was user-defined.
-6. In the top right of the console, select "Delete".
+To delete the StackState AWS Cloudformation stack from an AWS account using the AWS web console:
 
-### Command line
+1. Disable the EventBridge rule: 
+   1. Go to EventBridge. 
+   2. Find and open the rule with a name that starts with `stackstate-resources-StsEventBridgeRule`.
+   3. Click the **Disable** button.
+2. Delete all FlowLogs that send to this bucket:
+   1. Go to the VPC service.
+   2. Select each VPC in the VPCs list. 
+   3. Look in the **FlowLogs** tab in the **Details** section.
+   4. Delete any FlowLogs that are sent to the S3 bucket starting with `stackstate-logs`.
+3. Delete objects in the S3 bucket:
+   1. Go to the S3 service.
+   2. Select \(don't open\) the bucket named `stackstate-logs-${AccountId}` where `${AccountId}` is the 12-digit identifier of your AWS account.
+   3. Select **Empty** and follow the steps to delete all objects in the bucket.
+5. Delete the CloudFormation template:
+   1. Go to the CloudFormation service. 
+   2. Select the StackState CloudFormation template. This will be named `stackstate-resources` if created via the quick deploy method, otherwise the name was user-defined.
+   3. In the top right of the console, select **Delete**.
 
-These steps assume you already have the AWS CLI installed and configured with access to the target account. If not, [follow the AWS documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).
+#### AWS CLI
 
-1. If `--region` is the main region, follow these steps to delete the S3 bucket. Before emptying the bucket, disable any event sources that are sending files to the bucket. This is a versioned S3 bucket, so each object version must be deleted individually. If there are more than 1000 items in the bucket this command will fail; it's likely more convenient to perform this in the web console.
+{% hint style="info" %}
+The steps below assume that you already have the AWS CLI installed and configured with access to the target account. If not, follow the AWS documentation to [install and configure the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html).
+{% endhint %}
+
+To delete the StackState AWS Cloudformation stack from an AWS account using the AWS CLI:
+
+1. Set the region to remove StackState resources from:
 
    ```bash
-   BUCKET=$(aws cloudformation describe-stack-resource --stack-name stackstate-resources --logical-resource-id StsLogsBucket --query "StackResourceDetail.PhysicalResourceId" --output=text)
-
-   # Disable the eventbridge rule sending to Firehose
-   aws events disable-rule --name $(aws cloudformation describe-stack-resource --stack-name stackstate-resources-debug --logical-resource-id StsEventBridgeRule --query "StackResourceDetail.PhysicalResourceId" --output=text)
-   # Find all flowlogs sending to the bucket and delete them
-   aws ec2 delete-flow-logs --flow-log-ids $(aws ec2 describe-flow-logs --query "FlowLogs[?LogDestination==$BUCKET].[FlowLogId]" --output=text | tr '\n' ' ')
-
-   sleep 60 # To make sure all objects have finished writing to bucket
-   aws s3api delete-objects --bucket $BUCKET \
-       --delete "$(aws s3api list-object-versions \
-       --bucket $BUCKET --query Account --output text) \
-       --output json \
-       --query '{Objects: Versions[].{Key:Key,VersionId:VersionId}}')"
+   REGION="<region>"
    ```
 
-2. Delete the CloudFormation template: `aws cloudformation delete-stack --stack-name stackstate-resources --region <region>`.
+2. Set the S3 bucket that will be deleted:
+
+   ```bash
+    BUCKET=$(aws cloudformation describe-stack-resource \
+      --region $REGION \
+      --stack-name stackstate-resources \
+      --logical-resource-id StsLogsBucket \
+      --query "StackResourceDetail.PhysicalResourceId" \
+      --output=text) && echo "Found Bucket: ${BUCKET}"
+   ```
+   
+3. Disable the EventBridge rule: 
+
+   ```bash
+    aws events disable-rule \
+        --region $REGION \
+        --name "$(aws cloudformation describe-stack-resource \
+            --stack-name stackstate-resources \
+            --logical-resource-id StsEventBridgeRule \
+            --region $REGION \
+            --query "StackResourceDetail.PhysicalResourceId" \
+            --output=text)"
+   ```
+   
+4. Delete all FlowLogs that send to this bucket:
+
+   ```bash
+    aws ec2 delete-flow-logs \
+        --region $REGION \
+        --flow-log-ids "$(aws ec2 describe-flow-logs \
+            --region $REGION \
+            --query "FlowLogs[?LogDestination=='arn:aws:s3:::$BUCKET'].[FlowLogId]" \
+            --output=text | tr '\n' ' ')"
+   ```
+
+5. Delete objects in the S3 bucket. This is a versioned S3 bucket, so each object version will be deleted individually. Note that if there are more than 1000 items in the bucket this command will fail, it's likely more convenient to perform this in the [AWS web console](#aws-web-console):
+
+   ```bash
+    sleep 60 # To make sure all objects have finished writing to bucket
+    aws s3api delete-objects \
+        --region $REGION \
+        --bucket "$BUCKET" \
+        --delete "$(aws s3api list-object-versions \
+            --region $REGION \
+            --bucket "$BUCKET" \
+            --output=json \
+            --query='{Objects: Versions[].{Key:Key,VersionId:VersionId}}')" \
+        --output=text
+   ```
+
+6. Delete the CloudFormation template:
+
+   ```bash
+    aws cloudformation delete-stack --region $REGION \
+        --stack-name stackstate-resources
+   ```
+   
+
+
+
 
 Find out how to [uninstall using a specific AWS profile or an IAM role \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html).
 
 ## Release notes
+
+**AWS StackPack v1.2.1 (2022-06-10)**
+
+- Improvement: Documentation updated.
 
 **AWS StackPack v1.2.0 (2022-03-03)**
 
@@ -484,40 +665,12 @@ Find out how to [uninstall using a specific AWS profile or an IAM role \(docs.aw
 **AWS StackPack v1.1.4 (2021-11-16)**
 
 - Improvement: Updated AWS CLI prerequisite text
- 
-**AWS StackPack v1.1.3 (2021-11-15)**
 
-- Improvement: Documentation update - Added AWS CLI as a prerequisite to set up the integration 
-
-**AWS StackPack v1.1.2 (2021-11-04)**
-
-- Improvement: Documentation update - improved installation instructions
-
-**AWS StackPack v1.1.1 (2021-10-25)**
-
-- Improvement: Documentation update regarding experimental nature of Flow Logs support
-
-**AWS StackPack v1.1.0 (2021-10-14)**
-
-- Improvement: Flow Logs support (experimental)
-
-**AWS StackPack v1.0.3 (2021-09-23)**
-
-- Bugfix: Fixed CloudWatch telemetry source configuration for `use-role` StackPack install option
-
-**AWS StackPack v1.0.2 (2021-08-20)**
-
-- Improvement: Add description to Views
-
-**AWS StackPack v1.0.1 \(2021-07-23\)**
-
-* Bugfix: Use proper domain
 
 ## See also
 
-* [Use and set up OpenTelemetry for NodeJS](/stackpacks/integrations/aws/opentelemetry-nodejs.md)
+* [Use and set up OpenTelemetry for NodeJS](/stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md)
 * [AWS policies](aws-policies.md)
-* [StackState AWS \(Legacy\) integration](aws-legacy.md)
 * [Working with AWS CloudFormation StackSets \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html)
 * [Uninstall using a specific AWS profile or an IAM role \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html)
 

@@ -6,12 +6,12 @@ description: StackState SaaS
 
 ## Overview
 
-When a component or relation reports a DEVIATING \(orange\) or CRITICAL \(red\) state, StackState will identify this as a problem in your IT environment. As StackState is aware of the connections and dependencies between components in the topology, related unhealthy state changes can be grouped together into a single problem with a single probable root cause. This is helpful because it will:
+When a component or relation reports a `DEVIATING` \(orange\) or `CRITICAL` \(red\) state, StackState will identify this as a problem in your IT environment. As StackState is aware of the connections and dependencies between components in the topology, related unhealthy state changes can be grouped together into a single problem with a single probable root cause. This is helpful because it will:
 
 * **Speed up problem investigation** - all unhealthy elements affected by a single root cause can be found in a dedicated sub-view.
 * **Reduce noise** - the evolution of the problem can be be tracked as a single entity, rather than a collection of individual, unhealthy elements.
 
-![Problems in View Details pane](/.gitbook/assets/v46_problem_summary.png)
+![Problems in View Summary](/.gitbook/assets/v50_problem_summary.png)
 
 ## Topology elements in a problem
 
@@ -36,17 +36,17 @@ When a contributing cause element is added or removed, a `Problem updated` event
 
 ### Problem created
 
-If an element's health state changes to DEVIATING (orange) or CRITICAL (red) and the probable root cause is not already part of an existing problem, a new problem will be created. All other elements in the landscape with an unhealthy state that can be attributed to the same root cause will be added to the same problem as contributing causes. 
+If an element's health state changes to `DEVIATING` (orange) or `CRITICAL` (red) and the probable root cause is not already part of an existing problem, a new problem will be created. All other elements in the landscape with an unhealthy state that can be attributed to the same root cause will be added to the same problem as contributing causes. 
 
 When a problem is created, the following events are generated:
 
 * A `Problem created` event for each created problem.
 
-![Problem created](/.gitbook/assets/problem_created_animation.gif)
+![Problem created](/.gitbook/assets/v50_problem_created_animation.gif)
 
 ### Problem updated
 
-A problem will be updated if an element in the landscape switches its state to DEVIATING (orange) or CRITICAL (red) and becomes a new contributing cause or root cause for an existing problem. A problem will also be updated if one of the included elements changes its state to healthy (green).
+A problem will be updated if an element in the landscape switches its state to `DEVIATING` (orange) or `CRITICAL` (red) and becomes a new contributing cause or root cause for an existing problem. A problem will also be updated if one of the included elements changes its state to healthy (green).
 
 When a problem is updated, the following events are generated:
 
@@ -56,7 +56,7 @@ When a problem is updated, the following events are generated:
 Updates to an existing problem may result in another existing problem being [subsumed](#problem-subsumed) or a new problem being [created](#problem-created).
 {% endhint %}
 
-![Problem updated](/.gitbook/assets/problem_updated_animation.gif)
+![Problem updated](/.gitbook/assets/v50_problem_updated_animation.gif)
 
 ### Problem subsumed
 
@@ -67,7 +67,7 @@ When a problem is subsumed, the following events are generated:
 * A `Problem updated` event for the oldest problem - the only problem that remains.
 * A `Problem subsumed` event for each other (subsumed) problem.
 
-![Problem subsumed](/.gitbook/assets/problem_subsumed_animation.gif)
+![Problem subsumed](/.gitbook/assets/v50_problem_subsumed_animation.gif)
 
 ### Problem resolved
 
@@ -81,7 +81,7 @@ When a problem is resolved, the following event is generated:
 If elements from the problem change back to an unhealthy state in the future, this will be reported as a new problem in StackState.
 {% endhint %}
 
-![Problem resolved](/.gitbook/assets/problem_resolved_animation.gif)
+![Problem resolved](/.gitbook/assets/v50_problem_resolved_animation.gif)
 
 ## See also
 

@@ -6,17 +6,17 @@ description: StackState SaaS
 
 ## Overview
 
-Event handlers attached to a StackState view listen to generated StackState events.  Event notifications can be sent or actions can be triggered in response to health state change events or problem events generated within the view.
+Event handlers attached to a StackState view listen to generated StackState events. Event notifications can be sent or actions can be triggered in response to health state change events or problem events generated within the view.
 
 ## Configured event handlers
 
-When you open the **Manage Event Handlers** pane on the left-hand side of the StackState UI, a list of all event handlers currently configured for the view is displayed. You can add, edit and remove event handlers from here.
+When you open the **Manage Event Handlers** panel on the left of the StackState UI, a list of all event handlers currently configured for the view is displayed. You can add, edit and remove event handlers from here.
 
 ## Add event handler
 
 You can add an event handler to a view from the StackState UI.
 
-![Add an event handler](/.gitbook/assets/v46_event_handlers_tab.png)
+![Add an event handler](/.gitbook/assets/v50_event_handlers_tab.png)
 
 1. Select **Manage Event Handlers** on the left.
 2. Click **ADD NEW EVENT HANDLER**.
@@ -38,20 +38,23 @@ StackState ships with the following event handler functions that track **health 
 | **HTTP webhook POST** | ✅ | - | Sends an HTTP webhook POST request to the specified URL. |
 | **SMS** | ✅ | - | Sends details of a health state change event using MessageBird. |
 
+
 {% hint style="success" "self-hosted info" %}
 
-* An email event handler is available that sends details of a health state change event using a [configured SMTP server](/configure/topology/configure-email-event-notifications.md).
+**StackState Self-Hosted**
 
-* You can [create your own custom event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md).
-  
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
+* An email event handler is available that sends details of a health state change event using a configured SMTP server.
+* You can create your own custom event handler functions. 
 * A full list of the event handler functions available in your StackState instance can be found in the StackState UI, go to **Settings** &gt; **Functions** &gt; **Event Handler Functions**
 
 {% endhint %}
 
+
 ## See also
 
 * [Event types for event notifications](/use/metrics-and-events/event-notification.mds#event-types-for-notifications)
-* [Add a health check](/use/health-state/add-a-health-check.md)
-* [Configure an SMTP server to send email event notifications](/configure/topology/configure-email-event-notifications.md "StackState Self-Hosted only")
-* [Create a custom event handler function](/develop/developer-guides/custom-functions/event-handler-functions.md "StackState Self-Hosted only")
+* [Add a health check](/use/checks-and-monitors/add-a-health-check.md)
 * [Create a Slack Webhook \(slack.com\)](https://api.slack.com/messaging/webhooks)

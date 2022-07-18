@@ -96,8 +96,8 @@ docker run -d \
  -v /var/run/docker.sock:/var/run/docker.sock:ro \
  -v /proc/:/host/proc/:ro \
  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
- -e STS_API_KEY="API_KEY" \
- -e STS_STS_URL="<stackstate-receiver-api-address>" \
+ -e STS_API_KEY="<STACKSTATE_RECEIVER_API_KEY>>" \
+ -e STS_STS_URL="<STACKSTATE_RECEIVER_API_ADDRESS>" \
  -e HOST_PROC="/host/proc" \
  -e HTTP_PROXY="http://example.com:1234" \
  -e HTTPS_PROXY="https://example.com:1234" \
@@ -241,8 +241,8 @@ docker run -d \
  -v /var/run/docker.sock:/var/run/docker.sock:ro \
  -v /proc/:/host/proc/:ro \
  -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
- -e STS_API_KEY="API_KEY" \
- -e STS_STS_URL="<stackstate-receiver-api-address>" \
+ -e STS_API_KEY="<STACKSTATE_RECEIVER_API_KEY>" \
+ -e STS_STS_URL="<STACKSTATE_RECEIVER_API_ADDRESS>" \
  -e HOST_PROC="/host/proc" \
  -e STS_PROXY_HTTP="http://example.com:1234" \
  -e STS_PROXY_HTTPS="https://example.com:1234" \
@@ -353,7 +353,7 @@ To update the configuration file for an Agent running in a Docker container:
      http: http://example.com:1234
    ```
 
-2. Mount the config files as a volume into the container running the Agent as described in [Docker Agent integration configuration](/setup/agent/docker.md#integration-configuration).
+2. Mount the config files as a volume into the container running the Agent as described in [Docker Agent integration configuration](/setup/agent/docker.md#external-integration-configuration).
 {% endtab %}
 {% tab title="Windows" %}
 

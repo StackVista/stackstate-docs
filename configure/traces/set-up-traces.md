@@ -21,5 +21,5 @@ The StackState Agent V2 StackPack enables integration with external systems to r
 When the StackState Agent V2 StackPack is installed, you can configure integrations to receive trace data from external systems. One or more of the StackState Agent V2 integrations below can be configured to populate the Traces Perspective.
 
 * The [AWS X-ray integration](../../stackpacks/integrations/aws/aws-x-ray.md) collects tracing information from the in-built AWS distributed tracing system.
-* The [OpenTelemetry integration](../../stackpacks/integrations/aws/opentelemetry-nodejs.md) adds topology and telemetry information from AWS Lambdas to traces.
+* The [OpenTelemetry integration](../../stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md) adds topology and telemetry information from AWS Lambdas to traces.
 

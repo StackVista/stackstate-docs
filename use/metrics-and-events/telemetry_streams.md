@@ -33,5 +33,5 @@ Telemetry streams can also be defined in templates and attached automatically to
 
 ## See also
 
-* [Add a health check based on telemetry streams available in StackState](../health-state/add-a-health-check.md)
+* [Add a health check based on telemetry streams available in StackState](../checks-and-monitors/add-a-health-check.md)
 * [Add a telemetry stream to an element](add-telemetry-to-element.md)

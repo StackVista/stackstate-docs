@@ -110,7 +110,7 @@ To be compatible with basic filtering, the function can only be combined with ot
 
 #### Example
 
-The example below will return all components in the application layer that have a health state of either "CRITICAL" or "DEVIATING". Components with names "appA" or "appB" and their neighbors will also be included.
+The example below will return all components in the application layer that have a health state of either `DEVIATING` or `CRITICAL`. Components with names "appA" or "appB" and their neighbors will also be included.
 
 ```text
 layer = "application"
@@ -124,7 +124,7 @@ The `withCauseOf` function has been deprecated. This functionality has been repl
 
 ## Compatibility basic and advanced filters
 
-You can switch between basic and advanced filtering by selecting **Basic** or **Advanced** under **Filter Topology** in the **View Filters** pane.
+You can switch between basic and advanced filtering by selecting **Basic** or **Advanced** under **Filter Topology** in the **View Filters** panel.
 
 It is always possible to switch from Basic to Advanced filtering. The selected basic filters will be converted directly to an STQL query. For simple queries it is also possible to switch from Advanced to Basic filtering, however, some advanced queries are not compatible with basic filters. 
 

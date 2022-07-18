@@ -10,7 +10,7 @@ description: StackState SaaS
 **StackState Agent V2**
 {% endhint %}
 
-StackState Agent V2 can be installed on Windows systems . The Agent collects data from the host where it is running and can be configured to integrate with external systems. Retrieved data is pushed to StackState, to work with this data the [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md) must be installed in your StackState instance. For details of the data retrieved and available integrations, see the [StackPack integration documentation](../../stackpacks/integrations/).
+StackState Agent V2 can be installed on Windows systems. The Agent collects data from the host where it is running and can be configured to integrate with external systems. Retrieved data is pushed to StackState, to work with this data the [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md) must be installed in your StackState instance. For details of the data retrieved and available integrations, see the [StackPack integration documentation](../../stackpacks/integrations/).
 
 ## Monitoring
 
@@ -24,14 +24,10 @@ StackState Agent V2 will synchronize the following data from the host it is runn
 
 ### Supported versions
 
-StackState Agent V2 is supported to run on:
+StackState Agent V2.17.x is supported to run on:
 
 * Windows 10 or higher
 * Windows Server 2012 or higher
-
-### StackState Receiver API address
-
-StackState Agent connects to the StackState Receiver API at the specified [StackState Receiver API address](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api-address). The correct address to use is specific to your installation of StackState.
 
 ### Install
 
@@ -41,10 +37,11 @@ StackState Agent V2 is installed using a [PowerShell \(docs.microsoft.com\)](htt
 * [Offline install](windows.md#offline-install) - If you **do not** have access to the internet on the machine where the Agent will be installed.
 
 {% hint style="info" %}
-The `stsApiKey` and `stsUrl` \(baseUrl\) specified when running the install script are set during StackState installation, for details see:
 
-* [StackState Kubernetes install - configuration parameters](../install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml) 
-* [StackState Linux install - configuration parameters](../install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install) 
+* `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
+* `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
+
+For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
 {% endhint %}
 
 #### Online install
@@ -53,8 +50,8 @@ If you have access to the internet on the machine where the Agent will be instal
 
 ```text
 . { iwr -useb https://stackstate-agent-2.s3.amazonaws.com/install.ps1 } | iex; `
-install -stsApiKey "{{config.apiKey}}" `
--stsUrl "<stackstate-receiver-api-address>"
+install -stsApiKey "<STACKSTATE_RECEIVER_API_KEY>" `
+-stsUrl "<STACKSTATE_RECEIVER_API_ADDRESS>"
 ```
 
 #### Offline install
@@ -69,8 +66,8 @@ If you do not have access to the internet on the machine where the Agent will be
 
    ```text
    Import-Module C:\install_script.ps1
-   install -stsApiKey {{config.apiKey}} `
-   -stsUrl <stackstate-receiver-api-address> `
+   install -stsApiKey <STACKSTATE_RECEIVER_API_KEY> `
+   -stsUrl <STACKSTATE_RECEIVER_API_ADDRESS> `
    -f C:\\stackstate-custom.msi
    ```
 
@@ -80,7 +77,7 @@ To upgrade StackState Agent V2 running on Windows,
 
 1. Download the latest version of the Agent installer package and copy this to the host where it will be installed next to the PowerShell install script:
    * [https://stackstate-agent-2.s3.amazonaws.com/windows/stable/stackstate-agent-latest-1-x86\_64.msi](https://stackstate-agent-2.s3.amazonaws.com/windows/stable/stackstate-agent-latest-1-x86_64.msi)
-2. Double-click on the downloaded `*.msi` file.   
+2. Double-click the downloaded `*.msi` file.   
 
 ## Configure
 
@@ -152,10 +149,28 @@ To troubleshoot the Agent, try to [check the Agent status](windows.md#status) or
 
 ### Log files
 
-Logs for the subsystems are in the following files:
+Logs for the Agent subsystems can be found in the following files:
 
 * `C:\ProgramData\StackState\logs\agent.log`
 * `C:\ProgramData\StackState\logs\process-agent.log`
+
+### Debug mode
+
+By default, the log level of the Agent is set to `INFO`. To assist in troubleshooting, the Agent log level can be set to `DEBUG`. This will enable verbose logging and all errors encountered will be reported in the Agent log files.
+
+To set the log level to `DEBUG` for an Agent running on Windows:
+
+1. Edit the file `C:\ProgramData\StackState\stackstate.yaml`
+2. To set the log level to `DEBUG`, add the line:
+    ```
+    log_level: debug
+    ```
+3. To also include the topology/telemetry payloads sent to StackState in the Agent log, add the line:
+    ```
+    log_payloads: true
+    ```
+4. Save the file and [restart the Agent](#start-stop-or-restart-the-agent) for changes to be applied.
+
 
 ### Support knowledge base
 

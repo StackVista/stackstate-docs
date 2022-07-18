@@ -17,7 +17,7 @@ Changes made to the visualization settings are saved together with the view.
 
 ## Root cause
 
-The root cause visualization settings allow you to make the same changes as can be done with the lightening bolt buttons in the top right corner of the topology visualization. By default, this will be set to **don't show root cause**. When enabled, the view will be automatically expanded to show dependencies that are impacting DEVIATING or CRITICAL propagated health states of components in the view.
+The root cause visualization settings allow you to make the same changes as can be done with the lightening bolt buttons in the top right corner of the topology visualization. By default, this will be set to **don't show root cause**. When enabled, the view will be automatically expanded to show dependencies that are impacting `DEVIATING` or `CRITICAL` propagated health states of components in the view.
 
 ## Grid options
 
@@ -56,3 +56,4 @@ Show indirect relations is switched off by default. If we take a view of three c
 
 If we enable show all indirect relations, there will always be a dotted line marking all indirect connections between the components. That could work out to be a heavy operation on a large topology and might slow down the topology visualization. We don’t need to enable indirect relations here to show them the view expands to show Root Cause Only components.
 
+➡️ [Learn more about indirect relations](/use/concepts/relations.md#relation-types)
