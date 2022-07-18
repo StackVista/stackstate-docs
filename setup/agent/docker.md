@@ -322,6 +322,8 @@ docker container rm stackstate-agent
 
 ### Topology
 
+StackState Agent V2 will retrieve the following topology data from the host that it is running on:
+
 * Hosts, processes and containers
 * Network connections between processes/containers/services 
 
