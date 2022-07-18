@@ -16,22 +16,7 @@ In Docker Swarm mode, the StackState Cluster Agent can be deployed on the manage
 
 ## Monitoring
 
-StackState Agent V2 will retrieve the following topology and metrics data from the host it is running on.
-
-### Topology
-
-* Hosts, processes and containers
-* Network connections between processes/containers/services 
-
-In [Docker swarm mode](#docker-swarm-mode), StackState Cluster Agent running on the manager node will synchronize the following topology data for a Docker cluster:
-
-* Containers
-* Services
-* Relations between containers and services
-
-### Metrics
-
-Telemetry for hosts, processes and containers is retrieved, as well as network traffic telemetry for network connections between processes/containers/services. For details, see the metrics [data retrieved](#data-retrieved).
+StackState Agent V2 will retrieve the following topology and metrics data from the host it is running on. For details, see the [data retrieved](#data-retrieved).
 
 ## Setup
 
@@ -335,6 +320,17 @@ docker container rm stackstate-agent
 
 ## Data retrieved
 
+### Topology
+
+* Hosts, processes and containers
+* Network connections between processes/containers/services 
+
+In [Docker swarm mode](#docker-swarm-mode), StackState Cluster Agent running on the manager node will synchronize the following topology data for a Docker cluster:
+
+* Containers
+* Services
+* Relations between containers and services
+
 ### Metrics
 
 The metrics listed below are retrieved for containers. Telemetry for hosts and processes, as well as network traffic telemetry for network connections between processes/containers/services is also retrieved.
@@ -359,8 +355,6 @@ The list below shows the container metrics that are provided by default. Additio
 * Network received (packets / second)
 * Network sent (bytes / second)
 * Network sent (packets / second)
-
-
 
 ## See also
 
