@@ -13,8 +13,8 @@ We will create two components.
 - RDS Database
 - RDS Table
 
-And we want a [relationship between the database and table](/configure/opentelemetry/manual-instrumentation/relations.md) flowing down from the database to the table. This will allow
-the [health state propagates](/configure/opentelemetry/manual-instrumentation/health.md) up to the database if something is wrong with the table.
+And we want a [relationship between the database and table](/stackpacks/integrations/opentelemetry/manual-instrumentation/relations.md) flowing down from the database to the table. This will allow
+the [health state propagates](/stackpacks/integrations/opentelemetry/manual-instrumentation/span-health.md) up to the database if something is wrong with the table.
 
 This is where your best judgment will come into play; best would be to play around with the parent spans, child spans, etc., and see
 what result do you receive on StackState.
@@ -41,7 +41,7 @@ You should install the following npm libraries using npm or yarn
 
 ### What the StackState Agent expects
 
-The StackState Agent expects you to send the [following keys in every single span](/configure/opentelemetry/manual-instrumentation/mappings.md):
+The StackState Agent expects you to send the [following keys in every single span](/stackpacks/integrations/opentelemetry/manual-instrumentation/tracer-and-span-mappings.md):
 - `trace.perspective.name`
 - `service.name`
 - `service.type`
@@ -132,14 +132,14 @@ rdsDatabase.setAttribute('resource.name', 'AWS RDS');
 
 Example of how the parent component will look like if you create the with the above code
 
-![Parent Component after StackState received the trace](../../../.gitbook/assets/v50_otel_example_parent.png)
+![Parent Component after StackState received the trace](../../../../.gitbook/assets/v50_otel_example_parent.png)
 
 ---
 
 ### 5 - Child span
 Now let's create a span that will have a relation with the parent span. Thus meaning if anything is wrong with the child span then the error will propagate up into the parent.
 
-Let's use a Table from the non exist Database as a child, this allows us to add a critical health state on the child if a write operation to this table failed.
+Let's use a Table from the non exist Database as a child, this allows us to add a CRITICAL health state on the child if a write operation to this table failed.
 
 Example Table
 - Table Name: Users
@@ -166,7 +166,7 @@ rdsDatabaseTable.setAttribute('resource.name', 'AWS RDS');
 
 Example of how the child component will look like if you create the with the above code, and the relation to the parent
 
-![Parent Component after StackState received the trace](../../../.gitbook/assets/v50_otel_example_child.png)
+![Parent Component after StackState received the trace](../../../../.gitbook/assets/v50_otel_example_child.png)
 
 
 ---

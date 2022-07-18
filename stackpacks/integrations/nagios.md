@@ -53,7 +53,7 @@ To enable the Nagios check and begin collecting data from your Nagios instance:
        collect_host_performance_data: True      # default is False
        collect_service_performance_data: True   # default is False
      ```
-2. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to publish the configuration changes.
+2. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deployment) to publish the configuration changes.
 3. Once the Agent is restarted, wait for the Agent to collect data and send it to StackState.
 
 ## Permissions for Nagios files

@@ -84,10 +84,19 @@
     * [StackState/Agent IAM role: EKS](stackpacks/integrations/aws/aws-sts-eks.md)
     * [AWS ECS](stackpacks/integrations/aws/aws-ecs.md)
     * [AWS X-ray](stackpacks/integrations/aws/aws-x-ray.md)
-    * [OpenTelemetry - NodeJS](stackpacks/integrations/aws/opentelemetry-nodejs.md)
     * [Policies for AWS](stackpacks/integrations/aws/aws-policies.md)
   * [Kubernetes](stackpacks/integrations/kubernetes.md)
   * [OpenShift](stackpacks/integrations/openshift.md)
+  * [OpenTelemetry](stackpacks/integrations/opentelemetry/README.md)
+    * [About instrumentations](stackpacks/integrations/opentelemetry/about-instrumentations.md)
+    * [AWS NodeJS Instrumentation](stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md)
+    * [Manual Instrumentation](stackpacks/integrations/opentelemetry/manual-instrumentation/README.md)
+      * [Prerequisites](stackpacks/integrations/opentelemetry/manual-instrumentation/prerequisites.md)
+      * [Tracer and span mappings](stackpacks/integrations/opentelemetry/manual-instrumentation/tracer-and-span-mappings.md)
+      * [Relations between components](stackpacks/integrations/opentelemetry/manual-instrumentation/relations.md)
+      * [Span health state](stackpacks/integrations/opentelemetry/manual-instrumentation/span-health.md)
+      * [Merging components](stackpacks/integrations/opentelemetry/manual-instrumentation/merging.md)
+      * [Code examples](stackpacks/integrations/opentelemetry/manual-instrumentation/code-examples.md)
   * [Slack](stackpacks/integrations/slack.md)
 
 ## 📖 Reference
@@ -98,3 +107,4 @@
   * [Template functions](develop/reference/stj/stj_reference.md)
 * [StackState CLI](setup/cli/cli-sts.md)
 * [StackState SaaS release notes](setup/upgrade-stackstate/sts-saas-release-notes.md)
+

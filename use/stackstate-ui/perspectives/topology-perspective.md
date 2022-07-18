@@ -87,7 +87,7 @@ The Visualization Settings are saved together with the View. For details, see th
 
 ## Problems
 
-If one or more components in a view have a critical state, StackState will show the related components and their states as a **Problem** in the [View Summary](../views/about_views.md#view-summary).
+If one or more components in a view have a CRITICAL state, StackState will show the related components and their states as a **Problem** in the [View Summary](../views/about_views.md#view-summary).
 
 ## Navigation
 

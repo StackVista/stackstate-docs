@@ -24,7 +24,7 @@ StackState Agent V2 will synchronize the following data from the host it is runn
 
 ### Supported versions
 
-StackState Agent V2.17.0 is supported to run on:
+StackState Agent V2.17.x is supported to run on:
 
 * Windows 10 or higher
 * Windows Server 2012 or higher
@@ -41,7 +41,7 @@ StackState Agent V2 is installed using a [PowerShell \(docs.microsoft.com\)](htt
 * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
 * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
 
-For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api).
+For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
 {% endhint %}
 
 #### Online install
@@ -149,10 +149,28 @@ To troubleshoot the Agent, try to [check the Agent status](windows.md#status) or
 
 ### Log files
 
-Logs for the subsystems are in the following files:
+Logs for the Agent subsystems can be found in the following files:
 
 * `C:\ProgramData\StackState\logs\agent.log`
 * `C:\ProgramData\StackState\logs\process-agent.log`
+
+### Debug mode
+
+By default, the log level of the Agent is set to `INFO`. To assist in troubleshooting, the Agent log level can be set to `DEBUG`. This will enable verbose logging and all errors encountered will be reported in the Agent log files.
+
+To set the log level to `DEBUG` for an Agent running on Windows:
+
+1. Edit the file `C:\ProgramData\StackState\stackstate.yaml`
+2. To set the log level to `DEBUG`, add the line:
+    ```
+    log_level: debug
+    ```
+3. To also include the topology/telemetry payloads sent to StackState in the Agent log, add the line:
+    ```
+    log_payloads: true
+    ```
+4. Save the file and [restart the Agent](#start-stop-or-restart-the-agent) for changes to be applied.
+
 
 ### Support knowledge base
 

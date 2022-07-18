@@ -18,7 +18,7 @@ Kubernetes is a [StackState core integration](/stackpacks/integrations/about_int
 
 The Kubernetes integration collects topology data in a Kubernetes cluster as well as metrics and events.
 
-* Data is retrieved by the deployed [StackState Agents](../../setup/agent/kubernetes.md#stackstate-agent-types) and then pushed to StackState via the Agent StackPack and the Kubernetes StackPack.
+* Data is retrieved by the deployed [StackState Agents](../../setup/agent/kubernetes.md#agent-types) and then pushed to StackState via the Agent StackPack and the Kubernetes StackPack.
 * In StackState:
   * [Topology data](kubernetes.md#topology) is translated into components and relations.
   * [Tags](kubernetes.md#tags) defined in Kubernetes are added to components and relations in StackState.
@@ -76,7 +76,7 @@ The kubernetes\_state check is responsible for gathering metrics from kube-state
 
 In a default deployment, all pods running a StackState Agent must be configured with sufficient CPU and memory requests and limits to run the check. This can consume a lot of memory in a large Kubernetes cluster. Since only one StackState Agent pod will actually run the check, a lot of CPU and memory resources will be allocated, but not be used.
 
-To remedy this situation, the kubernetes\_state check can be configured to run as a cluster check. In this case, only the [ClusterCheck Agent](/setup/agent/kubernetes.md#stackstate-clustercheck-agent-optional) requires resources to run the check and the allocation for other pods can be reduced.
+To remedy this situation, the kubernetes\_state check can be configured to run as a cluster check. In this case, only the [ClusterCheck Agent](/setup/agent/kubernetes.md#clustercheck-agent-optional) requires resources to run the check and the allocation for other pods can be reduced.
 
 1. Update the `values.yaml` file used to deploy the `cluster-agent`, for example:
   ```yaml

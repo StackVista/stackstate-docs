@@ -83,7 +83,7 @@ View.getAll().then { views ->
 }
 ```
 
-Create a URL to the Topology Perspective explore mode with filters in place to show all components from the production environment that are in critical state and showing the full root cause tree
+Create a URL to the Topology Perspective explore mode with filters in place to show all components from the production environment that are in CRITICAL state and showing the full root cause tree
 
 ```groovy
 UI.createUrl().explore().topologyQuery('environment IN ("Production") AND healthstate IN ("CRITICAL")').fullCauseTree().url()
