@@ -358,6 +358,8 @@ The metrics listed below are retrieved for containers. Telemetry for hosts and p
 
 **Metrics for containers**
 
+The list below shows the container metrics that are provided by default. Additional metrics may be supplied by other sources based on your specific implementation.
+
 * Container Restart
 * Container State
 * CPU amount of seconds throttled
