@@ -16,7 +16,7 @@ In Docker Swarm mode, the StackState Cluster Agent can be deployed on the manage
 
 ## Monitoring
 
-StackState Agent V2 will retrieve the following topology and metrics data from the host it is running on. For details, see the [data retrieved](#data-retrieved).
+StackState Agent V2 will retrieve topology and metrics data from the host that it is running on. In [Docker swarm mode](#docker-swarm-mode), StackState Cluster Agent running on the manager node will synchronize data for a Docker cluster. For details, see the [data retrieved](#data-retrieved).
 
 ## Setup
 
