@@ -335,7 +335,7 @@ In [Docker swarm mode](#docker-swarm-mode), StackState Cluster Agent running on 
 
 ### Metrics
 
-The metrics listed below are retrieved for containers. Telemetry for hosts and processes, as well as network traffic telemetry for network connections between processes/containers/services is also retrieved.
+StackState Agent V2 will retrieve the metrics listed below for containers. Telemetry for hosts and processes, as well as network traffic telemetry for network connections between processes/containers/services is also retrieved.
 
 **Metrics for containers**
 
