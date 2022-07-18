@@ -37,7 +37,7 @@ To start a single Docker container with StackState Agent V2, run the command bel
 * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
 * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
 
-For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api).
+For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
 
 ```text
 docker run -d \
@@ -70,9 +70,9 @@ To run StackState Agent V2 with Docker compose:
 1. Add the following configuration to the compose file on each node where the Agent will run.
    * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
    * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
-   For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api).
+   For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
 
-   ```text
+   ```bash
    stackstate-agent:
     image: docker.io/stackstate/stackstate-agent-2:2.17.1
     network_mode: "host"
@@ -112,10 +112,10 @@ To run StackState Cluster Agent in Docker Swarm mode:
 1. Create a file `docker-compose.yml` with the following content. Update to include details of your StackState instance:
    * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
    * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
-   For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api).
+   For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
    * `<CLUSTER_NAME>` is the name you would like to give this cluster
 
-   ```yaml
+   ```bash
    stackstate-agent:
        image: docker.io/stackstate/stackstate-cluster-agent:2.17.1
        deploy:
@@ -174,7 +174,7 @@ StackState Agent V2 can be configured to run checks that integrate with external
 
 For example, the Agent Docker configuration below includes a volume with a check configuration file for the ServiceNow integration:
 
-```text
+```bash
 stackstate-agent:
     image: docker.io/stackstate/stackstate-agent-2:2.17.1
     network_mode: "host"
@@ -272,13 +272,48 @@ Inside the running container, StackState Agent V2 logs are in the following file
 * `/var/log/stackstate-agent/agent.log`
 * `/var/log/stackstate-agent/process-agent.log`
 
-### Set log level
+### Debug mode
 
-To troubleshoot the StackState Agent container, set the logging level to `debug` using the `STS_LOG_LEVEL` environment variable:
+By default, the log level of the Agent container is set to `INFO`. To assist in troubleshooting, the Agent log level can be set to `DEBUG`. This will enable verbose logging and all errors encountered will be reported in the Agent log files.
 
-```text
-STS_LOG_LEVEL: "DEBUG"
+To set the log level to `DEBUG` for an Agent running on Docker, use the `STS_LOG_LEVEL` environment variable. Other optional logging settings:
+
+* `STS_LOG_PAYLOADS: "true"` - include the topology/telemetry payloads sent to StackState in the Agent log.
+* `STS_LOG_TO_CONSOLE: "true"` - write log output to the container stdout.
+
+For example:
+
+{% tabs %}
+{% tab title="Docker compose" %}
+```bash
+stackstate-agent:
+  image: docker.io/stackstate/stackstate-agent-2:2.17.1
+  network_mode: "host"
+  pid: "host"
+  privileged: true
+  volumes:
+    - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    - "/proc/:/host/proc/:ro"
+    - "/sys/fs/cgroup/:/host/sys/fs/cgroup:ro"
+    - "/etc/passwd:/etc/passwd:ro"
+    - "/sys/kernel/debug:/sys/kernel/debug"
+  environment:
+    STS_API_KEY: "<STACKSTATE_RECEIVER_API_KEY>"
+    STS_STS_URL: "<STACKSTATE_RECEIVER_API_ADDRESS>"
+    STS_PROCESS_AGENT_URL: "<STACKSTATE_RECEIVER_API_ADDRESS>"
+    STS_PROCESS_AGENT_ENABLED: "true"
+    STS_NETWORK_TRACING_ENABLED: "true"
+    STS_PROTOCOL_INSPECTION_ENABLED: "true"
+    STS_APM_URL: "<STACKSTATE_RECEIVER_API_ADDRESS>"
+    STS_APM_ENABLED: "true"
+    HOST_PROC: "/host/proc"
+    HOST_SYS: "/host/sys"
+    STS_LOG_LEVEL: "debug"
+    STS_LOG_TO_CONSOLE: "true"
+    STS_LOG_PAYLOADS: "true"
 ```
+{% endtab %}
+{% endtabs %}
 
 ### Support knowledge base
 

@@ -96,7 +96,7 @@ To enable the Dynatrace topology check and begin collecting topology data from D
    - **custom_device_fields** - The Custom Device property fields that should be used.
    - **custom_device_ip** - Use IP address to generate Custom Device identifiers. Set to `False` if there are multiple Custom Devices using the same IP to prevent incorrect merging of Custom Device components. Default `True`. Requires Agent v2.17 or later. 
    - **tags** - custom tags appended to all components, useful for filtering.
-4. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
+4. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 5. Once the Agent has restarted, wait for data to be collected from Dynatrace and sent to StackState.
 
 #### Dynatrace Health Check
@@ -271,7 +271,7 @@ To uninstall the Dynatrace StackPack and disable the Dynatrace checks:
     mv dynatrace_health.d/conf.yaml dynatrace_health.d/conf.yaml.bak
    ```
 
-3. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deploy-and-run-stackstate-agent-v2) to apply the configuration changes.
+3. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 
 ## Release notes
 

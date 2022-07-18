@@ -51,7 +51,7 @@ If you have access to the internet on the machine where the Agent will be instal
 * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
 * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
 
-For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api).
+For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
 
 {% tabs %}
 {% tab title="cURL" %}
@@ -87,7 +87,7 @@ If you do not have access to the internet on the machine where the Agent will be
 4. Use the command below to set the required environment variables and run the installer script.
    * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
    * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState.
-   For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#stackstate-receiver-api).
+   For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
 
 ```text
 STS_API_KEY="<STACKSTATE_RECEIVER_API_KEY>" \
@@ -212,10 +212,27 @@ To troubleshoot the Agent, try to [check the Agent status](linux.md#status-and-i
 
 ### Log files
 
-Logs for the subsystems are in the following files:
+Logs for the Agent subsystems can be found in the following files:
 
 * `/var/log/stackstate-agent/agent.log`
 * `/var/log/stackstate-agent/process-agent.log`
+
+### Debug mode
+
+By default, the log level of the Agent is set to `INFO`. To assist in troubleshooting, the Agent log level can be set to `DEBUG`. This will enable verbose logging and all errors encountered will be reported in the Agent log files.
+
+To set the log level to `DEBUG` for an Agent running on Linux:
+
+1. Edit the file `/etc/stackstate-agent/stackstate.yaml`
+2. To set the log level to `DEBUG`, add the line:
+    ```
+    log_level: debug
+    ```
+3. To also include the topology/telemetry payloads sent to StackState in the Agent log, add the line:
+    ```
+    log_payloads: true
+    ```
+4. Save the file and [restart the Agent](#start-stop-or-restart-the-agent) for changes to be applied.
 
 ### Support knowledge base
 

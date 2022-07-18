@@ -18,7 +18,7 @@ OpenShift is a [StackState core integration](/stackpacks/integrations/about_inte
 
 The OpenShift integration collects topology data in an OpenShift cluster as well as metrics and events.
 
-* Data is retrieved by the deployed [StackState Agents](../../setup/agent/openshift.md#stackstate-agent-types) and then pushed to StackState via the Agent StackPack and the OpenShift StackPack.
+* Data is retrieved by the deployed [StackState Agents](../../setup/agent/openshift.md#agent-types) and then pushed to StackState via the Agent StackPack and the OpenShift StackPack.
 * In StackState:
   * [Topology data](openshift.md#topology) is translated into components and relations.
   * [Tags](openshift.md#tags) defined in OpenShift are added to components and relations in StackState.
@@ -76,7 +76,7 @@ The kubernetes\_state check is responsible for gathering metrics from kube-state
 
 In a default deployment, all pods running a StackState Agent must be configured with sufficient CPU and memory requests and limits to run the check. This can consume a lot of memory in a large OpenShift cluster. Since only one StackState Agent pod will actually run the check, a lot of CPU and memory resources will be allocated, but not be used.
 
-To remedy this situation, the kubernetes\_state check can be configured to run as a cluster check. In this case, only the [ClusterCheck Agent](/setup/agent/openshift.md#stackstate-clustercheck-agent-optional) requires resources to run the check and the allocation for other pods can be reduced.
+To remedy this situation, the kubernetes\_state check can be configured to run as a cluster check. In this case, only the [ClusterCheck Agent](/setup/agent/openshift.md#clustercheck-agent-optional) requires resources to run the check and the allocation for other pods can be reduced.
 
 1. Update the `values.yaml` file used to deploy the `cluster-agent`, for example:
   ```yaml
