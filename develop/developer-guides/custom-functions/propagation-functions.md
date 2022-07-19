@@ -174,16 +174,16 @@ The propagation block requires the following keys;
 
 ### Examples
 
-Two examples of adding a propagation function to a component template can be found below:
+Examples of adding a propagation function to a component template can be found below:
 
 * System parameters only: [Active/active failover](#active-active-failover-propagation-function)
 * System and user parameters: [Stop propagation for relation type](#stop-propagation-for-relation-type)
 
 #### Active/active failover propagation function
 
-The example component template below uses a `get` helper to obtain the ID of the **Active/active failover** propagation function with the identifier `urn:stackpack:common:propagationfunction:active-failover`
+The example template below uses a `get` helper to obtain the ID of the **Active/active failover** propagation function with the identifier `urn:stackpack:common:propagationfunction:active-failover`. No `"arguments"` are specified as the propagation function does not include any user parameters.
 
-Component template `"propagation"` block:
+Template `"propagation"` block:
 
 ```bash
 ...
@@ -202,9 +202,9 @@ Propagation function:
 
 #### Stop propagation for relation type
 
-The component template example below includes a user parameter that will be passed to the propagation function together with the standard system parameters. The arguments list in the component template extract contains one argument that matches the **Stop propagation for relation type** propagation function’s user parameter `relationType`
+The template example below includes a user parameter that will be passed to the propagation function together with the standard system parameters. The `"arguments"` list contains one argument that matches the user parameter `relationType` from the **Stop propagation for relation type** propagation function.
 
-Component template `"propagation"` block:
+Template `"propagation"` block:
 
 ```bash
 ...
