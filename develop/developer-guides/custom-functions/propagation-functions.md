@@ -174,11 +174,14 @@ The propagation block requires the following keys;
 
 ### Examples
 
-For example:
+Two examples of adding a propagation function to a component template can be found below:
 
-{% tabs %}
-{% tab title="Example with system parameters only" %}
-The example component template below uses a `get` helper to obtain the ID of the propagation function with the identifier `urn:stackpack:common:propagationfunction:active-failover`
+* System parameters only: [Active/active failover](#active-active-failover-propagation-function)
+* System and user parameters: [Stop propagation for relation type](#stop-propagation-for-relation-type)
+
+#### Active/active failover propagation function
+
+The example component template below uses a `get` helper to obtain the ID of the **Active/active failover** propagation function with the identifier `urn:stackpack:common:propagationfunction:active-failover`
 
 Component template `"propagation"` block:
 
@@ -197,9 +200,9 @@ Propagation function:
 ![Propagation function](/.gitbook/assets/v50_propagation_function_system_parameters_identifier.png)
 
 
-{% endtab %}
-{% tab title="Example with system and user parameters" %}
-The component template example below includes a user parameter that will be passed to the propagation function together with the standard system parameters. The arguments list in the component template extract contains one argument that matches the propagation function’s user parameter `relationType`
+#### Stop propagation for relation type
+
+The component template example below includes a user parameter that will be passed to the propagation function together with the standard system parameters. The arguments list in the component template extract contains one argument that matches the **Stop propagation for relation type** propagation function’s user parameter `relationType`
 
 Component template `"propagation"` block:
 
@@ -221,8 +224,6 @@ Propagation function:
 
 ![Propagation function](/.gitbook/assets/v50_propagation_function_user_parameters_identifier.png)
 
-{% endtab %}
-{% endtabs %}
 
 ## See also
 
