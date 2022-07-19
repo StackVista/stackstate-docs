@@ -83,7 +83,7 @@ Metrics can be sent to the StackState Receiver API using the `"metrics"` propert
 Every metric has the following details:
 
 * **name** - The metric name. Must not start with any of the following prefixes: `host`, `labels`, `name`, `tags` , `timeReceived`, `timestamp`, `tags` or `values`.
-* **timestamp** - The epoch timestamp of the metric.
+* **timestamp** - The UTC timestamp of the metric expressed in epoch seconds.
 * **value** - The value of the metric.
 * **hostname** - The host this metric is from.
 * **type** - The type of metric. Can be `gauge`, `count`, `rate`, `counter` or `raw`.

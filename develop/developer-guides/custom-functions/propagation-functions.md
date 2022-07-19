@@ -17,9 +17,7 @@ A propagated state is returned as one of the following health states:
 
 A component's propagated state is calculated using a propagation function, which is set during synchronization.
 
-## Propagation functions
-
-Propagation functions are used to calculate the propagated state of a component.
+## Propagation type
 
 ### Auto propagation \(default\)
 
@@ -31,31 +29,19 @@ Returns the transparent state. This is the maximum of the component's own state 
 | `CLEAR` | `CRITICAL` | `CRITICAL` |
 | `DEVIATING` | `CLEAR` | `DEVIATING` |
 
-### Other propagation functions
+### Propagation functions
 
-Some propagation functions are installed as part of a StackPack. For example, Quorum based cluster propagation, which will propagate a `DEVIATING` state when the cluster quorum agrees on deviating and a `CRITICAL` state when the cluster quorum is in danger. You can also write your own [custom propagation functions](propagation-functions.md#create-a-custom-propagation-function).
+Propagation functions can be used to calculate the propagated state of a component. Some propagation functions are installed as part of a StackPack. For example, Quorum based cluster propagation, which will propagate a `DEVIATING` state when the cluster quorum agrees on deviating and a `CRITICAL` state when the cluster quorum is in danger. You can also write your own [custom propagation functions](propagation-functions.md#create-a-custom-propagation-function). A full list of the propagation functions available in your StackState instance can be found in the StackState UI, go to **Settings** &gt; **Functions** &gt; **Propagation Functions**
 
 {% hint style="info" %}
-A full list of the propagation functions available in your StackState instance can be found in the StackState UI, go to **Settings** &gt; **Functions** &gt; **Propagation Functions**
+To use a propagation function to calculate the propagated state of a component, the propagation function must be [specified in the component template](#specify-in-template) used during topology synchronization.
 {% endhint %}
-
-### Specify in template
-
-The default propagation used in StackState is Auto propagation. If another type of propagation should be applied to a component, this must be specified in the during topology synchronization. In most cases this will be handled by the StackPack responsible for synchronization of the component. 
-
-To manually specify a non-default propagation function, add the following to the template used when it is synchronized: 
-
-```yaml
-"propagation": {
-  "_type": "Propagation",
-  "function": <id-of-the-function-to-use>,
-  "arguments": []
-},
-```
 
 ## Create a custom propagation function
 
-You can write custom propagation functions to determine the new propagated state of an element \(component or relation\). A propagation function can take multiple parameters as input and produces a new propagated state as output. To calculate a propagated state, a propagation function has access to the element itself, the element's dependencies and the transparent state that has already been calculated for the element.
+You can write custom propagation functions to determine the new propagated state of an element \(component or relation\). The propagation function can then be specified in the template used to synchronize topology.
+
+A propagation function can take multiple parameters as input and produces a new propagated state as output. To calculate a propagated state, a propagation function has access to the element itself, the element's dependencies and the transparent state that has already been calculated for the element.
 
 ![Custom propagation function](../../../.gitbook/assets/v50_propagation-function.png)
 
@@ -153,6 +139,71 @@ The `stateChangesRepository` methods listed below are **only available in synchr
 ### Logging
 
 You can add logging statements to a propagation function for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](../../../configure/logging/).
+
+## Specify in template
+
+The default propagation used in StackState is Auto propagation. If another type of propagation should be applied to a component, this must be specified in the component template and applied during topology synchronization. In most cases this will be handled by the StackPack responsible for synchronization of the component. 
+
+To manually specify a non-default propagation function, a `"propagation"` block should be added to the template used for topology synchronization: 
+
+```yaml
+"propagation": {
+  "_type": "Propagation",
+  "function": <id-of-the-function-to-use>,
+  "arguments": []
+  },
+```
+
+The propagation block requires the following keys;
+- **_type** - specifies that the JSON block defines a Propagation.
+- **arguments** - a list of arguments that the propagation function requires. The System parameter arguments are provided during run time, if the propagation function also requires user parameters, these can be specified here.
+- **function** the node ID of the propagation function to use. This can be obtained using a `get` helper.
+
+For example:
+
+{% tabs %}
+{% tab title="Example with system parameters only" %}
+The example below uses a `get` helper to obtain the ID of the propagation function with the identifier `urn:stackpack:common:propagationfunction:active-failover`
+
+```bash
+"propagation": {
+  "_type": "Propagation",
+  "arguments": [],
+  "function": {{ get "urn:stackpack:common:propagationfunction:active-failover" }},
+  },
+```
+{% endtab %}
+{% tab title="Example with system and user parameters" %}
+The example below includes a user parameter that will be passed to the propagation function together with the standard system parameters.
+
+![](/.gitbook/assets/v50_propagation_function_example.png)![](/.gitbook/assets/v50_propagation_function_relation_type_example.png)
+
+The arguments list in the component template extract contains one argument that matches the propagation function’s user parameter `relationType`:
+- **type** - in this example, the type is `ArgumentRelationTypeRef`. This type provides a reference to a relation type.
+- **parameter** - the node ID of the propagation function’s user parameter, this will hold the value for the key `relationType` at run time. The node ID is obtained using a `get` helper.
+- **relationType** - the relation type that must be passed as an argument to the propagation function. The value is expected to be the node ID of a relation type. In this case the node ID of the `is-hosted-on` relation type is resolved by its URN identifier.
+
+```bash
+"propagation": {
+  "_type": "Propagation",
+  "arguments": [{
+    "_type": "ArgumentRelationTypeRef",
+    "parameter": {{ get "urn:stackpack:common:propagationfunction:stop-propagation-for-relation-type" "Type=Parameter;Name=relationType" }},
+    "relationType": {{ get "urn:stackpack:common:relationtype:is-hosted-on" }}
+    }],
+  "function": {{ get "urn:stackpack:common:propagationfunction:stop-propagation-for-relation-type" }},
+  },
+```
+
+
+{% endtab %}
+{% endtabs %}
+
+
+
+
+
+
 
 ## See also
 
