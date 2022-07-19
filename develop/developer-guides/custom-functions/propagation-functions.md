@@ -178,14 +178,18 @@ For example:
 
 {% tabs %}
 {% tab title="Example with system parameters only" %}
-The example below uses a `get` helper to obtain the ID of the propagation function with the identifier `urn:stackpack:common:propagationfunction:active-failover`
+The example component template below uses a `get` helper to obtain the ID of the propagation function with the identifier `urn:stackpack:common:propagationfunction:active-failover`
+
+Component template `"prpagation"` block:
 
 ```bash
+...
 "propagation": {
   "_type": "Propagation",
   "arguments": [],
   "function": {{ get "urn:stackpack:common:propagationfunction:active-failover" }},
   },
+...
 ```
 {% endtab %}
 {% tab title="Example with system and user parameters" %}
@@ -196,6 +200,7 @@ The component template example below includes a user parameter that will be pass
 Component template `"prpagation"` block:
 
 ```bash
+...
 "propagation": {
   "_type": "Propagation",
   "arguments": [{
@@ -205,6 +210,7 @@ Component template `"prpagation"` block:
     }],
   "function": {{ get "urn:stackpack:common:propagationfunction:stop-propagation-for-relation-type" }},
   },
+...
 ```
 
 {% endtab %}
