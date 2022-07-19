@@ -183,8 +183,8 @@ Examples of adding a propagation function to a template can be found below:
 
 The example template below uses a `get` helper to obtain the ID of the **Active/active failover** propagation function with the identifier `urn:stackpack:common:propagationfunction:active-failover`. No `"arguments"` are specified as the propagation function does not include any user parameters.
 
-Template `"propagation"` block:
-
+{% tabs %}
+{% tab title="Template `propagation` block" %}
 ```bash
 ...
 "propagation": {
@@ -194,18 +194,18 @@ Template `"propagation"` block:
   },
 ...
 ```
-
-Propagation function:
-
+{% endtab %}
+{% tab title="Propagation function" %}
 ![Propagation function](/.gitbook/assets/v50_propagation_function_system_parameters_identifier.png)
-
+{% endtab %}
+{% endtabs %}
 
 #### Stop propagation for relation type
 
 The template example below includes a user parameter that will be passed to the propagation function together with the standard system parameters. The `"arguments"` list contains one argument that matches the user parameter `relationType` from the **Stop propagation for relation type** propagation function.
 
-Template `"propagation"` block:
-
+{% tabs %}
+{% tab title="Template `propagation` block" %}
 ```bash
 ...
 "propagation": {
@@ -219,10 +219,11 @@ Template `"propagation"` block:
   },
 ...
 ```
-
-Propagation function:
-
+{% endtab %}
+{% tab title="Propagation function" %}
 ![Propagation function](/.gitbook/assets/v50_propagation_function_user_parameters_identifier.png)
+{% endtab %}
+{% endtabs %}
 
 
 ## See also
