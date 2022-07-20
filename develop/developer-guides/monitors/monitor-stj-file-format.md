@@ -53,11 +53,11 @@ The supported fields are:
 - **remediationHint** - a short, markdown-enabled hint displayed whenever the validation rule represented by this monitor triggers and results in an unhealthy state.
 - **function** - the specific monitor function to use as the basis of computation for this monitor. For more details see [function](#function).
 - **arguments** - lists concrete values that are to be used for parameters in the monitor function invocation. For more details and descriptions of commonly used parameters, see [arguments](#arguments).
-- **intervalSeconds** - dictates how often to execute this particular monitor; new executions are scheduled after the specified number of seconds, counting from the time that the last execution ended. For more details see [run interval](#run-interval).
+- **intervalSeconds** - dictates how often to execute this particular monitor; new executions are scheduled after the specified number of seconds, counting from the time that the last execution ended. For more details see [run interval](#intervalseconds).
 
 ## Field information
 
-### Identifier
+### identifier
 
 An important field of the monitor node is the `identifier` - it is a unique value of the StackState URN format that can be used together with the monitor-specific StackState CLI commands. The identifier should be formatted as follows:
 
@@ -66,7 +66,7 @@ An important field of the monitor node is the `identifier` - it is a unique valu
 * The `<prefix>` is described in more detail in [topology identifiers](../../../configure/topology/identifiers.md "StackState Self-Hosted only").
 * The `<unique-monitor-identification>` is user-definable and free-form.
 
-### Function
+### function
 
 Each monitor configured in StackState uses a monitor function to compute the health state results that are attached to the elements.
 
@@ -97,7 +97,7 @@ You can [create custom monitor function](../custom-functions/monitor-functions.m
 
 {% endhint %}
 
-### Arguments
+### arguments
 
 The arguments defined in the monitor STJ definition should match the parameters defined in the monitor function STJ definition. 
 
@@ -300,7 +300,7 @@ The declaration of a topology identifier pattern would look something like the f
 {% endtabs %}
 
 
-### Run interval
+### intervalSeconds
 
 The monitor run interval determines how often a monitor logic will be executed. This is configured in the monitor STJ file as a number of seconds using the `intervalSeconds` field. For example, an `intervalSeconds: 60` configuration means that StackState will attempt to execute the monitor function associated with the monitor every 60 seconds. If the monitor function execution takes significant time, the next scheduled run will occur 60 seconds after the previous run finishes.
 
