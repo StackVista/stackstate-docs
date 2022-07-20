@@ -12,7 +12,7 @@ The example on this page creates a CPU metric monitor using an example monitor f
 
 ➡️ [Learn more about the STJ file format used for monitor definitions](monitor-stj-file-format.md)
 
-## Example
+## Example - CPU metric monitor
 
 To create the example CPU metric custom monitor in StackState we will:
 
