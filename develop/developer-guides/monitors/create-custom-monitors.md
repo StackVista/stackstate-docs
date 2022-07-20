@@ -63,7 +63,7 @@ The invocation of the `get` helper function will automatically resolve to the ID
 
 ## Populate the parameters of the monitor function invocation
 
-The parameters are different for each monitor function. In the case of `Metric above threshold` we need to populate `thershold`, `metrics` and `topologyIdentifierPattern`:
+The parameters are different for each monitor function. In the case of `Metric above threshold` we need to populate `threshold`, `metrics` and `topologyIdentifierPattern`:
 
 ```json
 {
@@ -87,7 +87,7 @@ The parameters are different for each monitor function. In the case of `Metric a
         "value": "urn:host:/${tags.host}"
       }, {
         "_type": "ArgumentScriptMetricQueryVal",
-        "parameter": {{ get "urn:system:default:monitor-function:metric-above-threshold" "Type=Parameter;Name=query" }},
+        "parameter": {{ get "urn:system:default:monitor-function:metric-above-threshold" "Type=Parameter;Name=metrics" }},
         "script": "Telemetry\n.query(\"StackState Metrics\", \"\")\n.metricField(\"system.cpu.system\")\n.groupBy(\"tags.host\")\n.start(\"-1m\")\n.aggregation(\"mean\", \"15s\")"
       }],
       "intervalSeconds": 60
@@ -165,7 +165,7 @@ sts monitor run --identifier <identifier-of-a-monitor>
 
 ➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade "StackState Self-Hosted only")
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
+{% endtabs %}
 
 ## See also
 
