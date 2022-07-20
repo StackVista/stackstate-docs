@@ -8,7 +8,7 @@ description: StackState SaaS
 
 🔒 **StackState is SOC2/3 compliant**
 
-[Learn more about StackState compliance](https://www.stackstate.com/compliance) \(stackstate.com\)
+[Learn more about compliance at StackState](https://www.stackstate.com/compliance) \(stackstate.com\)
 
 {% endhint %}
 

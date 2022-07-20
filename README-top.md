@@ -4,6 +4,14 @@ description: StackState Self-hosted v5.0.x
 
 # Welcome to the StackState Self-hosted product docs!
 
+<details>
+
+<summary>🔒 StackState is SOC2/3 compliant</summary>
+
+[Learn more about compliance at StackState](https://www.stackstate.com/compliance) \(stackstate.com\)
+
+</details>
+
 {% hint style="success" %}
 **Available now: StackState v5.0**
 
@@ -15,14 +23,6 @@ description: StackState Self-hosted v5.0.x
 StackState Self-hosted can be used to observe an extensive set of technologies that originate either in your own data centers or in the cloud. If you are focussed solely on cloud technologies, such as Kubernetes or AWS, you might consider our SaaS solution. 
 
 ➡️ Switch to the [documentation for StackState SaaS](https://docs.stackstate.com/v/stackstate-saas/)
-
-<details>
-
-<summary>🔒 StackState is SOC2/3 compliant</summary>
-
-For details, see the [compliance section on stackstate.com](https://www.stackstate.com/compliance)
-
-</details>
 
 ### Using StackState
 
