@@ -51,7 +51,7 @@ The supported fields are:
 - **description** - a longer, more in-depth description of the monitor.
 - **identifier** - a StackState-URN-formatted value that uniquely identifies this monitor definition. For more details see [identifier](#identifier).
 - **remediationHint** - a short, markdown-enabled hint displayed whenever the validation rule represented by this monitor triggers and results in an unhealthy state.
-- **function** - the specific monitor function to use as the basis of computation for this monitor. For more details see [monitor function](#monitor-function).
+- **function** - the specific monitor function to use as the basis of computation for this monitor. For more details see [function](#function).
 - **arguments** - lists concrete values that are to be used for parameters in the monitor function invocation. For more details and descriptions of commonly used parameters, see [arguments](#arguments).
 - **intervalSeconds** - dictates how often to execute this particular monitor; new executions are scheduled after the specified number of seconds, counting from the time that the last execution ended. For more details see [run interval](#run-interval).
 
@@ -66,7 +66,7 @@ An important field of the monitor node is the `identifier` - it is a unique valu
 * The `<prefix>` is described in more detail in [topology identifiers](../../../configure/topology/identifiers.md "StackState Self-Hosted only").
 * The `<unique-monitor-identification>` is user-definable and free-form.
 
-### Monitor function
+### Function
 
 Each monitor configured in StackState uses a monitor function to compute the health state results that are attached to the elements.
 
