@@ -129,7 +129,7 @@ For the StackState SaaS product, the StackState Receiver API key will be provide
 
 [➡️ Go to the StackState SaaS product documentation](https://docs.stackstate.com/v/stackstate-saas/ "StackState Self-Hosted only")
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
+{% endtabs %}
 
 ### Troubleshooting
 
