@@ -8,7 +8,7 @@ layout: landing
 
 ## StackState SaaS
 
-StackState SaaS can be used to observe cloud technologies, such as Kubernetes and AWS services. 
+Use StackState SaaS to observe cloud technologies, such as Kubernetes and AWS services. 
 
 * [StackState SaaS docs](https://docs.stackstate.com/v/stackstate-saas/)
 
@@ -18,7 +18,7 @@ StackState SaaS can be used to observe cloud technologies, such as Kubernetes an
 
 ## StackState Self-hosted
 
-StackState Self-hosted can be used to observe an extensive set of technologies that originate either in your own data centers or in the cloud.
+Use StackState Self-hosted to observe an extensive set of technologies that originate either in your own data centers or in the cloud.
 
 * [StackState v5.0 docs](https://docs.stackstate.com/v/5.0/) 🚀 new release!
 * [StackState v4.6 docs](https://docs.stackstate.com/v/4.6/)
