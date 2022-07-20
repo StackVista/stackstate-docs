@@ -10,13 +10,13 @@ StackState SaaS can be used to observe cloud technologies, such as Kubernetes an
 
 ➡️ Switch to the [documentation for StackState Self-Hosted](https://docs.stackstate.com/)
 
-<details>
+{% hint style="info" %}
 
-<summary>StackState is SOC2/3 compliant</summary>
+**StackState is SOC2/3 compliant**
 
-For details see the [StackState website compliance information](https://www.stackstate.com/compliance)
+For details see the [compliance information on stackstate.com](https://www.stackstate.com/compliance)
 
-</details>
+{% endhint %}
 
 ### Get started
 

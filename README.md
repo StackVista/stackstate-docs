@@ -20,7 +20,7 @@ StackState Self-hosted can be used to observe an extensive set of technologies t
 
 <summary>StackState is SOC2/3 compliant</summary>
 
-For details see the [StackState website compliance information](https://www.stackstate.com/compliance)
+For details see the [compliance information on stackstate.com](https://www.stackstate.com/compliance)
 
 </details>
 
