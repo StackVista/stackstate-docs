@@ -98,6 +98,8 @@ The parameters are different for each monitor function. In the case of `Metric a
 
 Similar to the `function`, parameters can be referred to by utilizing the `get` helper function.
 
+For further details of defining arguments in the monitor definition and how to work with commonly used parameters such as a metrics query or topology identifier, see [monitor STJ file format > Arguments](/develop/developer-guides/monitors/monitor-stj-file-format.md#arguments).
+
 ## Apply the newly created monitor in StackState
 
 This can be achieved by using the dedicated StackState CLI command:
