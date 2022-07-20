@@ -16,6 +16,14 @@ StackState Self-hosted can be used to observe an extensive set of technologies t
 
 ➡️ Switch to the [documentation for StackState SaaS](https://docs.stackstate.com/v/stackstate-saas/)
 
+<details>
+
+<summary>StackState is SOC2/3 compliant</summary>
+
+For details see the [StackState website compliance information](https://www.stackstate.com/compliance)
+
+</details>
+
 ### Using StackState
 
 {% page-ref page="getting_started.md" %}
