@@ -8,9 +8,13 @@ description: StackState Self-hosted v5.0.x
 
 Monitors can be attached to any number of elements in the StackState topology to calculate a health state based on 4T data. Each monitor consists of a monitor definition and a monitor function. Monitors are created and managed by StackPacks, you can also create custom monitors and monitor functions outside of a StackPack without having to modify any configuration.
 
-The following example creates a CPU metric monitor using an example monitor function. 
+The example on this page creates a CPU metric monitor using an example monitor function. 
 
-To create a custom monitor in StackState:
+➡️ [Learn more about the STJ file format used for monitor definitions](monitor-stj-file-format.md)
+
+## Example
+
+To create the example CPU metric custom monitor in StackState we will:
 
 1. [Create a new STJ import file.](#create-a-new-stj-import-file)
 2. [Populate the monitor node.](#populate-the-monitor-node)
@@ -18,7 +22,7 @@ To create a custom monitor in StackState:
 4. [Apply the newly created monitor in StackState.](#apply-the-newly-created-monitor-in-stackstate)
 5. [Verify that your newly created monitor is working correctly.](#verify-that-your-newly-created-monitor-is-working-correctly)
 
-## Create a new STJ import file
+### Create a new STJ import file
 
 ```json
 {
@@ -32,7 +36,9 @@ To create a custom monitor in StackState:
 
 You can place multiple monitors on the same STJ file. You can also add other node types on the same import file.
 
-## Populate the monitor node
+➡️ [Learn more about the STJ file format used for monitor definitions](monitor-stj-file-format.md)
+
+### Populate the monitor node
 
 A monitor node of type `Monitor` needs to be added to the import file. This type of node is supported in API version 1.0.39 and above. The required fields are the `name`, `identifier` and `description`. The `identifier` should be a value that uniquely identifies this specific monitor definition. `intervalSeconds`, `function` and `arguments` determine what validation rule and how often it is run. An optional parameter of `remediationHint` can be specified - it is a Markdown-encoded instruction of what to do if this monitor produces an unhealthy health state. It is displayed on the interface together with the monitor result panel.
 
@@ -61,7 +67,9 @@ Configuring the monitor function is best done by utilizing the [`get` helper fun
 
 The invocation of the `get` helper function will automatically resolve to the ID of the desired function during import time.
 
-## Populate the parameters of the monitor function invocation
+➡️ [Learn more about the STJ file format used for monitor definitions](monitor-stj-file-format.md)
+
+### Populate the parameters of the monitor function invocation
 
 The parameters are different for each monitor function. In the case of `Metric above threshold` we need to populate `threshold`, `metrics` and `topologyIdentifierPattern`:
 
@@ -100,7 +108,7 @@ Similar to the `function`, parameters can be referred to by utilizing the `get` 
 
 For further details of defining arguments in the monitor definition and how to work with commonly used parameters such as a metrics query or topology identifier, see [monitor STJ file format > Arguments](/develop/developer-guides/monitors/monitor-stj-file-format.md#arguments).
 
-## Apply the newly created monitor in StackState
+### Apply the newly created monitor in StackState
 
 This can be achieved by using the dedicated StackState CLI command:
 
@@ -123,7 +131,7 @@ sts monitor apply -f path/to/the/file.stj
 
 An alternative way is to include the newly created monitor in a custom StackPack and installing it.
 
-## Verify that your newly created monitor is working correctly
+### Verify that your newly created monitor is working correctly
 
 You can check if your monitor is working correctly by invoking the CLI command:
 
