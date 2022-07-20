@@ -5,7 +5,7 @@ description: StackState Self-hosted v5.0.x
 # Welcome to the StackState Self-hosted product docs!
 
 {% hint style="success" %}
-**StackState v5.0 is available now!**
+**Available now: StackState v5.0**
 
 [Read the release notes](/setup/upgrade-stackstate/sts-release-notes.md) to find out what's new.
 {% endhint %}
@@ -20,7 +20,7 @@ StackState Self-hosted can be used to observe an extensive set of technologies t
 
 <summary>StackState is SOC2/3 compliant</summary>
 
-For details see the [compliance information on stackstate.com](https://www.stackstate.com/compliance)
+For details, see the [compliance information on stackstate.com](https://www.stackstate.com/compliance)
 
 </details>
 
