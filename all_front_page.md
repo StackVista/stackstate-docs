@@ -6,14 +6,6 @@ layout: landing
 
 # Welcome to the StackState Self-hosted product docs!
 
-{% hint style="info" %}
-
-🔒 **StackState is SOC2/3 compliant**
-
-[Learn more about compliance at StackState](https://www.stackstate.com/compliance) \(stackstate.com\)
-
-{% endhint %}
-
 ## StackState SaaS
 
 StackState SaaS can be used to observe cloud technologies, such as Kubernetes and AWS services. 
@@ -21,7 +13,7 @@ StackState SaaS can be used to observe cloud technologies, such as Kubernetes an
 * [StackState SaaS docs](https://docs.stackstate.com/v/stackstate-saas/)
 
 {% hint style="success" %}
-StackState is SOC 2/3 certified. [Learn more](link.com)
+🔒 StackState is SOC2/3 certified. [Learn more](https://www.stackstate.com/compliance)
 {% endhint %}
 
 ## StackState Self-hosted
