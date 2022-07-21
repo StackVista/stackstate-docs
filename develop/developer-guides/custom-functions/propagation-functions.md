@@ -193,8 +193,8 @@ The example template below uses a `get` helper to obtain the ID of the **Active/
 ...
 "propagation": {
   "_type": "Propagation",
-  "arguments": [],
   "function": {{ get "urn:stackpack:common:propagationfunction:active-failover" }},
+  "arguments": [],
   },
 ...
 ```
@@ -214,12 +214,12 @@ The template example below includes an argument that will be passed to the propa
 ...
 "propagation": {
   "_type": "Propagation",
+  "function": {{ get "urn:stackpack:common:propagationfunction:stop-propagation-for-relation-type" }},
   "arguments": [{
     "_type": "ArgumentRelationTypeRef",
     "parameter": {{ get "urn:stackpack:common:propagationfunction:stop-propagation-for-relation-type" "Type=Parameter;Name=relationType" }},
     "relationType": {{ get "urn:stackpack:common:relationtype:is-hosted-on" }}
     }],
-  "function": {{ get "urn:stackpack:common:propagationfunction:stop-propagation-for-relation-type" }},
   },
 ...
 ```
