@@ -4,7 +4,7 @@
 What's new in StackState v5.0?
 
 * [Read the v5.0 release notes](/setup/upgrade-stackstate/sts-release-notes.md#stackstate-v5.0.x) 
-* [Checkout the webinar introducing StackState v5.0 \(youtube.com\)](https://www.youtube.com/watch?v=BGCtndnFy2M).
+* [Checkout the webinar introducing StackState v5.0 \(youtube.com\)](https://www.youtube.com/watch?v=BGCtndnFy2M)
 {% endhint %}
 
 **These documentation pages cover all functionality available in the StackState Self-hosted product**. 
