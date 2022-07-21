@@ -28,12 +28,12 @@ A topology synchronized using StackState Agent follows the process described bel
 4. Synchronization:
    * Reads data from a topic as it becomes available on the Kafka bus. 
    * Processes retrieved data. 
-   * Read the [troubleshooting steps for syncrhonization](#synchronization).
+   * Read the [troubleshooting steps for synchronization](#synchronization).
 
 ## Troubleshooting steps
 
 1. Confirm that a custom synchronization is running: 
-   - Use the StackState CLI to [list all topology synchronization streams](debug-topology-synchronization.md#list-all-topology-synchronization-streams). 
+   - Use the `stac` CLI to [list all topology synchronization streams](debug-topology-synchronization.md#list-all-topology-synchronization-streams). 
    - The synchronization should be included in the list and have created components/relations. 
    - If a custom synchronization is not listed, you will need to [recreate the synchronization](/configure/topology/sync.md).
 2. If no components appear after making changes to a synchronization, or the data is not as expected, follow the steps described in the sections below to check each step in the [topology synchronization process](#topology-synchronization-process). 
@@ -55,8 +55,9 @@ The StackState Receiver receives JSON data from the StackState Agent.
 
 Topology and telemetry are stored on Kafka on separate topics. The StackState topology synchronization reads data from a Kafka bus once it becomes available.
 
-- Use the `stac` CLI to list all topics present on Kafka `stac topology list-topics`. A topic should be present where the name has the format `sts_topo_<instance_type>_<instance url>` where `<instance_type>` is the recognizable name of an integration and `<instance_url>` corresponds to the StackState Agent integration YAML, this is usually the URL of the data source.
-- Check the messages on the Kafka topic using the StackState CLI command `sts topic show <topic_name>`. If there are recent messages on the Kafka bus, then you know that the issue is not in the data collection.
+Use the `stac` CLI to list the topics on Kafka and check the messages on a topic:
+- List all topics present on Kafka: `stac topology list-topics`. A topic should be present where the name has the format `sts_topo_<instance_type>_<instance url>` where `<instance_type>` is the recognizable name of an integration and `<instance_url>` corresponds to the StackState Agent integration YAML (usually the URL of the data source).
+- Check messages on a Kafka topic: `stac topic show <topic_name>`. If there are recent messages on the Kafka bus, then the issue is not in the data collection.
 
 ### Synchronization
 
@@ -159,7 +160,7 @@ Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 
 ### Show status of a stream 
 
-Shows the data of a specific topology synchronization stream, including detalied latency of the data being processed. The `id` might be either a `node id` or the identifier of a topology synchronization. The search gives priority to the `node id`.
+Shows the data of a specific topology synchronization stream, including detailed latency of the data being processed. The `id` might be either a `node id` or the identifier of a topology synchronization. The search gives priority to the `node id`.
 
 {% tabs %}
 {% tab title="CLI: stac" %}
