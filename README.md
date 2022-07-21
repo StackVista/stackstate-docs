@@ -10,8 +10,10 @@ layout: landing
 
 Use StackState Self-hosted to observe an extensive set of technologies that originate either in your own data centers or in the cloud.
 
-🚀 [StackState v5.0 docs](README-v50.md) new release!
+🚀 [StackState v5.0 docs](README-v50.md) - new release!
+
 ↗️ [StackState v4.6 docs](https://docs.stackstate.com/v/4.6/)
+
 ↗️ [StackState v4.5 docs](https://docs.stackstate.com/v/4.5/)
 
 ## StackState SaaS
