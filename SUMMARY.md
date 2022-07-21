@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Welcome to the StackState Docs!](README.md)
+* [StackState SaaS docs](README.md)
 
 ## 🚀 Get started
 

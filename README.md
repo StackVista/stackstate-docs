@@ -1,8 +1,4 @@
----
-description: StackState SaaS
----
-
-# StackState SaaS docs!
+# StackState SaaS docs
 
 {% hint style="info" %}
 
