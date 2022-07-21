@@ -4,19 +4,19 @@ description: StackState SaaS
 
 # Welcome to the StackState Docs!
 
+{% hint style="info" %}
+
+🔒 **StackState is SOC2/3 compliant**
+
+[Learn more about compliance at StackState](https://www.stackstate.com/compliance) \(stackstate.com\)
+
+{% endhint %}
+
 **These documentation pages cover all functionality available in the StackState SaaS product**. 
 
 StackState SaaS can be used to observe cloud technologies, such as Kubernetes and AWS services. If you want to observe a wider set of technologies, with data sources that reside in either your own data centers or in the cloud, take a look at our hybrid StackState Self-Hosted offering.
 
 ➡️ Switch to the [documentation for StackState Self-Hosted](https://docs.stackstate.com/)
-
-{% hint style="info" %}
-
-**StackState is SOC2/3 compliant**
-
-For details, see the [compliance information on stackstate.com](https://www.stackstate.com/compliance)
-
-{% endhint %}
 
 ### Get started
 
