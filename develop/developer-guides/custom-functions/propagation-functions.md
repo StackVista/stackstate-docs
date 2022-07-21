@@ -166,7 +166,7 @@ To manually specify a non-default propagation function, a `"propagation"` block 
 
 The propagation block requires the following keys:
 - **_type** - specifies that the JSON block defines a Propagation.
-- **arguments** - a list of arguments to match any user parameters that the propagation function requires. Arguments for system parameters are automatically provided during run time and do not need to be specified here.
+- **arguments** - a list of arguments to match any user parameters that the propagation function requires. Arguments for system parameters are automatically provided during run time and do not need to be specified here. For further details, see the [examples](#examples) of adding a propagation function to a template.
   - **_type** - the type of the argument. This must match the **type** specified for the user parameter in the propagation function.
   - **parameter** - the node ID of the propagation function’s user parameter. This can be obtained using a `get` helper.
   - Any values required for the specified argument **_type**.
@@ -176,12 +176,12 @@ The propagation block requires the following keys:
 
 Examples of adding a propagation function to a template can be found below:
 
-* System parameters only: [Active/active failover](#active-active-failover-propagation-function)
-* System and user parameters: [Stop propagation for relation type](#stop-propagation-for-relation-type)
+* **Function with system parameters only:** [Active/active failover](#active-active-failover-propagation-function)
+* **Function with system and user parameters:** [Stop propagation for relation type](#stop-propagation-for-relation-type)
 
 #### Active/active failover propagation function
 
-The example template below uses a `get` helper to obtain the ID of the **Active/active failover** propagation function with the identifier `urn:stackpack:common:propagationfunction:active-failover`. No `"arguments"` are specified as the propagation function does not include any user parameters.
+The example template below uses a `get` helper to obtain the ID of the **Active/active failover** propagation function with the identifier `urn:stackpack:common:propagationfunction:active-failover`. No `"arguments"` are specified as the propagation function does not include any user parameters. Arguments for system parameters are automatically provided during run time and do not need to be specified.
 
 {% tabs %}
 {% tab title="Template `propagation` block" %}
@@ -202,7 +202,7 @@ The example template below uses a `get` helper to obtain the ID of the **Active/
 
 #### Stop propagation for relation type
 
-The template example below includes an argument that will be passed to the propagation function as a user parameter together with the standard system parameters. The `"arguments"` list contains one argument that matches the user parameter `relationType` from the **Stop propagation for relation type** propagation function.
+The template example below includes an argument that will be passed to the propagation function as a user parameter together with the standard system parameters. The `"arguments"` list contains one argument that matches the user parameter `relationType` from the **Stop propagation for relation type** propagation function. Arguments for system parameters are automatically provided during run time and do not need to be specified.
 
 {% tabs %}
 {% tab title="Template `propagation` block" %}
