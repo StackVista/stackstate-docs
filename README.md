@@ -1,8 +1,4 @@
----
-description: StackState Self-hosted v4.6.x
----
-
-# Welcome to the StackState Self-hosted product docs!
+# StackState v4.6 docs
 
 {% hint style="warning" %}
 **This page describes StackState version 4.6.**
