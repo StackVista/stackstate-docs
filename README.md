@@ -30,9 +30,9 @@ StackState Self-hosted can be used to observe an extensive set of technologies t
 
 The supported versions of StackState are listed below:
 
+* **StackState v5.0** - [Switch to the v5.0 docs](https://docs.stackstate.com/v/5.0/).
 * **StackState v4.6** - You are currently reading the documentation for StackState version 4.6.
 * **StackState v4.5** - [Switch to the v4.5 docs](https://docs.stackstate.com/v/4.5/).
-* **StackState v4.4** - [Switch to the v4.4 docs](https://docs.stackstate.com/v/4.4/).
 
 For details on changes in each release and how to upgrade StackState, check the [StackState release notes and upgrade instructions](setup/upgrade-stackstate/).
 
