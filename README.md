@@ -6,6 +6,8 @@ layout: landing
 
 # Welcome to the StackState Self-hosted product docs!
 
+Select your StackState version.
+
 ## StackState Self-hosted
 
 Use StackState Self-hosted to observe an extensive set of technologies that originate either in your own data centers or in the cloud.
@@ -24,4 +26,4 @@ Use StackState Self-hosted to observe an extensive set of technologies that orig
 
 Use StackState SaaS to observe cloud technologies, such as Kubernetes and AWS services. 
 
-↗️ [StackState SaaS docs](https://docs.stackstate.com/v/stackstate-saas/)
+↗️ [StackState SaaS docs](SAAS-README.md)
