@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Welcome to the StackState Docs!](README.md)
+* [StackState v4.5 docs](README.md)
 * [Getting Started](getting_started.md)
 
 ## 🚀 Setup
