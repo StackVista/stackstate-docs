@@ -75,30 +75,29 @@ This code works as follows:
 | `then { component -> ... }` | An async lambda function where the main logic for the propagation function resides. `component` is the component variable, which has properties that can be accessed using `.<property name>`. For example, `.type` returns component type id. |
 |  |  |
 
-### Parameters
+### System parameters
 
-A propagation function script takes system and user defined parameters. 
-
-#### System parameters
-
-System parameters are predefined parameters passed automatically to the script at run time.
+System parameters are predefined parameters passed automatically to the propagation function script at run time.
 
 | System parameter | Description |
 | :--- | :--- |
 | `transparentState` | The precomputed transparent state if returned from the script will lead to transparent propagation |
 | `component` | The id of the current component |
 
-#### User parameters
+### User parameters
 
-User parameters can optionally be defined and used in the script. The value must be provided as an argument when the function is [configured in the template](#add-to-template).
+User parameters can optionally be defined and used in the propagation function script. The value must be provided as an argument when the function is [configured in the template](#add-to-template).
 
 ### Execution
 
-Propagation functions can be run with execution set to either [Asynchronous](propagation-functions.md#asynchronous-execution) \(recommended\) or [Synchronous](propagation-functions.md#synchronous-execution).
+Two types of execution are available for propagation functions:
+
+* [Asynchronous execution](propagation-functions.md#asynchronous-execution) \(recommended\)
+* [Synchronous execution](propagation-functions.md#synchronous-execution)
 
 #### Asynchronous execution
 
-Functions that run with asynchronous execution can make an HTTP request and use [StackState script APIs](../../reference/scripting/script-apis/) in the function body. This gives you access to parts of the topology/telemetry not available in the context of the propagation itself. You can also use the available [element properties and methods](propagation-functions.md#available-properties-and-methods).
+Functions that run with asynchronous execution can make an HTTP request and use [StackState script APIs](../../reference/scripting/script-apis/) in the function body. This gives you access to parts of the topology/telemetry not available in the context of the propagation itself. You can also use the available [element properties and methods](propagation-functions.md#script-properties-and-methods).
 
 {% hint style="danger" %}
 **Keep performance aspects in mind when developing functions with asynchronous execution**  
@@ -115,15 +114,18 @@ Running a propagation function with synchronous execution places limitations on 
 * The number of elements with a particular propagating state
 * The highest state of a given set of elements
 
-See available [properties and methods](propagation-functions.md#available-properties-and-methods).
+See available [properties and methods](propagation-functions.md#script-properties-and-methods).
 
-### Available properties and methods
+### Script - properties and methods
 
-Several element properties and methods are available for use in propagation functions. Functions with synchronous execution also have access to `stateChangesRepository` methods.
+The properties and methods described below are available for use in a propagation function script. 
+
+* [Element properties and methods](#element-properties-and-methods) - functions with either **asynchronous or synchronous execution**
+* [`stateChangesRepository` methods](#statechangesrepository-methods) - functions with **synchronous execution only**
 
 #### Element properties and methods
 
-The `element` properties and methods listed below can be used in propagation functions with either **asynchronous and synchronous execution**. Functions with synchronous execution also have access to [stateChangesRepository methods](propagation-functions.md#statechangesrepository-methods).
+The `element` properties and methods listed below can be used in propagation functions with either **asynchronous or synchronous execution**. Functions with synchronous execution also have access to [stateChangesRepository methods](propagation-functions.md#statechangesrepository-methods).
 
 * `element.name` - Returns the name of the current element.
 * `element.type` - Returns type of the current element.
@@ -144,9 +146,9 @@ The `stateChangesRepository` methods listed below are **only available in synchr
 * `stateChangesRepository.getState(element).getHealthState().intValue` Returns the health state of the element.
 * `stateChangesRepository.getState(element).getPropagatedHealthState().getIntValue()` Returns the propagated health state of the element.
 
-### Logging
+### Script - logging
 
-You can add logging statements to a propagation function for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](../../../configure/logging/).
+You can add logging statements to a propagation function script for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](../../../configure/logging/).
 
 ## Add to template
 
