@@ -58,6 +58,11 @@ The properties in the table below can be accessed directly in the component acti
 
 Other properties of the component can be accessed using the [component script API](../../reference/scripting/script-apis/component.md).
 
+Other variables accessible from the script are the following: 
+- `topologyTime` - is a [topology time](../../../use/stackstate-ui/timeline-time-travel.md#topology-time) of the timeline. For [live mode](../../../use/stackstate-ui/timeline-time-travel.md#live-mode) the variable value is `null`.
+- `telemetryTimeStart` - is a [telemetry interval](../../../use/stackstate-ui/timeline-time-travel.md#telemetry-interval) start. This variable always have a value.
+- `telemetryTimeEnd` - is a telemetry interval end. For live mode the variable value is `null`. 
+
 ### Identifier
 
 Providing an identifier is optional, but is necessary when you want to store your component action in a StackPack. A valid [identifier](../../../configure/topology/identifiers.md) for a component action is a URN that follows the convention:
@@ -86,6 +91,21 @@ def region = (component.labels.find {it -> it.name.startsWith("region") }).name.
 def url = "https://${region}.console.aws.amazon.com/ec2/home?region=${region}#Instances:sort=instanceId"
 
 UI.redirectToURL(url)
+```
+
+### Navigate the user to an external URL using time context
+
+The component action script below will direct the StackState UI to navigate to an external monitoring system at point of time:
+
+```
+def dashboardURL = "https://grafana.my-organization.com/dashboard"
+def params = [
+    ["from", telemetryTimeStart],
+    ["to", telemetryTimeEnd]
+]
+def queryParams = params.findAll { it -> it[1] != null }.collect { it -> it.join("=")}.join("&")
+
+UI.redirectToURL("${dashboardURL}?${queryParams}")
 ```
 
 ### Make HTTP requests
