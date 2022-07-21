@@ -1,8 +1,12 @@
----
-description: StackState SaaS
----
+# StackState SaaS docs
 
-# Welcome to the StackState Docs!
+{% hint style="info" %}
+
+🔒 **StackState is SOC2/3 compliant**
+
+[Learn more about compliance at StackState](https://www.stackstate.com/compliance) \(stackstate.com\)
+
+{% endhint %}
 
 **These documentation pages cover all functionality available in the StackState SaaS product**. 
 
