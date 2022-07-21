@@ -34,14 +34,14 @@ Returns the transparent state. This is the maximum of the component's own state 
 Propagation functions can be defined and used to calculate the propagated state of a component. Some propagation functions are installed as part of a StackPack. For example, Quorum based cluster propagation, which will propagate a `DEVIATING` state when the cluster quorum agrees on deviating and a `CRITICAL` state when the cluster quorum is in danger. You can also write your own [custom propagation functions](propagation-functions.md#create-a-custom-propagation-function). A full list of the propagation functions available in your StackState instance can be found in the StackState UI, go to **Settings** &gt; **Functions** &gt; **Propagation Functions**
 
 {% hint style="info" %}
-To specify a propagation function that should be used to calculate the propagated state a component, add the [`propagation` block](#add-to-template) to the template used in topology synchronization.
+To specify a propagation function that should be used to calculate the propagated state a component, add the [`propagation` block](#edit-template) to the template used in topology synchronization.
 {% endhint %}
 
 ## Custom propagation functions
 
 ### Create a custom propagation function
 
-You can write custom propagation functions to determine the new propagated state of an element \(component or relation\). The propagation function can then be [specified in the template](#add-to-template) used to synchronize topology.
+You can write custom propagation functions to determine the new propagated state of an element \(component or relation\). The propagation function can then be [specified in the template](#edit-template) used to synchronize topology.
 
 A propagation function can take multiple parameters as input and produces a new propagated state as output. To calculate a propagated state, a propagation function has access to the element itself, the element's dependencies and the transparent state that has already been calculated for the element.
 
@@ -88,7 +88,7 @@ System parameters are predefined parameters passed automatically to the propagat
 
 ### User parameters
 
-User parameters can optionally be defined and used in the propagation function script. The value must be provided as an argument when the function is [configured in the template](#add-to-template).
+User parameters can optionally be defined and used in the propagation function script. The value must be provided as an argument when the function is [configured in the template](#edit-template).
 
 ### Execution
 
@@ -152,7 +152,7 @@ The `stateChangesRepository` methods listed below are **only available in synchr
 
 You can add logging statements to a propagation function script for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](../../../configure/logging/).
 
-## Add to template
+## Edit template
 
 ### Specify a propagation function
 
@@ -170,13 +170,13 @@ To manually specify a non-default propagation function, a `"propagation"` block 
 
 The propagation block requires the following keys:
 - **_type** - specifies that the JSON block defines a Propagation.
-- **arguments** - a list of arguments to match any user parameters that the propagation function requires. Arguments for system parameters are automatically provided during run time and do not need to be specified here. For further details, see the [examples](#examples) of adding a propagation function to a template.
+- **arguments** - a list of arguments to match any user parameters that the propagation function requires. Arguments for system parameters are automatically provided during run time and do not need to be specified here. For further details, see the [examples](#example-templates) of adding a propagation function to a template.
   - **_type** - the type of the argument. This must match the **type** specified for the user parameter in the propagation function.
   - **parameter** - the node ID of the propagation function’s user parameter. This can be obtained using a `get` helper.
   - Any values required for the specified argument **_type**.
 - **function** the node ID of the propagation function to use. This can be obtained using a `get` helper.
 
-### Examples
+### Example templates
 
 Examples of adding a propagation function to a template can be found below:
 
