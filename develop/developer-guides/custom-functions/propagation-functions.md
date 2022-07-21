@@ -90,7 +90,7 @@ System parameters are predefined parameters passed automatically to the script a
 
 #### User parameters
 
-User parameters can optionally be defined and used in the script. The value must be provided when the function is [configured in the template](#add-to-template).
+User parameters can optionally be defined and used in the script. The value must be provided as an argument when the function is [configured in the template](#add-to-template).
 
 ### Execution
 
@@ -166,10 +166,10 @@ To manually specify a non-default propagation function, a `"propagation"` block 
 
 The propagation block requires the following keys:
 - **_type** - specifies that the JSON block defines a Propagation.
-- **arguments** - a list of any user parameters that the propagation function requires. System parameters are provided during run time and do not need to be specified here.
-  - **type** - the type of the parameter, as specified in the propagation function.
+- **arguments** - a list of arguments to match any user parameters that the propagation function requires. Arguments for system parameters are automatically provided during run time and do not need to be specified here.
+  - **_type** - the type of the argument. This must match the **type** specified for the user parameter in the propagation function.
   - **parameter** - the node ID of the propagation function’s user parameter. This can be obtained using a `get` helper.
-  - **<PARAMETER_NAME>** - the value to be passed as an argument to the propagation function. The value is expected to be of the type specified in **type**.
+  - Any values required for the specified argument **_type**.
 - **function** the node ID of the propagation function to use. This can be obtained using a `get` helper.
 
 ### Examples
@@ -202,7 +202,7 @@ The example template below uses a `get` helper to obtain the ID of the **Active/
 
 #### Stop propagation for relation type
 
-The template example below includes a user parameter that will be passed to the propagation function together with the standard system parameters. The `"arguments"` list contains one argument that matches the user parameter `relationType` from the **Stop propagation for relation type** propagation function.
+The template example below includes an argument that will be passed to the propagation function as a user parameter together with the standard system parameters. The `"arguments"` list contains one argument that matches the user parameter `relationType` from the **Stop propagation for relation type** propagation function.
 
 {% tabs %}
 {% tab title="Template `propagation` block" %}
