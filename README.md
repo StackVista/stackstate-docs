@@ -12,7 +12,7 @@ Select your version of StackState to jump to the associated documentation.
 
 Use StackState Self-hosted to observe an extensive set of technologies that originate either in your own data centers or in the cloud.
 
-🚀 [StackState Self-hosted v5.0 docs](README-v50.md) - latest release!
+🚀 **[StackState Self-hosted v5.0 docs](README-v50.md) - latest release!**
 
 ↗️ [StackState Self-hosted v4.6 docs](https://docs.stackstate.com/v/4.6/)
 
