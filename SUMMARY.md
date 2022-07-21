@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Welcome to the StackState docs!](README.md)
-* [StackState Self-Hosted v5.0 docs](README-v50.md)
+* [StackState self-hosted v5.0 docs](README-v50.md)
 * [StackState SaaS docs](SAAS-README.md)
 * [Getting Started](getting_started.md)
 

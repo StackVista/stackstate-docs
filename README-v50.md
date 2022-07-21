@@ -1,9 +1,7 @@
 # StackState Self-hosted v5.0 docs
 
 {% hint style="success" %}
-**Available now: StackState v5.0**
-
-[Read the release notes](/setup/upgrade-stackstate/sts-release-notes.md) to find out what's new.
+[Read the release notes](/setup/upgrade-stackstate/sts-release-notes.md) to find out what's new in StackState v5.0.
 {% endhint %}
 
 **These documentation pages cover all functionality available in the StackState Self-hosted product**. 
