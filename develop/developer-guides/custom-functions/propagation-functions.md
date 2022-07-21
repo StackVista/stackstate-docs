@@ -37,7 +37,9 @@ Propagation functions can be defined and used to calculate the propagated state 
 To specify a propagation function that should be used to calculate the propagated state a component, add the [`propagation` block](#add-to-template) to the template used in topology synchronization.
 {% endhint %}
 
-## Create a custom propagation function
+## Custom propagation functions
+
+### Create a custom propagation function
 
 You can write custom propagation functions to determine the new propagated state of an element \(component or relation\). The propagation function can then be [specified in the template](#add-to-template) used to synchronize topology.
 
