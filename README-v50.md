@@ -1,7 +1,10 @@
 # StackState Self-hosted v5.0 docs
 
 {% hint style="success" %}
-[Read the release notes](/setup/upgrade-stackstate/sts-release-notes.md) to find out what's new or checkout the [webinar introducing StackState v5.0 \(youtube.com\)](https://www.youtube.com/watch?v=BGCtndnFy2M).
+What's new in the v5.0 release?
+
+* [Read the release notes](/setup/upgrade-stackstate/sts-release-notes.md) 
+* [Checkout the webinar introducing StackState v5.0 \(youtube.com\)](https://www.youtube.com/watch?v=BGCtndnFy2M).
 {% endhint %}
 
 **These documentation pages cover all functionality available in the StackState Self-hosted product**. 
