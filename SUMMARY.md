@@ -8,12 +8,6 @@
 
 * [Install StackState](setup/install-stackstate/README.md)
   * [Requirements](setup/install-stackstate/requirements.md)
-  * [KOTS install](setup/install-stackstate/kots-install/README.md)
-    * [Install KOTS and StackState](setup/install-stackstate/kots-install/install_stackstate.md)
-    * [Install KOTS Airgap](setup/install-stackstate/kots-install/install_stackstate_airgap.md)
-    * [Reinstall Stackstate on KOTS](setup/install-stackstate/kots-install/reinstall_stackstate.md)
-    * [KOTS configuration screen](setup/install-stackstate/kots-install/kots_configuration_screen.md)
-    * [Embedded cluster management](setup/install-stackstate/kots-install/cluster_management.md)
   * [Kubernetes install](setup/install-stackstate/kubernetes_install/README.md)
     * [Install StackState](setup/install-stackstate/kubernetes_install/install_stackstate.md)
     * [Required Permissions](setup/install-stackstate/kubernetes_install/required_permissions.md)
