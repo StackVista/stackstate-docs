@@ -12,6 +12,12 @@ Changes made to the docs site. Please try to keep up-to-date.
 * changes stac-12347
 ```
 
+## phase-out-kots (22-07-2022)
+
+[https://github.com/StackVista/stackstate-docs/pull/1099](https://github.com/StackVista/stackstate-docs/pull/1099)
+
+- remove KOTS info
+
 ## v50-small-changes
 
 ### 08-07-22
