@@ -9,7 +9,6 @@ description: StackState Self-hosted v5.0.x
 This page details the requirements for all supported installations of StackState:
 
 * [Kubernetes and OpenShift](#kubernetes-and-openshift)
-* [KOTS](#kots)
 * [Linux](#linux)
 
 Requirements for [networking](#networking) and the [StackState client \(browser\)](#client-browser) can be found at the bottom of the page.
@@ -81,53 +80,6 @@ For more details on configuring Ingress, have a look at the page [Configure Ingr
 It is not recommended to set a ResourceQuota as this can interfere with resource requests. The resources required by StackState will vary according to the features used, configured resource limits and dynamic usage patterns, such as Deployment or DaemonSet scaling.
 
 If it is necessary to set a ResourceQuota for your implementation, the namespace resource limit should be set to match the node sizing requirements. For example, using the recommended node sizing for virtual machines \(6 nodes with `32GB memory`, `8 vCPUs`\), the namespace resource limit should be `6*32GB = 192GB` and `6*8 vCPUs = 48 vCPUs`.
-
-
-## KOTS 
-
-### Operating system
-
-KOTS requires a VM running a [supported OS \(kurl.sh\)](https://kurl.sh/docs/install-with-kurl/system-requirements).
-
-### Disk Partitioning 
-
-For a KOTS deployment, the disks should be partitioned as follows:
-
-* `/` - at least 80GB
-* `/var/lib/longhorn` - at least 500GB 
-
-### Latency
-
-The `/var/lib/longhorn` disk should have a latency of less than 10ms. 
-
-For example, the cloud VM instance/disk combinations below are known to provide sufficient performance for etcd and will pass the write latency preflight check.
-
-* **Amazon:** `m4.x2large` with 80 GB standard EBS root device
-* **Azure:** `D8as V4` with 80 GB ultra disk mounted at `/var/lib/etcd` provisioned with 2400 IOPS and 128 MB/s throughput
-* **Google Cloud Platform:** `n1-standard-8` with 500 GB pd-standard boot disk
-
-### Node sizing
-
-For a standard deployment, KOTS deploys backend services in a redundant setup with 3 instances of each service. The nodes required for different environments are listed below:
-
-{% tabs %} 
-{% tab title="Recommended setup" %} 
-Requirements for the recommended high availability setup:
-
-* **Amazon EC2:** 8 instances of type `m5.2xlarge` or `m4.2xlarge`
-* **Azure:** 8 instances of type `D8s v3` or `D8as V4` (Intel or AMD CPUs)
-* **Virtual machines**: 8 nodes with 32GB memory, 8 vCPUs
-
-{% endtab %}
-{% tab title="Minimal setup" %} 
-Requirements for the recommended high availability setup:
-
-* **Amazon EC2:** 5 instances of type `m5.2xlarge` or `m4.2xlarge`
-* **Azure:** 5 instances of type `D8s v3` or `D8as V4` (Intel or AMD CPUs)
-* **Virtual machines:** 5 nodes with 32GB memory, 8 vCPUs
-
-{% endtab %}
-{% endtabs %}
 
 ## Linux
 
