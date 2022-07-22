@@ -12,9 +12,58 @@ Changes made to the docs site. Please try to keep up-to-date.
 * changes stac-12347
 ```
 
+## v50-soc2-info (21-02-2022)
+
+[https://github.com/StackVista/stackstate-docs/pull/1107](https://github.com/StackVista/stackstate-docs/pull/1107)
+
+- SOC2/3 info link
+- new docs front page
+
+## v50-monitor-fixes (20-07-2022)
+
+[https://github.com/StackVista/stackstate-docs/pull/1102](https://github.com/StackVista/stackstate-docs/pull/1102)
+
+- small fixes to improve monitor docs
+
+## v50-integration-extra-info (18-07-2022)
+
+[https://github.com/StackVista/stackstate-docs/pull/1097](https://github.com/StackVista/stackstate-docs/pull/1097)
+
+- Adjust info about metrics data retrieved on docker agent page
+
+## STAC-17052-agent-debug-info (14-07-2022)
+
+[https://github.com/StackVista/stackstate-docs/pull/1090](https://github.com/StackVista/stackstate-docs/pull/1090)
+
+- Add debug info to agent pages (docker/linux/windows/k8s/openshift) - includes options to set log level
+
+
+## v50-otel-for-saas (13-07-2022)
+
+[https://github.com/StackVista/stackstate-docs/pull/1084](https://github.com/StackVista/stackstate-docs/pull/1084)
+
+- Shuffle and edit OTEL info
+- Make OTEL info available for SaaS docs
+
+## agent-2-17-1 (11-07-2022)
+
+[https://github.com/StackVista/stackstate-docs/pull/1081](https://github.com/StackVista/stackstate-docs/pull/1081)
+
+- bump agent versions for 2.17.1 release
+
+
+
 ## v50-small-changes
 
-### 08-07-22
+### 21-07-2022
+
+[https://github.com/StackVista/stackstate-docs/pull/1104](https://github.com/StackVista/stackstate-docs/pull/1104)
+
+- Clearer info on configuring propagation functions in template
+
+### 11-07-2022
+
+[https://github.com/StackVista/stackstate-docs/pull/1077](https://github.com/StackVista/stackstate-docs/pull/1077)
 
 Ravan hit some problems with the "end metrics over http" instructions. Discussed with Remco and Hasselbach.
 
