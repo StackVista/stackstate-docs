@@ -124,25 +124,6 @@ Instructions to upgrade a StackState Kubernetes or Linux setup can be found belo
 3. To upgrade, use the same helm command as for the [first time Kubernetes installation](../install-stackstate/kubernetes_install/install_stackstate.md#deploy-stackstate-with-helm). The new helm chart will pull newer versions of Docker images and handle the upgrade.
 {% endtab %}
 
-{% tab title="KOTS" %}
-1. In the admin console, go to the **Version History** tab and click **Check For Updates**.
-2. Click the **View preflight checks** logo to view or re-run the preflight checks.
-3. To update the application, return to the **Version History** tab and click **Deploy** next to the target version.
-{% endtab %}  
-
-{% tab title="KOTS Airgap" %}
-
-{% hint style="warning" %}
-Upgrades should be done through SSH and not the KOTS UI.
-{% endhint %}
-
-1. Upload the Airgap bundle to your server via SSH/SFTP.
-2. Check the [StackState version specific upgrade notes](version-specific-upgrade-instructions.md) for all changes between your current StackState version and the version that you will upgrade to. 
-3. Run `kubectl kots upstream upgrade stackstate -n default--airgap-bundle bundle_name.airgap`.
-4. Log in to the KOTS UI.
-5. Click on **Config** and update as needed. Click **Save Config** and then follow the prompts to re-deploy
-{% endtab %}
-
 {% tab title="OpenShift" %}
 1. Get the latest helm chart by running `helm repo update`.
 2. Check the [version specific upgrade notes](version-specific-upgrade-instructions.md) for all changes between your current version and the version that you will upgrade to. If there have been changes made to configuration items specified in your `values.yaml` file, the file should be updated accordingly.
