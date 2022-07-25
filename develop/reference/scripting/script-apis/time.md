@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.0.x
 
 Time API offers helper functions to manipulate with [time type](../time-in-scripts.md) in StackState scripts.
 
-## Function: `currentTimeSlice()`
+## Function: `Time.currentTimeSlice()`
 
 Returns a time slice for the current timestamp
 
@@ -26,7 +26,7 @@ Time.currentTimeSlice().then { slice ->
 }
 ```
 
-## Function: `format(instant, pattern)`
+## Function: `Time.format(instant: Instant, pattern: String)`
 
 Format an instant to string using the given formatting pattern
 
@@ -43,7 +43,7 @@ Format an instant to ISO 8601 time
 Time.format(1577966400000, "yyyy-MM-dd'T'HH:mm:ss'Z'")
 ```
 
-## Function: `epochMs(instant)`
+## Function: `Time.epochMs(instant: Instant)`
 
 ### Args
 
