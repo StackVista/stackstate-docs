@@ -14,7 +14,7 @@ Telemetry queries only support metric queries. If you need event queries, please
 
 ### Args
 
-* `dataSourceNam` - name of the data source.
+* `dataSourceName` - name of the data source.
 * `query` - set of equality conditions.
 
 ### Returns
