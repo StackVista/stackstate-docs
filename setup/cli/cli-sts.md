@@ -53,7 +53,7 @@ Open a **Powershell** terminal (version 5.1 or later) and run the steps below. T
     If (!(test-path $CLI_PATH)) { md $CLI_PATH }
     Invoke-WebRequest https://dl.stackstate.com/stackstate-cli/LATEST_VERSION -OutFile $CLI_PATH\VERSION
     $VERSION=type $CLI_PATH\VERSION
-    $CLI_DL = "https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-full-$VERSION.windows-x86_64.zip"
+    $CLI_DL = "https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-$VERSION.windows-x86_64.zip"
     echo "Installing StackState CLI v$VERSION to: $CLI_PATH"
     ```
 
@@ -105,7 +105,7 @@ Open a terminal and run the steps below. This can be done one step at a time, or
    ```bash
    (VERSION=`curl https://dl.stackstate.com/stackstate-cli/LATEST_VERSION` &&
      ARCH=`uname -m` &&
-     curl https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-full-$VERSION.darwin-$ARCH.tar.gz | tar xz --directory /usr/local/bin)
+     curl https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-$VERSION.darwin-$ARCH.tar.gz | tar xz --directory /usr/local/bin)
    ```
 
 4. Verify that the CLI works:
@@ -137,7 +137,7 @@ Open a terminal and run the steps below. This can be done one step at a time, or
 1. Download and unpack the latest version for x86_64:
    ```bash
    (VERSION=`curl https://dl.stackstate.com/stackstate-cli/LATEST_VERSION` &&
-   curl https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-full-$VERSION.linux-x86_64.tar.gz | tar xz --directory /usr/local/bin)
+   curl https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-$VERSION.linux-x86_64.tar.gz | tar xz --directory /usr/local/bin)
    ```
 
 2. Verify that the CLI works:
