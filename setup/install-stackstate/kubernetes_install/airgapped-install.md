@@ -2,23 +2,13 @@
 description: StackState Self-hosted v5.0.x
 ---
 
-# StackState Agent images
+# Airgapped install
 
 ## Overview
 
-This page describes the images used by the StackState Cluster Agent helm chart and how to configure the registry, repository, and tag used to pull them.  It additionally includes a description of the process of importing images into an air-gapped private image registry.
+This page describes the process of importing images into an air-gapped private image registry.  This can be used if the requirement is to run StackState or the StackState Agent in an environment that does not have a direct connection to the Internet.
 
-## Serve images from a different image registry, not air-gapped
-
-Please see the process for [StackState Images here](image_configuration.md)
-
-The StackState Agent (cluster-agent) helm chart has a similar installation script to the one mentioned in the StackState images page linked above, with an identical script in a different directory, see [copy-images.sh (github.com)](https://github.com/StackVista/helm-charts/blob/master/stable/cluster-agent/installation/copy_images.sh)
-
-## Serve images from a different image registry that is air-gapped
-
-If the requirement is to run the StackState agent in an environment that does not have a direct connection to the Internet, the following procedure can be used to transfer the images:
-
-### Back up the images from StackState (Internet connection required)
+## 1. Back up the images from StackState (Internet connection required)
 
 There is an installation backup script, [backup.sh (github.com)](https://github.com/StackVista/helm-charts/blob/master/stable/cluster-agent/installation/backup.sh), that pulls all images required for the cluster-agent chart to run, and backs them up to individual tar archives, and finally all tars are added to a single tar.gz archive.
 
@@ -46,14 +36,14 @@ Backing up quay.io/stackstate/stackstate-agent-2:2.17.1 to stackstate/stackstate
 Images have been backed up to stackstate.tar.gz
 ```
 
-### Transport of images to the destination
+## 2. Transport of images to the destination
 
 Once the backup script has been executed, the images will be in a tar.gz archive in the same folder as the working directory where the script was executed.
 Copy the tar.gz (when pulling from StackState registry, this will be stackstate.tar.gz) to a storage device for transportation.
 
 Copy the tar.gz archive to a working folder of choice on the destination system, along with the [import.sh (github.com)](https://github.com/StackVista/helm-charts/blob/master/stable/cluster-agent/installation/import.sh) script.
 
-### Import images to the system, and optionally to a registry.
+## 3. Import images to the system, and optionally to a registry.
 
 From the previous step, in the directory where the archive and script were placed, the import script can be executed. Its usage is given as follows:
 
@@ -101,13 +91,3 @@ Tagged quay.io/stackstate/stackstate-process-agent:4.0.7 as localhost/stackstate
 Untagged: quay.io/stackstate/stackstate-process-agent:4.0.7
 Images have been imported up to localhost
 ```
-
-## Images
-
-The agent chart images listed below are used in StackState v5.0.0:
-
-
-* quay.io/stackstate/kube-state-metrics:2.3.0-focal-20220316-r61.20220418.2032
-* quay.io/stackstate/stackstate-agent-2:2.17.1
-* quay.io/stackstate/stackstate-cluster-agent:2.17.1
-* quay.io/stackstate/stackstate-process-agent:4.0.7

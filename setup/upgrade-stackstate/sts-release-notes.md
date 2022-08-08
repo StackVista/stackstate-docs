@@ -107,7 +107,7 @@ Details of the included improvements, bug fixes and StackPack updates can be fou
 **Improvements**
 
 - Topology synchronization progress counters have been moved from individual synchronizations to the `stackstate.log` file for Linux-based distributions. Errors for topology mapping and templates remain in the synchronization-specific logs. STAC-15529
-- The MinIO chart now allows the registry to be configured separately from the repository. Also, the chart will now use any [globally configured pull secrets](/setup/install-stackstate/kubernetes_install/image_configuration.md) to fetch Docker images. STAC-15180
+- The MinIO chart now allows the registry to be configured separately from the repository. Also, the chart will now use any [globally configured pull secrets](/setup/install-stackstate/kubernetes_install/custom-install-helm.md) to fetch Docker images. STAC-15180
 - The component context menu now displays the preview of the [three top priority metrics](/use/metrics-and-events/top-metrics.md). STAC-15076
 - `PodDisruptionBudget` and `PodSecurityPolicy` now use the updated apiVersion (policy/v1) for newer Kubernetes versions. STAC-14968
 - The MinIO Helm chart has been updated to specify both a requests and limits for the memory resource. STAC-14771

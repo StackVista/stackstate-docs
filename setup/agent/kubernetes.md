@@ -83,6 +83,14 @@ StackState Agent v2.17.x is supported to monitor the following versions of Kuber
 
 The StackState Agent, Cluster Agent and kube-state-metrics can be installed together using the Cluster Agent Helm Chart:
 
+* [Online install](#online-install) - images are retrieved from the StackState image registry (https://helm.stackstate.io).
+* [Custom install](#custom-install-with-helm) - images are retrieved from a custom image registry.
+* [Airgapped install](#airgapped-install) - images are retrieved from a local system or registry.
+
+#### Online install 
+
+The StackState Agent, Cluster Agent and kube-state-metrics can be installed together using the Cluster Agent Helm Chart:
+
 1. If you do not already have it, you will need to add the StackState helm repository to the local helm client:
 
    ```commandline
@@ -107,6 +115,14 @@ helm upgrade --install \
    --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
    stackstate-cluster-agent stackstate/cluster-agent
 ```
+
+#### Custom install with helm
+
+If required, the images required to install the StackState Agent, Cluster Agent and kube-state-metrics can be served from a custom image registry. To do this, follow the instructions for a [StackState custom install with helm](/setup/install-stackstate/kubernetes_install/custom-install-helm.md).
+
+#### Airgapped install
+
+If StackState Agent will run in an environment that does not have a direct connection to the Internet, the images required to install the StackState Agent, Cluster Agent and kube-state-metrics can be downloaded and stored in a local system or image registry. To do this, follow the instructions for a [StackState airgapped install](/setup/install-stackstate/kubernetes_install/airgapped-install.md). 
 
 ### Helm chart values
 
