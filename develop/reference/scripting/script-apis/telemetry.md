@@ -4,13 +4,9 @@ description: StackState Self-hosted v5.0.x
 
 # Telemetry - script API
 
-## Function: `query`
+## Function: `Telemetry.query(dataSourceName: String, query: String)`
 
 A telemetry query is a conjunction of equality conditions. For example, `name = 'system.load.norm.15' and host='localhost'`. There are several builder methods available that help to refine the query time range, limit the number of points returned, or set a metric field.
-
-```text
-Telemetry.query(dataSourceName: String, query: String)
-```
 
 {% hint style="warning" %}
 Telemetry queries only support metric queries. If you need event queries, please enter a feature request at [support.stackstate.com](https://support.stackstate.com)

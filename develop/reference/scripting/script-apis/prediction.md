@@ -4,7 +4,7 @@ description: StackState Self-hosted v5.0.x
 
 # Prediction - script API
 
-## Function: `predictMetrics`
+## Function: `Prediction.predictMetrics(predictorName: String, horizon: Duration, query: String)`
 
 Predict metrics for any metric query coming from any data source.
 
