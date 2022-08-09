@@ -185,9 +185,9 @@ If StackState Agent will run in an environment that does not have a direct conne
         -t : Dry-run
     ```
 
-**Example usage:**
+**Example script usage**
 
-In the above below, the StackState Agent images will be extracted from the archive, imported by Docker, and re-tagged to the registry given by the `-d` flag, in this example, `localhost`.  The `-t` argument, or dry-run command is provided to show the work that will be performed:
+In the example below, the StackState Agent images will be extracted from the archive, imported by Docker, and re-tagged to the registry given by the `-d` flag, in this example, `localhost`.  The `-t` argument, or dry-run command is provided to show the work that will be performed:
 
 ```text
 ./import.sh -b stackstate.tar.gz -d localhost -t
