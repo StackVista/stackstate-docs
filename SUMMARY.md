@@ -11,7 +11,7 @@
   * [Kubernetes install](setup/install-stackstate/kubernetes_install/README.md)
     * [Install StackState](setup/install-stackstate/kubernetes_install/install_stackstate.md)
     * [Required Permissions](setup/install-stackstate/kubernetes_install/required_permissions.md)
-    * [Custom install with helm](setup/install-stackstate/kubernetes_install/custom-install-helm.md)
+    * [Install from custom image registry](setup/install-stackstate/kubernetes_install/custom-install-helm.md)
     * [Non-high availability setup](setup/install-stackstate/kubernetes_install/non_high_availability_setup.md)
     * [Override default configuration](setup/install-stackstate/kubernetes_install/customize_config.md)
     * [Configure storage](setup/install-stackstate/kubernetes_install/storage.md)
