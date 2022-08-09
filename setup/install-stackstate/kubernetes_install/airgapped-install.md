@@ -2,11 +2,11 @@
 description: StackState Self-hosted v5.0.x
 ---
 
-# Airgapped install
+# Air gapped install
 
 ## Overview
 
-This page describes the process of importing images into an air-gapped private image registry.  This can be used if the requirement is to run StackState or the StackState Agent in an environment that does not have a direct connection to the Internet.
+This page describes the process of importing images into an air gapped private image registry.  This can be used if the requirement is to run StackState or the StackState Agent in an environment that does not have a direct connection to the Internet.
 
 ## 1. Back up the images from StackState (Internet connection required)
 

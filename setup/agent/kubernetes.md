@@ -10,7 +10,7 @@ description: StackState Self-hosted v5.0.x
 **StackState Agent V2**
 {% endhint %}
 
-To retrieve topology, events and metrics data from a Kubernetes cluster, you will need to have the following installed in the cluster:
+To retrieve topology, events and metrics data from a Kubernetes or OpenShift cluster, you will need to have the following installed in the cluster:
 
 * StackState Agent V2 on each node in the cluster
 * StackState Cluster Agent on one node
@@ -20,7 +20,7 @@ To integrate with other services, a separate instance of the StackState Agent sh
 
 ## StackState Agent types
 
-The Kubernetes integration collects topology data in a Kubernetes cluster, as well as metrics and events. To achieve this, different types of StackState Agent are used:
+The Kubernetes and OpenShift integrations collect topology data from Kubernetes and OpenShift clusters respectively, as well as metrics and events. To achieve this, different types of StackState Agent are used:
 
 | Component | Pod name |
 | :--- | :--- |
@@ -29,7 +29,7 @@ The Kubernetes integration collects topology data in a Kubernetes cluster, as we
 | [ClusterCheck Agent \(optional\)](#clustercheck-agent-optional)| `stackstate-cluster-agent-clusterchecks` |
 
 {% hint style="info" %}
-To integrate with other services, a separate instance of the StackState Agent should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on a Kubernetes cluster with checks that integrate with other services.
+To integrate with other services, a separate instance of the StackState Agent should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on a Kubernetes or OpenShift cluster with checks that integrate with other services.
 {% endhint %}
 
 ![StackState Agents on Kubernetes](/.gitbook/assets/agent-kubernetes.svg)
@@ -38,18 +38,18 @@ To integrate with other services, a separate instance of the StackState Agent sh
 
 StackState Agent V2 is deployed as a DaemonSet with one instance **on each node** in the cluster:
 
-* Host information is retrieved from the Kubernetes API.
+* Host information is retrieved from the Kubernetes or OpenShift API.
 * Container information is collected from the Docker daemon.
 * Metrics are retrieved from kubelet running on the node and also from kube-state-metrics if this is deployed on the same node.
 
-By default, metrics are also retrieved from kube-state-metrics if that is deployed on the same node as the StackState Agent pod. This can cause issues on a large Kubernetes cluster. To avoid this, it is advisable to [enable cluster checks](#enable-cluster-checks) so that metrics are gathered from kube-state-metrics by a dedicated StackState ClusterCheck Agent.
+By default, metrics are also retrieved from kube-state-metrics if that is deployed on the same node as the StackState Agent pod. This can cause issues on a large Kubernetes or OpenShift clusters. To avoid this, it is advisable to [enable cluster checks](#enable-cluster-checks) so that metrics are gathered from kube-state-metrics by a dedicated StackState ClusterCheck Agent.
 
 ### Cluster Agent
 
 StackState Cluster Agent is deployed as a Deployment. There is one instance for the entire cluster:
 
 * Topology and events data for all resources in the cluster are retrieved from the Kubernetes API
-* Control plane metrics are retrieved from the Kubernetes API
+* Control plane metrics are retrieved from the Kubernetes or OpenShift API
 
 When cluster checks are enabled, cluster checks configured here are run by the deployed [StackState ClusterCheck Agent](kubernetes.md#clustercheck-agent-optional) pod.
 
@@ -59,7 +59,9 @@ The StackState ClusterCheck Agent is an additional StackState Agent V2 pod that 
 
 The following checks can be configured to run as a cluster check:
 
-* The [`kubernetes_state` check](/stackpacks/integrations/kubernetes.md#configure-cluster-check-kubernetes_state-check) - this check gathers metrics from kube-state-metrics and sends them to StackState, it is useful to run this as a cluster check on large Kubernetes clusters. 
+* The `kubernetes_state` check - this check gathers metrics from kube-state-metrics and sends them to StackState, it is useful to run this as a cluster check on large Kubernetes clusters. 
+  * [Kubernetes integration `kubernetes_state` check](/stackpacks/integrations/kubernetes.md#configure-cluster-check-kubernetes_state-check)
+  * [OpenShift integration `kubernetes_state` check](/stackpacks/integrations/openshift.md#configure-cluster-check-kubernetes_state-check)
 * The [AWS check](/stackpacks/integrations/aws/aws.md#configure-the-aws-check)
 * The ClusterCheck Agent is also useful to run checks that do not need to run on a specific node and monitor non-containerized workloads such as:
   * Out-of-cluster datastores and endpoints \(for example, RDS or CloudSQL\).
@@ -69,10 +71,13 @@ The following checks can be configured to run as a cluster check:
 
 ### Supported Kubernetes versions
 
-StackState Agent v2.17.x is supported to monitor the following versions of Kubernetes:
+StackState Agent v2.17.x is supported to monitor the following versions of Kubernetes or OpenShift:
 
-* Kubernetes 1.16 - 1.21
-* EKS (with Kubernetes 1.16 - 1.21)
+* Kubernetes:
+  * Kubernetes 1.16 - 1.21
+  * EKS (with Kubernetes 1.16 - 1.21)
+* OpenShift: 
+  * OpenShift 4.3 - 4.8
 * Default networking
 * Container runtime: 
   * Docker
@@ -84,8 +89,8 @@ StackState Agent v2.17.x is supported to monitor the following versions of Kuber
 The StackState Agent, Cluster Agent and kube-state-metrics can be installed together using the Cluster Agent Helm Chart:
 
 * [Online install](#online-install) - images are retrieved from the StackState image registry (https://helm.stackstate.io).
+* [Air gapped install](#air-gapped-install) - images are retrieved from a local system or registry.
 * [Custom install](#custom-install-with-helm) - images are retrieved from a custom image registry.
-* [Airgapped install](#airgapped-install) - images are retrieved from a local system or registry.
 
 #### Online install 
 
@@ -106,6 +111,8 @@ The StackState Agent, Cluster Agent and kube-state-metrics can be installed toge
 
    - Note that [additional optional configuration](#helm-chart-values) can be added to the standard helm command.
 
+{% tabs %}
+{% tab title="Kubernetes" %}
 ```commandline 
 helm upgrade --install \ 
    --namespace stackstate \
@@ -115,20 +122,35 @@ helm upgrade --install \
    --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
    stackstate-cluster-agent stackstate/cluster-agent
 ```
+{% endtab %}
+{% tab title="OpenShift" %}
+```commandline
+helm upgrade --install \
+--namespace stackstate \
+--create-namespace \
+--set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
+--set-string 'stackstate.cluster.name'='<OPENSHIFT_CLUSTER_NAME>' \
+--set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
+--set 'agent.scc.enabled'=true \
+--set 'kube-state-metrics.securityContext.enabled'=false \
+stackstate-cluster-agent stackstate/cluster-agent
+```
+{% endtab %}
+{% endtabs %}
+
+#### Air gapped install
+
+If StackState Agent will run in an environment that does not have a direct connection to the Internet, the images required to install the StackState Agent, Cluster Agent and kube-state-metrics can be downloaded and stored in a local system or image registry. To do this, follow the instructions for a [StackState air gapped install](/setup/install-stackstate/kubernetes_install/air-gapped-install.md). 
 
 #### Custom install with helm
 
 If required, the images required to install the StackState Agent, Cluster Agent and kube-state-metrics can be served from a custom image registry. To do this, follow the instructions for a [StackState custom install with helm](/setup/install-stackstate/kubernetes_install/custom-install-helm.md).
 
-#### Airgapped install
-
-If StackState Agent will run in an environment that does not have a direct connection to the Internet, the images required to install the StackState Agent, Cluster Agent and kube-state-metrics can be downloaded and stored in a local system or image registry. To do this, follow the instructions for a [StackState airgapped install](/setup/install-stackstate/kubernetes_install/airgapped-install.md). 
-
 ### Helm chart values
 
 Additional variables can be added to the standard helm command used to deploy the StackState Agent, Cluster Agent and kube-state-metrics. For example:
 * It is recommended to [provide a `stackstate.cluster.authToken`](#stackstateclusterauthtoken). 
-* For large Kubernetes clusters, [enable cluster checks](kubernetes.md#enable-cluster-checks) to run the kubernetes\_state check in a StackState ClusterCheck Agent pod.
+* For large Kubernetes or OpenShift clusters, [enable cluster checks](kubernetes.md#enable-cluster-checks) to run the kubernetes\_state check in a StackState ClusterCheck Agent pod.
 * If you use a custom socket path, [set the `agent.containerRuntime.customSocketPath`](#agentcontainerruntimecustomsocketpath).
 
 {% hint style="info" %}
@@ -141,16 +163,35 @@ It is recommended to provide a `stackstate.cluster.authToken` in addition to the
 
 For example:
 
+{% tabs %}
+{% tab title="Kubernetes" %}
 ```text
 helm upgrade --install \
---namespace stackstate \
---create-namespace \
---set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
---set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
---set-string 'stackstate.cluster.authToken'='<CLUSTER_AUTH_TOKEN>' \
---set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
-stackstate-cluster-agent stackstate/cluster-agent
+  --namespace stackstate \
+  --create-namespace \
+  --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
+  --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
+  --set-string 'stackstate.cluster.authToken'='<CLUSTER_AUTH_TOKEN>' \
+  --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
+  stackstate-cluster-agent stackstate/cluster-agent
 ```
+{% endtab %}
+{% tab title="OpenShift" %}
+```bash
+helm upgrade --install \ 
+  --namespace stackstate \
+  --create-namespace \
+  --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
+  --set-string 'stackstate.cluster.name'='<OPENSHIFT_CLUSTER_NAME>' \
+  --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
+  --set-string 'global.extraEnv.open.STS_LOG_PAYLOADS'='true' \
+  --set 'agent.logLevel'='debug' \
+  --set 'agent.scc.enabled'=true \
+  --set 'kube-state-metrics.securityContext.enabled'=false \
+  stackstate-cluster-agent stackstate/cluster-agent
+```
+{% endtab %}
+{% endtabs %}
 
 #### agent.containerRuntime.customSocketPath
 
@@ -171,7 +212,13 @@ stackstate-cluster-agent stackstate/cluster-agent
 
 ### Upgrade
 
-To upgrade the Agents running in your Kubernetes cluster, run the helm upgrade command provided on the StackState UI **StackPacks** &gt; **Integrations** &gt; **Kubernetes** screen. This is the same command used to deploy the StackState Agent and Cluster Agent.
+To upgrade the Agents running in your Kubernetes or OpenShift cluster, run the helm upgrade command provided on the associated StackState UI integrations screen:
+* **StackPacks** &gt; **Integrations** &gt; **Kubernetes**
+* **StackPacks** &gt; **Integrations** &gt; **OpenShift**
+
+{% hint style="info" %}
+This is the same command used to deploy the StackState Agent and Cluster Agent. 
+{% endhint %}
 
 ## Configure
 
@@ -198,13 +245,13 @@ The following integrations have checks that can be configured to run as cluster 
 
 ### External integration configuration
 
-To integrate with other external services, a separate instance of the [StackState Agent](about-stackstate-agent.md) should be deployed on a standalone VM. Other than [cluster checks](#enable-cluster-checks), it is not currently possible to configure a StackState Agent deployed on a Kubernetes cluster with checks that integrate with other services.
+To integrate with other external services, a separate instance of the [StackState Agent](about-stackstate-agent.md) should be deployed on a standalone VM. Other than [cluster checks](#enable-cluster-checks), it is not currently possible to configure a StackState Agent deployed on a Kubernetes or OpenShift cluster with checks that integrate with other services.
 
 ## Commands
 
 ### Agent and Cluster Agent pod status
 
-To check the status of the Kubernetes integration, check that the StackState Cluster Agent \(`cluster-agent`\) pod and all of the StackState Agent \(`cluster-agent-agent`\) pods have status `READY`.
+To check the status of the Kubernetes or OpenShift integration, check that the StackState Cluster Agent \(`cluster-agent`\) pod and all of the StackState Agent \(`cluster-agent-agent`\) pods have status `READY`.
 
 ```text
 ❯ kubectl get deployment,daemonset --namespace stackstate
@@ -241,7 +288,7 @@ Logs for the Agent can be found in the `agent` pod, where the StackState Agent i
 
 By default, the log level of the Agent is set to `INFO`. To assist in troubleshooting, the Agent log level can be set to `DEBUG`. This will enable verbose logging and all errors encountered will be reported in the Agent log files.
 
-* To set the log level to `DEBUG` for an Agent running on Kubernetes, set `'agent.logLevel'='debug'` in the helm command when deploying the Agent. 
+* To set the log level to `DEBUG` for an Agent running on Kubernetes or OpenShift, set `'agent.logLevel'='debug'` in the helm command when deploying the Agent. 
 * To also include the topology/telemetry payloads sent to StackState in the Agent log, set `--set-string 'global.extraEnv.open.STS_LOG_PAYLOADS'='true'`.
 
 For example:
@@ -264,7 +311,7 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 ## Uninstall
 
-To uninstall the StackState Cluster Agent and the StackState Agent from your Kubernetes cluster, run a Helm uninstall:
+To uninstall the StackState Cluster Agent and the StackState Agent from your Kubernetes or OpenShift cluster, run a Helm uninstall:
 
 ```text
 helm uninstall <release_name> --namespace <namespace>
@@ -279,4 +326,5 @@ helm uninstall stackstate-cluster-agent --namespace stackstate
 * [About the StackState Agent](about-stackstate-agent.md)
 * [Advanced Agent configuration](advanced-agent-configuration.md)  
 * [Kubernetes StackPack](../../stackpacks/integrations/kubernetes.md)
+* [OpenShift StackPack](../../stackpacks/integrations/openshift.md)
 

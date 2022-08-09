@@ -340,3 +340,4 @@ redirects:
   use/health-state/about-health-state: ./use/concepts/health-state.md
   use/health-state/add-a-health-check: ./use/checks-and-monitors/add-a-health-check.md
   use/health-state: ./use/checks-and-monitors/README.md
+  setup/agent/openshift: ./setup/agent/kubernetes.md
