@@ -88,9 +88,9 @@ StackState Agent v2.17.x is supported to monitor the following versions of Kuber
 
 The StackState Agent, Cluster Agent and kube-state-metrics can be installed together using the Cluster Agent Helm Chart:
 
-* [Online install](#online-install) - images are retrieved from the StackState image registry (https://helm.stackstate.io).
+* [Online install](#online-install) - images are retrieved from the default StackState image registry (https://helm.stackstate.io).
 * [Air gapped install](#air-gapped-install) - images are retrieved from a local system or registry.
-* [Custom install](#custom-install-with-helm) - images are retrieved from a custom image registry.
+* [Install from a custom image registry](#install-from-a-custom-image-registry) - images are retrieved from a configured image registry.
 
 #### Online install 
 
@@ -217,7 +217,7 @@ Untagged: quay.io/stackstate/stackstate-process-agent:4.0.7
 Images have been imported up to localhost
 ```
 
-#### Custom install with helm
+#### Install from a custom image registry
 
 If required, the images required to install the StackState Agent, Cluster Agent and kube-state-metrics can be served from a custom image registry. To do this, follow the instructions to [install from a custom image registry](/setup/install-stackstate/kubernetes_install/install-from-custom-image-registry.md).
 
