@@ -144,7 +144,7 @@ If StackState Agent will run in an environment that does not have a direct conne
 
 
 1. Internet connection required:
-   1. Download tor clone the StackState Helm charts repo from GitHub: [https://github.com/StackVista/helm-charts](https://github.com/StackVista/helm-charts)
+   1. Download or clone the StackState Helm charts repo from GitHub: [https://github.com/StackVista/helm-charts](https://github.com/StackVista/helm-charts)
    2. In the Helm charts repo, go to the directory `stable/cluster-agent/installation` and use the script `/backup.sh` to backup the required images from StackState. The script will pull all images required for the `cluster-agent` Helm chart to run, back them up to individual tar archives and add all tars to a single `tar.gz` archive. The images will be in a `tar.gz` archive in the same folder as the working directory from where the script was executed. It is advised to run the script from the `stable/cluster-agent/installation` directory as this will simplify the process of importing images on the destination system.
       * By default, the backup script will retrieve charts from the StackState chart repository (https://helm.stackstate.io), images are retrieved from the default StackState image registry (quay.io). The script can be executed from the `installation` directory as simply `./backup.sh`.
         ```text
