@@ -55,7 +55,7 @@ Optionally, a [non-high availability setup](/setup/install-stackstate/kubernetes
 
 ### Docker images
 
-For a list of all Docker images used, see the [image overview](/setup/install-stackstate/kubernetes_install/image_configuration.md).
+For a list of all Docker images used, see the [image overview](/setup/install-stackstate/kubernetes_install/install-from-custom-image-registry.md).
 
 ### Storage
 
