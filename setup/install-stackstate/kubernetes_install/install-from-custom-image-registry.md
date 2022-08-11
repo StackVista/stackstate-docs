@@ -2,11 +2,11 @@
 description: StackState Self-hosted v5.0.x 
 ---
 
-# StackState images
+# Custom install with helm
 
 ## Overview
 
-This page describes the images used by the StackState Helm chart and how to configure the registry, repository and tag used to pull them.
+This page describes how to use a custom image registry to install StackState, the StackState Agent, Cluster Agent and kube-state-metrics. The required images are first copied and then the helm chart can then be configured to pull images using the custom registry and tag.
 
 ## Serve images from a different image registry
 
@@ -17,7 +17,10 @@ To address this issue, you can copy all the images to a single registry close to
 1. Set up a registry close to your Kubernetes cluster.
    * For Amazon Elastic Kubernetes Service (EKS), use [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/).
    * For Azure Kubernetes Service (AKS), use [Azure Container Registry (ACR)](https://azure.microsoft.com/en-us/services/container-registry/).
-2. Use the `copy_images.sh` script in the [installation directory (github.com)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation) to copy all the images used by the Helm chart to the new registry, for example:
+2. Use the relevant script to copy all the images used by the Helm chart to the new registry:
+   * **StackState:** [stackstate/installation/copy_images.sh \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation) to copy all the images used by the Helm chart to the new registry
+   * **StackState Agent:** [cluster-agent/installation/copy_images.sh \(github.com\)](https://github.com/StackVista/helm-charts/blob/master/stable/cluster-agent/installation/copy_images.sh)
+   * For example:
 
     ```bash
     ./installation/copy_images.sh -d 57413481473.dkr.ecr.eu-west-1.amazonaws.com
@@ -39,7 +42,7 @@ To address this issue, you can copy all the images to a single registry close to
     * Additional optional flags can be used when running the script:
       * `-c` specify a different chart to use.
       * `-r` specify a different repository to use.
-3. Edit the `values.yaml` file and add the following:
+5. Edit the `values.yaml` file and add the following:
    * **global.imageRegistry** - the registry to use.
    * **global.imagePullSecrets** and **pull-secret** object - optional. The authentication details required for the `global.imageRegistry`.
    * **elasticsearch.prometheus-elasticsearch-exporter.image.repository** - the image used by the prometheus-elasticsearch-exporter sub-chart. This is required as it cannot be configured with the setting `global.imageRegistry`
@@ -66,6 +69,8 @@ To address this issue, you can copy all the images to a single registry close to
 
 ## Images
 
+### StackState
+
 The images listed below are used in StackState v5.0.0:
 
 * quay.io/stackstate/container-tools:1.1.3
@@ -89,3 +94,12 @@ The images listed below are used in StackState v5.0.0:
 * quay.io/stackstate/tephra-server:4.6.7
 * quay.io/stackstate/wait:1.0.6
 * quay.io/stackstate/zookeeper:3.6.3-focal-20220316-r302.20220411.1232
+
+### StackState Agent, Cluster Agent and kube-state-metrics
+
+The images listed below are used in StackState Agent v2.17.1:
+
+* quay.io/stackstate/kube-state-metrics:2.3.0-focal-20220316-r61.20220418.2032
+* quay.io/stackstate/stackstate-agent-2:2.17.1
+* quay.io/stackstate/stackstate-cluster-agent:2.17.1
+* quay.io/stackstate/stackstate-process-agent:4.0.7

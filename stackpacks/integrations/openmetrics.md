@@ -143,9 +143,7 @@ Example OpenMetrics Agent check configuration file:
 
 {% tabs %}
 {% tab title="Kubernetes, OpenShift" %}
-Follow the instructions on the Agent page to track the status OpenShift check:
-* [StackState Agent running on Kubernetes](/setup/agent/kubernetes.md#agent-check-status)
-* [StackState Agent running on OpenShift](/setup/agent/openshift.md#agent-check-status)
+Follow the instructions on the Kubernetes Agent page to [track the status OpenShift check](/setup/agent/kubernetes.md#agent-check-status)
 {% endtab %}
 {% tab title="Docker, Linux, Windows" %}
 Run the Agent status subcommand and look for `openmetrics` under the `Checks` section.
