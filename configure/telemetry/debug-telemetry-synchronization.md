@@ -132,7 +132,6 @@ For details of the StackState Agent log files, see the platform-specific Agent p
 * [StackState Agent V2 on Docker](/setup/agent/docker.md#log-files)
 * [StackState Agent V2 on Kubernetes](/setup/agent/kubernetes.md#log-files)
 * [StackState Agent V2 on Linux](/setup/agent/linux.md#log-files)
-* [StackState Agent V2 on OpenShift](/setup/agent/openshift.md#log-files)
 * [StackState Agent V2 on Windows](/setup/agent/windows.md#log-files)
 
 ## See also
