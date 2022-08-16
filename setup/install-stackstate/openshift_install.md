@@ -109,6 +109,9 @@ stackstate:
     ui:
       securityContext:
         enabled: false
+anomaly-detection:
+  securityContext:
+    enabled: false
 elasticsearch:
   prometheus-elasticsearch-exporter:
     securityContext:
