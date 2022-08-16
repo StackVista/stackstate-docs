@@ -1,5 +1,5 @@
 ---
-cover: .gitbook/assets/gitbook-cover.png
+cover: .gitbook/assets/gitbook-cover.jpg
 coverY: 0
 layout: landing
 ---
