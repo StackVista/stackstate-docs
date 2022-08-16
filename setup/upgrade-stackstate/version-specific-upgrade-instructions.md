@@ -21,6 +21,14 @@ This page provides specific instructions and details of any required manual step
 {% tabs %}
 {% tab title="Kubernetes" %}
 
+#### v5.0.2
+
+No manual action required.
+
+#### v5.0.1
+
+The v5.0.2 release includes an additional bugfix. Use the v5.0.2 release.
+
 #### v5.0.0
 
 * With the release of the new `sts` CLI, the CLI released with previous versions of StackState has been renamed to `stac`:
@@ -39,6 +47,14 @@ This page provides specific instructions and details of any required manual step
 
 {% endtab %}
 {% tab title="Linux" %}
+
+#### v5.0.2
+
+No manual action required.
+
+#### v5.0.1
+
+⚠️ Do not use. Please upgrade to StackState v5.0.2.
 
 #### v5.0.0
 

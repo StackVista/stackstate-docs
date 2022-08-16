@@ -10,6 +10,39 @@ Note that the release notes may include details of functionality that is current
 
 ## StackState v5.0.x
 
+### v5.0.2 (2022-08-13)
+
+**Improvements**
+
+* Made creation of the ClusterRoleBinding in the anomaly detection Helm chart optional to allow non-privileged installation. STAC-17061
+
+**Bug fixes**
+
+* Fixed race-condition in updating the OIDC refresh_token. STAC-17261
+* Fixed multi-level tags not working correctly when used for telemetry grouping. STAC-17201
+* Fixed memory leak due to excessive storing of sessions when using token based authentication. STAC-17136
+* Exposed the pod securityContext in the anomaly-detection Helm chart. STAC-17036
+* Fixed an issue causing the problem producer to crash in a loop. STAC-17028
+* Upgraded jmx-exporter to v0.17, patching the CVE-2017-18640 vulnerability. STAC-17027
+* Included prometheus-elasticsearch-exporter as Helm chart dependency of the elasticsearch chart. STAC-16995
+* Fixed issue where the problem producer would crash with a NullPointerException. STAC-17361
+
+**Security**
+
+Upgraded:
+
+* libssl/libcrypto to 1.1.1q-r0, patching the CVE-2022-2097 vulnerability. STAC-17145
+* ncurses-terminfo and ncurses-libs to 6.2_p20210612-r1, patching the CVE-2022-29458 vulnerability. STAC-17144
+* execa to 2.0..0, patching the Gemnasium-05cfa2e8-2d0c-42c1-8894-638e2f12ff3d vulnerability. STAC-17100
+* url-parse to 1.5.9, patching the CVE-2022-0686 vulnerability. STAC-17098
+* tmpl to 1.0.5, patching the CVE-2021-3777 vulnerability. STAC-17085
+* shelljs to 0.8.5, patching the CVE-2022-0144 vulnerability. STAC-17079
+* shell-quote to 1.7.3, patching the CVE-2021-42470 vulnerability. STAC-17078
+* json-schema to 0.4.0, patching the CVE-2021-3918 vulnerability. STAC-17071
+* ini to 1.3.6 patching the CVE-2020-7780 vulnerability. STAC-17070
+* eventsource to 1.1.1, patching the CVE-2022-1650 vulnerability. STAC-17067
+* curl and libcurl to 7.79.1-r2, patching the CVE-2022-27781 and CVE-2022-27782 vulnerabilities. STAC-17003
+
 ### v5.0.0 (2022-06-24)
 
 The StackState v5.0 release delivers brand new features and enhancements that help your team troubleshoot faster. Here are some highlights:
