@@ -27,9 +27,11 @@ Available Commands:
 Use "sts service-token [command] --help" for more information about a command.
 ```
 
+It is also possible to [set up a bootstrap service token](#set-up-a-bootstrap-service-token) when installing StackState.
+
 ### Create service tokens
 
-To create a service token you can use the new `sts` CLI.
+To create a service token for an installed instance of StackState, you can use the new `sts` CLI.
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
@@ -41,7 +43,7 @@ sts service-token create
 {% endtab %}
 {% tab title="CLI: stac" %}
 
-Command not available in the `stac` CLI, use the new `sts` CLI. 
+Command not available in the `stac` CLI, use the new `sts` CLI.
 {% endtab %}
 {% endtabs %}
 
@@ -71,7 +73,87 @@ For example, the command below will create a service token with the name `my-ser
 {% endtab %}
 {% tab title="CLI: stac" %}
 
-Command not available in the `stac` CLI, use the new `sts` CLI. 
+Command not available in the `stac` CLI, use the new `sts` CLI.
+{% endtab %}
+{% endtabs %}
+
+### Set up a bootstrap service token
+
+When installing StackState, it is possible to bootstrap it with a (temporary) service token. This allows for using the CLI without first interacting with StackState and obtaining an API token from the UI. In order to set this up, you can add the following snippet to the StackState configuration file:
+
+{% tabs %}
+{% tab title="Kubernetes" %}
+
+To configure StackState to create a bootstrap service token on Kubernetes, The following values need to be added to the file `authentication.yaml`. For example
+
+```yaml
+stackstate:
+  authentication:
+    servicetoken:
+      bootstrap:
+        token: <token>
+        roles:
+          - stackstate-power-user
+        ttl: 24h
+```
+
+Follow the steps below to configure StackState to create a bootstrap service token:
+
+1. In `authentication.yaml` - add the bootstrap token:
+   * **token** - The token that will be created on (initial) start of StackState.
+   * **roles** - An array of roles that will be assigned to the bootstrap token.
+   * **ttl** - Optional. The time-to-live for the service token, expressed as a duration string.
+2. Store the file `authentication.yaml` together with the `values.yaml` from the StackState installation instructions.
+3. Run a Helm upgrade to apply the changes.
+    ```text
+    helm upgrade \
+      --install \
+      --namespace stackstate \
+      --values values.yaml \
+      --values authentication.yaml \
+    stackstate \
+    stackstate/stackstate
+    ```
+
+{% hint style="info" %}
+**Note:**
+
+* The first run of the helm upgrade command will result in pods restarting, which may cause a short interruption of availability.
+* Include `authentication.yaml` on every `helm upgrade` run.
+* The authentication configuration is stored as a Kubernetes secret.
+{% endhint %}
+
+{% endtab %}
+{% tab title="Linux" %}
+
+To configure StackState to create a bootstrap service token on Linux, the following settings need to be added to the file `application_stackstate.conf`:
+
+```javascript
+authentication {
+  authServer {
+    authServerType = [ "serviceTokenAuthServer", ... ]
+
+    ...
+
+    serviceTokenAuthServer {
+      bootstrap {
+        token = "<random token>"
+        roles = [ "stackstate-power-user" ]
+        ttl = "24h"
+      }
+    }
+  }
+}
+```
+
+Follow the steps below to configure StackState to create a bootstrap service token:
+
+1. In `application_stackstate.conf` - add the bootstrap token:
+   * **token** - The token that will be created on the (initial) start of StackState.
+   * **roles** - An array of roles that will be assigned to the bootstrap token.`
+   * **ttl** - Optional. The time-to-live for the token, expressed as a duration string.
+2. Restart StackState to apply the changes.
+
 {% endtab %}
 {% endtabs %}
 
@@ -91,7 +173,7 @@ ID              | NAME             | EXPIRATION | ROLES
 {% endtab %}
 {% tab title="CLI: stac" %}
 
-Command not available in the `stac` CLI, use the new `sts` CLI. 
+Command not available in the `stac` CLI, use the new `sts` CLI.
 {% endtab %}
 {% endtabs %}
 
@@ -110,7 +192,7 @@ A service token can be deleted using the new `sts` CLI. Pass the ID of the servi
 {% endtab %}
 {% tab title="CLI: stac" %}
 
-Command not available in the `stac` CLI, use the new `sts` CLI. 
+Command not available in the `stac` CLI, use the new `sts` CLI.
 {% endtab %}
 {% endtabs %}
 
@@ -134,7 +216,7 @@ To use a service token to talk directly to the StackState Base API or the StackS
     ```bash
     > curl -X GET -H "Authorization: ApiKey <TOKEN>" http://localhost:8080/api/server/status
     ```
- 
+
 * In the `X-API-Key` header:
     ```bash
     > curl -X GET -H "X-API-Key: <TOKEN>" http://localhost:8080/api/server/status
