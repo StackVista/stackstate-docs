@@ -30,7 +30,7 @@ Click SHOW ALL PROPERTIES to open a pop-up with all details of the component, in
 
 ![Detailed component information](/.gitbook/assets/v50_component_with_details.png)
 
-## Component groups
+## Grouping
 
 Components of the same type and/or state can optionally be grouped together into a single element. Grouped components are represented by a circle in the topology visualization. The component group will be named `<COMPONENT_TYPE> group`. For example a group of components with type `pod` will be named `pod group`.
 
@@ -40,7 +40,7 @@ The size of the component group's circle in the topology visualization represent
 * 100 to 150 components = medium circle
 * More than 150 components = large circle
 
-You can customize the grouping of components in the [Visualization settings](/use/stackstate-ui/views/visualization_settings.md).
+The way in which components are grouped can be customized in the [view visualization settings](/use/stackstate-ui/views/visualization_settings.md#components-grouping).
 
 ## Run state
 
