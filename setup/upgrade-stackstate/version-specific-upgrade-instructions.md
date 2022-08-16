@@ -27,7 +27,7 @@ No manual action required.
 
 #### v5.0.1
 
-The v5.0.2 release includes an additional bugfix. Use the v5.0.2 release.
+⚠️ Do not use. Please upgrade to StackState v5.0.2.
 
 #### v5.0.0
 
