@@ -41,7 +41,11 @@ Three types of grouping are available, or you can choose not to group components
 * **Group by state and type** - Components of the same type and with the same health state are grouped together into one group. If one of the grouped components changes its health state and no longer matches the health state of the component group, it will pop out of the group. If other components of the same type have the same health state, a new group will be created.
 * **Group by type, state and relation** - Components are grouped together as with **group by state and type** while maintaining information about relations to components outside of the group. All components in a group have the same source and target connection. This is useful because grouping components together by state and type alone can cause some information on relations for the components in the group to be lost.
 
-For **group by state and type** and **group by type, state and relation**, a threshold must be passed before any grouping happens - the **Minimum components in a group**. By default, the minimum group size is 2, this means that if there is one component of a certain type and health state in a view, then when the next component comes along that has the same state and type a component group will be created. If the threshold value is set higher, to 8 for example, then at least 8 components with the same state type \(and possibly relations\) would be required for a group to be created.
+### Minimum components in a group 
+
+For **group by state and type** and **group by type, state and relation**, a threshold must be passed before any grouping happens - the Minimum components in a group. 
+
+By default, the minimum group size is 2, this means that if there is one component of a certain type and health state in a view, then when the next component comes along that has the same state and type a component group will be created. If the threshold value is set higher, to 8 for example, then at least 8 components with the same state type \(and possibly relations\) would be required for a group to be created.
 
 ## Relations settings
 
