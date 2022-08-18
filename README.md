@@ -12,7 +12,7 @@ Select your version of StackState to jump to the associated documentation.
 
 Use StackState Self-hosted to observe an extensive set of technologies that originate either in your own data centers or in the cloud.
 
-🚀 **[StackState Self-hosted v5.0 docs](README-v50.md) - latest release!**
+🚀 **[StackState Self-hosted v5.0 docs](latest.md) - latest release!**
 
 ↗️ [StackState Self-hosted v4.6 docs](https://docs.stackstate.com/v/4.6/)
 
@@ -20,12 +20,11 @@ Use StackState Self-hosted to observe an extensive set of technologies that orig
 
 ### StackState SaaS
 
-{% hint style="success" %}
-🔒 StackState is SOC2/3 certified. [Learn more](https://www.stackstate.com/compliance)
-{% endhint %}
-
 Use StackState SaaS to observe cloud technologies, such as Kubernetes and AWS services. 
 
 ↗️ [StackState SaaS docs](https://docs.stackstate.com/v/stackstate-saas/)
 
+{% hint style="success" %}
+🔒 StackState is SOC2/3 certified. [Learn more](https://www.stackstate.com/compliance)
+{% endhint %}
 

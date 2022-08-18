@@ -185,7 +185,7 @@ Examples of adding a propagation function to a template can be found below:
 
 #### Active/active failover propagation function
 
-The example template below uses a `get` helper to obtain the ID of the **Active/active failover** propagation function with the identifier `urn:stackpack:common:propagationfunction:active-failover`. No `"arguments"` are specified as the propagation function does not include any user parameters. Arguments for system parameters are automatically provided during run time and do not need to be specified.
+The example template below uses a `get` helper to obtain the ID of the **Active/active failover** propagation function with the identifier `urn:stackpack:common:propagation-function:active-failover`. No `"arguments"` are specified as the propagation function does not include any user parameters. Arguments for system parameters are automatically provided during run time and do not need to be specified.
 
 {% tabs %}
 {% tab title="Template `propagation` block" %}
@@ -193,7 +193,7 @@ The example template below uses a `get` helper to obtain the ID of the **Active/
 ...
 "propagation": {
   "_type": "Propagation",
-  "function": {{ get "urn:stackpack:common:propagationfunction:active-failover" }},
+  "function": {{ get "urn:stackpack:common:propagation-function:active-failover" }},
   "arguments": [],
   },
 ...
@@ -214,10 +214,10 @@ The template example below includes an argument that will be passed to the propa
 ...
 "propagation": {
   "_type": "Propagation",
-  "function": {{ get "urn:stackpack:common:propagationfunction:stop-propagation-for-relation-type" }},
+  "function": {{ get "urn:stackpack:common:propagation-function:stop-propagation-for-relation-type" }},
   "arguments": [{
     "_type": "ArgumentRelationTypeRef",
-    "parameter": {{ get "urn:stackpack:common:propagationfunction:stop-propagation-for-relation-type" "Type=Parameter;Name=relationType" }},
+    "parameter": {{ get "urn:stackpack:common:propagation-function:stop-propagation-for-relation-type" "Type=Parameter;Name=relationType" }},
     "relationType": {{ get "urn:stackpack:common:relationtype:is-hosted-on" }}
     }],
   },
