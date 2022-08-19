@@ -88,9 +88,14 @@ sts monitor status --identifier <identifier-of-a-monitor>
 {% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
 `stac monitor status <id-or-identifier-of-a-monitor>`[](http://not.a.link "StackState Self-Hosted only")
 
-**Not running the `stac` CLI yet?**[](http://not.a.link "StackState Self-Hosted only")
+{% hint style="info" %}
 
-➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade "StackState Self-Hosted only")
+`stac` is the new name for the old `sts` CLI. In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI.
+
+* [Find out which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md)
+{% endhint %}
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 
