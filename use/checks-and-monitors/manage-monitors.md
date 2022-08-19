@@ -90,6 +90,7 @@ sts monitor status --identifier <identifier-of-a-monitor>
 
 
 ⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`. 
+
 In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
