@@ -148,9 +148,14 @@ stac topology list
 144667609743389  urn:stackpack:stackstate:instance:44a9ce1e-413c-4c4c-819d-2095c1229dda:sync:stackstate   Running                  13599                  5496                    0                    0       329
 ```
 
-**Not running the `stac` CLI yet?**
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`. 
 
-➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
@@ -178,9 +183,14 @@ metric               value between now and 500 seconds ago  value between 500 an
 latency (Seconds)                                   35.754  ---                                       ---
 ```
 
-**Not running the `stac` CLI yet?**
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
 
-➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 

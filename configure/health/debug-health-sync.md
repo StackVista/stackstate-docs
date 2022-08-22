@@ -26,9 +26,14 @@ When debugging the health synchronization there are some common verification ste
 stac topic show sts_health_sync
 ```
 
-**Not running the `stac` CLI yet?**
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
 
-➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
@@ -67,9 +72,14 @@ stream urn                                            sub stream count
 urn:health:sourceId:streamId                                         1
 ```
 
-**Not running the `stac` CLI yet?**
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
 
-➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
@@ -94,9 +104,14 @@ subStreamId1                                     20
 subStreamId2                                     17
 ```
 
-**Not running the `stac` CLI yet?**
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
 
-➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
@@ -133,9 +148,14 @@ error message                                                                   
 Sub stream `substream with id `subStreamId2`` not started when receiving snapshot stop                          6
 ```
 
-**Not running the `stac` CLI yet?**
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
 
-➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
@@ -173,9 +193,14 @@ check states updated (per second)  -                                        -   
 check states deleted (per second)  -
 ```
 
-**Not running the `stac` CLI yet?**
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
 
-➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
@@ -220,9 +245,14 @@ check state id    topology element identifier    number of matched topology elem
 ----------------  -----------------------------  -------------------------------------
 ```
 
-**Not running the `stac` CLI yet?**
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
 
-➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
@@ -242,9 +272,14 @@ The `delete` stream functionality is helpful while setting up a health synchroni
 stac health delete urn:health:sourceId:streamId
 ```
 
-**Not running the `stac` CLI yet?**
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
 
-➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
@@ -265,9 +300,14 @@ stac health clear-errors urn:health:sourceId:streamId
 
 ```
 
-**Not running the `stac` CLI yet?**
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
 
-➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 

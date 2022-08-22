@@ -20,9 +20,14 @@ By default topology graph data will be retained for 8 days. This works in a way 
 stac graph retention get-window
 ```
 
-**Not running the `stac` CLI yet?**
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
 
-➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
@@ -40,9 +45,14 @@ In some cases, it may be useful to keep historical data for more than eight days
 stac graph retention set-window --window 864000000
 ```
 
-**Not running the `stac` CLI yet?**
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
 
-➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
@@ -64,9 +74,14 @@ After the new retention window is applied, you can schedule a new removal with t
 stac graph retention set-window --schedule-removal
 ```
 
-**Not running the `stac` CLI yet?**
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
 
-➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
@@ -86,9 +101,14 @@ Note that this may take some time to have an effect.
 stac graph retention remove-expired-data
 ```
 
-**Not running the `stac` CLI yet?**
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
 
-➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
@@ -106,9 +126,14 @@ However, if you would like to perform data deletion without having to wait for a
 stac graph retention remove-expired-data --immediately
 ```
 
-**Not running the `stac` CLI yet?**
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
 
-➡️ [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade)
+In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
