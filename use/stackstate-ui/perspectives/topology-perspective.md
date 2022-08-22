@@ -27,7 +27,13 @@ The Topology Perspective shows the filtered components and relations in a select
 
 ### Component context menu
 
-When you hover over a component, the component context menu is displayed. This gives you information about the component, including its name, type, health state and propagated health state and the [top metrics](/use/metrics-and-events/top-metrics.md). You can also run [shortcuts](#shortcuts) and the [actions](#actions) specific to the component from here.
+When you hover over a component, the component context menu is displayed. This gives you information about the component, this includes:
+
+* The component name and type
+* [Health state](/use/concepts/health-state.md) and [propagated health state](/use/concepts/health-state.md#propagated-health-state) of the component.
+* [Top metrics](/use/metrics-and-events/top-metrics.md) for the component.
+* [Shortcuts](#shortcuts) specific to the component.
+* [Actions](#actions) specific to the component.
 
 ![Component context menu](/.gitbook/assets/v50_component_context_menu.png)
 
