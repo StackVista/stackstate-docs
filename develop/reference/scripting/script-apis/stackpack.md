@@ -21,9 +21,9 @@ Returns a flag indicating if the StackPack is installed
 sts stackpack list
 ```
 
-➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. This command is for use with the new `sts` CLI.
 
-Command not currently available in the new `sts` CLI.
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
 {% tab title="CLI: stac" %}
 
@@ -66,9 +66,9 @@ Returns resources originating from the StackPack.
 sts settings list-types
 ```
 
-➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. This command is for use with the new `sts` CLI.
 
-Command not currently available in the new `sts` CLI.
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
 {% tab title="CLI: stac" %}
 

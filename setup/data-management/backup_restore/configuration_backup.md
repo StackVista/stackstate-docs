@@ -25,9 +25,9 @@ sts settings describe
 sts settings describe --file <PATH_TO_FILE.stj>
 ```
 
-➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. This command is for use with the new `sts` CLI.
 
-Command not currently available in the new `sts` CLI.
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
 {% tab title="CLI: stac" %}
 ```text
@@ -104,9 +104,9 @@ To clear the StackState configuration and import from a file using the StackStat
 sts settings apply --file <PATH_TO_FILE.stj>
 ```
 
-➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. This command is for use with the new `sts` CLI.
 
-Command not currently available in the new `sts` CLI.
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
 {% tab title="CLI: stac" %}
 ```text
@@ -184,9 +184,9 @@ For export:
 sts settings describe --namespace urn:stackpack:{stackpack_name}:
 ```
 
-➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. This command is for use with the new `sts` CLI.
 
-Command not currently available in the new `sts` CLI.
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
 {% tab title="CLI: stac" %}
 ```text

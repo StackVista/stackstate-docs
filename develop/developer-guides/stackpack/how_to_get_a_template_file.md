@@ -15,9 +15,9 @@ You can get a complete dump of all configuration using the StackState CLI:
 sts settings describe --file <PATH_TO_FILE.stj>
 ```
 
-➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. This command is for use with the new `sts` CLI.[](http://not.a.link "StackState Self-Hosted only")
 
-Command not currently available in the new `sts` CLI.
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
 {% tab title="CLI: stac" %}
 ```text
@@ -46,9 +46,9 @@ If all of your configuration nodes already have been assigned to the right names
 sts settings describe --namespace <NAMESPACE> --file <PATH_TO_FILE.stj>
 ```
 
-➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. This command is for use with the new `sts` CLI.[](http://not.a.link "StackState Self-Hosted only")
 
-Command not currently available in the new `sts` CLI.
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
 {% tab title="CLI: stac" %}
 

@@ -83,7 +83,9 @@ sts monitor status --id <id-of-a-monitor>
 sts monitor status --identifier <identifier-of-a-monitor>
 ```
 
-➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. This command is for use with the new `sts` CLI.[](http://not.a.link "StackState Self-Hosted only")
+
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
 `stac monitor status <id-or-identifier-of-a-monitor>`[](http://not.a.link "StackState Self-Hosted only")
@@ -115,7 +117,9 @@ sts monitor run --id <id-of-a-monitor>
 sts monitor run --identifier <identifier-of-a-monitor>
 ```
 
-➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. This command is for use with the new `sts` CLI.[](http://not.a.link "StackState Self-Hosted only")
+
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
 `stac monitor preview <id-or-identifier-of-a-monitor>`[](http://not.a.link "StackState Self-Hosted only")
@@ -148,7 +152,9 @@ sts monitor delete --id <id-of-the-monitor>
 sts monitor delete --identifier <identifier-of-the-monitor>
 ```
 
-➡️ [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. This command is for use with the new `sts` CLI.[](http://not.a.link "StackState Self-Hosted only")
+
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
 `stac monitor delete --identifier <identifier-of-the-monitor>`[](http://not.a.link "StackState Self-Hosted only")
