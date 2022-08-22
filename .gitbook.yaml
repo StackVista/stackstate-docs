@@ -342,3 +342,4 @@ redirects:
   use/health-state: ./use/checks-and-monitors/README.md
   setup/agent/openshift: ./setup/agent/kubernetes.md
   setup/install-stackstate/kubernetes_install/image_configuration: ./setup/install-stackstate/kubernetes_install/install-from-custom-image-registry.md
+  README-v50: ./latest.md

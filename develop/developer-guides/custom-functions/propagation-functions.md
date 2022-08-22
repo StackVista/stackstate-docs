@@ -21,7 +21,11 @@ A component's propagated state is calculated using a propagation function, which
 
 ### Auto propagation \(default\)
 
-Returns the transparent state. This is the maximum of the component's own state and the propagated state of all dependencies. For example:
+Assigns the transparent state as the propagated state of a component. 
+
+### Transparent state
+
+The transparent state is precalculated by StackState and used for the default propagation type (auto propagation). It is passed to each propagation function script at run time in the [system parameters](#system-parameters) `transparentState` and `autoState`. The transparent state is calculated as the maximum of a component's own state and the propagated state of all the components that it depends upon. For example:
 
 | Dependency state | Component state | Transparent state |
 | :--- | :--- | :--- |
@@ -79,12 +83,13 @@ This code works as follows:
 
 ### System parameters
 
-System parameters are predefined parameters passed automatically to the propagation function script at run time.
+System parameters are predefined parameters that are passed automatically to the propagation function script at run time.
 
-| System parameter | Description |
-| :--- | :--- |
-| `transparentState` | The precomputed transparent state if returned from the script will lead to transparent propagation |
-| `component` | The id of the current component |
+| System parameter   | Description                                                                                      |
+|:-------------------|:-------------------------------------------------------------------------------------------------|
+| `transparentState` | The precomputed [transparent state](#transparent-state).                                         |
+| `autoState`        | The precomputed [transparent state](#transparent-state). This is the same as `transparentState`. |
+| `component`        | The ID of the current component.                                                                 |
 
 ### User parameters
 
@@ -185,7 +190,7 @@ Examples of adding a propagation function to a template can be found below:
 
 #### Active/active failover propagation function
 
-The example template below uses a `get` helper to obtain the ID of the **Active/active failover** propagation function with the identifier `urn:stackpack:common:propagationfunction:active-failover`. No `"arguments"` are specified as the propagation function does not include any user parameters. Arguments for system parameters are automatically provided during run time and do not need to be specified.
+The example template below uses a `get` helper to obtain the ID of the **Active/active failover** propagation function with the identifier `urn:stackpack:common:propagation-function:active-failover`. No `"arguments"` are specified as the propagation function does not include any user parameters. Arguments for system parameters are automatically provided during run time and do not need to be specified.
 
 {% tabs %}
 {% tab title="Template `propagation` block" %}
@@ -193,7 +198,7 @@ The example template below uses a `get` helper to obtain the ID of the **Active/
 ...
 "propagation": {
   "_type": "Propagation",
-  "function": {{ get "urn:stackpack:common:propagationfunction:active-failover" }},
+  "function": {{ get "urn:stackpack:common:propagation-function:active-failover" }},
   "arguments": [],
   },
 ...
@@ -214,10 +219,10 @@ The template example below includes an argument that will be passed to the propa
 ...
 "propagation": {
   "_type": "Propagation",
-  "function": {{ get "urn:stackpack:common:propagationfunction:stop-propagation-for-relation-type" }},
+  "function": {{ get "urn:stackpack:common:propagation-function:stop-propagation-for-relation-type" }},
   "arguments": [{
     "_type": "ArgumentRelationTypeRef",
-    "parameter": {{ get "urn:stackpack:common:propagationfunction:stop-propagation-for-relation-type" "Type=Parameter;Name=relationType" }},
+    "parameter": {{ get "urn:stackpack:common:propagation-function:stop-propagation-for-relation-type" "Type=Parameter;Name=relationType" }},
     "relationType": {{ get "urn:stackpack:common:relationtype:is-hosted-on" }}
     }],
   },
