@@ -255,7 +255,7 @@ The Kubernetes integration does not retrieve any traces data.
 
 All tags defined in Kubernetes will be retrieved and added to the associated components and relations in StackState as labels.
 
-The following labels will also be added to imported elements as appropriate:
+The following labels will also be added to imported elements as relevant:
 
 * `image_name`
 * `kube_cluster_name`
