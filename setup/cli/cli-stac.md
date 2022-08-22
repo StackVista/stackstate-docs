@@ -5,6 +5,15 @@ description: StackState Self-hosted v5.0.x
 # CLI: stac
 
 ## Overview
+{% hint style="info" %}
+From StackState v5.0, the old `sts` CLI is called `stac`.
+
+In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+
+* [Which version of the sts CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli)
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md)
+{% endhint %}
 
 The StackState `stac` CLI provides easy access to the functionality provided by the StackState APIs. It can be used to configure StackState, work with data, automate using StackState data and help with developing StackPacks. You can configure the CLI to work with multiple instances of StackState.
 
