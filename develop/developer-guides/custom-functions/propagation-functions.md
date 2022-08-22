@@ -21,7 +21,11 @@ A component's propagated state is calculated using a propagation function, which
 
 ### Auto propagation \(default\)
 
-Returns the transparent state. This is the maximum of the component's own state and the propagated state of all dependencies. For example:
+Assigns the transparent state as the propagated state of a component. 
+
+### Transparent state
+
+The transparent state is precalculated by StackState and used for the default propagation type (auto propagation). It is passed to each propagation function script at run time in the [system parameters](#system-parameters) `transparentState` and `autoState`. The transparent state is calculated as the maximum of a component's own state and the propagated state of all the components that it depends upon. For example:
 
 | Dependency state | Component state | Transparent state |
 | :--- | :--- | :--- |
@@ -79,12 +83,13 @@ This code works as follows:
 
 ### System parameters
 
-System parameters are predefined parameters passed automatically to the propagation function script at run time.
+System parameters are predefined parameters that are passed automatically to the propagation function script at run time.
 
-| System parameter | Description |
-| :--- | :--- |
-| `transparentState` | The precomputed transparent state if returned from the script will lead to transparent propagation |
-| `component` | The id of the current component |
+| System parameter   | Description                                                                                      |
+|:-------------------|:-------------------------------------------------------------------------------------------------|
+| `transparentState` | The precomputed [transparent state](#transparent-state).                                         |
+| `autoState`        | The precomputed [transparent state](#transparent-state). This is the same as `transparentState`. |
+| `component`        | The ID of the current component.                                                                 |
 
 ### User parameters
 
