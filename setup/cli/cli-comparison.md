@@ -95,7 +95,7 @@ command not found: sts
 If you are not running the new `sts` CLI yet, we recommend that you:
 
 1. [Upgrade the old `sts` CLI to `stac`](cli-stac.md).
-2. [Install the new `sts` CLI](cli-sts.md) 
+2. [Install the new `sts` CLI](cli-sts.md).
 
 ## CLI command overview
 
