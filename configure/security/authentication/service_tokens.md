@@ -39,7 +39,7 @@ To create a service token for an installed instance of StackState, you can use t
 sts service-token create
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. This command is for use with the new `sts` CLI.
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 {% endtab %}
@@ -81,7 +81,7 @@ For example, the command below will create a service token with the name `my-ser
 ✅ Service token created: svctok-aaaaa-bbbb-ccccc-ddddd
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. This command is for use with the new `sts` CLI.
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 {% endtab %}
@@ -192,7 +192,7 @@ ID              | NAME             | EXPIRATION | ROLES
 107484341630693 | my-service-token |            | [stackstate-power-user]
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. This command is for use with the new `sts` CLI.
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 {% endtab %}
@@ -222,7 +222,7 @@ A service token can be deleted using the new `sts` CLI. Pass the ID of the servi
 ✅ Service token deleted: 107484341630693
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. This command is for use with the new `sts` CLI.
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 {% endtab %}
