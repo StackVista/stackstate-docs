@@ -82,7 +82,7 @@ StackState accepts topology information in the following JSON format:
                   "ip_addresses":[
                      "172.17.0.8"
                   ],
-                  "labels":["label1", "category:"label2"],
+                  "labels":["label1", "category:label2"],
                   "framework_id":"fc998b77-e2d1-4be5-b15c-1af7cddabfed-0000",
                   "task_name":"nginx3",
                   "slave_id":"fc998b77-e2d1-4be5-b15c-1af7cddabfed-S0"
@@ -100,7 +100,7 @@ StackState accepts topology information in the following JSON format:
                     ],
                     "privileged":false
                     }
-                  },
+                  }
                }
             ],
          "relations":[
