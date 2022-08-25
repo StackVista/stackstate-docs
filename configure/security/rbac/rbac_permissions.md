@@ -24,16 +24,156 @@ There are two types of permission in StackState:
 
 StackState comes with four predefined roles:
 
-* **Administrators** \(`stackstate-admin`\): Have access to all views and have all permissions, except for the platform management permission `access-admin-api`.
-* **Platform Administrators** \(`stackstate-platform-admin`\): Have platform management permissions and have access to all views.
-* **Power Users** \(`stackstate-power-user`\): This role is typically granted to users that need to configure StackState for their team\(s\), but will not manage the entire StackState installation. Power users have all Administrator permissions _except_ for:
-  * `execute-restricted-scripts`
-  * `update-permissions`
-  * `upload-stackpacks`
-  * **Guests** \(`stackstate-guest`\): Have read access, as you can see below when we use the `stac` CLI to show granted permissions for the role:
+* **Administrator** \(`stackstate-admin`\): Has full access to all views and has all permissions, except for platform management.
+* **Platform Administrator** \(`stackstate-platform-admin`\): Has platform management permissions and access to all views.
+* **Power User** \(`stackstate-power-user`\): This role is typically granted to users that need to configure StackState for their team\(s\), but will not manage the entire StackState installation.
+* **Guest** \(`stackstate-guest`\): Has read access to StackState. 
+
+### Default permissions
+
+The permissions assigned to each predefined StackState role can be found below.
 
 {% tabs %}
-{% tab title="CLI: stac" %}
+{% tab title="Administrator" %}
+
+The Administrator role has all permissions assigned, except for `access-admin-api`, which is assigned only to the Platform Administrator predefined role.
+
+Permissions assigned to the predefined Administrator role (`stackstate-admin`), retrieved using the `stac` CLI:
+
+```text
+$ stac permission show stackstate-admin         
+subject           permission                   resource
+----------------  ---------------------------  ----------
+stackstate-admin  manage-annotations           system
+stackstate-admin  execute-scripts              system
+stackstate-admin  read-settings                system
+stackstate-admin  access-cli                   system
+stackstate-admin  run-monitors                 system
+stackstate-admin  access-explore               system
+stackstate-admin  access-analytics             system
+stackstate-admin  access-synchronization-data  system
+stackstate-admin  access-log-data              system
+stackstate-admin  execute-node-sync            system
+stackstate-admin  manage-event-handlers        system
+stackstate-admin  access-topic-data            system
+stackstate-admin  manage-topology-elements     system
+stackstate-admin  import-settings              system
+stackstate-admin  export-settings              system
+stackstate-admin  execute-restricted-scripts   system
+stackstate-admin  perform-custom-query         system
+stackstate-admin  read-stackpacks              system
+stackstate-admin  update-permissions           system
+stackstate-admin  read-permissions             system
+stackstate-admin  manage-telemetry-streams     system
+stackstate-admin  execute-component-templates  system
+stackstate-admin  update-visualization         system
+stackstate-admin  upload-stackpacks            system
+stackstate-admin  create-views                 system
+stackstate-admin  update-settings              system
+stackstate-admin  manage-stackpacks            system
+stackstate-admin  manage-star-view             system
+stackstate-admin  manage-monitors              system
+stackstate-admin  execute-component-actions    system
+stackstate-admin  manage-service-tokens        system
+stackstate-admin  access-view                  everything
+stackstate-admin  save-view                    everything
+stackstate-admin  delete-view                  everything
+```
+
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
+
+In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+
+{% endtab %}
+{% tab title="Platform Administrator" %}
+
+Platform Administrator is the only predefined role that is assigned the permission `access-admin-api`.
+
+Permissions assigned to the predefined Platform Administrator role (`stackstate-platform-admin`), retrieved using the `stac` CLI:
+
+```text
+$ stac permission show stackstate-platform-admin
+subject                    permission        resource
+-------------------------  ----------------  ----------
+stackstate-platform-admin  access-admin-api  system
+stackstate-platform-admin  access-cli        system
+stackstate-platform-admin  access-log-data   system
+stackstate-platform-admin  manage-star-view  system
+stackstate-platform-admin  access-view       everything
+```
+
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
+
+In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+
+{% endtab %}
+{% tab title="Power User" %}
+
+The Power User role has all Administrator permissions, except for:
+* `execute-restricted-scripts`
+* `update-permissions`
+* `upload-stackpacks`
+
+Permissions assigned to the predefined Power User role (`stackstate-power-user`), retrieved using the `stac` CLI:
+
+```text
+$ stac permission show stackstate-power-user    
+subject                permission                   resource
+---------------------  ---------------------------  ----------
+stackstate-power-user  manage-annotations           system
+stackstate-power-user  execute-scripts              system
+stackstate-power-user  read-settings                system
+stackstate-power-user  access-cli                   system
+stackstate-power-user  run-monitors                 system
+stackstate-power-user  access-explore               system
+stackstate-power-user  access-analytics             system
+stackstate-power-user  access-synchronization-data  system
+stackstate-power-user  access-log-data              system
+stackstate-power-user  execute-node-sync            system
+stackstate-power-user  manage-event-handlers        system
+stackstate-power-user  access-topic-data            system
+stackstate-power-user  manage-topology-elements     system
+stackstate-power-user  import-settings              system
+stackstate-power-user  export-settings              system
+stackstate-power-user  perform-custom-query         system
+stackstate-power-user  read-stackpacks              system
+stackstate-power-user  read-permissions             system
+stackstate-power-user  manage-telemetry-streams     system
+stackstate-power-user  execute-component-templates  system
+stackstate-power-user  update-visualization         system
+stackstate-power-user  create-views                 system
+stackstate-power-user  update-settings              system
+stackstate-power-user  manage-stackpacks            system
+stackstate-power-user  manage-star-view             system
+stackstate-power-user  manage-monitors              system
+stackstate-power-user  execute-component-actions    system
+stackstate-power-user  access-view                  everything
+stackstate-power-user  save-view                    everything
+stackstate-power-user  delete-view                  everything
+```
+
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
+
+In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+
+{% endtab %}
+{% tab title="Guest" %}
+
+The Guest role has read only access to StackState.
+
+Permissions assigned to the predefined Guest role, retrieved using the `stac` CLI:
 
 ```text
 $ stac permission show stackstate-guest
@@ -59,15 +199,10 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 
 {% endtab %}
 {% endtabs %}
-{% tab title="CLI: sts (new)" %}
 
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
-{% endtab %}
-{% endtabs %}
+### Custom role names
 
-### Default and custom role names
-
-The default pre-defined role names \(`stackstate-admin`, `stackstate-platform-admin`, `stackstate-power-user`, `stackstate-guest`\) are always available. Additional custom role names can be added that have the same permissions. Below is an example of how to do this for both Kubernetes and Linux installations.
+The default predefined role names \(`stackstate-admin`, `stackstate-platform-admin`, `stackstate-power-user`, `stackstate-guest`\) are always available. Additional custom role names can be added that have the same permissions. Below is an example of how to do this for both Kubernetes and Linux installations.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
@@ -130,7 +265,7 @@ System permissions scope user capabilities, such as access to settings, query ex
 
 See also the full list of [view permissions](rbac_permissions.md#view-permissions).
 
-| Permission | Purpose                                                                                                                                                                          | Guest | Power user | Admin | Platform Admin |
+| Permission | Description  |
 | :--- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| :---: | :---: | :---: | :---: |
 | `access-cli` | Access the CLI page. This provides the API key to use for authentication with the StackState CLI.                                                                                | ✅ | ✅ | ✅ | ✅ |
 | `access-explore` | Access the Explore page.                                                                                                                                                         | ✅ | ✅ | ✅ | - |
@@ -192,7 +327,7 @@ The permissions in the table below are required to access specific pages in the 
 | **Settings** &gt; **Export Settings** | Allows the export of settings from Settings Menu. See [settings page permissions](rbac_permissions.md#settings-page). | `export-settings` and `read-settings` | - | ✅ | ✅ | - |
 | **Settings** &gt; **Import Settings** | Allows the import of settings from Settings Menu. See [settings page permissions](rbac_permissions.md#settings-page). | `import-settings` and `read-settings`   | - | ✅ | ✅ | - |
 
-See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
+See the full list of [permissions for predefined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
 
 ### Topology
 
@@ -206,7 +341,7 @@ The permissions listed below are required to work with topology in StackState:
 | Drag and drop components. | `manage-topology-elements` | - | ✅ | ✅ | - |
 | Add components button. Create relations between topology elements. | `manage-topology-elements` and `perform-custom-query` and `read-settings` | - | ✅ | ✅ | - |
 
-See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
+See the full list of [permissions for predefined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
 
 ### Detailed information about components and relations
 
@@ -219,7 +354,7 @@ The permissions listed below are required to carry out specific actions in the r
 | **Elements** Delete an element or element template. | `manage-topology-elements` | - | ✅ | ✅ | - |
 | **Elements** Edit an element or element template. | `manage-topology-elements` and `perform-custom-query` and `read-settings` | - | ✅ | ✅ | - |
 
-See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
+See the full list of [permissions for predefined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
 
 ### View management
 
@@ -235,7 +370,7 @@ The permissions listed below can be set to access and work with views:
 | Save updates to a specific view or all views \(`everything`\). | `save-view` | - | ✅  `everything` | ✅  `everything` | - |
 | Delete a view. For a specific view or all views \(`everything`\). | `delete-view` | - | ✅  `everything` | ✅  `everything` | - |
 
-See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
+See the full list of [permissions for predefined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
 
 ### Analytics environment
 
@@ -247,7 +382,7 @@ The permissions listed below are required to access and execute scripts in the S
 | Execute scripts in the StackState UI analytics environment. Adds the **Execute** button. | `execute-scripts` and `access-analytics` | - | ✅ | ✅ | - |
 | Execute scripts that use the [HTTP script API](../../../develop/reference/scripting/script-apis/http.md). Also requires `access-analytics` and `execute-scripts`. | `execute-restricted-scripts` | - | - | ✅ | - |
 
-See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
+See the full list of [permissions for predefined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
 
 ### Settings page
 
@@ -261,7 +396,7 @@ The permissions listed below are required to access and manage settings in the S
 | Import capability. Adds the page **Import Settings**. | `import-settings` | - | ✅ | ✅ | - |
 | Delete and Reset synchronization capabilities. | `execute-node-sync` | - | ✅ | ✅ | - |
 
-See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
+See the full list of [permissions for predefined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
 
 ### Platform Management
 
@@ -272,7 +407,7 @@ The permissions listed below are required to access and manage StackState platfo
 | Access the administrator API. | `access-admin-api` | - | - | - | ✅ |
 | Access StackState logs using the CLI. | `access-log-data` | - | ✅ | ✅ | ✅ |
 
-See the full list of [permissions for pre-defined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
+See the full list of [permissions for predefined roles](rbac_permissions.md#all-permissions-in-stackstate) \(above\).
 
 ## Example CLI commands
 
