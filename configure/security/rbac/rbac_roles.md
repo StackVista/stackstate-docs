@@ -6,23 +6,23 @@ description: StackState Self-hosted v5.0.x
 
 ## Overview
 
-Every user in StackState needs to have a subject and a set of [permissions](rbac_permissions.md) assigned; this combination is called a role. A role describes a group of users that can access a specific data set. 
+Every user in StackState needs to have a subject and a set of [permissions](rbac_permissions.md) assigned; this combination is called a role. A role describes a group of users that can access a specific data set. StackState ships with four predefined roles and you can also create custom names and groups to match your needs.
 
 ## Predefined roles
 
-StackState comes with four predefined roles:
+There are four predefined roles in StackState:
 
-* **Administrator** \(`stackstate-admin`\): Has full access to all views and has all permissions, except for platform management.
-* **Platform Administrator** \(`stackstate-platform-admin`\): Has platform management permissions and access to all views.
-* **Power User** \(`stackstate-power-user`\): This role is typically granted to users that need to configure StackState for their team\(s\), but will not manage the entire StackState installation.
-* **Guest** \(`stackstate-guest`\): Has read access to StackState. 
+* **Administrator** - has full access to all views and has all permissions, except for platform management.
+* **Platform Administrator** - has platform management permissions and access to all views.
+* **Power User** - typically granted to users that need to configure StackState for a team\(s\), but will not manage the entire StackState installation.
+* **Guest** - has read-only access to StackState. 
 
 The permissions assigned to each predefined StackState role can be found below.
 
 {% tabs %}
 {% tab title="Administrator" %}
 
-The Administrator role has all permissions assigned, except for `access-admin-api`, which is assigned only to the Platform Administrator predefined role.
+The Administrator role \(`stackstate-admin`\): has all permissions assigned, except for `access-admin-api`, which is assigned only to the Platform Administrator predefined role.
 
 Permissions assigned to the predefined Administrator role (`stackstate-admin`), retrieved using the `stac` CLI:
 
@@ -77,7 +77,7 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="Platform Administrator" %}
 
-Platform Administrator is the only predefined role that is assigned the permission `access-admin-api`.
+Platform Administrator \(`stackstate-platform-admin`\) is the only predefined role that is assigned the permission `access-admin-api`.
 
 Permissions assigned to the predefined Platform Administrator role (`stackstate-platform-admin`), retrieved using the `stac` CLI:
 
@@ -103,7 +103,7 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="Power User" %}
 
-The Power User role has all Administrator permissions, except for:
+The Power User role \(`stackstate-power-user`\) has all Administrator permissions, except for:
 * `execute-restricted-scripts`
 * `update-permissions`
 * `upload-stackpacks`
@@ -157,7 +157,7 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="Guest" %}
 
-The Guest role has read-only access to StackState.
+The Guest role \(`stackstate-guest`\) has read-only access to StackState.
 
 Permissions assigned to the predefined Guest role, retrieved using the `stac` CLI:
 
