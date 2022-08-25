@@ -69,7 +69,7 @@ The following permissions are included in StackState v5.0:
 * `update-visualization` - Change [visualization settings](/use/stackstate-ui/views/visualization_settings.md).
 * `upload-stackpacks` - Upload new \(versions of\) StackPacks.
 
-## Example CLI commands
+## Manage permissions
 
 StackState permissions can be managed using the `stac` CLI.
 

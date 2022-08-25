@@ -10,14 +10,14 @@ Every user in StackState needs to have a subject and a set of [permissions](rbac
 
 ## Predefined roles
 
-There are four predefined roles in StackState:
+There are four roles predefined in StackState:
 
 * **Administrator** - has full access to all views and has all permissions, except for platform management.
 * **Platform Administrator** - has platform management permissions and access to all views.
-* **Power User** - typically granted to users that need to configure StackState for a team\(s\), but will not manage the entire StackState installation.
+* **Power User** - typically granted to a user that needs to configure StackState for a team\(s\), but will not manage the entire StackState installation.
 * **Guest** - has read-only access to StackState. 
 
-The permissions assigned to each predefined StackState role can be found below.
+The permissions assigned to each predefined StackState role can be found below. For details of the different permissions and how to manage them using the `stac` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md)
 
 {% tabs %}
 {% tab title="Administrator" %}
