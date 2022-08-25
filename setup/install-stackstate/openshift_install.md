@@ -342,7 +342,7 @@ oc apply -f agent-scc.yaml
 After this file is applied, execute the following command as administrator to grant the service account access to this `SecurityContextConfiguration` object:
 
 ```text
-> oc adm policy add-scc-to-user stackstate-agent-scc system:serviceaccount:stackstate:stackstate-cluster-agent-agent
+> oc adm policy add-scc-to-user stackstate-agent-scc system:serviceaccount:stackstate:stackstate-agent-node-agent
 ```
 
 ## See also

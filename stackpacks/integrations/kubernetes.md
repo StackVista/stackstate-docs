@@ -80,10 +80,10 @@ To remedy this situation, the kubernetes\_state check can be configured to run a
 
 1. Update the `values.yaml` file used to deploy the `cluster-agent`, for example:
   ```yaml
-  clusterChecks:
-  # clusterChecks.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods.
+  checksAgent:
+  # checksAgent.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods.
     enabled: true
-  agent:
+  nodeAgent:
     config:
       override:
   # agent.config.override -- Disables kubernetes_state check on regular agent pods.
@@ -93,7 +93,7 @@ To remedy this situation, the kubernetes\_state check can be configured to run a
   clusterAgent:
     config:
       override:
-  # clusterAgent.config.override -- Defines kubernetes_state check for clusterchecks agents. Auto-discovery
+  # clusterAgent.config.override -- Defines kubernetes_state check for checksAgent agents. Auto-discovery
   #                                 with ad_identifiers does not work here. Use a specific URL instead.
       - name: conf.yaml
         path: /etc/stackstate-agent/conf.d/kubernetes_state.d
@@ -116,20 +116,20 @@ To remedy this situation, the kubernetes\_state check can be configured to run a
   --set-string 'stackstate.cluster.authToken=<CLUSTER_AUTH_TOKEN>' \
   --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
   --values values.yaml \
-  stackstate-cluster-agent stackstate/cluster-agent    
+  stackstate-agent stackstate/stackstate-agent    
   ```
 
 ### Status
 
-To check the status of the Kubernetes integration, check that the StackState Cluster Agent \(`cluster-agent`\) pod and all of the StackState Agent \(`cluster-agent-agent`\) pods have status ready.
+To check the status of the Kubernetes integration, check that the StackState Cluster Agent \(`cluster-agent`\) pod and all of the StackState Agent \(`node-agent`\) pods have status ready.
 
 ```text
 ❯ kubectl get deployment,daemonset --namespace stackstate
 
 NAME                                                 READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/stackstate-cluster-agent             1/1     1            1           5h14m
+deployment.apps/stackstate-agent-cluster-agent       1/1     1            1           5h14m
 NAME                                                 DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
-daemonset.apps/stackstate-cluster-agent-agent        10        10        10      10           10          <none>          5h14m
+daemonset.apps/stackstate-agent-node-agent           10        10        10      10           10          <none>          5h14m
 ```
 
 ## Integration details

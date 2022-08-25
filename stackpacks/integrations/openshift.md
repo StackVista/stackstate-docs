@@ -72,18 +72,18 @@ To integrate with other services, a separate instance of the [StackState Agent](
 
 ### Configure cluster check: Kubernetes_state check
 
-The kubernetes\_state check is responsible for gathering metrics from kube-state-metrics and sending them to StackState. It is configured on the StackState Cluster Agent and, by default, runs in the StackState Agent pod that is on the same node as the kube-state-metrics pod.
+The kubernetes\_state check is responsible for gathering metrics from kube-state-metrics and sending them to StackState. It is configured on the StackState Agent Cluster Agent and, by default, runs in the StackState Agent pod that is on the same node as the kube-state-metrics pod.
 
 In a default deployment, all pods running a StackState Agent must be configured with sufficient CPU and memory requests and limits to run the check. This can consume a lot of memory in a large OpenShift cluster. Since only one StackState Agent pod will actually run the check, a lot of CPU and memory resources will be allocated, but not be used.
 
-To remedy this situation, the kubernetes\_state check can be configured to run as a cluster check. In this case, only the [ClusterCheck Agent](/setup/agent/openshift.md#clustercheck-agent-optional) requires resources to run the check and the allocation for other pods can be reduced.
+To remedy this situation, the kubernetes\_state check can be configured to run as a cluster check. In this case, only the [Checks Agent](/setup/agent/openshift.md#clustercheck-agent-optional) requires resources to run the check and the allocation for other pods can be reduced.
 
-1. Update the `values.yaml` file used to deploy the `cluster-agent`, for example:
+1. Update the `values.yaml` file used to deploy the `stackstate-agent`, for example:
   ```yaml
-  clusterChecks:
-  # clusterChecks.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods.
+  checksAgent:
+  # checksAgent.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods.
     enabled: true
-  agent:
+  nodeAgent:
     config:
       override:
   # agent.config.override -- Disables kubernetes_state check on regular agent pods.
@@ -106,7 +106,7 @@ To remedy this situation, the kubernetes\_state check can be configured to run a
             - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
   ```
 
-2. Deploy the `cluster_agent` using the updated `values.yaml`:
+2. Deploy the `checks_agent` using the updated `values.yaml`:
   ```yaml
   helm upgrade --install \
   --namespace stackstate \
@@ -118,20 +118,20 @@ To remedy this situation, the kubernetes\_state check can be configured to run a
   --set 'agent.scc.enabled'=true \
   --set 'kube-state-metrics.securityContext.enabled'=false \
   --values values.yaml \
-  stackstate-cluster-agent stackstate/cluster-agent    
+  stackstate-agent stackstate/stackstate-agent    
   ```
 
 ### Status
 
-To check the status of the OpenShift integration, check that the StackState Cluster Agent \(`cluster-agent`\) pod and all of the StackState Agent \(`cluster-agent-agent`\) pods have status ready.
+To check the status of the OpenShift integration, check that the StackState Cluster Agent \(`cluster-agent`\) pod and all of the StackState Agent \(`node-agent`\) pods have status ready.
 
 ```text
 ❯ kubectl get deployment,daemonset --namespace stackstate
 
 NAME                                                 READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/stackstate-cluster-agent             1/1     1            1           5h14m
+deployment.apps/stackstate-agent-cluster-agent       1/1     1            1           5h14m
 NAME                                                 DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
-daemonset.apps/stackstate-cluster-agent-agent        10        10        10      10           10          <none>          5h14m
+daemonset.apps/stackstate-agent-node-agent           10        10        10      10           10          <none>          5h14m
 ```
 
 ## Integration details

@@ -24,9 +24,9 @@ The Kubernetes and OpenShift integrations collect topology data from Kubernetes 
 
 | Component | Pod name |
 | :--- | :--- |
-| [Agent](#agent) | `stackstate-cluster-agent-agent` |
-| [Cluster Agent](#cluster-agent) | `stackstate-cluster-agent` |
-| [ClusterCheck Agent \(optional\)](#clustercheck-agent-optional)| `stackstate-cluster-agent-clusterchecks` |
+| [Node Agent](#agent) | `stackstate--agent-node-agent` |
+| [Cluster Agent](#cluster-agent) | `stackstate-agent-cluster-agent` |
+| [Checks Agent \(optional\)](#clustercheck-agent-optional)| `stackstate-agent-checks-agent` |
 
 {% hint style="info" %}
 To integrate with other services, a separate instance of the StackState Agent should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on a Kubernetes or OpenShift cluster with checks that integrate with other services.
@@ -42,7 +42,7 @@ StackState Agent V2 is deployed as a DaemonSet with one instance **on each node*
 * Container information is collected from the Docker daemon.
 * Metrics are retrieved from kubelet running on the node and also from kube-state-metrics if this is deployed on the same node.
 
-By default, metrics are also retrieved from kube-state-metrics if that is deployed on the same node as the StackState Agent pod. This can cause issues on a large Kubernetes or OpenShift clusters. To avoid this, it is advisable to [enable cluster checks](#enable-cluster-checks) so that metrics are gathered from kube-state-metrics by a dedicated StackState ClusterCheck Agent.
+By default, metrics are also retrieved from kube-state-metrics if that is deployed on the same node as the StackState Agent pod. This can cause issues on a large Kubernetes or OpenShift clusters. To avoid this, it is advisable to [enable cluster checks](#enable-cluster-checks) so that metrics are gathered from kube-state-metrics by a dedicated StackState Cluster Agent.
 
 ### Cluster Agent
 
@@ -51,11 +51,11 @@ StackState Cluster Agent is deployed as a Deployment. There is one instance for 
 * Topology and events data for all resources in the cluster are retrieved from the Kubernetes API
 * Control plane metrics are retrieved from the Kubernetes or OpenShift API
 
-When cluster checks are enabled, cluster checks configured here are run by the deployed [StackState ClusterCheck Agent](kubernetes.md#clustercheck-agent-optional) pod.
+When cluster checks are enabled, cluster checks configured here are run by the deployed [StackState Checks Agent](kubernetes.md#checks-agent-optional) pod.
 
-### ClusterCheck Agent (optional)
+### Checks Agent (optional)
 
-The StackState ClusterCheck Agent is an additional StackState Agent V2 pod that is deployed only when [cluster checks are enabled](#enable-cluster-checks) in the Helm chart. When deployed, the StackState ClusterCheck Agent pod will run the cluster checks that are configured on the [StackState Cluster Agent](#cluster-agent). 
+The StackState Checks Agent is an additional StackState Agent V2 pod that is deployed only when the [checks agent](#enable-cluster-checks) is enabled in the Helm chart. When deployed, the StackState Checks Agent pod will run the cluster checks that are configured on the [StackState Cluster Agent](#cluster-agent). 
 
 The following checks can be configured to run as a cluster check:
 
@@ -63,7 +63,7 @@ The following checks can be configured to run as a cluster check:
   * [Kubernetes integration `kubernetes_state` check](/stackpacks/integrations/kubernetes.md#configure-cluster-check-kubernetes_state-check)
   * [OpenShift integration `kubernetes_state` check](/stackpacks/integrations/openshift.md#configure-cluster-check-kubernetes_state-check)
 * The [AWS check](/stackpacks/integrations/aws/aws.md#configure-the-aws-check)
-* The ClusterCheck Agent is also useful to run checks that do not need to run on a specific node and monitor non-containerized workloads such as:
+* The Checks Agent is also useful to run checks that do not need to run on a specific node and monitor non-containerized workloads such as:
   * Out-of-cluster datastores and endpoints \(for example, RDS or CloudSQL\).
   * Load-balanced cluster services \(for example, Kubernetes services\).
 
@@ -86,7 +86,7 @@ StackState Agent v2.17.x is supported to monitor the following versions of Kuber
 
 ### Install
 
-The StackState Agent, Cluster Agent and kube-state-metrics can be installed together using the Cluster Agent Helm Chart:
+The StackState Agent, Cluster Agent and kube-state-metrics can be installed together using the StackState Agent Helm Chart:
 
 * [Online install](#online-install) - charts are retrieved from the default StackState chart repository (https://helm.stackstate.io), images are retrieved from the default StackState image registry (quay.io).
 * [Air gapped install](#air-gapped-install) - images are retrieved from a local system or registry.
@@ -94,7 +94,7 @@ The StackState Agent, Cluster Agent and kube-state-metrics can be installed toge
 
 #### Online install 
 
-The StackState Agent, Cluster Agent and kube-state-metrics can be installed together using the Cluster Agent Helm Chart:
+The StackState Agent, Cluster Agent and kube-state-metrics can be installed together using the StackState Agent Helm Chart:
 
 1. If you do not already have it, you will need to add the StackState helm repository to the local helm client:
 
@@ -120,7 +120,7 @@ helm upgrade --install \
    --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
    --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
    --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
-   stackstate-cluster-agent stackstate/cluster-agent
+   stackstate-agent stackstate/stackstate-agent
 ```
 {% endtab %}
 {% tab title="OpenShift" %}
@@ -133,7 +133,7 @@ helm upgrade --install \
 --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
 --set 'agent.scc.enabled'=true \
 --set 'kube-state-metrics.securityContext.enabled'=false \
-stackstate-cluster-agent stackstate/cluster-agent
+stackstate-agent stackstate/stackstate-agent
 ```
 {% endtab %}
 {% endtabs %}
@@ -145,13 +145,13 @@ If StackState Agent will run in an environment that does not have a direct conne
 
 1. Internet connection required:
    1. Download or clone the StackState Helm charts repo from GitHub: [https://github.com/StackVista/helm-charts](https://github.com/StackVista/helm-charts)
-   2. In the Helm charts repo, go to the directory `stable/cluster-agent/installation` and use the script `backup.sh` to backup the required images from StackState. The script will pull all images required for the `cluster-agent` Helm chart to run, back them up to individual tar archives and add all tars to a single `tar.gz` archive. The images will be in a `tar.gz` archive in the same folder as the working directory from where the script was executed. It is advised to run the script from the `stable/cluster-agent/installation` directory as this will simplify the process of importing images on the destination system.
+   2. In the Helm charts repo, go to the directory `stable/stackstate-agent/installation` and use the script `backup.sh` to backup the required images from StackState. The script will pull all images required for the `stackstate-agent` Helm chart to run, back them up to individual tar archives and add all tars to a single `tar.gz` archive. The images will be in a `tar.gz` archive in the same folder as the working directory from where the script was executed. It is advised to run the script from the `stable/stackstate-agent/installation` directory as this will simplify the process of importing images on the destination system.
       * By default, the backup script will retrieve charts from the StackState chart repository (https://helm.stackstate.io), images are retrieved from the default StackState image registry (quay.io). The script can be executed from the `installation` directory as simply `./backup.sh`.
         ```text
           Back up helm chart images to a tar.gz archive for easy transport via an external storage device.
     
           Arguments:
-              -c : Helm chart (default: stackstate/cluster-agent)
+              -c : Helm chart (default: stackstate/stackstate-agent)
               -h : Show this help text
               -r : Helm repository (default: https://helm.stackstate.io)
               -t : Dry-run
@@ -162,18 +162,18 @@ If StackState Agent will run in an environment that does not have a direct conne
          Backing up quay.io/stackstate/stackstate-agent-2:2.17.2 to stackstate/stackstate-agent-2__2.17.2.tar (dry-run)
          Backing up quay.io/stackstate/stackstate-process-agent:4.0.7 to stackstate/stackstate-process-agent__4.0.7.tar (dry-run)
          Backing up quay.io/stackstate/kube-state-metrics:2.3.0-focal-20220316-r61.20220418.2032 to stackstate/kube-state-metrics__2.3.0-focal-20220316-r61.20220418.2032.tar (dry-run)
-         Backing up quay.io/stackstate/stackstate-cluster-agent:2.17.2 to stackstate/stackstate-cluster-agent__2.17.2.tar (dry-run)
+         Backing up quay.io/stackstate/stackstate-agent-cluster-agent:2.17.2 to stackstate/stackstate-agent-cluster-agent__2.17.2.tar (dry-run)
          Backing up quay.io/stackstate/stackstate-agent-2:2.17.2 to stackstate/stackstate-agent-2__2.17.2.tar (dry-run)
          Images have been backed up to stackstate.tar.gz
          ```
 
 2. No internet connection required:
    1. Transport images to the destination system.
-      * Copy the StackState Helm charts repo, including the `tar.gz` generated by the backup script, to a storage device for transportation. If the backup script was run from the `stable/cluster-agent/installation` directory as advised, the `tar.gz` will be located at `stable/cluster-agent/installation/stackstate.tar.gz`.
+      * Copy the StackState Helm charts repo, including the `tar.gz` generated by the backup script, to a storage device for transportation. If the backup script was run from the `stable/stackstate-agent/installation` directory as advised, the `tar.gz` will be located at `stable/stackstate-agent/installation/stackstate.tar.gz`.
       * Copy the Helm charts repo and `tar.gz` from the storage device to a working folder of choice on the destination system.
 
    2. Import images to the system, and optionally push to a registry. 
-      * On the destination system, go to the directory in the StackState Helm charts repo that contains both the scripts and the generated `tar.gz` archive. By default, this will be `stable/cluster-agent/installation`.
+      * On the destination system, go to the directory in the StackState Helm charts repo that contains both the scripts and the generated `tar.gz` archive. By default, this will be `stable/stackstate-agent/installation`.
       * Execute the `import.sh` script. Note that the import script must be located in the same directory as the `tar.gz` archive to be imported, the following must be specified:
         * `-b` - path to the `tar.gz` to be imported
         * `-d` - the destination Docker image registry
@@ -193,7 +193,7 @@ x stackstate/
 x stackstate/stackstate-process-agent__4.0.7.tar
 x stackstate/stackstate-agent-2__2.17.2.tar
 x stackstate/kube-state-metrics__2.3.0-focal-20220316-r61.20220418.2032.tar
-x stackstate/stackstate-cluster-agent__2.17.2.tar
+x stackstate/stackstate-agent-cluster-agent__2.17.2.tar
 Restoring stackstate/kube-state-metrics:2.3.0-focal-20220316-r61.20220418.2032 from kube-state-metrics__2.3.0-focal-20220316-r61.20220418.2032.tar (dry-run)
 Imported quay.io/stackstate/kube-state-metrics:2.3.0-focal-20220316-r61.20220418.2032
 Tagged quay.io/stackstate/kube-state-metrics:2.3.0-focal-20220316-r61.20220418.2032 as localhost/stackstate/kube-state-metrics:2.3.0-focal-20220316-r61.20220418.2032
@@ -202,10 +202,10 @@ Restoring stackstate/stackstate-agent-2:2.17.2 from stackstate-agent-2__2.17.2.t
 Imported quay.io/stackstate/stackstate-agent-2:2.17.2
 Tagged quay.io/stackstate/stackstate-agent-2:2.17.2 as localhost/stackstate/stackstate-agent-2:2.17.2
 Untagged: quay.io/stackstate/stackstate-agent-2:2.17.2
-Restoring stackstate/stackstate-cluster-agent:2.17.2 from stackstate-cluster-agent__2.17.2.tar (dry-run)
-Imported quay.io/stackstate/stackstate-cluster-agent:2.17.2
-Tagged quay.io/stackstate/stackstate-cluster-agent:2.17.2 as localhost/stackstate/stackstate-cluster-agent:2.17.2
-Untagged: quay.io/stackstate/stackstate-cluster-agent:2.17.2
+Restoring stackstate/stackstate-agent-cluster-agent:2.17.2 from stackstate-cluster-agent__2.17.2.tar (dry-run)
+Imported quay.io/stackstate/stackstate-agent-cluster-agent:2.17.2
+Tagged quay.io/stackstate/stackstate-agent-cluster-agent:2.17.2 as localhost/stackstate/stackstate-cluster-agent:2.17.2
+Untagged: quay.io/stackstate/stackstate-agent-cluster-agent:2.17.2
 Restoring stackstate/stackstate-process-agent:4.0.7 from stackstate-process-agent__4.0.7.tar (dry-run)
 Imported quay.io/stackstate/stackstate-process-agent:4.0.7
 Tagged quay.io/stackstate/stackstate-process-agent:4.0.7 as localhost/stackstate/stackstate-process-agent:4.0.7
@@ -221,11 +221,11 @@ If required, the images required to install the StackState Agent, Cluster Agent 
 
 Additional variables can be added to the standard helm command used to deploy the StackState Agent, Cluster Agent and kube-state-metrics. For example:
 * It is recommended to [provide a `stackstate.cluster.authToken`](#stackstateclusterauthtoken). 
-* For large Kubernetes or OpenShift clusters, [enable cluster checks](kubernetes.md#enable-cluster-checks) to run the kubernetes\_state check in a StackState ClusterCheck Agent pod.
+* For large Kubernetes or OpenShift clusters, [enable checks agent](kubernetes.md#enable-cluster-checks) to run the kubernetes\_state check in a StackState Checks Agent pod.
 * If you use a custom socket path, [set the `agent.containerRuntime.customSocketPath`](#agentcontainerruntimecustomsocketpath).
 
 {% hint style="info" %}
-Details of all available helm chart values can be found in the [Cluster Agent Helm Chart documentation \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent).
+Details of all available helm chart values can be found in the [Cluster Agent Helm Chart documentation \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-agent).
 {% endhint %}
 
 #### stackstate.cluster.authToken
@@ -244,7 +244,7 @@ helm upgrade --install \
   --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
   --set-string 'stackstate.cluster.authToken'='<CLUSTER_AUTH_TOKEN>' \
   --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
-  stackstate-cluster-agent stackstate/cluster-agent
+  stackstate-agent stackstate/stackstate-agent
 ```
 {% endtab %}
 {% tab title="OpenShift" %}
@@ -259,7 +259,7 @@ helm upgrade --install \
   --set 'agent.logLevel'='debug' \
   --set 'agent.scc.enabled'=true \
   --set 'kube-state-metrics.securityContext.enabled'=false \
-  stackstate-cluster-agent stackstate/cluster-agent
+  stackstate-agent stackstate/stackstate-agent
 ```
 {% endtab %}
 {% endtabs %}
@@ -278,7 +278,7 @@ helm upgrade --install \
 --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
 --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
 --set-string 'agent.containerRuntime.customSocketPath'='<CUSTOM_SOCKET_PATH>' \
-stackstate-cluster-agent stackstate/cluster-agent
+stackstate-agent stackstate/stackstate-agent
 ```
 
 ### Upgrade
@@ -299,12 +299,12 @@ StackState Agent V2 can be configured to reduce data production, tune the proces
 
 ### Enable cluster checks
 
-Optionally, the chart can be configured to start an additional StackState Agent V2 pod as a [StackState ClusterCheck Agent](kubernetes.md#clustercheck-agent-optional) pod. Cluster checks that are configured on the [StackState Cluster Agent](kubernetes.md#cluster-agent) will then be run by the deployed StackState ClusterCheck Agent pod.
+Optionally, the chart can be configured to start an additional StackState Agent V2 pod as a [StackState Checks Agent](kubernetes.md#checks-agent-optional) pod. Cluster checks that are configured on the [StackState Cluster Agent](kubernetes.md#cluster-agent) will then be run by the deployed StackState ClusterCheck Agent pod.
 
-To enable cluster checks and deploy the ClusterCheck Agent pod, create a `values.yaml` file to deploy the `cluster-agent` Helm chart and add the following YAML segment:
+To enable cluster checks and deploy the Checks Agent pod, create a `values.yaml` file to deploy the `stackstate-agent` Helm chart and add the following YAML segment:
 
 ```yaml
-clusterChecks:
+checksAgent:
   enabled: true
 ```
 
@@ -328,9 +328,9 @@ To check the status of the Kubernetes or OpenShift integration, check that the S
 ❯ kubectl get deployment,daemonset --namespace stackstate
 
 NAME                                                 READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/stackstate-cluster-agent             1/1     1            1           5h14m
+deployment.apps/stackstate-agent-cluster-agent       1/1     1            1           5h14m
 NAME                                                 DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
-daemonset.apps/stackstate-cluster-agent-agent        10        10        10      10           10          <none>          5h14m
+daemonset.apps/stackstate-agent-node-agent           10        10        10      10           10          <none>          5h14m
 ```
 
 ### Agent check status
@@ -373,7 +373,7 @@ helm upgrade --install \
    --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
    --set-string 'global.extraEnv.open.STS_LOG_PAYLOADS'='true' \
    --set 'agent.logLevel'='debug' \
-   stackstate-cluster-agent stackstate/cluster-agent
+   stackstate-agent stackstate/stackstate-agent
 ```
 
 ### Support knowledge base
@@ -388,12 +388,12 @@ To uninstall the StackState Cluster Agent and the StackState Agent from your Kub
 helm uninstall <release_name> --namespace <namespace>
 
 # If you used the standard install command provided when you installed the StackPack
-helm uninstall stackstate-cluster-agent --namespace stackstate
+helm uninstall stackstate-agent --namespace stackstate
 ```
 
 ## See also
 
-* [Cluster Agent Helm Chart documentation \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent)
+* [StackState Cluster Agent Helm Chart documentation \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-agent)
 * [About the StackState Agent](about-stackstate-agent.md)
 * [Advanced Agent configuration](advanced-agent-configuration.md)  
 * [Kubernetes StackPack](../../stackpacks/integrations/kubernetes.md)
