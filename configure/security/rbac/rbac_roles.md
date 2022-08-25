@@ -240,7 +240,7 @@ To extend the default role names with custom role names:
 {% endtab %}
 {% endtabs %}
 
-## Create custom roles and groups
+### Create custom roles and groups
 
 The instructions below will take you through the process of setting up a new group called `StackStateManager`
 
@@ -270,7 +270,7 @@ The instructions below will take you through the process of setting up a new gro
 
    Please note that the subject's name, as well as permissions, are case-sensitive.
 
-## File-based authentication
+### File-based authentication
 
 If your StackState instance is configured with a file-based authentication, then you need to add newly created subjects to the config file and enable authentication.
 
