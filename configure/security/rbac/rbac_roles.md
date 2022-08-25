@@ -186,6 +186,8 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% endtabs %}
 
+## Custom roles
+
 ### Custom names for predefined roles
 
 In addition to the default predefined role names \(`stackstate-admin`, `stackstate-platform-admin`, `stackstate-power-user`, `stackstate-guest`\), which are always available, custom role names can be added that have the same permissions. Below is an example of how to do this for both Kubernetes and Linux installations.
@@ -268,7 +270,7 @@ The instructions below will take you through the process of setting up a new gro
 
    Please note that the subject's name, as well as permissions, are case-sensitive.
 
-## Add custom roles to file-based authentication
+## File-based authentication
 
 If your StackState instance is configured with a file-based authentication, then you need to add newly created subjects to the config file and enable authentication.
 
