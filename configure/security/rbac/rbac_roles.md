@@ -24,7 +24,7 @@ The permissions assigned to each predefined StackState role can be found below. 
 
 The Administrator role \(`stackstate-admin`\): has all permissions assigned, except for `access-admin-api`, which is assigned only to the Platform Administrator predefined role.
 
-Permissions assigned to the predefined Administrator role (`stackstate-admin`), retrieved using the `stac` CLI:
+Permissions assigned to the predefined Administrator role (`stackstate-admin`), retrieved using the `stac` CLI are listed below. For details of the different permissions and how to manage them using the `stac` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md).
 
 ```text
 $ stac permission show stackstate-admin         
@@ -79,7 +79,7 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 
 Platform Administrator \(`stackstate-platform-admin`\) is the only predefined role that is assigned the permission `access-admin-api`.
 
-Permissions assigned to the predefined Platform Administrator role (`stackstate-platform-admin`), retrieved using the `stac` CLI:
+Permissions assigned to the predefined Platform Administrator role (`stackstate-platform-admin`), retrieved using the `stac` CLI are listed below. For details of the different permissions and how to manage them using the `stac` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md).
 
 ```text
 $ stac permission show stackstate-platform-admin
@@ -108,7 +108,7 @@ The Power User role \(`stackstate-power-user`\) has all Administrator permission
 * `update-permissions`
 * `upload-stackpacks`
 
-Permissions assigned to the predefined Power User role (`stackstate-power-user`), retrieved using the `stac` CLI:
+Permissions assigned to the predefined Power User role (`stackstate-power-user`), retrieved using the `stac` CLI are listed below. For details of the different permissions and how to manage them using the `stac` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md).
 
 ```text
 $ stac permission show stackstate-power-user    
@@ -159,7 +159,7 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 
 The Guest role \(`stackstate-guest`\) has read-only access to StackState.
 
-Permissions assigned to the predefined Guest role, retrieved using the `stac` CLI:
+Permissions assigned to the predefined Guest role, retrieved using the `stac` CLI are listed below. For details of the different permissions and how to manage them using the `stac` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md).
 
 ```text
 $ stac permission show stackstate-guest
