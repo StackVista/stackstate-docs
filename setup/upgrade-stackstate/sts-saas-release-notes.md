@@ -10,6 +10,16 @@ Note that the release notes may include details of functionality that is current
 
 ## StackState v5.0.x
 
+### v5.0.3 (2002-08-29)
+
+**Bug fixes**
+
+* Fixed a template issue that prevented the AAD from authenticating with StackState. STAC-17554
+
+**Security**
+
+* Removed curl executable from UI Docker container resolving CVE-2022-32207. STAC-17319
+
 ### v5.0.2 (2022-08-13)
 
 **Improvements**
