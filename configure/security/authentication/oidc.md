@@ -176,6 +176,6 @@ For further details, see [Permissions and consent in the Microsoft identity plat
 ## See also
 
 * [Authentication options](authentication_options.md)
-* [Permissions for pre-defined StackState roles](../rbac/rbac_permissions.md#predefined-roles)
+* [Permissions for predefined StackState roles](../rbac/rbac_permissions.md#predefined-roles)
 * [Create RBAC roles](../rbac/rbac_roles.md)
 
