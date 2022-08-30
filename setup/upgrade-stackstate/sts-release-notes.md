@@ -15,6 +15,16 @@ This page includes release notes for the StackState self-hosted product.
 
 Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
 
+### v5.0.3
+
+**Bug fixes**
+
+* Fixed a template issue that prevented the AAD from authenticating with StackState. STAC-17554
+
+**Security**
+
+* Removed curl executable from UI Docker container resolving CVE-2022-32207. STAC-17319
+
 ### v5.0.2
 
 **Improvements**
