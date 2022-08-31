@@ -1,18 +1,6 @@
 # 💠 Dynatrace
 
-<details>
-
-<summary>Version details</summary>
-
-The documentation on this page covers: 
-
-* Dynatrace StackPack v1.4.2 (shipped with StackState v4.5, v4.6 and v5.0)
-* Agent v2.18.2
-* Dynatrace vX.x.x
-
-Dynatrace is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
-
-</details>
+## Overview
 
 The Dynatrace StackPack creates a synchronization between a Dynatrace instance and StackState. When the integration is enabled, Dynatrace Smartscape topology and events for the configured `relative_time` \(default 1 hour\) will be available in StackState.
 
@@ -35,6 +23,20 @@ To set up the Dynatrace integration you will need to have:
 * [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to both Dynatrace and StackState.
 * A running Dynatrace instance.
 * A [Dynatrace API Token](#dynatrace-api-token) with access to read the Smartscape Topology and Events.
+
+<details>
+
+<summary>Version details</summary>
+
+The documentation on this page covers: 
+
+* Dynatrace StackPack v1.4.2 (shipped with StackState v4.5, v4.6 and v5.0)
+* Agent v2.18.2
+* Dynatrace vX.x.x
+
+Dynatrace is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
+
+</details>
 
 ### Install
 
