@@ -4,6 +4,8 @@ description: StackPack v1.4.2,  Agent v2.18.2,  Dynatrace vX.x.x
 
 # 💠 Dynatrace
 
+## Overview
+
 <details>
 
 <summary>Version details</summary>
@@ -12,13 +14,11 @@ description: StackPack v1.4.2,  Agent v2.18.2,  Dynatrace vX.x.x
 * Agent v2.18.2
 * Dynatrace vX.x.x
 
+Dynatrace is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
+
 </details>
 
-## Overview
-
 The Dynatrace StackPack creates a synchronization between a Dynatrace instance and StackState. When the integration is enabled, Dynatrace Smartscape topology and events for the configured `relative_time` \(default 1 hour\) will be available in StackState.
-
-Dynatrace is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
 
 ![Data flow](../../.gitbook/assets/stackpack-dynatrace.svg)
 
