@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x 
+description: StackPack version: 1.4.2 \n Agent version: 2.18.2 \n Dynatrace version: x.x.x
 ---
 
 # 💠 Dynatrace
