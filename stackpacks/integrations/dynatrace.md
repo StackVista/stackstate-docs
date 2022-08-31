@@ -1,14 +1,10 @@
----
-description: StackPack v1.4.2,  Agent v2.18.2,  Dynatrace vX.x.x
----
-
 # 💠 Dynatrace
-
-## Overview
 
 <details>
 
 <summary>Version details</summary>
+
+The documentation on this page covers: 
 
 * Dynatrace StackPack v1.4.2 (shipped with StackState v4.5, v4.6 and v5.0)
 * Agent v2.18.2
