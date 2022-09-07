@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Push telemetry to StackState over HTTP
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/telemetry/send_telemetry).
+{% endhint %}
+
 ## Overview
 
 StackState can either pull telemetry from a data source or can receive pushed telemetry. Pushed telemetry is stored by StackState, while pulled telemetry is not. Pushed telemetry is stored for the duration of the configured retention period. This page describes how telemetry can be pushed.

@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # About the Custom Synchronization StackPack
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/developer-guides/custom_synchronization_stackpack/custom_synchronization_stackpack).
+{% endhint %}
+
 ## Overview
 
 Building a new topology synchronization pipeline starts with the custom synchronization StackPack. The Custom Synchronization StackPack eases the setup of a custom [topology synchronization](../../../configure/topology/send-topology-data.md). It works well with [Agent checks](../agent_check/agent_checks.md) and can be a first step before making a StackPack.

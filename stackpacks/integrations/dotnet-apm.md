@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # DotNet APM
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/dotnet-apm).
+{% endhint %}
+
 ## Overview
 
 To begin tracing applications written in any language, first make sure to have the StackState Agent installed and configured. The .NET Tracer runs in-process to instrument your applications and sends traces from your application to the StackState Agent.

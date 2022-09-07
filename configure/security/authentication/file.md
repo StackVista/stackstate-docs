@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # File based
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/security/authentication/file).
+{% endhint %}
+
 ## Overview
 
 In case no external authentication provider can be used, you can use file based authentication. This will require every StackState user to be pre-configured in the configuration file. For every change made to a user in the configuration, StackState must be restarted.

@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Custom install with helm
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/install-stackstate/kubernetes_install/install-from-custom-image-registry).
+{% endhint %}
+
 ## Overview
 
 This page describes how to use a custom image registry to install StackState, the StackState Agent, Cluster Agent and kube-state-metrics. The required images are first copied and then the helm chart can then be configured to pull images using the custom registry and tag.

@@ -2,6 +2,12 @@
 description: StackState Self-hosted v5.0.x 
 ---
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/health/send-health-data/repeat_states).
+{% endhint %}
+
 ## Overview
 
 This page describes the exact JSON messages that can be sent for the health synchronization Repeat States consistency model.

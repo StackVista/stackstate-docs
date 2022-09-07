@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Comparison between the old and new StackState CLIs
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/cli/cli-comparison).
+{% endhint %}
+
 ## Overview
 
 StackState has a new CLI! The new CLI has many advantages and a few notable differences. 

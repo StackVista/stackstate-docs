@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Initial run guide
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/install-stackstate/initial_run_guide).
+{% endhint %}
+
 ## Overview
 
 This page provides all the information you need to install and run StackState.

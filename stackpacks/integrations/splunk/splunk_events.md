@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Splunk Events
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/splunk/splunk_events).
+{% endhint %}
+
 ## Overview
 
 When the [Splunk StackPack](splunk_stackpack.md) has been installed in StackState, you can configure the Splunk Events check on StackState Agent V1 to begin collecting Splunk events data.

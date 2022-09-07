@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # 💠 VMWare vSphere
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/vsphere).
+{% endhint %}
+
 ## Overview
 
 The VMWare vSphere StackPack is used to create a near real-time synchronization with VMWare vSphere. This StackPack provides functionality that allows monitoring of the following resources:

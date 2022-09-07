@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Static Topology
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/static_topology).
+{% endhint %}
+
 ## Overview
 
 The Static Topology StackPack reads topology information from an [external CSV file](#csv-file-specification) and synchronizes the data with StackState.

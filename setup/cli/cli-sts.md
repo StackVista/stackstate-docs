@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # CLI: sts (new)
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/cli/cli-sts).
+{% endhint %}
+
 ## Overview
 
 The new StackState `sts` CLI provides easy access to the functionality provided by the StackState APIs. It can be used for automate using StackState data, configure StackState and to develop StackPacks.

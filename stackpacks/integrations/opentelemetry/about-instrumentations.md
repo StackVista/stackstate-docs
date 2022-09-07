@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # About OpenTelemetry instrumentation
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/opentelemetry/about-instrumentations).
+{% endhint %}
+
 ## Overview
 
 To understand what OpenTelemetry instrumentation is, we first need to understand the concept of distributed tracing,

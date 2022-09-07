@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Create a simple StackPack
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/tutorials/basic_stackpack_tutorial).
+{% endhint %}
+
 This tutorial shows you how to create a basic StackPack to configure StackState. See the [StackPacks documentation](../../stackpacks/about-stackpacks.md) for more information.
 
 ## Setup

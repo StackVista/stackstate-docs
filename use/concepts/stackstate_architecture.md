@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # StackState architecture
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/use/concepts/stackstate_architecture).
+{% endhint %}
+
 ## Overview
 
 StackState is built for scale and runs on Kubernetes in your cloud or data center.

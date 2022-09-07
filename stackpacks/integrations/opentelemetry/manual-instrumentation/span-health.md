@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Overview
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/opentelemetry/manual-instrumentation/span-health).
+{% endhint %}
+
 The page explains how health state in StackState works with custom instrumentations in specific scenarios. Before reading further:
 
 * If you have not already read about the health state span mapping `http.status_code`, head over to the page [tracer and span mappings](/stackpacks/integrations/opentelemetry/manual-instrumentation/tracer-and-span-mappings.md) to understand how the health state is mapped to a span. 

@@ -1,5 +1,11 @@
 # StackState Self-hosted v5.0 docs
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/latest).
+{% endhint %}
+
 {% hint style="success" %}
 What's new in StackState v5.0?
 

@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Component actions
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/topology/component_actions).
+{% endhint %}
+
 Component Actions in StackState provide an ability to act based on various events and inputs provided by StackState monitoring capabilities. This functionality provides users with configurable Actions that can be executed from the component context menu or the right panel **Selection details** tab when detailed information about a component is displayed.
 
 ![Component Actions](../../.gitbook/assets/v50_actions.png)

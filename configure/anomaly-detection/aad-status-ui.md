@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # The AAD status UI
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/anomaly-detection/aad-status-ui).
+{% endhint %}
+
 ## Overview
 
 The AAD status UI provides details on the technical state of the AAD. It can be used to retrieve information about scheduling progress, possible errors, the ML models selected and job statistics.

@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Tracer and span mappings
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/opentelemetry/manual-instrumentation/tracer-and-span-mappings).
+{% endhint %}
+
 ## Overview
 
 Before we jump into the nitty-gritty of the actual code we can write for a OpenTelemetry instrumentation, let's first look at the key-value pairs that are in spans and where this can be found in the StackState UI.

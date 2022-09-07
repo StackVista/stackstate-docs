@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Roles
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/security/rbac/rbac_roles).
+{% endhint %}
+
 ## Overview
 
 Every user in StackState needs to have a subject and a set of [permissions](rbac_permissions.md) assigned; this combination is called a role. A role describes a group of users that can access a specific data set. StackState ships with four predefined roles and you can also create custom names and groups to match your needs.

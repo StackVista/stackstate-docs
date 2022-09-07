@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Java APM
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/java-apm).
+{% endhint %}
+
 ## Overview
 
 The Java APM Integration of the Agent V2 StackPack provides tracing support for Java JVM based systems. With this Agent you will get:

@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Splunk
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/splunk/splunk_stackpack).
+{% endhint %}
+
 ## Overview
 
 The StackState Splunk integration synchronizes events, metrics, health and topology data from Splunk to StackState. The integration uses StackState Agent V1 and StackState Agent V2:

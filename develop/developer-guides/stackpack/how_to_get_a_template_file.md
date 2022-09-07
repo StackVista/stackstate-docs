@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # How to get a template file
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/developer-guides/stackpack/how_to_get_a_template_file).
+{% endhint %}
+
 ## Export the StackState configuration
 
 You can get a complete dump of all configuration using the StackState CLI:

@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # View health state configuration functions
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/developer-guides/custom-functions/view-health-state-configuration-functions).
+{% endhint %}
+
 ## Overview
 
 A view health state configuration function is a user defined script that takes user parameters and has access to a `viewSummary` variable that can be used to get summary information on the \(states of\) the components and relations in the view.

@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # About StackPacks
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/about-stackpacks).
+{% endhint %}
+
 ## Overview
 
 StackPacks extend StackState functionality and provide automated integration with external systems. They can be easily installed and uninstalled from the StackPacks page in StackState.

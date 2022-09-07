@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # How to make a multi-instance StackPack
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/developer-guides/stackpack/how_to_make_a_multi-instance_stackpack).
+{% endhint %}
+
 This documentation set explains how to make a StackPack that can be installed as multiple instances in StackState. Below you can find the introduction to this topic and the steps to get a multi-instance StackPack.
 
 StackPacks can be developed to support multiple instances of the same StackPack. This approach is useful in situations when there is a need to monitor more than one environment within the same technology. Multi-instance support can be achieved by splitting template files of your StackPack and tweaking the provisioning script in a way that supports multiple instances by keeping information that is shared between StackPacks separated from the instance-specific template.

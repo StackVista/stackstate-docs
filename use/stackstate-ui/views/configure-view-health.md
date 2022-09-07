@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Configure the view health
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/use/stackstate-ui/views/configure-view-health).
+{% endhint %}
+
 ## Overview
 
 Reacting to each event in an environment can cause a lot of noise. This may be both undesirable and unnecessary. For example, if one or multiple components have an impact on a service, it can be sufficient to report on changes to the problem itself and not each related state change.

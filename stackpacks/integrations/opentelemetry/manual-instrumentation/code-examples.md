@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Manual instrumentation mappings for StackState
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/opentelemetry/manual-instrumentation/code-examples).
+{% endhint %}
+
 ## Overview
 
 Below is a code snippet showing the basics required to send custom instrumentation to StackState.

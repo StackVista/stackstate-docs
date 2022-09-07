@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Scale the AAD up and down
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/anomaly-detection/scale-aad-up-and-down).
+{% endhint %}
+
 ## Overview
 
 Anomaly detection is a CPU bound process and typically there are many more metric streams than can be handled in (near) real-time.  The AAD uses prioritization to most effectively allocate the allotted resources to the most important streams.  But how many resources must be given to the AAD is dependent on the number of metric streams that are present and the way anomalies are used to investigate problems.

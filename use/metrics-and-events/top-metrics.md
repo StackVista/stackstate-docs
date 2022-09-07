@@ -1,5 +1,11 @@
 # Top metrics
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/use/metrics-and-events/top-metrics).
+{% endhint %}
+
 ## Overview
 
 When you hover over a component in the Topology Perspective, the component context menu is displayed. This contains a list of the three top metrics for the component, together with the most recently retrieved metric value. Click the metric name to open the associated metric stream in the [telemetry inspector](/use/metrics-and-events/browse-telemetry.md).

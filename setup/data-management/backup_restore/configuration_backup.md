@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Configuration backup
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/data-management/backup_restore/configuration_backup).
+{% endhint %}
+
 ## Overview
 
 StackState configuration can be exported and imported. The import/export functionality can be used to automate the installation process and/or for backup purposes. An export and import can be made in the settings page of StackState's user interface by using the buttons 'Export Model' and 'Import Model'.

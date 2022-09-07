@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Filters
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/use/stackstate-ui/filters).
+{% endhint %}
+
 ## Overview
 
 The **View Filters** panel on the left of the StackState UI allows you to filter the components \(topology\), events and traces displayed in each perspective. Applied filters can be [saved as a view](filters.md#save-filters-as-a-view) to open directly in the future.

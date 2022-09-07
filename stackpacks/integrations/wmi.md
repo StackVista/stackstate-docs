@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # WMI
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/wmi).
+{% endhint %}
+
 ## Overview
 
 Collect telemetry information with Windows Management Instrumentation \(WMI\) from Windows applications and servers.
