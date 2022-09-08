@@ -11,6 +11,10 @@ This page includes release notes for the StackState self-hosted product.
 * For StackPack release notes, see the page [StackPack versions](stackpack-versions.md).
 * For StackState Agent release notes, see [StackState Agent on GitHub \(github.com\)](https://github.com/StackVista/stackstate-agent/blob/master/stackstate-changelog.md).
 
+## StackState v5.1.0
+
+TODO
+
 ## StackState v5.0.x
 
 Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
@@ -207,11 +211,19 @@ Details of the included improvements, bug fixes and StackPack updates can be fou
 * [OpenShift \(v3.7.10\)](../../stackpacks/integrations/openshift.md):
   - Improvement: Documentation for `agent.containerRuntime.customSocketPath` option.
 
-## StackState v4.5.x
+## Unsupported versions
+
+The versions below have reached End of Life \(EOL\) and are no longer be supported.
+
+{% hint style="warning" %}
+These releases are susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046.
+{% endhint %}
+
+### StackState v4.5.x (EOL)
 
 Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
 
-### v4.5.6
+#### v4.5.6
 
 **Improvements**
 
@@ -222,7 +234,7 @@ Before you upgrade, [check the version specific upgrade instructions](/setup/upg
 - If the OIDC configuration is wrongly configured to obtain a username, the logging will show all fields that can be selected to obtain the username from. STAC-16027
 - Security fixes for CVE-2022-24407. STAC-15939
 
-### v4.5.5
+#### v4.5.5
 
 **Bug fixes**
 
@@ -234,19 +246,19 @@ Before you upgrade, [check the version specific upgrade instructions](/setup/upg
 - Remediation for CVE-2022-23307 by removing Log4J dependencies from StackGraph. STAC-15655
 - Fixed issue that caused several pods to be stuck in Pending mode after an API key update. STAC-15525
 
-### v4.5.4
+#### v4.5.4
 
 **Improvements**
 
 - Internal Playground optimization. STAC-15393
 
-### v4.5.3
+#### v4.5.3
 
 **Bug fixes**
 
 - Fixed issue that caused AAD to fail to authenticate with StackState. STAC-15278
 
-### v4.5.2
+#### v4.5.2
 
 **Improvements**
 
@@ -258,7 +270,7 @@ Before you upgrade, [check the version specific upgrade instructions](/setup/upg
 - Added missing documentation in Slack StackPack. STAC-15103
 - Fixed issue that caused transaction logs to consume excessive storage space on Kubernetes. STAC-13922
 
-### v4.5.1
+#### v4.5.1
 
 **Improvements**
 
@@ -277,7 +289,7 @@ Before you upgrade, [check the version specific upgrade instructions](/setup/upg
 - Fixed issue that caused long anomalies to be reported with severity HIGH instead of MEDIUM. STAC-14756
 - Fixed issue that caused StackState to stop receiving health synchronization data after Kafka has rebalanced partitions to consumers. STAC-14676
 
-### v4.5.0
+#### v4.5.0
 
 {% hint style="warning" %}
 This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. [Resolved in version v4.5.1](#v4.5.1).
@@ -318,15 +330,6 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 - Security improvement for handling credentials on the StackPack pages. STAC-13658
 - Fixed issue that caused incorrect service metric aggregation under certain circumstances. STAC-13591
 - Fixed issue that caused the process manager logs to be truncated. STAC-12875
-
-
-## Unsupported versions
-
-The versions below have reached End of Life \(EOL\) and are no longer be supported.
-
-{% hint style="warning" %}
-These releases are susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046.
-{% endhint %}
 
 ### StackState v4.4.x (EOL)
 

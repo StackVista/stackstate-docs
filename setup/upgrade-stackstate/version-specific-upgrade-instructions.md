@@ -16,6 +16,23 @@ This page provides specific instructions and details of any required manual step
 
 ## Upgrade instructions
 
+### Upgrade to v5.1.x
+
+{% tabs %}
+{% tab title="Kubernetes" %}
+
+#### v5.0.0
+TODO
+
+{% endtab %}
+{% tab title="Linux" %}
+
+#### v5.0.0
+TODO
+
+{% endtab %}
+{% endtabs %}
+
 ### Upgrade to v5.0.x
 
 {% tabs %}
@@ -134,7 +151,11 @@ StackPack updates:
 {% endtab %}
 {% endtabs %}
 
-### Upgrade to v4.5.x
+## Unsupported versions
+
+The versions below have reached End of Life \(EOL\) and are no longer be supported.
+
+### Upgrade to v4.5.x (EOL)
 
 {% tabs %}
 {% tab title="Kubernetes" %}
@@ -181,11 +202,7 @@ No manual action required.
 {% endtab %}
 {% endtabs %}
 
-## Unsupported versions
-
-The versions below have reached End of Life \(EOL\) and are no longer be supported.
-
-### Upgrade to v4.4.x
+### Upgrade to v4.4.x (EOL)
 
 {% tabs %}
 {% tab title="Kubernetes" %}
@@ -333,7 +350,7 @@ No manual action required.
 {% endtab %}
 {% endtabs %}
 
-### Upgrade to v4.3.x
+### Upgrade to v4.3.x (EOL)
 
 {% tabs %}
 {% tab title="Kubernetes" %}
@@ -382,7 +399,7 @@ No manual action required.
 {% endtab %}
 {% endtabs %}
 
-### Upgrade to v4.2.x
+### Upgrade to v4.2.x (EOL)
 
 {% tabs %}
 {% tab title="Kubernetes" %}
