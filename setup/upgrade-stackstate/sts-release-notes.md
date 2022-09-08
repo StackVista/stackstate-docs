@@ -15,6 +15,12 @@ This page includes release notes for the StackState self-hosted product.
 
 Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
 
+### v5.0.4
+
+**Improvements**
+
+- Added a time context on Component Actions accessible by default via the variables `telemetryTimeStart`, `telemetryTimeEnd` and `topologyTime`. STAC-16936
+
 ### v5.0.3
 
 **Bug fixes**

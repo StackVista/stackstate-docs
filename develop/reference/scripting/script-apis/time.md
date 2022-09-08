@@ -4,11 +4,13 @@ description: StackState Self-hosted v5.1.x
 
 # Time - script API
 
-Some scripting functions of StackState may accept a `TimeSlice`, `Instant` or `Duration` parameter, representing both a point in time and a range of time.
+Time API offers helper functions to manipulate with [time type](../time-in-scripts.md) in StackState scripts.
 
-## Type: `TimeSlice`
+## Function: `Time.currentTimeSlice()`
 
-A time slice represents all ongoing transactions. `Time.currentTimeslice()` returns an [async script result](../async-script-result.md) with a time slice for the current timestamp. For example:
+Returns a time slice for the current timestamp
+
+### Examples
 
 ```text
 Time.currentTimeSlice().then { slice -> 
@@ -24,37 +26,33 @@ Time.currentTimeSlice().then { slice ->
 }
 ```
 
-## Type: `Instant`
+## Function: `Time.format(instant: Instant, pattern: String)`
 
-An instant can be specified in the following ways:
+Format an instant to string using the given formatting pattern
 
-* As a natural number representing the time in milliseconds since the [Unix epoch](https://en.wikipedia.org/wiki/Unix_time). Almost all StackState response that have a time field represent time in this way. Most nodes for example have a `lastUpdateTimestamp` field that is represented in this way.
-* As a string representing time according to a [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) string of which nothing is ommitted. Must be of format: `[YYYY]-[MM]-[DD]T[HH]:[mm]:[SS]Z`.
-* As a string representing relative time. Relative time string start with `+` or `-`, followed by a natural number, followed by a time modifier \(see section below\).
+### Args
 
-Examples of valid instants:
+* `instant` - [an instant type representation](../time-in-scripts.md#type-instant).
+* `pattern` - [Java date formatting pattern](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/format/DateTimeFormatter.html#patterns)
 
-* `1570738241087`
-* `"2019-09-18T17:34:02.666Z"`
-* `"-523s"`
+### Examples
 
-## Type: `Duration`
+Format an instant to ISO 8601 time
 
-A duration is specified as a natural number followed by a time modifier \(see section below\).
+```text
+Time.format(1577966400000, "yyyy-MM-dd'T'HH:mm:ss'Z'")
+```
 
-Examples of valid durations:
+## Function: `Time.epochMs(instant: Instant)`
 
-* `"1d"`
-* `"9w"`
-* `"3m"`
+### Args
 
-## Time modifiers
+* `instant` - [an instant type representation](../time-in-scripts.md#type-instant).
 
-The following modifiers are usable for both `Instant` and `Duration`.
+### Examples
 
-* `s` - seconds
-* `m` - minutes \(60 seconds\)
-* `h` - hours \(60 minutes\)
-* `d` - days \(24 hours\)
-* `w` - weeks \(7 days\)
+Convert a string timestamp to epoch
 
+```text
+Time.epochMs("2011-12-03T10:15:30Z")
+```
