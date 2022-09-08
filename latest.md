@@ -21,9 +21,15 @@ StackState Self-hosted can be used to observe an extensive set of technologies t
 
 {% page-ref page="stackpacks/integrations/" %}
 
+{% page-ref page="setup/agent/" %}
+
 ### StackState developer
 
 {% page-ref page="develop/tutorials/" %}
+
+{% page-ref page="develop/developer-guides/" %}
+
+{% page-ref page="develop/reference/" %}
 
 ## Supported StackState versions
 
