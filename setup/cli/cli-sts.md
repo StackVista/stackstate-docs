@@ -91,7 +91,7 @@ Open a **Powershell** terminal (version 5.1 or later) and run the steps below. T
 Open a terminal, change the `<URL>` and `<API-TOKEN>` and run the command below. 
 
 * The default install location is `/usr/local/bin`,  which might require sudo permissions depending on the version of your machine. 
-* You can define a custom install location by adding `STS_CLI_LOCATION` to the install command below as shown below. Note that the path provided must be available in your OS Path or the script might fail to complete.
+* You can specify the install location by adding `STS_CLI_LOCATION` to the install command below as shown below. Note that the path provided must be available in your OS Path or the script might fail to complete.
 
 After installation, the `sts` command will be available for the current user.
 
