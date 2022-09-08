@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x 
+description: StackState Self-hosted v5.1.x 
 ---
 
 # Set telemetry stream priority
@@ -23,7 +23,7 @@ To change the priority of a specific stream, follow the instructions below.
 
 Locate the component that you want to edit Telemetry streams for. Select the component to open detailed information about the component in the right panel **Selection details** tab - see the screenshot below:
 
-![Detailed component information](../../.gitbook/assets/v50_component_details.png)
+![Detailed component information](../../.gitbook/assets/v51_component_details.png)
 
 This displays the details of the component, such as Properties, Health status, and Telemetry.
 
@@ -31,17 +31,17 @@ This displays the details of the component, such as Properties, Health status, a
 
 Components can have multiple Telemetry streams. They are presented in a column, so not all of them are visible at first. Let's say that instead of `BytesReceivedRate`, you want to see `PacketsReceivedRate` right after the `basic_health` stream. Click the **...** menu in the top-right corner of the `basic_health` stream and choose **Edit**:
 
-![Edit telemetry stream](../../.gitbook/assets/v50_telstream_edit.png)
+![Edit telemetry stream](../../.gitbook/assets/v51_telstream_edit.png)
 
 ### 3. Set stream priority
 
 In the `basic_health` stream edit screen, set the Priority field to `High`, as this stream should be presented at the top of the list. Click **Save** and confirm the change:
 
-![Edit basic\_health](../../.gitbook/assets/v50_edit_basic_health.png)
+![Edit basic\_health](../../.gitbook/assets/v51_edit_basic_health.png)
 
 Now navigate to the `PacketsReceivedRate` stream and open the stream editing screen. Set the Priority field here to `Medium`:
 
-![Edit packetsReceiveRate](../../.gitbook/assets/v50_edit_medium.png)
+![Edit packetsReceiveRate](../../.gitbook/assets/v51_edit_medium.png)
 
 All streams have their priority set to `None` by default, so the `PacketsReceivedRate` stream is presented above them and below the `basic_health` stream, which has its priority set to `High`.
 

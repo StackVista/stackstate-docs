@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x 
+description: StackState Self-hosted v5.1.x 
 ---
 
 # OpenMetrics
@@ -158,7 +158,7 @@ By default, all metrics are retrieved from the specified OpenMetrics endpoint an
 
 Retrieved metrics will not automatically be mapped to topology elements. They can be browsed using the [telemetry inspector](/use/metrics-and-events/browse-telemetry.md) or added to a component as a telemetry stream. Select the data source **StackState Multi Metrics** and type the configured `namespace` in the **Select** box to get a full list of all available metrics. 
 
-![Inspect OpenMetrics telemetry](/.gitbook/assets/v50_openmetrics_stream.png)
+![Inspect OpenMetrics telemetry](/.gitbook/assets/v51_openmetrics_stream.png)
 
 ### Events
 

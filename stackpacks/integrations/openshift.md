@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x 
+description: StackState Self-hosted v5.1.x 
 ---
 
 # 💠 OpenShift
@@ -204,7 +204,7 @@ The OpenShift integration makes all metrics from the OpenShift cluster available
 
 All retrieved metrics can be browsed or added to a component as a telemetry stream. Select the data source **StackState Metrics** and type `kubernetes` in the **Select** box to get a full list of all available metrics.
 
-![Add an OpenShift metrics stream to a component](../../.gitbook/assets/v50_add_k8s_stream.png)
+![Add an OpenShift metrics stream to a component](../../.gitbook/assets/v51_add_k8s_stream.png)
 
 #### Topology
 
