@@ -30,13 +30,13 @@ Each identified anomaly is given a severity. This can be HIGH, MEDIUM or LOW. Th
 | 🟧 **MEDIUM** (orange) | Reported for anomalous data observed for a short period of time or slightly anomalous data observed for a longer period of time. Reported less frequently than LOW severity and more frequently than HIGH severity anomalies. Useful for root cause analysis and can offer additional insight into HIGH severity anomalies reported on the stream. |
 | 🟨 **LOW** (yellow) | Reported when slightly anomalous data is observed. The most frequently reported anomaly severity. Less frequent occurrences of LOW severity anomalies indicates a higher reliability of anomaly reports from the AAD. |
 
-![HIGH, MEDIUM and LOW severity anomalies](/.gitbook/assets/v50_anomaly_severity_inspector.png)
+![HIGH, MEDIUM and LOW severity anomalies](/.gitbook/assets/v51_anomaly_severity_inspector.png)
 
 ### Anomaly events
 
 When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream Anomaly` event is generated. Anomaly events are listed on the Events Perspective and will also be reported as one of the [Probable Causes for any associated problem](../../use/problem-analysis/problem_investigation.md#probable-causes). Select an event to display detailed information about it in the right panel **Selection details** tab.
 
-![Metric stream anomaly event detailed information](../../.gitbook/assets/v50_event_metric_stream_anomaly.png)
+![Metric stream anomaly event detailed information](../../.gitbook/assets/v51_event_metric_stream_anomaly.png)
 
 * **Metric Stream** - The name of the metric stream on which the anomaly was detected.
 * **Severity** - The [anomaly severity](#anomaly-severity). Anomaly events are only generated for HIGH severity anomalies.
@@ -67,7 +67,7 @@ The feedback sent to StackState consists of:
 * **Anomaly details** - The description, interval, severity (score), model information, metric query and element, stream names.
 * **Metric data** - Data from the metric stream leading up to the anomaly.
 
-![Add feedback to an anomaly](/.gitbook/assets/v50_anomaly_feedback.png)
+![Add feedback to an anomaly](/.gitbook/assets/v51_anomaly_feedback.png)
 
 ## Installation
     

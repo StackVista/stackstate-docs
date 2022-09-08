@@ -16,7 +16,7 @@ Each of these sources defines one or multiple subgraphs of the stack’s topolog
 
 ## Telemetry
 
-![Telemetry](../../.gitbook/assets/v50_4T_Telemetry_UnderDaHood.png)
+![Telemetry](../../.gitbook/assets/v51_4T_Telemetry_UnderDaHood.png)
 
 StackState is able to ingest telemetry data \(metrics, events, and logs\) from external IT systems such as monitoring, provisioning, deployment, and configuration management tools, or StackState’s agent. The telemetry is combined with the topology data to create a comprehensive picture of your IT environment and how it is functioning in real-time.
 

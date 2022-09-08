@@ -201,7 +201,7 @@ The Kubernetes integration makes all metrics from the Kubernetes cluster availab
 
 All retrieved metrics can be browsed or added to a component as a telemetry stream. Select the data source **StackState Metrics** and type `kubernetes` in the **Select** box to get a full list of all available metrics.
 
-![Add a Kubernetes metrics stream to a component](../../.gitbook/assets/v50_add_k8s_stream.png)
+![Add a Kubernetes metrics stream to a component](../../.gitbook/assets/v51_add_k8s_stream.png)
 
 #### Topology
 

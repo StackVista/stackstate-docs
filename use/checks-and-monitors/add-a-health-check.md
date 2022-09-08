@@ -32,7 +32,7 @@ To add a health check calculated in StackState:
    * The check is now active and visible under the **Health** section on the right.
    * The check will remain gray until enough telemetry data has been received to determine a health state.
 
-![Add a health check to an element](../../.gitbook/assets/v50_add_health_check.png)
+![Add a health check to an element](../../.gitbook/assets/v51_add_health_check.png)
 
 ## Metric stream configuration
 

@@ -26,7 +26,7 @@ Monitors can be managed independently to topology elements via a dedicated set o
 
 Monitor results are displayed in the StackState UI right panel **Selection details** tab under **Health** when information about a topology element is displayed:
 
-![Monitor result panel](../../.gitbook/assets/v50_monitor_result.png)
+![Monitor result panel](../../.gitbook/assets/v51_monitor_result.png)
 
 The result panel displays among other information:
 

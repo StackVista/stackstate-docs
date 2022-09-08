@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.1.x
 
 Unhealthy components in a view are grouped into [problems](about-problems.md) based on how they are connected in the topology. When StackState identifies a problem this will be reported in the right panel **View summary** tab under **Problems**. Problems are listed by the timestamp of the health state change for the root cause component - you will find the oldest problem in the view at the bottom of the list. Select a problem to open [detailed information about the problem ](problem_investigation.md#detailed-information-about-a-problem) in the right panel **Selection details** tab.
 
-![View Summary](/.gitbook/assets/v50_view_details_problems.png)
+![View Summary](/.gitbook/assets/v51_view_details_problems.png)
 
 ## Detailed information about a problem
 
@@ -29,7 +29,7 @@ Anomaly events are generated whenever an anomaly is detected by the [Autonomous 
    * The affected stream is displayed highlighting the detected anomaly.
 2. Click on the metric stream graph or select **inspect** from its menu \(**...**\) to open the [telemetry inspector](../metrics-and-events/browse-telemetry.md) and inspect the stream in more detail.
 
-![Metric stream anomaly detailed event information](../../.gitbook/assets/v50_event_metric_stream_anomaly.png)
+![Metric stream anomaly detailed event information](../../.gitbook/assets/v51_event_metric_stream_anomaly.png)
 
 ### Element properties changed events
 
@@ -40,7 +40,7 @@ Element properties changed events are generated whenever relevant properties of 
 2. Click **Show all changes** in the right panel **Selection details** tab.
    * A diff of the old and new properties is displayed.
 
-![View all changes](../../.gitbook/assets/v50_event_view_all_changes.png)
+![View all changes](../../.gitbook/assets/v51_event_view_all_changes.png)
 
 ### Version changed events
 
@@ -60,7 +60,7 @@ Within a problem subview, you have access to all perspectives containing data sp
 
 To exit the Problem Subview, click the view name in the top bar of the StackState UI.
 
-![Breadcrumbs with view name](../../.gitbook/assets/v50_problem_subview_breadcrumb.png)
+![Breadcrumbs with view name](../../.gitbook/assets/v51_problem_subview_breadcrumb.png)
 
 ### Time window of a problem
 

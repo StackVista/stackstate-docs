@@ -18,7 +18,7 @@ All the timed operations and data mentioned above will be captured and grouped w
 Below is an example of a Trace that contains two spans, one Lambda parent span, and one SNS child span.
 (Parent and child span definitions will be explained a bit further down inside this documentation)
 
-![Distributed Trace Sample](../../../.gitbook/assets/v50_otel_distributed_trace_sample.png)
+![Distributed Trace Sample](../../../.gitbook/assets/v51_otel_distributed_trace_sample.png)
 
 The above is a snippet of the [Traces Perspective](/use/stackstate-ui/perspectives/traces-perspective.md) within StackState.
 
@@ -32,15 +32,15 @@ For example, in the trace captured below, three time operations occurred.
 
 The first was the Lambda that we monitored with OpenTelemetry, as seen in the screenshot below; this is the parent span.
 
-![Distributed Trace Parent Span](../../../.gitbook/assets/v50_otel_distributed_trace_parent_span.png)
+![Distributed Trace Parent Span](../../../.gitbook/assets/v51_otel_distributed_trace_parent_span.png)
 
 The second interaction inside the Lambda script was with an SQS Queue
 
-![Distributed Trace Child Span](../../../.gitbook/assets/v50_otel_distributed_trace_child_span.png)
+![Distributed Trace Child Span](../../../.gitbook/assets/v51_otel_distributed_trace_child_span.png)
 
 And the last interaction before the Trace is completed is another interaction with a second SQS Queue.
 
-![Distributed Trace Second Child Span](../../../.gitbook/assets/v50_otel_distributed_trace_second_child_span.png)
+![Distributed Trace Second Child Span](../../../.gitbook/assets/v51_otel_distributed_trace_second_child_span.png)
 
 As you can see from the above, within this trace context, it had three span timed operations; thus, spans is a tree of timed operations that make up a trace.
 

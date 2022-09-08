@@ -23,7 +23,7 @@ Unlike monitors, checks are defined on a per-topology element basis and rely on 
 
 Check results are displayed in the StackState UI right panel **Selection details** tab under **Health** when information about a topology element is displayed:
 
-![Check result panel](../../.gitbook/assets/v50_check_result.png)
+![Check result panel](../../.gitbook/assets/v51_check_result.png)
 
 Each check result displays among other information:
 

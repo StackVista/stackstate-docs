@@ -69,7 +69,7 @@ The `trace.perspective.name` is used to find your span within a trace in the Sta
 2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your span).
 3) You will notice that a horizontal graph line will contain the name of your component as seen below.
 
-![Traces Perspective - trace.perspective.name key](/.gitbook/assets/v50_otel_trace_perspective_name.png)
+![Traces Perspective - trace.perspective.name key](/.gitbook/assets/v51_otel_trace_perspective_name.png)
 
 {% endtab %}
 {% endtabs %}
@@ -99,7 +99,7 @@ The value from `service.name` is used as a primary means to identify a component
    2) For Example `name = "RDS Database: Service Name"`.
 4) You will then see the component that was created with the trace.
 
-![Topology Perspective - service.name](../../../../.gitbook/assets/v50_otel_topology_view_filter.png)
+![Topology Perspective - service.name](../../../../.gitbook/assets/v51_otel_topology_view_filter.png)
 
 {% endtab %}
 {% tab title="Topology Perspective" %}
@@ -109,7 +109,7 @@ The value from `service.name` is used as a primary means to identify a component
 1) When you view the Topology Perspective page your component should be visible with this as the primary identifier,
    as seen within the picture below.
 
-![Topology Perspective - service.name](../../../../.gitbook/assets/v50_otel_topology_view_perspective_name.png)
+![Topology Perspective - service.name](../../../../.gitbook/assets/v51_otel_topology_view_perspective_name.png)
 
 {% endtab %}
 {% tab title="Component properties" %}
@@ -121,7 +121,7 @@ The value from `service.name` is used as a primary means to identify a component
 3) A row with the key `name` will contain the value you defined, as seen below in the image.
 4) Your component will also contain a new label called service-name, this will also represent your component name.
 
-![Component properties - service.name](../../../../.gitbook/assets/v50_otel_topology_perspective_service_name.png)
+![Component properties - service.name](../../../../.gitbook/assets/v51_otel_topology_perspective_service_name.png)
 
 {% endtab %}
 {% tab title="Traces Perspective" %}
@@ -133,7 +133,7 @@ The value from `service.name` is used as a primary means to identify a component
 3) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
 4) A row with the key `span.serviceName` will contain the value you defined, as seen below in the image.
 
-![Traces Perspective - service.name](../../../../.gitbook/assets/v50_otel_traces_service_name.png)
+![Traces Perspective - service.name](../../../../.gitbook/assets/v51_otel_traces_service_name.png)
 
 {% endtab %}
 {% endtabs %}
@@ -161,7 +161,7 @@ The `service.type` is used to identify the type of service in the span in the St
 3) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
 4) A row with the key `service` will contain the value you defined, as seen below in the image.
 
-![Traces Perspective - service.type](../../../../.gitbook/assets/v50_otel_traces_service_type.png)
+![Traces Perspective - service.type](../../../../.gitbook/assets/v51_otel_traces_service_type.png)
 {% endtab %}
 {% endtabs %}
 
@@ -191,7 +191,7 @@ Components with the same service identifiers will merge into one component. This
 3) The row with the key `identifiers` will contain the value you defined, as seen below in the image.
 4) ***NB. It is recommended to go and read the [merging with pre-existing components](/stackpacks/integrations/opentelemetry/manual-instrumentation/merging.md) page to know how this value can be leverage to create relations***
 
-![Topology Perspective - service.identifier](../../../../.gitbook/assets/v50_otel_traces_service_identifier.png)
+![Topology Perspective - service.identifier](../../../../.gitbook/assets/v51_otel_traces_service_identifier.png)
 {% endtab %}
 {% endtabs %}
 
@@ -217,7 +217,7 @@ The resource name is displayed in the Traces Perspective for a specific trace, a
 2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your trace).
 3) The section on your right side will contain a row with the key `Resource`, the value displayed next to the key will be the one you defined.
 
-![Traces Perspective - resource.name](../../../../.gitbook/assets/v50_otel_traces_trace_resource.png)
+![Traces Perspective - resource.name](../../../../.gitbook/assets/v51_otel_traces_trace_resource.png)
 
 {% endtab %}
 {% endtabs %}
@@ -242,7 +242,7 @@ The HTTP status code controls the health state for the component in StackState. 
 
 This means that your component is in a CLEAR (healthy) state.
 
-![Health state - http.status_code](../../../../.gitbook/assets/v50_otel_health_state_http_status.png)
+![Health state - http.status_code](../../../../.gitbook/assets/v51_otel_health_state_http_status.png)
 {% endtab %}
 
 {% tab title="Topology Perspective (CRITICAL)" %}
@@ -250,7 +250,7 @@ This means that your component is in a CLEAR (healthy) state.
 
 This means that your component is in a CRITICAL state.
 
-![Health state - CRITICAL - http.status_code](../../../../.gitbook/assets/v50_otel_health_state_critical_http_status.png)
+![Health state - CRITICAL - http.status_code](../../../../.gitbook/assets/v51_otel_health_state_critical_http_status.png)
 {% endtab %}
 
 {% tab title="Span properties" %}
@@ -262,6 +262,6 @@ This means that your component is in a CRITICAL state.
 3) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
 4) The row with the value `http.status_code` will contain the value you defined, as seen below in the image.
 
-![Health state - Healthy - http.status_code](../../../../.gitbook/assets/v50_otel_health_state_healthy_http_status.png)
+![Health state - Healthy - http.status_code](../../../../.gitbook/assets/v51_otel_health_state_healthy_http_status.png)
 {% endtab %}
 {% endtabs %}

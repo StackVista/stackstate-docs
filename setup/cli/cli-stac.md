@@ -255,7 +255,7 @@ The `stac` CLI authenticates against the Base API and the Admin API using a uniq
 
 You can find your API token in the StackState UI, go to **Main menu** &gt; **CLI**.
 
-![](../../.gitbook/assets/v50_main_menu.png)
+![](../../.gitbook/assets/v51_main_menu.png)
 
 ➡️ [Learn more about StackState permissions](/configure/security/rbac/rbac_permissions.md)
 

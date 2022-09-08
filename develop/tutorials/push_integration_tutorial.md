@@ -70,7 +70,7 @@ Press `ctrl-c` to stop the agent.
 
 When you log into your StackState instance, go to the **Explore Mode**. Using the topology filter, select all topology with the `example` label. This should result in a topology similar to the following:
 
-![](../../.gitbook/assets/v50_example-topology.png)
+![](../../.gitbook/assets/v51_example-topology.png)
 
 Note that the components you see are hardcoded in the `example` agent check. The components appear in the **Example** domain and **Applications** and **Hosts** layers. The check produces two application components that StackState has grouped together. This is shown as a circle icon. Select the group to display the individual components that make up the group in the right panel **Selection details** tab.
 
@@ -106,7 +106,7 @@ In the Stream Creation screen, fill in the following parameters:
 
 The stream preview on the right should show the incoming metric values. Here is what that looks like:
 
-![](../../.gitbook/assets/v50_example-telemetry-stream.png)
+![](../../.gitbook/assets/v51_example-telemetry-stream.png)
 
 Click the **Save** button to permanently add the stream to the **some-application-1** component.
 
@@ -165,7 +165,7 @@ The end result should look something like this:
 }],
 ```
 
-![](../../.gitbook/assets/v50_example-template-editor.png)
+![](../../.gitbook/assets/v51_example-template-editor.png)
 
 Go ahead and save the template. Be aware that you may need to _unlock_ it before this succeeds.
 
@@ -198,7 +198,7 @@ switch(healthState) {
 
 Here is what that looks like:
 
-![](../../.gitbook/assets/v50_example-check-function.png)
+![](../../.gitbook/assets/v51_example-check-function.png)
 
 Finally save the check function.
 
@@ -219,7 +219,7 @@ In the Stream Creation screen, select to output as a **Log stream** at the top. 
 
 Here is what that looks like:
 
-![](../../.gitbook/assets/v50_example-log-stream-editor.png)
+![](../../.gitbook/assets/v51_example-log-stream-editor.png)
 
 You should already see the test events you sent in the log stream. Go ahead and save the stream.
 
@@ -235,7 +235,7 @@ You can change the `alert_level` field in the `custom-event.json` file to try ou
 
 When the component turns `CRITICAL`, this is what you should see:
 
-![](../../.gitbook/assets/v50_example-health-state.png)
+![](../../.gitbook/assets/v51_example-health-state.png)
 
 ## Cleaning your StackState instance
 
