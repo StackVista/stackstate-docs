@@ -10,7 +10,13 @@ Note that the release notes may include details of functionality that is current
 
 ## StackState v5.0.x
 
-### v5.0.3 (2002-08-29)
+### v5.0.4 (2022-09-08)
+
+**Improvements**
+
+- Added a time context on Component Actions accessible by default via the variables `telemetryTimeStart`, `telemetryTimeEnd` and `topologyTime`. STAC-16936
+
+### v5.0.3 (2022-08-29)
 
 **Bug fixes**
 
