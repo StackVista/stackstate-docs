@@ -4,7 +4,7 @@ description: StackState Self-hosted v5.0.x
 
 # View - script API
 
-## Function: `getAll`
+## Function: `View.getAll()`
 
 Returns a list of all views.
 
@@ -56,7 +56,7 @@ View.getAll()
     }
 ```
 
-## Function: `withId(viewId).problems()`
+## Function: `View.withId(viewId).problems()`
 
 Returns a list of all problems in a view.
 
@@ -97,9 +97,9 @@ The example below returns the name of the root cause component of the first prob
 
 ```yaml
 View
-    .withId(230470072729670)  
+    .withId(230470072729670)
     .problems()
-        .then{ problems ->       
+    .then { problems ->
         problems.isEmpty()? null : 
             problems[0].rootCause.causeName + " - failed check(s): " +
             problems[0].rootCause.failingCheckNames

@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.0.x
 
 The StackPack script API provides handy operations to get the status of a StackPack or resources that are provided by a StackPack.
 
-## Function: `isInstalled`
+## Function: `StackPack.isInstalled(name: String)`
 
 Returns a flag indicating if the StackPack is installed
 
@@ -50,7 +50,7 @@ The example below will return an `AsyncScriptResult` of a boolean indicating if 
 StackPack.isInstalled("agent")
 ```
 
-## Function: `getResources`
+## Function: `StackPack.getResources(stackPackNamespace: String, nodeType: String)`
 
 Returns resources originating from the StackPack.
 
