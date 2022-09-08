@@ -1,7 +1,7 @@
-# StackState Self-hosted v5.0 docs
+# StackState Self-hosted v5.1 docs
 
 {% hint style="success" %}
-StackState v5.1 will be released soon!
+StackState v5.1 will be available soon!
 
 {% endhint %}
 
