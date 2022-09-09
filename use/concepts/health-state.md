@@ -83,7 +83,7 @@ The color of the element itself (the inner color) represents the [element own he
 
 The propagated health state of an element can also be found in the following places:
 
-* In the right panel **Selection details** tab when information about a component or relation is displayed. 
+* In the right panel details tab when information about a topology element is displayed - **Component details** or **Direct relation details** depending on the element type that you selected. 
 * In the [component context menu](/use/stackstate-ui/perspectives/topology-perspective.md#component-context-menu) when you hover over a component in the topology visualization.
 
 ![](../../.gitbook/assets/v51_stackstate-ui-propagated-health-state.png)

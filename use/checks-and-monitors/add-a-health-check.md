@@ -17,11 +17,11 @@ Most elements in the StackState topology will have a relevant health check added
 To add a health check calculated in StackState:
 
 1. Select the element that you want to assign a health check to.
-   * Detailed information about the element will be displayed in the right panel **Selection details** tab.
+   * Detailed information about the element will be displayed in the right panel details tab - **Component details** or **Direct relation details** depending on the element type that you selected.
    * If no telemetry stream is available on the selected element, you will need to [add a telemetry stream](../metrics-and-events/add-telemetry-to-element.md).
-2. Click **ADD NEW HEALTH CHECK** under **Health** in the right panel **Selection details** tab.
+2. Click **ADD NEW HEALTH CHECK** under **Health** in the right panel details tab.
 3. In the **Add check** dialog box, provide the following details:
-   * **Name** - The health check name. Will be displayed in the StackState UI right panel **Selection details** tab **Health** section.
+   * **Name** - The health check name. Will be displayed in the StackState UI right panel details tab **Health** section.
    * **Description** - Optional, can be used to explain the check in greater detail.
    * **Remediation hint** - Optional, will be automatically displayed on the element when this check goes to a non-clear state, for example `critical` or `deviating`.
    * **Check function** - The check function to use to monitor the element's telemetry stream\(s\). See [Check functions](add-a-health-check.md#check-functions) below.
