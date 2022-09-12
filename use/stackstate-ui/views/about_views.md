@@ -35,9 +35,9 @@ To add or remove a star:
 * For the current view: Click the star icon to the right of its name in the top bar to add or remove the star.
 * For any view: Click **all views** from the main menu to open a list of all views. Click the star icon to the right of a view name to add or remove its star.
 
-## View Summary
+## View summary
 
-When you first open a view, the **View Summary** will be visible in the right panel. This shows the following information:
+When you first open a view, the **View summary** will be visible in the right panel. This shows the following information:
 
 * **View properties** - The view health state, query and last updated timestamp.
 * **Components** - A summary of the number of components in the view.
@@ -74,6 +74,18 @@ Through a combination of configuration of permissions and scope, it is possible 
 * Grant the user access to specific, existing views only and deny them permission to create, modify or delete views.
 
 {% endhint %}
+
+## Subviews
+
+A subset of the StackState topology can be assembled on request and presented as a subview. Subviews are different to views as they are temporart and cannot be saved. There are two types of subviews in StackState:
+
+* **[Problem subviews](/use/problem-analysis/problem_investigation.md#problem-subview)** - zoom in on the components related to the root cause and contributing causes of a problem identified in StackState. 
+* **Selection subviews** - zoom in on a specific component or relation.
+
+TODO - open a subview
+TODO - know you are in a subview
+TODO - close a subview
+TODO - why use a subview?
 
 ## See also
 
