@@ -77,14 +77,14 @@ Through a combination of configuration of permissions and scope, it is possible 
 
 ## Subview
 
-A subview is a topology filter that zooms in on a subset of the topology in StackState - this could be a specific component or relation, a group of elements or all elements associated with a problem. Different to views, subviews are a dynamic tool used for investigation and, as such, they cannot be saved. There are two types of subview in StackState:
+A subview zooms in on a subset of the topology in StackState - this could be a specific component or relation, a group of elements or all elements associated with a problem. Different to views, subviews are a dynamic tool that can be used for investigation. There are two types of subview in StackState:
 
-* **[Problem subviews](/use/problem-analysis/problem_investigation.md#problem-subview)** - zoom in on the components related to the root cause and contributing causes of a problem identified in the StackState topology. 
-* **Selection subviews** - zoom in on a specific component or relation allowing you to investigate the element across all perspectives.
+* **[Problem subviews](/use/problem-analysis/problem_investigation.md#problem-subview)** zoom in on the components related to the root cause and contributing causes of a problem that has been identified in the StackState topology. 
+* **Selection subviews** zoom in on a specific component or relation allowing you to easily investigate the element across all perspectives.
 
-To open a subview, select a component, relation or problem in the StackState UI and then click **INVESTIGATE IN SUBVIEW** in the right panel details tab. The view filters will be updated to zoom in on the selected element or problem and the **View summary** tab in the right panel will be replaced by a **Subview summary** tab. You can also open a selection subview for a component from the [Actions](/use/stackstate-ui/perspectives/topology-perspective.md#actions) list in the component context menu or right panel details tab.
+To open a subview, select a component, relation or problem in the StackState UI and then click **INVESTIGATE IN SUBVIEW** in the right panel details tab. The view filters will be updated to focus on the selected element or problem and the **View summary** tab in the right panel will be replaced by a **Subview summary** tab. Alternatively, you can use the [Actions](/use/stackstate-ui/perspectives/topology-perspective.md#actions) list in the component context menu or right panel details tab to open a selection subview for a component.
 
-Within a subview, you have access to all perspectives containing data specific to the component, relation or problem. You can share the subview with other StackState users, including any modifications you have made, as a link.
+Within a subview you have access to all perspectives containing data specific to the component, relation or problem. You can share the subview, including any modifications you have made to it, with other StackState users as a link.
 
 To exit a subview, click the view name in the top bar of the StackState UI.
 
