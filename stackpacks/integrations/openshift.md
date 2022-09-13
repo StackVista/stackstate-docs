@@ -64,7 +64,7 @@ For the OpenShift integration to retrieve topology, events and metrics data, you
 * StackState Cluster Agent on one node
 * kube-state-metrics
 
-➡️ [Deploy StackState Agents and kube-state-metrics](../../setup/agent/openshift.md).
+➡️ [Deploy StackState Agents and kube-state-metrics](../../setup/agent/kubernetes.md).
 
 {% hint style="info" %}
 To integrate with other services, a separate instance of the [StackState Agent](../../setup/agent/about-stackstate-agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on an OpenShift cluster with checks that integrate with other services.
@@ -76,7 +76,7 @@ The kubernetes\_state check is responsible for gathering metrics from kube-state
 
 In a default deployment, all pods running a StackState Agent must be configured with sufficient CPU and memory requests and limits to run the check. This can consume a lot of memory in a large OpenShift cluster. Since only one StackState Agent pod will actually run the check, a lot of CPU and memory resources will be allocated, but not be used.
 
-To remedy this situation, the kubernetes\_state check can be configured to run as a cluster check. In this case, only the [ClusterCheck Agent](/setup/agent/openshift.md#clustercheck-agent-optional) requires resources to run the check and the allocation for other pods can be reduced.
+To remedy this situation, the kubernetes\_state check can be configured to run as a cluster check. In this case, only the [ClusterCheck Agent](/setup/agent/kubernetes.md#clustercheck-agent-optional) requires resources to run the check and the allocation for other pods can be reduced.
 
 1. Update the `values.yaml` file used to deploy the `cluster-agent`, for example:
   ```yaml
