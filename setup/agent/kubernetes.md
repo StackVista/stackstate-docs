@@ -296,16 +296,10 @@ The stackstate/cluster-agent chart is being depricated and will no longer be sup
 2. Update the following values in the new values.yaml file in order to re-use the previous value and ensure compatiblity with the new chart:
 
     * clusterChecks -> checksAgent
-    * agent -> nodeAgent \
-    <br />
-    <table>
-    <tr>
-    <th>New values.yaml file</th>
-    <th>Old values.yaml file</th>
-    </tr>
-    <tr>
-    <td>
+    * agent -> nodeAgent
 
+    {% tabs %}
+    {% tab title="New values.yaml file" %}
     ```yaml
     checksAgent:
     # checksAgent.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods.
@@ -332,9 +326,8 @@ The stackstate/cluster-agent chart is being depricated and will no longer be sup
             instances:
               - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
     ```
-    </td>
-    <td>
-
+    {% endtab %}
+    {% tab title="Old values.yaml file" %}
     ```yaml
     clusterChecks:
     # clusterChecks.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods.
@@ -361,9 +354,8 @@ The stackstate/cluster-agent chart is being depricated and will no longer be sup
             instances:
               - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
     ```
-    </td>
-    </tr>
-    </table>
+    {% endtab %}
+    {% endtabs %}
 
 3. To uninstall the StackState Cluster Agent and the StackState Agent from your Kubernetes or OpenShift cluster, run a Helm uninstall:
     ```bash
