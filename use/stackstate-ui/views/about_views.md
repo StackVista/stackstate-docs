@@ -77,7 +77,9 @@ Through a combination of configuration of permissions and scope, it is possible 
 
 ## Subview
 
-A subview zooms in on a subset of the topology in StackState - this could be a specific component or relation, a group of elements or all elements associated with a problem. Different to views, subviews are a dynamic tool that can be used for investigation, allowing you to quickly investigate an element, group or problem across all perspectives. 
+A subview is created whenever you click **INVESTIGATE IN SUBVIEW** on a topology element or problem in the StackState UI. The required topology filters are applied to focus directly on the chosen area of StackState topology - this could be a single component or relation, a group of elements or all elements associated with a problem. Different to views, subviews are a dynamic tool that can be used for investigation, they are generated on demand and cannot be saved.
+
+Within the subview you can investigate the element, group or problem across all perspectives and at any point in the timeline. 
 
 There are two types of subview:
 
@@ -86,7 +88,7 @@ There are two types of subview:
 
 To open a subview, select a component, relation or problem in the StackState UI and then click **INVESTIGATE IN SUBVIEW** in the right panel details tab. The view filters will be updated to focus on the selected element or problem and the **View summary** tab in the right panel will be replaced by a **Subview summary** tab. Alternatively, you can use the [Actions](/use/stackstate-ui/perspectives/topology-perspective.md#actions) list in the component context menu or right panel details tab to open a selection subview for a component.
 
-Within a subview you have access to all perspectives containing data specific to the component, relation, group or problem. You can share the subview, including any modifications you have made to it, with other StackState users as a link.
+You can share the subview, including any modifications you have made to it, with other StackState users as a link.
 
 To exit a subview, click the view name in the top bar of the StackState UI.
 
