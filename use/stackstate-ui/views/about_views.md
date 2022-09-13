@@ -77,15 +77,18 @@ Through a combination of configuration of permissions and scope, it is possible 
 
 ## Subviews
 
-A subset of the StackState topology can be assembled on request and presented as a subview. Subviews are different to views as they are temporart and cannot be saved. There are two types of subviews in StackState:
+A subview is a temporary view that includes a subset of the topology in StackState - this could be a specific component or relation, a group of elements or all elements associated with a problem. Subviews are different to views as they are a tool for investigation and cannot be saved. There are two types of subviews in StackState:
 
 * **[Problem subviews](/use/problem-analysis/problem_investigation.md#problem-subview)** - zoom in on the components related to the root cause and contributing causes of a problem identified in StackState. 
-* **Selection subviews** - zoom in on a specific component or relation.
+* **Selection subviews** - zoom in on a specific component or relation allowing you to investigate the element in all perspectives without needing to adjust the view filters.
 
-TODO - open a subview
-TODO - know you are in a subview
-TODO - close a subview
-TODO - why use a subview?
+To open a subview, select a component, relation or problem in the StackState UI and then click **INVESTIGATE IN SUBVIEW** in the right panel details tab. The view filters will be updated to zoom in on the selected element or problem and the **View summary** tab in the right panel will be replaced by a **Subview summary** tab. 
+
+Within the subview you have access to all perspectives containing data specific to the component, relation or problem. You can share the subview with other StackState users, including any modifications you have made, as a link.
+
+To exit a subview, click the view name in the top bar of the StackState UI.
+
+![Breadcrumbs with view name](/.gitbook/assets/v50_problem_subview_breadcrumb.png)
 
 ## See also
 
