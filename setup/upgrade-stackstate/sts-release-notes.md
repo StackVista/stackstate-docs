@@ -19,6 +19,12 @@ TODO
 
 Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
 
+### v5.0.5
+
+**Bug fixes**
+
+- Fixed issue that caused problems to display without contributing components in some cases. STAC-17731
+
 ### v5.0.4
 
 **Improvements**

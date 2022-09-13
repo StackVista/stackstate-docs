@@ -38,7 +38,7 @@ TODO
 {% tabs %}
 {% tab title="Kubernetes" %}
 
-#### v5.0.2-v5.0.4
+#### v5.0.2-v5.0.5
 
 No manual action required.
 
