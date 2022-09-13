@@ -21,7 +21,7 @@ This page provides specific instructions and details of any required manual step
 {% tabs %}
 {% tab title="Kubernetes" %}
 
-#### v5.0.2-v5.0.4
+#### v5.0.2-v5.0.5
 
 No manual action required.
 
