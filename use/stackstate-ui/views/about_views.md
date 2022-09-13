@@ -75,7 +75,7 @@ Through a combination of configuration of permissions and scope, it is possible 
 
 {% endhint %}
 
-## Subviews
+## Subview
 
 A subview is a temporary view that includes a subset of the topology in StackState - this could be a specific component or relation, a group of elements or all elements associated with a problem. Subviews are different to views as they are a tool for investigation and cannot be saved. There are two types of subviews in StackState:
 
