@@ -10,6 +10,12 @@ Note that the release notes may include details of functionality that is current
 
 ## StackState v5.0.x
 
+### v5.0.5 (2022-09-13)
+
+**Bug fixes**
+
+- Fixed issue that caused problems to display without contributing components in some cases. STAC-17731
+
 ### v5.0.4 (2022-09-08)
 
 **Improvements**
