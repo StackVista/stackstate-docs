@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x 
+description: StackState Self-hosted v5.0.x
 ---
 
 # 💠 OpenShift
@@ -62,48 +62,34 @@ For the OpenShift integration to retrieve topology, events and metrics data, you
 
 * StackState Agent V2 on each node in the cluster
 * StackState Cluster Agent on one node
+* StackState Checks Agent on one node
 * kube-state-metrics
 
-➡️ [Deploy StackState Agents and kube-state-metrics](../../setup/agent/openshift.md).
+➡️ [Deploy StackState Agents and kube-state-metrics](../../setup/agent/kubernetes.md).
 
 {% hint style="info" %}
 To integrate with other services, a separate instance of the [StackState Agent](../../setup/agent/about-stackstate-agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on an OpenShift cluster with checks that integrate with other services.
 {% endhint %}
 
-### Configure cluster check: Kubernetes_state check
+### Configure kube-state-metrics
 
-The kubernetes\_state check is responsible for gathering metrics from kube-state-metrics and sending them to StackState. It is configured on the StackState Agent Cluster Agent and, by default, runs in the StackState Agent pod that is on the same node as the kube-state-metrics pod.
+The kubernetes\_state check is responsible for gathering metrics from kube-state-metrics and sending them to StackState. The kubernetes\_state check runs by default, is configured on the [StackState Cluster Agent](../../setup/agent/kubernetes.md#cluster-agent) and runs in the [StackState Checks Agent](../../setup/agent/kubernetes.md#checks-agent) pod.
 
-In a default deployment, all pods running a StackState Agent must be configured with sufficient CPU and memory requests and limits to run the check. This can consume a lot of memory in a large OpenShift cluster. Since only one StackState Agent pod will actually run the check, a lot of CPU and memory resources will be allocated, but not be used.
+The default URL that the kubernetes\_state check uses is:
+```
+http://<release-name>-kube-state-metrics.<namespace>.svc.cluster.local:8080/metrics
+```
 
-To remedy this situation, the kubernetes\_state check can be configured to run as a cluster check. In this case, only the [Checks Agent](/setup/agent/openshift.md#clustercheck-agent-optional) requires resources to run the check and the allocation for other pods can be reduced.
+If an alternative kube-state-metrics pod \(i.e. Prometheus\) is installed, the default StackState kube-state-metrics pod can be disabled and the kubernetes\_state check redirected to the alternative service:
 
-1. Update the `values.yaml` file used to deploy the `stackstate-agent`, for example:
+1. Update the `values.yaml` file used to deploy the `checks-agent`, for example:
   ```yaml
+  dependencies:
+  kubeStateMetrics:
+    enabled: false
   checksAgent:
-  # checksAgent.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods.
-    enabled: true
-  nodeAgent:
-    config:
-      override:
-  # agent.config.override -- Disables kubernetes_state check on regular agent pods.
-      - name: auto_conf.yaml
-        path: /etc/stackstate-agent/conf.d/kubernetes_state.d
-        data: |
-  clusterAgent:
-    config:
-      override:
-  # clusterAgent.config.override -- Defines kubernetes_state check for clusterchecks agents. Auto-discovery
-  #                                 with ad_identifiers does not work here. Use a specific URL instead.
-      - name: conf.yaml
-        path: /etc/stackstate-agent/conf.d/kubernetes_state.d
-        data: |
-          cluster_check: true
-  
-          init_config:
-  
-          instances:
-            - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
+    kubeStateMetrics:
+      url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
   ```
 
 2. Deploy the `checks_agent` using the updated `values.yaml`:
@@ -118,7 +104,7 @@ To remedy this situation, the kubernetes\_state check can be configured to run a
   --set 'agent.scc.enabled'=true \
   --set 'kube-state-metrics.securityContext.enabled'=false \
   --values values.yaml \
-  stackstate-agent stackstate/stackstate-agent    
+  stackstate-agent stackstate/stackstate-agent
   ```
 
 ### Status
@@ -148,7 +134,7 @@ The OpenShift integration retrieves the following data:
 #### Events
 
 The OpenShift integration retrieves all OpenShift events from the OpenShift cluster. In addition to this, `Element Properties Change` events will be generated in StackState for changes in Kubernetes objects.
-* All [OpenShift events](#openshift-events) are retrieved from the Kubernetes cluster. 
+* All [OpenShift events](#openshift-events) are retrieved from the Kubernetes cluster.
 * StackState `Element Properties Change` events will be generated for [changes detected in an OpenShift object](#object-change-events).
 
 ##### OpenShift events
@@ -325,10 +311,10 @@ Details of installed actions can be found in the StackState UI **Settings** &gt;
 
 When the OpenShift integration is enabled, the following OpenShift views are available in StackState for each cluster:
 
-* OpenShift - Applications - 
-* OpenShift - Infrastructure - 
-* OpenShift - Namespaces - 
-* OpenShift - Workload Controllers - 
+* OpenShift - Applications -
+* OpenShift - Infrastructure -
+* OpenShift - Namespaces -
+* OpenShift - Workload Controllers -
 
 ### Open source
 
@@ -375,6 +361,5 @@ See the Kubernetes Agent documentation for instructions on [how to uninstall the
 
 * [Agent StackPack](agent.md)
 * [StackState Agent Kubernetes check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/kubernetes)
-* [StackState Cluster Agent Helm Chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent)
+* [StackState Cluster Agent Helm Chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-agent)
 * [OpenShift API documentation \(openshift.com\)](https://docs.openshift.com/container-platform/4.4/rest_api/storage_apis/volumeattachment-storage-k8s-io-v1.html)
-

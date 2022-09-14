@@ -169,14 +169,10 @@ If StackState Agent is running on Kubernetes, the AWS check should be configured
     - **role_arn** - In the example `arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole`, substitute 123456789012 with the target AWS account ID to read.
     - **regions** - The Agent will only attempt to find resources in the specified regions. `global` is a special region for global resources, such as Route53.
     ```yaml
-    checksAgent:
-    # checksAgent.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods.
-      enabled: true
-
     clusterAgent:
       config:
         override:
-    #clusterAgent.config.override -- Defines kubernetes_state check for clusterchecks agents. Auto-discovery
+    #clusterAgent.config.override -- Defines kubernetes_state check for checksAgent agents. Auto-discovery
     #with ad_identifiers does not work here. Use a specific URL instead.
         - name: conf.yaml
           path: /etc/stackstate-agent/conf.d/aws_topology.d
