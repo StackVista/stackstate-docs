@@ -77,9 +77,12 @@ Through a combination of configuration of permissions and scope, it is possible 
 
 ## Subview
 
-A subview is created whenever you click **INVESTIGATE IN SUBVIEW** on a topology element or problem in the StackState UI. The required topology filters are applied to focus directly on the chosen area of StackState topology - this could be a single component or relation, a group of elements or all elements associated with a problem. Different to views, subviews are a dynamic tool that can be used for investigation, they are generated on demand and cannot be saved.
+A subview is a temporary StackState view that can be used to aid investigation. While views store filters to select a specific set of topology, subviews are generated on demand and cannot be saved. 
+
+Whenever you click **INVESTIGATE IN SUBVIEW** on a topology element or problem in the StackState UI, the required topology filters are applied to create a subview that focusses directly on the chosen area of StackState topology. 
 
 Within the subview you can investigate the element, group or problem across all perspectives and at any point in the timeline. 
+(edited)
 
 There are two types of subview:
 
@@ -90,7 +93,7 @@ To open a subview, select a component, relation or problem in the StackState UI 
 
 You can share the subview, including any modifications you have made to it, with other StackState users as a link.
 
-To exit a subview, click the view name in the top bar of the StackState UI.
+To exit a subview and return to the previous view or explore mode, click the view name in the top bar of the StackState UI.
 
 ![Breadcrumbs with view name](/.gitbook/assets/v50_problem_subview_breadcrumb.png)
 
