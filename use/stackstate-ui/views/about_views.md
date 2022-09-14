@@ -85,7 +85,7 @@ Whenever you click **INVESTIGATE IN SUBVIEW** on a topology element or problem i
 
 There are two types of subview:
 
-* **[Problem subviews](/use/problem-analysis/problem_investigation.md#problem-subview)** zoom in on the time window and components related to the root cause and contributing causes of a problem that has been identified in the StackState topology. 
+* **[Problem subviews](/use/problem-analysis/problem_investigation.md#problem-subview)** zoom in on the time window and components related to the root cause and contributing causes of a problem identified in the StackState topology. 
 * **Selection subviews** zoom in on a specific component, relation or group.
 
 ### Working with subviews
