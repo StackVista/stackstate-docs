@@ -79,7 +79,7 @@ Through a combination of configuration of permissions and scope, it is possible 
 
 A subview is a temporary StackState view that can be used to aid investigation. While views store filters to select a specific set of topology, subviews are generated on demand and cannot be saved. 
 
-Whenever you click **INVESTIGATE IN SUBVIEW** on a topology element or problem in the StackState UI, the required topology filters are applied to create a subview that focusses directly on the chosen area of StackState topology. 
+Whenever you click **INVESTIGATE IN SUBVIEW** on a topology element or problem in the StackState UI, the required topology filters are applied to create a subview that focuses directly on the chosen area of StackState topology. 
 
 Within the subview you can investigate the element, group or problem across all perspectives and at any point in the timeline. 
 (edited)
