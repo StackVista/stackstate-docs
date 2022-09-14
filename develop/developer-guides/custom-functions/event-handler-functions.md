@@ -269,11 +269,11 @@ The properties listed below return details of a `ProblemResolved` event in funct
 
 Synchronous event handler functions use plugins to send notifications to external systems. The following plugins are available for use in custom event handler functions:
 
-| Plugin | Description |  |
-| :--- | :--- | :--- |
-| email | Sends an email using the [configured SMTP server](../../../configure/topology/configure-email-event-notifications.md). `emailPlugin.sendEmail(to, subject, "body")` |  |
-| HTTP webhook | Sends an HTTP POST request with the specified content to a URL. `webhookPlugin.sendMessage(url, "json")` |  |
-| SMS | Sends an SMS using MessageBird with the specified token. `smsPlugin.sendSMSMessage(token, "to", "message")` |  |
+| Plugin | Description |
+| :--- | :--- |
+| email | Sends an email using the [configured SMTP server](../../../configure/topology/configure-email-event-notifications.md). `emailPlugin.sendEmail(to, subject, "body")` |  
+| HTTP webhook | Sends an HTTP POST request with the specified content to a URL. `webhookPlugin.sendMessage(url, "json")` |  
+| SMS | Sends an SMS using MessageBird with the specified token. `smsPlugin.sendSMSMessage(token, "to", "message")` |  
 
 ## See also
 
