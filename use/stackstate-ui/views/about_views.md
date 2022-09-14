@@ -90,7 +90,7 @@ There are two types of subview:
 * **[Problem subviews](/use/problem-analysis/problem_investigation.md#problem-subview)** zoom in on the components related to the root cause and contributing causes of a problem that has been identified in the StackState topology. 
 * **Selection subviews** zoom in on a specific component, relation or group.
 
-### Working with subview
+### Working with subviews
 
 To open a subview, select a component, relation or problem in the StackState UI and then click **INVESTIGATE IN SUBVIEW** in the right panel details tab. The view filters will be updated to focus on the selected element or problem and the **View summary** tab in the right panel will be replaced by a **Subview summary** tab. Alternatively, you can use the [Actions](/use/stackstate-ui/perspectives/topology-perspective.md#actions) list in the component context menu or right panel details tab to open a selection subview for a component.
 
