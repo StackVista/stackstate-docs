@@ -77,21 +77,24 @@ Through a combination of configuration of permissions and scope, it is possible 
 
 ## Subview
 
+### What is a subview?
+
 A subview is a temporary StackState view that can be used to aid investigation. While views store filters to select a specific set of topology, subviews are generated on demand and cannot be saved. 
 
 Whenever you click **INVESTIGATE IN SUBVIEW** on a topology element or problem in the StackState UI, the required topology filters are applied to create a subview that focuses directly on the chosen area of StackState topology. 
 
-Within the subview you can investigate the element, group or problem across all perspectives and at any point in the timeline. 
-(edited)
+Within the subview, you can investigate the element, group or problem across all perspectives and at any point in the timeline.
 
 There are two types of subview:
 
 * **[Problem subviews](/use/problem-analysis/problem_investigation.md#problem-subview)** zoom in on the components related to the root cause and contributing causes of a problem that has been identified in the StackState topology. 
 * **Selection subviews** zoom in on a specific component, relation or group.
 
+### Working with subview
+
 To open a subview, select a component, relation or problem in the StackState UI and then click **INVESTIGATE IN SUBVIEW** in the right panel details tab. The view filters will be updated to focus on the selected element or problem and the **View summary** tab in the right panel will be replaced by a **Subview summary** tab. Alternatively, you can use the [Actions](/use/stackstate-ui/perspectives/topology-perspective.md#actions) list in the component context menu or right panel details tab to open a selection subview for a component.
 
-You can share the subview, including any modifications you have made to it, with other StackState users as a link.
+You can share the subview, including any modifications you have made to it, with other StackState users as a link. A subview cannot be saved.
 
 To exit a subview and return to the previous view or explore mode, click the view name in the top bar of the StackState UI.
 
