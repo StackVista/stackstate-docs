@@ -92,9 +92,9 @@ There are two types of subview:
 
 You can open a subview in any of the following ways:
 
-* Select a component, relation or problem in the StackState UI and then click **INVESTIGATE IN SUBVIEW** in the right panel details tab. The view filters will be updated to focus on the selected element, group or problem, and the **View summary** tab in the right panel will be replaced by a **Subview summary** tab.
-* Use the [Actions](/use/stackstate-ui/perspectives/topology-perspective.md#actions) list in the component context menu or right panel details tab to open a selection subview for a component.
+* Select a component, relation, group or problem in the StackState UI and then click **INVESTIGATE IN SUBVIEW** in the right panel details tab. The view filters will be updated to focus on the selected element, group or problem, and the **View summary** tab in the right panel will be replaced by a **Subview summary** tab.
 * Double-click on a component, relation or group in the topology visualizer.
+* Use the [Actions](/use/stackstate-ui/perspectives/topology-perspective.md#actions) list in the component context menu or right panel details tab to open a selection subview for a component.
 
 Subviews can be shared with other StackState users as a link, this will include any modifications that you have made to the subview. It is not possible to save a subview.
 
