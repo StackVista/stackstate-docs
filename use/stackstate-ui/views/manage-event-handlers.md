@@ -32,11 +32,11 @@ Event handlers listen to events generated within a view. When the configured eve
 
 StackState ships with the following event handler functions that track **health state change events** in a view:
 
-| Event handler function | Health state change events | Problem events | Description |
-| :--- | --- | --- | :--- |
-| **Slack** | ✅ | ✅ | Requires the [Slack StackPack](/stackpacks/integrations/slack.md). Sends a message with detailed content on the trigger event and possible root cause to the configured Slack webhook URL. See [how to create a Slack Webhook \(slack.com\)](https://api.slack.com/messaging/webhooks). |
-| **HTTP webhook POST** | ✅ | - | Sends an HTTP webhook POST request to the specified URL. |
-| **SMS** | ✅ | - | Sends details of a health state change event using MessageBird. |
+| Event handler function                                                                                                                                                                                                                                                                              | Health state change events | Problem events |
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| --- |----------------|
+| **Slack** - requires the [Slack StackPack](/stackpacks/integrations/slack.md). Sends a message with detailed content on the trigger event and possible root cause to the configured Slack webhook URL. See [how to create a Slack Webhook \(slack.com\)](https://api.slack.com/messaging/webhooks). | ✅ | ✅              |
+| **HTTP webhook POST** - sends an HTTP webhook POST request to the specified URL.                                                                                                                                                                                                                    | ✅ | -              |
+| **SMS**  - sends details of a health state change event using MessageBird.                                                                                                                                                                                                                          | ✅ | -              |
 
 
 {% hint style="success" "self-hosted info" %}
