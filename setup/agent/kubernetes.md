@@ -280,22 +280,12 @@ stackstate-agent stackstate/stackstate-agent
 
 ### Upgrade
 
-To upgrade the Agents running in your Kubernetes or OpenShift cluster, run the helm upgrade command provided on the associated StackState UI integrations screen:
-* **StackPacks** &gt; **Integrations** &gt; **Kubernetes**
-* **StackPacks** &gt; **Integrations** &gt; **OpenShift**
-
-{% hint style="info" %}
-This is the same command used to deploy the StackState Agent and Cluster Agent.
-{% endhint %}
-
 The stackstate/cluster-agent chart is being depricated and will no longer be supported. To upgrade to the new stackstate/stackstate-agent chart, the following actions need to be performed:
 1. Backup the values.yaml file used when deploying the old stackstate/cluster-agent chart.
 2. Update the following values in the new values.yaml file in order to re-use the previous values and ensure compatibility with the new chart:
-
     * clusterChecks has been renamed to checksAgent. The checksAgent now runs by default. 
     * agent has been renamed to nodeAgent. The kubernetes\_state now runs in the checksAgent.
     * clusterChecks now run the kubernetes\_state check by default and no longer needs to be configured on default installations.
-
     {% tabs %}
     {% tab title="New values.yaml file" %}
     ```yaml
@@ -354,7 +344,6 @@ The stackstate/cluster-agent chart is being depricated and will no longer be sup
     ```
     {% endtab %}
     {% endtabs %}
-
 3. To uninstall the StackState Cluster Agent and the StackState Agent from your Kubernetes or OpenShift cluster, run a Helm uninstall:
     ```bash
     helm uninstall <release_name> --namespace <namespace>
