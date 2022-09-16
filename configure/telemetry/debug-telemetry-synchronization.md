@@ -68,7 +68,7 @@ For integrations that run through StackState Agent, StackState Agent is a good p
 
 Note that for the Kubernetes and OpenShift integrations, different Agent types supply different sets of metrics. 
 
-- **StackState Agents (node Agents):** Supply kube-state-metrics and metrics from the node on which they are deployed only.
+- **StackState Agents (node Agents):** Supplies metrics from the node on which they are deployed on. If the Checks Agent is disabled, the node agent will collect metrics from kube-state-metrics instead of the Checks Agent.
 - **Checks Agent:** Supplies metrics from kube-state-metrics.
 
 ### StackState Receiver

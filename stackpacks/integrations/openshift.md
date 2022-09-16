@@ -73,7 +73,7 @@ To integrate with other services, a separate instance of the [StackState Agent](
 
 ### Configure kube-state-metrics
 
-The kubernetes\_state check is responsible for gathering metrics from kube-state-metrics and sending them to StackState. The kubernetes\_state check runs by default, is configured on the [StackState Cluster Agent](../../setup/agent/kubernetes.md#cluster-agent) and runs in the [StackState Checks Agent](../../setup/agent/kubernetes.md#checks-agent) pod.
+The kubernetes\_state check is responsible for gathering metrics from kube-state-metrics and sending them to StackState. The kubernetes\_state check runs in the [StackState Checks Agent](../../setup/agent/kubernetes.md#checks-agent) by default and is configured in the [StackState Cluster Agent](../../setup/agent/kubernetes.md#cluster-agent).
 
 The default URL that the kubernetes\_state check uses is:
 ```
@@ -85,8 +85,8 @@ If an alternative kube-state-metrics pod \(i.e. Prometheus\) is installed, the d
 1. Update the `values.yaml` file used to deploy the `checks-agent`, for example:
   ```yaml
   dependencies:
-  kubeStateMetrics:
-    enabled: false
+    kubeStateMetrics:
+      enabled: false
   checksAgent:
     kubeStateMetrics:
       url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
@@ -109,13 +109,14 @@ If an alternative kube-state-metrics pod \(i.e. Prometheus\) is installed, the d
 
 ### Status
 
-To check the status of the OpenShift integration, check that the StackState Cluster Agent \(`cluster-agent`\) pod and all of the StackState Agent \(`node-agent`\) pods have status ready.
+To check the status of the OpenShift integration, check that the StackState Cluster Agent \(`cluster-agent`\) pod, StackState Checks Agent pod \(`checks-agent`\) and all of the StackState Agent \(`node-agent`\) pods have status ready.
 
 ```text
 ❯ kubectl get deployment,daemonset --namespace stackstate
 
 NAME                                                 READY   UP-TO-DATE   AVAILABLE   AGE
 deployment.apps/stackstate-agent-cluster-agent       1/1     1            1           5h14m
+deployment.apps/stackstate-agent-checks-agent        1/1     1            1           5h14m
 NAME                                                 DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
 daemonset.apps/stackstate-agent-node-agent           10        10        10      10           10          <none>          5h14m
 ```

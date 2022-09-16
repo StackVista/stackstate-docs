@@ -280,7 +280,7 @@ stackstate-agent stackstate/stackstate-agent
 
 ### Upgrade
 
-The stackstate/cluster-agent chart is being depricated and will no longer be supported. To upgrade to the new stackstate/stackstate-agent chart, the following actions need to be performed:
+The stackstate/cluster-agent chart is being deprecated and will no longer be supported. To upgrade to the new stackstate/stackstate-agent chart, the following actions need to be performed:
 1. Backup the values.yaml file used when deploying the old stackstate/cluster-agent chart.
 2. Update the following values in the new values.yaml file in order to re-use the previous values and ensure compatibility with the new chart:
     * clusterChecks has been renamed to checksAgent. The checksAgent now runs by default. 
