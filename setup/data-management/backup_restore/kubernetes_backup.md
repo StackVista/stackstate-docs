@@ -121,7 +121,10 @@ minio:
     enabled: true
 ```
 
-Replace `AZURE_STORAGE_ACCOUNT_NAME` with the [Azure storage account name \(microsoft.com\)](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal) and replace `AZURE_STORAGE_ACCOUNT_KEY` with the [Azure storage account key \(microsoft.com\)](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage?tabs=azure-portal) where the backups should be stored.
+Replace the following values:
+
+* `AZURE_STORAGE_ACCOUNT_NAME` - the [Azure storage account name \(microsoft.com\)](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal) 
+* `AZURE_STORAGE_ACCOUNT_KEY` - the [Azure storage account key \(microsoft.com\)](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage?tabs=azure-portal) where the backups should be stored.
 
 The StackGraph and Elasticsearch backups are stored in BLOB containers called `sts-stackgraph-backup` and `sts-elasticsearch-backup` respectively. These names can be changed by setting the Helm values `backup.stackGraph.bucketName` and `backup.elasticsearch.bucketName` respectively.
 
@@ -149,7 +152,9 @@ minio:
     enabled: true
 ```
 
-Replace `YOUR_ACCESS_KEY` and `YOUR_SECRET_KEY` with the credentials that will be used to secure the MinIO system. The automatic backup jobs and the restore jobs will use them. They are also required to manually access the MinIO storage. `YOUR_ACCESS_KEY` should contain 5 to 20 alphanumerical characters and `YOUR_SECRET_KEY` should contain 8 to 40 alphanumerical characters.
+Replace the following values:
+
+* `YOUR_ACCESS_KEY` and `YOUR_SECRET_KEY` - the credentials that will be used to secure the MinIO system. The automatic backup jobs and the restore jobs will use them. They are also required to manually access the MinIO storage. `YOUR_ACCESS_KEY` should contain 5 to 20 alphanumerical characters and `YOUR_SECRET_KEY` should contain 8 to 40 alphanumerical characters.
 
 ## Configuration and topology data \(StackGraph\)
 
