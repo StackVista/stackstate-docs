@@ -33,8 +33,7 @@ You can add an event handler to a view from the StackState UI right panel **View
 Event handlers listen to events generated within a view. When the configured event type is generated, the event handler function is run to send an event notification or trigger an action in a system outside of StackState. For example, an event handler function could send an email or make a POST to a webhook URL. A number of default event handler functions are included out of the box with StackState, these are described below.
 
 {% hint style="success" "self-hosted info" %}
-* You can [create your own custom event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md). 
-* A full list of the event handler functions available in your StackState instance can be found in the StackState UI, go to **Settings** &gt; **Functions** &gt; **Event Handler Functions**
+A full list of the event handler functions available in your StackState instance can be found in the StackState UI, go to **Settings** &gt; **Functions** &gt; **Event Handler Functions**
 {% endhint %}
 
 ### Slack
@@ -51,19 +50,26 @@ Available for use with **Health state change events** and **Problem events**.
 
 Sends an HTTP webhook POST request to the specified URL. 
 
-Available for use with **Health state change events**.
+Available for use with **Health state change events** only.
 
 ### SMS
 
 Sends details of a health state change event using MessageBird.
 
-Available for use with **Health state change events**.
+Available for use with **Health state change events** only.
 
 ### Email
 
 {% hint style="success" "self-hosted info" %}
+The email event handler function will send details of a health state change event using a [configured SMTP server](/configure/topology/configure-email-event-notifications.md).
 
-An email event handler is available that sends details of a health state change event using a [configured SMTP server](/configure/topology/configure-email-event-notifications.md).
+Available for use with **Health state change events** only.
+{% endhint %}
+
+### Custom event handler functions
+
+{% hint style="success" "self-hosted info" %}
+You can [create your own custom event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md).
 {% endhint %}
 
 ## See also
