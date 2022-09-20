@@ -59,7 +59,7 @@ To enable the OpenMetrics integration and begin collecting metrics data from an 
    - **type_overrides** - override a type in the OpenMetrics the payload or type an untyped metric (these would be ignored by default). Supported `<METRIC_TYPE>` are `gauge`, `count` and `rate`. Format is `<METRIC_NAME>: <METRIC_TYPE>`.
    - **tags** - list of tags to attach to every metric, event and service check emitted by this integration.
    - **send_histograms_buckets** - send the histograms bucket. Default `true`.
-   - **send_monotonic_counter** - send counters as monotonic counter. Default `true`.
+   - **send_monotonic_counter** - set to `true` to convert counters to a rate (note that two runs are required to produce the first result). Set to `false` to send counters as a monotonic counter. Default `true`.
    - **exclude_labels** - list of labels to be excluded.
    - **prometheus_timeout** - set a timeout for the OpenMetrics query.
    - **ssl_cert** - If your OpenMetrics endpoint is secured, enter the path to the certificate and specify the private key in the `ssl_private_key` parameter, or provide the path to a file containing both the certificate and the private key.
@@ -126,7 +126,7 @@ Example OpenMetrics Agent check configuration file:
    - **type_overrides** - override a type in the OpenMetrics payload or type an untyped metric (these would be ignored by default). Supported `<METRIC_TYPE>` are `gauge`, `count` and `rate`.
    - **tags** - list of tags to attach to every metric, event and service check emitted by this integration.
    - **send_histograms_buckets** - send the histograms bucket. Default `true`.
-   - **send_monotonic_counter** - send counters as monotonic counter. Default `true`.
+   - **send_monotonic_counter** - set to `true` to convert counters to a rate (note that two runs are required to produce the first result). Set to `false` to send counters as a monotonic counter. Default `true`.
    - **exclude_labels** - list of labels to be excluded.
    - **prometheus_timeout** - set a timeout for the OpenMetrics query.
    - **ssl_cert** - If your OpenMetrics endpoint is secured, enter the path to the certificate and specify the private key in the `ssl_private_key` parameter, or provide the path to a file containing both the certificate and the private key.
@@ -143,7 +143,7 @@ Example OpenMetrics Agent check configuration file:
 
 {% tabs %}
 {% tab title="Kubernetes, OpenShift" %}
-Follow the instructions on the Kubernetes Agent page to [track the status OpenShift check](/setup/agent/kubernetes.md#agent-check-status)
+Follow the instructions on the Kubernetes Agent page to [track the status of the OpenMetrics check](/setup/agent/kubernetes.md#agent-check-status)
 {% endtab %}
 {% tab title="Docker, Linux, Windows" %}
 Run the Agent status subcommand and look for `openmetrics` under the `Checks` section.
