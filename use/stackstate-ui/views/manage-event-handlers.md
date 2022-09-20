@@ -30,14 +30,12 @@ You can add an event handler to a view from the StackState UI right panel **View
 
 ## Event handler functions
 
-Event handlers listen to events generated within a view. When the configured event type is generated, the event handler function is run to send an event notification or trigger an action in a system outside of StackState. For example, an event handler function could send an email or make a POST to a webhook URL. A number of default event handler functions are included out of the box with StackState.
+Event handlers listen to events generated within a view. When the configured event type is generated, the event handler function is run to send an event notification or trigger an action in a system outside of StackState. For example, an event handler function could send an email or make a POST to a webhook URL. A number of default event handler functions are included out of the box with StackState, these are described below.
 
 {% hint style="success" "self-hosted info" %}
 * You can [create your own custom event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md). 
 * A full list of the event handler functions available in your StackState instance can be found in the StackState UI, go to **Settings** &gt; **Functions** &gt; **Event Handler Functions**
 {% endhint %}
-
-The event handler functions shipped with StackState are described below.
 
 ### Slack
 
