@@ -39,7 +39,7 @@ A full list of the event handler functions available in your StackState instance
 ### Slack
 
 {% hint style="info" %}
-The slack event handler is available when the [Slack StackPack](/stackpacks/integrations/slack.md) is installed on your StackPack instance.
+Requires the [Slack StackPack](/stackpacks/integrations/slack.md) to be installed on your StackState instance.
 {% endhint %}
 
 Sends a message with detailed content on the trigger event and possible root cause to the configured Slack webhook URL. See [how to create a Slack Webhook \(slack.com\)](https://api.slack.com/messaging/webhooks). 
