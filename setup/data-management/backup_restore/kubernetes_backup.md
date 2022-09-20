@@ -376,7 +376,7 @@ To delete existing Elasticsearch indices so that a snapshot can be restored, fol
 See [delete Elasticsearch indices](kubernetes_backup.md#delete-elasticsearch-indices).
 {% endhint %}
 
-To restore an Elasticsearch snapshot, select a snapshot name and pass it as the first parameter in the following command line. You can optionally specify the indices that should be restored. If not specified, all indicies that match the Helm value `backup.elasticsearch.scheduled.indices` will be restored (default `"sts*"`):
+To restore an Elasticsearch snapshot, select a snapshot name and pass it as the first parameter in the following command line. You can optionally specify a second parameter with the indices that should be restored. If not specified, all indicies that match the Helm value `backup.elasticsearch.scheduled.indices` will be restored (default `"sts*"`):
 
 ```bash
 ./restore/restore-elasticsearch-snapshot.sh \
