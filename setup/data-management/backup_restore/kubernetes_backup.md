@@ -228,12 +228,12 @@ Scripts to list and restore backups and snapshots can be found in the [restore d
 **Before you use the scripts, ensure that:**
 
 * The `kubectl` binary is installed and configured to connect to:
-    * the Kubernetes cluster where StackState has been installed.
-    * the namespace within that cluster where StackState has been installed.
+    1. The Kubernetes cluster where StackState has been installed.
+    2. The namespace within that cluster where StackState has been installed.
 * The following Helm values have been correctly set:
-    * `backup.enabled` is set to `true`.
-    * `backup.stackGraph.restore.enabled` is not set to `false` \(to access StackGraph backups\).
-    * `backup.elasticsearch.restore.enabled` is not set to `false` \(to access Elasticsearch snapshots\).
+    1. `backup.enabled` is set to `true`.
+    2. `backup.stackGraph.restore.enabled` is not set to `false` \(to access StackGraph backups\).
+    3. `backup.elasticsearch.restore.enabled` is not set to `false` \(to access Elasticsearch snapshots\).
 {% endhint %}
 
 ### List StackGraph backups
