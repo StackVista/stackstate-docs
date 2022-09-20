@@ -66,7 +66,7 @@ The email event handler function will send details of a health state change even
 Can be triggered by **Health state change events** only.
 {% endhint %}
 
-### Custom event handler functions
+### Custom functions
 
 {% hint style="success" "self-hosted info" %}
 You can [create your own custom event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md).
