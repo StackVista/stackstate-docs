@@ -42,7 +42,7 @@ A full list of the event handler functions available in your StackState instance
 Requires the [Slack StackPack](/stackpacks/integrations/slack.md) to be installed on your StackState instance.
 {% endhint %}
 
-Sends a message with detailed information about the trigger event, including the possible root cause, to the configured Slack webhook URL. See [how to create a Slack Webhook \(slack.com\)](https://api.slack.com/messaging/webhooks). 
+Sends a Slack message with detailed information about the trigger event, including the possible root cause, to the configured Slack webhook URL. See [how to create a Slack Webhook \(slack.com\)](https://api.slack.com/messaging/webhooks). 
 
 Can be triggered by **Health state change events** and **Problem events**.
 
