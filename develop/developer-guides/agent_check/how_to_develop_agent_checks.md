@@ -105,9 +105,10 @@ instances:
 Now you can start defining your first check. The following "Skeleton" check can be used as a good starting point:
 
 ```text
-from stackstate_checks.base import AgentCheck, ConfigurationError, AgentIntegrationInstance
+from stackstate_checks.base.checks.v2.base import AgentCheckV2
+from stackstate_checks.base import ConfigurationError, AgentIntegrationInstance
 
-class ExampleCheck(AgentCheck):
+class ExampleCheck(AgentCheckV2):
 
     # This method should also be overriden to uniquely identify your integration instance. The AgentIntegrationInstance is synchronized by the StackState Agent V2 StackPack. All topology elements produced by this check can be found by filtering on the `integration-type:{example}` and `integration-url:{instance_url}` tags in StackState for this example.
     def get_instance_key(self, instance):
