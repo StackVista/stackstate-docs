@@ -348,7 +348,23 @@ To delete existing Elasticsearch indices so that a snapshot can be restored, fol
    kubectl port-forward service/stackstate-elasticsearch-master 9200:9200
    ```
 
-3. Delete an index with a following command:
+3. Get a list of indices:
+
+   ```bash
+   curl "http://localhost:9200/_cat/indices?v=true"
+   ```
+   
+   The output should look like this:
+
+   ```bash
+   green open sts_internal_events-2022.09.20 fTk7iEYtQI6ruVFuwNnbPw 1 0  125 0  71.7kb  71.7kb
+   health status index                          uuid                   pri rep docs.count docs.deleted store.size pri.store.size
+   green  open   sts_internal_events-2022.09.20 fTk7iEYtQI6ruVFuwNnbPw   1   0        125            0     71.7kb         71.7kb
+   green  open   .geoip_databases               GYA_c3i6QKenfFehnwBcAA   1   0         41            0     38.8mb         38.8mb
+   green  open   sts_multi_metrics-2022.09.20   MT1DceQPTDWVIfBJdl7qUg   3   0       1252            0    550.1kb        550.1kb
+   ```
+
+5. Delete an index with a following command:
 
    ```bash
    curl -X DELETE "http://localhost:9200/INDEX_NAME?pretty"
@@ -360,7 +376,7 @@ To delete existing Elasticsearch indices so that a snapshot can be restored, fol
    curl -X DELETE "http://localhost:9200/sts_internal_events-2021.02.19?pretty"
    ```
 
-4. The output should be:
+6. The output should be:
 
    ```javascript
    {
@@ -376,12 +392,12 @@ To delete existing Elasticsearch indices so that a snapshot can be restored, fol
 See [delete Elasticsearch indices](kubernetes_backup.md#delete-elasticsearch-indices).
 {% endhint %}
 
-To restore an Elasticsearch snapshot, select a snapshot name and pass it as the first parameter in the following command line. You can optionally specify a second parameter with the indices that should be restored. If not specified, all indicies that match the Helm value `backup.elasticsearch.scheduled.indices` will be restored (default `"sts*"`):
+To restore an Elasticsearch snapshot, select a snapshot name and pass it as the first parameter in the following command line. You can optionally specify a second parameter with a comma-separated list of the indices that should be restored. If not specified, all indices that match the Helm value `backup.elasticsearch.scheduled.indices` will be restored (default `"sts*"`):
 
 ```bash
 ./restore/restore-elasticsearch-snapshot.sh \
   sts-backup-20210223-0300-ppss8nx40ykppss8nx40yk \
-  "<INDICES_TO_RESTORE>"
+  "<INDEX_TO_RESTORE>,<INDEX_TO_RESTORE>"
 ```
 
 The output should look like this:
