@@ -348,7 +348,7 @@ To delete existing Elasticsearch indices so that a snapshot can be restored, fol
    kubectl port-forward service/stackstate-elasticsearch-master 9200:9200
    ```
 
-3. Get a list of indices:
+3. Get a list of all indices:
 
    ```bash
    curl "http://localhost:9200/_cat/indices?v=true"
@@ -357,7 +357,6 @@ To delete existing Elasticsearch indices so that a snapshot can be restored, fol
    The output should look like this:
 
    ```bash
-   green open sts_internal_events-2022.09.20 fTk7iEYtQI6ruVFuwNnbPw 1 0  125 0  71.7kb  71.7kb
    health status index                          uuid                   pri rep docs.count docs.deleted store.size pri.store.size
    green  open   sts_internal_events-2022.09.20 fTk7iEYtQI6ruVFuwNnbPw   1   0        125            0     71.7kb         71.7kb
    green  open   .geoip_databases               GYA_c3i6QKenfFehnwBcAA   1   0         41            0     38.8mb         38.8mb
