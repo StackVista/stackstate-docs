@@ -349,7 +349,7 @@ The naming of some values has changed in the new chart. If you previously deploy
     * `clusterChecks` has been renamed to `checksAgent` - the `checksAgent` now runs by default. The `checksAgent` section is now only required if you want to disable the Checks Agent.
     * `agent` has been renamed to `nodeAgent`.
     * The kubernetes\_state check now runs in the Checks Agent by default, this no longer needs to be configured on default installations.
-    * For an example of the changes required to the values.yaml file, see [Comparison - OLD values.yaml and NEW values.yaml](#comparison-old-values.yaml-and-new-values.yaml)
+    * For an example of the changes required to the values.yaml file, see the [comparison - OLD values.yaml and NEW values.yaml](#comparison-old-values.yaml-and-new-values.yaml)
 
 4. Uninstall the StackState Cluster Agent and the StackState Agent from your Kubernetes or OpenShift cluster, using a Helm uninstall:
     ```bash
@@ -396,11 +396,11 @@ helm upgrade --install \
 
 The old `stackstate/cluster-agent` chart used to be the Agent has been replaced by the new `stackstate/stackstate-agent` chart. The naming of some values has changed in the new chart. If you were previously deploying the Agent with the old `stackstate/cluster-agent` and a values.yaml file, you should update your values.yaml to match the new naming.
 
-| stackstate/cluster-agent | stackstate/stackstate-agent | Notes                                                                                  |
+| stackstate/cluster-agent | stackstate/stackstate-agent | Changes in NEW chart                                                                   |
 | :--- | :--- |:---------------------------------------------------------------------------------------|
 | OLD chart (being deprecated) | NEW chart | It is advised to use the NEW `stackstate/stackstate-agent` chart.                      |
-| `clusterChecks` | `checksAgent` | Section renamed and enabled by default in the NEW `stackstate/stackstate-agent` chart. |
-| `agent` | `nodeAgent` | Section renamed in NEW `stackstate/stackstate-agent` chart.                            |
+| `clusterChecks` | `checksAgent` | Section renamed and enabled by default. |
+| `agent` | `nodeAgent` | Section renamed.                            |
 
 In addition to these changes, the kubernetes_state check runs by default in the Checks Agent when using the new chart (`stackstate/stackstate-agent`). This no longer needs to be configured on default installations.
 
@@ -411,7 +411,7 @@ Below is an example comparing the values.yaml required by the new chart (`stacks
 * AWS check running in the Checks Agent
 
 {% tabs %}
-{% tab title="Example: NEW values.yaml file" %}
+{% tab title="Example: values.yaml file for NEW stackstate/stackstate-agent chart" %}
 ```yaml
 # checksAgent enabled by default 
 # (Called clusterChecks in the old stackstate/cluster-agent chart)
@@ -438,7 +438,7 @@ clusterAgent:
            collection_interval: 60
 ```
 {% endtab %}
-{% tab title="Example: OLD values.yaml file" %}
+{% tab title="Example: values.yaml file for OLD stackstate/cluster-agent chart" %}
 ```yaml
 # Enable clusterChecks functionality and the clustercheck pods. 
 # (Called checksAgent in the new stackstate/stackstate-agent chart)
