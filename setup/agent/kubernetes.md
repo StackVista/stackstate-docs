@@ -280,13 +280,13 @@ stackstate-agent stackstate/stackstate-agent
 
 ### Upgrade Agents
 
-To upgrade the Agents running in your Kubernetes or OpenShift cluster, use the command below.
+To upgrade the Agents running in your Kubernetes or OpenShift cluster, follow the steps described below.
 
 {% tabs %}
 {% tab title="stackstate/stackstate-agent chart" %}
 **Redeploy/upgrade with the new stackstate/stackstate-agent chart**
 
-The new `stackstate/stackstate-agent` chart can be used to deploy any version of the Agent. 
+The new `stackstate/stackstate-agent` chart can be used to deploy any version of the Agent. Note that the naming of some values has changed compared to the old `stackstate/cluster-agent` chart.
 
 * If this is the first time you will use the new `stackstate/stackstate-agent` chart to deploy the Agent, follow the instructions to [upgrade the Helm chart](#upgrade-helm-chart).
 * If you previously deployed the Agent using the new `stackstate/stackstate-agent`, you can upgrade/redeploy the Agent using the same command used to deploy the Agent.
@@ -353,9 +353,6 @@ If you previously used the `stackstate/cluster-agent`, perform the following act
     * The kubernetes\_state check now runs in the Checks Agent by default, this no longer needs to be configured on default installations.
     {% tabs %}
     {% tab title="New values.yaml file" %}
-    The values.yaml file to use with the new `stackstate/cluster-agent` chart looks like this:
-   
-    ```
     # Enable/disable cluster checks functionality _and_ the clustercheck pods. 
     # The checksAgent (previously clusterChecks) is now enabled by default.
     # To run with the checksAgent enabled, this section can be deleted.
@@ -384,12 +381,8 @@ If you previously used the `stackstate/cluster-agent`, perform the following act
 
             instances:
               - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
-    ```
     {% endtab %}
     {% tab title="Old values.yaml file" %}
-    The values.yaml file used with the old `stackstate/cluster-agent` chart looked like this:
-
-    ```
     # Enable/disable cluster checks functionality _and_ the clustercheck pods. 
     # Note that Cluster checks (now checksAgent) are enabled by default in the new `stackstate/cluster-agent` chart.
     clusterChecks:
@@ -416,7 +409,6 @@ If you previously used the `stackstate/cluster-agent`, perform the following act
 
             instances:
               - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
-    ```
     {% endtab %}
     {% endtabs %}
 4. Uninstall the StackState Cluster Agent and the StackState Agent from your Kubernetes or OpenShift cluster, using a Helm uninstall:
