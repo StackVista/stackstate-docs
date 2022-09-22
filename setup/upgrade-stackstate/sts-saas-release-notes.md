@@ -10,6 +10,28 @@ Note that the release notes may include details of functionality that is current
 
 ## StackState v5.0.x
 
+### v5.0.5 (2022-09-13)
+
+**Bug fixes**
+
+- Fixed issue that caused problems to display without contributing components in some cases. STAC-17731
+
+### v5.0.4 (2022-09-08)
+
+**Improvements**
+
+- Added a time context on Component Actions accessible by default via the variables `telemetryTimeStart`, `telemetryTimeEnd` and `topologyTime`. STAC-16936
+
+### v5.0.3 (2022-08-29)
+
+**Bug fixes**
+
+* Fixed a template issue that prevented the AAD from authenticating with StackState. STAC-17554
+
+**Security**
+
+* Removed curl executable from UI Docker container resolving CVE-2022-32207. STAC-17319
+
 ### v5.0.2 (2022-08-13)
 
 **Improvements**

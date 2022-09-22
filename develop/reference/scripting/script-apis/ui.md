@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x 
+description: StackState Self-hosted v5.1.x 
 ---
 
 # UI - script API
@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.0.x
 These functions only work in the context of scripts that are executed by a user from the user-interface. [Component actions](../../../../configure/topology/component_actions.md) are an example of scripts that can trigger actions in the user-interface.
 {% endhint %}
 
-## Function: baseUrl
+## Function: `UI.baseUrl()`
 
 Returns the baseUrl of the StackState instance (`<STACKSTATE_BASE_URL>`) as configured in the `application.conf` or `values.yaml`.
 
@@ -16,11 +16,7 @@ Returns the baseUrl of the StackState instance (`<STACKSTATE_BASE_URL>`) as conf
 
 Return the base URL from the StackState configuration.
 
-```groovy
-UI.baseUrl()
-```
-
-## Function: `createUrl`
+## Function: `UI.createUrl()`
 
 Creates a URL builder that can be used to generate URLs that can be linked back in StackState.
 
@@ -89,7 +85,7 @@ Create a URL to the Topology Perspective explore mode with filters in place to s
 UI.createUrl().explore().topologyQuery('environment IN ("Production") AND healthstate IN ("CRITICAL")').fullCauseTree().url()
 ```
 
-## Function: `redirectToURL`
+## Function: `UI.redirectToURL(url: String)`
 
 Opens a new tab in the user's browser to some URL.
 
@@ -109,7 +105,7 @@ Open the stackstate.com website in a new tab in the browser.
 UI.redirectToURL("http://wwww.stackstate.com")
 ```
 
-## Function: `showReport`
+## Function: `UI.showReport(reportName: String, stmlContent: String)`
 
 Shows a report in the user-interface. The user-interface will open a dialog with the report in it. You can also see the result of these reports in the preview of the analytics environment.
 
@@ -140,7 +136,7 @@ UI.showReport(
 
 Note the `.stripMargin()` call. This is a Groovy function for strings that strips leading whitespace/control characters followed by '\|' from every line. This way, indenting can be retained without introducing leading whitespace in the STML.
 
-## Function: `showTopologyByQuery`
+## Function: `UI.showTopologyByQuery(query: String)`
 
 Sets the user-interface to the Topology Perspective and changes the SQTL query.
 

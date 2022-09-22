@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x 
+description: StackState Self-hosted v5.1.x 
 ---
 
 # Create and edit views
@@ -44,7 +44,7 @@ A saved view can be edited or deleted from either the **all views** screen, or t
    * Click **Views** in the main menu to open the **all views** screen.
    * Hover over the view you would like to edit or delete.
    * Click the **Edit view** or **Delete view** button on the right.
-2. Right panel **View Summary** tab:
+2. Right panel **View summary** tab:
    * Open the view.
-   * Open the triple dots menu (to the right of the view name in the right panel **View Summary** tab).
+   * Open the triple dots menu (to the right of the view name in the right panel **View summary** tab).
    * Click **Edit** or **Delete**.

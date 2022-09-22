@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.1.x
 ---
 
 # Manual instrumentation mappings for StackState
@@ -132,7 +132,7 @@ rdsDatabase.setAttribute('resource.name', 'AWS RDS');
 
 Example of how the parent component will look like if you create the with the above code
 
-![Parent Component after StackState received the trace](../../../../.gitbook/assets/v50_otel_example_parent.png)
+![Parent Component after StackState received the trace](../../../../.gitbook/assets/v51_otel_example_parent.png)
 
 ---
 
@@ -166,7 +166,7 @@ rdsDatabaseTable.setAttribute('resource.name', 'AWS RDS');
 
 Example of how the child component will look like if you create the with the above code, and the relation to the parent
 
-![Parent Component after StackState received the trace](../../../../.gitbook/assets/v50_otel_example_child.png)
+![Parent Component after StackState received the trace](../../../../.gitbook/assets/v51_otel_example_child.png)
 
 
 ---

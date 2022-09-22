@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x 
+description: StackState Self-hosted v5.1.x 
 ---
 
 # Upload a StackPack file
@@ -15,7 +15,7 @@ To upload the `.sts` file to StackState use the [StackState CLI](../../../setup/
 sts stackpack upload --file <PATH_TO_FILE.sts>
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}

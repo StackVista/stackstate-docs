@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x
+description: StackState Self-hosted v5.1.x
 ---
 
 # Relations between components
@@ -18,7 +18,7 @@ Service Name: Parent Component
 
 An example of the above displayed in StackState will show up as follows:
 
-![Topology Perspective - Unmerged OTEL Components](../../../../.gitbook/assets/v50_otel_topology_perspective_healthy_component.png)
+![Topology Perspective - Unmerged OTEL Components](../../../../.gitbook/assets/v51_otel_topology_perspective_healthy_component.png)
 
 These relations are based on the parent and child structure. A relationship is drawn from a parent component to a child component. 
 
@@ -50,7 +50,7 @@ Service Name: Parent Component [Propagated 400 Status]
 
 A visual example of this in the StackState UI will be as follows:
 
-![Topology Perspective - OTEL Components CRITICAL State](../../../../.gitbook/assets/v50_otel_topology_perspective_critical_component.png)
+![Topology Perspective - OTEL Components CRITICAL State](../../../../.gitbook/assets/v51_otel_topology_perspective_critical_component.png)
 
 So remember to create your parent and children spans in the correct order as it may affect the propagation of health state.
 
@@ -61,14 +61,14 @@ So remember to create your parent and children spans in the correct order as it 
 Relations are retained when merging components; this allows you to create a parent component, create a child component for this parent
 and then merge that child component with an existing component. This will then create a relationship between the pre-existing component that the child component merged with and the parent component. For example, here we have the three components as described above:
 
-![Topology Perspective - OTEL Components and Pre-Existing Components](../../../../.gitbook/assets/v50_otel_scenario_pre-existing_components.png)
+![Topology Perspective - OTEL Components and Pre-Existing Components](../../../../.gitbook/assets/v51_otel_scenario_pre-existing_components.png)
 
 If we then merge our middle component `Service Name: Child Component` with the existing healthy Lambda component `otel-example-custom-instrumentation-dev-create-custom-component` in the bottom right corner:
 
 * The middle component will disappear (merged with the Lambda component)
 * The Lambda component will have relations to the first and third components (inherited relation mappings from the middle component).
 
-![Topology Perspective - Merged with Healthy Component](../../../../.gitbook/assets/v50_otel_traces_merge_with_healthy_complete.png)
+![Topology Perspective - Merged with Healthy Component](../../../../.gitbook/assets/v51_otel_traces_merge_with_healthy_complete.png)
 
 ## Multiple children
 
@@ -82,6 +82,6 @@ Service Name: Parent Component
 ---> Service Name: Child 2 Component
 ```
 
-![Topology Perspective - OTEL Components with Multiple Children](../../../../.gitbook/assets/v50_otel_traces_multiple_children.png)
+![Topology Perspective - OTEL Components with Multiple Children](../../../../.gitbook/assets/v51_otel_traces_multiple_children.png)
 
 

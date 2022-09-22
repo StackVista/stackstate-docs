@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x 
+description: StackState Self-hosted v5.1.x 
 ---
 
 # Components
@@ -15,7 +15,7 @@ A component consists of:
 3. The component color represents the component's [own health state](/use/concepts/health-state.md#element-health-state).
 4. An outer color indicates an unhealthy [propagated health state](/use/concepts/health-state.md#propagated-health-state) (`DEVIATING` or `CRITICAL`). The propagated health state is calculated based on the health state of components or relations that the component depends upon.
 
-![](/.gitbook/assets/v50_topology_elements.png)
+![](/.gitbook/assets/v51_topology_elements.png)
 
 ## Detailed component information
 
@@ -28,7 +28,7 @@ When a component is selected by clicking on it, detailed information about the c
 
 Click SHOW ALL PROPERTIES to open a pop-up with all details of the component, including the YAML definition.
 
-![Detailed component information](/.gitbook/assets/v50_component_with_details.png)
+![Detailed component information](/.gitbook/assets/v51_component_with_details.png)
 
 ## Grouping
 

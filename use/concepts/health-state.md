@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x 
+description: StackState Self-hosted v5.1.x 
 ---
 
 # Health state
@@ -60,7 +60,7 @@ In the StackState UI, the color of an element represents its own health state. A
 * Red - `CRITICAL` - Attention is needed right now, because something is broken. A badge on the component shows the number of health checks that are currently failing.
 * Gray - `UNKNOWN` - No health state available.
 
-![Health states](../../.gitbook/assets/v50_element-health-states.png)
+![Health states](../../.gitbook/assets/v51_element-health-states.png)
 
 The element will also have an outer color if it has an unhealthy [propagated health state](#propagated-health-state).
 
@@ -79,14 +79,14 @@ In the StackState UI, an outer color will be shown when an element's propagated 
 
 The color of the element itself (the inner color) represents the [element own health state](#element-own-health-state).
 
-![](../../.gitbook/assets/v50_propagated-health-states.png)
+![](../../.gitbook/assets/v51_propagated-health-states.png)
 
 The propagated health state of an element can also be found in the following places:
 
 * In the right panel **Selection details** tab when information about a component or relation is displayed. 
 * In the [component context menu](/use/stackstate-ui/perspectives/topology-perspective.md#component-context-menu) when you hover over a component in the topology visualization.
 
-![](../../.gitbook/assets/v50_stackstate-ui-propagated-health-state.png)
+![](../../.gitbook/assets/v51_stackstate-ui-propagated-health-state.png)
 
 ### Propagation
 
@@ -94,10 +94,10 @@ The propagated health state is calculated using a propagation function. Health s
 
 | Dependency and propagated state                        | Description |
 |:-------------------------------------------------------| :--- |
-| ![](../../.gitbook/assets/v50_propagation_b_to_a.png)  | Component A depends on component B. Health state will propagate from B to A. |
-| ![](../../.gitbook/assets/v50_propagation_a_to_b.png)  | Component B depends on component A. Health state will propagate from A to B. |
-| ![](../../.gitbook/assets/v50_propagation_a_and_b.png) | Dependency in both directions. Health state will propagate from A to B and from B to A. In other words, it is a circular dependency. |
-| ![](../../.gitbook/assets/v50_no_propagation.png)      | No dependency. Health state does not propagate. |
+| ![](../../.gitbook/assets/v51_propagation_b_to_a.png)  | Component A depends on component B. Health state will propagate from B to A. |
+| ![](../../.gitbook/assets/v51_propagation_a_to_b.png)  | Component B depends on component A. Health state will propagate from A to B. |
+| ![](../../.gitbook/assets/v51_propagation_a_and_b.png) | Dependency in both directions. Health state will propagate from A to B and from B to A. In other words, it is a circular dependency. |
+| ![](../../.gitbook/assets/v51_no_propagation.png)      | No dependency. Health state does not propagate. |
 
 {% hint style="success" "self-hosted info" %}
 
@@ -115,17 +115,17 @@ In the StackState UI, the view health state is reported as a one of four colors:
 * Red - `CRITICAL` - Attention is needed right now, because something is broken.
 * Gray - `UNKNOWN` - View health state reporting is disabled.
 
-![Health states](../../.gitbook/assets/v50_view_health_states.svg)
+![Health states](../../.gitbook/assets/v51_view_health_states.svg)
 
 * [How to configure view health state reporting](/use/stackstate-ui/views/configure-view-health.md)
 
 You can check the view health state in the following places in the StackState UI:
 
-* **Current view** - The health state of the current view is visible in the top bar of the StackState UI and also next to the view name in the right panel **View Summary** tab. Historical health state information for a view can be seen in the [timeline Health](../stackstate-ui/timeline-time-travel.md#health) line at the bottom of the screen.
+* **Current view** - The health state of the current view is visible in the top bar of the StackState UI and also next to the view name in the right panel **View summary** tab. Historical health state information for a view can be seen in the [timeline Health](../stackstate-ui/timeline-time-travel.md#health) line at the bottom of the screen.
 * **Starred views** - Starred views are listed in the StackState main menu together with their health state.
 * **All views** - The health state of all views is visible on the view overview screen. Click **Views** from the StackState main menu.
 
-![View health state in main menu](../../.gitbook/assets/v50_view_health_main_menu.png)
+![View health state in main menu](../../.gitbook/assets/v51_view_health_main_menu.png)
 
 ## See also
 

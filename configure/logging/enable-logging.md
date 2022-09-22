@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x 
+description: StackState Self-hosted v5.1.x 
 ---
 
 # Enable logging for functions
@@ -71,7 +71,7 @@ The ID for a check or propagation on a specific component can be found in the St
 3. Find the section for `"checks"` or `"propagation"`.
 4. Find the check or propagation that you want to enable logging for and copy the value from the field `id`.
 
-![Show JSON](../../.gitbook/assets/v50_show-json.png)
+![Show JSON](../../.gitbook/assets/v51_show-json.png)
 
 * Use the ID to [enable logging](enable-logging.md#set-the-logging-level-for-a-function-instance) for the component's check or propagation functions.
 
@@ -107,7 +107,7 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 sts settings list --type EventHandler
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 {% endtab %}
@@ -194,7 +194,7 @@ sts settings describe --ids <VIEW_ID>
 
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 {% endtab %}

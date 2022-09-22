@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x 
+description: StackState Self-hosted v5.1.x 
 ---
 
 # Analytics
@@ -37,7 +37,7 @@ Results of queries are typically displayed in raw JSON form, unless there is a p
 * Telemetry predictions, see [Prediction.predictMetrics](../../develop/reference/scripting/script-apis/prediction.md#function-predictmetrics)
 * STML reports, see [UI.showReport](../../develop/reference/scripting/script-apis/ui.md#function-showreport)
 
-![Analytics preview](../../.gitbook/assets/v50_analytics.png)
+![Analytics preview](../../.gitbook/assets/v51_analytics.png)
 
 ## Queries
 

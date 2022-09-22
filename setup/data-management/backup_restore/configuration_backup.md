@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.0.x 
+description: StackState Self-hosted v5.1.x 
 ---
 
 # Configuration backup
@@ -25,7 +25,7 @@ sts settings describe
 sts settings describe --file <PATH_TO_FILE.stj>
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
@@ -61,7 +61,7 @@ To export configuration from the StackState UI:
 1. Go to **Settings** &gt; **Import/Export** &gt; **Export Settings** 
 2. Click the button **STS-EXPORT-ALL**.
 
-![Export configuration from the StackState UI](../../../.gitbook/assets/v50_export_configuration.png)
+![Export configuration from the StackState UI](../../../.gitbook/assets/v51_export_configuration.png)
 
 ### Export configuration with authentication \(curl\)
 
@@ -104,7 +104,7 @@ To clear the StackState configuration and import from a file using the StackStat
 sts settings apply --file <PATH_TO_FILE.stj>
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
@@ -159,7 +159,7 @@ Alternatively, in the StackState UI:
 2. Choose the `*.stj` file that you want to import configuration from.
 3. Click the button **START IMPORT**.
 
-![Import configuration from the StackState UI](../../../.gitbook/assets/v50_import_configuration.png)
+![Import configuration from the StackState UI](../../../.gitbook/assets/v51_import_configuration.png)
 
 ## Import or export individual configuration items
 
@@ -184,7 +184,7 @@ For export:
 sts settings describe --namespace urn:stackpack:{stackpack_name}:
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
