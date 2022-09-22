@@ -11,9 +11,9 @@ After a problem has been identified in the StackState topology, it will be track
 The stages in the problem lifecycle and associated events are described on this page:
 
 1. [Problem created](#problem-created) - a new problem is identified.
-2. [Problem updated](#problem-updated) - changes to existing problems.
+2. [Problem updated](#problem-updated) - a change to an existing problem.
 3. [Problem subsumed](#problem-subsumed) - a problem becomes part of an older problem.
-4. [Problem resolved](#problem-resolved) - all affected elements in a problem are no healthy.
+4. [Problem resolved](#problem-resolved) - all affected elements in a problem are now healthy.
 
 ## Problem created
 
