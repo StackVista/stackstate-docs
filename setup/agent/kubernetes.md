@@ -24,8 +24,8 @@ The Kubernetes and OpenShift integrations collect topology data from Kubernetes 
 | Component | Pod name |
 | :--- | :--- |
 | [Node Agent](#agent) | `stackstate-agent-node-agent` |
-| [Cluster Agent](#cluster-agent) | `stackstate-agent-cluster-agent` |
 | [Checks Agent](#checks-agent)| `stackstate-agent-checks-agent` |
+| [Cluster Agent](#cluster-agent) | `stackstate-agent-cluster-agent` |
 
 {% hint style="info" %}
 To integrate with other services, a separate instance of the StackState Agent should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on a Kubernetes or OpenShift cluster with checks that integrate with other services.
@@ -41,15 +41,6 @@ StackState Agent V2 is deployed as a DaemonSet with one instance **on each node*
 * Container information is collected from the Docker daemon.
 * Metrics are retrieved from kubelet running on the node and also from kube-state-metrics if this is deployed on the same node.
 
-## Cluster Agent
-
-StackState Cluster Agent is deployed as a Deployment. There is one instance for the entire cluster:
-
-* Topology and events data for all resources in the cluster are retrieved from the Kubernetes API
-* Control plane metrics are retrieved from the Kubernetes or OpenShift API
-
-Cluster checks configured here are run by the deployed [StackState Checks Agent](kubernetes.md#checks-agent) pod.
-
 ## Checks Agent
 
 The StackState Checks Agent is an additional StackState Agent V2 pod that will run the cluster checks that are configured on the [StackState Cluster Agent](#cluster-agent).
@@ -63,6 +54,15 @@ The following checks can be configured to run as a cluster check:
 * The Checks Agent is also useful to run checks that do not need to run on a specific node and monitor non-containerized workloads such as:
   * Out-of-cluster datastores and endpoints \(for example, RDS or CloudSQL\).
   * Load-balanced cluster services \(for example, Kubernetes services\).
+
+## Cluster Agent
+
+StackState Cluster Agent is deployed as a Deployment. There is one instance for the entire cluster:
+
+* Topology and events data for all resources in the cluster are retrieved from the Kubernetes API
+* Control plane metrics are retrieved from the Kubernetes or OpenShift API
+
+Cluster checks configured here are run by the deployed [StackState Checks Agent](kubernetes.md#checks-agent) pod.
 
 # Setup
 
@@ -466,7 +466,7 @@ To integrate with other external services, a separate instance of the [StackStat
 
 ## Agent and Cluster Agent pod status
 
-To check the status of the Kubernetes or OpenShift integration, check that the StackState Cluster Agent \(`cluster-agent`\) pod, StackState Checks Agent pod \(`checks-agent`\) and all of the StackState Agent \(`cluster-agent-agent`\) pods have status `READY`.
+To check the status of the Kubernetes or OpenShift integration, check that the StackState Cluster Agent \(`cluster-agent`\) pod, StackState Checks Agent pod \(`checks-agent`\) and all of the StackState Agent \(`node-agent`\) pods have status `READY`.
 
 ```text
 ❯ kubectl get deployment,daemonset --namespace stackstate
