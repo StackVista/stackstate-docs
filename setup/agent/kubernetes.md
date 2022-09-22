@@ -349,78 +349,7 @@ The naming of some values has changed in the new chart. If you previously deploy
     * `clusterChecks` has been renamed to `checksAgent` - the `checksAgent` now runs by default. The `checksAgent` section is now only required if you want to disable the Checks Agent.
     * `agent` has been renamed to `nodeAgent`.
     * The kubernetes\_state check now runs in the Checks Agent by default, this no longer needs to be configured on default installations.
-    * Below is a comparison of the old values.yaml and the new values.yaml required for a deployment with the Checks Agent enabled, and the kubernetes\_state check and AWS check running in the Checks Agent:
-   {% tabs %}
-   {% tab title="New values.yaml file" %}
-   ```yaml
-   # checksAgent enabled by default 
-   # (Called clusterChecks in the old stackstate/cluster-agent chart)
-   # kubernetes_state check disabled by default on regular Agent pods.
-   clusterAgent:
-     config:
-       override:
-       # kubernetes_state check enabled by default for the Checks Agent.
-       # Define the AWS check for the Checks Agent.
-       - name: conf.yaml
-         path: /etc/stackstate-agent/conf.d/aws_topology.d
-         data: |
-           cluster_check: true
-           init_config:
-             aws_access_key_id: ''
-             aws_secret_access_key: ''
-             external_id: uniquesecret!1 
-             # full_run_interval: 3600
-           instances:
-           - role_arn: arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole
-               regions:
-               - global
-               - eu-west-1
-               collection_interval: 60
-   ```
-   {% endtab %}
-   {% tab title="Old values.yaml file" %}
-   ```yaml
-   # Enable clusterChecks functionality and the clustercheck pods. 
-   # (Called checksAgent in the new stackstate/stackstate-agent chart)
-   clusterChecks:
-     enabled: true
-   # Disable the kubernetes_state check on regular Agent pods.
-   agent:
-     config:
-       override:
-       - name: auto_conf.yaml
-         path: /etc/stackstate-agent/conf.d/kubernetes_state.d
-         data: |
-   clusterAgent:
-     config:
-       override:
-       # Define the kubernetes_state check for clusterChecks Agents.
-       - name: conf.yaml
-         path: /etc/stackstate-agent/conf.d/kubernetes_state.d
-         data: |
-           cluster_check: true
-           init_config:
-           instances:
-             - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
-       # Define the AWS check for clusterChecks Agents.
-       - name: conf.yaml
-         path: /etc/stackstate-agent/conf.d/aws_topology.d
-         data: |
-           cluster_check: true
-           init_config:
-             aws_access_key_id: ''
-             aws_secret_access_key: ''
-             external_id: uniquesecret!1 
-             # full_run_interval: 3600
-           instances:
-           - role_arn: arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole
-               regions:
-               - global
-               - eu-west-1
-               collection_interval: 60 
-   ```
-   {% endtab %}
-   {% endtabs %}
+    * For an example of the changes required to the values.yaml file, see [Comparison - OLD values.yaml and NEW values.yaml](#comparison-old-valuesyaml-and-new-valuesyaml)
 
 4. Uninstall the StackState Cluster Agent and the StackState Agent from your Kubernetes or OpenShift cluster, using a Helm uninstall:
     ```bash
@@ -459,6 +388,96 @@ helm upgrade --install \
   --set 'kube-state-metrics.securityContext.enabled'=false \
   --values values.yaml \
   stackstate-agent stackstate/stackstate-agent
+```
+{% endtab %}
+{% endtabs %}
+
+### Comparison - OLD values.yaml and NEW values.yaml
+
+The old `stackstate/cluster-agent` chart used to be the Agent has been replaced by the new `stackstate/stackstate-agent` chart. The naming of some values has changed in the new chart. If you were previously deploying the Agent with the old `stackstate/cluster-agent` and a values.yaml file, you should update your values.yaml to match the new naming.
+
+| stackstate/cluster-agent | stackstate/stackstate-agent | Notes                                                                                  |
+| :--- | :--- |:---------------------------------------------------------------------------------------|
+| OLD chart (being deprecated) | NEW chart | It is advised to use the NEW `stackstate/stackstate-agent` chart.                      |
+| `clusterChecks` | `checksAgent` | Section renamed and enabled by default in the NEW `stackstate/stackstate-agent` chart. |
+| `agent` | `nodeAgent` | Section renamed in NEW `stackstate/stackstate-agent` chart.                            |
+
+In addition to these changes, the kubernetes_state check runs by default in the Checks Agent when using the new chart (`stackstate/stackstate-agent`). This no longer needs to be configured on default installations.
+
+Below is an example comparing the values.yaml required by the new chart (`stackstate/stackstate-agent`) and the old chart (`stackstate/cluster-agent`) to deploy the Agent with the following configuration:
+
+* Checks Agent enabled
+* kubernetes\_state check running in the Checks Agent
+* AWS check running in the Checks Agent
+
+{% tabs %}
+{% tab title="Example: NEW values.yaml file" %}
+```yaml
+# checksAgent enabled by default 
+# (Called clusterChecks in the old stackstate/cluster-agent chart)
+# kubernetes_state check disabled by default on regular Agent pods.
+clusterAgent:
+ config:
+   override:
+   # kubernetes_state check enabled by default for the Checks Agent.
+   # Define the AWS check for the Checks Agent.
+   - name: conf.yaml
+     path: /etc/stackstate-agent/conf.d/aws_topology.d
+     data: |
+       cluster_check: true
+       init_config:
+         aws_access_key_id: ''
+         aws_secret_access_key: ''
+         external_id: uniquesecret!1 
+         # full_run_interval: 3600
+       instances:
+       - role_arn: arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole
+           regions:
+           - global
+           - eu-west-1
+           collection_interval: 60
+```
+{% endtab %}
+{% tab title="Example: OLD values.yaml file" %}
+```yaml
+# Enable clusterChecks functionality and the clustercheck pods. 
+# (Called checksAgent in the new stackstate/stackstate-agent chart)
+clusterChecks:
+ enabled: true
+# Disable the kubernetes_state check on regular Agent pods.
+agent:
+ config:
+   override:
+   - name: auto_conf.yaml
+     path: /etc/stackstate-agent/conf.d/kubernetes_state.d
+     data: |
+clusterAgent:
+ config:
+   override:
+   # Define the kubernetes_state check for clusterChecks Agents.
+   - name: conf.yaml
+     path: /etc/stackstate-agent/conf.d/kubernetes_state.d
+     data: |
+       cluster_check: true
+       init_config:
+       instances:
+         - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
+   # Define the AWS check for clusterChecks Agents.
+   - name: conf.yaml
+     path: /etc/stackstate-agent/conf.d/aws_topology.d
+     data: |
+       cluster_check: true
+       init_config:
+         aws_access_key_id: ''
+         aws_secret_access_key: ''
+         external_id: uniquesecret!1 
+         # full_run_interval: 3600
+       instances:
+       - role_arn: arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole
+           regions:
+           - global
+           - eu-west-1
+           collection_interval: 60 
 ```
 {% endtab %}
 {% endtabs %}
