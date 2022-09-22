@@ -47,6 +47,7 @@
 ## 🛑 Problem analysis
 
 * [About problems](use/problem-analysis/about-problems.md)
+* [Problem lifecycle](use/problem-analysis/problem-lifecycle.md)
 * [Investigate a problem](use/problem-analysis/problem_investigation.md)
 * [Problem notifications](use/problem-analysis/problem_notifications.md)
 
