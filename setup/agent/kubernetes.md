@@ -352,6 +352,7 @@ The naming of some values has changed in the new chart. If you previously deploy
     * Below is a comparison of the old values.yaml and the new values.yaml required for a deployment with the Checks Agent enabled, and the kubernetes\_state check and AWS check running in the Checks Agent:
    {% tabs %}
    {% tab title="New values.yaml file" %}
+   ```
    # Checks Agent enabled by default (Called Cluster Checks in the old stackstate/cluster-agent chart)
    # kubernetes_state check disabled by default on regular Agent pods.
    clusterAgent:
@@ -374,8 +375,10 @@ The naming of some values has changed in the new chart. If you previously deploy
                - global
                - eu-west-1
                collection_interval: 60
+   ```
    {% endtab %}
    {% tab title="Old values.yaml file" %}
+   ```
    # Enable cluster checks functionality _and_ the clustercheck pods. (Called Checks Agent in the new stackstate/stackstate-agent chart)
    clusterChecks:
      enabled: true
@@ -413,6 +416,7 @@ The naming of some values has changed in the new chart. If you previously deploy
                - global
                - eu-west-1
                collection_interval: 60 
+   ```
    {% endtab %}
    {% endtabs %}
 
