@@ -340,18 +340,14 @@ If you need to redeploy the Agent using the old `stackstate/cluster-agent` chart
 
 ### Upgrade Helm chart
 
-{% hint style="info" %}
-The `stackstate/cluster-agent` chart is being deprecated and will no longer be supported.
-{% endhint %}
+The `stackstate/cluster-agent` chart is being deprecated and will no longer be supported. If you previously used the `stackstate/cluster-agent` to deploy the Agent, follow the steps below to update the values.yaml file and deploy the Agent with the new `stackstate/stackstate-agent` chart:
 
-If you previously used the `stackstate/cluster-agent`, perform the following actions to deploy with the new `stackstate/stackstate-agent` chart:
-
-2. Backup the values.yaml file used when deploying the old `stackstate/cluster-agent` chart.
-3. Update the following values in the new values.yaml file in order to re-use the previous values and ensure compatibility with the new chart:
-    * `clusterChecks` has been renamed to `checksAgent` - the `checksAgent` now runs by default. The `checksAgent` section is now only required to disable the Checks Agent.
+2. Backup the values.yaml file that was used to deploy with the old `stackstate/cluster-agent` chart.
+3. Copy of the values.yaml file and update the following values in the new file. This will allow you to re-use the previous values while ensuring compatibility with the new chart:
+    * `clusterChecks` has been renamed to `checksAgent` - the `checksAgent` now runs by default. The `checksAgent` section is now only required if you want to disable the Checks Agent.
     * `agent` has been renamed to `nodeAgent`.
     * The kubernetes\_state check now runs in the Checks Agent by default, this no longer needs to be configured on default installations.
-    * Below is a comparison of the old values.yaml and the new values.yaml for a deployment with the Checks Agent enabled and the kubernetes\_state check running in the Checks Agent:
+    * Below is a comparison of the old values.yaml and the new values.yaml required for a deployment with the Checks Agent enabled and the kubernetes\_state check running in the Checks Agent:
        {% tabs %}
        {% tab title="New values.yaml file" %}
        # Enable/disable cluster checks functionality _and_ the clustercheck pods. 
@@ -412,6 +408,7 @@ If you previously used the `stackstate/cluster-agent`, perform the following act
                  - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
        {% endtab %}
        {% endtabs %}
+
 4. Uninstall the StackState Cluster Agent and the StackState Agent from your Kubernetes or OpenShift cluster, using a Helm uninstall:
     ```bash
     helm uninstall <release_name> --namespace <namespace>
@@ -419,7 +416,7 @@ If you previously used the `stackstate/cluster-agent`, perform the following act
     # If you used the standard install command provided when you installed the StackPack
     helm uninstall stackstate-agent --namespace stackstate
     ```
-5. Redeploy the `cluster_agent` using the updated values.yaml created in step 2:
+5. Redeploy the `cluster_agent` using the updated values.yaml created in step 2 and the new `stackstate/stackstate-agent` chart:
 
 {% tabs %}
 {% tab title="Kubernetes" %}
