@@ -346,7 +346,7 @@ The `stackstate/cluster-agent` chart is being deprecated and will no longer be s
 
 If you previously used the `stackstate/cluster-agent`, perform the following actions to deploy with the new `stackstate/stackstate-agent` chart:
 
-2. Backup the values.yaml file used when deploying the old stackstate/cluster-agent chart.
+2. Backup the values.yaml file used when deploying the old `stackstate/cluster-agent` chart.
 3. Update the following values in the new values.yaml file in order to re-use the previous values and ensure compatibility with the new chart:
     * `clusterChecks` has been renamed to `checksAgent` - the `checksAgent` now runs by default. The `checksAgent` section is now only required to disable the Checks Agent.
     * `agent` has been renamed to `nodeAgent`.
@@ -360,8 +360,8 @@ If you previously used the `stackstate/cluster-agent`, perform the following act
     # The checksAgent (previously clusterChecks) is now enabled by default.
     # To run with the checksAgent enabled, this section can be deleted.
     # To disable cluster checks, set checksAgent.enabled to false.
-    checksAgent:
-      enabled: true
+    # checksAgent:
+    #   enabled: false
     # Disable the kubernetes_state check on regular Agent pods.
     nodeAgent:
       config:
@@ -419,14 +419,14 @@ If you previously used the `stackstate/cluster-agent`, perform the following act
     ```
     {% endtab %}
     {% endtabs %}
-4. To uninstall the StackState Cluster Agent and the StackState Agent from your Kubernetes or OpenShift cluster, run a Helm uninstall:
+4. Uninstall the StackState Cluster Agent and the StackState Agent from your Kubernetes or OpenShift cluster, using a Helm uninstall:
     ```bash
     helm uninstall <release_name> --namespace <namespace>
 
     # If you used the standard install command provided when you installed the StackPack
     helm uninstall stackstate-agent --namespace stackstate
     ```
-5. Redeploy the `cluster_agent` using the updated `values.yaml` created in step 2:
+5. Redeploy the `cluster_agent` using the updated values.yaml created in step 2:
 
 {% tabs %}
 {% tab title="Kubernetes" %}
