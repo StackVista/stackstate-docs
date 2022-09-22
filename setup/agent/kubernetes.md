@@ -290,7 +290,7 @@ The stackstate/cluster-agent chart is being deprecated and will no longer be sup
     {% tab title="New values.yaml file" %}
     ```yaml
     checksAgent:
-    # checksAgent.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods.
+    # checksAgent.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods. The checksAgent is enabled by default. If you wish to run the checksAgent, this section can be deleted. Alternatively, it can be disabled by setting enabled to false.
       enabled: true
     nodeAgent:
       config:
@@ -318,7 +318,7 @@ The stackstate/cluster-agent chart is being deprecated and will no longer be sup
     {% tab title="Old values.yaml file" %}
     ```yaml
     clusterChecks:
-    # clusterChecks.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods.
+    # clusterChecks.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods. The clusterChecks (now checksAgent) is enabled by default. If you wish to run the checksAgent, this section can be deleted. Alternatively, it can be disabled by setting enabled to false.
       enabled: true
     agent:
       config:
@@ -372,19 +372,20 @@ StackState Agent V2 can be configured to reduce data production, tune the proces
 
 ### External integration configuration
 
-To integrate with other external services, a separate instance of the [StackState Agent](about-stackstate-agent.md) should be deployed on a standalone VM. Other than [cluster checks](#enable-cluster-checks), it is not currently possible to configure a StackState Agent deployed on a Kubernetes or OpenShift cluster with checks that integrate with other services.
+To integrate with other external services, a separate instance of the [StackState Agent](about-stackstate-agent.md) should be deployed on a standalone VM. Other than [kubernetes_state check](/stackpacks/integrations/kubernetes.md) and [AWS check](/stackpacks/integrations/aws/aws.md#configure-the-aws-check), it is not currently possible to configure a StackState Agent deployed on a Kubernetes or OpenShift cluster with checks that integrate with other services.
 
 ## Commands
 
 ### Agent and Cluster Agent pod status
 
-To check the status of the Kubernetes or OpenShift integration, check that the StackState Cluster Agent \(`cluster-agent`\) pod and all of the StackState Agent \(`cluster-agent-agent`\) pods have status `READY`.
+To check the status of the Kubernetes or OpenShift integration, check that the StackState Cluster Agent \(`cluster-agent`\) pod, StackState Checks Agent pod \(`checks-agent`\) and all of the StackState Agent \(`cluster-agent-agent`\) pods have status `READY`.
 
 ```text
 ❯ kubectl get deployment,daemonset --namespace stackstate
 
 NAME                                                 READY   UP-TO-DATE   AVAILABLE   AGE
 deployment.apps/stackstate-agent-cluster-agent       1/1     1            1           5h14m
+deployment.apps/stackstate-agent-checks-agent        1/1     1            1           5h14m
 NAME                                                 DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
 daemonset.apps/stackstate-agent-node-agent           10        10        10      10           10          <none>          5h14m
 ```
