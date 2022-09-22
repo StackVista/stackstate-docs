@@ -348,15 +348,16 @@ If you previously used the `stackstate/cluster-agent`, perform the following act
 
 2. Backup the values.yaml file used when deploying the old stackstate/cluster-agent chart.
 3. Update the following values in the new values.yaml file in order to re-use the previous values and ensure compatibility with the new chart:
-    * `clusterChecks` has been renamed to `checksAgent` - the `checksAgent` now runs by default. 
-    * agent has been renamed to nodeAgent. The kubernetes\_state now runs in the checksAgent.
-    * clusterChecks now run the kubernetes\_state check by default and no longer needs to be configured on default installations.
+    * `clusterChecks` has been renamed to `checksAgent` - the `checksAgent` now runs by default. The `checksAgent` section is now only required to disable the Checks Agent.
+    * `agent` has been renamed to `nodeAgent`.
+    * The kubernetes\_state check now runs in the Checks Agent by default, this no longer needs to be configured on default installations.
     {% tabs %}
     {% tab title="New values.yaml file" %}
     The values.yaml file to use with the new `stackstate/cluster-agent` chart looks like this:
+   
     ```
     # Enable/disable cluster checks functionality _and_ the clustercheck pods. 
-    # The checksAgent (previously clusterChecks) are now enabled by default.
+    # The checksAgent (previously clusterChecks) is now enabled by default.
     # To run with the checksAgent enabled, this section can be deleted.
     # To disable cluster checks, set checksAgent.enabled to false.
     checksAgent:
@@ -387,6 +388,7 @@ If you previously used the `stackstate/cluster-agent`, perform the following act
     {% endtab %}
     {% tab title="Old values.yaml file" %}
     The values.yaml file used with the old `stackstate/cluster-agent` chart looked like this:
+
     ```
     # Enable/disable cluster checks functionality _and_ the clustercheck pods. 
     # Note that Cluster checks (now checksAgent) are enabled by default in the new `stackstate/cluster-agent` chart.
