@@ -280,29 +280,99 @@ stackstate-agent stackstate/stackstate-agent
 
 ### Upgrade
 
-The stackstate/cluster-agent chart is being deprecated and will no longer be supported. To upgrade to the new stackstate/stackstate-agent chart, the following actions need to be performed:
-1. Backup the values.yaml file used when deploying the old stackstate/cluster-agent chart.
-2. Update the following values in the new values.yaml file in order to re-use the previous values and ensure compatibility with the new chart:
-    * clusterChecks has been renamed to checksAgent. The checksAgent now runs by default. 
+{% hint style="info" %}
+The `stackstate/cluster-agent` chart is being deprecated and will no longer be supported.
+{% endhint %}
+
+#### Upgrade Agents
+
+To upgrade the Agents running in your Kubernetes or OpenShift cluster, use the command below.
+
+{% tabs %}
+{% tab title="stackstate/stackstate-agent chart" %}
+The new `stackstate/stackstate-agent` chart can be used to deploy any version of the Agent. 
+
+* If this is the first time you will use the new `stackstate/stackstate-agent` chart to deploy the Agent, follow the instructions to [upgrade the Helm chart](#upgrade-helm-chart).
+* If you previously deployed the Agent using the new `stackstate/stackstate-agent`, you can upgrade/redeploy the Agent using the same command used to deploy the Agent.
+{% tabs %}
+{% tab title="Kubernetes" %}
+```bash
+helm upgrade --install \
+  --namespace stackstate \
+  --create-namespace \
+  --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
+  --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
+  --set-string 'stackstate.cluster.authToken'='<CLUSTER_AUTH_TOKEN>' \
+  --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
+  --values values.yaml \
+  stackstate-agent stackstate/stackstate-agent
+```
+{% endtab %}
+{% tab title="OpenShift" %}
+```bash
+helm upgrade --install \
+  --namespace stackstate \
+  --create-namespace \
+  --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
+  --set-string 'stackstate.cluster.name'='<OPENSHIFT_CLUSTER_NAME>' \
+  --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
+  --set-string 'global.extraEnv.open.STS_LOG_PAYLOADS'='true' \
+  --set 'agent.logLevel'='debug' \
+  --set 'agent.scc.enabled'=true \
+  --set 'kube-state-metrics.securityContext.enabled'=false \
+  --values values.yaml \
+  stackstate-agent stackstate/stackstate-agent
+```
+{% endtab %}
+{% endtabs %}
+{% endtab %}
+{% tab title="stackstate/cluster-agent chart (deprecated)" %}
+{% hint style="info" %}
+The `stackstate/cluster-agent` chart is being deprecated and will no longer be supported.
+{% endhint %}
+
+If you need to deploy the Agent using the old `stackstate/cluster-agent` chart, refer to the [StackState v5.0 documentation \(docs.stackstate.com/v/5.0/\)](https://docs.stackstate.com/v/5.0/setup/agent/kubernetes#install)
+
+{% endtab %}
+{% endtabs %}
+
+
+#### Upgrade Helm chart
+
+{% hint style="info" %}
+The `stackstate/cluster-agent` chart is being deprecated and will no longer be supported.
+{% endhint %}
+
+If you previously used the `stackstate/cluster-agent`, perform the following actions to deploy with the new `stackstate/stackstate-agent` chart:
+
+2. Backup the values.yaml file used when deploying the old stackstate/cluster-agent chart.
+3. Update the following values in the new values.yaml file in order to re-use the previous values and ensure compatibility with the new chart:
+    * `clusterChecks` has been renamed to `checksAgent` - the `checksAgent` now runs by default. 
     * agent has been renamed to nodeAgent. The kubernetes\_state now runs in the checksAgent.
     * clusterChecks now run the kubernetes\_state check by default and no longer needs to be configured on default installations.
     {% tabs %}
     {% tab title="New values.yaml file" %}
+    The values.yaml file to use with the new `stackstate/cluster-agent` chart looks like this:
+    ```
+    # Enable/disable cluster checks functionality _and_ the clustercheck pods. 
+    # The checksAgent (previously clusterChecks) are now enabled by default.
+    # To run with the checksAgent enabled, this section can be deleted.
+    # To disable cluster checks, set checksAgent.enabled to false.
     checksAgent:
-    # checksAgent.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods. The checksAgent is enabled by default. If you wish to run the checksAgent, this section can be deleted. Alternatively, it can be disabled by setting enabled to false.
       enabled: true
+    # Disable the kubernetes_state check on regular Agent pods.
     nodeAgent:
       config:
         override:
-    # agent.config.override -- Disables kubernetes_state check on regular agent pods.
         - name: auto_conf.yaml
           path: /etc/stackstate-agent/conf.d/kubernetes_state.d
           data: |
+    # Define the kubernetes_state check for clusterChecks Agents.
+    # Note that auto-discovery with ad_identifiers does not work here.
+    # Use a specific URL instead.
     clusterAgent:
       config:
         override:
-    # clusterAgent.config.override -- Defines kubernetes_state check for checksAgent agents. Auto-discovery
-    #                                 with ad_identifiers does not work here. Use a specific URL instead.
         - name: conf.yaml
           path: /etc/stackstate-agent/conf.d/kubernetes_state.d
           data: |
@@ -312,23 +382,28 @@ The stackstate/cluster-agent chart is being deprecated and will no longer be sup
 
             instances:
               - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
+    ```
     {% endtab %}
     {% tab title="Old values.yaml file" %}
+    The values.yaml file used with the old `stackstate/cluster-agent` chart looked like this:
+    ```
+    # Enable/disable cluster checks functionality _and_ the clustercheck pods. 
+    # Note that Cluster checks (now checksAgent) are enabled by default in the new `stackstate/cluster-agent` chart.
     clusterChecks:
-    # clusterChecks.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods. The clusterChecks (now checksAgent) is enabled by default. If you wish to run the checksAgent, this section can be deleted. Alternatively, it can be disabled by setting enabled to false.
       enabled: true
+    # Disable the kubernetes_state check on regular Agent pods.
     agent:
       config:
         override:
-    # agent.config.override -- Disables kubernetes_state check on regular agent pods.
         - name: auto_conf.yaml
           path: /etc/stackstate-agent/conf.d/kubernetes_state.d
           data: |
+    # Define the kubernetes_state check for clusterChecks Agents.
+    # Note that auto-discovery with ad_identifiers does not work here.
+    # Use a specific URL instead.
     clusterAgent:
       config:
         override:
-    # clusterAgent.config.override -- Defines kubernetes_state check for clusterchecks agents. Auto-discovery
-    #                                 with ad_identifiers does not work here. Use a specific URL instead.
         - name: conf.yaml
           path: /etc/stackstate-agent/conf.d/kubernetes_state.d
           data: |
@@ -338,27 +413,49 @@ The stackstate/cluster-agent chart is being deprecated and will no longer be sup
 
             instances:
               - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
+    ```
     {% endtab %}
     {% endtabs %}
-3. To uninstall the StackState Cluster Agent and the StackState Agent from your Kubernetes or OpenShift cluster, run a Helm uninstall:
+4. To uninstall the StackState Cluster Agent and the StackState Agent from your Kubernetes or OpenShift cluster, run a Helm uninstall:
     ```bash
     helm uninstall <release_name> --namespace <namespace>
 
     # If you used the standard install command provided when you installed the StackPack
     helm uninstall stackstate-agent --namespace stackstate
     ```
-4. Redeploy the `cluster_agent` using the updated `values.yaml` created in step 2:
-    ```bash
-    helm upgrade --install \
-    --namespace stackstate \
-    --create-namespace \
-    --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
-    --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
-    --set-string 'stackstate.cluster.authToken=<CLUSTER_AUTH_TOKEN>' \
-    --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
-    --values values.yaml \
-    stackstate-agent stackstate/stackstate-agent
-    ```
+5. Redeploy the `cluster_agent` using the updated `values.yaml` created in step 2:
+
+{% tabs %}
+{% tab title="Kubernetes" %}
+```bash
+helm upgrade --install \
+  --namespace stackstate \
+  --create-namespace \
+  --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
+  --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
+  --set-string 'stackstate.cluster.authToken'='<CLUSTER_AUTH_TOKEN>' \
+  --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
+  --values values.yaml \
+  stackstate-agent stackstate/stackstate-agent
+```
+{% endtab %}
+{% tab title="OpenShift" %}
+```bash
+helm upgrade --install \
+  --namespace stackstate \
+  --create-namespace \
+  --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
+  --set-string 'stackstate.cluster.name'='<OPENSHIFT_CLUSTER_NAME>' \
+  --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
+  --set-string 'global.extraEnv.open.STS_LOG_PAYLOADS'='true' \
+  --set 'agent.logLevel'='debug' \
+  --set 'agent.scc.enabled'=true \
+  --set 'kube-state-metrics.securityContext.enabled'=false \
+  --values values.yaml \
+  stackstate-agent stackstate/stackstate-agent
+```
+{% endtab %}
+{% endtabs %}
 
 # Configure
 
