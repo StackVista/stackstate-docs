@@ -288,7 +288,6 @@ The stackstate/cluster-agent chart is being deprecated and will no longer be sup
     * clusterChecks now run the kubernetes\_state check by default and no longer needs to be configured on default installations.
     {% tabs %}
     {% tab title="New values.yaml file" %}
-    ```
     checksAgent:
     # checksAgent.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods. The checksAgent is enabled by default. If you wish to run the checksAgent, this section can be deleted. Alternatively, it can be disabled by setting enabled to false.
       enabled: true
@@ -313,7 +312,6 @@ The stackstate/cluster-agent chart is being deprecated and will no longer be sup
 
             instances:
               - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
-    ```
     {% endtab %}
     {% tab title="Old values.yaml file" %}
     clusterChecks:
@@ -362,21 +360,19 @@ The stackstate/cluster-agent chart is being deprecated and will no longer be sup
     stackstate-agent stackstate/stackstate-agent
     ```
 
-## TODO Extra H2
+# Configure
 
-## Configure
-
-### Advanced Agent configuration
+## Advanced Agent configuration
 
 StackState Agent V2 can be configured to reduce data production, tune the process blacklist, or turn off specific features when not needed. The required settings are described in detail on the page [advanced Agent configuration](advanced-agent-configuration.md).
 
-### External integration configuration
+## External integration configuration
 
 To integrate with other external services, a separate instance of the [StackState Agent](about-stackstate-agent.md) should be deployed on a standalone VM. Other than [kubernetes_state check](/stackpacks/integrations/kubernetes.md) and [AWS check](/stackpacks/integrations/aws/aws.md#configure-the-aws-check), it is not currently possible to configure a StackState Agent deployed on a Kubernetes or OpenShift cluster with checks that integrate with other services.
 
-## Commands
+# Commands
 
-### Agent and Cluster Agent pod status
+## Agent and Cluster Agent pod status
 
 To check the status of the Kubernetes or OpenShift integration, check that the StackState Cluster Agent \(`cluster-agent`\) pod, StackState Checks Agent pod \(`checks-agent`\) and all of the StackState Agent \(`cluster-agent-agent`\) pods have status `READY`.
 
@@ -390,7 +386,7 @@ NAME                                                 DESIRED   CURRENT   READY  
 daemonset.apps/stackstate-agent-node-agent           10        10        10      10           10          <none>          5h14m
 ```
 
-### Agent check status
+## Agent check status
 
 To find the status of an Agent check:
 
@@ -406,13 +402,13 @@ To find the status of an Agent check:
 
 3. Look for the check name under the `Checks` section.
 
-## Troubleshooting
+# Troubleshooting
 
-### Log files
+## Log files
 
 Logs for the Agent can be found in the `agent` pod, where the StackState Agent is running.
 
-### Debug mode
+## Debug mode
 
 By default, the log level of the Agent is set to `INFO`. To assist in troubleshooting, the Agent log level can be set to `DEBUG`. This will enable verbose logging and all errors encountered will be reported in the Agent log files.
 
@@ -433,11 +429,11 @@ helm upgrade --install \
    stackstate-agent stackstate/stackstate-agent
 ```
 
-### Support knowledge base
+## Support knowledge base
 
 Troubleshooting steps for any known issues can be found in the [StackState support knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=agent).
 
-## Uninstall
+# Uninstall
 
 To uninstall the StackState Cluster Agent and the StackState Agent from your Kubernetes or OpenShift cluster, run a Helm uninstall:
 
@@ -448,7 +444,7 @@ helm uninstall <release_name> --namespace <namespace>
 helm uninstall stackstate-agent --namespace stackstate
 ```
 
-## See also
+# See also
 
 * [StackState Cluster Agent Helm Chart documentation \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-agent)
 * [About the StackState Agent](about-stackstate-agent.md)
