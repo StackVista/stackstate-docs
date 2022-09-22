@@ -351,66 +351,67 @@ If you previously used the `stackstate/cluster-agent`, perform the following act
     * `clusterChecks` has been renamed to `checksAgent` - the `checksAgent` now runs by default. The `checksAgent` section is now only required to disable the Checks Agent.
     * `agent` has been renamed to `nodeAgent`.
     * The kubernetes\_state check now runs in the Checks Agent by default, this no longer needs to be configured on default installations.
-    {% tabs %}
-    {% tab title="New values.yaml file" %}
-    # Enable/disable cluster checks functionality _and_ the clustercheck pods. 
-    # The checksAgent (previously clusterChecks) is now enabled by default.
-    # To run with the checksAgent enabled, this section can be deleted.
-    # To disable cluster checks, set checksAgent.enabled to false.
-    # checksAgent:
-    #   enabled: false
-    # Disable the kubernetes_state check on regular Agent pods.
-    nodeAgent:
-      config:
-        override:
-        - name: auto_conf.yaml
-          path: /etc/stackstate-agent/conf.d/kubernetes_state.d
-          data: |
-    # Define the kubernetes_state check for clusterChecks Agents.
-    # Note that auto-discovery with ad_identifiers does not work here.
-    # Use a specific URL instead.
-    clusterAgent:
-      config:
-        override:
-        - name: conf.yaml
-          path: /etc/stackstate-agent/conf.d/kubernetes_state.d
-          data: |
-            cluster_check: true
+    * Below is a comparison of the old values.yaml and the new values.yaml for a deployment with the Checks Agent enabled and the kubernetes\_state check running in the Checks Agent:
+       {% tabs %}
+       {% tab title="New values.yaml file" %}
+       # Enable/disable cluster checks functionality _and_ the clustercheck pods. 
+       # The checksAgent (previously clusterChecks) is now enabled by default.
+       # To run with the checksAgent enabled, this section can be deleted.
+       # To disable cluster checks, set checksAgent.enabled to false.
+       # checksAgent:
+       #   enabled: false
+       # Disable the kubernetes_state check on regular Agent pods.
+       nodeAgent:
+         config:
+           override:
+           - name: auto_conf.yaml
+             path: /etc/stackstate-agent/conf.d/kubernetes_state.d
+             data: |
+       # Define the kubernetes_state check for clusterChecks Agents.
+       # Note that auto-discovery with ad_identifiers does not work here.
+       # Use a specific URL instead.
+       clusterAgent:
+         config:
+           override:
+           - name: conf.yaml
+             path: /etc/stackstate-agent/conf.d/kubernetes_state.d
+             data: |
+               cluster_check: true
+   
+               init_config:
 
-            init_config:
+               instances:
+                 - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
+       {% endtab %}
+       {% tab title="Old values.yaml file" %}
+       # Enable/disable cluster checks functionality _and_ the clustercheck pods. 
+       # Note that Cluster checks (now checksAgent) are enabled by default in the new `stackstate/cluster-agent` chart.
+       clusterChecks:
+         enabled: true
+       # Disable the kubernetes_state check on regular Agent pods.
+       agent:
+         config:
+           override:
+           - name: auto_conf.yaml
+             path: /etc/stackstate-agent/conf.d/kubernetes_state.d
+             data: |
+       # Define the kubernetes_state check for clusterChecks Agents.
+       # Note that auto-discovery with ad_identifiers does not work here.
+       # Use a specific URL instead.
+       clusterAgent:
+         config:
+           override:
+           - name: conf.yaml
+             path: /etc/stackstate-agent/conf.d/kubernetes_state.d
+             data: |
+               cluster_check: true
 
-            instances:
-              - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
-    {% endtab %}
-    {% tab title="Old values.yaml file" %}
-    # Enable/disable cluster checks functionality _and_ the clustercheck pods. 
-    # Note that Cluster checks (now checksAgent) are enabled by default in the new `stackstate/cluster-agent` chart.
-    clusterChecks:
-      enabled: true
-    # Disable the kubernetes_state check on regular Agent pods.
-    agent:
-      config:
-        override:
-        - name: auto_conf.yaml
-          path: /etc/stackstate-agent/conf.d/kubernetes_state.d
-          data: |
-    # Define the kubernetes_state check for clusterChecks Agents.
-    # Note that auto-discovery with ad_identifiers does not work here.
-    # Use a specific URL instead.
-    clusterAgent:
-      config:
-        override:
-        - name: conf.yaml
-          path: /etc/stackstate-agent/conf.d/kubernetes_state.d
-          data: |
-            cluster_check: true
+               init_config:
 
-            init_config:
-
-            instances:
-              - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
-    {% endtab %}
-    {% endtabs %}
+               instances:
+                 - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
+       {% endtab %}
+       {% endtabs %}
 4. Uninstall the StackState Cluster Agent and the StackState Agent from your Kubernetes or OpenShift cluster, using a Helm uninstall:
     ```bash
     helm uninstall <release_name> --namespace <namespace>
