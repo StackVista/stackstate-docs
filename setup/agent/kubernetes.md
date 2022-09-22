@@ -284,12 +284,12 @@ To upgrade the Agents running in your Kubernetes or OpenShift cluster, follow th
 
 {% tabs %}
 {% tab title="stackstate/stackstate-agent chart" %}
-**Redeploy/upgrade with the new stackstate/stackstate-agent chart**
+**Redeploy/upgrade Agents with the new stackstate/stackstate-agent chart**
 
 The new `stackstate/stackstate-agent` chart can be used to deploy any version of the Agent. Note that the naming of some values has changed compared to the old `stackstate/cluster-agent` chart.
 
 * If this is the first time you will use the new `stackstate/stackstate-agent` chart to deploy the Agent, follow the instructions to [upgrade the Helm chart](#upgrade-helm-chart).
-* If you previously deployed the Agent using the new `stackstate/stackstate-agent`, you can upgrade/redeploy the Agent using the same command used to deploy the Agent.
+* If you previously deployed the Agent using the new `stackstate/stackstate-agent`, you can upgrade/redeploy the Agent using the same command used to initially deploy the Agent.
 {% tabs %}
 {% tab title="Kubernetes" %}
 ```bash
@@ -324,15 +324,15 @@ helm upgrade --install \
 {% endtab %}
 {% tab title="stackstate/cluster-agent chart (deprecated)" %}
 
-**Redeploy/upgrade with the old stackstate/cluster-agent chart**
+**Redeploy/upgrade Agents with the old stackstate/cluster-agent chart**
 
 {% hint style="warning" %}
 The `stackstate/cluster-agent` chart is being deprecated and will no longer be supported.
-{% endhint %}
 
 It is recommended that you [upgrade to the new `stackstate/stackstate-agent` chart](#upgrade-helm-chart). 
+{% endhint %}
 
-If you need to redeploy the Agent using the old `stackstate/cluster-agent` chart, refer to the [StackState v5.0 documentation \(docs.stackstate.com/v/5.0/\)](https://docs.stackstate.com/v/5.0/setup/agent/kubernetes#install)
+If you need to redeploy the Agent using the old `stackstate/cluster-agent` chart, refer to the [StackState v5.0 documentation \(docs.stackstate.com/v/5.0/\)](https://docs.stackstate.com/v/5.0/setup/agent/kubernetes#install).
 
 {% endtab %}
 {% endtabs %}
@@ -340,7 +340,9 @@ If you need to redeploy the Agent using the old `stackstate/cluster-agent` chart
 
 ### Upgrade Helm chart
 
-The `stackstate/cluster-agent` chart is being deprecated and will no longer be supported. If you previously used the `stackstate/cluster-agent` to deploy the Agent, follow the steps below to update the values.yaml file and deploy the Agent with the new `stackstate/stackstate-agent` chart:
+The `stackstate/cluster-agent` chart is being deprecated and will no longer be supported. It has been replaced by the new `stackstate/stackstate-agent` chart.
+
+The naming of some values has changed in the new chart. If you previously deployed the Agent using the `stackstate/cluster-agent`, follow the steps below to update the values.yaml file and redeploy the Agent with the new `stackstate/stackstate-agent` chart:
 
 2. Backup the values.yaml file that was used to deploy with the old `stackstate/cluster-agent` chart.
 3. Copy of the values.yaml file and update the following values in the new file. This will allow you to re-use the previous values while ensuring compatibility with the new chart:
@@ -416,7 +418,7 @@ The `stackstate/cluster-agent` chart is being deprecated and will no longer be s
     # If you used the standard install command provided when you installed the StackPack
     helm uninstall stackstate-agent --namespace stackstate
     ```
-5. Redeploy the `cluster_agent` using the updated values.yaml created in step 2 and the new `stackstate/stackstate-agent` chart:
+5. Redeploy the `cluster_agent` using the updated values.yaml file created in step 2 and the new `stackstate/stackstate-agent` chart:
 
 {% tabs %}
 {% tab title="Kubernetes" %}

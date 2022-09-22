@@ -83,27 +83,27 @@ http://<release-name>-kube-state-metrics.<namespace>.svc.cluster.local:8080/metr
 If an alternative kube-state-metrics pod \(i.e. Prometheus\) is installed, the default StackState kube-state-metrics pod can be disabled and the kubernetes\_state check redirected to the alternative service:
 
 1. Update the `values.yaml` file used to deploy the `checks-agent`, for example:
-  ```yaml
-  dependencies:
-    kubeStateMetrics:
-      enabled: false
-  checksAgent:
-    kubeStateMetrics:
-      url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
-  ```
+   ```yaml
+   dependencies:
+     kubeStateMetrics:
+       enabled: false
+   checksAgent:
+     kubeStateMetrics:
+       url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
+   ```
 
 2. Deploy the `cluster_agent` using the updated `values.yaml`:
-  ```yaml
-  helm upgrade --install \
-  --namespace stackstate \
-  --create-namespace \
-  --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
-  --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
-  --set-string 'stackstate.cluster.authToken=<CLUSTER_AUTH_TOKEN>' \
-  --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
-  --values values.yaml \
-  stackstate-agent stackstate/stackstate-agent
-  ```
+   ```yaml
+   helm upgrade --install \
+   --namespace stackstate \
+   --create-namespace \
+   --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
+   --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
+   --set-string 'stackstate.cluster.authToken=<CLUSTER_AUTH_TOKEN>' \
+   --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
+   --values values.yaml \
+   stackstate-agent stackstate/stackstate-agent
+   ```
 
 ### Status
 
