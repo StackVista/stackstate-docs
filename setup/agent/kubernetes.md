@@ -349,7 +349,7 @@ The naming of some values has changed in the new chart. If you previously deploy
     * `clusterChecks` has been renamed to `checksAgent` - the `checksAgent` now runs by default. The `checksAgent` section is now only required if you want to disable the Checks Agent.
     * `agent` has been renamed to `nodeAgent`.
     * The kubernetes\_state check now runs in the Checks Agent by default, this no longer needs to be configured on default installations.
-    * For an example of the changes required to the values.yaml file, see [Comparison - OLD values.yaml and NEW values.yaml](#comparison-old-valuesyaml-and-new-valuesyaml)
+    * For an example of the changes required to the values.yaml file, see [Comparison - OLD values.yaml and NEW values.yaml](#comparison-old-values.yaml-and-new-values.yaml)
 
 4. Uninstall the StackState Cluster Agent and the StackState Agent from your Kubernetes or OpenShift cluster, using a Helm uninstall:
     ```bash
