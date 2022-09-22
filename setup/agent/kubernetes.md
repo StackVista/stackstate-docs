@@ -4,7 +4,7 @@ description: StackState Self-hosted v5.0.x
 
 # Kubernetes
 
-## Overview
+# Overview
 
 {% hint style="info" %}
 **StackState Agent V2**
@@ -19,7 +19,7 @@ To retrieve topology, events and metrics data from a Kubernetes or OpenShift clu
 
 To integrate with other services, a separate instance of the StackState Agent should be deployed on a standalone VM.
 
-## StackState Agent types
+# StackState Agent types
 
 The Kubernetes and OpenShift integrations collect topology data from Kubernetes and OpenShift clusters respectively, as well as metrics and events. To achieve this, different types of StackState Agent are used:
 
@@ -35,7 +35,7 @@ To integrate with other services, a separate instance of the StackState Agent sh
 
 ![StackState Agents on Kubernetes](/.gitbook/assets/agent-kubernetes.svg)
 
-### Agent
+## Agent
 
 StackState Agent V2 is deployed as a DaemonSet with one instance **on each node** in the cluster:
 
@@ -43,7 +43,7 @@ StackState Agent V2 is deployed as a DaemonSet with one instance **on each node*
 * Container information is collected from the Docker daemon.
 * Metrics are retrieved from kubelet running on the node and also from kube-state-metrics if this is deployed on the same node.
 
-### Cluster Agent
+## Cluster Agent
 
 StackState Cluster Agent is deployed as a Deployment. There is one instance for the entire cluster:
 
@@ -52,7 +52,7 @@ StackState Cluster Agent is deployed as a Deployment. There is one instance for 
 
 Cluster checks configured here are run by the deployed [StackState Checks Agent](kubernetes.md#checks-agent) pod.
 
-### Checks Agent
+## Checks Agent
 
 The StackState Checks Agent is an additional StackState Agent V2 pod that will run the cluster checks that are configured on the [StackState Cluster Agent](#cluster-agent).
 
@@ -66,9 +66,9 @@ The following checks can be configured to run as a cluster check:
   * Out-of-cluster datastores and endpoints \(for example, RDS or CloudSQL\).
   * Load-balanced cluster services \(for example, Kubernetes services\).
 
-## Setup
+# Setup
 
-### Supported Kubernetes versions
+## Supported Kubernetes versions
 
 StackState Agent v2.17.x is supported to monitor the following versions of Kubernetes or OpenShift:
 
@@ -83,7 +83,7 @@ StackState Agent v2.17.x is supported to monitor the following versions of Kuber
   * containerd
   * CRI-O
 
-### Install
+## Install
 
 The StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics can be installed together using the StackState Agent Helm Chart:
 
@@ -91,7 +91,7 @@ The StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics can be 
 * [Air gapped install](#air-gapped-install) - images are retrieved from a local system or registry.
 * [Install from a custom image registry](#install-from-a-custom-image-registry) - images are retrieved from a configured image registry.
 
-#### Online install
+### Online install
 
 The StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics can be installed together using the StackState Agent Helm Chart:
 
@@ -137,7 +137,7 @@ stackstate-agent stackstate/stackstate-agent
 {% endtab %}
 {% endtabs %}
 
-#### Air gapped install
+### Air gapped install
 
 If StackState Agent will run in an environment that does not have a direct connection to the Internet, the images required to install the StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics can be downloaded and stored in a local system or image registry.
 
@@ -211,11 +211,11 @@ Untagged: quay.io/stackstate/stackstate-process-agent:4.0.7
 Images have been imported up to localhost
 ```
 
-#### Install from a custom image registry
+### Install from a custom image registry
 
 If required, the images required to install the StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics can be served from a custom image registry. To do this, follow the instructions to [install from a custom image registry](/setup/install-stackstate/kubernetes_install/install-from-custom-image-registry.md).
 
-### Helm chart values
+## Helm chart values
 
 Additional variables can be added to the standard helm command used to deploy the StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics. For example:
 * It is recommended to [provide a `stackstate.cluster.authToken`](#stackstateclusterauthtoken).
@@ -225,7 +225,7 @@ Additional variables can be added to the standard helm command used to deploy th
 Details of all available helm chart values can be found in the [Cluster Agent Helm Chart documentation \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-agent).
 {% endhint %}
 
-#### stackstate.cluster.authToken
+### stackstate.cluster.authToken
 
 It is recommended to provide a `stackstate.cluster.authToken` in addition to the standard helm chart variables when the StackState Agent is deployed. This is an optional variable, however, if not provided a new, random value will be generated each time a helm upgrade is performed. This could leave some pods in the cluster with an incorrect configuration.
 
@@ -261,7 +261,7 @@ helm upgrade --install \
 {% endtab %}
 {% endtabs %}
 
-#### agent.containerRuntime.customSocketPath
+### agent.containerRuntime.customSocketPath
 
 It is not necessary to configure this property if your cluster uses one of the default socket paths (`/var/run/docker.sock`, `/var/run/containerd/containerd.sock` or `/var/run/crio/crio.sock`)
 
@@ -278,19 +278,16 @@ helm upgrade --install \
 stackstate-agent stackstate/stackstate-agent
 ```
 
-### Upgrade
+# Upgrade
 
-{% hint style="info" %}
-The `stackstate/cluster-agent` chart is being deprecated and will no longer be supported.
-{% endhint %}
-
-#### Upgrade Agents
+## Upgrade Agents
 
 To upgrade the Agents running in your Kubernetes or OpenShift cluster, use the command below.
 
 {% tabs %}
 {% tab title="stackstate/stackstate-agent chart" %}
 **Redeploy/upgrade with the new stackstate/stackstate-agent chart**
+
 The new `stackstate/stackstate-agent` chart can be used to deploy any version of the Agent. 
 
 * If this is the first time you will use the new `stackstate/stackstate-agent` chart to deploy the Agent, follow the instructions to [upgrade the Helm chart](#upgrade-helm-chart).
@@ -331,7 +328,7 @@ helm upgrade --install \
 
 **Redeploy/upgrade with the old stackstate/cluster-agent chart**
 
-{% hint style="info" %}
+{% hint style="warning" %}
 The `stackstate/cluster-agent` chart is being deprecated and will no longer be supported.
 {% endhint %}
 
@@ -343,7 +340,7 @@ If you need to redeploy the Agent using the old `stackstate/cluster-agent` chart
 {% endtabs %}
 
 
-#### Upgrade Helm chart
+## Upgrade Helm chart
 
 {% hint style="info" %}
 The `stackstate/cluster-agent` chart is being deprecated and will no longer be supported.
