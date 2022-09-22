@@ -51,7 +51,7 @@ Changes to a problem result in the following event types being generated. Note t
 | `ProblemSubsumed` | A change in root cause or the topology as a whole has caused an existing problem to be joined with another problem. For example, a new relation has been created. |
 | `ProblemResolved` | The root cause component and all contributing cause components have reported a CLEAR \(green\) health state. No unhealthy components remain in the problem. |
 
-➡️ [Learn more about the problem lifecycle](/use/problem-analysis/about-problems.md#problem-lifecycle)
+➡️ [Learn more about the problem lifecycle](/use/problem-analysis/problem-lifecycle.md)
 
 ## See also
 

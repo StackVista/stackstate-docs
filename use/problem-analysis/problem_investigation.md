@@ -65,5 +65,6 @@ To exit the Problem Subview, click the view name in the top bar of the StackStat
 ## See also
 
 * [What is a problem?](about-problems.md)
+* [Problem lifecycle](problem-lifecycle.md)
 * [Problem notifications](problem_notifications.md)
 * [Anomaly detection](../concepts/anomaly-detection.md)
