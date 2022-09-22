@@ -290,6 +290,7 @@ To upgrade the Agents running in your Kubernetes or OpenShift cluster, use the c
 
 {% tabs %}
 {% tab title="stackstate/stackstate-agent chart" %}
+**Redeploy/upgrade with the new stackstate/stackstate-agent chart**
 The new `stackstate/stackstate-agent` chart can be used to deploy any version of the Agent. 
 
 * If this is the first time you will use the new `stackstate/stackstate-agent` chart to deploy the Agent, follow the instructions to [upgrade the Helm chart](#upgrade-helm-chart).
@@ -327,11 +328,16 @@ helm upgrade --install \
 {% endtabs %}
 {% endtab %}
 {% tab title="stackstate/cluster-agent chart (deprecated)" %}
+
+**Redeploy/upgrade with the old stackstate/cluster-agent chart**
+
 {% hint style="info" %}
 The `stackstate/cluster-agent` chart is being deprecated and will no longer be supported.
 {% endhint %}
 
-If you need to deploy the Agent using the old `stackstate/cluster-agent` chart, refer to the [StackState v5.0 documentation \(docs.stackstate.com/v/5.0/\)](https://docs.stackstate.com/v/5.0/setup/agent/kubernetes#install)
+It is recommended that you [upgrade to the new `stackstate/stackstate-agent` chart](#upgrade-helm-chart). 
+
+If you need to redeploy the Agent using the old `stackstate/cluster-agent` chart, refer to the [StackState v5.0 documentation \(docs.stackstate.com/v/5.0/\)](https://docs.stackstate.com/v/5.0/setup/agent/kubernetes#install)
 
 {% endtab %}
 {% endtabs %}
