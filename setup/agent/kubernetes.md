@@ -353,13 +353,14 @@ The naming of some values has changed in the new chart. If you previously deploy
    {% tabs %}
    {% tab title="New values.yaml file" %}
    ```yaml
-   # Checks Agent enabled by default (Called Cluster Checks in the old stackstate/cluster-agent chart)
+   # checksAgent enabled by default 
+   # (Called clusterChecks in the old stackstate/cluster-agent chart)
    # kubernetes_state check disabled by default on regular Agent pods.
    clusterAgent:
      config:
        override:
-       # kubernetes_state check enabled by default for Checks Agent.
-       # Define the AWS check for clusterChecks Agents.
+       # kubernetes_state check enabled by default for the Checks Agent.
+       # Define the AWS check for the Checks Agent.
        - name: conf.yaml
          path: /etc/stackstate-agent/conf.d/aws_topology.d
          data: |
@@ -379,7 +380,8 @@ The naming of some values has changed in the new chart. If you previously deploy
    {% endtab %}
    {% tab title="Old values.yaml file" %}
    ```yaml
-   # Enable cluster checks functionality _and_ the clustercheck pods. (Called Checks Agent in the new stackstate/stackstate-agent chart)
+   # Enable clusterChecks functionality and the clustercheck pods. 
+   # (Called checksAgent in the new stackstate/stackstate-agent chart)
    clusterChecks:
      enabled: true
    # Disable the kubernetes_state check on regular Agent pods.
