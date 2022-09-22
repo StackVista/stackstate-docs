@@ -2,8 +2,6 @@
 description: StackState Self-hosted v5.0.x
 ---
 
-# Kubernetes
-
 # Overview
 
 {% hint style="info" %}
@@ -278,9 +276,9 @@ helm upgrade --install \
 stackstate-agent stackstate/stackstate-agent
 ```
 
-# Upgrade
+## Upgrade
 
-## Upgrade Agents
+### Upgrade Agents
 
 To upgrade the Agents running in your Kubernetes or OpenShift cluster, use the command below.
 
@@ -340,7 +338,7 @@ If you need to redeploy the Agent using the old `stackstate/cluster-agent` chart
 {% endtabs %}
 
 
-## Upgrade Helm chart
+### Upgrade Helm chart
 
 {% hint style="info" %}
 The `stackstate/cluster-agent` chart is being deprecated and will no longer be supported.
