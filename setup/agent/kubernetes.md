@@ -316,7 +316,6 @@ The stackstate/cluster-agent chart is being deprecated and will no longer be sup
     ```
     {% endtab %}
     {% tab title="Old values.yaml file" %}
-    ```
     clusterChecks:
     # clusterChecks.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods. The clusterChecks (now checksAgent) is enabled by default. If you wish to run the checksAgent, this section can be deleted. Alternatively, it can be disabled by setting enabled to false.
       enabled: true
@@ -341,7 +340,6 @@ The stackstate/cluster-agent chart is being deprecated and will no longer be sup
 
             instances:
               - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
-    ```
     {% endtab %}
     {% endtabs %}
 3. To uninstall the StackState Cluster Agent and the StackState Agent from your Kubernetes or OpenShift cluster, run a Helm uninstall:
