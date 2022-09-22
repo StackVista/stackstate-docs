@@ -288,7 +288,7 @@ The stackstate/cluster-agent chart is being deprecated and will no longer be sup
     * clusterChecks now run the kubernetes\_state check by default and no longer needs to be configured on default installations.
     {% tabs %}
     {% tab title="New values.yaml file" %}
-    ```yaml
+    ```
     checksAgent:
     # checksAgent.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods. The checksAgent is enabled by default. If you wish to run the checksAgent, this section can be deleted. Alternatively, it can be disabled by setting enabled to false.
       enabled: true
@@ -316,7 +316,7 @@ The stackstate/cluster-agent chart is being deprecated and will no longer be sup
     ```
     {% endtab %}
     {% tab title="Old values.yaml file" %}
-    ```yaml
+    ```
     clusterChecks:
     # clusterChecks.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods. The clusterChecks (now checksAgent) is enabled by default. If you wish to run the checksAgent, this section can be deleted. Alternatively, it can be disabled by setting enabled to false.
       enabled: true
@@ -363,6 +363,8 @@ The stackstate/cluster-agent chart is being deprecated and will no longer be sup
     --values values.yaml \
     stackstate-agent stackstate/stackstate-agent
     ```
+
+## TODO Extra H2
 
 ## Configure
 
