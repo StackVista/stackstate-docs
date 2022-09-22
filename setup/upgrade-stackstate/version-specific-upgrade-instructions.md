@@ -21,13 +21,13 @@ This page provides specific instructions and details of any required manual step
 {% tabs %}
 {% tab title="Kubernetes" %}
 
-#### v5.0.0
-TODO
+#### v5.1.0
+* A new `stackstate/stackstate-agent` helm chart is available to deploy the StackState Agent, Checks Agent, Node Agent and kube_state_metrics on Kubernetes and OpenShift clusters. Some values have been renamed in the new chart. If you previously deployed the Agent using the old `stackstate/cluster-agent` helm chart, you should review and update your values.yaml file before deploying with the new `stackstate/stackstate-agent` chart. The old `stackstate/cluster-agent` chart is being deprecated and will no longer be supported. 
 
 {% endtab %}
 {% tab title="Linux" %}
 
-#### v5.0.0
+#### v5.1.0
 TODO
 
 {% endtab %}
