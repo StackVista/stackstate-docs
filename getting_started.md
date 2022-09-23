@@ -76,7 +76,7 @@ Problems and issues are displayed in the following order:
 * Problems are listed in order of creation date/time, with the oldest problem at the top of the list and the most recently created at the bottom.
 * The component-specific issues grouped inside each problem are displayed from the most recent ones at the top to the oldest at the bottom of the list.
 
-Not all components displayed in the problem panel are necessarily also visible in the current topology view or subview. To make the root cause of a problem visible, hover a mouse pointer over the component and select `show -> root cause` from the `Actions` menu.
+Not all components displayed in the problem panel are necessarily also visible in the current topology view. You can open o dedicated problem subview to focus on the topology elements involved in a problem.
 
 ➡️ [Learn more about problems](/use/problem-analysis/about-problems.md)
 
