@@ -21,14 +21,17 @@ A component consists of:
 
 When a component is selected by clicking on it, detailed information about the component is shown in the right panel details tab - **Component details**. This includes:
 
-* Metadata, such as the component name, type and any labels
-* [Run state](/use/concepts/components.md#run-state) of the component
-* [Health checks](/use/checks-and-monitors/checks.md) and [monitors](/use/checks-and-monitors/monitors.md) attached to the component.
-* [Telemetry streams](/use/metrics-and-events/telemetry_streams.md) linked to the component.
+* **Properties** - metadata, such as the component name, type and any labels. Click SHOW ALL PROPERTIES to open a pop-up with all details of the component, including the YAML definition.
+* **Relations** - the number of other components that the component is connected to, this will include connections to components that sit outside the current view. Expand to see details of each [relation](/use/concepts/relations.md).
+* **Actions** - the available [actions](/use/stackstate-ui/perspectives/topology-perspective.md#actions) for the component.
+* **Health** - reports the component [health state](/use/concepts/health-state.md) as calculated by StackState. Expand to see all [health checks](/use/checks-and-monitors/checks.md) and [monitors](/use/checks-and-monitors/monitors.md) attached to the component.
+* **Propagated health** - reports the [propagated health state](/use/concepts/health-state.md#propagated-health-state). This is derived from the health state of the components and relations that the component depends upon.
+* **Run state** - the [run state](/use/concepts/components.md#run-state) of the component (when available).
+* **Problems** - lists all [problems](/use/problem-analysis/about-problems.md) that involve the selected component. 
+* **Events** - [events](/use/concepts/events.md) related to the selected component.
+* **Telemetry** - [telemetry streams](/use/metrics-and-events/telemetry_streams.md) linked to the component.
 
-Click SHOW ALL PROPERTIES to open a pop-up with all details of the component, including the YAML definition.
-
-![Detailed component information](/.gitbook/assets/v51_component_with_details.png)
+![Component details](/.gitbook/assets/v51_component_with_details.png)
 
 ## Grouping
 

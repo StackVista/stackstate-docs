@@ -63,6 +63,7 @@
   * [The 4T data model](use/concepts/4t_data_model.md)
   * [Components](use/concepts/components.md)
   * [Relations](use/concepts/relations.md)
+  * [Events](use/concepts/events.md)
   * [Health state](use/concepts/health-state.md)
   * [Layers, Domains and Environments](use/concepts/layers_domains_environments.md)
   * [Perspectives](use/concepts/perspectives.md)
