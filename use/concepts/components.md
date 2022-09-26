@@ -25,11 +25,11 @@ When a component is selected by clicking on it, detailed information about the c
 * **Relations** - the number of other components that the component is connected to, note that this will also include any connections the component has with components that sit outside the current view. Expand to see details of each [relation](/use/concepts/relations.md).
 * **Actions** - the available [actions](/use/stackstate-ui/perspectives/topology-perspective.md#actions) for the component.
 * **Health** - reports the component [health state](/use/concepts/health-state.md) as calculated by StackState. Expand to see all [health checks](/use/checks-and-monitors/checks.md) and [monitors](/use/checks-and-monitors/monitors.md) attached to the component.
-* **Propagated health** - reports the [propagated health state](/use/concepts/health-state.md#propagated-health-state). This is derived from the health state of the components and relations that the component depends upon.
-* **Run state** - the [run state](/use/concepts/components.md#run-state) of the component (when available).
+* **Propagated health** - reports the component's [propagated health state](/use/concepts/health-state.md#propagated-health-state). This is derived from the health state of the components and relations that the component depends upon.
+* **Run state** - the [run state](/use/concepts/health-state.md#run-state) of the component (when available).
 * **Problems** - lists all [problems](/use/problem-analysis/about-problems.md) that involve the selected component. 
-* **Events** - [events](/use/concepts/events.md) related to the selected component.
-* **Telemetry** - [telemetry streams](/use/metrics-and-events/telemetry_streams.md) linked to the component.
+* **Events** - the latest 10 [events](/use/concepts/events.md) that relate to the selected component. Click VIEW ALL to open the Events perspective in a subview containing only the selected component. 
+* **Telemetry** - all [telemetry streams](/use/metrics-and-events/telemetry_streams.md) linked to the component.
 
 ![Component details](/.gitbook/assets/v51_component_with_details.png)
 
