@@ -127,6 +127,12 @@ You can check the view health state in the following places in the StackState UI
 
 ![View health state in main menu](../../.gitbook/assets/v51_view_health_main_menu.png)
 
+## Run state
+
+Some components in StackState will report a **Run state**, for example, AWS EC2 instances. This is different to the [health state](/use/concepts/health-state.md) and indicates the component’s operational state. The run state can be `DEPLOYING`, `DEPLOYED`, `STARTING`, `STARTED`, `STOPPING`, `STOPPED` or `UNKNOWN`. It is not used in the calculation of a component's health state.
+
+For every change in run state, a `Run state changed` event is generated. These events are visible in the [Events Perspective](/use/stackstate-ui/perspectives/events_perspective.md) and can help to correlate changes in the deployment state of components with problems in an environment.
+
 ## See also
 
 * [Add a health check based on telemetry streams available in StackState](/use/checks-and-monitors/add-a-health-check.md)

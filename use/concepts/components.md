@@ -12,7 +12,7 @@ A component consists of:
 
 1. The name of the component.
 2. An icon in the middle that represents either the component itself or the component type.
-3. The component color represents the component's [own health state](/use/concepts/health-state.md#element-health-state).
+3. The component color represents the component's [own health state](/use/concepts/health-state.md#element-own-health-state).
 4. An outer color indicates an unhealthy [propagated health state](/use/concepts/health-state.md#propagated-health-state) (`DEVIATING` or `CRITICAL`). The propagated health state is calculated based on the health state of components or relations that the component depends upon.
 
 ![](/.gitbook/assets/v51_topology_elements.png)
@@ -45,8 +45,8 @@ The size of the component group's circle in the topology visualization represent
 
 The way in which components are grouped can be customized in the [view visualization settings](/use/stackstate-ui/views/visualization_settings.md#components-grouping).
 
-## Run state
+## See also
 
-Some components in StackState will report a **Run state**, for example, AWS EC2 instances. This is different to the [health state](/use/concepts/health-state.md) and indicates the component’s operational state. The run state can be `DEPLOYING`, `DEPLOYED`, `STARTING`, `STARTED`, `STOPPING`, `STOPPED` or `UNKNOWN`. It is not used in the calculation of a component's health state.
-
-For every change in run state, a `Run state changed` event is generated. These events are visible in the [Events Perspective](/use/stackstate-ui/perspectives/events_perspective.md) and can help to correlate changes in the deployment state of components with problems in an environment.
+* [Topology perspective](/use/stackstate-ui/perspectives/topology-perspective.md)
+* [Relations](/use/concepts/relations.md)
+* [View visualization settings](/use/stackstate-ui/views/visualization_settings.md)
