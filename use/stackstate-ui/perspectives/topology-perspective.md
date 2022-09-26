@@ -27,7 +27,7 @@ The Topology Perspective shows the filtered components and relations in a select
 
 ### Component context menu
 
-When you hover over a component, the component context menu is displayed. This gives you information about the component, this includes:
+When you hover the mouse pointer over a component, the component context menu is displayed. This gives you information about the component, this includes:
 
 * The component name and type
 * [Health state](/use/concepts/health-state.md) and [propagated health state](/use/concepts/health-state.md#propagated-health-state) of the component.
@@ -46,7 +46,7 @@ Actions can be used to expand the topology selection to show all dependencies fo
 You can configure [component actions](../../../configure/topology/component_actions.md) in the **Settings** page or create [custom component actions](../../../develop/developer-guides/custom-functions/component-actions.md).
 {% endhint %}
 
-A list of the available **Actions** is included in the right panel details tab when you select a component - **Component details** - and also in the component context menu, which is displayed when you hover over a component.
+A list of the available **Actions** is included in the right panel details tab when you select a component - **Component details** - and also in the component context menu, which is displayed when you hover the mouse pointer over a component.
 
 ![Actions](../../../.gitbook/assets/v51_actions.png)
 
