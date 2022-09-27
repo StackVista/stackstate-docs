@@ -23,7 +23,7 @@ The OpenShift integration collects topology data in an OpenShift cluster as well
   * [Topology data](openshift.md#topology) is translated into components and relations.
   * [Tags](openshift.md#tags) defined in OpenShift are added to components and relations in StackState.
   * Relevant [metrics data](openshift.md#metrics) is mapped to associated components and relations in StackState. All retrieved metrics data is stored and accessible within StackState.
-  * [OpenShift events](openshift.md#events) are available in the StackState UI Events Perspective and listed in the right panel **View summary** tab.
+  * [OpenShift events](openshift.md#events) are available in the StackState UI Events Perspective and listed in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**.
   * [Objects changes events](openshift.md#events) are created for every detected change to `spec` or `metadata` in OpenShift objects
 
 ## Setup

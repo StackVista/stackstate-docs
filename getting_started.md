@@ -49,7 +49,7 @@ The [timeline](/use/stackstate-ui/timeline-time-travel.md) at the bottom of the 
 
 ## Detailed information about components and relations
 
-Select a component or a relation to display detailed information about it in the right panel details tab - the tab will be named according to the element type that you selected. For example, **Component details** when you select a component or **Direct relation details** when you select a relation that links two components with no hidden components in between. Click **SHOW ALL PROPERTIES** to open a popup with all details of a component.
+Select a component or a relation to display detailed information about it in the right panel details tab - the tab will be named according to the element type that you selected. For example, **Component details** when you select a component or **Direct relation details** when you select a relation that links two components with no hidden components in between. Click **SHOW ALL PROPERTIES** to open a popup with all details of a component or direct relation.
 
 ![Detailed component information](/.gitbook/assets/v51_component_details.png)
 
@@ -88,7 +88,7 @@ To show all events for the selected Topology, select the Events Perspective from
 
 ![Events Perspective](/.gitbook/assets/v51_events-perspective.png)
 
-The Events Perspective is not the only place you can find events; you can find the latest events in the Events section in the right panel **View summary** tab.
+The Events Perspective is not the only place you can find events; you can find the latest events in the Events section in the right panel **View summary** tab and in the details tabs - **Component details** and **Direct relation details**.
 
 ![Events section](/.gitbook/assets/v51_events-section.png)
 

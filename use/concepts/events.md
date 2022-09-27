@@ -35,10 +35,10 @@ Event data can be received in a log [telemetry stream](/use/metrics-and-events/t
 ## Event category
 
 All events in StackState have a category assigned based on the event type and source system. The available categories are **Activities**, **Alerts**, **Anomalies**, **Changes** and **Others**. Events received from external systems will have a category attached to them when they arrive in StackState. If no valid category is included in an event, it will be grouped under the category **Others**.
-
+tab
 ## Event properties
 
-Select an event to display detailed information about it in the right panel **View summary** tab. Events from external systems will also include links through to relevant information in the source system here:
+Select an event to display detailed information about it in the right panel **Event details** tab. Events from external systems will also include links through to relevant information in the source system here:
 
 * **Elements** - The components and/or relations involved in the event.
 * **Event type** - A description of the event type.

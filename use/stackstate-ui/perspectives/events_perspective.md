@@ -12,7 +12,7 @@ The Events Perspective shows events and changes for the elements in the current 
 
 ## Filter displayed events
 
-The events displayed in the Events Perspective and in the Events list in the right panel **View summary** tab can be filtered in the **View filters** panel on the left of the StackState UI.
+The events displayed can be filtered in the **View filters** panel on the left of the StackState UI. Event filters will be applied to the events shown in the Events Perspective and in the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**. 
 
 ### Filter by source component
 

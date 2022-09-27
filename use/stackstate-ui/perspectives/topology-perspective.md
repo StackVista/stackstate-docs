@@ -46,7 +46,7 @@ Actions can be used to expand the topology selection to show all dependencies fo
 You can configure [component actions](../../../configure/topology/component_actions.md) in the **Settings** page or create [custom component actions](../../../develop/developer-guides/custom-functions/component-actions.md).
 {% endhint %}
 
-A list of the available **Actions** is included in the right panel details tab when you select a component - **Component details** - and also in the component context menu, which is displayed when you hover the mouse pointer over a component.
+A list of the available **Actions** is included in the right panel details tab when you select a component - **Component details**. Actions are also listed in the component context menu, which is displayed when you hover the mouse pointer over a component.
 
 ![Actions](../../../.gitbook/assets/v51_actions.png)
 
@@ -61,7 +61,7 @@ Shortcuts give you direct access to detailed information about the specific comp
 
 Relations show how components in the topology are connected together. They are represented by a dashed or solid line and have an arrowhead showing the direction of dependency between the components they link. [Health state will propagate](../../concepts/health-state.md#propagated-health-state) from one component to the next, from dependencies to dependent components. Relations that have one or more health checks configured will report a calculated health state.
 
-Select a relation to open detailed information about it in the right panel details tab - **Direct relation details**, **Indirect relation details** or **Grouped relation details** depending on the relation type that you selected.
+Select a relation to open detailed information about it in the right panel details tab - **Direct relation details**, **Indirect relation details** or **Grouped relation details** depending on the relation type that has been selected.
 
 ➡️ [Learn more about relations](/use/concepts/relations.md).
 
@@ -71,14 +71,14 @@ Select a relation to open detailed information about it in the right panel detai
 
 The components and events displayed in the topology visualization can be customized by adding filters.
 
-Click the **View Filters** icon in the left menu to open the view filters. Here you can edit:
+Click the **View Filters** icon in the left menu to open the view filters. Here you can edit the filters applied to the displayed topology and events:
 
-* Topology filters: Filter the components displayed in the topology visualization.
-* Events filters: Filter the events shown in the **Events** list in the right panel **View summary** tab.
+* **Topology filters** - filter the components displayed in the topology visualization.
+* **Events filters** - filter the events shown in the **Events** list in the right panel **View summary** and details tabs - **Component details** and **Direct relation details**.
 
-Select an element to show detailed information about it in the right panel details tab. Click a label in the details tab to add this to the topology filter. The displayed topology will be expanded to include all components and relations with the selected label. To undo a label selection, click the back button in the browser or edit the topology filter in the view filters.
+Select an element to show detailed information about it in the right panel details tab. Click a label under **Properties** in the details tab to add this to the topology filter. The displayed topology will be expanded to include all components and relations with the selected label. To undo a label selection, click the back button in the browser or edit the topology filter in the view filters.
 
-The View Filters are saved together with the View. For details, see the page [filters](../filters.md).
+The view filters are saved together with the View. For details, see the page [filters](../filters.md).
 
 ## Visualization settings
 

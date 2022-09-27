@@ -19,6 +19,8 @@ A component consists of:
 
 ## Component details
 
+![Component details](/.gitbook/assets/v51_component_details.png)
+
 When a component is selected by clicking on it, detailed information about the component is shown in the right panel details tab - **Component details**. This includes:
 
 * **Properties** - metadata, such as the component name, type and any labels. Click SHOW ALL PROPERTIES to open a pop-up with all details of the component, including the YAML definition.
@@ -30,8 +32,6 @@ When a component is selected by clicking on it, detailed information about the c
 * **Problems** - lists all [problems](/use/problem-analysis/about-problems.md) that involve the selected component. 
 * **Events** - the latest 10 [events](/use/concepts/events.md) that relate to the selected component. Click VIEW ALL to open the Events perspective in a [subview](/use/stackstate-ui/views/about_views.md#subview) containing only the selected component. 
 * **Telemetry** - all [telemetry streams](/use/metrics-and-events/telemetry_streams.md) linked to the component.
-
-![Component details](/.gitbook/assets/v51_component_with_details.png)
 
 ## Grouping
 

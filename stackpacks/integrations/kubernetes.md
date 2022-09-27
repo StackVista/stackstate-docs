@@ -23,7 +23,7 @@ The Kubernetes integration collects topology data in a Kubernetes cluster as wel
   * [Topology data](kubernetes.md#topology) is translated into components and relations.
   * [Tags](kubernetes.md#tags) defined in Kubernetes are added to components and relations in StackState.
   * [Metrics data](kubernetes.md#metrics) is stored and accessible within StackState. Relevant metrics data is mapped to associated components and relations in StackState.
-  * [Kubernetes events](kubernetes.md#events) are available in the StackState UI Events Perspective and listed in the StackState UI right panel **View summary** tab.
+  * [Kubernetes events](kubernetes.md#events) are available in the StackState UI Events Perspective and listed in the StackState UI right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**.
   * [Objects changes events](kubernetes.md#events) are created for every detected change to `spec` or `metadata` in Kubernetes objects
 
 ## Setup
