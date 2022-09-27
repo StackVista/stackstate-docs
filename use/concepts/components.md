@@ -30,8 +30,8 @@ When a component is selected by clicking on it, detailed information about the c
 * **Propagated health** - reports the component's [propagated health state](/use/concepts/health-state.md#propagated-health-state). This is derived from the health state of the components and relations that the component depends upon.
 * **Run state** - the [run state](/use/concepts/health-state.md#run-state) of the component (when available).
 * **Problems** - lists all [problems](/use/problem-analysis/about-problems.md) that involve the selected component. 
-* **Events** - the latest 10 [events](/use/concepts/events.md) that relate to the selected component. Click VIEW ALL to open the Events perspective in a [subview](/use/stackstate-ui/views/about_views.md#subview) containing only the selected component. 
-* **Telemetry** - all [telemetry streams](/use/metrics-and-events/telemetry_streams.md) linked to the component.
+* **Events** - the latest 10 [events](/use/events/about_events.md) that relate to the selected component. Click VIEW ALL to open the Events perspective in a [subview](/use/stackstate-ui/views/about_views.md#subview) containing only the selected component. 
+* **Telemetry** - all [telemetry streams](/use/metrics/telemetry_streams.md) linked to the component.
 
 ## Grouping
 

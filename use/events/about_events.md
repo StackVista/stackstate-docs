@@ -9,7 +9,7 @@ description: StackState Self-hosted v5.1.x
 StackState defines an event as a timestamped record of an activity or change that an observer of the platform should be aware of. Events can be generated internally by StackState, retrieved from external systems by an integration or received in a telemetry stream (a log stream). Events help you make sense of changes that impact your IT landscape and are a great asset when troubleshooting problems. 
 
 * Events related to the elements in a view are listed in the right panel details tabs and in the [Events perspective](/use/stackstate-ui/perspectives/events_perspective.md). 
-* [Event handlers](/use/metrics-and-events/event-notifications.md) can be configured to trigger notifications in response to different event types, such as sending a message to Slack or a notification email.
+* [Event handlers](/use/events/event-notifications.md) can be configured to trigger notifications in response to different event types, such as sending a message to Slack or a notification email.
 
 ## Event source
 
@@ -30,7 +30,7 @@ Many StackState integrations can retrieve events from external systems. All even
 
 ### Events from telemetry streams
 
-Event data can be received in a log [telemetry stream](/use/metrics-and-events/telemetry_streams.md#log-streams). Events from these streams will not be listed in the Events Perspective, however, they are available to be used by a check or monitor. This can then trigger a health state change event, which would be listed in the Events Perspective as an internally generated event.
+Event data can be received in a log [telemetry stream](/use/metrics/telemetry_streams.md#log-streams). Events from these streams will not be listed in the Events Perspective, however, they are available to be used by a check or monitor. This can then trigger a health state change event, which would be listed in the Events Perspective as an internally generated event.
 
 ## Event category
 
@@ -53,4 +53,4 @@ Select an event to display detailed information about it in the right panel **Ev
 ## See also
 
 * [Events perspective](/use/stackstate-ui/perspectives/events_perspective.md)
-* [Use events to trigger event notifications and actions](/use/stackstate-ui/views/manage-event-handlers.md)
+* [Use events to trigger event notifications and actions](/use/events/manage-event-handlers.md)

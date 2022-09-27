@@ -47,12 +47,12 @@ The following permissions are included in StackState v5.0:
 * `export-settings` - Export settings.
 * `import-settings` - Import settings.
 * `manage-annotations` - Persist and fetch Anomaly annotations in StackState.
-* `manage-event-handlers` - Create or edit [event handlers](/use/stackstate-ui/views/manage-event-handlers.md).
+* `manage-event-handlers` - Create or edit [event handlers](/use/events/manage-event-handlers.md).
 * `manage-monitors` - Create, delete and modify [monitors](/use/checks-and-monitors/monitors.md).
 * `manage-service-tokens`- Create/delete [Service Tokens](/configure/security/authentication/service_tokens.md) in StackState.
 * `manage-stackpacks` - Install/upgrade/uninstall StackPacks.
 * `manage-star-view` - Add and remove [stars](/use/stackstate-ui/views/about_views.md#starred-views) from views in the StackState UI. 
-* `manage-telemetry-streams` - [Create or edit new telemetry streams](/use/metrics-and-events/add-telemetry-to-element.md) for components in the StackState UI.
+* `manage-telemetry-streams` - [Create or edit new telemetry streams](/use/metrics/add-telemetry-to-element.md) for components in the StackState UI.
 * `manage-topology-elements` - Create/update/delete topology elements.
 * `perform-custom-query` - Access the [topology filter](/use/stackstate-ui/filters.md#filter-topology).
 * `read-permissions` - List all granted permissions across the entire system using the CLI.

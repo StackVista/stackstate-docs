@@ -95,7 +95,7 @@ To configure the Splunk Metrics Agent check:
 5. Save the configuration file.
 6. Restart StackState Agent V1 to apply the configuration changes.
 7. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.
-8. Metrics retrieved from splunk are available in StackState as a metrics telemetry stream in the `stackstate-metrics` data source. This can be [mapped to associated components](../../../use/metrics-and-events/add-telemetry-to-element.md).
+8. Metrics retrieved from splunk are available in StackState as a metrics telemetry stream in the `stackstate-metrics` data source. This can be [mapped to associated components](../../../use/metrics/add-telemetry-to-element.md).
 
 ### Uniquely identify a record
 
@@ -117,11 +117,11 @@ To disable the Splunk Metrics Agent check:
 
 ## Splunk metrics in StackState
 
-Metrics retrieved from splunk are available in StackState as a metrics telemetry stream in the `stackstate-metrics` data source. This can be [mapped to associated components](../../../use/metrics-and-events/add-telemetry-to-element.md).
+Metrics retrieved from splunk are available in StackState as a metrics telemetry stream in the `stackstate-metrics` data source. This can be [mapped to associated components](../../../use/metrics/add-telemetry-to-element.md).
 
 ## See also
 
 * [StackState Splunk integration details](splunk_stackpack.md)
-* [Map telemetry to components](../../../use/metrics-and-events/add-telemetry-to-element.md)
+* [Map telemetry to components](../../../use/metrics/add-telemetry-to-element.md)
 * [Example Splunk Metrics configuration file - splunk\_metric/conf.yaml.example \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_metric/conf.yaml.example)
 

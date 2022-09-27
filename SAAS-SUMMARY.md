@@ -24,7 +24,7 @@
   * [About views](use/stackstate-ui/views/about_views.md)
   * [Create and edit views](use/stackstate-ui/views/create_edit_views.md)
   * [Configure the view health](use/stackstate-ui/views/configure-view-health.md)
-  * [Manage event handlers](use/stackstate-ui/views/manage-event-handlers.md)
+  * [Manage event handlers](use/events/manage-event-handlers.md)
   * [Visualization settings](use/stackstate-ui/views/visualization_settings.md)
 * [Perspectives](use/stackstate-ui/perspectives/README.md)
   * [Topology Perspective](use/stackstate-ui/perspectives/topology-perspective.md)
@@ -53,13 +53,13 @@
 
 ## 📈 Metrics and events
 
-* [Telemetry streams](use/metrics-and-events/telemetry_streams.md)
-* [Golden signals](use/metrics-and-events/golden_signals.md)  
-* [Top metrics](use/metrics-and-events/top-metrics.md)
-* [Add a telemetry stream](use/metrics-and-events/add-telemetry-to-element.md)      
-* [Browse telemetry](use/metrics-and-events/browse-telemetry.md)
-* [Event notifications](use/metrics-and-events/event-notifications.md)
-* [Set telemetry stream priority](use/metrics-and-events/set-telemetry-stream-priority.md)
+* [Telemetry streams](use/metrics/telemetry_streams.md)
+* [Golden signals](use/metrics/golden_signals.md)  
+* [Top metrics](use/metrics/top-metrics.md)
+* [Add a telemetry stream](use/metrics/add-telemetry-to-element.md)      
+* [Browse telemetry](use/metrics/browse-telemetry.md)
+* [Event notifications](use/events/event-notifications.md)
+* [Set telemetry stream priority](use/metrics/set-telemetry-stream-priority.md)
 * [Set up traces](configure/traces/set-up-traces.md)
 
 ## 🧩 StackPacks

@@ -11,7 +11,7 @@ The telemetry streams associated with an element are displayed in the right pane
 Stream priority is used in StackState to help determine the following:
 
 * The order in which streams are displayed in the **Telemetry** list when [detailed component or relation information](/use/concepts/components.md#component-details) is displayed in the StackState UI right panel details tab. Streams are ordered by priority (highest at the top) and then alphabetically.
-* The streams that are shown as [Top metrics](/use/metrics-and-events/top-metrics.md) in the component context menu - this is the pop-up displayed when you hover the mouse pointer over a component in the Topology Perspective. The most recent metric received from the first three streams in the **Telemetry** list will be displayed.
+* The streams that are shown as [Top metrics](/use/metrics/top-metrics.md) in the component context menu - this is the pop-up displayed when you hover the mouse pointer over a component in the Topology Perspective. The most recent metric received from the first three streams in the **Telemetry** list will be displayed.
 * The order in which streams are displayed in the [Metrics Perspective](/use/stackstate-ui/perspectives/metrics-perspective.md).
 * The [streams selected for monitoring by the Autonomous Anomaly Detector](/stackpacks/add-ons/aad.md#how-are-metric-streams-selected).
 

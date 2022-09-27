@@ -11,12 +11,12 @@ The full topology available in StackState is likely much larger than you need to
 * [Filters](../filters.md) - Topology filters add elements \(components and relations\) to the view. Events and Traces filters refine the traces and events displayed for the filtered topology.
 * [Visualization settings](visualization_settings.md) – customize how elements \(components and relations\) are displayed within the view.
 * [View health state configuration](about_views.md#view-health-state) – reports the health state of the view.
-* [Event handlers](/use/metrics-and-events/event-notifications.md) - respond to events generated in the view and send event notifications.
+* [Event handlers](/use/events/event-notifications.md) - respond to events generated in the view and send event notifications.
 
 Generally speaking, views serve two major purposes:
 
 1. Views are a type of bookmark. They help you to find your way back to a part of your topology that is of particular interest to you or your team. They may also serve as a starting point for defining new views.
-2. Views can be used for [event notifications and automation](/use/stackstate-ui/views/manage-event-handlers.md). Whenever a change within the view requires your attention, an event handler can send out a notification, create an incident in an ITSM system or trigger automation.
+2. Views can be used for [event notifications and automation](/use/events/manage-event-handlers.md). Whenever a change within the view requires your attention, an event handler can send out a notification, create an incident in an ITSM system or trigger automation.
 
 Not all views are manually created. Many [StackPacks](../../../stackpacks/about-stackpacks.md) generate views after installation.
 
@@ -62,7 +62,7 @@ To disable a view health state, [edit the view](/use/stackstate-ui/views/create_
 
 ### Event notifications for view health state changes
 
-A `ViewStateChangedEvent` event is triggered whenever a view changes its health state. This event can be used in event handlers to, for example, to send an e-mail or Slack message or to trigger automation. See how to [send event notifications](/use/stackstate-ui/views/manage-event-handlers.md).
+A `ViewStateChangedEvent` event is triggered whenever a view changes its health state. This event can be used in event handlers to, for example, to send an e-mail or Slack message or to trigger automation. See how to [send event notifications](/use/events/manage-event-handlers.md).
 
 ## Secure views with RBAC
 
@@ -112,4 +112,4 @@ To exit a subview and return to the previous view or explore mode, click the vie
 * [Create and edit views](create_edit_views.md)
 * [Health state for a view](../../concepts/health-state.md#view-health-state)  
 * [Visualization settings](visualization_settings.md)
-* [Send event notifications for view health state changes](/use/stackstate-ui/views/manage-event-handlers.md)
+* [Send event notifications for view health state changes](/use/events/manage-event-handlers.md)

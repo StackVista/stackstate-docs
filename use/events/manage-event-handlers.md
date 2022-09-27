@@ -21,7 +21,7 @@ You can add an event handler to a view from the StackState UI.
 1. Select **Manage Event Handlers** on the left.
 2. Click **ADD NEW EVENT HANDLER**.
 3. Select the trigger event and event handler to run:
-   * **On event** - the [event types](/use/metrics-and-events/event-notifications.md#event-types-for-notifications) that should trigger the event notification or automated action.
+   * **On event** - the [event types](/use/events/event-notifications.md#event-types-for-notifications) that should trigger the event notification or automated action.
    * **Run event handler** - the [event handler function](#event-handler-functions) that will run whenever the selected event type is generated.
 4. Enter the required details, these will vary according to the event handler function you have selected.
 5. Click **SAVE**.
@@ -50,7 +50,7 @@ StackState ships with the following event handler functions that track **health 
 
 ## See also
 
-* [Event types for event notifications](/use/metrics-and-events/event-notification.mds#event-types-for-notifications)
+* [Event types for event notifications](/use/metrics/event-notification.mds#event-types-for-notifications)
 * [Add a health check](/use/checks-and-monitors/add-a-health-check.md)
 * [Configure an SMTP server to send email event notifications](/configure/topology/configure-email-event-notifications.md "StackState Self-Hosted only")
 * [Create a custom event handler function](/develop/developer-guides/custom-functions/event-handler-functions.md "StackState Self-Hosted only")
