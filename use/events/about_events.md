@@ -27,7 +27,7 @@ StackState generates events for every change in the topology. For example, event
 
 ### Events from external sources
 
-Many StackState integrations can retrieve events from external systems. All events retrieved from external systems will be listed in the Events Perspective and the right panel details tabs.
+Many StackState integrations retrieve events from external systems. All events retrieved from external systems will be listed in the Events Perspective and in the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**, unless otherwise stated in the [integration documentation](/stackpacks/integrations/).
 
 ### Log streams
 
