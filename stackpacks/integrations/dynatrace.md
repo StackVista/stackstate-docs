@@ -18,7 +18,7 @@ Dynatrace is a [StackState core integration](/stackpacks/integrations/about_inte
 * Agent V2 pushes [retrieved data](dynatrace.md#data-retrieved) to StackState.
     * [Topology data](dynatrace.md#topology) is translated into components and relations. 
     * [Tags](dynatrace.md#tags) defined in Dynatrace are added to components and relations in StackState. Any defined StackState tags are used by StackState when the topology is retrieved.
-    * [Events](dynatrace.md#events) are available in the StackState Events Perspective and listed in the StackState UI right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**.
+    * [Events](dynatrace.md#events) are available in the StackState Events Perspective and in the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**..
 
 ## Setup
 
@@ -202,7 +202,7 @@ The [Dynatrace health check](#dynatrace-health-check) retrieves all events and t
 
 | Dynatrace event severity | Available in StackState as                                                                                                                                                                                                    |
 | :--- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `INFO` | Events are mapped to the associated component. They are listed on the StackState Events Perspective and in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**. |
+| `INFO` | Events are mapped to the associated component. They are listed on the StackState Events Perspective and in the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**. |
 | `PERFORMANCE`, `RESOURCE_CONTENTION`, `MONITORING_UNAVAILABLE`, `ERROR` | Events are added to a StackState health stream. These event severities will result in a `DEVIATING` state on the associated component.                                                                                        |
 | `AVAILABILITY`, `CUSTOM_ALERT` | Events are added to a StackState health stream. These event severities will result in a CRITICAL state on the associated component.                                                                                           |
 
