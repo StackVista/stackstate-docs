@@ -18,33 +18,9 @@ You can customize the types of relations displayed in the [visualization setting
 
 ![](/.gitbook/assets/v51_relation_comp_comp.png)  
 
-Direct relations link two components that have a direct connection to each other. A **direct relation** between two components is indicated by a solid line. The direction of the arrowhead shows the direction of the dependency.
+Direct relations link two components that have a direct connection to each other. A **direct relation** between two components is indicated by a solid line. The direction of the arrowhead shows the direction of the dependency. Select an direct relation to detailed information about the relation in the right panel details tab - **Direct relation details**.     
 
 #### Direct relation details
-
-
-
-### Indirect relations
-
-![](/.gitbook/assets/v51_indirect_relation_comp_comp.png)
-
-Indirect relations link two components that are connected together via a path of invisible components. Indirect relations in a view will be displayed when **Show all indirect relations** is enabled in the [visualization settings](/use/stackstate-ui/views/visualization_settings.md). An **indirect relation** between two components is shown as a dashed line.  The direction of the arrowhead shows the direction of the dependency. Select an indirect relation to view the path between the components in the right panel details tab - **Indirect relation details**.     
-
-## Grouped relations
-
-![](/.gitbook/assets/v51_relation_group_comp.png) 
-
-Relations that connect to a component group are shown as a combination of a solid and a dashed line. **This type of relation could contain a combination of direct relations and indirect relations and could connect to one or more components in the component group**. Select a grouped relation to display full details of the included relations in the right panel details tab - **Grouped relation details**. 
-
-
-
-## Relation details
-
-![Relation details](/.gitbook/assets/v51_relation_details.png)
-
-When a relation is selected by clicking on it, detailed information about the component is shown in the right panel details tab - **Direct relation details**, **Indirect relation details** or **Grouped relation details**, depending on the type of relation that has been selected. 
-
-### Direct relation details
 
 ![Direct relation details](/.gitbook/assets/v51_direct_relation_details.png)
 
@@ -58,17 +34,35 @@ The **Direct relation details** tab is shown in the StackState UI right panel wh
 * **Events** - the latest 10 [events](/use/concepts/events.md) that relate to the selected relation. Click VIEW ALL to open the Events perspective in a [subview](/use/stackstate-ui/views/about_views.md#subview) containing only the relation component. 
 * **Telemetry** - all [telemetry streams](/use/metrics-and-events/telemetry_streams.md) linked to the relation.
 
-### Indirect relation details
+### Indirect relations
+
+![](/.gitbook/assets/v51_indirect_relation_comp_comp.png)
+
+Indirect relations link two components that are connected together via a path of invisible components. Indirect relations in a view will be displayed when **Show all indirect relations** is enabled in the [visualization settings](/use/stackstate-ui/views/visualization_settings.md). An **indirect relation** between two components is shown as a dashed line.  The direction of the arrowhead shows the direction of the dependency. Select an indirect relation to view the path between the components in the right panel details tab - **Indirect relation details**.     
+
+#### Indirect relation details
 
 ![Indirect relation details](/.gitbook/assets/v51_indirect_relation_details.png)
 
 The **Indirect relation details** tab is shown in the StackState UI right panel when an indirect relation is selected in the topology visualizer. This shows the full path of all components that connect the source and the target component. From here you can click on a component or relation between components to open the associated **Component details** tab or **Direct relation details** tab with detailed information about the selected component or relation.
 
-### Grouped relation details
+### Grouped relations
+
+![](/.gitbook/assets/v51_relation_group_comp.png) 
+
+Relations that connect to a component group are shown as a combination of a solid and a dashed line. **This type of relation could contain a combination of direct relations and indirect relations and could connect to one or more components in the component group**. Select a grouped relation to display full details of the included relations in the right panel details tab - **Grouped relation details**. 
+
+#### Grouped relation details
 
 ![Grouped relation details](/.gitbook/assets/v51_grouped_relation_details.png)
 
 The **Grouped relation details** tab is shown in the StackState UI right panel when a grouped relation is selected in the topology visualizer. This shows all relations included in the group. From here you can click on a component or relation between components to open the associated **Component details** tab or **Direct relation details** tab with detailed information about the selected component or relation.
+
+## Relation details
+
+![Relation details](/.gitbook/assets/v51_relation_details.png)
+
+When a relation is selected by clicking on it, detailed information about the component is shown in the right panel details tab - **Direct relation details**, **Indirect relation details** or **Grouped relation details**, depending on the type of relation that has been selected. For details of the tab content, see the relation types [direct relations](#direct-relations), [indirect relations](#indirect-relations) and [grouped relations](#grouped-relations).
 
 ## Dependencies and propagation
 
