@@ -10,20 +10,33 @@ A relation connects two [components or groups of components](/use/concepts/compo
 
 ## Relation types
 
-Relations in StackState can be either direct or indirect. The type of relation is indicated by the type of line connecting the components. You can customize the types of relations displayed in the [visualization settings](/use/stackstate-ui/views/visualization_settings.md).
+Relations in StackState can be either direct or indirect. The type of relation is indicated by the type of line connecting the components. Relations that connect to a component group are represented as grouped relations, these can contain a combination of direct and indirect relations and may connect to all or only some of the components included in the group. Select a relation in the topology visualizer to display detailed information about it in the right panel details tab - **Direct relation details**, **Indirect relation details** or **Grouped relation details** depending on the relation type that you selected. 
 
-* **Direct relations** link two components that have a direct connection to each other. 
-* **Indirect relations** link two components that are connected together via a path of invisible components. Indirect relations in a view will be displayed when **Show all indirect relations** is enabled in the [visualization settings](/use/stackstate-ui/views/visualization_settings.md).
+You can customize the types of relations displayed in the [visualization settings](/use/stackstate-ui/views/visualization_settings.md).
 
-| Relation type                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-|:----------------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ![](/.gitbook/assets/v51_relation_comp_comp.png)          | A **direct relation** between two components is indicated by a solid line. The direction of the arrowhead shows the direction of the dependency.                                                                                                                                                                                                                                                                                                |
-| ![](/.gitbook/assets/v51_indirect_relation_comp_comp.png) | An **indirect relation** between two components is shown as a dashed line.  The direction of the arrowhead shows the direction of the dependency. Select an indirect relation to view the path between the components in the right panel details tab - **Indirect relation details**.                                                                                                                                                           |
-| ![](/.gitbook/assets/v51_relation_group_comp.png)         | Both a **direct relation** and an **indirect relation** between a component and a component group will be shown as a combination of a solid and a dashed line. **This type of relation could contain a combination of direct, indirect and/or no relations to one or more components in the group.** Select a grouped relation to display full details of the included relations in the right panel details tab - **Grouped relation details**. |
+### Direct relations
 
-Select a relation to display detailed information about it in the right panel details tab - **Direct relation details**, **Indirect relation details** or **Grouped relation details** depending on the relation type that you selected. 
+![](/.gitbook/assets/v51_relation_comp_comp.png)  
 
-![Indirect relation path](/.gitbook/assets/v51_indirect_relation_path.png)
+Direct relations link two components that have a direct connection to each other. A **direct relation** between two components is indicated by a solid line. The direction of the arrowhead shows the direction of the dependency.
+
+#### Direct relation details
+
+
+
+### Indirect relations
+
+![](/.gitbook/assets/v51_indirect_relation_comp_comp.png)
+
+Indirect relations link two components that are connected together via a path of invisible components. Indirect relations in a view will be displayed when **Show all indirect relations** is enabled in the [visualization settings](/use/stackstate-ui/views/visualization_settings.md). An **indirect relation** between two components is shown as a dashed line.  The direction of the arrowhead shows the direction of the dependency. Select an indirect relation to view the path between the components in the right panel details tab - **Indirect relation details**.     
+
+## Grouped relations
+
+![](/.gitbook/assets/v51_relation_group_comp.png) 
+
+Relations that connect to a component group are shown as a combination of a solid and a dashed line. **This type of relation could contain a combination of direct relations and indirect relations and could connect to one or more components in the component group**. Select a grouped relation to display full details of the included relations in the right panel details tab - **Grouped relation details**. 
+
+
 
 ## Relation details
 
