@@ -290,6 +290,7 @@
     * [Scripting in StackState](develop/reference/scripting/scripting-in-stackstate.md)
     * [Script result: Async](develop/reference/scripting/async-script-result.md)
     * [Script result: Streaming](develop/reference/scripting/streaming-script-result.md)
+    * [Time in scripts](develop/reference/scripting/time-in-scripts.md)
     * [Script APIs](develop/reference/scripting/script-apis/README.md)
       * [Async - script API](develop/reference/scripting/script-apis/async.md)
       * [Component - script API](develop/reference/scripting/script-apis/component.md)
