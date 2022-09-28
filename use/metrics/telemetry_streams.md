@@ -9,7 +9,7 @@ description: StackState Self-hosted v5.1.x
 A telemetry stream is a real-time stream of either metric or log data coming from an external monitoring system.
 
 
-### Metrics streams
+### Metric streams
 
 Metric, or time-series, data are numeric values over time. A metric can represent any kind of measurement, like a count or a percentage. 
 
