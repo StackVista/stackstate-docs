@@ -10,13 +10,17 @@ Event handlers attached to a StackState view listen to generated StackState even
 
 ## Active event handlers
 
-All event handlers currently active for the view are displayed in the StackState UI right panel **View summary** tab under **Event handlers**. You can add, edit and remove event handlers from here. Expand an event handler to the configured settings.
+All event handlers currently active for the view are displayed in the StackState UI right panel **View summary** tab under **Event handlers**. You can add, edit and remove event handlers from here. Expand an event handler to see the configured settings.
 
-![ACTIVE event handlers](/.gitbook/assets/v51_configured_event_handlers.png)
+![Active event handlers](/.gitbook/assets/v51_active_event_handlers.png)
 
 ## Add event handler
 
-You can add an event handler to a view from the StackState UI right panel **View summary** tab.
+You can add an event handler to a view from the StackState UI right panel **View summary** tab. 
+
+{% hint style="info" %}
+Event handlers can only be added to a saved view, it is not possible to add event handlers to subviews or while in explore mode.
+{% endhint %}
 
 1. Select the **View summary** tab in the right panel.
 2. Expand the **Event handlers** section. All currently configured event handlers are listed.
