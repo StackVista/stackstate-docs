@@ -12,7 +12,7 @@ StackState calculates and reports the health state for elements (components and 
 * [Propagated health state](#propagated-health-state) - Highlights potential impact resulting from other unhealthy elements in the topology.
 * [View health state](#view-health-state) - Summarizes the health states and/or propagated health states of all elements in a view.
 
-Changes to a health state will generate events that can be used to trigger [event notifications](/use/metrics-and-events/event-notifications.md).
+Changes to a health state will generate events that can be used to trigger [event notifications](/use/events/event-notifications.md).
 
 ## Health sources
 
@@ -83,8 +83,8 @@ The color of the element itself (the inner color) represents the [element own he
 
 The propagated health state of an element can also be found in the following places:
 
-* In the right panel **Selection details** tab when information about a component or relation is displayed. 
-* In the [component context menu](/use/stackstate-ui/perspectives/topology-perspective.md#component-context-menu) when you hover over a component in the topology visualization.
+* In the right panel details tab when information about a topology element is displayed - **Component details** or **Direct relation details** depending on the element type that you selected. 
+* In the [component context menu](/use/stackstate-ui/perspectives/topology-perspective.md#component-context-menu) when you hover the mouse pointer over a component in the topology visualization.
 
 ![](../../.gitbook/assets/v51_stackstate-ui-propagated-health-state.png)
 
@@ -121,11 +121,17 @@ In the StackState UI, the view health state is reported as a one of four colors:
 
 You can check the view health state in the following places in the StackState UI:
 
-* **Current view** - The health state of the current view is visible in the top bar of the StackState UI and also next to the view name in the right panel **View Summary** tab. Historical health state information for a view can be seen in the [timeline Health](../stackstate-ui/timeline-time-travel.md#health) line at the bottom of the screen.
+* **Current view** - The health state of the current view is visible in the top bar of the StackState UI and also next to the view name in the right panel **View summary** tab. Historical health state information for a view can be seen in the [timeline Health](../stackstate-ui/timeline-time-travel.md#health) line at the bottom of the screen.
 * **Starred views** - Starred views are listed in the StackState main menu together with their health state.
 * **All views** - The health state of all views is visible on the view overview screen. Click **Views** from the StackState main menu.
 
 ![View health state in main menu](../../.gitbook/assets/v51_view_health_main_menu.png)
+
+## Run state
+
+Some components in StackState will report a **Run state**, for example, AWS EC2 instances. This is different to the [health state](/use/concepts/health-state.md) and indicates the component’s operational state. The run state can be `DEPLOYING`, `DEPLOYED`, `STARTING`, `STARTED`, `STOPPING`, `STOPPED` or `UNKNOWN`. It is not used in the calculation of a component's health state.
+
+For every change in run state, a `Run state changed` event is generated. These events are visible in the [Events Perspective](/use/stackstate-ui/perspectives/events_perspective.md) and can help to correlate changes in the deployment state of components with problems in an environment.
 
 ## See also
 

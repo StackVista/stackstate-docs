@@ -19,7 +19,7 @@ In StackState, different function types complete different tasks. Depending on t
 | [Component actions](component-actions.md) | - | ✅ | - |
 | [Check functions](check-functions.md) | ✅ | - | - |
 | [Component mapper functions](mapper-functions.md) | ✅ | - | - |
-| [Id extractor functions](id-extractor-functions.md) | ✅ | - | - |
+| [ID extractor functions](id-extractor-functions.md) | ✅ | - | - |
 | [Relation mapper functions](mapper-functions.md) | ✅ | - | - |
 
 ## Asynchronous and synchronous execution

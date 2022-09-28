@@ -66,7 +66,7 @@ Retrieve the ID for a specific instance of a function:
 
 The ID for a check or propagation on a specific component can be found in the StackState UI. These are the IDs for the component's instance of a check function or propagation function.
 
-1. Select a component to open detailed information about it in the right panel **Selection details** tab.
+1. Select a component to open detailed information about it in the right panel details tab - **Component details**.
 2. Click on **...** and select **Show JSON**.
 3. Find the section for `"checks"` or `"propagation"`.
 4. Find the check or propagation that you want to enable logging for and copy the value from the field `id`.
@@ -107,7 +107,7 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 sts settings list --type EventHandler
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 {% endtab %}
@@ -194,7 +194,7 @@ sts settings describe --ids <VIEW_ID>
 
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 {% endtab %}

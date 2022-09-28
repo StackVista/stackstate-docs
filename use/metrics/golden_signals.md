@@ -25,7 +25,7 @@ To monitor the time it takes to service a request, StackState supports metric st
 
 ![HTTP total response time (s)](../../.gitbook/assets/http-response-time.png)
 
-To add a latency stream, [add a telemetry stream](/use/metrics-and-events/add-telemetry-to-element.md) and select the following metric: `http_response_time_seconds`. You can filter the stream on any HTTP response code or any of the predefined groups:
+To add a latency stream, [add a telemetry stream](/use/metrics/add-telemetry-to-element.md) and select the following metric: `http_response_time_seconds`. You can filter the stream on any HTTP response code or any of the predefined groups:
 
 - any
 - success (100-399)

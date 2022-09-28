@@ -23,7 +23,7 @@ You can add an event handler to a view from the StackState UI right panel **View
 3. To add a new event handler, click **ADD NEW EVENT HANDLER**.
 4. Give the event handler a **Name**. 
 5. Select the trigger event and event handler to run:
-   * **On event** - the [event types](/use/metrics-and-events/event-notifications.md#event-types-for-notifications) that should trigger the event notification or automated action.
+   * **On event** - the [event types](/use/events/event-notifications.md#event-types-for-notifications) that should trigger the event notification or automated action.
    * **Run event handler** - the [event handler function](#event-handler-functions) that will run whenever the selected event type is generated.
 6. Enter the required details, these will vary according to the event handler function you have selected.
 7. Click **SAVE**.

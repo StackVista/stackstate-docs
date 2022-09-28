@@ -343,3 +343,16 @@ redirects:
   setup/agent/openshift: ./setup/agent/kubernetes.md
   setup/install-stackstate/kubernetes_install/image_configuration: ./setup/install-stackstate/kubernetes_install/install-from-custom-image-registry.md
   README-v50: ./latest.md
+
+# 5.1 docs
+
+  use/metrics-and-events/event-notifications: ./use/events/event-notifications.md
+  use/stackstate-ui/views/manage-event-handlers: ./use/events/manage-event-handlers.md
+  use/metrics-and-events/top-metrics: ./use/metrics/top-metrics.md
+  use/metrics-and-events/golden_signals: ./use/metrics/golden_signals.md
+  use/metrics-and-events/event-notifications#event-types-for-notifications: ./use/events/event-notifications.md#event-types-for-notifications
+  use/metrics-and-events/add-telemetry-to-element: ./use/metrics/add-telemetry-to-element.md
+  use/stackstate-ui/views/manage-event-handlers#add-event-handler: ./use/events/manage-event-handlers.md#add-event-handler
+  use/metrics-and-events/set-telemetry-stream-priority: ./use/metrics/set-telemetry-stream-priority.md
+  use/metrics-and-events/event-notifications#state-change-events: ./use/events/event-notifications.md#state-change-events
+  use/metrics-and-events/add-telemetry-to-element#aggregation-method: ./use/metrics-and-events/add-telemetry-to-element.md#aggregation-method

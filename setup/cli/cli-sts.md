@@ -369,4 +369,6 @@ docker rmi -f stackstate/stackstate-cli2
 
 ## Open source
 
-The StackState CLI is open source.
+The StackState `sts` CLI is open source and can be found on GitHub at:
+
+* [https://github.com/stackvista/stackstate-cli](https://github.com/stackvista/stackstate-cli)
