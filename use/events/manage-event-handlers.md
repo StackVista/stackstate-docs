@@ -19,7 +19,7 @@ All event handlers currently active for the view are displayed in the StackState
 You can add an event handler to a view from the StackState UI right panel **View summary** tab. 
 
 {% hint style="info" %}
-Event handlers can only be added to a saved view, it is not possible to add event handlers to subviews or while in explore mode.
+Event handlers can only be added to a saved [view](/use/stackstate-ui/views/about_views.md). It is not possible to add event handlers to [subviews](/use/stackstate-ui/views/about_views.md#subview) or while in [explore mode](/use/stackstate-ui/explore_mode.md).
 {% endhint %}
 
 1. Select the **View summary** tab in the right panel.
