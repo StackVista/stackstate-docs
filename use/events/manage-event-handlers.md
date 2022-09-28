@@ -46,19 +46,19 @@ A full list of the event handler functions available in your StackState instance
 Requires the [Slack StackPack](/stackpacks/integrations/slack.md) to be installed on your StackState instance.
 {% endhint %}
 
-Sends a Slack message with detailed information about the trigger event, including the possible root cause, to the configured Slack webhook URL. See [how to create a Slack Webhook \(slack.com\)](https://api.slack.com/messaging/webhooks). 
+The Slack event handler function sends a Slack message with detailed information about the trigger event, including the possible root cause, to the configured Slack webhook URL. See [how to create a Slack Webhook \(slack.com\)](https://api.slack.com/messaging/webhooks). 
 
 Can be triggered by **Health state change events** and **Problem events**.
 
 ### HTTP webhook POST
 
-Sends an HTTP webhook POST request to the specified URL. 
+The HTTP webhook POST event handler function sends a POST request to the specified URL. 
 
 Can be triggered by **Health state change events** only.
 
 ### SMS
 
-Sends an SMS with details of a health state change event using MessageBird.
+The SMS event handler function sends an SMS with details of a health state change event using MessageBird.
 
 Can be triggered by **Health state change events** only.
 
