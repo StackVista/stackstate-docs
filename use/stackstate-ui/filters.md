@@ -111,7 +111,7 @@ If required, you can [manually configure the topology filtering limit](/configur
 
 ## Filter Events
 
-The **View Filters** panel on the left of the StackState UI can be used to filter the events shown in the [Events Perspective](perspectives/events_perspective.md) and in the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**.
+The **View Filters** panel on the left of the StackState UI can be used to filter the events shown in the [Events Perspective](perspectives/events_perspective.md). They are also included in the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**.
 
 The following event filters are available:
 
