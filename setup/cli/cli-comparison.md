@@ -115,7 +115,7 @@ The new `sts` CLI will completely replace the old `stac` CLI. Not all commands h
 | `graph *` | `settings *` | Configure StackState settings. |
 | `graph retention` | 🚧 | Configure StackState graph database retention. |
 | `health *` | 🚧 | Configure health synchronization. |
-| `metric *` | ❌ | Send and retrieve metrics. Will not be ported to the new `sts` CLI. Metrics can still be sent via the StackState Agent and the StackState Receiver API. To retrieve metrics, use the StackState UI [telemetry inspector](/use/metrics-and-events/browse-telemetry.md) or [analytics environment](/use/stackstate-ui/analytics.md). |
+| `metric *` | ❌ | Send and retrieve metrics. Will not be ported to the new `sts` CLI. Metrics can still be sent via the StackState Agent and the StackState Receiver API. To retrieve metrics, use the StackState UI [telemetry inspector](/use/metrics/browse-telemetry.md) or [analytics environment](/use/stackstate-ui/analytics.md). |
 | `monitor send` | `monitor send` | |
 | `permission *` | 🚧 | Configure user/group permissions. |
 | `serverlog` | ❌ | Read StackState log files. Will not be ported to the new `sts` CLI. Log files can be read via Kubernetes or directly from disk. |

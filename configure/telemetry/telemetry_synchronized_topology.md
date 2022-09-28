@@ -83,8 +83,8 @@ For example, a CloudWatch metric stream:
 
 ## See also
 
-* [Add a single telemetry stream to a single component](../../use/metrics-and-events/add-telemetry-to-element.md)
+* [Add a single telemetry stream to a single component](../../use/metrics/add-telemetry-to-element.md)
 * [Reference guide: StackState template JSON](../../develop/reference/stj/)
-* [Browse telemetry streams](../../use/metrics-and-events/browse-telemetry.md)
+* [Browse telemetry streams](../../use/metrics/browse-telemetry.md)
 * [Create a StackPack with a custom template](../../develop/developer-guides/stackpack/)
 

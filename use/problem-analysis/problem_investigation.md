@@ -6,7 +6,13 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-Unhealthy components in a view are grouped into [problems](about-problems.md) based on how they are connected in the topology. When StackState identifies a problem, this will be reported in the right panel **View summary** tab under **Problems**. Problems are listed by the timestamp of the health state change for the root cause component - you will find the oldest problem in the view at the bottom of the list. Select a problem to open [detailed information about the problem ](problem_investigation.md#detailed-information-about-a-problem) in the right panel details tab - **Problem details**.
+Unhealthy components in a view are grouped into [problems](about-problems.md) based on how they are connected in the topology. When StackState identifies a problem, this will be reported in the right panel under **Problems**.
+
+* The **View summary** and **Subview summary** tabs give an overview of problems based on the components impacted in the current view or subview. 
+* The **Component details** tab lists all problems that involve the selected component. 
+* The **Direct relation details** tab lists all problems that involve the selected direct relation, its source component or its target component. 
+
+Problems are listed by the timestamp of the health state change for the root cause component - you will find the oldest problem in the view at the bottom of the list. Select a problem to open [detailed information about the problem ](problem_investigation.md#detailed-information-about-a-problem) in the right panel details tab - **Problem details**.
 
 ![View summary](/.gitbook/assets/v50_view_details_problems.png)
 
@@ -27,7 +33,7 @@ Anomaly events are generated whenever an anomaly is detected by the [Autonomous 
 1. Select a `Metric stream anomaly` event in the Events Perspective.
    * Detailed information about the event is displayed in the right panel details tab - **Event details**.
    * The affected stream is displayed highlighting the detected anomaly.
-2. Click on the metric stream graph or select **inspect** from its menu \(**...**\) to open the [telemetry inspector](../metrics-and-events/browse-telemetry.md) and inspect the stream in more detail.
+2. Click on the metric stream graph or select **inspect** from its menu \(**...**\) to open the [telemetry inspector](../metrics/browse-telemetry.md) and inspect the stream in more detail.
 
 ![Metric stream anomaly detailed event information](../../.gitbook/assets/v51_event_metric_stream_anomaly.png)
 
@@ -48,7 +54,7 @@ Version changed events are generated whenever the `version` property of a compon
 
 ## Problem subview
 
-A problem subview is a temporary StackState view. The filters applied to a problem subview return all components related to the problem root cause and any contributing causes within the [problem time window](problem_investigation.md#time-window-of-a-problem). This is a larger set of components than would be shown by selecting to show the [full root cause tree](../stackstate-ui/perspectives/topology-perspective.md#root-cause-outside-current-view). The following components will be included:
+A problem subview is a temporary StackState view. The filters applied to a problem subview return all components related to the problem root cause and any contributing causes within the [problem time window](about-problems.md#time-window-of-a-problem). This is a larger set of components than would be shown by selecting to show the [full root cause tree](../stackstate-ui/perspectives/topology-perspective.md#root-cause-outside-current-view). The following components will be included:
 
 * **Root cause** - Each problem has a single root cause. This is the unhealthy component at the bottom of the dependency chain.
 * **Contributing cause** - A problem can contain any number of contributing causes. These are all of the unhealthy components in the problem, other than the root cause.
@@ -62,12 +68,9 @@ To exit the Problem Subview, click the view name in the top bar of the StackStat
 
 ![Breadcrumbs with view name](../../.gitbook/assets/v51_problem_subview_breadcrumb.png)
 
-### Time window of a problem
-
-A problem is considered to start one hour before the timestamp of the first reported unhealthy state it contains and end five minutes after the last change to an unhealthy state. Note that the first unhealthy state in the problem might not have been reported by the root cause component. If a component in the problem changes to an unhealthy state or a new component is added to the problem, the problem time window will be extended to include this state change.
-
 ## See also
 
 * [What is a problem?](about-problems.md)
+* [Problem lifecycle](problem-lifecycle.md)
 * [Problem notifications](problem_notifications.md)
 * [Anomaly detection](../concepts/anomaly-detection.md)

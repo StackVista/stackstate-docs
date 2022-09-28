@@ -93,7 +93,7 @@ The AAD scales to large environments by autonomously prioritizing metric streams
 
 * The top ranking is given to metric streams with [anomaly health checks](../../use/checks-and-monitors/anomaly-health-checks.md).
 * Components in views that have the most stars by the most users are ranked highest.
-* From those components, the metric streams with the highest priorities are ranked highest. See [how to set the priority for a stream](../../use/metrics-and-events/set-telemetry-stream-priority.md).
+* From those components, the metric streams with the highest priorities are ranked highest. See [how to set the priority for a stream](../../use/metrics/set-telemetry-stream-priority.md).
 * Anomaly detection will be disabled on streams if more than 20% of their time is flagged as anomalous.
 
 You cannot directly control the stream selected, but you can steer the metric stream selection of the AAD by manipulating the above-mentioned factors.
@@ -109,7 +109,7 @@ After an initial [training period](aad.md#training-period), the AAD ensures that
 
 ### Can anomalies trigger alerts?
 
-Yes. The AAD itself does not alert on anomalies found, but [anomaly health checks](../../use/checks-and-monitors/anomaly-health-checks.md) can be added to components to automatically change the health status of the component to `DEVIATING`. This health state change event can then trigger notifications by [adding an event handler](../../use/stackstate-ui/views/manage-event-handlers.md) to a view.
+Yes. The AAD itself does not alert on anomalies found, but [anomaly health checks](../../use/checks-and-monitors/anomaly-health-checks.md) can be added to components to automatically change the health status of the component to `DEVIATING`. This health state change event can then trigger notifications by [adding an event handler](../../use/events/manage-event-handlers.md) to a view.
 
 ## Uninstall
 

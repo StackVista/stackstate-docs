@@ -63,7 +63,7 @@ Other variables accessible from the script are the following:
 - `telemetryTimeStart: Instant` - is a [telemetry interval](../../../use/stackstate-ui/timeline-time-travel.md#telemetry-interval) start. This variable always have a value.
 - `telemetryTimeEnd: Instant` - is a telemetry interval end. For live mode the variable value is `null`.
 
-For more details for time usage in scripts see [script API documentation](../../reference/scripting/time-in-scripts.md).
+For more details for time usage in scripts see [script API documentation](/develop/reference/scripting/script-apis/time.md).
 
 
 ### Identifier

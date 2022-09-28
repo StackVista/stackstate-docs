@@ -49,7 +49,7 @@ The [timeline](/use/stackstate-ui/timeline-time-travel.md) at the bottom of the 
 
 ## Detailed information about components and relations
 
-Select a component or a relation to display detailed information about it in the right panel details tab - the tab will be named according to the element type that you selected. For example, **Component details** when you select a component or **Direct relation details** when you select a relation that links two components with no hidden components in between. Click **SHOW ALL PROPERTIES** to open a popup with all details of a component.
+Select a component or a relation to display detailed information about it in the right panel details tab - the tab will be named according to the element type that you selected. For example, **Component details** when you select a component or **Direct relation details** when you select a relation that links two components with no hidden components in between. Click **SHOW ALL PROPERTIES** to open a popup with all details of a component or direct relation.
 
 ![Detailed component information](/.gitbook/assets/v51_component_details.png)
 
@@ -65,14 +65,18 @@ If you click on a log stream, you can see the log stream in a popup. Again, ther
 
 ## Problems
 
-To quickly find the cause of any DEVIATING component, head to the right panel in the selected view where you can find the **Problems** section in the **View summary** tab. It reduces the cognitive flow and provides immediate understanding of ongoing problems. The Problems section will show you the cause of problems in your view. This summary is based on the components impacted in your current view combined with all \(potential\) causes. Problems are automatically clustered by their root cause.
+To quickly find the cause of any DEVIATING component, head to the right panel in the StackState UI where you can find the **Problems** section. It provides an immediate understanding of ongoing problems in your IT environment clustered by their root cause and will show you the probable cause of current problems.
+
+* The **View summary** and **Subview summary** tabs give an overview of problems based on the components impacted in the current view or subview. 
+* The **Component details** lists all problems that involve the selected component. 
+* The **Direct relation details** tab lists all problems that involve the selected direct relation, its source component or its target component. 
 
 Problems and issues are displayed in the following order:
 
-* StackState prioritizes problems in order of creation date/time, with the oldest problem at the top of the list and the most recently created at the bottom.
-* Component-specific issues grouped inside problems are displayed from the most recent ones at the top to the oldest at the bottom of the list.
+* Problems are listed in order of creation date/time, with the oldest problem at the top of the list and the most recently created at the bottom.
+* The component-specific issues grouped inside each problem are displayed from the most recent ones at the top to the oldest at the bottom of the list.
 
-Not all components displayed in the problem panel are necessarily also visible in the current topology view. To make the root cause of a problem visible, hover a mouse pointer over the component and select `show -> root cause` from the `Actions` menu.
+Not all components displayed in the problem panel are necessarily also visible in the current topology view. You can open o dedicated problem subview to focus on the topology elements involved in a problem.
 
 ➡️ [Learn more about problems](/use/problem-analysis/about-problems.md)
 
@@ -80,11 +84,11 @@ Not all components displayed in the problem panel are necessarily also visible i
 
 ## Events
 
-To show all events for the selected Topology, select the Events Perspective from the top of the screen. Examples of important events that may appear here are health state changes and changes to the components themselves, like version changes. With [event handlers](/use/metrics-and-events/event-notifications.md), you can configure StackState to react to any events, for example, by automatically creating a ticket or triggering some automation.
+To show all events for the selected Topology, select the Events Perspective from the top of the screen. Examples of important events that may appear here are health state changes and changes to the components themselves, like version changes. With [event handlers](/use/events/event-notifications.md), you can configure StackState to react to any events, for example, by automatically creating a ticket or triggering some automation.
 
 ![Events Perspective](/.gitbook/assets/v51_events-perspective.png)
 
-The Events Perspective is not the only place you can find events; you can find the latest events in the Events section in the right panel **View summary** tab.
+The Events Perspective is not the only place you can find events; you can find the latest events in the Events section in the right panel **View summary** tab and in the details tabs - **Component details** and **Direct relation details**.
 
 ![Events section](/.gitbook/assets/v51_events-section.png)
 
