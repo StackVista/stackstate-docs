@@ -264,15 +264,21 @@ Lines in the output that start with `Error from server (BadRequest):` are expect
 ### Restore a StackGraph backup
 
 {% hint style="warning" %}
-**When a backup is restored, the existing data in the StackGraph database will be overwritten.**
-
+**By default we only restore a backup on a clean environment to avoid some unexpected existing data loss.**
+If you are completely sure that the existing data can be overwritten then you can `-force` the command.
 Only execute the restore command when you are sure that you want to restore the backup.
 {% endhint %}
 
-To restore a StackGraph backup, select a backup name and pass it as the first parameter in the following command:
+To restore a StackGraph backup on a clean environment, select a backup name and pass it as the first parameter in the following command:
 
 ```bash
 ./restore/restore-stackgraph-backup.sh sts-backup-20210216-0300.graph
+```
+
+To restore a StackGraph backup on an **environment with existing data**, select a backup name and pass it as the first parameter in the following command next to a second parameter `-force`:
+
+```bash
+./restore/restore-stackgraph-backup.sh sts-backup-20210216-0300.graph -force
 ```
 
 The output should look like this:
@@ -290,6 +296,12 @@ WARNING: Use --illegal-access=warn to enable warnings of further illegal reflect
 WARNING: All illegal access operations will be denied in a future release
 ===
 job.batch "stackgraph-restore-20210222t112142" deleted
+```
+
+In case you are running a restore command missing the `-force` flag on a non empty database the output will contain an error like this:
+
+```bash
+ERROR com.stackvista.graph.migration.Restore - Restore is not possible in a non empty.
 ```
 
 {% hint style="info" %}

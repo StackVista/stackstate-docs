@@ -37,18 +37,31 @@ StackState topology and configuration data are stored in StackGraph. To create a
 
 ### Restore
 
+{% hint style="warning" %}
+**By default we only restore a backup on a clean environment to avoid some unexpected existing data loss.**
+If you are completely sure that the existing data can be overwritten then you can `--force` the command.
+Only execute the restore command when you are sure that you want to restore the backup.
+{% endhint %}
+
 To restore previously backed up topology data:
 
 1. Make sure that StackGraph is up and running.
 2. Stop the StackState node using `sudo systemctl stop stackstate.service`.
-3. Run the restore form a specified backup file:
+3a. Run the restore from a specified backup file on a clean environment:
 
    ```text
    /opt/stackstate/bin/sts-standalone.sh import \
    --file <path_to_backup_file> \
    --graph default
    ```
+3b. Run the restore from a specified backup file on on an **environment with existing data**:
 
+   ```text
+   /opt/stackstate/bin/sts-standalone.sh import \
+   --file <path_to_backup_file> \
+   --graph default
+   --force
+   ```
 4. Track progress of the restore in the StackState log file `<stackstate_installation_path>/var/log/stackstate.log`.
 5. When the restore has successfully completed, start the StackState node using `sudo systemctl start stackstate.service`.
 
