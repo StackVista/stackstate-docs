@@ -145,7 +145,7 @@ Errors for non-existing sub streams:
 
 error message                                                                                   error occurrence count
 ----------------------------------------------------------------------------------------------  ------------------------
-Sub stream `substream with id `subStreamId2`` not started when receiving snapshot stop                          6
+Sub stream `substream with ID `subStreamId2`` not started when receiving snapshot stop                          6
 ```
 
 ⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
