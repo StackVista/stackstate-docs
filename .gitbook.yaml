@@ -347,3 +347,4 @@ redirects:
 # 5.1 docs
 
   /use/metrics/event-notifications: ./use/events/event-notifications.md
+  /use/stackstate-ui/views/manage-event-handlers: /use/events/manage-event-handlers.md
