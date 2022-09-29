@@ -21,14 +21,15 @@ This page provides specific instructions and details of any required manual step
 {% tabs %}
 {% tab title="Kubernetes" %}
 
-#### v5.0.0
+#### v5.1.0
 TODO
 
 {% endtab %}
 {% tab title="Linux" %}
 
-#### v5.0.0
-TODO
+#### v5.1.0
+
+* JDK has been updated. StackState now requires OpenJDK 11.
 
 {% endtab %}
 {% endtabs %}
