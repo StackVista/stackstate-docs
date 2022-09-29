@@ -28,13 +28,13 @@ StackGraph and Elasticsearch backups are sent to an instance of [MinIO \(min.io\
 
 The built-in MinIO instance can be configured to store the backups in three locations:
 
-* AWS S3
-* Azure Blob Storage
-* Kubernetes storage
+* [AWS S3](#aws-s3)
+* [Azure Blob Storage](#azure-blob-storage)
+* [Kubernetes storage](#kubernetes-storage)
 
 ## Enable backups
 
-### Backup to AWS S3
+### AWS S3
 
 {% hint style="warning" %}
 
@@ -107,7 +107,7 @@ The IAM user identified by `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` must be configu
 }
 ```
 
-### Backup to Azure Blob Storage
+### Azure Blob Storage
 
 To enable backups to an Azure Blob Storage account, add the following YAML fragment to the Helm `values.yaml` file used to install StackState:
 
@@ -121,11 +121,14 @@ minio:
     enabled: true
 ```
 
-Replace `AZURE_STORAGE_ACCOUNT_NAME` with the [Azure storage account name \(microsoft.com\)](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal) and replace `AZURE_STORAGE_ACCOUNT_KEY` with the [Azure storage account key \(microsoft.com\)](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage?tabs=azure-portal) where the backups should be stored.
+Replace the following values:
+
+* `AZURE_STORAGE_ACCOUNT_NAME` - the [Azure storage account name \(microsoft.com\)](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal) 
+* `AZURE_STORAGE_ACCOUNT_KEY` - the [Azure storage account key \(microsoft.com\)](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage?tabs=azure-portal) where the backups should be stored.
 
 The StackGraph and Elasticsearch backups are stored in BLOB containers called `sts-stackgraph-backup` and `sts-elasticsearch-backup` respectively. These names can be changed by setting the Helm values `backup.stackGraph.bucketName` and `backup.elasticsearch.bucketName` respectively.
 
-### Backup to Kubernetes storage
+### Kubernetes storage
 
 {% hint style="warning" %}
 If MinIO is configured to store its data in Kubernetes storage, a PersistentVolumeClaim (PVC) is used to request storage from the Kubernetes cluster. The kind of storage that is allocated depends on the configuration of the cluster.
@@ -149,7 +152,9 @@ minio:
     enabled: true
 ```
 
-Replace `YOUR_ACCESS_KEY` and `YOUR_SECRET_KEY` with the credentials that will be used to secure the MinIO system. The automatic backup jobs and the restore jobs will use them. They are also required to manually access the MinIO storage. `YOUR_ACCESS_KEY` should contain 5 to 20 alphanumerical characters and `YOUR_SECRET_KEY` should contain 8 to 40 alphanumerical characters.
+Replace the following values:
+
+* `YOUR_ACCESS_KEY` and `YOUR_SECRET_KEY` - the credentials that will be used to secure the MinIO system. The automatic backup jobs and the restore jobs will use them. They are also required to manually access the MinIO storage. `YOUR_ACCESS_KEY` should contain 5 to 20 alphanumerical characters and `YOUR_SECRET_KEY` should contain 8 to 40 alphanumerical characters.
 
 ## Configuration and topology data \(StackGraph\)
 
@@ -211,23 +216,25 @@ By default, the retention task itself [runs daily at 1:30 AM UTC \(elastic.co\)]
 
 ### Snapshot indices
 
-By default, a snapshot is created for all Elasticsearch indices.
+By default, a snapshot is created for Elasticsearch indices with names that start with `sts`.
 
-This indices for which a snapshot is created can be configured using the Helm value `backup.elasticsearch.scheduled.indices`, specified in [JSON array format \(w3schools.com\)](https://www.w3schools.com/js/js_json_arrays.asp).
+The indices for which a snapshot is created can be configured using the Helm value `backup.elasticsearch.scheduled.indices`, specified in [JSON array format \(w3schools.com\)](https://www.w3schools.com/js/js_json_arrays.asp).
 
 ## Restore backups and snapshots
 
-Scripts to list and restore backups and snapshots can be found in the [restore directory of the StackState Helm chart repository \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/restore). To use the scripts, download them from the GitHub site or check out the repository.
+Scripts to list and restore backups and snapshots can be found in the [restore directory of the StackState Helm chart repository \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/restore). To use the scripts, download them from GitHub or checkout the repository.
 
-Before you use the scripts, ensure that:
+{% hint style="info" %}
+**Before you use the scripts, ensure that:**
 
-1. The `kubectl` binary is installed and configured to connect to:
-    1. the Kubernetes cluster where StackState has been installed.
-    1. the namespace within that cluster where StackState has been installed.
-1. The following Helm values have been correctly set:
+* The `kubectl` binary is installed and configured to connect to:
+    1. The Kubernetes cluster where StackState has been installed.
+    2. The namespace within that cluster where StackState has been installed.
+* The following Helm values have been correctly set:
     1. `backup.enabled` is set to `true`.
-    1. `backup.stackGraph.restore.enabled` is not set to `false` \(to access StackGraph backups\).
-    1. `backup.elasticsearch.restore.enabled` is not set to `false` \(to access Elasticsearch snapshots\).
+    2. `backup.stackGraph.restore.enabled` is not set to `false` \(to access StackGraph backups\).
+    3. `backup.elasticsearch.restore.enabled` is not set to `false` \(to access Elasticsearch snapshots\).
+{% endhint %}
 
 ### List StackGraph backups
 
@@ -318,7 +325,7 @@ Lines that starts with `WARNING:` are expected. They are generated by Groovy run
 To list the Elasticsearch snapshots, execute the following command:
 
 ```bash
-./restore/list-elasticsearch-snapshos.sh
+./restore/list-elasticsearch-snapshots.sh
 ```
 
 The output should look like this:
@@ -339,18 +346,74 @@ job.batch "elasticsearch-list-snapshots-20210224t133115" deleted
 
 The timestamp when the backup was taken is part of the backup name.
 
+
+### Delete Elasticsearch indices
+
+To delete existing Elasticsearch indices so that a snapshot can be restored, follow these steps.
+
+1. Stop indexing - scale down all `*2es` deployments to 0:
+
+   ```bash
+   kubectl scale --replicas=0 deployment/e2es
+   kubectl scale --replicas=0 deployment/mm2es
+   kubectl scale --replicas=0 deployment/trace2es
+   ```
+
+2. Open a port-forward to the Elasticsearch master:
+
+   ```bash
+   kubectl port-forward service/stackstate-elasticsearch-master 9200:9200
+   ```
+
+3. Get a list of all indices:
+
+   ```bash
+   curl "http://localhost:9200/_cat/indices?v=true"
+   ```
+   
+   The output should look like this:
+
+   ```bash
+   health status index                          uuid                   pri rep docs.count docs.deleted store.size pri.store.size
+   green  open   sts_internal_events-2022.09.20 fTk7iEYtQI6ruVFuwNnbPw   1   0        125            0     71.7kb         71.7kb
+   green  open   .geoip_databases               GYA_c3i6QKenfFehnwBcAA   1   0         41            0     38.8mb         38.8mb
+   green  open   sts_multi_metrics-2022.09.20   MT1DceQPTDWVIfBJdl7qUg   3   0       1252            0    550.1kb        550.1kb
+   ```
+
+5. Delete an index with a following command:
+
+   ```bash
+   curl -X DELETE "http://localhost:9200/INDEX_NAME?pretty"
+   ```
+
+   Replace `INDEX_NAME` with the name of the index to delete, for example:
+
+   ```bash
+   curl -X DELETE "http://localhost:9200/sts_internal_events-2021.02.19?pretty"
+   ```
+
+6. The output should be:
+
+   ```javascript
+   {
+   "acknowledged" : true
+   }
+   ```
+
 ### Restore an Elasticsearch snapshot
 
 {% hint style="danger" %}
-When a snapshot is restored, existing indices will NOT be overwritten. Use the Elasticsearch [delete index API \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/indices-delete-index.html) to remove them first. 
+**When a snapshot is restored, existing indices will NOT be overwritten.** Use the Elasticsearch [delete index API \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/indices-delete-index.html) to remove them first. 
 
 See [delete Elasticsearch indices](kubernetes_backup.md#delete-elasticsearch-indices).
 {% endhint %}
 
-To restore an Elasticsearch snapshot, select a snapshot name and pass it as the first parameter in the following command line:
+To restore an Elasticsearch snapshot, select a snapshot name and pass it as the first parameter in the following command line. You can optionally specify a second parameter with a comma-separated list of the indices that should be restored. If not specified, all indices that match the Helm value `backup.elasticsearch.scheduled.indices` will be restored (default `"sts*"`):
 
 ```bash
-./restore/restore-elasticsearch-snapshot.sh sts-backup-20210223-0300-ppss8nx40ykppss8nx40yk
+./restore/restore-elasticsearch-snapshot.sh \
+  sts-backup-20210223-0300-ppss8nx40ykppss8nx40yk \
+  "<INDEX_TO_RESTORE>,<INDEX_TO_RESTORE>"
 ```
 
 The output should look like this:
@@ -387,42 +450,4 @@ After the indices have been restored, scale up all `*2es` deployments:
    kubectl scale --replicas=1 deployment/e2es
    kubectl scale --replicas=1 deployment/mm2es
    kubectl scale --replicas=1 deployment/trace2es
-   ```
-
-### Delete Elasticsearch indices
-
-To delete existing Elasticsearch indices so that a snapshot can be restored, follow these steps.
-
-1. Stop indexing - scale down all `*2es` deployments to 0:
-
-   ```bash
-   kubectl scale --replicas=0 deployment/e2es
-   kubectl scale --replicas=0 deployment/mm2es
-   kubectl scale --replicas=0 deployment/trace2es
-   ```
-
-2. Open a port-forward to the Elasticsearch master:
-
-   ```bash
-   kubectl port-forward service/stackstate-elasticsearch-master 9200:9200
-   ```
-
-3. Delete an index with a following command:
-
-   ```bash
-   curl -X DELETE "http://localhost:9200/INDEX_NAME?pretty"
-   ```
-
-   Replace `INDEX_NAME` with the name of the index to delete, for example:
-
-   ```bash
-   curl -X DELETE "http://localhost:9200/sts_internal_events-2021.02.19?pretty"
-   ```
-
-4. The output should be:
-
-   ```javascript
-   {
-   "acknowledged" : true
-   }
    ```
