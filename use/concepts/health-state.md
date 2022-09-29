@@ -51,7 +51,7 @@ You can set up a [custom health synchronization](../../configure/health/health-s
 
 ## Element own health state
 
-StackState tracks a single own health state for each topology element (components, component groups and relations) based on information available from the [health sources](#health-sources) attached to it. The own health state is calculated as the most severe state reported by all health sources configured the element. If no health sources are present, an `UNKNOWN` health state will be reported.
+StackState tracks a single own health state for each topology element (components, component groups and relations) based on information available from all of the [health sources](#health-sources) attached to it. The own health state is calculated as the most severe state reported by all health sources configured the element. If no health sources are present, an `UNKNOWN` health state will be reported.
 
 In the StackState UI, the color of an element represents its own health state. A topology element can have any of the following health states:
 
