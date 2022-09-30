@@ -102,7 +102,7 @@ One of the following operating systems running Java. Check also the specific req
 
 #### Java
 
-OpenJDK 11 **patch level 121** or later.
+OpenJDK 11.
 
 ### Size requirements
 

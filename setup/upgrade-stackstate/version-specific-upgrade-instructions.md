@@ -29,7 +29,7 @@ TODO
 
 #### v5.1.0
 
-* JDK has been updated. StackState now requires OpenJDK 11.
+* The required version of JDK has been updated - StackState now requires OpenJDK 11. This must be present on the installation machine before upgrading StackState. In case of having a mismatching JDK, StackState will fail to start and will log the reason in `stackstate.log`.
 
 {% endtab %}
 {% endtabs %}
