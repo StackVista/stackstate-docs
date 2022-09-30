@@ -10,6 +10,16 @@ Note that the release notes may include details of functionality that is current
 
 ## StackState v5.0.x
 
+### v5.0.6 (2022-09-30)
+
+**Improvements**
+
+- The Minio pod in the StackState Helm chart has default CPU requests and limits set. STAC-17882
+
+**Bug fixes**
+
+- Fixed an issue that prevented StackState from using MS Edge as a browser. STAC-17848
+
 ### v5.0.5 (2022-09-13)
 
 **Bug fixes**
