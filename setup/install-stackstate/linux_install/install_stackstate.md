@@ -17,7 +17,7 @@ Before starting the installation, you need to make a choice which make sure you 
 
 ### Install using the RPM distribution
 
-**NOTE**: StackState requires **JDK 8** to run. This version of Java must already be present on the installation machine and will not automatically be installed by the `rpm` command.
+**NOTE**: StackState requires **JDK 11** to run. This version of Java must already be present on the installation machine and will not automatically be installed by the `rpm` command.
 
 * `rpm -i <stackstate>.rpm`
 * /opt/stackstate/bin/setup.sh
@@ -25,7 +25,7 @@ Before starting the installation, you need to make a choice which make sure you 
 
 ### Install using the DEB distribution
 
-**NOTE**: StackState requires **JDK 8** to run. This version of Java must already be present on the installation machine and will not automatically be installed by the `dpkg` command.
+**NOTE**: StackState requires **JDK 11** to run. This version of Java must already be present on the installation machine and will not automatically be installed by the `dpkg` command.
 
 * `dpkg -i <stackstate>.deb`
 * During setup various configuration options will be requested, which are described below
