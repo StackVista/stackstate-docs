@@ -2,7 +2,7 @@
 description: StackState Self-hosted v5.1.x 
 ---
 
-# Agent State
+# Agent Check State
 
 ## Overview
 
@@ -55,3 +55,11 @@ The root path `c:\programdata\stackstate-agent\run` can be updated by setting:
 
 
 ⚠️ **PLEASE NOTE -** Running stateful checks in Kubernetes is currently not supported by the StackState Agent Helm Chart.
+
+## See also
+
+* [How to develop Agent checks](how_to_develop_agent_checks.md)
+* [Agent check API](agent-check-api.md)
+* [Connect an Agent check with StackState using the Custom Synchronization StackPack](connect_agent_check_with_stackstate.md)
+* [Developer guide - Custom Synchronization StackPack](../custom_synchronization_stackpack/)
+
