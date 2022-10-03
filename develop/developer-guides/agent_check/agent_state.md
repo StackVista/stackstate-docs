@@ -1,0 +1,57 @@
+---
+description: StackState Self-hosted v5.1.x 
+---
+
+# Agent State
+
+## Overview
+
+Starting with the release of **Agent 2.18**, the Agent Check API exposes two new interfaces to allow stateful behavior in Agent Checks. More specific details of the agent interfaces can be found in the [Agent check API](agent-check-api.md)
+
+## When to use Agent State
+
+Agent State is intended for Agent Checks that need to persist state in between check runs. The type of persistence model to use depends on the use case. `Stateful Agent Checks` are able to persist state to disk after each check run, **regardless of whether the check completely successfully or data was successfully sent to StackState**. `Transactional Agent Checks` have two states; Persistent state which behaves the same as state in a `Stateful Agent Check` and transactional state. Transactional state is persisted when the check **completes successfully and the data was delivered to StackState.**
+
+State(s) are parameters to the `stateful_check` and `transactional_check` methods and the values in the return type are eventually persisted.
+
+⚠️ **PLEASE NOTE -** State files are persisted as plain text in JSON format, therefore no passwords / secrets should ever be stored as state.
+
+## Agent State location
+
+The agent state is stored by default in the following locations:
+
+{% tabs %}
+
+{% tab title="linux" %}
+The state files are located in the `/opt/stackstate-agent/run/{check_name}` folder for each stateful / transactional check.
+
+The root path `/opt/stackstate-agent/run` can be updated by setting:
+- `check_state_root_path` in the agent configuration file located at: `/etc/stackstate-agent/stackstate.yaml`.
+- Setting `STS_CHECK_STATE_ROOT_PATH={path}` as a environment variable.
+{% endtab %}
+
+{% tab title="docker" %}
+```text
+The state files are located in the `/opt/stackstate-agent/run/{check_name}` folder for each stateful / transactional check.
+
+The root path `/opt/stackstate-agent/run` can be updated by setting:
+- `check_state_root_path` in the agent configuration file located at: `/etc/stackstate-agent/stackstate.yaml`.
+- Setting `STS_CHECK_STATE_ROOT_PATH={path}` as a environment variable.
+- Alternatively mount a volume on the check state root path. For more information on mounting volumes for docker, take a look here: https://docs.docker.com/storage/volumes/.
+```
+{% endtab %}
+
+{% tab title="windows" %}
+```text
+The state files are located in the `c:\programdata\stackstate-agent\run\{check_name}` folder for each stateful / transactional check.
+
+The root path `c:\programdata\stackstate-agent\run` can be updated by setting:
+- `check_state_root_path` in the agent configuration file located at: `C:\ProgramData\StackState\stackstate.yaml`.
+- Setting `STS_CHECK_STATE_ROOT_PATH={path}` as a environment variable.
+```
+{% endtab %}
+
+{% endtabs %}
+
+
+⚠️ **PLEASE NOTE -** Running stateful checks in Kubernetes is currently not supported by the StackState Agent Helm Chart.
