@@ -21,7 +21,7 @@ Unlike monitors, checks are defined on a per-topology element basis and rely on 
 
 ## Check results
 
-Check results are displayed under **Health** in the StackState UI right panel details tab when information about a topology element is displayed - [Component details](/use/concepts/components.md#component-details) or [Relation details](/use/concepts/relations.md#relation-details) depending on the element type that you selected. :
+Check results are displayed under **Health** in the StackState UI right panel details tab when information about a topology element is displayed - [Component details](/use/concepts/components.md#component-details) or [Direct relation details](/use/concepts/relations.md#relation-details) depending on the element type that you selected. :
 
 ![Check result panel](../../.gitbook/assets/v51_check_result.png)
 

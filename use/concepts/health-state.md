@@ -65,7 +65,7 @@ In the StackState UI, the color of an element represents its own health state. A
 
 The element will also have an outer color if it has an unhealthy [propagated health state](#element-propagated-health-state).
 
-You can find details of the calculated element own health state and all configured monitors and health checks in the StackState UI right panel details tab when information about a topology element is displayed - [Component details](/use/concepts/components.md#component-details) or [Relation details](/use/concepts/relations.md#relation-details) depending on the element type that you selected. 
+You can find details of the calculated element own health state and all configured monitors and health checks in the StackState UI right panel details tab when information about a topology element is displayed - [Component details](/use/concepts/components.md#component-details) or [Direct relation details](/use/concepts/relations.md#relation-details) depending on the element type that you selected. 
 
 ### Element propagated health state
 
@@ -87,7 +87,7 @@ The color of the element itself (the inner color) represents the [element own he
 
 The propagated health state of an element can also be found in the following places:
 
-* In the right panel details tab when information about a topology element is displayed - [Component details](/use/concepts/components.md#component-details) or [Relation details](/use/concepts/relations.md#relation-details) depending on the element type that you selected. 
+* In the right panel details tab when information about a topology element is displayed - [Component details](/use/concepts/components.md#component-details) or [Direct relation details](/use/concepts/relations.md#relation-details) depending on the element type that you selected. 
 * In the [component context menu](/use/stackstate-ui/perspectives/topology-perspective.md#component-context-menu) when you hover the mouse pointer over a component in the topology visualization.
 
 ![](../../.gitbook/assets/v51_stackstate-ui-propagated-health-state.png)
