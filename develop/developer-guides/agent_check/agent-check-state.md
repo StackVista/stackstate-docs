@@ -18,11 +18,9 @@ State(s) are parameters to the `stateful_check` and `transactional_check` method
 
 ## Agent State location
 
-The agent state is stored by default in the following locations:
-
 {% tabs %}
 
-{% tab title="linux" %}
+{% tab title="Linux" %}
 The state files are located in the `/opt/stackstate-agent/run/{check_name}` folder for each stateful / transactional check.
 
 The root path `/opt/stackstate-agent/run` can be updated by setting:
@@ -30,7 +28,7 @@ The root path `/opt/stackstate-agent/run` can be updated by setting:
 - Setting `STS_CHECK_STATE_ROOT_PATH={path}` as a environment variable.
 {% endtab %}
 
-{% tab title="docker" %}
+{% tab title="Docker" %}
 The state files are located in the `/opt/stackstate-agent/run/{check_name}` folder for each stateful / transactional check.
 
 The root path `/opt/stackstate-agent/run` can be updated by setting:
@@ -39,7 +37,7 @@ The root path `/opt/stackstate-agent/run` can be updated by setting:
 - Alternatively mount a volume on the check state root path. For more information on mounting volumes for docker, take a look here: https://docs.docker.com/storage/volumes/.
 {% endtab %}
 
-{% tab title="windows" %}
+{% tab title="Windows" %}
 The state files are located in the `c:\programdata\stackstate-agent\run\{check_name}` folder for each stateful / transactional check.
 
 The root path `c:\programdata\stackstate-agent\run` can be updated by setting:
