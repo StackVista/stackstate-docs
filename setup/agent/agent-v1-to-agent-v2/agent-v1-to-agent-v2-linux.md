@@ -52,14 +52,37 @@ sudo /etc/init.d/stackstate-agent status
 
 ### 2. Install Agent v2
 
-Deploy Agent v2 on Linux by following [Agent v2 - Deploy on Linux](/setup/agent/linux.md).
+StackState Agent v2 can now safely be installed.
+
+Follow all the steps on [Agent v2 - Deploy on Linux](/setup/agent/linux.md) to successfully deploy Agent v2.
 
 ### 3. Stop Agent v2
 
-The installation of Agent v2 will automatically start the StackState Agent, To prevent cache files from being overwritten during the
-cache migration process, let's stop the Agent.
+{% hint style="warning" %}
+The installation of Agent v2 will automatically start the StackState Agent.
+{% endhint %}
 
-This can be done by following [Agent v2 - Stop on Linux](/setup/agent/linux.md#start-stop-or-restart-the-agent).
+To prevent Agent state files from being overwritten during the state migration process, let's stop the Agent
+
+This can be done by running one of the following commands:
+
+```shell
+# with systemctl
+sudo systemctl stop stackstate-agent
+
+# with service
+sudo service stackstate-agent stop
+```
+
+After the Agent has been stopped, verify its status with one of these commands:
+
+```shell
+# with systemctl
+sudo systemctl status stackstate-agent
+
+# with service
+sudo service stackstate-agent status
+```
 
 ### 4. Copy over your existing conf.d checks
 
@@ -68,9 +91,25 @@ Migrate your existing conf.d check YAML files to the Agent v2 directory.
 This can be done by following these steps:
 
 1. Head over to your Agent v1 `conf.d` directory found at the following location `/etc/sts-agent/conf.d/`.
-2. Copy each of the files in the `conf.d` directory to their respective v2 subdirectories inside the Agent v2 conf.d directory found at `/etc/stackstate-agent/conf.d/<CHECK-SUBDIRECTORY>.d/`.
-    - **DO NOT** just copy all the files from the `/etc/sts-agent/conf.d/` to `/etc/stackstate-agent/conf.d/` as Agent v2 works with a subdirectory structure.
-    - For Example, Copy the file `/etc/sts-agent/conf.d/check_1.yaml` into `/etc/stackstate-agent/conf.d/check_1.d/check_1.yaml`.
+2. Copy each of the files in the `conf.d` directory to their respective v2 **subdirectories** inside the Agent v2 conf.d directory found at `/etc/stackstate-agent/conf.d/<CHECK-SUBDIRECTORY>.d/`.
+    - {% hint style="warning" %} **DO NOT** just copy all the files from the `/etc/sts-agent/conf.d/` to `/etc/stackstate-agent/conf.d/` as Agent v2 works with a subdirectory structure. {% endhint %}
+    - For Example, If you are using **Splunk** copy the following files:
+      - `/etc/sts-agent/conf.d/splunk_topology.yaml` into `/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml`
+      - `/etc/sts-agent/conf.d/splunk_event.yaml` into `/etc/stackstate-agent/conf.d/splunk_event.d/splunk_event.yaml`
+      - `/etc/sts-agent/conf.d/splunk_metric.yaml` into `/etc/stackstate-agent/conf.d/splunk_metric.d/splunk_metric.yaml`
+3. (Required step for **Splunk** checks)
+    - Splunk Topology
+      - Edit the check configuration file /etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml and replace all occurrences of the following items
+        - `default_polling_interval_seconds` replace with `collection_interval`
+        - `polling_interval_seconds` replace with `collection_interval`
+    - Splunk Events
+      - Edit the check configuration file /etc/stackstate-agent/conf.d/splunk_event.d/splunk_event.yaml and replace all occurrences of the following items
+        - `default_polling_interval_seconds` replace with `collection_interval`
+        - `polling_interval_seconds` replace with `collection_interval`
+    - Splunk Metrics
+      - Edit the check configuration file /etc/stackstate-agent/conf.d/splunk_metric.d/splunk_metric.yaml and replace all occurrences of the following items
+        - `default_polling_interval_seconds` replace with `collection_interval`
+        - `polling_interval_seconds` replace with `collection_interval`
 
 ### 5. Migrate the Agent v1 Cache
 
