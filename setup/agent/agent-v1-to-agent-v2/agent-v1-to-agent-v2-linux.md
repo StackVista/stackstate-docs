@@ -18,18 +18,18 @@ These steps **must be done in order** to prevent any Agent v1 to Agent v2 corrup
 
 Stop the currently running v1 Agent. If the Agent is still running, it might interfere with the installation process of Agent v2 or, even worse, break the agent cache.
 
-This can be done by following the [Agent v1 - Start and Stop](/setup/agent/agent-v1.md#start--stop--restart-the-agent) section.
+This can be done by following [Agent v1 - Start and Stop](/setup/agent/agent-v1.md#start--stop--restart-the-agent).
 
 ### 2. Install Agent v2
 
-Deploy Agent v2 by following the [Agent v2 - Deploy on Linux](/setup/agent/linux.md) page.
+Deploy Agent v2 on Linux by following [Agent v2 - Deploy on Linux](/setup/agent/linux.md).
 
 ### 3. Stop Agent v2
 
-The installation of Agent v2 will automatically start the Agent, To prevent cache files from being corrupted during the
+The installation of Agent v2 will automatically start the StackState Agent, To prevent cache files from being corrupted during the
 cache migration process, let's stop the Agent.
 
-This can be done by following the [Agent v2 - Stop on Linux](/setup/agent/linux.md#start-stop-or-restart-the-agent) page.
+This can be done by following [Agent v2 - Stop on Linux](/setup/agent/linux.md#start-stop-or-restart-the-agent).
 
 ### 4. Copy over your existing conf.d checks
 
@@ -37,30 +37,32 @@ Migrate your existing conf.d check YAML files to the Agent v2 directory.
 
 This can be done by following these steps:
 
-1. Head over to your Agent v1 conf directory found at the following location `/etc/sts-agent/conf.d/`
-2. Copy each of the files in the conf.d directory to their respective v2 subdirectories found at `/etc/stackstate-agent/conf.d/<CHECK-SUBDIRECTORY>.d/`
-   - **Do not** just copy all the files from the `/etc/sts-agent/conf.d/` to `/etc/stackstate-agent/conf.d/` as Agent v2 works with a directory structure. Let's take `splunk_topology` as an example, you will have to do the following:
-   - **EXAMPLE -** Copy the `/etc/sts-agent/conf.d/splunk_topology.yaml` into the `/etc/stackstate-agent/conf.d/splunk_topology.d/` directory leaving you with the following structure `/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml`
+1. Head over to your Agent v1 `conf.d` directory found at the following location `/etc/sts-agent/conf.d/`.
+2. Copy each of the files in the `conf.d` directory to their respective v2 subdirectories inside the Agent v2 conf.d directory found at `/etc/stackstate-agent/conf.d/<CHECK-SUBDIRECTORY>.d/`.
+   - **DO NOT** just copy all the files from the `/etc/sts-agent/conf.d/` to `/etc/stackstate-agent/conf.d/` as Agent v2 works with a directory subdirectory structure. Let's take `splunk_topology` as an example, you will have to do the following:
+     - Copy `/etc/sts-agent/conf.d/splunk_topology.yaml` into `/etc/stackstate-agent/conf.d/splunk_topology.d/`.
 
-### 5. Migrate the Agent V1 Cache
+### 5. Migrate the Agent v1 Cache
 
 Migrating the Agent v1 cache requires a cache conversion process, and this is a manual process that StackState will assist you with.
 Contact StackState to assist with this process.
 
 A breakdown of the steps that will happen in the cache migration is as follows:
 
-- Backing up the Agent v1 cache folder from the following location `/opt/stackstate-agent/run/`
-- Run the Agent v1 cache migration process
+- Backing up the Agent v1 cache folder from the following location `/opt/stackstate-agent/run/`.
+- Run the Agent v1 cache migration process.
    - The output of the cache migration process will either be manually moved into the Agent v2 cache directory or automatically, depending on the conversion process used for Agent v2 (Some steps depending on the installation can only be done manually).
 
 ### 5. Start Agent v2
 
 Start Agent v2 and monitor the logs to ensure everything started up correctly.
 
-You can start the Agent by following the [Agent v2 - Start on Linux](/setup/agent/linux.md#start-stop-or-restart-the-agent) page.
+You can start the Agent by following [Agent v2 - Start on Linux](/setup/agent/linux.md#start-stop-or-restart-the-agent).
 
-The log files for the above process can be found at the following location [Agent v2 - Linux Logs](/setup/agent/linux.md#log-files) page
+The log files for the above process can be found at the following location [Agent v2 - Linux Logs](/setup/agent/linux.md#log-files).
 
 ### 5. (Optional) Enable Health checks for Splunk
 
-Agent v2 supports health checks for Splunk Checks. This can be enabled by following the [Splunk Health Integration Page](/stackpacks/integrations/splunk/splunk_health.md)
+The newly installed StackState Agent v2 also supports health checks for Splunk. 
+
+This can be enabled by following [Splunk Health Integration Page](/stackpacks/integrations/splunk/splunk_health.md).
