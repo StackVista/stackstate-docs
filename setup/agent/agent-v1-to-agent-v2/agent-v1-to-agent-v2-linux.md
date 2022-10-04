@@ -15,11 +15,11 @@ These steps **must be done in order** to prevent any Agent v1 to Agent v2 corrup
 
 ### Downtime
 - When swapping between Agent v1 and Agent v2, there will be some downtime for the StackState Agent to allow a successful migration process.
-- The length the Agent will be down for all depends on how fast the process below happens
+- The length the Agent will be down for all depends on how fast the process below happens.
 
 ### Performance
 - The exact performance impact of switching from Agent v1 to Agent v2 can increase or decrease the amount of resources used on the environments.
-- StackState Agent v2 is more synchronise than v1 allow a better StackState experience but my trigger more services as it is non-blocking
+- Agent v2 is more synchronise than Agent v1 allow a better StackState experience but may trigger more services as it is non-blocking.
 
 ## Migration Process
 
