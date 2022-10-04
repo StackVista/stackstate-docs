@@ -21,6 +21,7 @@ These steps **must be done in order** to prevent any Agent v1 to Agent v2 proble
 - The exact performance impact of switching from Agent v1 to Agent v2 can increase or decrease the amount of resources used on the environments.
 - Agent v2 is more synchronise than Agent v1 allowing a better StackState experience but may trigger more services as it is non-blocking.
 
+
 ## Migration Process
 
 ### 1. Stop Agent v1

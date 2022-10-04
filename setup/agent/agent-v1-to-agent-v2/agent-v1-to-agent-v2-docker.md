@@ -8,9 +8,19 @@ description: StackState Self-hosted v5.1.x
 
 A few steps is required to successfully migrate from Agent v1 to Agent v2 including the Agent v1 cache.
 
-These steps **must be done in order** to prevent any Agent v1 to Agent v2 corruption, either caused by the upgrade process or the corruption of Agent v2 cache files.
+These steps **must be done in order** to prevent any Agent v1 to Agent v2 problems, either caused by the upgrade process or missing Agent v2 cache files.
 
-**Downtime**, When swapping between Agent v1 and Agent v2, there will be some downtime to allow a successful migration process.
+
+## Impact Analysis
+
+### Downtime
+- When swapping between Agent v1 and Agent v2, there will be some downtime for the StackState Agent to allow a successful migration process.
+- The length the Agent will be down for all depends on how fast the process below happens.
+
+### Performance
+- The exact performance impact of switching from Agent v1 to Agent v2 can increase or decrease the amount of resources used on the environments.
+- Agent v2 is more synchronise than Agent v1 allowing a better StackState experience but may trigger more services as it is non-blocking.
+
 
 ## Migration Process
 
@@ -18,31 +28,36 @@ These steps **must be done in order** to prevent any Agent v1 to Agent v2 corrup
 
 Stop the currently running v1 Agent. If the Agent is still running, it might interfere with the installation process of Agent v2 or, even worse, break the agent cache.
 
-This can be done by following the [Agent v1 - Start and Stop](/setup/agent/agent-v1.md#start--stop--restart-the-agent) section.
+This can be done by following [Agent v1 - Start and Stop](/setup/agent/agent-v1.md#start-stop-restart-the-agent).
 
-### 2. Install Agent v2
+### 2. Prepare a list of conf.d check docker volumes
 
-Deploy Agent v2 by following the [Agent v2 - Deploy on Docker](/setup/agent/docker.md) page.
+For this step you will not physically run or create any docker volumes, but you need to compile a list of docker
+volumes that will be appended inside your docker deployment command.
 
-### 3. Stop Agent v2
+To compile a list of the docker volumes do the following:
+- Head over to the `/etc/sts-agent/conf.d/` folder
+- For each of the files inside the folder compile a list of mounts with the `-v` command for example, if you see the files `check_1.yaml` and `check_2.yaml` the volume command will look as follows (Remember the \ at the end of each line)
+  ```
+  -v /etc/sts-agent/conf.d/check_1.yaml:/etc/stackstate-agent/conf.d/check_1.d/check_1.yaml \
+  -v /etc/sts-agent/conf.d/check_2.yaml:/etc/stackstate-agent/conf.d/check_2.d/check_2.yaml \
+  ```
 
-The installation of Agent v2 will automatically start the Agent, To prevent cache files from being corrupted during the
-cache migration process, let's stop the Agent.
+### 3. Add the Agent v1 state directory to your mounts
 
-This can be done by following the [Agent v2 - Stop on Docker](/setup/agent/docker.md#start-or-stop-the-agent) page.
+With the list of mounts you created in step 2, add one additional line to your commands.
 
-### 4. Copy over your existing conf.d checks
+`-v /opt/stackstate-agent/run:/opt/stackstate-agent/run/ \`
 
-Migrate your existing conf.d check YAML files to the Agent v2 directory.
+A complete example will look as follows
 
-This can be done by following these steps:
+```text
+-v /opt/stackstate-agent/run:/opt/stackstate-agent/run/ \
+-v /etc/sts-agent/conf.d/check_1.yaml:/etc/stackstate-agent/conf.d/check_1.d/check_1.yaml \
+-v /etc/sts-agent/conf.d/check_2.yaml:/etc/stackstate-agent/conf.d/check_2.d/check_2.yaml \
+```
 
-1. Head over to your Agent v1 conf directory found at the following location `/etc/sts-agent/conf.d/`
-2. Copy each of the files in the conf.d directory to their respective v2 subdirectories found at `/etc/stackstate-agent/conf.d/<CHECK-SUBDIRECTORY>.d/`
-   - **Do not** just copy all the files from the `/etc/sts-agent/conf.d/` to `/etc/stackstate-agent/conf.d/` as Agent v2 works with a directory structure. Let's take `splunk_topology` as an example, you will have to do the following:
-   - **EXAMPLE -** Copy the `/etc/sts-agent/conf.d/splunk_topology.yaml` into the `/etc/stackstate-agent/conf.d/splunk_topology.d/` directory leaving you with the following structure `/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml`
-
-### 5. Migrate the Agent V1 Cache
+### 5. Migrate the Agent v1 Cache
 
 Migrating the Agent v1 cache requires a cache conversion process, and this is a manual process that StackState will assist you with.
 Contact StackState to assist with this process.
@@ -53,14 +68,20 @@ A breakdown of the steps that will happen in the cache migration is as follows:
 - Run the Agent v1 cache migration process
    - The output of the cache migration process will either be manually moved into the Agent v2 cache directory or automatically, depending on the conversion process used for Agent v2 (Some steps depending on the installation can only be done manually).
 
-### 5. Start Agent v2
+### 6. Install and Start Agent v2
 
-Start Agent v2 and monitor the logs to ensure everything started up correctly.
+When following the article below explaining how to install and run the StackState Agent v2 remember to add the list
+of volume you compile inside the docker run command.
 
-You can start the Agent by following the [Agent v2 - Start on Docker](/setup/agent/docker.md#start-or-stop-the-agent) page.
+For example (This command will not work and is a example of where to add your list of volumes)
 
-The log files for the above process can be found at the following location [Agent v2 - Docker Logs](/setup/agent/docker.md#log-files) page
+```text
+docker run -d \
+...
+-v /opt/stackstate-agent/run:/opt/stackstate-agent/run/ \
+-v /etc/sts-agent/conf.d/check_1.yaml:/etc/stackstate-agent/conf.d/check_1.d/check_1.yaml \
+-v /etc/sts-agent/conf.d/check_2.yaml:/etc/stackstate-agent/conf.d/check_2.d/check_2.yaml \
+...
+```
 
-### 5. (Optional) Enable Health checks for Splunk
-
-Agent v2 supports health checks for Splunk Checks. This can be enabled by following the [Splunk Health Integration Page](/stackpacks/integrations/splunk/splunk_health.md)
+You can find the latest Agent v2 Docker deployment on the [Agent v2 - Deploy on Docker](/setup/agent/docker.md) page.
