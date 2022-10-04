@@ -41,5 +41,5 @@ Time travel is possible in the Metrics Perspective. When time traveling, the cur
 
 ## Ordering
 
-Metric charts are ordered based on the priority of the associated telemetry stream. The priority of a stream can be configured in the [Telemetry Inspector](/use/metrics-and-events/browse-telemetry.md).
+Metric charts are ordered based on the priority of the associated telemetry stream. The priority of a stream can be configured in the [Telemetry Inspector](/use/metrics/browse-telemetry.md).
 

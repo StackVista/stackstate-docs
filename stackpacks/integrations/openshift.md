@@ -23,7 +23,7 @@ The OpenShift integration collects topology data in an OpenShift cluster as well
   * [Topology data](openshift.md#topology) is translated into components and relations.
   * [Tags](openshift.md#tags) defined in OpenShift are added to components and relations in StackState.
   * Relevant [metrics data](openshift.md#metrics) is mapped to associated components and relations in StackState. All retrieved metrics data is stored and accessible within StackState.
-  * [OpenShift events](openshift.md#events) are available in the StackState UI Events Perspective and listed in the right panel **View summary** tab.
+  * [OpenShift events](openshift.md#events) are available in the StackState UI Events Perspective. They are also included the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**.
   * [Objects changes events](openshift.md#events) are created for every detected change to `spec` or `metadata` in OpenShift objects
 
 ## Setup
@@ -295,7 +295,7 @@ For further details, refer to the [OpenShift API documentation \(openshift.com\)
 
 ### Component actions
 
-A number of [actions](../../use/stackstate-ui/perspectives/topology-perspective.md#actions) are added to StackState when the OpenShift StackPack is installed. They are available from the **Actions** section in the right panel **Selection details** tab when an OpenShift component is selected or from the component context menu, displayed when you hover over an OpenShift component in the Topology Perspective
+A number of [actions](../../use/stackstate-ui/perspectives/topology-perspective.md#actions) are added to StackState when the OpenShift StackPack is installed. They are available from the **Actions** section in the right panel details tab - **Component details** - when an OpenShift component is selected or from the component context menu, which is displayed when you hover the mouse pointer over an OpenShift component in the Topology Perspective
 
 | Action | Available for component types | Description |
 | :--- | :--- | :--- |

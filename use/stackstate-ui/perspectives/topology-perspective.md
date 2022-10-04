@@ -20,18 +20,18 @@ Click on the Legend button (?) in the bottom right of the screen to display an e
 
 The Topology Perspective shows the filtered components and relations in a selected [view](../views/about_views.md) or the entire, unfiltered topology in [explore mode](../explore_mode.md). Components that have one or more health checks configured will report a calculated [health state](../../concepts/health-state.md).
 
-* Select a component to display [detailed component information](/use/concepts/components.md#detailed-component-information) in the right panel **Selection details** tab.
+* Select a component to display [detailed component information](/use/concepts/components.md#component-details) in the right panel details tab - **Component details**.
 * Hover over a component to open the [component context menu](#component-context-menu).
 
 ➡️ [Learn more about components](/use/concepts/components.md#components)
 
 ### Component context menu
 
-When you hover over a component, the component context menu is displayed. This gives you information about the component, this includes:
+When you hover the mouse pointer over a component, the component context menu is displayed. This gives you information about the component, this includes:
 
 * The component name and type
 * [Health state](/use/concepts/health-state.md) and [propagated health state](/use/concepts/health-state.md#propagated-health-state) of the component.
-* [Top metrics](/use/metrics-and-events/top-metrics.md) for the component.
+* [Top metrics](/use/metrics/top-metrics.md) for the component.
 * [Shortcuts](#shortcuts) specific to the component.
 * [Actions](#actions) specific to the component.
 
@@ -46,7 +46,7 @@ Actions can be used to expand the topology selection to show all dependencies fo
 You can configure [component actions](../../../configure/topology/component_actions.md) in the **Settings** page or create [custom component actions](../../../develop/developer-guides/custom-functions/component-actions.md).
 {% endhint %}
 
-A list of the available actions is included in the right panel **Selection details** tab when you select a component to show its detailed information and also in the component context menu, which is displayed when you hover over a component.
+A list of the available **Actions** is included in the right panel details tab when you select a component - **Component details**. Actions are also listed in the component context menu, which is displayed when you hover the mouse pointer over a component.
 
 ![Actions](../../../.gitbook/assets/v51_actions.png)
 
@@ -54,14 +54,14 @@ A list of the available actions is included in the right panel **Selection detai
 
 Shortcuts give you direct access to detailed information about the specific component:
 
-* **Show properties** - Opens the properties popup for the component. This is the same as clicking **SHOW ALL PROPERTIES** in the right panel **Selection details** tab when detailed information about a component is displayed.
-* **Investigate in subview** - Opens a subview containing only this component. The subview allows you to investigate a single component in all perspectives without needing to adjust the view filters. This is the same as clicking INVESTIGATE IN SUBVIEW in the right panel **Selection details** tab when detailed information about a component is displayed.
+* **Show properties** - Opens the properties popup for the component. This is the same as clicking **SHOW ALL PROPERTIES** in the right panel details tab when detailed information about a component is displayed - **Component details**.
+* **Investigate in subview** - Opens a subview containing only this component. The subview allows you to investigate a single component in all perspectives without needing to adjust the view filters. This is the same as clicking INVESTIGATE IN SUBVIEW in the right panel details tab when detailed information about a component is displayed - **Component details**.
 
 ## Relations
 
 Relations show how components in the topology are connected together. They are represented by a dashed or solid line and have an arrowhead showing the direction of dependency between the components they link. [Health state will propagate](../../concepts/health-state.md#propagated-health-state) from one component to the next, from dependencies to dependent components. Relations that have one or more health checks configured will report a calculated health state.
 
-Select a relation to open detailed information about it in the right panel **Selection details** tab.
+Select a relation to open detailed information about it in the right panel details tab - **Direct relation details**, **Indirect relation details** or **Grouped relation details** depending on the relation type that has been selected.
 
 ➡️ [Learn more about relations](/use/concepts/relations.md).
 
@@ -71,14 +71,14 @@ Select a relation to open detailed information about it in the right panel **Sel
 
 The components and events displayed in the topology visualization can be customized by adding filters.
 
-Click the **View Filters** icon in the left menu to open the view filters. Here you can edit:
+Click the **View Filters** icon in the left menu to open the view filters. Here you can edit the filters applied to the displayed topology and events:
 
-* Topology filters: Filter the components displayed in the topology visualization.
-* Events filters: Filter the events shown in the **Events** list in the right panel **View summary** tab.
+* **Topology filters** - filter the components displayed in the topology visualization.
+* **Events filters** - filter the events shown in the **Events** list in the right panel **View summary** and details tabs - **Component details** and **Direct relation details**.
 
-Select an element to show detailed information about it in the right panel **Selection details** tab. Click a label in the details tab to add this to the topology filter. The displayed topology will be expanded to include all components and relations with the selected label. To undo a label selection, click the back button in the browser or edit the topology filter in the view filters.
+Select an element to show detailed information about it in the right panel details tab. Click a label under **Properties** in the details tab to add this to the topology filter. The displayed topology will be expanded to include all components and relations with the selected label. To undo a label selection, click the back button in the browser or edit the topology filter in the view filters.
 
-The View Filters are saved together with the View. For details, see the page [filters](../filters.md).
+The view filters are saved together with the View. For details, see the page [filters](../filters.md).
 
 ## Visualization settings
 
@@ -109,7 +109,7 @@ See the full list of [StackState keyboard shortcuts](../keyboard-shortcuts.md).
 
 ### Show root cause
 
-If there are components with [telemetry streams](../../metrics-and-events/telemetry_streams.md) and [health checks](../../concepts/health-state.md) in your view, the Topology Perspective will calculate a health state and propagate this state throughout the graph. The propagated health state will help you to see the risk of affecting other components. When an element has an unhealthy [propagated health state](/use/concepts/health-state.md#propagated-health-state), this will be shown as an outer color in the topology visualization.
+If there are components with [telemetry streams](../../metrics/telemetry_streams.md) and [health checks](../../concepts/health-state.md) in your view, the Topology Perspective will calculate a health state and propagate this state throughout the graph. The propagated health state will help you to see the risk of affecting other components. When an element has an unhealthy [propagated health state](/use/concepts/health-state.md#propagated-health-state), this will be shown as an outer color in the topology visualization.
 
 {% hint style="success" "self-hosted info" %}
 

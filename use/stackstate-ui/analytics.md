@@ -67,7 +67,7 @@ Topology
     }
 ```
 
-This analytical query first gets all metrics streams of components from the `Production` environment that are of the type `Database`. The result of that query is then used to build up telemetry queries against these metric streams.
+This analytical query first gets all metric streams of components from the `Production` environment that are of the type `Database`. The result of that query is then used to build up telemetry queries against these metric streams.
 
 The full list of available functions can be found [in the Script API documentation](../../develop/reference/scripting/script-apis/). To learn about chaining, see [async script results](../../develop/reference/scripting/async-script-result.md).
 

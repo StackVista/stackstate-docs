@@ -20,7 +20,7 @@ Specifically, the StackPack contains:
 
 * A [Groovy](https://groovy-lang.org/) provisioning script that installs the components of the StackPack \(`TutorialProvision.groovy`\)
 * A component and relation template that tell StackState how to process incoming data into components and relations \(`tutorial-component-template.json.handlebars` and `tutorial-relation-template.json.handlebars`\)
-* [Groovy](https://groovy-lang.org/) component and relation id extractor scripts that tell StackState how to extract the identifiers from the incoming data \(`Tutorial component id extractor.groovy` and `Tutorial relation id extractor.groovy`\)
+* [Groovy](https://groovy-lang.org/) component and relation ID extractor scripts that tell StackState how to extract the identifiers from the incoming data \(`Tutorial component id extractor.groovy` and `Tutorial relation id extractor.groovy`\)
 * [Markdown](https://en.wikipedia.org/wiki/Markdown) files and images that are shown in the StackState GUI when users interact with the StackPack \(in the `resources` directory\)
 * A configuration file that describes all components of the StackPack \(`stackpack.conf`\)
 
@@ -101,13 +101,13 @@ When you log into your StackState instance, go to the **Explore Mode**. Using th
 
 Note that the components you see are constructed from the JSON data you sent in. The components appear in the **Tutorial Domain** domain and **Tutorial Components** layers.
 
-Select a component to display detailed information about it in the right panel **Selection details** tab. You'll see the component's labels and other meta-data you sent.
+Select a component to display detailed information about it in the right panel details tab - **Component details**. You'll see the component's labels and other meta-data you sent.
 
 ## Making a change to the StackPack
 
 Now we are going to make a change to the tutorial StackPack. Let's say you want to add a telemetry stream to all of the components that the StackPack creates. This requires a change to the StackPack's component template. We are going to make this change in StackState and then update the StackPack with our changes.
 
-Select the **myDummyApp** component to display detailed information about it in the right panel **Selection details** tab. Find the triple dots menu in the top-right corner. There, select the **Edit template** option. This brings up the **Template Editor**.
+Select the **myDummyApp** component to display detailed information about it in the right panel tab - **Component details**. Find the triple dots menu in the top-right corner. There, select the **Edit template** option. This brings up the **Template Editor**.
 
 In the Template Editor you can edit the template used to create components based on data coming in from your sample check. It shows the following information:
 

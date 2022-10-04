@@ -50,9 +50,9 @@ To set up the StackState Azure integration, you need to have:
 Install the Azure StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
 
 * **Azure instance name** - the user-defined name of the Azure instance shown in configurations such as views.
-* **Client Id** - the client id of the Azure Service Principal.
+* **Client Id** - the client ID of the Azure Service Principal.
 * **Client Secret** - the client secret used to authenticate the client.
-* **Tenant Id** - the Id of the Azure Tenant / Active Directory.
+* **Tenant Id** - the ID of the Azure Tenant / Active Directory.
 
 ### Deploy Azure Agent
 

@@ -30,7 +30,8 @@ This page provides specific instructions and details of any required manual step
 {% tab title="Linux" %}
 
 #### v5.1.0
-TODO
+
+* The required version of JDK has been updated - StackState now requires OpenJDK 11. This must be present on the installation machine before upgrading StackState. In case of having a mismatching JDK, StackState will fail to start and will log the reason in `stackstate.log`.
 
 {% endtab %}
 {% endtabs %}
@@ -40,7 +41,7 @@ TODO
 {% tabs %}
 {% tab title="Kubernetes" %}
 
-#### v5.0.2-v5.0.5
+#### v5.0.2-v5.0.6
 
 No manual action required.
 
@@ -67,7 +68,7 @@ No manual action required.
 {% endtab %}
 {% tab title="Linux" %}
 
-#### v5.0.2-v5.0.4
+#### v5.0.2-v5.0.6
 
 No manual action required.
 
@@ -375,7 +376,7 @@ No manual action required.
   * Power Users will no longer be able to execute scripts using the HTTP script API.
   * Admin users will not be affected.
 * Baselines have been deprecated and will be removed in v4.4. To reflect this, baseline functions and check functions that use baselines have been renamed. Templates that resolve these functions by name will stop working after upgrade to StackState 4.3. The function identifiers have not changed and can still be used to reference functions, however, it is advised that you migrate to using the [Autonomous Anomaly Detector](../../use/checks-and-monitors/anomaly-health-checks.md).
-* A Slack integration StackPack is now available that includes a new Slack event handler. Existing Slack event handlers will continue to run in StackState v4.3, however, the old Slack event handler has been deprecated and will be removed in a future release of StackState. To continue using Slack event notifications, it is advised to install the Slack StackPack and [configure view event handlers](/use/stackstate-ui/views/manage-event-handlers.md) to use the new Slack event handler in place of the old `Notify via slack for component health state change. (deprecated)` and `Notify via slack for view health state change.(deprecated)`.
+* A Slack integration StackPack is now available that includes a new Slack event handler. Existing Slack event handlers will continue to run in StackState v4.3, however, the old Slack event handler has been deprecated and will be removed in a future release of StackState. To continue using Slack event notifications, it is advised to install the Slack StackPack and [configure view event handlers](/use/events/manage-event-handlers.md) to use the new Slack event handler in place of the old `Notify via slack for component health state change. (deprecated)` and `Notify via slack for view health state change.(deprecated)`.
 * Dynatrace StackPack - The location of the Dynatrace check config file has moved. If you choose to upgrade to the version of the Dynatrace StackPack shipped with StackState v4.3, the Agent check configuration file should also be moved. The new location is `/etc/sts-agent/conf.d/dynatrace.d/conf.yaml` the previous location was `/etc/sts-agent/conf.d/dynatrace_topology.d/conf.yaml`.
 {% endtab %}
 
@@ -396,7 +397,7 @@ No manual action required.
   * Power Users will no longer be able to execute scripts using the HTTP script API.
   * Admin users will not be affected.
 * Baselines have been deprecated and will be removed in v4.4. To reflect this, baseline functions and check functions that use baselines have been renamed. Templates that resolve these functions by name will stop working after upgrade to StackState 4.3. The function identifiers have not changed and can still be used to reference functions, however, it is advised that you migrate to using the [Autonomous Anomaly Detector](../../use/checks-and-monitors/anomaly-health-checks.md).
-* A Slack integration StackPack is now available that includes a new Slack event handler. Existing Slack event handlers will continue to run in StackState v4.3, however, the old Slack event handler has been deprecated and will be removed in a future release of StackState. To continue using Slack event notifications, it is advised to install the Slack StackPack and [configure view event handlers](/use/stackstate-ui/views/manage-event-handlers.md) to use the new Slack event handler in place of the old `Notify via slack for component health state change. (deprecated)` and `Notify via slack for view health state change.(deprecated)`.
+* A Slack integration StackPack is now available that includes a new Slack event handler. Existing Slack event handlers will continue to run in StackState v4.3, however, the old Slack event handler has been deprecated and will be removed in a future release of StackState. To continue using Slack event notifications, it is advised to install the Slack StackPack and [configure view event handlers](/use/events/manage-event-handlers.md) to use the new Slack event handler in place of the old `Notify via slack for component health state change. (deprecated)` and `Notify via slack for view health state change.(deprecated)`.
 * Dynatrace StackPack - The location of the Dynatrace check config file has moved. If you choose to upgrade to the version of the Dynatrace StackPack shipped with StackState v4.3, the Agent check configuration file should also be moved. The new location is `/etc/sts-agent/conf.d/dynatrace.d/conf.yaml` the previous location was `/etc/sts-agent/conf.d/dynatrace_topology.d/conf.yaml`.
 {% endtab %}
 {% endtabs %}

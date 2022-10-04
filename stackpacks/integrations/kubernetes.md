@@ -23,7 +23,7 @@ The Kubernetes integration collects topology data in a Kubernetes cluster as wel
   * [Topology data](kubernetes.md#topology) is translated into components and relations.
   * [Tags](kubernetes.md#tags) defined in Kubernetes are added to components and relations in StackState.
   * [Metrics data](kubernetes.md#metrics) is stored and accessible within StackState. Relevant metrics data is mapped to associated components and relations in StackState.
-  * [Kubernetes events](kubernetes.md#events) are available in the StackState UI Events Perspective and listed in the StackState UI right panel **View summary** tab.
+  * [Kubernetes events](kubernetes.md#events) are available in the StackState UI Events Perspective. They are also included in the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**.
   * [Objects changes events](kubernetes.md#events) are created for every detected change to `spec` or `metadata` in Kubernetes objects
 
 ## Setup
@@ -178,7 +178,7 @@ Note that, in order to reduce noise of changes, the following object properties 
 * `status` (except for `Node`, `Pod` and `PersistentVolume` objects)
 {% endhint %}
 
-You can also see the current [or past](../../use/stackstate-ui/timeline-time-travel.md#topology-time) YAML definition of the object in the [Component properties](/use/concepts/components.md#detailed-component-information):
+You can also see the current [or past](../../use/stackstate-ui/timeline-time-travel.md#topology-time) YAML definition of the object in the [Component properties](/use/concepts/components.md#component-details):
 
 ![Kubernetes Component properties](../../.gitbook/assets/k8s-component-properties-yaml.png)
 
@@ -292,7 +292,7 @@ For further details, refer to the [Kubernetes API documentation \(kubernetes.io\
 
 ### Component actions
 
-A number of [actions](../../use/stackstate-ui/perspectives/topology-perspective.md#actions) are added to StackState when the Kubernetes StackPack is installed. They are available from the **Actions** section in the right panel **Selection details** tab when a Kubernetes component is selected or from the component context menu, displayed when you hover over a Kubernetes component in the Topology Perspective
+A number of [actions](../../use/stackstate-ui/perspectives/topology-perspective.md#actions) are added to StackState when the Kubernetes StackPack is installed. They are available from the **Actions** section in the right panel details tab - **Component details** - when a Kubernetes component is selected or from the component context menu, displayed when you hover the mouse pointer over a Kubernetes component in the Topology Perspective
 
 | Action | Available for component types | Description |
 | :--- | :--- | :--- |
