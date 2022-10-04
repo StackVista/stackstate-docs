@@ -244,6 +244,7 @@
   * [Agent checks](develop/developer-guides/agent_check/README.md)
     * [About Agent checks](develop/developer-guides/agent_check/agent_checks.md)
     * [Agent check API](develop/developer-guides/agent_check/agent-check-api.md)
+    * [Agent check state](develop/developer-guides/agent_check/agent-check-state.md)
     * [How to develop Agent checks](develop/developer-guides/agent_check/how_to_develop_agent_checks.md)
     * [Connect an Agent check to StackState](develop/developer-guides/agent_check/connect_agent_check_with_stackstate.md)
   * [Custom functions and scripts](develop/developer-guides/custom-functions/README.md)

@@ -662,6 +662,7 @@ Example taken from the [StackState MySQL Agent check \(github.com\)](https://git
 ## See also
 
 * [Connect an Agent check with StackState using the Custom Synchronization StackPack](connect_agent_check_with_stackstate.md)
+* [Agent check state](agent-check-state.md)
 * [How to develop Agent checks](how_to_develop_agent_checks.md)
 * [Developer guide - Custom Synchronization StackPack](../custom_synchronization_stackpack/)
 
