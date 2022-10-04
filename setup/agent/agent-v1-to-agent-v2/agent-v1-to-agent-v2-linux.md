@@ -32,9 +32,13 @@ Problems like invalid Agent state files, overwritten state files or even a broke
 
 ### 1. Stop Agent v1
 
-Stop the currently running v1 Agent. If the Agent is still running, it might interfere with the installation process of Agent v2 or, even worse, break the agent cache.
+Agent v1 will have to be stopped before proceeding with the Agent v2 install and Agent v1 state migration.
 
-This can be done by following [Agent v1 - Start and Stop](/setup/agent/agent-v1.md#start-stop-restart-the-agent).
+{% hint style="warning" %}
+If Agent v1 is still running, it might interfere with the installation process of Agent v2 or, even worse, break the Agent v2 state.
+{% endhint %}
+
+You can stop the StackState v1 Agent by following the [Agent v1 - Start and Stop Page](/setup/agent/agent-v1.md#start-stop-restart-the-agent).
 
 ### 2. Install Agent v2
 
