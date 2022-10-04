@@ -85,11 +85,13 @@ Now that you have the snippet above keep it on the side, we will use it in the D
 
 ### 2B. **This part is only required if you have Splunk Topology Check enabled**
 
+{% hint style="error" %}
+This will break the splunk_topology.yaml conf for Agent v1
+{% endhint %}
+
 - Edit the check configuration file `/etc/sts-agent/conf.d/splunk_topology.yaml` and replace all occurrences of the following items
   - `default_polling_interval_seconds` replace with `collection_interval`
   - `polling_interval_seconds` replace with `collection_interval`
-
-This will break the conf format for Agent v1
 
 
 ### 3. Add the Agent State directory into your volume snippet
@@ -249,11 +251,13 @@ Now that you have the snippet above keep it on the side, we will use it in the d
 
 ### 2B. **This part is only required if you have Splunk Topology Check enabled**
 
+{% hint style="error" %}
+This will break the splunk_topology.yaml conf for Agent v1
+{% endhint %}
+
 - Edit the check configuration file `/etc/sts-agent/conf.d/splunk_topology.yaml` and replace all occurrences of the following items
   - `default_polling_interval_seconds` replace with `collection_interval`
   - `polling_interval_seconds` replace with `collection_interval`
-
-This will break the conf format for Agent v1
 
 
 ### 3. Add the Agent State directory into your volume snippet
