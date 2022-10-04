@@ -38,7 +38,17 @@ Agent v1 will have to be stopped before proceeding with the Agent v2 install and
 If Agent v1 is still running, it might interfere with the installation process of Agent v2 or, even worse, break the Agent v2 state.
 {% endhint %}
 
-You can stop the StackState v1 Agent by following the [Agent v1 - Start and Stop Page](/setup/agent/agent-v1.md#start-stop-restart-the-agent).
+You can stop Agent v1 with the following command:
+
+```shell
+sudo /etc/init.d/stackstate-agent stop
+```
+
+After the Agent has been stopped, verify its status with:
+
+```shell
+sudo /etc/init.d/stackstate-agent status
+```
 
 ### 2. Install Agent v2
 
