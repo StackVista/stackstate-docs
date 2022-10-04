@@ -108,10 +108,10 @@ This can be done by following these steps:
 
 {% hint style="info" %}
 **This step is only required if you have Splunk Topology Check enabled**
-3. Splunk Topology
-     - Edit the check configuration file `/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml` and replace all occurrences of the following items
-       - `default_polling_interval_seconds` replace with `collection_interval`
-       - `polling_interval_seconds` replace with `collection_interval`
+
+- Edit the check configuration file `/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml` and replace all occurrences of the following items
+  - `default_polling_interval_seconds` replace with `collection_interval`
+  - `polling_interval_seconds` replace with `collection_interval`
 {% endhint %}
 
 ### 5. Migrate the Agent v1 Cache
