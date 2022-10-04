@@ -42,6 +42,7 @@ To compile a list of the docker volumes do the following:
   -v /etc/sts-agent/conf.d/check_1.yaml:/etc/stackstate-agent/conf.d/check_1.d/check_1.yaml \
   -v /etc/sts-agent/conf.d/check_2.yaml:/etc/stackstate-agent/conf.d/check_2.d/check_2.yaml \
   ```
+Keep the above command in a note for latest use
 
 ### 3. Add the Agent v1 state directory to your mounts
 
@@ -56,6 +57,8 @@ A complete example will look as follows
 -v /etc/sts-agent/conf.d/check_1.yaml:/etc/stackstate-agent/conf.d/check_1.d/check_1.yaml \
 -v /etc/sts-agent/conf.d/check_2.yaml:/etc/stackstate-agent/conf.d/check_2.d/check_2.yaml \
 ```
+
+Keep the above command in a note for latest use
 
 ### 5. Migrate the Agent v1 Cache
 
