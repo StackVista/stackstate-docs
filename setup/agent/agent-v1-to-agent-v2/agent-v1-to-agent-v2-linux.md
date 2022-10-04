@@ -10,15 +10,7 @@ A few steps are required to migrate successfully from Agent v1 to Agent v2, incl
 
 These steps **must be done in order** to prevent any Agent v1 to Agent v2 problems, either caused by the upgrade process or missing Agent v2 cache files.
 
-
-
 {% hint style="warning" %}
-## Test
-### Test
-
-Lorem Ipsum
-{% endhint %}
-
 ## Impact Analysis
 
 ### Downtime
@@ -28,6 +20,7 @@ Lorem Ipsum
 ### Performance
 - The exact performance impact of switching from Agent v1 to Agent v2 can increase or decrease the number of resources used in the environments.
 - Agent v2 is more synchronized than Agent v1, allowing a better StackState experience but may trigger more services as it is non-blocking.
+{% endhint %}
 
 
 ## Migration Process
