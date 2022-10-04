@@ -47,13 +47,13 @@ Event handlers listen to events generated within a view. When the configured eve
 
 ### Slack
 
-{% hint style="info" %}
-Requires the [Slack StackPack](/stackpacks/integrations/slack.md) to be installed on your StackState instance.
-{% endhint %}
-
 The Slack event handler function sends a Slack message with detailed information about the trigger event, including the possible root cause, to the configured Slack webhook URL. See [how to create a Slack Webhook \(slack.com\)](https://api.slack.com/messaging/webhooks). 
 
 Can be triggered by **Health state change events** and **Problem events**.
+
+{% hint style="info" %}
+Requires the [Slack StackPack](/stackpacks/integrations/slack.md) to be installed on your StackState instance.
+{% endhint %}
 
 ### HTTP webhook POST
 
