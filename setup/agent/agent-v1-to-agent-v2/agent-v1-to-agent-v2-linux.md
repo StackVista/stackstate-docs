@@ -32,10 +32,10 @@ Problems like invalid Agent state files, overwritten state files or even a broke
 
 ### 1. Stop Agent v1
 
-Agent v1 will have to be stopped before proceeding with the Agent v2 install and Agent v1 state migration.
+Agent v1 will have to be stopped before proceeding with the **Agent v2 install** and **Agent v1 state** migration.
 
 {% hint style="warning" %}
-If Agent v1 is still running, it might interfere with the installation process of Agent v2 or, even worse, break the Agent v2 state.
+**If Agent v1 is still running, it might interfere with the installation process of Agent v2 or, even worse, break the Agent v2 state.**
 {% endhint %}
 
 You can stop Agent v1 with the following command:
