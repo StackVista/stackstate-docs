@@ -130,6 +130,28 @@ A breakdown of the steps that will happen in the cache migration is as follows:
 
 Start Agent v2 and monitor the logs to ensure everything started up correctly.
 
-You can start the Agent by following [Agent v2 - Start on Linux](/setup/agent/linux.md#start-stop-or-restart-the-agent).
+You can start Agent v2 with the following command:
 
-The log files for the above process can be found at the following location [Agent v2 - Linux Logs](/setup/agent/linux.md#log-files).
+```shell
+# with systemctl
+sudo systemctl start stackstate-agent
+
+# with service
+sudo service stackstate-agent start
+```
+
+After the Agent has been started, verify its status with:
+
+
+```shell
+# with systemctl
+sudo systemctl status stackstate-agent
+
+# with service
+sudo service stackstate-agent status
+```
+
+The log files for the above process can be found at the following locations:
+
+- `/var/log/stackstate-agent/agent.log`
+- `/var/log/stackstate-agent/process-agent.log`
