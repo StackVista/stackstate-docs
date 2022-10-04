@@ -36,29 +36,50 @@ For this step you will not physically run or create any docker volumes, but you 
 volumes that will be appended inside your docker deployment command.
 
 To compile a list of the docker volumes do the following:
-- Head over to the `/etc/sts-agent/conf.d/` folder
-- For each of the files inside the folder compile a list of mounts with the `-v` command for example, if you see the files `check_1.yaml` and `check_2.yaml` the volume command will look as follows (Remember the \ at the end of each line)
+- Head over to the `/etc/sts-agent/conf.d/` folder.
+- For each of the files inside the folder compile a list of volumes. For example, if you see the files `check_1.yaml` and `check_2.yaml` the volume command will look as follows.
+  - For a Docker Single Container (Remember the \ at the end of each line)
+    ```
+    -v /etc/sts-agent/conf.d/check_1.yaml:/etc/stackstate-agent/conf.d/check_1.d/check_1.yaml \
+    -v /etc/sts-agent/conf.d/check_2.yaml:/etc/stackstate-agent/conf.d/check_2.d/check_2.yaml \
+    ```
+  - Or a Docker Compose File
+    ```
+    volumes:
+      - "/etc/sts-agent/conf.d/check_1.yaml:/etc/stackstate-agent/conf.d/check_1.d/check_1.yaml"
+      - "/etc/sts-agent/conf.d/check_2.yaml:/etc/stackstate-agent/conf.d/check_2.d/check_2.yaml"
+    ```
+Keep the above command in a note for later use.
+
+### 3. Add the Agent v1 state directory to your list of volumes
+
+With the list of volumes you created in step 2, add one additional line for the Agent State.
+
+- For a Docker Single Container (Remember the \ at the end of each line)
+  ```
+  -v /opt/stackstate-agent/run:/opt/stackstate-agent/run/ \
+  ```
+  The full example will look as follows:
   ```
   -v /etc/sts-agent/conf.d/check_1.yaml:/etc/stackstate-agent/conf.d/check_1.d/check_1.yaml \
   -v /etc/sts-agent/conf.d/check_2.yaml:/etc/stackstate-agent/conf.d/check_2.d/check_2.yaml \
+  -v /opt/stackstate-agent/run:/opt/stackstate-agent/run/ \
   ```
-Keep the above command in a note for latest use
 
-### 3. Add the Agent v1 state directory to your mounts
+- Or a Docker Compose File
+  ```
+  volumes:
+    - "/opt/stackstate-agent/run:/opt/stackstate-agent/run/"
+  ```
+  The full example will look as follows:
+  ```
+  volumes:
+    - "/opt/stackstate-agent/run:/opt/stackstate-agent/run/"
+    - "/etc/sts-agent/conf.d/check_1.yaml:/etc/stackstate-agent/conf.d/check_1.d/check_1.yaml"
+    - "/etc/sts-agent/conf.d/check_2.yaml:/etc/stackstate-agent/conf.d/check_2.d/check_2.yaml"
+  ```
 
-With the list of mounts you created in step 2, add one additional line to your commands.
-
-`-v /opt/stackstate-agent/run:/opt/stackstate-agent/run/ \`
-
-A complete example will look as follows
-
-```text
--v /opt/stackstate-agent/run:/opt/stackstate-agent/run/ \
--v /etc/sts-agent/conf.d/check_1.yaml:/etc/stackstate-agent/conf.d/check_1.d/check_1.yaml \
--v /etc/sts-agent/conf.d/check_2.yaml:/etc/stackstate-agent/conf.d/check_2.d/check_2.yaml \
-```
-
-Keep the above command in a note for latest use
+Keep the above command in a note for later use.
 
 ### 5. Migrate the Agent v1 Cache
 
@@ -67,24 +88,20 @@ Contact StackState to assist with this process.
 
 A breakdown of the steps that will happen in the cache migration is as follows:
 
-- Backing up the Agent v1 cache folder from the following location `/opt/stackstate-agent/run/`
-- Run the Agent v1 cache migration process
+- Backing up the Agent v1 cache folder from the following location `/opt/stackstate-agent/run/`.
+- Run the Agent v1 cache migration process.
    - The output of the cache migration process will either be manually moved into the Agent v2 cache directory or automatically, depending on the conversion process used for Agent v2 (Some steps depending on the installation can only be done manually).
 
 ### 6. Install and Start Agent v2
 
-When following the article below explaining how to install and run the StackState Agent v2 remember to add the list
-of volume you compile inside the docker run command.
+While installing the StackState Agent v2 Docker instance remember to add the list
+of volume you previously compiled inside the docker run command or docker compose file.
 
-For example (This command will not work and is a example of where to add your list of volumes)
+To install a docker single instance use the following documentation and add your previously compiled volumes inside the `docker run -d` command:
 
-```text
-docker run -d \
-...
--v /opt/stackstate-agent/run:/opt/stackstate-agent/run/ \
--v /etc/sts-agent/conf.d/check_1.yaml:/etc/stackstate-agent/conf.d/check_1.d/check_1.yaml \
--v /etc/sts-agent/conf.d/check_2.yaml:/etc/stackstate-agent/conf.d/check_2.d/check_2.yaml \
-...
-```
+[Docker Single Instance](/setup/agent/docker.md#single-container)
 
-You can find the latest Agent v2 Docker deployment on the [Agent v2 - Deploy on Docker](/setup/agent/docker.md) page.
+To install a docker compose instance use the following documentation and add your previously compiled volumes inside the `volumes:` path (Do not remove the existing volumes):
+
+[Docker Single Instance](/setup/agent/docker.md#docker-compose)
+
