@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.1.x
 
 A few steps is required to successfully migrate from Agent v1 to Agent v2 including the Agent v1 cache.
 
-These steps **must be done in order** to prevent any Agent v1 to Agent v2 corruption, either caused by the upgrade process or the corruption of Agent v2 cache files.
+These steps **must be done in order** to prevent any Agent v1 to Agent v2 problems, either caused by the upgrade process or missing Agent v2 cache files.
 
 
 ## Impact Analysis
@@ -35,7 +35,7 @@ Deploy Agent v2 on Linux by following [Agent v2 - Deploy on Linux](/setup/agent/
 
 ### 3. Stop Agent v2
 
-The installation of Agent v2 will automatically start the StackState Agent, To prevent cache files from being corrupted during the
+The installation of Agent v2 will automatically start the StackState Agent, To prevent cache files from being overwritten during the
 cache migration process, let's stop the Agent.
 
 This can be done by following [Agent v2 - Stop on Linux](/setup/agent/linux.md#start-stop-or-restart-the-agent).
@@ -48,8 +48,8 @@ This can be done by following these steps:
 
 1. Head over to your Agent v1 `conf.d` directory found at the following location `/etc/sts-agent/conf.d/`.
 2. Copy each of the files in the `conf.d` directory to their respective v2 subdirectories inside the Agent v2 conf.d directory found at `/etc/stackstate-agent/conf.d/<CHECK-SUBDIRECTORY>.d/`.
-   - **DO NOT** just copy all the files from the `/etc/sts-agent/conf.d/` to `/etc/stackstate-agent/conf.d/` as Agent v2 works with a directory subdirectory structure. Let's take `splunk_topology` as an example, you will have to do the following:
-     - Copy `/etc/sts-agent/conf.d/splunk_topology.yaml` into `/etc/stackstate-agent/conf.d/splunk_topology.d/`.
+   - **DO NOT** just copy all the files from the `/etc/sts-agent/conf.d/` to `/etc/stackstate-agent/conf.d/` as Agent v2 works with a subdirectory structure.
+   - For Example, Copy the file `/etc/sts-agent/conf.d/splunk_topology.yaml` into `/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml`.
 
 ### 5. Migrate the Agent v1 Cache
 
