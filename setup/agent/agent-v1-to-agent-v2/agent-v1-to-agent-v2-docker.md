@@ -97,11 +97,9 @@ A breakdown of the steps that will happen in the cache migration is as follows:
 While installing the StackState Agent v2 Docker instance remember to add the list
 of volume you previously compiled inside the docker run command or docker compose file.
 
-To install a docker single instance use the following documentation and add your previously compiled volumes inside the `docker run -d` command:
+- To install a docker single instance use the following documentation and add your previously compiled volumes inside the `docker run -d` command.
+  - [Docker Single Instance](/setup/agent/docker.md#single-container)
 
-[Docker Single Instance](/setup/agent/docker.md#single-container)
-
-To install a docker compose instance use the following documentation and add your previously compiled volumes inside the `volumes:` path (Do not remove the existing volumes):
-
-[Docker Single Instance](/setup/agent/docker.md#docker-compose)
+- To install a docker compose instance use the following documentation and add your previously compiled volumes inside the `volumes:` path (Do not remove the existing volumes):
+  - [Docker Compose Instance](/setup/agent/docker.md#docker-compose)
 
