@@ -46,7 +46,6 @@
   * [Agent V1 \(Legacy\)](setup/agent/agent-v1.md)
   * [Agent V1 to Agent V2 Migration](setup/agent/agent-v1-to-agent-v2/README.md)
     * [Linux](setup/agent/agent-v1-to-agent-v2/agent-v1-to-agent-v2-linux.md)
-    * [Kubernetes](setup/agent/agent-v1-to-agent-v2/agent-v1-to-agent-v2-kubernetes.md)
     * [Docker](setup/agent/agent-v1-to-agent-v2/agent-v1-to-agent-v2-docker.md)
 * [StackState CLI](setup/cli/README.md)
   * [CLI: sts \(new\)](setup/cli/cli-sts.md)
