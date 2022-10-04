@@ -163,21 +163,17 @@ If StackState Agent is running on Kubernetes, the AWS check should be configured
     helm repo update
    ```
    
-2. Update the `values.yaml` file used to deploy the `cluster-agent` with details of your AWS instance:
+2. Update the `values.yaml` file used to deploy the `stackstate-agent` with details of your AWS instance:
     - **aws_access_key_id** - The AWS Access Key ID. Leave empty quotes to [use an attached IAM role](/stackpacks/integrations/aws/aws-sts-eks.md).
     - **aws_secret_access_key** - The AWS Secret Access Key. Leave empty quotes to [use an attached IAM role](/stackpacks/integrations/aws/aws-sts-eks.md).
     - **external_id** - The same external ID used to create the CloudFormation stack in every account and region.
     - **role_arn** - In the example `arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole`, substitute 123456789012 with the target AWS account ID to read.
     - **regions** - The Agent will only attempt to find resources in the specified regions. `global` is a special region for global resources, such as Route53.
     ```yaml
-    clusterChecks:
-    # clusterChecks.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods.
-      enabled: true
-
     clusterAgent:
       config:
         override:
-    #clusterAgent.config.override -- Defines kubernetes_state check for clusterchecks agents. Auto-discovery
+    #clusterAgent.config.override -- Defines kubernetes_state check for checksAgent agents. Auto-discovery
     #with ad_identifiers does not work here. Use a specific URL instead.
         - name: conf.yaml
           path: /etc/stackstate-agent/conf.d/aws_topology.d
@@ -203,7 +199,7 @@ If StackState Agent is running on Kubernetes, the AWS check should be configured
                 #   - foo:bar
     ```
 
-3. Deploy the `cluster_agent` using the updated `values.yaml`:
+3. Deploy the `checks_agent` using the updated `values.yaml`:
    * **Kubernetes:**
     ```yaml
     helm upgrade --install \
@@ -214,7 +210,7 @@ If StackState Agent is running on Kubernetes, the AWS check should be configured
     --set-string 'stackstate.cluster.authToken=<CLUSTER_AUTH_TOKEN>' \
     --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
     --values values.yaml \
-    stackstate-cluster-agent stackstate/cluster-agent    
+    stackstate-agent stackstate/stackstate-agent    
     ```
 
    * **OpenShift:**
@@ -230,7 +226,7 @@ If StackState Agent is running on Kubernetes, the AWS check should be configured
     --set 'agent.scc.enabled'=true \
     --set 'kube-state-metrics.securityContext.enabled'=false \
     --values values.yaml \
-    stackstate-cluster-agent stackstate/cluster-agent    
+    stackstate-agent stackstate/stackstate-agent    
     ```
 
 {% endtab %}
