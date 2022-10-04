@@ -6,9 +6,9 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-A few steps is required to successfully migrate from [Agent v1](/setup/agent/agent-v1.md) to [Agent v2](/setup/agent/about-stackstate-agent.md).
+A few steps is required to successfully migrate from Agent v1 to Agent v2 including the Agent v1 cache.
 
-These steps must be done to prevent any v1 to v2 corruption, either with the upgrade process or the corruption of the cache files.
+These steps **must be done in order** to prevent any Agent v1 to Agent v2 corruption, either caused by the upgrade process or the corruption of Agent v2 cache files.
 
 **Downtime**, When swapping between Agent v1 and Agent v2, there will be some downtime to allow a successful migration process.
 
