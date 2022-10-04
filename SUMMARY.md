@@ -44,6 +44,7 @@
   * [Advanced Agent configuration](setup/agent/advanced-agent-configuration.md)
   * [Use an HTTP/HTTPS proxy](setup/agent/agent-proxy.md)
   * [Agent V1 \(Legacy\)](setup/agent/agent-v1.md)
+  * [Agent V1 to Agent V2 Migration](setup/agent/agent-v1-to-agent-v2-migration.md)
 * [StackState CLI](setup/cli/README.md)
   * [CLI: sts \(new\)](setup/cli/cli-sts.md)
   * [CLI: stac](setup/cli/cli-stac.md)
