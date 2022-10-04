@@ -80,8 +80,11 @@ To compile a list of all the conf.d docker volumes, do the following:
     - "/etc/sts-agent/conf.d/splunk_metric.yaml:/etc/stackstate-agent/conf.d/splunk_metric.d/splunk_metric.yaml"
     ```
 
+Now that you have the snippet above keep it on the side, we will use it in the Docker-Compose file
+
+
 {% hint style="info" %}
-**This step is only required if you have Splunk Topology Check enabled**
+### 2B. **This part is only required if you have Splunk Topology Check enabled**
 
 - Edit the check configuration file `/etc/sts-agent/conf.d/splunk_topology.yaml` and replace all occurrences of the following items
   - `default_polling_interval_seconds` replace with `collection_interval`
@@ -89,10 +92,6 @@ To compile a list of all the conf.d docker volumes, do the following:
 
 This will break the conf format for Agent v1
 {% endhint %}
-
-
-Now that you have the snippet above keep it on the side, we will use it in the Docker-Compose file
-
 
 
 ### 3. Add the Agent State directory into your volume snippet
@@ -113,6 +112,7 @@ If we look at the splunk example from the previous step, it will look as follows
 ```
 
 Now that you have the snippet above keep it on the side, we will use it in the Docker-Compose file
+
 
 ### 4. Migrate the Agent v1 Cache
 
@@ -249,6 +249,16 @@ To compile a list of all the conf.d docker volumes, do the following:
 Now that you have the snippet above keep it on the side, we will use it in the docker run command
 
 
+{% hint style="info" %}
+### 2B. **This part is only required if you have Splunk Topology Check enabled**
+
+- Edit the check configuration file `/etc/sts-agent/conf.d/splunk_topology.yaml` and replace all occurrences of the following items
+  - `default_polling_interval_seconds` replace with `collection_interval`
+  - `polling_interval_seconds` replace with `collection_interval`
+
+This will break the conf format for Agent v1
+{% endhint %}
+
 
 ### 3. Add the Agent State directory into your volume snippet
 
@@ -268,7 +278,6 @@ If we look at the splunk example from the previous step, it will look as follows
 ```
 
 Now that you have the snippet above keep it on the side, we will use it in the docker run command
-
 
 
 ### 4. Migrate the Agent v1 Cache
