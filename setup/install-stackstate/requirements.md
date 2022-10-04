@@ -54,11 +54,23 @@ Requirements for the minimal high availability setup with backups enabled:
 {% endtab %}
 
 {% tab title="Non-high availability setup" %}
-Optionally, a [non-high availability setup](/setup/install-stackstate/kubernetes_install/non_high_availability_setup.md) can be configured which has the following requirements:
+Optionally, a [non-high availability setup](/setup/install-stackstate/kubernetes_install/non_high_availability_setup.md) can be configured which has the requirements listed below.
+
+**Recommended setup** 
+
+Requirements for the minimal non-high availability setup:
 
 * Node requirements: minimum 8 vCPUs, minimum 32GB memory
 * Total of 25 vCPUs available for StackState
 * Total of 56 GB memory available for StackState
+
+**Minimal setup**
+
+Requirements for the minimal non-high availability setup:
+
+* Node requirements: ???
+* Total of ???
+* Total of ???
 
 {% endtab %}
 {% endtabs %}
