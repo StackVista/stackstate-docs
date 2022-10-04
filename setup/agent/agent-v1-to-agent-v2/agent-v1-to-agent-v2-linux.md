@@ -8,7 +8,11 @@ description: StackState Self-hosted v5.1.x
 
 A few steps are required to migrate successfully from Agent v1 to Agent v2, including the Agent v1 cache.
 
-These steps **must be done in order** to prevent any Agent v1 to Agent v2 problems, either caused by the upgrade process or missing Agent v2 cache files.
+{% hint style="warning" %}
+These steps **must be done in order** to prevent any Agent v1 to Agent v2 issues.
+
+Problems like invalid Agent state files, overwritten state files or even a broken Agent v2 instance can occur when the order is broken.
+{% endhint %}
 
 {% hint style="warning" %}
 ## Impact Analysis
