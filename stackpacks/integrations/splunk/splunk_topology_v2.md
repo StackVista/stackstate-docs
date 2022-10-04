@@ -4,12 +4,6 @@ description: StackState Self-hosted v5.1.x
 
 # Splunk Topology V2
 
-{% hint style="info" %}
-This page describes the Splunk Topology V2 integration with StackState Agent V2.
-
-**If you are currently running a Splunk Topology V1 integration using StackState Agent V1:** See the instructions on how to configure the [Splunk Topology V1](splunk_topology.md) check or [upgrade](splunk_topology_upgrade_v1_to_v2.md) your integration to use StackState Agent V2.
-{% endhint %}
-
 ## Overview
 
 When the [Splunk StackPack](splunk_stackpack.md) has been installed in StackState, you can configure the Splunk Topology V2 check on StackState Agent V2 to begin collecting Splunk topology data.
@@ -20,6 +14,17 @@ The StackState Splunk Topology V2 integration collects topology from Splunk by e
 * [In StackState Agent V2](splunk_topology_v2.md#agent-check) - a Splunk topology check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
 
 The Splunk topology check on StackState Agent V2 will execute all configured Splunk saved searches periodically to retrieve a snapshot of the topology at the current time.
+
+{% hint style="info" %}
+In StackState v5.0 and earlier, the Splunk topology V1 check ran on Agent V1 (legacy).
+
+As Agent V1 (legacy) will be deprecated in a future release of StackState, it is advised that you upgrade to Agent V2 and migrate all configured Splunk checks to run there:
+
+- [Upgrade to Agent V2](/link/to/migrate/docs)
+- [Migrate Splunk checks to run on Agent V2](splunk_topology_upgrade_v1_to_v2.md)
+- For Agent V1 (legacy) configuration details, [refer to the StackState v5.0 documentation \(docs.stackstate.com/v/5.0/\)](https://docs.stackstate.com/stackpacks/integrations/splunk/splunk_topology)
+
+{% endhint %}
 
 ## Splunk saved search
 
