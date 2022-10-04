@@ -6,7 +6,8 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-A few steps are required to migrate successfully from Agent v1 to Agent v2, including the Agent v1 cache.
+The steps below will assist you in successfully migrating from Agent v1 to Agent v2. 
+This migration process will also migrate your existing Agent v1 state allowing checks like Splunk to continue from its previous state.
 
 {% hint style="warning" %}
 These steps **must be done in order** to prevent any Agent v1 to Agent v2 issues.
