@@ -67,6 +67,8 @@ The element will also have an outer color if it has an unhealthy [propagated hea
 
 You can find details of the calculated element own health state and all configured monitors and health checks in the StackState UI right panel details tab when information about a topology element is displayed - [Component details](/use/concepts/components.md#component-details) or [Direct relation details](/use/concepts/relations.md#relation-details) depending on the element type that you selected. 
 
+![Health states](../../.gitbook/assets/v51_element-health-details-panel.png)
+
 ### Element propagated health state
 
 In addition to the own health state, StackState calculates a propagated health state for each topology element (components, component groups and relations). The propagated health state is derived from the own health state of components and relations that the element depends upon.
