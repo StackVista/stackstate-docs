@@ -92,22 +92,26 @@ This can be done by following these steps:
 
 1. Head over to your Agent v1 `conf.d` directory found at the following location `/etc/sts-agent/conf.d/`.
 2. Copy each of the files in the `conf.d` directory to their respective v2 **subdirectories** inside the Agent v2 conf.d directory found at `/etc/stackstate-agent/conf.d/<CHECK-SUBDIRECTORY>.d/`.
-    - **DO NOT** just copy all the files from the `/etc/sts-agent/conf.d/` to `/etc/stackstate-agent/conf.d/` as Agent v2 works with a subdirectory structure.
+    - **DO NOT** just copy all the files from the `/etc/sts-agent/conf.d/` to  
+      `/etc/stackstate-agent/conf.d/` as Agent v2 works with a subdirectory structure.
     - For Example, If you are using **Splunk** copy the following files:
-      - `/etc/sts-agent/conf.d/splunk_topology.yaml` into `/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml`
-      - `/etc/sts-agent/conf.d/splunk_event.yaml` into `/etc/stackstate-agent/conf.d/splunk_event.d/splunk_event.yaml`
-      - `/etc/sts-agent/conf.d/splunk_metric.yaml` into `/etc/stackstate-agent/conf.d/splunk_metric.d/splunk_metric.yaml`
+      - `/etc/sts-agent/conf.d/splunk_topology.yaml` into  
+        `/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml`
+      - `/etc/sts-agent/conf.d/splunk_event.yaml` into  
+        `/etc/stackstate-agent/conf.d/splunk_event.d/splunk_event.yaml`
+      - `/etc/sts-agent/conf.d/splunk_metric.yaml` into  
+        `/etc/stackstate-agent/conf.d/splunk_metric.d/splunk_metric.yaml`
 3. (Required step for **Splunk** checks)
     - Splunk Topology
-      - Edit the check configuration file /etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml and replace all occurrences of the following items
+      - Edit the check configuration file `/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml` and replace all occurrences of the following items
         - `default_polling_interval_seconds` replace with `collection_interval`
         - `polling_interval_seconds` replace with `collection_interval`
     - Splunk Events
-      - Edit the check configuration file /etc/stackstate-agent/conf.d/splunk_event.d/splunk_event.yaml and replace all occurrences of the following items
+      - Edit the check configuration file `/etc/stackstate-agent/conf.d/splunk_event.d/splunk_event.yaml` and replace all occurrences of the following items
         - `default_polling_interval_seconds` replace with `collection_interval`
         - `polling_interval_seconds` replace with `collection_interval`
     - Splunk Metrics
-      - Edit the check configuration file /etc/stackstate-agent/conf.d/splunk_metric.d/splunk_metric.yaml and replace all occurrences of the following items
+      - Edit the check configuration file `/etc/stackstate-agent/conf.d/splunk_metric.d/splunk_metric.yaml` and replace all occurrences of the following items
         - `default_polling_interval_seconds` replace with `collection_interval`
         - `polling_interval_seconds` replace with `collection_interval`
 
