@@ -12,7 +12,7 @@ These steps must be done to prevent any v1 to v2 corruption, either with the upg
 
 **Downtime**, When swapping between Agent v1 and Agent v2, there will be some downtime to allow a successful migration process.
 
-## Migration Process to Windows
+## Migration Process
 
 ### 1. Stop Agent v1
 
