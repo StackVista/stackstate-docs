@@ -10,9 +10,13 @@ The steps below will assist you in successfully migrating from Agent v1 to Agent
 This migration process will also migrate your existing Agent v1 state allowing checks like Splunk to continue from its previous state.
 
 {% hint style="warning" %}
-These steps **must be done in order** to prevent any Agent v1 to Agent v2 issues.
+These steps **must be done in the correct order** to prevent any Agent v1 to Agent v2 issues.
 
 Problems like invalid Agent state files, overwritten state files or even a broken Agent v2 instance can occur when the order is broken.
+{% endhint %}
+
+{% hint style="warning" %}
+**If possible, it's highly recommended to run this migration in a Test Environment, It may affect some steps below but reduce the initial impact if something does not work**
 {% endhint %}
 
 {% hint style="warning" %}
@@ -58,7 +62,7 @@ Follow all the steps on [Agent v2 - Deploy on Linux](/setup/agent/linux.md) to s
 
 ### 3. Stop Agent v2
 
-{% hint style="warning" %}
+{% hint style="info" %}
 The installation of Agent v2 will automatically start the StackState Agent.
 {% endhint %}
 
@@ -101,19 +105,14 @@ This can be done by following these steps:
         `/etc/stackstate-agent/conf.d/splunk_event.d/splunk_event.yaml`
       - `/etc/sts-agent/conf.d/splunk_metric.yaml` into  
         `/etc/stackstate-agent/conf.d/splunk_metric.d/splunk_metric.yaml`
-3. (Required step for **Splunk** checks)
-    - Splunk Topology
-      - Edit the check configuration file `/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml` and replace all occurrences of the following items
-        - `default_polling_interval_seconds` replace with `collection_interval`
-        - `polling_interval_seconds` replace with `collection_interval`
-    - Splunk Events
-      - Edit the check configuration file `/etc/stackstate-agent/conf.d/splunk_event.d/splunk_event.yaml` and replace all occurrences of the following items
-        - `default_polling_interval_seconds` replace with `collection_interval`
-        - `polling_interval_seconds` replace with `collection_interval`
-    - Splunk Metrics
-      - Edit the check configuration file `/etc/stackstate-agent/conf.d/splunk_metric.d/splunk_metric.yaml` and replace all occurrences of the following items
-        - `default_polling_interval_seconds` replace with `collection_interval`
-        - `polling_interval_seconds` replace with `collection_interval`
+
+{% hint style="info" %}
+**This step is only required if you have Splunk Topology Check enabled**
+3. Splunk Topology
+     - Edit the check configuration file `/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml` and replace all occurrences of the following items
+       - `default_polling_interval_seconds` replace with `collection_interval`
+       - `polling_interval_seconds` replace with `collection_interval`
+{% endhint %}
 
 ### 5. Migrate the Agent v1 Cache
 
