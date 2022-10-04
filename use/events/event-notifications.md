@@ -42,7 +42,7 @@ Note that there may be a slight delay between the generation of a `HealthStateCh
 
 ### Problem events
 
-StackState groups unhealthy components in a view into problems, each with a common root cause. For every change to a problem, at least one problem event is generated. Use the [Manage Event Handlers](/use/events/manage-event-handlers.md) panel to add an event handler to the view and trigger an event notification or action whenever problem events are generated.
+StackState groups unhealthy components in a view into problems, each with a common root cause. For every change to a problem, at least one problem event is generated.
 
 Changes to a problem result in the following **Problem changed events** event types being generated:
 
