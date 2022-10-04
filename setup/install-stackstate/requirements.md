@@ -58,7 +58,7 @@ Optionally, a [non-high availability setup](/setup/install-stackstate/kubernetes
 
 **Recommended setup** 
 
-Requirements for the minimal non-high availability setup:
+Requirements for the recommended non-high availability setup:
 
 * Node requirements: minimum 8 vCPUs, minimum 32GB memory
 * Total of 25 vCPUs available for StackState
