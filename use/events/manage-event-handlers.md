@@ -8,11 +8,11 @@ description: StackState Self-hosted v5.1.x
 
 Event handlers attached to a StackState view listen to generated StackState events. Event notifications can be sent or actions can be triggered in response to health state change events or problem events generated within the view.
 
-## Active event handlers
+## Configured event handlers
 
-All event handlers currently active for the view are displayed in the StackState UI right panel **View summary** tab under **Event handlers**. You can add, edit and remove event handlers from here. Expand an event handler to see the configured settings.
+All event handlers currently configured for the view are displayed in the StackState UI right panel **View summary** tab under **Event handlers**. You can add, edit and remove event handlers from here. Expand an event handler to see the configured settings.
 
-![Active event handlers](/.gitbook/assets/v51_active_event_handlers.png)
+![Event handlers](/.gitbook/assets/v51_configured_event_handlers.png)
 
 ## Add event handler
 
