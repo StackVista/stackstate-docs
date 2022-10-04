@@ -92,7 +92,7 @@ This can be done by following these steps:
 
 1. Head over to your Agent v1 `conf.d` directory found at the following location `/etc/sts-agent/conf.d/`.
 2. Copy each of the files in the `conf.d` directory to their respective v2 **subdirectories** inside the Agent v2 conf.d directory found at `/etc/stackstate-agent/conf.d/<CHECK-SUBDIRECTORY>.d/`.
-    - {% hint style="warning" %} **DO NOT** just copy all the files from the `/etc/sts-agent/conf.d/` to `/etc/stackstate-agent/conf.d/` as Agent v2 works with a subdirectory structure. {% endhint %}
+    - **DO NOT** just copy all the files from the `/etc/sts-agent/conf.d/` to `/etc/stackstate-agent/conf.d/` as Agent v2 works with a subdirectory structure.
     - For Example, If you are using **Splunk** copy the following files:
       - `/etc/sts-agent/conf.d/splunk_topology.yaml` into `/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml`
       - `/etc/sts-agent/conf.d/splunk_event.yaml` into `/etc/stackstate-agent/conf.d/splunk_event.d/splunk_event.yaml`
