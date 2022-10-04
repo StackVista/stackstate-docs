@@ -83,7 +83,6 @@ To compile a list of all the conf.d docker volumes, do the following:
 Now that you have the snippet above keep it on the side, we will use it in the Docker-Compose file
 
 
-{% hint style="info" %}
 ### 2B. **This part is only required if you have Splunk Topology Check enabled**
 
 - Edit the check configuration file `/etc/sts-agent/conf.d/splunk_topology.yaml` and replace all occurrences of the following items
@@ -91,7 +90,6 @@ Now that you have the snippet above keep it on the side, we will use it in the D
   - `polling_interval_seconds` replace with `collection_interval`
 
 This will break the conf format for Agent v1
-{% endhint %}
 
 
 ### 3. Add the Agent State directory into your volume snippet
@@ -249,7 +247,6 @@ To compile a list of all the conf.d docker volumes, do the following:
 Now that you have the snippet above keep it on the side, we will use it in the docker run command
 
 
-{% hint style="info" %}
 ### 2B. **This part is only required if you have Splunk Topology Check enabled**
 
 - Edit the check configuration file `/etc/sts-agent/conf.d/splunk_topology.yaml` and replace all occurrences of the following items
@@ -257,7 +254,6 @@ Now that you have the snippet above keep it on the side, we will use it in the d
   - `polling_interval_seconds` replace with `collection_interval`
 
 This will break the conf format for Agent v1
-{% endhint %}
 
 
 ### 3. Add the Agent State directory into your volume snippet
