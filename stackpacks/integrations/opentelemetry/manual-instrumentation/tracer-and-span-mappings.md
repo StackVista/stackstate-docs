@@ -255,7 +255,7 @@ This means that your component is in a CRITICAL state.
 
 {% tab title="Span properties" %}
 
-**The http status can be found in the following location regardless of what the HTTP status actually is**
+**The HTTP status can be found in the following location regardless of what the HTTP status actually is**
 
 1) In your top navigation bar click on the `trace perspective` menu item.
 2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your trace).

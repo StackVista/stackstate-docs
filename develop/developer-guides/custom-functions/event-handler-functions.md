@@ -10,26 +10,27 @@ Event handlers listen to events generated within a view. When the configured eve
 
 ## Create a custom event handler function
 
-Advanced StackState users can write their own custom event handler functions that react to state change events or problemand use the StackState HTTP script API or a plugin to send an event notification to a system outside of StackState. To add a custom event handler function:
+Advanced StackState users can write their own custom event handler functions that react to state change events or problem events. Event handler functions can use the StackState HTTP script API or a plugin to send an event notification to a system outside of StackState. To add a custom event handler function:
 
-1. Go to **Settings** &gt; **Functions** &gt; **Event Handler Functions**.
+1. In the StackState UI, go to **Settings** &gt; **Functions** &gt; **Event Handler Functions**.
 2. Click **ADD EVENT HANDLER FUNCTION**. 
 3. Enter the required settings:
    * **Name** - A name to identify the event handler function.
-   * **Description** - Optional. A description of the event handler function.
-   * **System parameters** - predefined parameters passed automatically to the event handler function script. For details, see the section on [parameters](event-handler-functions.md#parameters) below.
-   * **User parameters** - parameters that must be entered by the user when an event handler is added to the view. Event handler functions also include the predefined user parameter **event**. For details, see the section on [parameters](event-handler-functions.md#parameters) below.
+   * **Description** - Optional. A description of the event handler function. This will be displayed on the page **Settings** &gt; **Functions** &gt; **Event Handler Functions**.
+   * **System parameters** - predefined parameters that are passed automatically to the event handler function script. For details, see the section on [parameters](event-handler-functions.md#parameters) below.
+   * **User parameters** - parameters that must be entered by the user when an event handler is added to a view. Event handler functions also include the predefined user parameter **event**. For details, see the section on [parameters](event-handler-functions.md#parameters) below.
    * **Supported Event Types** - The type of event\(s\) that the event handler can respond to. For details, see the section on [supported event types](event-handler-functions.md#supported-event-types) below.
    * **Execution** - Event handler functions can be run as either Asynchronous \(default\) or Synchronous:
-     * **Asynchronous** - use for Slack, SMS or HTTP webhook event handlers. The function script will have access to all functionality from the StackState script API and more functions will be allowed to run in parallel.
-     * **Synchronous** - use for event handlers that generate email, SMS or HTTP webhook event notifications. The function will use plugins to send notifications to external systems.
+     * **Asynchronous** - use for Slack, SMS or HTTP webhook event handlers. The function script will have access to all functionality from the StackState script APIs and more functions will be allowed to run in parallel.
+     * **Synchronous** - required for event handlers that generate email event notifications. The function will use a plugin to send notifications to external systems.
    * **Script** - The script run by the function. For details, see the sections below on:
      * [Functions with Asynchronous execution](event-handler-functions.md#asynchronous-execution-default).
      * [Functions with Synchronous execution](event-handler-functions.md#synchronous-execution).
      * How to [add logging to a function](event-handler-functions.md#logging).
    * **Identifier** - Optional. A unique identifier \(URN\) for the event handler function.
 4. Click **CREATE** to save the event handler function. 
-   * The new event handler function will be listed on the **Event Handler Functions** page and available in the **Run event handler** drop-down when you [add an event handler](/use/events/manage-event-handlers.md#add-event-handler) that listens to one of the configured **Supported Event Types**.
+   * The new event handler function will be listed on the page **Settings** &gt; **Functions** &gt; **Event Handler Functions**.
+   * The event handler will be available in the **Run event handler** drop-down when you [add an event handler](/use/events/manage-event-handlers.md#add-event-handler) that listens to one of the configured **Supported Event Types**.
 
 ![Add a custom event handler function](../../../.gitbook/assets/v51_event_handler_functions.png)
 
@@ -59,19 +60,23 @@ One or more of the following events can be selected:
 
 You can add logging statements to an event handler function for debug purposes, for example, with `log.info("message")`. Logs will appear in `stackstate.log`. Read how to [enable logging for functions](../../../configure/logging/enable-logging.md).
 
+{% hint style="info" %}
+Only available for Linux installations of StackState.
+{% endhint %}
+
 ## Asynchronous execution \(default\)
 
 When execution is set to **Asynchronous**, the event handler function will run as an asynchronous function.
 
-An asynchronous event handler function also has access to the [StackState script APIs](../../reference/scripting/script-apis/). This allows the function to make an HTTP request with a custom header using the [HTTP script API](../../reference/scripting/script-apis/http.md) and gives access to the whole topology/telemetry.
+An asynchronous event handler function has access to the [StackState script APIs](../../reference/scripting/script-apis/). This allows the function to make an HTTP request with a custom header using the [HTTP script API](../../reference/scripting/script-apis/http.md) and gives access to the whole topology/telemetry.
 
 The **Slack** event handler function shipped with StackState will run as an asynchronous function. This allows the event notifications sent to Slack to include extensive details about the event that triggered it, such as links to relevant data and a possible root cause. You could also use the HTTP script API to send an SMS or webhook post.
 
 ### Properties for asynchronous functions
 
-The properties described below can be retrieved from the default parameters in an event handler function with asynchronous execution.
+The properties described below can be retrieved from the default `view` and `event` parameters in an event handler function with asynchronous execution.
 
-**View** properties return details of the view the event handler is in. Note that parameter name `view` or `scope` can be used, or an alias.
+**View** properties return details of the view that the event handler is configured for. Note that parameter name `view` or `scope` can be used, or an alias.
 
 * `view.name` - returns the view name.
 * `view.description` - returns the view description.
