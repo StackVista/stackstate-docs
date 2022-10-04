@@ -85,7 +85,7 @@ Now that you have the snippet above keep it on the side, we will use it in the D
 
 ### 2B. **This part is only required if you have Splunk Topology Check enabled**
 
-{% hint style="error" %}
+{% hint style="warning" %}
 This will break the splunk_topology.yaml conf for Agent v1
 {% endhint %}
 
@@ -251,7 +251,7 @@ Now that you have the snippet above keep it on the side, we will use it in the d
 
 ### 2B. **This part is only required if you have Splunk Topology Check enabled**
 
-{% hint style="error" %}
+{% hint style="warning" %}
 This will break the splunk_topology.yaml conf for Agent v1
 {% endhint %}
 
