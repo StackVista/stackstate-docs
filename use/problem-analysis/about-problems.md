@@ -32,59 +32,13 @@ A problem can contain any number of contributing causes. These are all of the un
 
 When a contributing cause element is added or removed, a `Problem updated` event is generated.
 
-## Problem lifecycle
+## Time window of a problem
 
-### Problem created
-
-If an element's health state changes to `DEVIATING` (orange) or `CRITICAL` (red) and the probable root cause is not already part of an existing problem, a new problem will be created. All other elements in the landscape with an unhealthy state that can be attributed to the same root cause will be added to the same problem as contributing causes. 
-
-When a problem is created, the following events are generated:
-
-* A `Problem created` event for each created problem.
-
-![Problem created](/.gitbook/assets/v51_problem_created_animation.gif)
-
-### Problem updated
-
-A problem will be updated if an element in the landscape switches its state to `DEVIATING` (orange) or `CRITICAL` (red) and becomes a new contributing cause or root cause for an existing problem. A problem will also be updated if one of the included elements changes its state to healthy (green).
-
-When a problem is updated, the following events are generated:
-
-* A `Problem updated` event for each update to a problem.
-
-{% hint style="info" %}
-Updates to an existing problem may result in another existing problem being [subsumed](#problem-subsumed) or a new problem being [created](#problem-created).
-{% endhint %}
-
-![Problem updated](/.gitbook/assets/v51_problem_updated_animation.gif)
-
-### Problem subsumed
-
-If an element switches its state to unhealthy and would become the new root cause for more than one existing problem, StackState will combine all of these problems into one problem. The oldest of the problems will be updated to have the new root cause element and all other problems with the same root cause are subsumed. This would happen, for example, if an upstream dependency of two root cause elements switched to an unhealthy state.
-
-When a problem is subsumed, the following events are generated:
-
-* A `Problem updated` event for the oldest problem - the only problem that remains.
-* A `Problem subsumed` event for each other (subsumed) problem.
-
-![Problem subsumed](/.gitbook/assets/v51_problem_subsumed_animation.gif)
-
-### Problem resolved
-
-When the root cause and all contributing cause elements have changed to a CLEAR \(green\) health state, the problem is considered as resolved and will no longer be visible in the StackState UI. 
-
-When a problem is resolved, the following event is generated:
-
-* A `Problem resolved` event for the resolved problem.
-
-{% hint style="info" %}
-If elements from the problem change back to an unhealthy state in the future, this will be reported as a new problem in StackState.
-{% endhint %}
-
-![Problem resolved](/.gitbook/assets/v51_problem_resolved_animation.gif)
+A problem is considered to start one hour before the timestamp of the first reported unhealthy state it contains and end five minutes after the last change to an unhealthy state. Note that the first unhealthy state in the problem might not have been reported by the root cause component. If a component in the problem changes to an unhealthy state or a new component is added to the problem, the problem time window will be extended to include this state change.
 
 ## See also
 
 * [How to navigate through a problem in the StackState UI](problem_investigation.md)
+* [Problem lifecycle](problem-lifecycle.md)
 * [Anomaly detection](../concepts/anomaly-detection.md)
 * [Problem notifications](problem_notifications.md)

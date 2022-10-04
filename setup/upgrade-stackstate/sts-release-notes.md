@@ -19,6 +19,16 @@ TODO
 
 Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
 
+### v5.0.6
+
+**Improvements**
+
+- The Minio pod in the StackState Helm chart has default CPU requests and limits set. STAC-17882
+
+**Bug fixes**
+
+- Fixed an issue that prevented StackState from using MS Edge as a browser. STAC-17848
+
 ### v5.0.5
 
 **Bug fixes**
@@ -171,7 +181,7 @@ Details of the included improvements, bug fixes and StackPack updates can be fou
 
 - Topology synchronization progress counters have been moved from individual synchronizations to the `stackstate.log` file for Linux-based distributions. Errors for topology mapping and templates remain in the synchronization-specific logs. STAC-15529
 - The MinIO chart now allows the registry to be configured separately from the repository. Also, the chart will now use any [globally configured pull secrets](/setup/install-stackstate/kubernetes_install/install-from-custom-image-registry.md) to fetch Docker images. STAC-15180
-- The component context menu now displays the preview of the [three top priority metrics](/use/metrics-and-events/top-metrics.md). STAC-15076
+- The component context menu now displays the preview of the [three top priority metrics](/use/metrics/top-metrics.md). STAC-15076
 - `PodDisruptionBudget` and `PodSecurityPolicy` now use the updated apiVersion (policy/v1) for newer Kubernetes versions. STAC-14968
 - The MinIO Helm chart has been updated to specify both a requests and limits for the memory resource. STAC-14771
 - All PodDisruptionBudget(s) can be configured through the Helm Values. STAC-14770

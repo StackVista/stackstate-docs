@@ -6,12 +6,12 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-The telemetry streams associated with an element are displayed in the right panel **Selection details** tab when an element is selected to show its detailed information. Telemetry streams are displayed in order of telemetry stream priority. There are four levels of priority: `High`, `Medium`, `Low`, and `None`. By default, all streams have priority set to `none`. 
+The telemetry streams associated with an element are displayed in the right panel details tab when an element is selected to show its detailed information - **Component details** or **Direct relation details** depending on the element type that you selected. Telemetry streams are displayed in order of telemetry stream priority. There are four levels of priority: `High`, `Medium`, `Low`, and `None`. By default, all streams have priority set to `none`. 
 
 Stream priority is used in StackState to help determine the following:
 
-* The order in which streams are displayed in the **Telemetry** list when [detailed component or relation information](/use/concepts/components.md#detailed-component-information) is displayed in the StackState UI right panel **Selection details** tab. Streams are ordered by priority (highest at the top) and then alphabetically.
-* The streams that are shown as [Top metrics](/use/metrics-and-events/top-metrics.md) in the component context menu - this is the pop-up displayed when you hover the mouse pointer over a component in the Topology Perspective. The most recent metric received from the first three streams in the **Telemetry** list will be displayed.
+* The order in which streams are displayed in the **Telemetry** list when [detailed component or relation information](/use/concepts/components.md#component-details) is displayed in the StackState UI right panel details tab. Streams are ordered by priority (highest at the top) and then alphabetically.
+* The streams that are shown as [Top metrics](/use/metrics/top-metrics.md) in the component context menu - this is the pop-up displayed when you hover the mouse pointer over a component in the Topology Perspective. The most recent metric received from the first three streams in the **Telemetry** list will be displayed.
 * The order in which streams are displayed in the [Metrics Perspective](/use/stackstate-ui/perspectives/metrics-perspective.md).
 * The [streams selected for monitoring by the Autonomous Anomaly Detector](/stackpacks/add-ons/aad.md#how-are-metric-streams-selected).
 
@@ -21,7 +21,7 @@ To change the priority of a specific stream, follow the instructions below.
 
 ### 1. Select a component to display detailed information
 
-Locate the component that you want to edit Telemetry streams for. Select the component to open detailed information about the component in the right panel **Selection details** tab - see the screenshot below:
+Locate the component that you want to edit Telemetry streams for. Select the component to open detailed information about the component in the right panel details tab - **Component details**. See the screenshot below:
 
 ![Detailed component information](../../.gitbook/assets/v51_component_details.png)
 

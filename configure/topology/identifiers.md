@@ -12,10 +12,8 @@ Identifiers are used in StackState to identify objects, such as topology element
 
 Topology elements use two types of identifiers in StackState:
 
-| Identifier type | Description |
-| :--- | :--- |
-| **Integration scope identifiers** | Used for identifying components and relations within an integration. Each component or relation has only one integration scope identifier. The identifier is arbitrary, but must be consistent within the scope of the integration itself. |
-| **Global scope identifiers** | Used for merging components between integrations, for example ServiceNow and the StackState Agent. Each component can have multiple global scope identifiers, while relations do not have any global identifiers. They are assigned by StackState and formatted in accordance with the [StackState global identifier convention](identifiers.md#global-scope-identifiers). |
+* **Integration scope identifiers** - used for identifying components and relations within an integration. Each component or relation has only one integration scope identifier. The identifier is arbitrary, but must be consistent within the scope of the integration itself.
+* **Global scope identifiers** - used for merging components between integrations, for example ServiceNow and the StackState Agent. Each component can have multiple global scope identifiers, while relations do not have any global identifiers. They are assigned by StackState and formatted in accordance with the [StackState global identifier convention](identifiers.md#global-scope-identifiers).
 
 The code sample below shows a component with both types of identifiers.
 

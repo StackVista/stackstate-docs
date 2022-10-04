@@ -93,7 +93,7 @@ To find the correct time field format to specify in the StackState Elasticsearch
 
 ### Work with Elasticsearch data in StackState
 
-Elasticsearch data sources can be used to add telemetry streams to components and relations in StackState. This can be done manually by [adding a telemetry stream](../../../use/metrics-and-events/add-telemetry-to-element.md) directly to an element or as part of an integration or topology synchronization, for details see how to [add telemetry during topology synchronization](../telemetry_synchronized_topology.md).
+Elasticsearch data sources can be used to add telemetry streams to components and relations in StackState. This can be done manually by [adding a telemetry stream](../../../use/metrics/add-telemetry-to-element.md) directly to an element or as part of an integration or topology synchronization, for details see how to [add telemetry during topology synchronization](../telemetry_synchronized_topology.md).
 
 ## Advanced settings
 
@@ -125,6 +125,6 @@ Wildcards can be slow in Elasticsearch. By default, StackState will escape wildc
 
 ## See also
 
-* [Add a telemetry stream to a component or relation](../../../use/metrics-and-events/add-telemetry-to-element.md)
+* [Add a telemetry stream to a component or relation](../../../use/metrics/add-telemetry-to-element.md)
 * [Add telemetry during topology synchronization](../telemetry_synchronized_topology.md)
 

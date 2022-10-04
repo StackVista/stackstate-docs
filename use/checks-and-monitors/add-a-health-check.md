@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.1.x
 
 Health checks report a health state for elements \(components and relations\). The health state can either be calculated internally by StackState based on data from telemetry streams or synchronized with an external monitoring system.
 
-The combined check states attached to an element are used to calculate its overall health status. When the status of an element changes, a state change event is generated. These events can be used to [trigger event notifications and actions](../metrics-and-events/event-notifications.md).
+The combined check states attached to an element are used to calculate its overall health status. When the status of an element changes, a state change event is generated. These events can be used to [trigger event notifications and actions](../events/event-notifications.md).
 
 ## Add a health check
 
@@ -17,11 +17,11 @@ Most elements in the StackState topology will have a relevant health check added
 To add a health check calculated in StackState:
 
 1. Select the element that you want to assign a health check to.
-   * Detailed information about the element will be displayed in the right panel **Selection details** tab.
-   * If no telemetry stream is available on the selected element, you will need to [add a telemetry stream](../metrics-and-events/add-telemetry-to-element.md).
-2. Click **ADD NEW HEALTH CHECK** under **Health** in the right panel **Selection details** tab.
+   * Detailed information about the element will be displayed in the right panel details tab - **Component details** or **Direct relation details** depending on the element type that you selected.
+   * If no telemetry stream is available on the selected element, you will need to [add a telemetry stream](../metrics/add-telemetry-to-element.md) first before you can add a health check.
+2. Click **ADD NEW HEALTH CHECK** under **Health** in the right panel details tab.
 3. In the **Add check** dialog box, provide the following details:
-   * **Name** - The health check name. Will be displayed in the StackState UI right panel **Selection details** tab **Health** section.
+   * **Name** - The health check name. Will be displayed in the StackState UI right panel details tab **Health** section.
    * **Description** - Optional, can be used to explain the check in greater detail.
    * **Remediation hint** - Optional, will be automatically displayed on the element when this check goes to a non-clear state, for example `critical` or `deviating`.
    * **Check function** - The check function to use to monitor the element's telemetry stream\(s\). See [Check functions](add-a-health-check.md#check-functions) below.
@@ -78,8 +78,8 @@ You can [synchronize existing health checks](../../configure/health/health-synch
 ## See also
 
 * [Anomaly health checks](anomaly-health-checks.md)
-* [Add a telemetry stream to an element](../metrics-and-events/add-telemetry-to-element.md)
-* [Add an event notification](/use/stackstate-ui/views/manage-event-handlers.md#add-event-handler)
+* [Add a telemetry stream to an element](../metrics/add-telemetry-to-element.md)
+* [Add an event notification](/use/events/manage-event-handlers.md#add-event-handler)
 * [Custom check functions](../../develop/developer-guides/custom-functions/check-functions.md "StackState Self-Hosted only")
 * [Custom monitor functions](../../develop/developer-guides/custom-functions/monitor-functions.md "StackState Self-Hosted only")
 * [Synchronize external health data](../../configure/health/health-synchronization.md "StackState Self-Hosted only")

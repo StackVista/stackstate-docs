@@ -183,7 +183,7 @@ self.relation("some-application-unique-identifier", "this-host-unique-identifier
 
 This creates two components in StackState. One for the host named `this-host` and one for an application named `some-application`. The `domain` value is used in the horizontal grouping of the components in StackState and `layer` is used for vertical grouping. The `labels`, `tags` and `environment` add some metadata to the component and can also be used for filtering in StackState. An `IS_HOSTED_ON` relation is created between `some-application` and `this-host`. The `labels` and `tags` fields can also be used on relations to add some metadata. The component types \(`Host`, `Application`\) and relation type \(`IS_HOSTED_ON`\) will be automatically created in StackState and can later be used in the synchronization to create mappings for the different types.
 
-The identifiers and the external identifier, for example `some-application-unique-identifier` will be used as the StackState Id. The `external identifer` should be unique within this integration.
+The identifiers and the external identifier, for example `some-application-unique-identifier` will be used as the StackState ID. The `external identifer` should be unique within this integration.
 
 #### Merge Identifiers
 

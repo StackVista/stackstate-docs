@@ -23,7 +23,7 @@ The Kubernetes integration collects topology data in a Kubernetes cluster as wel
   * [Topology data](kubernetes.md#topology) is translated into components and relations.
   * [Tags](kubernetes.md#tags) defined in Kubernetes are added to components and relations in StackState.
   * [Metrics data](kubernetes.md#metrics) is stored and accessible within StackState. Relevant metrics data is mapped to associated components and relations in StackState.
-  * [Kubernetes events](kubernetes.md#events) are available in the StackState UI Events Perspective and listed in the StackState UI right panel **View summary** tab.
+  * [Kubernetes events](kubernetes.md#events) are available in the StackState UI Events Perspective. They are also included in the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**.
   * [Objects changes events](kubernetes.md#events) are created for every detected change to `spec` or `metadata` in Kubernetes objects
 
 ## Setup
@@ -62,6 +62,7 @@ For the Kubernetes integration to retrieve topology, events and metrics data, yo
 
 * StackState Agent V2 on each node in the cluster
 * StackState Cluster Agent on one node
+* StackState Checks Agent on one node
 * kube-state-metrics
 
 ➡️ [Deploy StackState Agents and kube-state-metrics](../../setup/agent/kubernetes.md).
@@ -70,66 +71,52 @@ For the Kubernetes integration to retrieve topology, events and metrics data, yo
 To integrate with other services, a separate instance of the [StackState Agent](../../setup/agent/about-stackstate-agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on a Kubernetes cluster with checks that integrate with other services.
 {% endhint %}
 
-### Configure cluster check: Kubernetes_state check
+### Configure kube-state-metrics
 
-The kubernetes\_state check is responsible for gathering metrics from kube-state-metrics and sending them to StackState. It is configured on the StackState Cluster Agent and, by default, runs in the StackState Agent pod that is on the same node as the kube-state-metrics pod.
+The kubernetes\_state check is responsible for gathering metrics from kube-state-metrics and sending them to StackState. The kubernetes\_state check runs in the [StackState Checks Agent](../../setup/agent/kubernetes.md#checks-agent) by default and is configured in the [StackState Cluster Agent](../../setup/agent/kubernetes.md#cluster-agent).
 
-In a default deployment, all pods running a StackState Agent must be configured with sufficient CPU and memory requests and limits to run the check. This can consume a lot of memory in a large Kubernetes cluster. Since only one StackState Agent pod will actually run the check, a lot of CPU and memory resources will be allocated, but not be used.
+The default URL that the kubernetes\_state check uses is:
+```
+http://<release-name>-kube-state-metrics.<namespace>.svc.cluster.local:8080/metrics
+```
 
-To remedy this situation, the kubernetes\_state check can be configured to run as a cluster check. In this case, only the [ClusterCheck Agent](/setup/agent/kubernetes.md#clustercheck-agent-optional) requires resources to run the check and the allocation for other pods can be reduced.
+If an alternative kube-state-metrics pod \(i.e. Prometheus\) is installed, the default StackState kube-state-metrics pod can be disabled and the kubernetes\_state check redirected to the alternative service:
 
-1. Update the `values.yaml` file used to deploy the `cluster-agent`, for example:
-  ```yaml
-  clusterChecks:
-  # clusterChecks.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods.
-    enabled: true
-  agent:
-    config:
-      override:
-  # agent.config.override -- Disables kubernetes_state check on regular agent pods.
-      - name: auto_conf.yaml
-        path: /etc/stackstate-agent/conf.d/kubernetes_state.d
-        data: |
-  clusterAgent:
-    config:
-      override:
-  # clusterAgent.config.override -- Defines kubernetes_state check for clusterchecks agents. Auto-discovery
-  #                                 with ad_identifiers does not work here. Use a specific URL instead.
-      - name: conf.yaml
-        path: /etc/stackstate-agent/conf.d/kubernetes_state.d
-        data: |
-          cluster_check: true
-  
-          init_config:
-  
-          instances:
-            - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
-  ```
+1. Update the `values.yaml` file used to deploy the `checks-agent`, for example:
+   ```yaml
+   dependencies:
+     kubeStateMetrics:
+       enabled: false
+   checksAgent:
+     kubeStateMetrics:
+       url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
+   ```
 
 2. Deploy the `cluster_agent` using the updated `values.yaml`:
-  ```yaml
-  helm upgrade --install \
-  --namespace stackstate \
-  --create-namespace \
-  --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
-  --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
-  --set-string 'stackstate.cluster.authToken=<CLUSTER_AUTH_TOKEN>' \
-  --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
-  --values values.yaml \
-  stackstate-cluster-agent stackstate/cluster-agent    
-  ```
+   ```yaml
+   helm upgrade --install \
+   --namespace stackstate \
+   --create-namespace \
+   --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
+   --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
+   --set-string 'stackstate.cluster.authToken=<CLUSTER_AUTH_TOKEN>' \
+   --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
+   --values values.yaml \
+   stackstate-agent stackstate/stackstate-agent
+   ```
 
 ### Status
 
-To check the status of the Kubernetes integration, check that the StackState Cluster Agent \(`cluster-agent`\) pod and all of the StackState Agent \(`cluster-agent-agent`\) pods have status ready.
+To check the status of the Kubernetes integration, check that the StackState Cluster Agent \(`cluster-agent`\) pod, StackState Checks Agent pod \(`checks-agent`\) and all of the StackState Agent \(`node-agent`\) pods have status ready.
 
 ```text
 ❯ kubectl get deployment,daemonset --namespace stackstate
 
 NAME                                                 READY   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/stackstate-cluster-agent             1/1     1            1           5h14m
+deployment.apps/stackstate-agent-cluster-agent       1/1     1            1           5h14m
+deployment.apps/stackstate-agent-checks-agent        1/1     1            1           5h14m
 NAME                                                 DESIRED   CURRENT   READY   UP-TO-DATE   AVAILABLE   NODE SELECTOR   AGE
-daemonset.apps/stackstate-cluster-agent-agent        10        10        10      10           10          <none>          5h14m
+daemonset.apps/stackstate-agent-node-agent           10        10        10      10           10          <none>          5h14m
 ```
 
 ## Integration details
@@ -145,7 +132,7 @@ The Kubernetes integration retrieves the following data:
 
 #### Events
 
-* All [Kubernetes events](#kubernetes-events) are retrieved from the Kubernetes cluster. 
+* All [Kubernetes events](#kubernetes-events) are retrieved from the Kubernetes cluster.
 * StackState `Element Properties Change` events will be generated for [changes detected in a Kubernetes object](#object-change-events).
 
 ##### Kubernetes events
@@ -191,7 +178,7 @@ Note that, in order to reduce noise of changes, the following object properties 
 * `status` (except for `Node`, `Pod` and `PersistentVolume` objects)
 {% endhint %}
 
-You can also see the current [or past](../../use/stackstate-ui/timeline-time-travel.md#topology-time) YAML definition of the object in the [Component properties](/use/concepts/components.md#detailed-component-information):
+You can also see the current [or past](../../use/stackstate-ui/timeline-time-travel.md#topology-time) YAML definition of the object in the [Component properties](/use/concepts/components.md#component-details):
 
 ![Kubernetes Component properties](../../.gitbook/assets/k8s-component-properties-yaml.png)
 
@@ -231,7 +218,7 @@ The following Kubernetes topology data is available in StackState as components:
 
 The following relations between components are retrieved:
 
-* Container → PersistentVolume, Volume 
+* Container → PersistentVolume, Volume
 * CronJob → Job
 * DaemonSet → Pod
 * Deployment → ReplicaSet
@@ -305,7 +292,7 @@ For further details, refer to the [Kubernetes API documentation \(kubernetes.io\
 
 ### Component actions
 
-A number of [actions](../../use/stackstate-ui/perspectives/topology-perspective.md#actions) are added to StackState when the Kubernetes StackPack is installed. They are available from the **Actions** section in the right panel **Selection details** tab when a Kubernetes component is selected or from the component context menu, displayed when you hover over a Kubernetes component in the Topology Perspective
+A number of [actions](../../use/stackstate-ui/perspectives/topology-perspective.md#actions) are added to StackState when the Kubernetes StackPack is installed. They are available from the **Actions** section in the right panel details tab - **Component details** - when a Kubernetes component is selected or from the component context menu, displayed when you hover the mouse pointer over a Kubernetes component in the Topology Perspective
 
 | Action | Available for component types | Description |
 | :--- | :--- | :--- |
@@ -377,6 +364,5 @@ See the Kubernetes Agent documentation for instructions on [how to uninstall the
 * [Deploy StackState Agent V2, the Cluster Agent and kube-state-metrics](../../setup/agent/kubernetes.md)
 * [StackState Agent V2 StackPack](agent.md)
 * [StackState Agent Kubernetes check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/kubernetes)
-* [StackState Cluster Agent Helm Chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent)
+* [StackState Cluster Agent Helm Chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-agent)
 * [Kubernetes API documentation \(kubernetes.io\)](https://kubernetes.io/docs/reference/kubernetes-api/)
-

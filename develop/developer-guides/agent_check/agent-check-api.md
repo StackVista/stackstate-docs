@@ -538,7 +538,7 @@ Each metric stream has the following details:
 * **metricField** - The name of the metric to select.
 * **conditions** - A dictionary of key:value arguments that are used to filter the metric values for the stream.
 * **unit\_of\_measure** - Optional. The unit of measure for the metric points, it gets appended after the stream name: `name (unit_of_measure)`
-* **aggregation** - Optional. sets the aggregation function for the metrics in StackState. See [aggregation methods](/use/metrics-and-events/add-telemetry-to-element.md#aggregation-methods).
+* **aggregation** - Optional. sets the aggregation function for the metrics in StackState. See [aggregation methods](/use/metrics/add-telemetry-to-element.md#aggregation-methods).
 * **priority** - Optional. The stream priority in StackState, one of `NONE`, `LOW`, `MEDIUM`, `HIGH`. HIGH priority streams are used for anomaly detection in StackState.
 
 **Metric stream health check**

@@ -16,17 +16,17 @@ If you want to add a telemetry stream to all topology elements imported by a spe
 
 ### Edit a template function with the template editor
 
-The StackState template editor allows you to customize how StackState builds topology elements from imported topology data. You can open the template editor from the StackState UI right panel **Selection details** tab when detailed information is displayed about an element.
+The StackState template editor allows you to customize how StackState builds topology elements from imported topology data. You can open the template editor from the StackState UI right panel details tab when detailed information is displayed about an element - **Component details** or **Direct relation details** depending on the element type that you selected.
 
 {% hint style="info" %}
 Note that you are editing the template for the synchronization that imported the element, not the template for this specific element. Changes saved here will be applied to all future synchronizations for all elements built using this template.
 {% endhint %}
 
-1. Select an element to open detailed information about it in the right panel **Selection details** tab.
+1. Select an element to open detailed information about it in the right panel details tab - **Component details** or **Direct relation details** depending on the element type that you selected.
 2. Click **...** and select **Edit template**.
 3. The template editor will open for the template that was used to create the selected element. Three sets of information are displayed:
    * **input parameters** - the raw data imported for a specific element.
-   * **template function** - the template function used by the synchronization that imported the element. When an element is imported, the synchronization will run the template function with input parameters. This outputs a [structured JSON string](../../develop/reference/stj/using_stj.md), which is used to build the component properties that you see in the StackState UI right panel **Selection details** tab.
+   * **template function** - the template function used by the synchronization that imported the element. When an element is imported, the synchronization will run the template function with input parameters. This outputs a [structured JSON string](../../develop/reference/stj/using_stj.md), which is used to build the component properties that you see in the StackState UI right panel details tab - **Component details**.
    * **Result** - Click **PREVIEW** to see the output of the template function when it runs with the specified input parameters. You can choose to view the result either in JSON format or as it will appear in the StackState UI component **Properties**.
 4. You can edit the template function to change how the topology element is built in StackState, for example to [add a telemetry stream to every element imported with this template](telemetry_synchronized_topology.md#add-a-telemetry-stream-to-a-template-function).
 
@@ -83,8 +83,8 @@ For example, a CloudWatch metric stream:
 
 ## See also
 
-* [Add a single telemetry stream to a single component](../../use/metrics-and-events/add-telemetry-to-element.md)
+* [Add a single telemetry stream to a single component](../../use/metrics/add-telemetry-to-element.md)
 * [Reference guide: StackState template JSON](../../develop/reference/stj/)
-* [Browse telemetry streams](../../use/metrics-and-events/browse-telemetry.md)
+* [Browse telemetry streams](../../use/metrics/browse-telemetry.md)
 * [Create a StackPack with a custom template](../../develop/developer-guides/stackpack/)
 
