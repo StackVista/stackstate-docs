@@ -19,7 +19,7 @@ These steps **must be done in order** to prevent any Agent v1 to Agent v2 corrup
 
 ### Performance
 - The exact performance impact of switching from Agent v1 to Agent v2 can increase or decrease the amount of resources used on the environments.
-- Agent v2 is more synchronise than Agent v1 allow a better StackState experience but may trigger more services as it is non-blocking.
+- Agent v2 is more synchronise than Agent v1 allowing a better StackState experience but may trigger more services as it is non-blocking.
 
 ## Migration Process
 
@@ -27,7 +27,7 @@ These steps **must be done in order** to prevent any Agent v1 to Agent v2 corrup
 
 Stop the currently running v1 Agent. If the Agent is still running, it might interfere with the installation process of Agent v2 or, even worse, break the agent cache.
 
-This can be done by following [Agent v1 - Start and Stop](/setup/agent/agent-v1.md#start--stop--restart-the-agent).
+This can be done by following [Agent v1 - Start and Stop](/setup/agent/agent-v1.md#start-stop--restart-the-agent).
 
 ### 2. Install Agent v2
 
