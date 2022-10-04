@@ -19,6 +19,16 @@ TODO
 
 Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
 
+### v5.0.6
+
+**Improvements**
+
+- The Minio pod in the StackState Helm chart has default CPU requests and limits set. STAC-17882
+
+**Bug fixes**
+
+- Fixed an issue that prevented StackState from using MS Edge as a browser. STAC-17848
+
 ### v5.0.5
 
 **Bug fixes**
