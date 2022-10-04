@@ -37,9 +37,9 @@ The recommended requirements include spare CPU/Memory capacity to ensure smooth 
 Requirements for the recommended high availability setup with backups enabled:
 
 * Node requirements: minimum 8 vCPUs, minimum 32GB memory
-* Total of 54 vCPUs available for StackState
+* Total of 56 vCPUs available for StackState
 * Total of 120 GB memory available for StackState
-* At least 3 nodes to make the data storing services redundant
+* Total of 2 TB disk space for data storing services (does not include disk space required for backups)
 
 {% endtab %}
 
@@ -47,9 +47,9 @@ Requirements for the recommended high availability setup with backups enabled:
 Requirements for the minimal high availability setup with backups enabled:
 
 * Node requirements: minimum 8 vCPUs, minimum 32GB memory
-* Total of 36 vCPUs available for StackState
-* Total of 91 GB memory available for StackState
-* At least 3 nodes to make the data storing services redundant
+* Total of 37 vCPUs available for StackState
+* Total of 98 GB memory available for StackState
+* Total of 2 TB disk space for data storing services (does not include disk space required for backups)
 
 {% endtab %}
 
@@ -61,16 +61,18 @@ Optionally, a [non-high availability setup](/setup/install-stackstate/kubernetes
 Requirements for the recommended non-high availability setup:
 
 * Node requirements: minimum 8 vCPUs, minimum 32GB memory
-* Total of 25 vCPUs available for StackState
-* Total of 56 GB memory available for StackState
+* Total of 38 vCPUs available for StackState
+* Total of 90 GB memory available for StackState
+* Total of 850 GB disk space for data storing services
 
 **Minimal setup**
 
 Requirements for the minimal non-high availability setup:
 
-* Node requirements: ???
-* Total of ???
-* Total of ???
+* Node requirements: minimum 8 vCPUs, minimum 32GB memory
+* Total of 25 vCPUs available for StackState
+* Total of 56 GB memory available for StackState
+* Total of 850 GB disk space for data storing services
 
 {% endtab %}
 {% endtabs %}
