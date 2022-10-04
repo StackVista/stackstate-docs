@@ -86,7 +86,7 @@ Now that you have the snippet above keep it on the side, we will use it in the D
 ### 2B. **This part is only required if you have Splunk Topology Check enabled**
 
 {% hint style="warning" %}
-This will break the splunk_topology.yaml conf for Agent v1
+**This will break the splunk_topology.yaml conf for Agent v1**
 {% endhint %}
 
 - Edit the check configuration file `/etc/sts-agent/conf.d/splunk_topology.yaml` and replace all occurrences of the following items
@@ -252,7 +252,7 @@ Now that you have the snippet above keep it on the side, we will use it in the d
 ### 2B. **This part is only required if you have Splunk Topology Check enabled**
 
 {% hint style="warning" %}
-This will break the splunk_topology.yaml conf for Agent v1
+**This will break the splunk_topology.yaml conf for Agent v1**
 {% endhint %}
 
 - Edit the check configuration file `/etc/sts-agent/conf.d/splunk_topology.yaml` and replace all occurrences of the following items
