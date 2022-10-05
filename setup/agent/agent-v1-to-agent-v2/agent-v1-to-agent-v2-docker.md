@@ -311,10 +311,7 @@ docker run -d \
     -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
     -v /etc/passwd:/etc/passwd:ro \
     -v /sys/kernel/debug:/sys/kernel/debug \
-    -v /opt/stackstate-agent/run:/opt/stackstate-agent/run/  \
-    -v /etc/sts-agent/conf.d/splunk_topology.yaml:/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml  \
-    -v /etc/sts-agent/conf.d/splunk_event.yaml:/etc/stackstate-agent/conf.d/splunk_event.d/splunk_event.yaml  \
-    -v /etc/sts-agent/conf.d/splunk_metric.yaml:/etc/stackstate-agent/conf.d/splunk_metric.d/splunk_metric.yaml  \
+    <ADD_YOUR_VOLUME_SNIPPET_YOU_CREATED_HERE>
     -e STS_API_KEY="<STACKSTATE_RECEIVER_API_KEY>" \
     -e STS_STS_URL="<STACKSTATE_RECEIVER_API_ADDRESS>" \
     -e STS_PROCESS_AGENT_URL="<STACKSTATE_RECEIVER_API_ADDRESS>" \
@@ -340,7 +337,10 @@ docker run -d \
     -v /sys/fs/cgroup/:/host/sys/fs/cgroup:ro \
     -v /etc/passwd:/etc/passwd:ro \
     -v /sys/kernel/debug:/sys/kernel/debug \
-    <ADD_YOUR_VOLUME_SNIPPET_YOU_CREATED_HERE>
+    -v /opt/stackstate-agent/run:/opt/stackstate-agent/run/  \
+    -v /etc/sts-agent/conf.d/splunk_topology.yaml:/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml  \
+    -v /etc/sts-agent/conf.d/splunk_event.yaml:/etc/stackstate-agent/conf.d/splunk_event.d/splunk_event.yaml  \
+    -v /etc/sts-agent/conf.d/splunk_metric.yaml:/etc/stackstate-agent/conf.d/splunk_metric.d/splunk_metric.yaml  \
     -e STS_API_KEY="<STACKSTATE_RECEIVER_API_KEY>" \
     -e STS_STS_URL="<STACKSTATE_RECEIVER_API_ADDRESS>" \
     -e STS_PROCESS_AGENT_URL="<STACKSTATE_RECEIVER_API_ADDRESS>" \
@@ -353,3 +353,9 @@ docker run -d \
     -e HOST_SYS="/host/sys" \
     docker.io/stackstate/stackstate-agent-2:2.17.2
 ```
+
+### 6. Add Splunk Health State
+
+Agent v2 Supports a new Splunk check called Splunk Health state.
+
+You can follow the docs [Splunk Health](/stackpacks/integrations/splunk/splunk_health.md) to enable this check.
