@@ -107,7 +107,7 @@ Subviews can be shared with other StackState users as a link, this will include 
 
 To exit a subview and return to the previous view or explore mode, click the view name in the top bar of the StackState UI.
 
-![Breadcrumbs with view name](/.gitbook/assets/v50_problem_subview_breadcrumb.png)
+![Breadcrumbs with view name](/.gitbook/assets/v51_problem_subview_breadcrumb.png)
 
 ## See also
 

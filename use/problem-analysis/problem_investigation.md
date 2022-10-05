@@ -14,7 +14,7 @@ Unhealthy components in a view are grouped into [problems](about-problems.md) ba
 
 Problems are listed by the timestamp of the health state change for the root cause component - you will find the oldest problem in the view at the bottom of the list. Select a problem to open [detailed information about the problem ](problem_investigation.md#detailed-information-about-a-problem) in the right panel details tab - **Problem details**.
 
-![View summary](/.gitbook/assets/v50_view_details_problems.png)
+![View summary](/.gitbook/assets/v51_view_details_problems.png)
 
 ## Detailed information about a problem
 
