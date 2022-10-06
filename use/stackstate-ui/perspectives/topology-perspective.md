@@ -65,7 +65,7 @@ Select a relation to open detailed information about it in the right panel detai
 
 ➡️ [Learn more about relations](/use/concepts/relations.md).
 
-![Indirect relation path](/.gitbook/assets/v51_indirect_relation_path.png)
+![Indirect relation path](/.gitbook/assets/v51_indirect_relation_details.png)
 
 ## Filters
 

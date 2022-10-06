@@ -18,7 +18,7 @@ Once the anomalies are identified, they are displayed in the MetricStream charts
 
 Additionally, identified anomalies are available as StackState Events and can be viewed in the [Events Perspective](../stackstate-ui/perspectives/events_perspective.md) when event category `Anomalies` is selected in the filter.
 
-![Anomaly events](../../.gitbook/assets/v51_anomaly-events-in-events-perspective.png)
+![Anomaly events](../../.gitbook/assets/v51_event_metric_stream_anomaly.png)
 
 Finally, [anomaly health checks](../checks-and-monitors/anomaly-health-checks.md) can be configured for the most important metric streams to alert on problems before they occur.
 
