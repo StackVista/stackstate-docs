@@ -91,7 +91,7 @@ For StackState running on Kubernetes, the Receiver API is hosted by default at:[
 
 `https://<STACKSTATE_BASE_URL>/receiver/stsAgent`[](http://not.a.link "StackState Self-Hosted only")
 
-The `<STACKSTATE_BASE_URL>` is set during StackState installation. For details see [Kubernetes install - configuration parameters](../../setup/install-stackstate/kubernetes_install/install_stackstate.md#generate-valuesyaml "StackState Self-Hosted only").
+The `<STACKSTATE_BASE_URL>` is set during StackState installation. For details see [Kubernetes install - configuration parameters](../../setup/install-stackstate/kubernetes_install/install_stackstate.md#generate-values.yaml "StackState Self-Hosted only").
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 
 {% tab title="Linux" %}[](http://not.a.link "StackState Self-Hosted only")

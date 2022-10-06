@@ -21,8 +21,8 @@ helm repo update
 ## Install StackState
 
 1. [Create the project where StackState will be installed](openshift_install.md#create-project)
-2. [Generate the `values.yaml` file](openshift_install.md#generate-valuesyaml)
-3. [Create the `openshift-values.yaml` file](openshift_install.md#create-openshift-valuesyaml)
+2. [Generate the `values.yaml` file](openshift_install.md#generate-values.yaml)
+3. [Create the `openshift-values.yaml` file](openshift_install.md#create-openshift-values.yaml)
 4. [Automatically install the Cluster Agent for OpenShift](openshift_install.md#automatically-install-the-cluster-agent-for-openshift)
 5. [Deploy StackState with Helm](openshift_install.md#deploy-stackstate-with-helm)
 6. [Access the StackState UI](openshift_install.md#access-the-stackstate-ui)
@@ -140,6 +140,9 @@ kafka:
     enabled: false
   volumePermissions:
     enabled: false
+kafkaup-operator:
+  securityContext:
+    enabled: false
 minio:
   securityContext:
     enabled: false
@@ -209,8 +212,8 @@ To deploy StackState in a high availability setup on OpenShift:
 
 1. Before you deploy:
    * [Create the project where StackState will be installed](openshift_install.md#create-project)
-   * [Generate `values.yaml`](#generate-valuesyaml)
-   * [Create `openshift-values.yaml`](#create-openshift-valuesyaml)
+   * [Generate `values.yaml`](#generate-values.yaml)
+   * [Create `openshift-values.yaml`](#create-openshift-values.yaml)
    * If you want to automatically install the Cluster Agent for OpenShift, [create `agent-values.yaml`](#automatically-install-the-cluster-agent-for-openshift)
 4. Deploy the latest StackState version to the `stackstate` namespace with the following command:
 
@@ -230,8 +233,8 @@ To deploy StackState in a non-high availability setup on OpenShift:
 
 1. Before you deploy:
    * [Create the project where StackState will be installed](openshift_install.md#create-project)
-   * [Generate `values.yaml`](#generate-valuesyaml)
-   * [Create `openshift-values.yaml`](#create-openshift-valuesyaml)
+   * [Generate `values.yaml`](#generate-values.yaml)
+   * [Create `openshift-values.yaml`](#create-openshift-values.yaml)
    * [Create `nonha_values.yaml`](/setup/install-stackstate/kubernetes_install/non_high_availability_setup.md)
    * If you want to automatically install the Cluster Agent for OpenShift, [create `agent-values.yaml`](#automatically-install-the-cluster-agent-for-openshift)
 5. Deploy the latest StackState version to the `stackstate` namespace with the following command:
