@@ -152,7 +152,7 @@ zookeeper:
 
 StackState has built-in support for OpenShift by means of the [OpenShift StackPack](../../stackpacks/integrations/openshift.md). To get started quickly, the StackState installation can automate installation of this StackPack and the required Agent for the cluster that StackState itself will be installed on. This is not required and can always be done later from the StackPacks page of the StackState UI for StackState's cluster or any other OpenShift cluster.
 
-The only required information is a name for the OpenShift cluster that will distinguish it from the other OpenShift clusters monitored by StackState. A good choice usually is the same name that is used in the kube context configuration. This will then automatically install the StackPack and install a Daemonset for the agent and a deployment for the so called cluster agent. For the full details, read the [OpenShift StackPack](../../stackpacks/integrations/openshift.md) page.
+The only required information is a name for the OpenShift cluster that will distinguish it from the other OpenShift clusters monitored by StackState. A good choice usually is the same name that is used in the kube context configuration. This will then automatically install the StackPack and install a Daemonset for the agent and a deployment for the so-called cluster agent. For the full details, read the [OpenShift StackPack](../../stackpacks/integrations/openshift.md) page.
 
 To automate this installation, the below values file can be added to the `helm install` command. The agent chart needs to add specific OpenShift `SecurityContextConfiguration` objects to the OpenShift installation.
 

@@ -35,7 +35,7 @@ Retrieving a large topology can require a high number of API requests, this can 
 
 The StackState SCOM PowerShell integration runs PowerShell scripts on the SCOM box to retrieve topology data and events.
 
-* PowerShell scripts in Agent V2 collect topology data and events from SCOM..
+* PowerShell scripts in Agent V2 collect topology data and events from SCOM.
 * Agent V2 pushes [retrieved data](scom.md#data-retrieved) to StackState.
 * StackState translates incoming SCOM topology data into components and relations. Incoming events are used to determine component health state and publish SCOM alerts in StackState.
 

@@ -310,7 +310,7 @@ WARNING: All illegal access operations will be denied in a future release
 job.batch "stackgraph-restore-20210222t112142" deleted
 ```
 
-In case you are running a restore command missing the `-force` flag on a non empty database the output will contain an error like this:
+In case you are running a restore command missing the `-force` flag on a non-empty database the output will contain an error like this:
 
 ```bash
 ERROR com.stackvista.graph.migration.Restore - Restore is not possible in a non empty.

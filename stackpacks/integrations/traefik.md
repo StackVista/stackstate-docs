@@ -15,7 +15,7 @@ Traefik is a [StackState curated integration](/stackpacks/integrations/about_int
 
 ### Installation
 
-The StackState Traefik integration is included in the [Agent V2 StackPack](agent.md). Currently this integration supports tracing of Traefik requests using the Datadog tracing backend supported by Traefik.
+The StackState Traefik integration is included in the [Agent V2 StackPack](agent.md). Currently, this integration supports tracing of Traefik requests using the Datadog tracing backend supported by Traefik.
 
 ### Configuration
 
@@ -44,9 +44,9 @@ Configure your Traefik instance to report [Datadog tracing data](https://doc.tra
 
 ### Integrate with Java traces
 
-When using Traefik in conjunction with one of our language specific trace clients, eg. [StackState Java Trace Client - Java APM](java-apm.md) it is important to note that you should use the `backend` name of your Traefik service as the `service-name` for the trace client to allow automatic merging of the service components within StackState.
+When using Traefik in conjunction with one of our language specific trace clients, e.g. [StackState Java Trace Client - Java APM](java-apm.md) it is important to note that you should use the `backend` name of your Traefik service as the `service-name` for the trace client to allow automatic merging of the service components within StackState.
 
-Eg. for the following `Traefik.toml`:
+E.g. for the following `Traefik.toml`:
 
 ```text
 ...

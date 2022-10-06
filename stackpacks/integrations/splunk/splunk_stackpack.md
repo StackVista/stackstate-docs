@@ -26,7 +26,7 @@ Splunk is a [StackState core integration](/stackpacks/integrations/about_integra
 * StackState translates incoming data:
   * [Topology data](splunk_stackpack.md#topology) is translated into components and relations.
   * [Metrics data](splunk_stackpack.md#metrics) is available in StackState as a metrics telemetry stream.
-  * [Events](splunk_stackpack.md#events) is available in StackState as a log telemetry stream.
+  * [Events](splunk_stackpack.md#events) are available in StackState as a log telemetry stream.
   * [Health](splunk_stackpack.md#health) information is added to associated components and relations.
 
 ## Setup

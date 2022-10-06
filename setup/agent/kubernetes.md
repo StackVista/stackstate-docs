@@ -141,7 +141,7 @@ If StackState Agent will run in an environment that does not have a direct conne
 
 1. Internet connection required:
    1. Download or clone the StackState Helm charts repo from GitHub: [https://github.com/StackVista/helm-charts](https://github.com/StackVista/helm-charts)
-   2. In the Helm charts repo, go to the directory `stable/stackstate-agent/installation` and use the script `backup.sh` to backup the required images from StackState. The script will pull all images required for the `stackstate-agent` Helm chart to run, back them up to individual tar archives and add all tars to a single `tar.gz` archive. The images will be in a `tar.gz` archive in the same folder as the working directory from where the script was executed. It is advised to run the script from the `stable/stackstate-agent/installation` directory as this will simplify the process of importing images on the destination system.
+   2. In the Helm charts repo, go to the directory `stable/stackstate-agent/installation` and use the script `backup.sh` to back up the required images from StackState. The script will pull all images required for the `stackstate-agent` Helm chart to run, back them up to individual tar archives and add all tars to a single `tar.gz` archive. The images will be in a `tar.gz` archive in the same folder as the working directory from where the script was executed. It is advised to run the script from the `stable/stackstate-agent/installation` directory as this will simplify the process of importing images on the destination system.
       * By default, the backup script will retrieve charts from the StackState chart repository (https://helm.stackstate.io), images are retrieved from the default StackState image registry (quay.io). The script can be executed from the `installation` directory as simply `./backup.sh`.
         ```text
           Back up helm chart images to a tar.gz archive for easy transport via an external storage device.
@@ -174,7 +174,7 @@ If StackState Agent will run in an environment that does not have a direct conne
         * `-b` - path to the `tar.gz` to be imported
         * `-d` - the destination Docker image registry
       * Additional options when running the script:
-        * `-p` - push images to the destination registry. When not specified, images will be imported and tagged, but but remain on the local machine.
+        * `-p` - push images to the destination registry. When not specified, images will be imported and tagged, but remain on the local machine.
         * `-t` - Dry-run. Use to show the work that will be performed without any action being taken.
 
 **Example script usage**
