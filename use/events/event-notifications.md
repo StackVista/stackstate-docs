@@ -46,10 +46,10 @@ StackState groups unhealthy components in a view into problems, each with a comm
 
 Changes to a problem result in the following **Problem changed events** event types being generated:
 
-* A `ProblemCreated` event is generated when a new problem has been created.
-* A `ProblemUpdated` event is generated when new information is available for a problem. For example, a new root cause or contributing cause being added to the problem, or an update to a check on an existing unhealthy component.
-* A `ProblemSubsumed` event is generated when a change in root cause or the topology as a whole has caused an existing problem to be joined with another problem. For example, a new relation has been created. 
-* A`ProblemResolved` event is generated when the root cause component and all contributing cause components have reported a CLEAR \(green\) health state. No unhealthy components remain in the problem. 
+* A `ProblemCreatedEvent` event is generated when a new problem has been created.
+* A `ProblemUpdatedEvent` event is generated when new information is available for a problem. For example, a new root cause or contributing cause being added to the problem, or an update to a check on an existing unhealthy component.
+* A `ProblemSubsumedEvent` event is generated when a change in root cause or the topology as a whole has caused an existing problem to be joined with another problem. For example, a new relation has been created.
+* A `ProblemResolvedEvent` event is generated when the root cause component and all contributing cause components have reported a CLEAR \(green\) health state. No unhealthy components remain in the problem.
 
 {% hint style="info" %}
 Note that there may be a slight delay between the generation of a health state change event for an element and the resulting Problem event.
