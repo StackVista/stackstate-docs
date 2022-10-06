@@ -6,7 +6,13 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-StackState Agent V1 allows you to run checks that connect to [Splunk](/stackpacks/integrations/splunk/splunk_stackpack.md) to retrieve metrics and events data. All other Agent checks run on [StackState Agent V2](about-stackstate-agent.md).
+{% hint style="warning" %}
+Agent V1 (legacy) will be deprecated in a future release of StackState. If you are still running Agent V1 (legacy), it is advised that you upgrade to Agent V2 and migrate any checks configured on Agent V1 (legacy) to run on Agent V2.
+
+➡️ [Migrate Agent V1 (legacy) to Agent V2](/setup/agent/migrate-agent-v1-to-v2)
+{% endhint %}
+
+Prior to StackState v5.1, Agent V1 was used to run checks that connect to [Splunk](/stackpacks/integrations/splunk/splunk_stackpack.md) to retrieve metrics and events data. From StackState v5.1, all Agent checks run on [StackState Agent V2](about-stackstate-agent.md).
 
 StackState Agent V1 is open source: [View the source code on GitHub](https://github.com/StackVista/sts-agent).
 
