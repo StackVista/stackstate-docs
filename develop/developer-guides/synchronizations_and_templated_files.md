@@ -96,7 +96,7 @@ Synchronizations are defined by a data source and several mappings from the exte
 
 #### Step 1
 
-We recommend that you change the `Synchronization Name` and add a `Description` if needed. There is no action required on `Plugin`, it uses the `Sts` plugin to synchronize data from the StackState Agent.
+We recommend that you change the `Synchronization Name` and add a `Description` if needed. There is no action required on `Plugin`, it uses the `Sts` plugin to synchronize data from StackState Agent V2.
 
 #### Step 2
 

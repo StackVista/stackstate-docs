@@ -10,7 +10,7 @@ A number of advanced configuration options are available for StackState Agent V2
 
 ## Reduce data production
 
-The StackState Agent collection interval can be configured. This will reduce the amount of data produced by the Agent.
+The StackState Agent V2 collection interval can be configured. This will reduce the amount of data produced by the Agent.
 
 {% tabs %}
 {% tab title="Kubernetes, OpenShift" %}

@@ -70,7 +70,7 @@
   * [Health Forecast](stackpacks/add-ons/health-forecast.md)
 * [Integrations](stackpacks/integrations/README.md)
   * [StackState Agent](setup/agent/README.md)
-    * [About the StackState Agent](setup/agent/about-stackstate-agent.md)
+    * [About StackState Agent V2](setup/agent/about-stackstate-agent.md)
     * [Agent V2 StackPack](stackpacks/integrations/agent.md)
     * [Agent V2 on Docker](setup/agent/docker.md)
     * [Agent V2 on Kubernetes](setup/agent/kubernetes.md)

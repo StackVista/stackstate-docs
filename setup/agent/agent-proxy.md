@@ -165,7 +165,7 @@ To configure a proxy for an Agent running on Windows, add the required environme
 
 ## Proxy for communication with StackState only
 
-A proxy can be configured to be used only for communication between the StackState Agent and StackState. This can be set up either by using environment variables or by updating the Agent configuration file.
+A proxy can be configured to be used only for communication between StackState Agent V2 and StackState. This can be set up either by using environment variables or by updating the Agent configuration file.
 
 ### Environment variables
 

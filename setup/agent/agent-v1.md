@@ -92,10 +92,10 @@ If you need further assistance, our [support team](https://support.stackstate.co
 
 {% hint style="info" %}
 * Commands require elevated privileges.
-* Restarting the StackState Agent will reload the configuration files.
+* Restarting StackState Agent V1 (legacy) will reload the configuration files.
 {% endhint %}
 
-To manually start, stop or restart the StackState Agent:
+To manually start, stop or restart StackState Agent V1 (legacy):
 
 {% tabs %}
 {% tab title="Linux" %}
@@ -135,7 +135,7 @@ To check if StackState Agent V1 is running:
 sudo /etc/init.d/stackstate-agent status
 ```
 
-To receive information about the StackState Agent V1 state:
+To receive information about the StackState Agent V1 (legacy) state:
 
 ```text
 sudo /etc/init.d/stackstate-agent info
@@ -149,7 +149,7 @@ sudo /etc/init.d/stackstate-agent info -v
 {% endtab %}
 
 {% tab title="Windows" %}
-To check if the StackState Agent is running and receive information about the Agent's state:
+To check if the StackState Agent V1 (legacy) is running and receive information about the Agent's state:
 
 ```text
 "./agent.exe status"

@@ -268,7 +268,7 @@ sudo apt-get remove stackstate-agent
 
 ## See also
 
-* [About the StackState Agent](about-stackstate-agent.md)
+* [About StackState Agent V2](about-stackstate-agent.md)
 * [Advanced Agent configuration](advanced-agent-configuration.md)  
 * [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md)
 * [StackPack integration documentation](../../stackpacks/integrations/)

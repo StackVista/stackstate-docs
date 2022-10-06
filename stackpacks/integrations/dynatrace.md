@@ -96,7 +96,7 @@ To enable the Dynatrace topology check and begin collecting topology data from D
    - **custom_device_fields** - The Custom Device property fields that should be used.
    - **custom_device_ip** - Use IP address to generate Custom Device identifiers. Set to `False` if there are multiple Custom Devices using the same IP to prevent incorrect merging of Custom Device components. Default `True`. Requires Agent v2.17 or later. 
    - **tags** - custom tags appended to all components, useful for filtering.
-4. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+4. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 5. Once the Agent has restarted, wait for data to be collected from Dynatrace and sent to StackState.
 
 #### Dynatrace Health Check
@@ -141,7 +141,7 @@ To enable the Dynatrace health check and begin collecting events from Dynatrace,
    - **relative_time** - The relative timeframe for retrieving topology.
    - **events_bootstrap_days** - How many days in the past to collect events on the first run.
    - **events_process_limit** - Maximum number of events to process each run.
-3. [Restart the StackState Agent\(s\)](https://l.stackstate.com/ui-stackpack-restart-agent) to apply the configuration changes.
+3. [Restart StackState Agent V2](https://l.stackstate.com/ui-stackpack-restart-agent) to apply the configuration changes.
 4.Once the Agent has restarted, wait for data to be collected from Dynatrace and sent to StackState.
 
 #### Dynatrace API token
@@ -271,7 +271,7 @@ To uninstall the Dynatrace StackPack and disable the Dynatrace checks:
     mv dynatrace_health.d/conf.yaml dynatrace_health.d/conf.yaml.bak
    ```
 
-3. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 
 ## Release notes
 

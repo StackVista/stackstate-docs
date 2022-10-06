@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 This tutorial shows you how to create push-based integrations for StackState.
 
-Push-based integrations are built in python and run as part of the StackState Agent. Each python integration is called a `check` and it can:
+Push-based integrations are built in python and run as part of StackState Agent V2. Each python integration is called a `check` and it can:
 
 * retrieve information from external systems
 * convert the information into topology
@@ -15,7 +15,7 @@ Push-based integrations are built in python and run as part of the StackState Ag
 
 ## Setup
 
-[This repository](https://github.com/StackVista/push-integration-tutorial) contains a sample project that sets up an Agent check called `example` that sends topology into StackState. It uses docker to run the StackState Agent to execute the check.
+[This repository](https://github.com/StackVista/push-integration-tutorial) contains a sample project that sets up an Agent check called `example` that sends topology into StackState. It uses docker to run StackState Agent V2 to execute the check.
 
 Clone the repository to your laptop to get started.
 
@@ -39,7 +39,7 @@ Instance URL: example://example-1
 
 ## Prepare the tutorial
 
-The StackState Agent container uses the root directory of this repository for it's configuration files.
+The StackState Agent V2 container uses the root directory of this repository for it's configuration files.
 
 Before running the example, you need to configure the sample project with your StackState instance URL and API key.
 
@@ -58,7 +58,7 @@ That's it, you are now ready to run the Agent.
 
 ## Run the sample check using the Agent
 
-The sample project contains a `run.sh` shell script that runs the StackState Agent in a docker container. It reads the configuration from this sample project and executes the `example` check.
+The sample project contains a `run.sh` shell script that runs StackState Agent V2 in a docker container. It reads the configuration from this sample project and executes the `example` check.
 
 When you run the Agent, it writes logging to its standard output. The agent has debugging turned on by default \(check the `stackstate.yaml` file\) so it is fairly verbose.
 

@@ -2,27 +2,22 @@
 description: StackState Self-hosted v5.1.x 
 ---
 
-# About the StackState Agent
+# About StackState Agent V2
 
 ## Overview
 
-The StackState Agent functions as a collector and gateway. It connects to external systems to retrieve data and pushes this to StackState.
+StackState Agent V2 functions as a collector and gateway. It connects to external systems to retrieve data and pushes this to StackState.
 
 ## About the Agent
 
 ### Architecture
 
-StackState Agent V2 can be run on Linux or Windows systems or inside a Docker container. It is not necessary to deploy the StackState Agent on every machine to retrieve data. Each deployed StackState Agent can run multiple checks to collect data from different external systems.
+StackState Agent V2 can be run on Linux or Windows systems or inside a Docker container. It is not necessary to deploy StackState Agent V2 on every machine to retrieve data. Each deployed StackState Agent can run multiple checks to collect data from different external systems.
 
 ![StackState Agent architecture](../../.gitbook/assets/stackstate-agent.svg)
 
 * In [Docker Swarm mode](docker.md#docker-swarm-mode), the Cluster Agent is deployed on the manager node and one Agent on each node.
 * On [Kubernetes or OpenShift](kubernetes.md) clusters, a single Cluster Agent is deployed per cluster and one Agent on each node. The Checks Agent runs checks that are configured on the Cluster Agent.
-
-{% hint style="success" "self-hosted info" %}
-
-The [Agent V1 \(Legacy\)](agent-v1.md) can be run on Linux.
-{% endhint %}
 
 ### Integrations
 
