@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-When something goes wrong within your IT environment, StackState can use event handlers to send event notifications to alert you or your team mates. A message can be sent in the form of an email, Slack message, mobile ping or an HTTP POST request to any URL. Event notifications can contain detailed content on the trigger event and possible root cause. 
+When something goes wrong within your IT environment, StackState can use event handlers to send event notifications to alert you or your teammates. A message can be sent in the form of an email, Slack message, mobile ping or an HTTP POST request to any URL. Event notifications can contain detailed content on the trigger event and possible root cause. 
 
 ![StackState event notification in Slack with possible root cause information](../../.gitbook/assets/slack_alert.png)
 

@@ -15,7 +15,7 @@ The full topology available in StackState is likely much larger than you need to
 
 Generally speaking, views serve two major purposes:
 
-1. Views are a type of bookmark. They help you to find your way back to a part of your topology that is of particular interest to you or your team. They may also serve as a starting point for defining new views.
+1. Views are a type of bookmark. They help you find your way back to a part of your topology that is of particular interest to you or your team. They may also serve as a starting point for defining new views.
 2. Views can be used for [event notifications and automation](/use/events/manage-event-handlers.md). Whenever a change within the view requires your attention, an event handler can send out a notification, create an incident in an ITSM system or trigger automation.
 
 Not all views are manually created. Many [StackPacks](../../../stackpacks/about-stackpacks.md) generate views after installation.
@@ -49,7 +49,7 @@ When you first open a view, the **View summary** will be visible in the right pa
 
 ## View health state
 
-A view is also a tool to define a clear selection of components for which you want to receive a event notifications. Typically, these are services that provide business value to a team's \(internal\) customers. StackState can define a single health state for any given set of components stored as a view - the [view health state](../../concepts/health-state.md#view-health-state). The view health state reflects the health state of components and relations within the view. It can be calculated based on a simple count, but it could also be something more complex, for example:
+A view is also a tool to define a clear selection of components for which you want to receive an event notifications. Typically, these are services that provide business value to a team's \(internal\) customers. StackState can define a single health state for any given set of components stored as a view - the [view health state](../../concepts/health-state.md#view-health-state). The view health state reflects the health state of components and relations within the view. It can be calculated based on a simple count, but it could also be something more complex, for example:
 
 * Report view health state `CLEAR` if service A and service B are working fine.
 * Report view health `DEVIATING` if service A has a problem.
