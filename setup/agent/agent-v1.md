@@ -20,6 +20,14 @@ StackState Agent V1 is open source: [View the source code on GitHub](https://git
 
 ## Installation
 
+{% hint style="warning" %}
+**Agent V1 (legacy) will be deprecated in a future release of StackState.** 
+
+It is advised that you install Agent V2 and migrate any checks configured on Agent V1 (legacy) to run on Agent V2.
+
+➡️ [Migrate Agent V1 (legacy) to Agent V2](/setup/agent/migrate-agent-v1-to-v2)
+{% endhint %}
+
 Install StackState Agent V1 by using the following sequence of steps:
 
 {% tabs %}
@@ -161,4 +169,9 @@ Logs for the subsystems are in the following files:
 * `/var/log/stackstate/forwarder.log`
 
 If you are still having trouble, contact our support team on the [StackState support site](http://support.stackstate.com/).
+
+## See also
+
+* [StackState Agent V2](/setup/agent/about-stackstate-agent.md)
+* [Migrate Agent V1 \(lecacy\) to Agent V2](/setup/agent/migrate-agent-v1-to-v2)
 
