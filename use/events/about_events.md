@@ -18,7 +18,7 @@ StackState generates events internally and also receives events from integration
 
 {% hint style="success" "self-hosted info" %}
 
-You can also use the StackState CLI or an HTTP POST to [send events to StackState](/configure/telemetry/send_metrics.md#events).
+You can also use the StackState CLI or an HTTP POST to [send events to StackState](/configure/telemetry/send_events.md).
 {% endhint %}
 
 ### Internally generated events
