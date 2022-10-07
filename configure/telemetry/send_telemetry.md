@@ -103,7 +103,6 @@ curl -X POST \
  -H 'Content-Type: application/json' \
  -d '{
   "collection_timestamp": 1548857167,
-  "events": {},
   "internalHostname": "local.test",
   "metrics": [
     [
@@ -132,9 +131,7 @@ curl -X POST \
         "type": "gauge"
       }
     ]
-  ],
-  "service_checks": [],
-  "topologies": []
+  ]
 }'
 ```
 {% endtab %}
