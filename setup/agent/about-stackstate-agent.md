@@ -83,11 +83,11 @@ Deployment instructions, commands to work with StackState Agent V2 and other pla
 
 #### Receiver API address
 
-StackState Agent connects to the StackState Receiver API at the configured address.
+StackState Agent connects to the StackState Receiver API at the configured `<STACKSTATE_RECEIVER_API_ADDRESS>`.
 
 {% tabs %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="Kubernetes" %}[](http://not.a.link "StackState Self-Hosted only")
-For StackState running on Kubernetes, the Receiver API is hosted by default at:[](http://not.a.link "StackState Self-Hosted only")
+For StackState running on Kubernetes or OpenShift, the `<STACKSTATE_RECEIVER_API_ADDRESS>` is by default:[](http://not.a.link "StackState Self-Hosted only")
 
 `https://<STACKSTATE_BASE_URL>/receiver/stsAgent`[](http://not.a.link "StackState Self-Hosted only")
 
@@ -95,7 +95,7 @@ The `<STACKSTATE_BASE_URL>` is set during StackState installation. For details s
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 
 {% tab title="Linux" %}[](http://not.a.link "StackState Self-Hosted only")
-For StackState running on Linux, the Receiver API is hosted by default at:[](http://not.a.link "StackState Self-Hosted only")
+For StackState running on Linux, the `<STACKSTATE_RECEIVER_API_ADDRESS>` is by default:[](http://not.a.link "StackState Self-Hosted only")
 
 `https://<STACKSTATE_RECEIVER_BASE_URL>/stsAgent`[](http://not.a.link "StackState Self-Hosted only")
 
@@ -103,7 +103,7 @@ The `<STACKSTATE_RECEIVER_BASE_URL>` is set during StackState installation. For 
 
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="StackState SaaS" %}[](http://not.a.link "StackState Self-Hosted only")
-For the StackState SaaS product, the StackState Receiver API address will be provided on the StackState UI Agent StackPack page after the StackPack has been installed.
+For the StackState SaaS product, the StackState Receiver API address will be provided on the StackState UI Agent V2 StackPack page after the StackPack has been installed.
 
 [➡️ Go to the StackState SaaS product documentation](https://docs.stackstate.com/v/stackstate-saas/ "StackState Self-Hosted only")
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
