@@ -36,7 +36,7 @@ The following fields from the results of a saved search are sent to StackState f
 | **type** | string | ✅ | The type of component or relation. |
 | **labels** | multivalue field or comma separated string | - | The values will be added as labels on the component. |
 | **identifiers** | multivalue field or comma separated string | - | The values will be included as identifiers of the component. |
-| All other fields | - | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result. Any other fields present in the result will be available in StackState in the `data` field of the properties `source` tab for a component. |
+| All other fields | - | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/9.0.1/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result. Any other fields present in the result will be available in StackState in the `data` field of the properties `source` tab for a component. |
 
 #### Example query for components
 
@@ -155,5 +155,5 @@ To disable the Splunk topology Agent check:
 * [StackState Splunk integration details](splunk_stackpack.md)
 * [Upgrade to the Splunk Topology V2 integration](splunk_topology_upgrade_v1_to_v2.md)  
 * [Example Splunk Topology V1 configuration file - splunk\_topology/conf.yaml.example \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_topology/conf.yaml.example)
-* [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) 
+* [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/9.0.1/Data/Aboutdefaultfields) 
 
