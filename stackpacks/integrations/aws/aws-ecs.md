@@ -12,7 +12,7 @@ AWS ECS is a [StackState core integration](/stackpacks/integrations/about_integr
 
 ## Functionality
 
-The StackState Agent V2 provides the following functionality:
+StackState Agent V2 provides the following functionality:
 
 * Reporting hosts, processes, and containers
 * Reporting all network connections between processes / containers including network traffic telemetry
