@@ -11,7 +11,7 @@ redirects:
   concepts/role_based_access_control: ./configure/security/rbac/role_based_access_control.md
   concepts/topology_sources: ./configure/topology/topology_sources.md
   configure/browse_telemetry: ./configure/telemetry/browse-telemetry.md
-  configure/checks_and_streams: ./use/metrics-and-events/telemetry_streams.md
+  configure/checks_and_streams: ./use/metrics/telemetry_streams.md
   configure/component_actions: configure/topology/component_actions.md
   concepts/component_and_relation_mapping_functions: ./use/concepts/mapping_functions.md
   configure/configure_tracing: ./configure/traces/configure_tracing.md
@@ -169,7 +169,7 @@ redirects:
   configure/how_to_configure_ldap_authentication: ./configure/security/authentication/ldap.md
   configure/security/authentication: ./configure/security/authentication/README.md
   configure/security/how_to_configure_ldap_authentication: ./configure/security/authentication/ldap.md
-  configure/telemetry/browse_telemetry: ./use/metrics-and-events/browse-telemetry.md
+  configure/telemetry/browse_telemetry: ./use/metrics/browse-telemetry.md
   configure/telemetry/plugins/elasticsearch_plugin: ./configure/telemetry/data-sources/elasticsearch.md
   configure/topology_synchronization/: ./configure/topology/topology_synchronization.md
   configure/sync/: ./configure/topology/sync.md
@@ -179,7 +179,7 @@ redirects:
   setup/stackstate_log_files: ./configure/logging/README.md
   setup/installation/authentication: ./configure/security/authentication/README.md
   setup/upgrading: ./setup/upgrade-stackstate/README.md
-  use/alerting: ./use/metrics-and-events/event-notifications.md
+  use/alerting: ./use/events/event-notifications.md
   use/baselining: ./use/concepts/anomaly-detection.md
   use/views/topology_perspective: ./use/stackstate-ui/perspectives/topology-perspective.md
   use/views/traces_perspective: ./use/stackstate-ui/perspectives/traces-perspective.md
@@ -208,7 +208,7 @@ redirects:
   use/introduction-to-stackstate/mapping_functions: ./develop/developer-guides/custom-functions/mapper-functions.md
   use/views: ./use/stackstate-ui/views/about_views.md
   use/views/: ./use/stackstate-ui/views/about_views.md
-  use/views/browse-telemetry: ./use/metrics-and-events/browse-telemetry.md
+  use/views/browse-telemetry: ./use/metrics/browse-telemetry.md
   use/views/events_perspective: ./use/stackstate-ui/perspectives/events_perspective.md
   use/views/filters: ./use/stackstate-ui/filters.md
   use/views/telemetry-perspective: ./use/stackstate-ui/perspectives/metrics-perspective.md
@@ -218,7 +218,7 @@ redirects:
 
 # 4.4 docs
 
-  configure/telemetry/checks_and_streams: ./use/metrics-and-events/telemetry_streams.md
+  configure/telemetry/checks_and_streams: ./use/metrics/telemetry_streams.md
   configuring/creating_stackpacks: ./develop/developer-guides/stackpack/develop_stackpacks.md
   develop/developer-guides/custom-functions/asynchronous-synchronous: ./develop/developer-guides/custom-functions/functions.md
   develop/developer-guides/custom-functions/baseline-functions: ./develop/developer-guides/custom-functions/README.md
@@ -232,12 +232,12 @@ redirects:
   use/analytics: ./use/stackstate-ui/analytics.md
   use/explore_mode: ./use/stackstate-ui/explore_mode.md
   use/health-state-and-event-notifications/add-a-health-check: ./use/health-state/add-a-health-check.md
-  use/health-state-and-event-notifications/add-telemetry-to-element: ./use/metrics-and-events/add-telemetry-to-element.md
+  use/health-state-and-event-notifications/add-telemetry-to-element: ./use/events/add-telemetry-to-element.md
   use/health-state-and-event-notifications/anomaly-detection-with-baselines: ./use/concepts/anomaly-detection.md
   use/health-state-and-event-notifications/anomaly-health-checks: ./use/checks-and-monitors/anomaly-health-checks.md
   use/health-state-and-event-notifications/configure-view-health: ./use/stackstate-ui/views/configure-view-health.md
-  use/health-state-and-event-notifications/send-event-notifications: ./use/metrics-and-events/event-notifications.md
-  use/perspectives/browse-telemetry: ./use/metrics-and-events/browse-telemetry.md
+  use/health-state-and-event-notifications/send-event-notifications: ./use/events/event-notifications.md
+  use/perspectives/browse-telemetry: ./use/metrics/browse-telemetry.md
   use/perspectives/events_perspective: ./use/stackstate-ui/perspectives/events_perspective.md
   use/perspectives/topology-perspective: ./use/stackstate-ui/perspectives/topology-perspective.md
   use/perspectives/telemetry-perspective: ./use/stackstate-ui/perspectives/metrics-perspective.md
@@ -294,7 +294,7 @@ redirects:
   use/introduction-to-stackstate/perspectives: ./use/concepts/perspectives.md
   use/introduction-to-stackstate/stackstate_architecture: ./use/concepts/stackstate_architecture.md
   use/problem-analysis/problems: ./use/problem-analysis/about-problems.md
-  use/metrics-and-events/send-event-notifications: ./use/metrics-and-events/event-notifications.md
+  use/metrics-and-events/send-event-notifications: ./use/events/event-notifications.md
 
 # 4.6 docs
 
@@ -303,7 +303,7 @@ redirects:
   configure/security/self-signed-cert-1: ./configure/security/self-signed-certificates.md
   configure/security/self-signed-cert-1#retrieve-certificate-via-the-browser: ./configure/security/self-signed-certificates.md
   configure/security/self-signed-cert-1#using-a-docker-jvm: ./configure/security/self-signed-certificates.md
-  configure/telemetry/how_to_use_the_priority_field_for_components: ./use/metrics-and-events/set-telemetry-stream-priority.md
+  configure/telemetry/how_to_use_the_priority_field_for_components: ./use/metrics/set-telemetry-stream-priority.md
   configure/traces/configure_tracing: ./configure/traces/advanced-configuration-traces.md
   configure/traces/how_to_setup_traces: ./configure/traces/set-up-traces.md
   configure/traces/opentelemetry/aws_nodejs: ./stackpacks/aws/opentelemetry-nodejs.md
@@ -355,4 +355,4 @@ redirects:
   use/stackstate-ui/views/manage-event-handlers#add-event-handler: ./use/events/manage-event-handlers.md#add-event-handler
   use/metrics-and-events/set-telemetry-stream-priority: ./use/metrics/set-telemetry-stream-priority.md
   use/metrics-and-events/event-notifications#state-change-events: ./use/events/event-notifications.md#state-change-events
-  use/metrics-and-events/add-telemetry-to-element#aggregation-method: ./use/metrics-and-events/add-telemetry-to-element.md#aggregation-method
+  use/metrics-and-events/add-telemetry-to-element#aggregation-method: ./use/metrics/add-telemetry-to-element.md#aggregation-method

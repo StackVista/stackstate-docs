@@ -53,7 +53,7 @@ Download the [java trace client](https://github.com/StackVista/sts-trace-java/re
   * -Dsts.agent.port=`8126 {the default port for the trace agent api}`
   * -javaagent:`{path/of/downloaded-jar.jar}` 
 
-Eg. running a container, setting the jvm arguments as part of `MAVEN_OPTS`.
+For example, running a container, setting the jvm arguments as part of `MAVEN_OPTS`.
 
 ```text
   ...
@@ -75,7 +75,7 @@ Eg. running a container, setting the jvm arguments as part of `MAVEN_OPTS`.
   * -Dsts.agent.port=`8126 {the default port for the trace agent api}`
   * -javaagent:`{path/of/downloaded-jar.jar}`
 
-Eg. running a container in a pod, setting the jvm arguments as part of `MAVEN_OPTS`.
+For example, running a container in a pod, setting the jvm arguments as part of `MAVEN_OPTS`.
 
 ```text
   - name: application-name

@@ -20,7 +20,7 @@ Each of these sources defines one or multiple subgraphs of the stack’s topolog
 
 StackState is able to ingest telemetry data \(metrics, events, and logs\) from external IT systems such as monitoring, provisioning, deployment, and configuration management tools, or StackState’s agent. The telemetry is combined with the topology data to create a comprehensive picture of your IT environment and how it is functioning in real-time.
 
-StackState relies on plugins to receive and convert the incoming data streams. Plugins can be implemented in easy to use scripting languages and support both a push as well as pull interaction model.
+StackState relies on plugins to receive and convert the incoming data streams. Plugins can be implemented in easy-to-use scripting languages and support both a push and a pull interaction model.
 
 ## Tracing
 

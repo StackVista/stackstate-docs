@@ -22,7 +22,7 @@ The new `sts` CLI has been built for a reason. Here are the major advantages of 
  * Native macOS support
  * Faster releases - the CLI is versioned independently of the StackState product
  * Backwards as well as forwards compatible with StackState versions
- * Machine readable output for every command
+ * Machine-readable output for every command
  * Many UX improvements, including syntax highlighting, auto-completion and progress bars.
  * SaaS support
 

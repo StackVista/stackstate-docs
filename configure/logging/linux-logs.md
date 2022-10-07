@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-In a Linux setup, StackState keeps all log files in the `var/log` subdirectory of the StackState installation directory. By default this is `/opt/stackstate/var/log`. In case of a two-node installation, logs are kept in the `var/log` directory on each node. Note that the logs are node-specific - the StackState node keeps StackState related logs and the StackGraph node keeps logs related to StackGraph.
+In a Linux setup, StackState keeps all log files in the `var/log` subdirectory of the StackState installation directory. By default, this is `/opt/stackstate/var/log`. In case of a two-node installation, logs are kept in the `var/log` directory on each node. Note that the logs are node-specific - the StackState node keeps StackState related logs and the StackGraph node keeps logs related to StackGraph.
 
 ## `var/log` details
 

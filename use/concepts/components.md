@@ -13,7 +13,7 @@ A component consists of:
 1. The name of the component.
 2. An icon in the middle that represents either the component itself or the component type.
 3. The component color represents the component's [own health state](/use/concepts/health-state.md#element-own-health-state).
-4. An outer color indicates an unhealthy [propagated health state](/use/concepts/health-state.md#propagated-health-state) (`DEVIATING` or `CRITICAL`). The propagated health state is calculated based on the health state of components or relations that the component depends upon.
+4. An outer color indicates an unhealthy [propagated health state](/use/concepts/health-state.md#element-propagated-health-state) (`DEVIATING` or `CRITICAL`). The propagated health state is calculated based on the health state of components or relations that the component depends upon.
 
 ![](/.gitbook/assets/v51_topology_elements.png)
 
@@ -27,7 +27,7 @@ When a component is selected by clicking on it, detailed information about the c
 * **Relations** - the number of other components that the component is connected to, note that this will also include any connections the component has with components that sit outside the current view. Expand to see details of each [relation](/use/concepts/relations.md).
 * **Actions** - the available [actions](/use/stackstate-ui/perspectives/topology-perspective.md#actions) for the component.
 * **Health** - reports the component [health state](/use/concepts/health-state.md) as calculated by StackState. Expand to see all [health checks](/use/checks-and-monitors/checks.md) and [monitors](/use/checks-and-monitors/monitors.md) attached to the component.
-* **Propagated health** - reports the component's [propagated health state](/use/concepts/health-state.md#propagated-health-state). This is derived from the health state of the components and relations that the component depends upon.
+* **Propagated health** - reports the component's [propagated health state](/use/concepts/health-state.md#element-propagated-health-state). This is derived from the health state of the components and relations that the component depends upon.
 * **Run state** - the [run state](/use/concepts/health-state.md#run-state) of the component (when available).
 * **Problems** - lists all [problems](/use/problem-analysis/about-problems.md) that involve the selected component. 
 * **Events** - the latest 10 [events](/use/events/about_events.md) that relate to the selected component. Click VIEW ALL to open the Events perspective in a [subview](/use/stackstate-ui/views/about_views.md#subview) containing only the selected component. 

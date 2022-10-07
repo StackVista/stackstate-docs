@@ -14,10 +14,10 @@ Get access to a component by its ID.
 
 **Builder methods**
 
-Each of the methods below give you a Async result with a set of properties
+Each of the methods below give you an Async result with a set of properties
 
 - `at(time: Instant or Timeslice)` - specifes a [time](time.md) for which the query should be executed. 
-- `get` - Gets components details in full with following fields:
+- `get` - gets components details in full, with the following fields:
     ```text
     id
     name

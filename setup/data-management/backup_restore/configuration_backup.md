@@ -259,11 +259,11 @@ Configuration export version _1.0.0_ was introduced in StackState version _1.14.
 Later configuration export version _1.1.0_ was introduced in StackState version _1.14.1_  
 Later configuration export version _2.0.0_ was introduced in StackState version _1.15.0_
 
-This means that Nodes with Configuration version _1.0.0_ will work on both StackState _1.14.0_ and _1.14.1_ but not in _1.15.0_ as a major configuration export version \(_2.0.0_\) was introduced. As well it means that configuration export version _1.1.0_ can only be used from StackState version _1.14.1_ but not before as in _1.14.0_
+This means that Nodes with Configuration version _1.0.0_ will work on both StackState _1.14.0_ and _1.14.1_ but not in _1.15.0_ as a major configuration export version \(_2.0.0_\) was introduced. It also means that configuration export version _1.1.0_ can only be used from StackState version _1.14.1_ but not before as in _1.14.0_
 
 ### Configuration export versions
 
-The table below displays configuration export versions version and on which StackState versions they were introduced.
+The table below displays configuration export versions and on which StackState versions they were introduced.
 
 | Configuration Export version | Introduced on StackState version |
 | :--- | :--- |

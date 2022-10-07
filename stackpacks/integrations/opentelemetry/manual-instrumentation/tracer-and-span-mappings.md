@@ -154,7 +154,7 @@ The `service.type` is used to identify the type of service in the span in the St
 {% tabs %}
 {% tab title="Span properties" %}
 
-**Example of where the service.type is displayed within the Traces Perspective Span properties view**
+**Example of where the `service.type` is displayed within the Traces Perspective Span properties view**
 
 1) In the navigation bar, click **Traces Perspective**
 2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your trace).
@@ -184,7 +184,7 @@ Components with the same service identifiers will merge into one component. This
 {% tabs %}
 {% tab title="Component properties" %}
 
-**Example of where the service.identifier is displayed within the Topology Perspective Component properties view**
+**Example of where the `service.identifier` is displayed within the Topology Perspective Component properties view**
 
 1) Click on your component in the StackState Topology Perspective
 2) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.

@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-All of StackState's own components can run without any extra permissions. However in order to install StackState successfully, you need some additional privileges, or ensure that the requirements described in this page are met.
+All of StackState's own components can run without any extra permissions. However, in order to install StackState successfully, you need some additional privileges, or ensure that the requirements described in this page are met.
 
 ## Autonomous Anomaly Detector \(AAD\)
 

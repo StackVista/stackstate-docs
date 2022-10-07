@@ -10,7 +10,7 @@ With StackState Markup Language \(STML\), you can create pretty formatted docume
 
 ## Rich text formatting using Markdown
 
-STML is a valid superset of markdown. In other words, it is markdown plus extensions. That means that you can easily format documents with headings, bullet point lists, links and tables as you may be used to with the markdown format. For example the following valid STML document create a table of elements to buy with links to google:
+STML is a valid superset of markdown. In other words, it is markdown plus extensions. That means that you can easily format documents with headings, bullet point lists, links and tables as you may be used to with the Markdown format. For example the following valid STML document create a table of elements to buy with links to google:
 
 ```text
 | To buy                              | Amount |
@@ -21,7 +21,7 @@ STML is a valid superset of markdown. In other words, it is markdown plus extens
 
 ## Tags
 
-STML is markdown plus HTML-like tags. Tags are StackState specific extensions to markdown that render in some specific way. It could be a chart, visualization, pie chart, etc.
+STML is markdown plus HTML-like tags. Tags are StackState-specific extensions to Markdown that render in some specific way. It could be a chart, visualization, pie chart, etc.
 
 Each tag has its unique rendering, and a set of required and/or optional attributes.
 
