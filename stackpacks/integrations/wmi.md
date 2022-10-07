@@ -18,7 +18,7 @@ StackState Agent for Windows collects telemetry information from Windows by quer
 
 ### Installation
 
-After installing the StackState Agent for Windows, the integration can be configured. The integration is included in the StackState Agent for Windows, no additional installation steps are required. The WMI integration has to be configured.
+After installing StackState Agent V2 for Windows, the integration can be configured. The integration is included in StackState Agent V2 for Windows, no additional installation steps are required. The WMI integration has to be configured.
 
 ### Configuration
 
@@ -60,7 +60,7 @@ Example instance:
       - Name: test_db
 ```
 
-Restart the StackState Agent after making changes to the WMI integration's configuration.
+Restart StackState Agent V2 after making changes to the WMI integration's configuration.
 
 Reference: the integration's configuration file is located at `C:\ProgramData\StackState\conf.d\wmi_check.d\`.
 
@@ -68,7 +68,7 @@ Reference: the integration's configuration file is located at `C:\ProgramData\St
 
 The `Status` page in the StackState Agent Manager provides insight into the operational status of the configurated WMI queries/instances.
 
-It is possible to invoke the WMI integration to verify whether the configured WMI queries/instances telemetry is being retrieved and collected by the StackState Agent for Windows. To invoke, in PowerShell:
+It is possible to invoke the WMI integration to verify whether the configured WMI queries/instances telemetry is being retrieved and collected by StackState Agent V2 for Windows. To invoke, in PowerShell:
 
 ```text
 PS> & 'C:\Program Files\StackState\StackState Agent\embedded\agent.exe' check wmi_check

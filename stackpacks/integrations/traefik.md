@@ -19,7 +19,7 @@ The StackState Traefik integration is included in the [Agent V2 StackPack](agent
 
 ### Configuration
 
-Configure your Traefik instance to report [Datadog tracing data](https://doc.traefik.io/traefik/observability/tracing/datadog/) to the StackState Agent. Your Traefik.toml configuration file must include the following parameters:
+Configure your Traefik instance to report [Datadog tracing data](https://doc.traefik.io/traefik/observability/tracing/datadog/) to StackState Agent V2. Your Traefik.toml configuration file must include the following parameters:
 
 ```text
 # Tracing definition
@@ -35,7 +35,7 @@ Configure your Traefik instance to report [Datadog tracing data](https://doc.tra
   spanNameLimit = 100
 
   [tracing.datadog]
-    # StackState Agent Host Port instructs reporter to send spans to the StackState Agent at this address
+    # StackState Agent Host Port instructs reporter to send spans to StackState Agent V2 at this address
     localAgentHostPort = "agentHost:8126"
 
     # Applies a shared tag in a form of source:traefik to all the spans of the trace
