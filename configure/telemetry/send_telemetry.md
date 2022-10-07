@@ -40,9 +40,9 @@ Topology, telemetry and health data are sent to the receiver API via HTTP POST. 
 
 ```javascript
 {
-  "collection_timestamp": 1548855554, // the epoch timestamp for the collection
+  "collection_timestamp": 1548855554, // the epoch timestamp for the collection in seconds
   "events": {}, // see the section on "events", below
-  "internalHostname": "localdocker.test", // the host that is sending this data
+  "internalHostname": "local.test", // the host that is sending this data
   "metrics": [], // see the section on "metrics", below
   "service_checks": [],
   "topologies": [], // used for sending topology data
@@ -68,7 +68,7 @@ Metrics can be sent to the StackState Receiver API using the `"metrics"` propert
   1548857152,
   10.0, // double - value of the metric
   {
-    "hostname": "localdocker.test",
+    "hostname": "local.test",
     "tags": [ 
       "tag_key1:tag_value1",
       "tag_key2:tag_value2"
@@ -99,19 +99,19 @@ Multiple metrics can be sent in one JSON message via HTTP POST to the [StackStat
 {% tab title="curl" %}
 ```javascript
 curl -X POST \
- 'http://<STACKSTATE_RECEIVER_API_ADDRESS> \
+ 'https://<STACKSTATE_RECEIVER_API_ADDRESS> \
  -H 'Content-Type: application/json' \
  -d '{
   "collection_timestamp": 1548857167,
   "events": {},
-  "internalHostname": "localdocker.test",
+  "internalHostname": "local.test",
   "metrics": [
     [
       "test.metric",
       1548857152,
       10.0,
       {
-        "hostname": "localdocker.test",
+        "hostname": "local.test",
         "tags": [
           "tag_key1:tag_value1",
           "tag_key2:tag_value2"
@@ -124,7 +124,7 @@ curl -X POST \
       1548857167,
       10.0,
       {
-        "hostname": "localdocker.test",
+        "hostname": "local.test",
         "tags": [
           "tag_key1:tag_value1",
           "tag_key2:tag_value2"
@@ -153,7 +153,7 @@ All events in StackState relate to a topology element or elements. Any propertie
 {% tabs %}
 {% tab title="Example event JSON" %}
 ```javascript
-"event.test": [ // The event name
+"event.test": [
   {
     "context": {
       "category": "Changes",
@@ -179,7 +179,7 @@ All events in StackState relate to a topology element or elements. Any propertie
     "source_type_name": "source_event_type",
     "tags": [
       "tag_key1:tag_value1",
-      "tag_key2:tag_value2",
+      "tag_key2:tag_value2"
     ],
     "timestamp": 1607432944
   }
@@ -211,14 +211,15 @@ Multiple events can be sent in one JSON message via HTTP POST. You can also send
 
 {% tabs %}
 {% tab title="curl" %}
-```javascript
+```bash
 curl -X POST \
- 'http://<STACKSTATE_BASE_URL>/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>' \
+ 'https://<STACKSTATE_RECEIVER_API_ADDRESS> \
  -H 'Content-Type: application/json' \
  -d '{
   "collection_timestamp": 1548857342,
+  "internalHostname": "local.test",
   "events": {
-    "event.test01": [ // The event name
+    "event.test01": [
       {
         "context": {
           "category": "Changes",
@@ -238,18 +239,18 @@ curl -X POST \
             }
           ]
         },
-        "event_type": "HealthStateChangedEvent",
+        "event_type": "event_type",
         "msg_title": "event_title",
         "msg_text": "event_text",
         "source_type_name": "source_event_type",
         "tags": [
           "tag_key1:tag_value1",
-          "tag_key2:tag_value2",
+          "tag_key2:tag_value2"
         ],
         "timestamp": 1607432944
       }
     ],
-    "event.test02": [ // The event name
+    "event.test02": [ 
       {
         "context": {
           "category": "Changes",
@@ -269,28 +270,25 @@ curl -X POST \
             }
           ]
         },
-        "event_type": "HealthStateChangedEvent",
+        "event_type": "event_type",
         "msg_title": "event_title",
         "msg_text": "event_text",
         "source_type_name": "source_event_type",
         "tags": [
           "tag_key1:tag_value1",
-          "tag_key2:tag_value2",
+          "tag_key2:tag_value2"
         ],
         "timestamp": 1607432944
       }
     ]
-  "internalHostname": "localdocker.test",
-  "metrics": [],
-  "service_checks": [],
-  "topologies": []
+  }
 }'
 ```
 {% endtab %}
 
 {% tab title="CLI: stac" %}
 ```text
-stac event send "HealthStateChangedEvent" \
+stac event send "event_type" \
     --title "event_title" \
     -i "element_identifier1" "element_identifier2" \
     -s "source_system" \
