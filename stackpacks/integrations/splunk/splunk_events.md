@@ -28,7 +28,7 @@ StackState Agent V1 executes the Splunk saved searches configured in the [Splunk
 | **msg\_title** | string | - | Message title. |
 | **msg\_text** | string | - | Message text. |
 | **source\_type\_name** | string | - | Source type name. |
-| All other fields | - | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result. Any other fields present in the result will be mapped to tags in the format `field`:`value`. |
+| All other fields | - | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/9.0.1/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result. Any other fields present in the result will be mapped to tags in the format `field`:`value`. |
 
 ### Example Splunk query
 
@@ -118,5 +118,5 @@ Events retrieved from splunk are available in StackState as a log telemetry stre
 * [StackState Splunk integration details](splunk_stackpack.md)
 * [Map telemetry to components](../../../use/metrics/add-telemetry-to-element.md)
 * [Example Splunk Events configuration file - splunk\_event/conf.yaml.example \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_event/conf.yaml.example)
-* [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) 
+* [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/9.0.1/Data/Aboutdefaultfields) 
 

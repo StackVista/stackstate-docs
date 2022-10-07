@@ -41,7 +41,7 @@ Before you start the migration procedure, make sure you have the following infor
   * The restore scripts that are part of the [StackState Helm chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/restore).
 * Tools:
   * [helm \(helm.sh\)](https://helm.sh/)
-  * [mc - the MinIO client \(min.io\)](https://docs.min.io/docs/minio-client-quickstart-guide.html)
+  * [mc - the MinIO client \(docs.min.io\)](https://min.io/docs/minio/linux/reference/minio-mc.html?ref=docs-redirect)
 
 ### Export StackGraph data
 
