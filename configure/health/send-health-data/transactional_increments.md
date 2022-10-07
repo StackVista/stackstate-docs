@@ -84,21 +84,17 @@ Every health Transactional Increments data payload has the following details:
 
 ## Send health to StackState
 
-Health can be sent in one JSON message via HTTP POS. In the example below, a snapshot containing two check states is sent to StackState from a single external monitoring system.
+Health can be sent in one JSON message via HTTP POST. In the example below, a snapshot containing two check states is sent to StackState from a single external monitoring system.
 
 {% tabs %}
 {% tab title="curl" %}
-```javascript
+```bash
 curl -X POST \
- 'http://<STACKSTATE_BASE_URL>/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>' \
+ 'http://<STACKSTATE_BASE_URL>/receiver/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>' \
  -H 'Content-Type: application/json' \
  -d '{
   "collection_timestamp": 1548857167,
-  "events": {},
-  "internalHostname": "localdocker.test",
-  "metrics": [],
-  "service_checks": [],
-  "topologies": [],
+  "internalHostname": "local.test",
   "health": [
     {
       "consistency_model": "TRANSACTIONAL_INCREMENTS",
