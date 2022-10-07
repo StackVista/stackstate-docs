@@ -37,7 +37,7 @@ stackstate \
 stackstate/stackstate
 ```
 
-* [AKS](https://docs.microsoft.com/en-us/azure/aks/ingress-tls)
+* [AKS \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/azure/aks/ingress-tls?tabs=azure-cli)
 * [EKS Official docs](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html) \(not using nginx\)
 * [EKS blog post](https://aws.amazon.com/blogs/opensource/network-load-balancer-nginx-ingress-controller-eks/) \(using nginx\)
 

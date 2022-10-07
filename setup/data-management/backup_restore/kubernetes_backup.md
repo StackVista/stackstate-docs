@@ -123,8 +123,8 @@ minio:
 
 Replace the following values:
 
-* `AZURE_STORAGE_ACCOUNT_NAME` - the [Azure storage account name \(microsoft.com\)](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal) 
-* `AZURE_STORAGE_ACCOUNT_KEY` - the [Azure storage account key \(microsoft.com\)](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage?tabs=azure-portal) where the backups should be stored.
+* `AZURE_STORAGE_ACCOUNT_NAME` - the [Azure storage account name \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal) 
+* `AZURE_STORAGE_ACCOUNT_KEY` - the [Azure storage account key \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage?tabs=azure-portal) where the backups should be stored.
 
 The StackGraph and Elasticsearch backups are stored in BLOB containers called `sts-stackgraph-backup` and `sts-elasticsearch-backup` respectively. These names can be changed by setting the Helm values `backup.stackGraph.bucketName` and `backup.elasticsearch.bucketName` respectively.
 

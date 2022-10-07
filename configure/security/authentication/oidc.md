@@ -171,7 +171,7 @@ jwsAlgorithm: RS256
         groupsField: groups
 ```
 
-For further details, see [Permissions and consent in the Microsoft identity platform \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent).
+For further details, see [Permissions and consent in the Microsoft identity platform \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent).
 
 ## See also
 
