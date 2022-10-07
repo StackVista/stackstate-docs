@@ -7,7 +7,7 @@ description: StackState Self-hosted v5.1.x
 {% hint style="warning" %}
 **Agent V1 (legacy) will be deprecated in a future release of StackState.** 
 
-If you are still running Agent V1 (legacy), it is advised that you upgrade to Agent V2 and migrate any checks configured on Agent V1 (legacy) to run on Agent V2.
+If you are still running Agent V1 (legacy), it is advised that you upgrade to Agent V2 and migrate all checks to run on Agent V2.
 
 ➡️ [Migrate Agent V1 (legacy) to Agent V2](/setup/agent/migrate-agent-v1-to-v2)
 {% endhint %}
@@ -23,7 +23,7 @@ StackState Agent V1 is open source: [View the source code on GitHub](https://git
 {% hint style="warning" %}
 **Agent V1 (legacy) will be deprecated in a future release of StackState.** 
 
-It is advised that you install Agent V2 and migrate any checks configured on Agent V1 (legacy) to run on Agent V2.
+It is advised that you install Agent V2 and migrate all checks to run on Agent V2.
 
 ➡️ [Migrate Agent V1 (legacy) to Agent V2](/setup/agent/migrate-agent-v1-to-v2)
 {% endhint %}
