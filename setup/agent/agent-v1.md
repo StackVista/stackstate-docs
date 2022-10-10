@@ -9,7 +9,7 @@ description: StackState Self-hosted v5.1.x
 
 If you are still running Agent V1 (legacy), it is advised that you upgrade to Agent V2 and migrate all checks to run on Agent V2.
 
-➡️ [Migrate Agent V1 (legacy) to Agent V2](/setup/agent/migrate-agent-v1-to-v2.md)
+➡️ [Migrate Agent V1 (legacy) to Agent V2](/setup/agent/migrate-agent-v1-to-v2/)
 {% endhint %}
 
 ## Overview
@@ -25,7 +25,7 @@ StackState Agent V1 (legacy) is open source: [View the source code on GitHub](ht
 
 It is advised that you install Agent V2 and migrate all checks to run on Agent V2.
 
-➡️ [Migrate Agent V1 (legacy) to Agent V2](/setup/agent/migrate-agent-v1-to-v2.md)
+➡️ [Migrate Agent V1 (legacy) to Agent V2](/setup/agent/migrate-agent-v1-to-v2/)
 {% endhint %}
 
 Install StackState Agent V1 (legacy) by using the following sequence of steps:
@@ -173,5 +173,5 @@ If you are still having trouble, contact our support team on the [StackState sup
 ## See also
 
 * [StackState Agent V2](/setup/agent/about-stackstate-agent.md)
-* [Migrate Agent V1 \(lecacy\) to Agent V2](/setup/agent/migrate-agent-v1-to-v2.md)
+* [Migrate Agent V1 \(lecacy\) to Agent V2](/setup/agent/migrate-agent-v1-to-v2/)
 

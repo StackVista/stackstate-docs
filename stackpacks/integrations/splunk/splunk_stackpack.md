@@ -161,7 +161,7 @@ When the Splunk StackPack is installed, and a Splunk Topology Agent check is con
 
 For details on how to configure the components and relations retrieved, see the [Splunk Topology check configuration](splunk_topology.md).
 
-If you have an existing Splunk Topology integration configured to use StackState Agent V1 (legacy) and would like to upgrade to use StackState Agent V2, refer to the [Agent migration instructions](/setup/agent/migrate-agent-v1-to-v2.md).
+If you have an existing Splunk Topology integration configured to use StackState Agent V1 (legacy) and would like to upgrade to use StackState Agent V2, refer to the [Agent migration instructions](/setup/agent/migrate-agent-v1-to-v2/).
 
 #### Health
 
