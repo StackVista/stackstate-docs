@@ -149,4 +149,4 @@ Release notes for StackState Agent V2 can be found on GitHub at: [https://github
 
 * [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md)
 * [StackState integrations](../../stackpacks/integrations/)
-* [StackState Agent V1 \(Legacy\)](agent-v1.md "StackState Self-Hosted only")
+* [StackState Agent V1 \(legacy\)](agent-v1.md "StackState Self-Hosted only")

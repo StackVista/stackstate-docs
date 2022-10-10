@@ -43,7 +43,7 @@
   * [Windows](setup/agent/windows.md)
   * [Advanced Agent configuration](setup/agent/advanced-agent-configuration.md)
   * [Use an HTTP/HTTPS proxy](setup/agent/agent-proxy.md)
-  * [Agent V1 \(Legacy\)](setup/agent/agent-v1.md)
+  * [Agent V1 \(legacy\)](setup/agent/agent-v1.md)
   * [Migrate Agent V1 to Agent V2](setup/agent/migrate-agent-v1-to-v2/README.md)
     * [Linux](setup/agent/migrate-agent-v1-to-v2/migrate-agent-v1-to-v2-linux.md)
     * [Docker](setup/agent/migrate-agent-v1-to-v2/migrate-agent-v1-to-v2-docker.md)

@@ -2,47 +2,46 @@
 description: StackState Self-hosted v5.1.x
 ---
 
-# Agent V1 \(Legacy\) to Agent V2 Migration
+# Agent V1 \(legacy\) to Agent V2 Migration
 
-## Overview
+### Overview
 
-The steps below will assist you in successfully migrating from Agent V1 to Agent V2.
-This migration process will also migrate your existing Agent V1 state allowing checks like Splunk to continue from its previous state.
+This page will walk you through the steps required to successfully migrate from Agent V1 (legacy) to Agent V2.  This migration process will also migrate the  existing Agent V1 (legacy) state. This will allow Agent checks, such as Splunk topology, metrics or event checks, to continue on Agent V2 from their previous state.
 
 {% hint style="warning" %}
-These steps **must be done in the correct order** to prevent any Agent V1 to Agent V2 issues.
+**The migration process steps detailed below must be carried out in the correct order**.
 
-Problems like invalid Agent state files, overwritten state files or even a broken Agent V2 instance can occur when the order is broken.
+Problems can occur if any of the steps is completed out of order. This could result in overwritten Agent state files, invalid Agent state files or a broken Agent V2 instance.
 {% endhint %}
 
 {% hint style="warning" %}
-**If possible, it's highly recommended to run this migration in a Test Environment, It may affect some steps below but reduce the initial impact if something does not work**
+**It is highly recommended to run this migration in a test environment.** 
+
+It may affect some steps below, but will reduce the initial impact if something does not run to plan.
 {% endhint %}
 
-{% hint style="warning" %}
-## Impact Analysis
+## Impact analysis
 
 ### Downtime
-- When swapping between Agent V1 and Agent V2, there will be some downtime for the StackState Agent to allow a successful migration process.
-- The length the Agent will be down for depends on how fast the process below happens.
+
+Running Agent V1 (legacy) and Agent V2 at the same time on a single machine will result in missing data. For this reason, StackState Agent will need to be down for the entire of the migration process. The exact length of time required to complete the migration process will vary depending on your specific environment and the number of Agent checks that need to be migrated.
 
 ### Performance
-- The exact performance impact of switching from Agent V1 to Agent V2 can increase or decrease the number of resources used in the environments.
-- Agent V2 is more synchronized than Agent V1, allowing a better StackState experience but may trigger more services as it is non-blocking.
-  {% endhint %}
+
+Switching from Agent V1 (legacy) to Agent V2 can either increase or decrease the number of resources used. Unlike Agent V1 (legacy), Agent V2 allows for synchronous execution of checks. This provides a better StackState experience, but may result in increased resource requirements.
 
 
-## Migration Process - Docker-Compose
+## Migration process - Docker-Compose
 
-### 1. Stop Agent V1
+### 1. Stop Agent V1 (legacy)
 
-Agent V1 will have to be stopped before proceeding with the **Agent V2 install** and **Agent V1 state** migration.
+Agent V1 (legacy) will have to be stopped before proceeding with the **Agent V2 install** and **Agent V1 state** migration.
 
 {% hint style="warning" %}
-**If Agent V1 is still running, it might interfere with the installation process of Agent V2 or, even worse, break the Agent V2 state.**
+**If Agent V1 (legacy) is still running, it might interfere with the installation process of Agent V2 or, even worse, break the Agent V2 state.**
 {% endhint %}
 
-You can stop Agent V1 with the following command:
+You can stop Agent V1 (legacy) with the following command:
 
 ```shell
 sudo /etc/init.d/stackstate-agent stop
@@ -86,7 +85,7 @@ Now that you have the snippet above keep it on the side, we will use it in the D
 ### 2B. **This part is only required if you have Splunk Topology Check enabled**
 
 {% hint style="warning" %}
-**This will break the splunk_topology.yaml conf for Agent V1**
+**This will break the `splunk_topology.yaml` configuration for Agent V1 (legacy)**
 {% endhint %}
 
 - Edit the check configuration file `/etc/sts-agent/conf.d/splunk_topology.yaml` and replace all occurrences of the following items
@@ -96,7 +95,7 @@ Now that you have the snippet above keep it on the side, we will use it in the D
 
 ### 3. Add the Agent State directory into your volume snippet
 
-With the list of volumes you created in step 2, add one additional line for the Agent State, This will allow us to migrate the existing Agent V1 State to the Agent V2 Docker Container.
+With the list of volumes you created in step 2, add one additional line for the Agent State, This will allow us to migrate the existing Agent V1 (legacy) State to the Agent V2 Docker Container.
 
 Add the following line
 ```
@@ -114,15 +113,15 @@ If we look at the splunk example from the previous step, it will look as follows
 Now that you have the snippet above keep it on the side, we will use it in the Docker-Compose file
 
 
-### 4. Migrate the Agent V1 Cache
+### 4. Migrate the Agent V1 (legacy) cache
 
-Migrating the Agent V1 cache requires a cache conversion process, and this is a manual process that StackState will assist you with.
+Migrating the Agent V1 (legacy) cache requires a cache conversion process, and this is a manual process that StackState will assist you with.
 Contact StackState to assist with this process.
 
 A breakdown of the steps that will happen in the cache migration is as follows:
 
-- Backing up the Agent V1 cache folder from the following location `/opt/stackstate-agent/run/`.
-- Run the Agent V1 cache migration process.
+- Back up the Agent V1 (legacy) cache folder from the following location `/opt/stackstate-agent/run/`.
+- Run the Agent V1 (legacy) cache migration process.
   - The output of the cache migration process will either be manually moved into the Agent V2 cache directory or automatically, depending on the conversion process used for Agent V2 (Some steps, depending on the installation, can only be done manually).
 
 
@@ -160,7 +159,7 @@ stackstate-agent:
    HOST_SYS: "/host/sys"
 ```
 
-Example with Splunk Included and the Agent V1 State Directory
+Example with Splunk Included and the Agent V1 (legacy) State Directory
 ```dockerfile
 stackstate-agent:
  image: docker.io/stackstate/stackstate-agent-2:2.17.2
@@ -200,15 +199,15 @@ stackstate-agent:
 
 ## Migration Process - Docker Single Container
 
-### 1. Stop Agent V1
+### 1. Stop Agent V1 (legacy)
 
-Agent V1 will have to be stopped before proceeding with the **Agent V2 install** and **Agent V1 state** migration.
+Agent V1 (legacy) will have to be stopped before proceeding with the **Agent V2 install** and **Agent V1 state** migration.
 
 {% hint style="warning" %}
-**If Agent V1 is still running, it might interfere with the installation process of Agent V2 or, even worse, break the Agent V2 state.**
+**If Agent V1 (legacy) is still running, it might interfere with the installation process of Agent V2 or, even worse, break the Agent V2 state.**
 {% endhint %}
 
-You can stop Agent V1 with the following command:
+You can stop Agent V1 (legacy) with the following command:
 
 ```shell
 sudo /etc/init.d/stackstate-agent stop
@@ -252,7 +251,7 @@ Now that you have the snippet above keep it on the side, we will use it in the d
 ### 2B. **This part is only required if you have Splunk Topology Check enabled**
 
 {% hint style="warning" %}
-**This will break the splunk_topology.yaml conf for Agent V1**
+**This will break the `splunk_topology.yaml` conf for Agent V1 (legacy)**
 {% endhint %}
 
 - Edit the check configuration file `/etc/sts-agent/conf.d/splunk_topology.yaml` and replace all occurrences of the following items
@@ -262,7 +261,7 @@ Now that you have the snippet above keep it on the side, we will use it in the d
 
 ### 3. Add the Agent State directory into your volume snippet
 
-With the list of volumes you created in step 2, add one additional line for the Agent State, This will allow us to migrate the existing Agent V1 State to the Agent V2 Docker Container.
+With the list of volumes you created in step 2, add one additional line for the Agent State, This will allow us to migrate the existing Agent V1 (legacy) State to the Agent V2 Docker Container.
 
 Add the following line **(Remember to add a \ on the ending of each line)**
 ```
@@ -280,15 +279,15 @@ If we look at the splunk example from the previous step, it will look as follows
 Now that you have the snippet above keep it on the side, we will use it in the docker run command
 
 
-### 4. Migrate the Agent V1 Cache
+### 4. Migrate the Agent V1 (legacy) cache
 
-Migrating the Agent V1 cache requires a cache conversion process, and this is a manual process that StackState will assist you with.
+Migrating the Agent V1 (legacy) cache requires a cache conversion process, and this is a manual process that StackState will assist you with.
 Contact StackState to assist with this process.
 
 A breakdown of the steps that will happen in the cache migration is as follows:
 
-- Backing up the Agent V1 cache folder from the following location `/opt/stackstate-agent/run/`.
-- Run the Agent V1 cache migration process.
+- Back up the Agent V1 (legacy) cache folder from the following location `/opt/stackstate-agent/run/`.
+- Run the Agent V1 (legacy) cache migration process.
   - The output of the cache migration process will either be manually moved into the Agent V2 cache directory or automatically, depending on the conversion process used for Agent V2 (Some steps, depending on the installation, can only be done manually).
 
 
@@ -325,7 +324,7 @@ docker run -d \
     docker.io/stackstate/stackstate-agent-2:2.17.2
 ```
 
-Example with Splunk Included and the Agent V1 State Directory
+Example with Splunk Included and the Agent V1 (legacy) State Directory
 ```dockerfile
 docker run -d \
     --name stackstate-agent \

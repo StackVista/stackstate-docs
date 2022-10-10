@@ -2,14 +2,14 @@
 description: StackState Self-hosted v5.1.x
 ---
 
-# Agent V1 \(Legacy\) to Agent V2 Migration
+# Agent V1 \(legacy\) to Agent V2 Migration
 
 ## Overview
 
 This page will walk you through the steps required to successfully migrate from Agent V1 (legacy) to Agent V2.  This migration process will also migrate the  existing Agent V1 (legacy) state. This will allow Agent checks, such as Splunk topology, metrics or event checks, to continue on Agent V2 from their previous state.
 
 {% hint style="warning" %}
-**The steps detailed below must be carried out in the correct order**.
+**The migration process steps detailed below must be carried out in the correct order**.
 
 Problems can occur if any of the steps is completed out of order. This could result in overwritten Agent state files, invalid Agent state files or a broken Agent V2 instance.
 {% endhint %}
@@ -20,17 +20,17 @@ Problems can occur if any of the steps is completed out of order. This could res
 It may affect some steps below, but will reduce the initial impact if something does not run to plan.
 {% endhint %}
 
-## Impact Analysis
+## Impact analysis
 
 ### Downtime
 
-Running Agent V1 (legacy) and Agent V2 at the same time on a single machine will result in missing data. For this reason, StackState Agent will need to be down for the entire of the migration process. The exact length of time required to complete the migration process will vary depending on your specific environment and the number of Agent checks to be migrated.
+Running Agent V1 (legacy) and Agent V2 at the same time on a single machine will result in missing data. For this reason, StackState Agent will need to be down for the entire of the migration process. The exact length of time required to complete the migration process will vary depending on your specific environment and the number of Agent checks that need to be migrated.
 
 ### Performance
 
-Switching from Agent V1 (legacy) to Agent V2 can either increase or decrease the number of resources used in the environments. Unlike Agent V1 (legacy), Agent V2 allows for synchronous execution of checks. This provides a better StackState experience, but may result in an increase in resource requirements.
+Switching from Agent V1 (legacy) to Agent V2 can either increase or decrease the number of resources used. Unlike Agent V1 (legacy), Agent V2 allows for synchronous execution of checks. This provides a better StackState experience, but may result in increased resource requirements.
 
-## Migration Process
+## Migration process
 
 ### 1. Stop Agent V1 (legacy)
 
@@ -112,7 +112,7 @@ This can be done by following these steps:
   - `polling_interval_seconds` replace with `collection_interval`
 {% endhint %}
 
-### 5. Migrate the Agent V1 Cache
+### 5. Migrate the Agent V1 (legacy) cache
 
 Migrating the Agent V1 (legacy) cache requires a cache conversion process, and this is a manual process that StackState will assist you with.
 Contact StackState to assist with this process.
@@ -120,7 +120,7 @@ Contact StackState to assist with this process.
 A breakdown of the steps that will happen in the cache migration is as follows:
 
 - Backing up the Agent V1 (legacy) cache folder from the following location `/opt/stackstate-agent/run/`.
-- Run the Agent V1 cache migration process.
+- Run the Agent V1 (legacy) cache migration process.
     - The output of the cache migration process will either be manually moved into the Agent V2 cache directory or automatically, depending on the conversion process used for Agent V2 (Some steps, depending on the installation, can only be done manually).
 
 ### 5. Start Agent V2
