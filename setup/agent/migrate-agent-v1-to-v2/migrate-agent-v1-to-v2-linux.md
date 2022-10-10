@@ -152,8 +152,7 @@ The log files for the above process can be found at the following locations:
 - `/var/log/stackstate-agent/agent.log`
 - `/var/log/stackstate-agent/process-agent.log`
 
-### 6. Add Splunk Health State
 
-Agent V2 Supports a new Splunk check called Splunk Health state.
-
-You can follow the docs [Splunk Health](/stackpacks/integrations/splunk/splunk_health.md) to enable this check.
+{% hint style="info" %}
+In addition to the Splunk Topology, Metrics and Events checks, StackState Agent V2 can also be configured to run a [Splunk Health](/stackpacks/integrations/splunk/splunk_health.md) check to collect health data from Splunk.
+{% endhint %}

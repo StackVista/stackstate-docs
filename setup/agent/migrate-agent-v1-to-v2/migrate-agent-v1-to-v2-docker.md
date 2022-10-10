@@ -262,7 +262,8 @@ Add the following line **(Remember to add a \ on the ending of each line)**
 -v /opt/stackstate-agent/run:/opt/stackstate-agent/run/ \
 ```
 
-If we look at the splunk example from the previous step, it will look as follows:
+If we take the Splunk example from the previous step, it will look as follows:
+
 ```
 -v /opt/stackstate-agent/run:/opt/stackstate-agent/run/  \
 -v /etc/sts-agent/conf.d/splunk_topology.yaml:/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml  \
@@ -347,8 +348,6 @@ docker run -d \
     docker.io/stackstate/stackstate-agent-2:2.17.2
 ```
 
-### 6. Add Splunk Health State
-
-Agent V2 Supports a new Splunk check called Splunk Health state.
-
-You can follow the docs [Splunk Health](/stackpacks/integrations/splunk/splunk_health.md) to enable this check.
+{% hint style="info" %}
+In addition to the Splunk Topology, Metrics and Events checks, StackState Agent V2 can also be configured to run a [Splunk Health](/stackpacks/integrations/splunk/splunk_health.md) check to collect health data from Splunk.
+{% endhint %}
