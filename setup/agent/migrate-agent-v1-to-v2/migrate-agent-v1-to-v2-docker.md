@@ -61,23 +61,21 @@ To compile a list of all the conf.d Docker volumes, do the following:
 
 1. Go to the directory `/etc/sts-agent/conf.d/`.
 2. For each file in the directory, compile a list of volumes. For example, the files used for the Agent V1 (legacy) Splunk checks (Splunk Events, Splunk Metrics and Splunk Topology V1) are shown below:
-  - File 1: `/etc/sts-agent/conf.d/splunk_topology.yaml`
-    ```
-    - "/etc/sts-agent/conf.d/splunk_topology.yaml:/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml"
-    ```
-  - File 2: `/etc/sts-agent/conf.d/splunk_event.yaml`  
-    **Add to the existing list**
-    ```
-    - "/etc/sts-agent/conf.d/splunk_topology.yaml:/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml"
-    - "/etc/sts-agent/conf.d/splunk_event.yaml:/etc/stackstate-agent/conf.d/splunk_event.d/splunk_event.yaml"
-    ```
-  - File 3: `/etc/sts-agent/conf.d/splunk_metric.yaml`  
-    **Add to the existing list**
-    ```
-    - "/etc/sts-agent/conf.d/splunk_topology.yaml:/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml"
-    - "/etc/sts-agent/conf.d/splunk_event.yaml:/etc/stackstate-agent/conf.d/splunk_event.d/splunk_event.yaml"
-    - "/etc/sts-agent/conf.d/splunk_metric.yaml:/etc/stackstate-agent/conf.d/splunk_metric.d/splunk_metric.yaml"
-    ```
+   * **File 1:** `/etc/sts-agent/conf.d/splunk_topology.yaml`
+   ```
+   - "/etc/sts-agent/conf.d/splunk_topology.yaml:/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml"
+   ```
+   * **File 2:** `/etc/sts-agent/conf.d/splunk_event.yaml` - add to the existing list:
+  ```
+  - "/etc/sts-agent/conf.d/splunk_topology.yaml:/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml"
+  - "/etc/sts-agent/conf.d/splunk_event.yaml:/etc/stackstate-agent/conf.d/splunk_event.d/splunk_event.yaml"
+  ```
+  * **File 3:** `/etc/sts-agent/conf.d/splunk_metric.yaml` - add to the existing list:
+  ```
+  - "/etc/sts-agent/conf.d/splunk_topology.yaml:/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml"
+  - "/etc/sts-agent/conf.d/splunk_event.yaml:/etc/stackstate-agent/conf.d/splunk_event.d/splunk_event.yaml"
+  - "/etc/sts-agent/conf.d/splunk_metric.yaml:/etc/stackstate-agent/conf.d/splunk_metric.d/splunk_metric.yaml"
+  ```
 
 3. Keep the above snippet on the side, we will use it in the Docker-Compose file.
 
