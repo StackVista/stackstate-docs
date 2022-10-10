@@ -24,6 +24,8 @@ The Splunk Metrics check on StackState Agent V2 will execute all configured Splu
 
 ## Prerequisites
 
+To run the Splunk Metrics Agent check, you need to have:
+
 * A running Splunk instance.
 * The [Splunk StackPack](splunk_stackpack.md) installed on your StackState instance.
 * [StackState Agent V2 v2.18 or later](/setup/agent/about-stackstate-agent.md) must be installed on a single machine which can connect to Splunk and StackState.

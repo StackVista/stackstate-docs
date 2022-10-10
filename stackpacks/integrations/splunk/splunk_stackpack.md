@@ -6,9 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-The StackState Splunk integration synchronizes events, metrics, health and topology data from Splunk to StackState. The integration uses StackState Agent V2:
-
-* [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md) is used to collect Splunk events, metrics, health and topology data.
+The StackState Splunk integration synchronizes events, metrics, health and topology data from Splunk to StackState. The integration uses [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md) to collect Splunk events, metrics, health and topology data.
 
 Splunk is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
 

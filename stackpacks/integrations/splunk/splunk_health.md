@@ -10,10 +10,18 @@ When the [Splunk StackPack](splunk_stackpack.md) has been installed in StackStat
 
 Health is collected from Splunk by executing Splunk saved searches from StackState Agent V2. In order to receive Splunk health data in StackState, configuration needs to be added to both Splunk and StackState Agent V2:
 
-* [In Splunk](splunk_health.md#splunk-saved-search) - there should be at least one saved search that generates the health data you want to retrieve.
-* [In StackState Agent V2](splunk_health.md#agent-check) - a Splunk Health check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
+* [Splunk saved search](splunk_health.md#splunk-saved-search) - there should be at least one saved search that generates the health data you want to retrieve.
+* [StackState Agent V2 Splunk Health check](splunk_health.md#agent-check) - a Splunk Health check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
 
 The Splunk Health check on StackState Agent V2 will execute all configured Splunk saved searches periodically to retrieve a snapshot of the health at the current time.
+
+## Prerequisites
+
+To run the Splunk Health Agent check, you need to have:
+
+* A running Splunk instance.
+* The [Splunk StackPack](splunk_stackpack.md) installed on your StackState instance.
+* [StackState Agent V2](/setup/agent/about-stackstate-agent.md) must be installed on a single machine which can connect to Splunk and StackState.
 
 ## Splunk saved search
 
@@ -21,13 +29,13 @@ The Splunk Health check on StackState Agent V2 will execute all configured Splun
 
 StackState Agent V2 executes the Splunk saved searches configured in the [Splunk Health Agent check](splunk_health.md#agent-check) and pushes retrieved data to StackState. The following fields from the results of a saved search are sent to StackState:
 
-| Field | Type | Required? | Description                                                                     |
-| :--- | :--- | :--- |:--------------------------------------------------------------------------------|
-| **check\_state\_id** | ✅ | string | The unique identifier for the check state.                                      |
-| **name** | string | ✅ | Display name for the check state.                                               |
-| **health** | string | ✅ | The health value of the check state. Can be `CLEAR`, `DEVIATING` or `CRITICAL`. |
-| **topology\_element\_identifier** | string | ✅ | The identifier of the component/relation this check state belongs to.           |
-| **message** | string | - | Extended message associated with the check state, supports markdown.            |
+| Field                                      | Description                                                                     |
+|:-------------------------------------------|:--------------------------------------------------------------------------------|
+| **check\_state\_id** (string)              | Required. The unique identifier for the check state.                                      |
+| **name** (string)                          | Required. Display name for the check state.                                               |
+| **health** (string)                        | Required. The health value of the check state. Can be `CLEAR`, `DEVIATING` or `CRITICAL`. |
+| **topology\_element\_identifier** (string) | Required. The identifier of the component/relation this check state belongs to.           |
+| **message** (string)                       | Extended message associated with the check state, supports markdown.            |
 
 ### Example Splunk query
 

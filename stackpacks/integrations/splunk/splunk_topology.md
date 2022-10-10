@@ -22,6 +22,14 @@ The StackState Splunk Topology integration collects topology from Splunk by exec
 
 The Splunk Topology check on StackState Agent V2 will execute all configured Splunk saved searches periodically to retrieve a snapshot of the topology at the current time.
 
+## Prerequisites
+
+To run the Splunk Topology Agent check, you need to have:
+
+* A running Splunk instance.
+* The [Splunk StackPack](splunk_stackpack.md) installed on your StackState instance.
+* [StackState Agent V2 v2.18 or later](/setup/agent/about-stackstate-agent.md) must be installed on a single machine which can connect to Splunk and StackState.
+
 ## Splunk saved search
 
 In the Splunk Topology integration, StackState Agent V2 executes the Splunk saved searches configured in the [Splunk Topology Agent check](splunk_topology.md#agent-check) and pushes retrieved data to StackState as components and relations. The fields from the results of a saved search that are sent to StackState are described below.
