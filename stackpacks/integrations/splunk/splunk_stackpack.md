@@ -103,7 +103,7 @@ The first time the check runs, the configured `initial_token` will be exchanged 
 It is recommended to use [token-based authentication](splunk_stackpack.md#token-based-authentication).
 {% endhint %}
 
-With HTTP basic authentication, the `username` and `password` specified in the StackState Agent V1 check configuration files are used to connect to Splunk. These parameters are specified in the section `authentication.basic_auth` of each StackState Agent V1 Splunk check configuration file.
+With HTTP basic authentication, the `username` and `password` specified in the StackState Agent V2 check configuration files are used to connect to Splunk. These parameters are specified in the section `authentication.basic_auth` of each StackState Agent V2 Splunk check configuration file.
 
 {% tabs %}
 {% tab title="Example check configuration with HTTP basic authentication" %}
@@ -159,9 +159,7 @@ For details on how to configure the metrics retrieved, see the [Splunk Metrics c
 
 When the Splunk StackPack is installed, and a Splunk Topology Agent check is configured, topology will be retrieved from the configured Splunk saved searches. The check that you should configure depends on the StackState Agent that you will use to retrieve topology data. 
 
-For details on how to configure the components and relations retrieved, see:
-
-* [Splunk Topology check configuration](splunk_topology.md) \(StackState Agent V2\).
+For details on how to configure the components and relations retrieved, see the [Splunk Topology check configuration](splunk_topology.md).
 
 If you have an existing Splunk Topology integration configured to use StackState Agent V1 and would like to upgrade to use StackState Agent V2, refer to the [Agent migration instructions](TODO_LINK_TO_AGENT_MIGRATION_DOCS).
 
@@ -177,7 +175,7 @@ The StackState Splunk integration does not retrieve any trace data.
 
 ### REST API endpoints
 
-StackState Agent V1 connects to the Splunk API at the endpoints listed below. The same endpoints are used to retrieve events, metrics and topology data.
+StackState Agent V2 connects to the Splunk API at the endpoints listed below. The same endpoints are used to retrieve events, metrics and topology data.
 
 | Endpoint | Description |
 | :--- | :--- |
