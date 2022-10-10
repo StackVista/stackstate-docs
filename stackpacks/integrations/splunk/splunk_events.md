@@ -9,8 +9,8 @@ description: StackState Self-hosted v5.1.x
 {% hint style="info" %}
 This page describes the Splunk Events check running on StackState Agent V2. If you are currently running the Splunk Events check on Agent V1 (legacy), it is advised that you migrate to Agent V2.
 
-* [Migrate to Agent V2](TODO_LINK_TO_AGENT_MIGRATION_DOCS).
-* [Documentation for the Splunk Events check running on Agent V1 \(legacy\)](https://docs.stackstate.com/v/5.0/stackpacks/integrations/splunk/splunk_events).
+* [Migrate to Agent V2](TODO_LINK_TO_AGENT_MIGRATION_DOCS)
+* [Documentation for the Splunk Events check running on Agent V1 \(legacy\)](https://docs.stackstate.com/v/5.0/stackpacks/integrations/splunk/splunk_events)
 {% endhint %}
 
 When the [Splunk StackPack](splunk_stackpack.md) is installed in StackState, you can configure the Splunk Events check on StackState Agent V2 to begin collecting Splunk events data.
@@ -34,14 +34,14 @@ The Splunk Events check on StackState Agent V2 will execute all configured Splun
 
 StackState Agent V2 executes the Splunk saved searches configured in the [Splunk Events Agent check configuration file](splunk_events.md#agent-check) and pushes retrieved data to StackState as a telemetry stream. The following fields from the results of a saved search are sent to StackState:
 
-| Field | Type | Required? | Description |
-| :--- | :--- | :--- | :--- |
-| **\_time** | long | ✅ | The data collection timestamp, in milliseconds since epoch. |
-| **event\_type** | string | - | Event type, for example `server_created`. |
-| **msg\_title** | string | - | Message title. |
-| **msg\_text** | string | - | Message text. |
-| **source\_type\_name** | string | - | Source type name. |
-| All other fields | - | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result. Any other fields present in the result will be mapped to tags in the format `field`:`value`. |
+| Field | Required? | Description |
+| :--- | :-- | :--- | 
+| **\_time** (long ) | ✅ | The data collection timestamp, in milliseconds since epoch. |
+| **event\_type** (string) | - | Event type, for example `server_created`. |
+| **msg\_title** (string) | - | Message title. |
+| **msg\_text** (string) | - | Message text. |
+| **source\_type\_name** (string) | - | Source type name. |
+| All other fields | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result. Any other fields present in the result will be mapped to tags in the format `field`:`value`. |
 
 ### Example Splunk query
 
