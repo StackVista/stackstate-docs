@@ -13,14 +13,20 @@ This page describes the Splunk Metrics check running on StackState Agent V2. If 
 * [Documentation for the Splunk Metrics check running on Agent V1 \(legacy\)](https://docs.stackstate.com/v/5.0/stackpacks/integrations/splunk/splunk_metrics).
 {% endhint %}
 
-When the [Splunk StackPack](splunk_stackpack.md) has been installed in StackState, you can configure the Splunk Metrics check on StackState Agent V2 to begin collecting Splunk metrics data.
+When the [Splunk StackPack](splunk_stackpack.md) is installed in StackState, you can configure the Splunk Metrics check on StackState Agent V2 to begin collecting Splunk metrics data.
 
 Metrics are collected from Splunk by executing Splunk saved searches that have been specified in the StackState Agent V2 Splunk Metrics check configuration. In order to receive Splunk metrics data in StackState, you will therefore need to add configuration to both Splunk and StackState Agent V2.
 
-* [In Splunk](splunk_metrics.md#splunk-saved-search), there should be at least one saved search that generates the metrics data you want to retrieve. Each saved search can retrieve one metric.
-* [In StackState Agent V2](splunk_metrics.md#agent-check), a Splunk Metrics check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
+* [Splunk saved search](splunk_metrics.md#splunk-saved-search) - there should be at least one saved search that generates the metrics data you want to retrieve. Each saved search can retrieve one metric.
+* [StackState Agent V2 Splunk Metrics check](splunk_metrics.md#agent-check) - a Splunk Metrics check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
 
 The Splunk Metrics check on StackState Agent V2 will execute all configured Splunk saved searches periodically. Data will be requested from the last received metric timestamp up until now.
+
+## Prerequisites
+
+* A running Splunk instance.
+* The [Splunk StackPack](splunk_stackpack.md) installed on your StackState instance.
+* [StackState Agent V2 v2.18 or later](/setup/agent/about-stackstate-agent.md) must be installed on a single machine which can connect to Splunk and StackState.
 
 ## Splunk saved search
 

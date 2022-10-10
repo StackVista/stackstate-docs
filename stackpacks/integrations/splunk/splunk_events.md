@@ -6,14 +6,27 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-When the [Splunk StackPack](splunk_stackpack.md) has been installed in StackState, you can configure the Splunk Events check on StackState Agent V2 to begin collecting Splunk events data.
+{% hint style="info" %}
+This page describes the Splunk Events check running on StackState Agent V2. If you are currently running the Splunk Events check on Agent V1 (legacy), it is advised that you migrate to Agent V2.
+
+* [Migrate to Agent V2](TODO_LINK_TO_AGENT_MIGRATION_DOCS).
+* [Documentation for the Splunk Events check running on Agent V1 \(legacy\)](https://docs.stackstate.com/v/5.0/stackpacks/integrations/splunk/splunk_events).
+{% endhint %}
+
+When the [Splunk StackPack](splunk_stackpack.md) is installed in StackState, you can configure the Splunk Events check on StackState Agent V2 to begin collecting Splunk events data.
 
 Events are collected from Splunk by executing Splunk saved searches that are configured in the StackState Agent V2 Splunk Events check. In order to receive Splunk events data in StackState, you will therefore need to add configuration to both Splunk and StackState Agent V2:
 
-* [In Splunk](splunk_events.md#splunk-saved-search), there should be at least one saved search that generates the events data you want to retrieve.
-* [In StackState Agent V2](splunk_events.md#agent-check), a Splunk Events check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
+* [Splunk saved search](splunk_events.md#splunk-saved-search) - there should be at least one saved search that generates the events data you want to retrieve.
+* [StackState Agent V2 Splunk Events check](splunk_events.md#agent-check) - a Splunk Events check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
 
 The Splunk Events check on StackState Agent V2 will execute all configured Splunk saved searches periodically. Data will be requested from the last received event timestamp up until now.
+
+## Prerequisites
+
+* A running Splunk instance.
+* The [Splunk StackPack](splunk_stackpack.md) installed on your StackState instance.
+* [StackState Agent V2 v2.18 or later](/setup/agent/about-stackstate-agent.md) must be installed on a single machine which can connect to Splunk and StackState.
 
 ## Splunk saved search
 

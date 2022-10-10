@@ -159,13 +159,13 @@ For details on how to configure the metrics retrieved, see the [Splunk Metrics c
 
 #### Topology
 
-When the Splunk StackPack is installed, and a Splunk topology Agent check is configured, topology will be retrieved from the configured Splunk saved searches. The check that you should configure depends on the StackState Agent that you will use to retrieve topology data. 
+When the Splunk StackPack is installed, and a Splunk Topology Agent check is configured, topology will be retrieved from the configured Splunk saved searches. The check that you should configure depends on the StackState Agent that you will use to retrieve topology data. 
 
 For details on how to configure the components and relations retrieved, see:
 
 * [Splunk Topology check configuration](splunk_topology.md) \(StackState Agent V2\).
 
-If you have an existing Splunk topology integration configured to use StackState Agent V1 and would like to upgrade to use StackState Agent V2, refer to the [Agent migration instructions](TODO_LINK_TO_AGENT_MIGRATION_DOCS).
+If you have an existing Splunk Topology integration configured to use StackState Agent V1 and would like to upgrade to use StackState Agent V2, refer to the [Agent migration instructions](TODO_LINK_TO_AGENT_MIGRATION_DOCS).
 
 #### Health
 
