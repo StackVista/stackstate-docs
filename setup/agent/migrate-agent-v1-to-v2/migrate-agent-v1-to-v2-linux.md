@@ -6,13 +6,13 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-The steps below will assist you in successfully migrating from Agent v1 to Agent v2. 
-This migration process will also migrate your existing Agent v1 state allowing checks like Splunk to continue from its previous state.
+The steps below will assist you in successfully migrating from Agent V1 (legacy) to Agent V2. 
+This migration process will also migrate your existing Agent V1 (legacy) state allowing checks like Splunk to continue from its previous state.
 
 {% hint style="warning" %}
-These steps **must be done in the correct order** to prevent any Agent v1 to Agent v2 issues.
+These steps **must be done in the correct order** to prevent any Agent V1 (legacy) to Agent V2 issues.
 
-Problems like invalid Agent state files, overwritten state files or even a broken Agent v2 instance can occur when the order is broken.
+Problems like invalid Agent state files, overwritten state files or even a broken Agent V2 instance can occur when the order is broken.
 {% endhint %}
 
 {% hint style="warning" %}
@@ -23,26 +23,26 @@ Problems like invalid Agent state files, overwritten state files or even a broke
 ## Impact Analysis
 
 ### Downtime
-- When swapping between Agent v1 and Agent v2, there will be some downtime for the StackState Agent to allow a successful migration process.
+- When swapping between Agent V1 (legacy) and Agent V2, there will be some downtime for the StackState Agent to allow a successful migration process.
 - The length the Agent will be down for depends on how fast the process below happens.
 
 ### Performance
-- The exact performance impact of switching from Agent v1 to Agent v2 can increase or decrease the number of resources used in the environments.
-- Agent v2 is more synchronized than Agent v1, allowing a better StackState experience but may trigger more services as it is non-blocking.
+- The exact performance impact of switching from Agent V1 (legacy) to Agent V2 can increase or decrease the number of resources used in the environments.
+- Agent V2 is more synchronized than Agent V1 (legacy), allowing a better StackState experience but may trigger more services as it is non-blocking.
 {% endhint %}
 
 
 ## Migration Process
 
-### 1. Stop Agent v1
+### 1. Stop Agent V1 (legacy)
 
-Agent v1 will have to be stopped before proceeding with the **Agent v2 install** and **Agent v1 state** migration.
+Agent V1 (legacy) will have to be stopped before proceeding with the **Agent V2 install** and **Agent V1 (legacy) state** migration.
 
 {% hint style="warning" %}
-**If Agent v1 is still running, it might interfere with the installation process of Agent v2 or, even worse, break the Agent v2 state.**
+**If Agent V1 (legacy) is still running, it might interfere with the installation process of Agent V2 or, even worse, break the Agent V2 state.**
 {% endhint %}
 
-You can stop Agent v1 with the following command:
+You can stop Agent V1 (legacy) with the following command:
 
 ```shell
 sudo /etc/init.d/stackstate-agent stop
@@ -54,16 +54,16 @@ After the Agent has been stopped, verify its status with:
 sudo /etc/init.d/stackstate-agent status
 ```
 
-### 2. Install Agent v2
+### 2. Install Agent V2
 
-StackState Agent v2 can now safely be installed.
+StackState Agent V2 can now safely be installed.
 
-Follow all the steps on [Agent v2 - Deploy on Linux](/setup/agent/linux.md) to successfully deploy Agent v2.
+Follow all the steps on [Agent V2 - Deploy on Linux](/setup/agent/linux.md) to successfully deploy Agent V2.
 
-### 3. Stop Agent v2
+### 3. Stop Agent V2
 
 {% hint style="info" %}
-The installation of Agent v2 will automatically start the StackState Agent.
+The installation of Agent V2 will automatically start the StackState Agent.
 {% endhint %}
 
 To prevent Agent state files from being overwritten during the state migration process, let's stop the Agent
@@ -90,14 +90,14 @@ sudo service stackstate-agent status
 
 ### 4. Copy over your existing conf.d checks
 
-Migrate your existing conf.d check YAML files to the Agent v2 directory.
+Migrate your existing conf.d check YAML files to the Agent V2 directory.
 
 This can be done by following these steps:
 
-1. Head over to your Agent v1 `conf.d` directory found at the following location `/etc/sts-agent/conf.d/`.
-2. Copy each of the files in the `conf.d` directory to their respective v2 **subdirectories** inside the Agent v2 conf.d directory found at `/etc/stackstate-agent/conf.d/<CHECK-SUBDIRECTORY>.d/`.
+1. Head over to your Agent V1 (legacy) `conf.d` directory found at the following location `/etc/sts-agent/conf.d/`.
+2. Copy each of the files in the `conf.d` directory to their respective v2 **subdirectories** inside the Agent V2 conf.d directory found at `/etc/stackstate-agent/conf.d/<CHECK-SUBDIRECTORY>.d/`.
     - **DO NOT** just copy all the files from the `/etc/sts-agent/conf.d/` to  
-      `/etc/stackstate-agent/conf.d/` as Agent v2 works with a subdirectory structure.
+      `/etc/stackstate-agent/conf.d/` as Agent V2 works with a subdirectory structure.
     - For Example, If you are using **Splunk** copy the following files:
       - `/etc/sts-agent/conf.d/splunk_topology.yaml` into  
         `/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml`
@@ -114,22 +114,22 @@ This can be done by following these steps:
   - `polling_interval_seconds` replace with `collection_interval`
 {% endhint %}
 
-### 5. Migrate the Agent v1 Cache
+### 5. Migrate the Agent V1 Cache
 
-Migrating the Agent v1 cache requires a cache conversion process, and this is a manual process that StackState will assist you with.
+Migrating the Agent V1 (legacy) cache requires a cache conversion process, and this is a manual process that StackState will assist you with.
 Contact StackState to assist with this process.
 
 A breakdown of the steps that will happen in the cache migration is as follows:
 
-- Backing up the Agent v1 cache folder from the following location `/opt/stackstate-agent/run/`.
-- Run the Agent v1 cache migration process.
-    - The output of the cache migration process will either be manually moved into the Agent v2 cache directory or automatically, depending on the conversion process used for Agent v2 (Some steps, depending on the installation, can only be done manually).
+- Backing up the Agent V1 (legacy) cache folder from the following location `/opt/stackstate-agent/run/`.
+- Run the Agent V1 cache migration process.
+    - The output of the cache migration process will either be manually moved into the Agent V2 cache directory or automatically, depending on the conversion process used for Agent V2 (Some steps, depending on the installation, can only be done manually).
 
-### 5. Start Agent v2
+### 5. Start Agent V2
 
-Start Agent v2 and monitor the logs to ensure everything started up correctly.
+Start Agent V2 and monitor the logs to ensure everything started up correctly.
 
-You can start Agent v2 with the following command:
+You can start Agent V2 with the following command:
 
 ```shell
 # with systemctl
@@ -157,6 +157,6 @@ The log files for the above process can be found at the following locations:
 
 ### 6. Add Splunk Health State
 
-Agent v2 Supports a new Splunk check called Splunk Health state.
+Agent V2 Supports a new Splunk check called Splunk Health state.
 
 You can follow the docs [Splunk Health](/stackpacks/integrations/splunk/splunk_health.md) to enable this check.

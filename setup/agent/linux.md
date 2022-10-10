@@ -31,7 +31,7 @@ StackState Agent is tested to run on the Linux versions listed below with 64bit 
 
 | Platform | Minimum version | Notes |
 | :--- | :--- | :--- |
-| CentOS | CentOS 6 | CentOS 6 requires Agent v2.0.2 or above. Network tracer available from CentOS 8. |
+| CentOS | CentOS 6 | CentOS 6 requires Agent V2.0.2 or above. Network tracer available from CentOS 8. |
 | Debian | Debian 7 \(Wheezy\) | Debian 7 \(Wheezy\) requires glibc upgrade to 2.17. Network tracer available from Debian 9 \(Stretch\). |
 | Fedora | Fedora 28 | - |
 | RHEL | RHEL 7 | Network tracer available from RHEL 8. |

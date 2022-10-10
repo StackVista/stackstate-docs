@@ -234,7 +234,7 @@ Details of the included improvements and bug fixes can be found below.
 
 **Improvements**
 
-- Adds compatibility with StackState Agent v2.15.0. Read how to [upgrade StackState Agent](/setup/agent/about-stackstate-agent.md#deployment).
+- Adds compatibility with StackState Agent V2.15.0. Read how to [upgrade StackState Agent](/setup/agent/about-stackstate-agent.md#deployment).
 - The MinIO chart has been internalized to StackState to ensure its continuity. STAC-14977
 - The MinIO Helm chart has been updated to specify both a requests and limits for the memory resource. STAC-14771
 

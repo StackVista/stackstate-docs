@@ -7,7 +7,7 @@ description: StackState Self-hosted v5.1.x
 {% hint style="info" %}
 This page describes the Splunk Topology V2 integration with StackState Agent V2.
 
-**If you are currently running a Splunk Topology V1 integration using StackState Agent V1:** See the instructions on how to configure the [Splunk Topology V1](splunk_topology.md) check or [upgrade](splunk_topology_upgrade_v1_to_v2.md) your integration to use StackState Agent V2.
+**If you are currently running a Splunk Topology V1 integration using StackState Agent V1 (legacy):** See the instructions on how to configure the [Splunk Topology V1](splunk_topology.md) check or [upgrade](splunk_topology_upgrade_v1_to_v2.md) your integration to use StackState Agent V2.
 {% endhint %}
 
 ## Overview
@@ -154,7 +154,7 @@ To disable the Splunk topology Agent check:
 
 * [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md)
 * [StackState Splunk integration details](splunk_stackpack.md)
-* [Splunk Topology V1 - Agent V1](splunk_topology.md)
+* [Splunk Topology V1 - Agent V1 \(legacy\)](splunk_topology.md)
 * [Example Splunk Topology V2 configuration file - splunk\_topology/conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_topology/stackstate_checks/splunk_topology/data/conf.yaml.example)
 * [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields)
 

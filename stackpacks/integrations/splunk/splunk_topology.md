@@ -5,25 +5,25 @@ description: StackState Self-hosted v5.1.x
 # Splunk Topology V1
 
 {% hint style="info" %}
-This page describes the Splunk Topology V1 integration with StackState Agent V1.
+This page describes the Splunk Topology V1 integration with StackState Agent V1 (legacy).
 
 **If you are running StackState Agent V2:** See the instructions on how to configure a [Splunk Topology V2](splunk_topology_v2.md) check. You can also [upgrade](splunk_topology_upgrade_v1_to_v2.md) an existing Splunk Topology V1 integration to use StackState Agent V2.
 {% endhint %}
 
 ## Overview
 
-When the [Splunk StackPack](splunk_stackpack.md) has been installed in StackState, you can configure the Splunk Topology V1 check on StackState Agent V1 to begin collecting Splunk topology data.
+When the [Splunk StackPack](splunk_stackpack.md) has been installed in StackState, you can configure the Splunk Topology V1 check on StackState Agent V1 (legacy) to begin collecting Splunk topology data.
 
-The StackState Splunk Topology V1 integration collects topology from Splunk by executing Splunk saved searches from StackState Agent V1. In order to receive Splunk topology data in StackState, configuration needs to be added to both Splunk and StackState Agent V1:
+The StackState Splunk Topology V1 integration collects topology from Splunk by executing Splunk saved searches from StackState Agent V1 (legacy). In order to receive Splunk topology data in StackState, configuration needs to be added to both Splunk and StackState Agent V1 (legacy):
 
 * [In Splunk](splunk_topology.md#splunk-saved-search), there should be at least one saved search that generates the topology data you want to retrieve.
-* [In StackState Agent V1](splunk_topology.md#agent-check), a Splunk topology check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
+* [In StackState Agent V1 \(legacy\)](splunk_topology.md#agent-check), a Splunk topology check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
 
-The Splunk topology check on StackState Agent V1 will execute all configured Splunk saved searches periodically to retrieve a snapshot of the topology at the current time.
+The Splunk topology check on StackState Agent V1 (legacy) will execute all configured Splunk saved searches periodically to retrieve a snapshot of the topology at the current time.
 
 ## Splunk saved search
 
-In the Splunk Topology V1 integration, StackState Agent V1 executes the Splunk saved searches configured in the [Splunk topology Agent check configuration file](splunk_topology.md#agent-check) and pushes retrieved data to StackState components and relations. The fields from the results of a saved search that are sent to StackState for topology components and relations are listed in the table below.
+In the Splunk Topology V1 integration, StackState Agent V1 (legacy) executes the Splunk saved searches configured in the [Splunk topology Agent check configuration file](splunk_topology.md#agent-check) and pushes retrieved data to StackState components and relations. The fields from the results of a saved search that are sent to StackState for topology components and relations are listed in the table below.
 
 ### Topology components
 
@@ -107,7 +107,7 @@ The example Splunk saved search above would result in the following topology rel
 
 ### Configure the Splunk Topology V1 check
 
-To enable the Splunk topology integration and begin collecting component and relation data from your Splunk instance, the Splunk topology check must be configured on StackState Agent V1. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
+To enable the Splunk topology integration and begin collecting component and relation data from your Splunk instance, the Splunk topology check must be configured on StackState Agent V1 (legacy). The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
 
 {% hint style="info" %}
 Example Splunk topology Agent check configuration file:  
@@ -116,7 +116,7 @@ Example Splunk topology Agent check configuration file:
 
 To configure the Splunk topology Agent check:
 
-1. Edit the StackState Agent V1 configuration file `/etc/sts-agent/conf.d/splunk_topology.yaml`.
+1. Edit the StackState Agent V1 (legacy) configuration file `/etc/sts-agent/conf.d/splunk_topology.yaml`.
 2. Under **instances**, add details of your Splunk instance:
    * **url** - The URL of your Splunk instance.
    * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based \(recommended\) or basic authentication. For details, see [authentication configuration details](splunk_stackpack.md#authentication).
@@ -135,7 +135,7 @@ To configure the Splunk topology Agent check:
 4. Under **relation\_saved\_searches**, add details of each Splunk saved search that the check should execute to retrieve relations.
 5. More advanced options can be found in the [example configuration \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_topology/conf.yaml.example). 
 6. Save the configuration file.
-7. Restart StackState Agent V1 to apply the configuration changes.
+7. Restart StackState Agent V1 (legacy) to apply the configuration changes.
 8. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.
 
 ### Disable the Agent check

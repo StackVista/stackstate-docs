@@ -169,12 +169,12 @@ No manual action required.
 
 #### v4.5.1
 
-* Adds compatibility with StackState Agent v2.15.0. Read how to [upgrade StackState Agent](/setup/agent/about-stackstate-agent.md#deployment).
+* Adds compatibility with StackState Agent V2.15.0. Read how to [upgrade StackState Agent](/setup/agent/about-stackstate-agent.md#deployment).
 
 #### v4.5.0
 
 * ⚠️ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.5.1.
-* ⚠️ StackState v4.5.0 is not compatible with StackState Agent v2.15.0.
+* ⚠️ StackState v4.5.0 is not compatible with StackState Agent V2.15.0.
 * Change in supported platforms:
   * Support for Kubernetes 1.17 was dropped.
   * Support for Amazon Elastic Kubernetes Service (EKS) 1.20 and 1.21 was added.
@@ -196,12 +196,12 @@ No manual action required.
 
 #### v4.5.1
 
-* Adds compatibility with StackState Agent v2.15.0. Read how to [upgrade StackState Agent](/setup/agent/about-stackstate-agent.md#deployment).
+* Adds compatibility with StackState Agent V2.15.0. Read how to [upgrade StackState Agent](/setup/agent/about-stackstate-agent.md#deployment).
 
 #### v4.5.0
 
 * ⚠️ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.5.1.
-* ⚠️ StackState v4.5.0 is not compatible with StackState Agent v2.15.0.
+* ⚠️ StackState v4.5.0 is not compatible with StackState Agent V2.15.0.
 
 {% endtab %}
 {% endtabs %}

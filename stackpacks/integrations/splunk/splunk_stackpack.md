@@ -6,16 +6,16 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-The StackState Splunk integration synchronizes events, metrics, health and topology data from Splunk to StackState. The integration uses StackState Agent V1 and StackState Agent V2:
+The StackState Splunk integration synchronizes events, metrics, health and topology data from Splunk to StackState. The integration uses StackState Agent V1 (legacy) and StackState Agent V2:
 
-* [StackState Agent V1](../../../setup/agent/agent-v1.md) is used to collect Splunk events and metrics data. It can also be used to collect topology data when the Splunk Topology V1 integration is configured.
+* [StackState Agent V1 \(legacy\)](../../../setup/agent/agent-v1.md) is used to collect Splunk events and metrics data. It can also be used to collect topology data when the Splunk Topology V1 integration is configured.
 * [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md) is used to collect health data. It can also be used to collect topology data when the Splunk Topology V2 integration is configured.
 
 Splunk is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
 
 ![Data flow](../../../.gitbook/assets/stackpack-splunk.svg)
 
-* StackState Agent V1 periodically connects to the configured Splunk instance to execute Splunk saved searches and retrieve data:
+* StackState Agent V1 (legacy)periodically connects to the configured Splunk instance to execute Splunk saved searches and retrieve data:
   * Topology data from the searches configured in the Splunk Topology V1 Agent check.
   * Metrics data from the searches configured in the Splunk Metrics Agent check.
   * Events data from the searches configured in the Splunk Events Agent check.
@@ -36,9 +36,9 @@ Splunk is a [StackState core integration](/stackpacks/integrations/about_integra
 * A running Splunk instance.
 * A Splunk user account with access to Splunk saved searches. The user should have the capability `search` to dispatch and read Splunk saved searches.
 * A compatible StackState Agent installed on a machine that can connect to both Splunk and StackState:
-  * Metrics and events data: [StackState Agent V1](../../../setup/agent/agent-v1.md)
+  * Metrics and events data: [StackState Agent V1 \(legacy\)](../../../setup/agent/agent-v1.md)
   * Health data: [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md)
-  * Topology data: [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md) or [StackState Agent V1](../../../setup/agent/agent-v1.md)
+  * Topology data: [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md) or [StackState Agent V1 \(legacy\)](../../../setup/agent/agent-v1.md)
 
 ### Install
 
@@ -47,24 +47,24 @@ The Splunk StackPack provides all the necessary configuration to easily work wit
 * **Splunk instance name** - A unique name to identify the Splunk instance in StackState. 
 * **Splunk API URL** - The URL where the Splunk API can be reached. For example: `http://splunk.network.local:8089`.
 
-After the StackPack has been installed, you should follow the instructions below to configure the required Splunk checks on StackState Agent V2 or StackState Agent V1.
+After the StackPack has been installed, you should follow the instructions below to configure the required Splunk checks on StackState Agent V2 or StackState Agent V1 (legacy).
 
 ### Configure
 
-A Splunk check must be configured on StackState Agent V2 or StackState Agent V1 for each type of data you want to retrieve from Splunk:
+A Splunk check must be configured on StackState Agent V2 or StackState Agent V1 (legacy) for each type of data you want to retrieve from Splunk:
 
 * **StackState Agent V2 (recommended)**:
   * [Splunk Health check](splunk_health.md) - to retrieve health data from Splunk
   * [Splunk Topology V2 check](splunk_topology_v2.md) - to retrieve topology data from Splunk
 
-* **StackState Agent V1**:
+* **StackState Agent V1 (legacy)**:
   * [Splunk Events check](splunk_events.md) - to retrieve events data from Splunk
   * [Splunk Metrics check](splunk_metrics.md) - to retrieve metrics data from Splunk
   * [Splunk Topology V1 check](splunk_topology.md) - to retrieve topology data from Splunk
 
 ### Authentication
 
-Each Splunk check configured on StackState Agent V1 must include authentication details to allow the Agent to connect to your Splunk instance and execute the configured Splunk saved searches.
+Each Splunk check configured on StackState Agent V1 (legacy) must include authentication details to allow the Agent to connect to your Splunk instance and execute the configured Splunk saved searches.
 
 Two authentication mechanisms are available:
 
@@ -99,7 +99,7 @@ instances:
 {% endtab %}
 {% endtabs %}
 
-To enable token-based authentication, the following parameters should be included in the section `authentcation.token_auth` of each StackState Agent V1 Splunk check configuration file:
+To enable token-based authentication, the following parameters should be included in the section `authentcation.token_auth` of each StackState Agent V1 (legacy) Splunk check configuration file:
 
 * **name** - Name of the user who will use this token.
 * **initial\_token** - An initial, valid token. This token will be used once only and then replaced with a new generated token requested by the integration.
@@ -115,7 +115,7 @@ The first time the check runs, the configured `initial_token` will be exchanged 
 It is recommended to use [token-based authentication](splunk_stackpack.md#token-based-authentication).
 {% endhint %}
 
-With HTTP basic authentication, the `username` and `password` specified in the StackState Agent V1 check configuration files are used to connect to Splunk. These parameters are specified in the section `authentication.basic_auth` of each StackState Agent V1 Splunk check configuration file.
+With HTTP basic authentication, the `username` and `password` specified in the StackState Agent V1 (legacy) check configuration files are used to connect to Splunk. These parameters are specified in the section `authentication.basic_auth` of each StackState Agent V1 (legacy) Splunk check configuration file.
 
 {% tabs %}
 {% tab title="Example check configuration with HTTP basic authentication" %}
@@ -169,14 +169,14 @@ For details on how to configure the metrics retrieved, see the [Splunk Metrics c
 
 #### Topology
 
-When the Splunk StackPack is installed, and a Splunk topology Agent check is configured, topology will be retrieved from the configured Splunk saved searches. The check that you should configure depends on the StackState Agent that you will use to retrieve topology data. The Splunk Topology V1 check uses StackState Agent V1 to retrieve data from Splunk, while the Splunk Topology V2 check uses StackState Agent V2.
+When the Splunk StackPack is installed, and a Splunk topology Agent check is configured, topology will be retrieved from the configured Splunk saved searches. The check that you should configure depends on the StackState Agent that you will use to retrieve topology data. The Splunk Topology V1 check uses StackState Agent V1 (legacy) to retrieve data from Splunk, while the Splunk Topology V2 check uses StackState Agent V2.
 
 For details on how to configure the components and relations retrieved, see:
 
-* [Splunk Topology V1 check configuration](splunk_topology.md) \(StackState Agent V1\).
-* [Splunk Topology V2 check configuration](splunk_topology_v2.md) \(StackState Agent V2\).
+* [Splunk Topology V1 check configuration](splunk_topology.md) - StackState Agent V1 (legacy).
+* [Splunk Topology V2 check configuration](splunk_topology_v2.md) - StackState Agent V2.
 
-If you have an existing Splunk topology integration configured to use StackState Agent V1 and would like to upgrade to use StackState Agent V2, refer to the [Splunk topology check upgrade instructions](splunk_topology_upgrade_v1_to_v2.md).
+If you have an existing Splunk topology integration configured to use StackState Agent V1 (legacy) and would like to upgrade to use StackState Agent V2, refer to the [Splunk topology check upgrade instructions](splunk_topology_upgrade_v1_to_v2.md).
 
 #### Health
 
@@ -190,7 +190,7 @@ The StackState Splunk integration does not retrieve any trace data.
 
 ### REST API endpoints
 
-StackState Agent V1 connects to the Splunk API at the endpoints listed below. The same endpoints are used to retrieve events, metrics and topology data.
+StackState Agent V1 (legacy) connects to the Splunk API at the endpoints listed below. The same endpoints are used to retrieve events, metrics and topology data.
 
 | Endpoint | Description |
 | :--- | :--- |
@@ -241,7 +241,7 @@ Configure the StackState Agent Splunk checks:
   * [Splunk Health check](splunk_health.md) - to retrieve health data from Splunk
   * [Splunk Topology V2 check](splunk_topology_v2.md) - to retrieve topology data from Splunk
 
-* **StackState Agent V1**:
+* **StackState Agent V1 (legacy)**:
   * [Splunk Events check](splunk_events.md) - to retrieve events data from Splunk
   * [Splunk Metrics check](splunk_metrics.md) - to retrieve metrics data from Splunk
   * [Splunk Topology V1 check](splunk_topology.md) - to retrieve topology data from Splunk

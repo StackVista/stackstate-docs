@@ -4,9 +4,9 @@ description: StackState Self-hosted v5.1.x
 
 # How to develop Agent checks
 
-This document covers how to create your first check with Agent v2 Check API. Following topics are covered in this document: the agent directory structure, configuring your check, writing your first check, sending topology, metrics, events, and service checks as well as how to add external python dependencies and putting it all together.
+This document covers how to create your first check with Agent V2 Check API. Following topics are covered in this document: the agent directory structure, configuring your check, writing your first check, sending topology, metrics, events, and service checks as well as how to add external python dependencies and putting it all together.
 
-## Installing Agent v2 StackPack
+## Installing Agent V2 StackPack
 
 To install this StackPack navigate to StackState’s StackPacks page using left menu and locate the “StackState Agent V2” section. Click the Agent V2 icon and this opens the installation page. Click the **INSTALL** button and follow installation instructions provided by the StackPack.
 
@@ -70,7 +70,7 @@ instances:
     authentication:
       username:
       password:
-    # min_collection_interval: 30 # use in place of collection_interval for Agent v2.14.x or earlier 
+    # min_collection_interval: 30 # use in place of collection_interval for Agent V2.14.x or earlier 
     collection_interval: 30 # the collection interval in seconds. This check will run try to run every 30 seconds
 ```
 

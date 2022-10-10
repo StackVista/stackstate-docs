@@ -62,7 +62,7 @@ To enable the Dynatrace topology check and begin collecting topology data from D
     init_config:
     
     instances:
-      - # min_collection_interval: 300 # use in place of collection_interval for Agent v2.14.x or earlier 
+      - # min_collection_interval: 300 # use in place of collection_interval for Agent V2.14.x or earlier 
         collection_interval: 300
         url: <url>  #the base URL of the Dynatrace instance.
         # SaaS url example - https://{your-environment-id}.live.dynatrace.com
@@ -77,7 +77,7 @@ To enable the Dynatrace topology check and begin collecting topology data from D
         # relative_time : <relative_time> # default 'hour'
         # custom_device_relative_time: 1h
         # custom_device_fields: +fromRelationships,+toRelationships,+tags,+managementZones,+properties.dnsNames,+properties.ipAddress
-        # custom_device_ip: True  # default `True`, requires Agent v2.17 or later.
+        # custom_device_ip: True  # default `True`, requires Agent V2.17 or later.
         # tags:
         #   - foo:bar
     
@@ -94,7 +94,7 @@ To enable the Dynatrace topology check and begin collecting topology data from D
    - **relative_time** - The relative timeframe for retrieving topology.
    - **custom_device_relative_time** - The relative timeframe for retrieving custom devices.
    - **custom_device_fields** - The Custom Device property fields that should be used.
-   - **custom_device_ip** - Use IP address to generate Custom Device identifiers. Set to `False` if there are multiple Custom Devices using the same IP to prevent incorrect merging of Custom Device components. Default `True`. Requires Agent v2.17 or later. 
+   - **custom_device_ip** - Use IP address to generate Custom Device identifiers. Set to `False` if there are multiple Custom Devices using the same IP to prevent incorrect merging of Custom Device components. Default `True`. Requires Agent V2.17 or later. 
    - **tags** - custom tags appended to all components, useful for filtering.
 4. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 5. Once the Agent has restarted, wait for data to be collected from Dynatrace and sent to StackState.
@@ -118,7 +118,7 @@ To enable the Dynatrace health check and begin collecting events from Dynatrace,
     init_config:
     
     instances:
-      - # min_collection_interval: 60 # use in place of collection_interval for Agent v2.14.x or earlier 
+      - # min_collection_interval: 60 # use in place of collection_interval for Agent V2.14.x or earlier 
         collection_interval: 60
         url: <url>  #the base URL of the Dynatrace instance.
         # SaaS url example - https://{your-environment-id}.live.dynatrace.com
@@ -223,7 +223,7 @@ The [Dynatrace topology check](#dynatrace-topology-check) retrieves the followin
 
 | Data | Description                                                                                                                                                   |
 | :--- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Components | Smartscape Applications, Hosts, Processes, Process-Groups, Services, Custom Devices. Synthetic Monitors are also available when running Agent v2.17 or later. |
+| Components | Smartscape Applications, Hosts, Processes, Process-Groups, Services, Custom Devices. Synthetic Monitors are also available when running Agent V2.17 or later. |
 | Relations | Relations between the imported components are included in the component data retrieved from Dynatrace.                                                        |
 
 {% hint style="info" %}
@@ -285,7 +285,7 @@ To uninstall the Dynatrace StackPack and disable the Dynatrace checks:
 
 **Dynatrace StackPack v1.4.0 (2022-04-06)**
 
-- Features: Dynatrace support for synthetic checks, introduced a new component type synthetic monitor (requires StackState Agent v2.17 or later)
+- Features: Dynatrace support for synthetic checks, introduced a new component type synthetic monitor (requires StackState Agent V2.17 or later)
 - Features: Synthetic checks and custom devices added as layer
 - BugFix: Fixed showing component actions when component merges. [STAC-14517](https://stackstate.atlassian.net/browse/STAC-14517)
 

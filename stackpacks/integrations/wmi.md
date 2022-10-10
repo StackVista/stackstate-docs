@@ -48,7 +48,7 @@ After the integration is enabled WMI queries can be defined in the integrations 
 Example instance:
 
 ```text
-  - # min_collection_interval: 120 # use in place of collection_interval for Agent v2.14.x or earlier 
+  - # min_collection_interval: 120 # use in place of collection_interval for Agent V2.14.x or earlier 
     collection_interval: 120
     class: Win32_PerfRawData_MSSQLSERVER_SQLServerDatabases
     metrics:

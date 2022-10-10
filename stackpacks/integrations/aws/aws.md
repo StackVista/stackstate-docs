@@ -256,7 +256,7 @@ If StackState Agent is running on a Linux VM:
        regions:
          - global # a special "region" used for global resources
          - eu-west-1
-       # min_collection_interval: 60 # use in place of collection_interval for Agent v2.14.x or earlier 
+       # min_collection_interval: 60 # use in place of collection_interval for Agent V2.14.x or earlier 
        collection_interval: 60 # The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
        # apis_to_run:
        #   - ec2
