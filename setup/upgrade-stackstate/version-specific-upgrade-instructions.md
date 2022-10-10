@@ -26,6 +26,7 @@ This page provides specific instructions and details of any required manual step
 * A new `stackstate/stackstate-agent` helm chart is available to deploy the StackState Agent, Checks Agent, Node Agent and kube_state_metrics on Kubernetes and OpenShift clusters. Some values have been renamed in the new chart.
   * The old `stackstate/cluster-agent` chart is being deprecated and will no longer be supported. 
   * If you were using the old `stackstate/cluster-agent` helm chart, you should [review and update your values.yaml file](/setup/agent/kubernetes.md#upgrade-helm-chart) before deploying with the new chart.
+* All Splunk checks can now run on Agent V2. If you have any Splunk checks running on Agent V1 (Splunk Metrics, Splunk Events or Splunk Topology V1), these should be migrated to run on Agent V2. Agent V1 has become Agent V1 (legacy) and will be deprecated in a future release of StackState.
 
 {% endtab %}
 {% tab title="Linux" %}
@@ -33,6 +34,7 @@ This page provides specific instructions and details of any required manual step
 #### v5.1.0
 
 * The required version of JDK has been updated - StackState now requires OpenJDK 11. This must be present on the installation machine before upgrading StackState. In case of having a mismatching JDK, StackState will fail to start and will log the reason in `stackstate.log`.
+* All Splunk checks can now run on Agent V2. If you have any Splunk checks running on Agent V1 (Splunk Metrics, Splunk Events or Splunk Topology V1), these should be migrated to run on Agent V2. Agent V1 has become Agent V1 (legacy) and will be deprecated in a future release of StackState.
 
 {% endtab %}
 {% endtabs %}

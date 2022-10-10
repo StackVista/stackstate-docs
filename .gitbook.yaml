@@ -357,3 +357,4 @@ redirects:
   use/metrics-and-events/event-notifications#state-change-events: ./use/events/event-notifications.md#state-change-events
   use/metrics-and-events/add-telemetry-to-element#aggregation-method: ./use/metrics/add-telemetry-to-element.md#aggregation-method
   configure/telemetry/send_telemetry: ./configure/telemetry/send_metrics.md
+  stackpacks/integrations/splunk/splunk_topology_v2: ./stackpacks/integrations/splunk/splunk_topology.md
