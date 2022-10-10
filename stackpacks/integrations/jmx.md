@@ -284,7 +284,7 @@ To see what you're collecting and get below the limit, begin by using the comman
 
 ### Java Path
 
-The agent does not come with a bundled JVM, but will use the one installed on your system. Therefore you must make sure that the Java home directory is present in the path of the user running the agent.
+The agent does not come with a bundled JVM, but will use the one installed on your system. Therefore, you must make sure that the Java home directory is present in the path of the user running the agent.
 
 Alternatively, you can specify the JVM path in the integration's configuration file:
 

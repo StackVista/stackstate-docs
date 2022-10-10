@@ -15,7 +15,7 @@ The full topology available in StackState is likely much larger than you need to
 
 Generally speaking, views serve two major purposes:
 
-1. Views are a type of bookmark. They help you to find your way back to a part of your topology that is of particular interest to you or your team. They may also serve as a starting point for defining new views.
+1. Views are a type of bookmark. They help you find your way back to a part of your topology that is of particular interest to you or your team. They may also serve as a starting point for defining new views.
 2. Views can be used for [event notifications and automation](/use/events/manage-event-handlers.md). Whenever a change within the view requires your attention, an event handler can send out a notification, create an incident in an ITSM system or trigger automation.
 
 Not all views are manually created. Many [StackPacks](../../../stackpacks/about-stackpacks.md) generate views after installation.
@@ -39,14 +39,17 @@ To add or remove a star:
 
 When you first open a view, the **View summary** will be visible in the right panel. This shows the following information:
 
-* **View properties** - The view health state, query and last updated timestamp.
-* **Components** - A summary of the number of components in the view.
-* **Problems** - Any [problems](../../problem-analysis/about-problems.md) in the view.
-* **Events** - The most recent events that occurred for components in the view. Click **View all** to open the [Events Perspective](../perspectives/events_perspective.md).
+* **View properties** - the view health state, query, last updated timestamp and a summary of the number of components in the view.
+* **Event handlers** - lists all event handlers configured for the view.
+* **Problems** - any [problems](../../problem-analysis/about-problems.md) identified in the view.
+* **Events** - the most recent events 
+* that occurred for components in the view. Click **View all** to open the [Events Perspective](../perspectives/events_perspective.md).
+
+![View summary tab](/.gitbook/assets/v51_view_summary.png)
 
 ## View health state
 
-A view is also a tool to define a clear selection of components for which you want to receive a event notifications. Typically, these are services that provide business value to a team's \(internal\) customers. StackState can define a single health state for any given set of components stored as a view - the [view health state](../../concepts/health-state.md#view-health-state). The view health state reflects the health state of components and relations within the view. It can be calculated based on a simple count, but it could also be something more complex, for example:
+A view is also a tool to define a clear selection of components for which you want to receive an event notifications. Typically, these are services that provide business value to a team's \(internal\) customers. StackState can define a single health state for any given set of components stored as a view - the [view health state](../../concepts/health-state.md#view-health-state). The view health state reflects the health state of components and relations within the view. It can be calculated based on a simple count, but it could also be something more complex, for example:
 
 * Report view health state `CLEAR` if service A and service B are working fine.
 * Report view health `DEVIATING` if service A has a problem.
@@ -54,11 +57,11 @@ A view is also a tool to define a clear selection of components for which you wa
 
 ### Enable or disable view health state
 
-To enable view health state, set `View Health State Enabled` to **on** when you [create or edit a view](create_edit_views.md). 
+To enable view health state, set **View Health State Enabled** to **on** when you [create or edit a view](create_edit_views.md). 
 
 To disable a view health state, [edit the view](/use/stackstate-ui/views/create_edit_views.md) and set `View Health State Enabled` to **off**.
 
-➡️ [Learn more about how to configure the view health state](configure-view-health.md).
+➡️ [Learn more the view health state](configure-view-health.md).
 
 ### Event notifications for view health state changes
 
@@ -105,7 +108,7 @@ Subviews can be shared with other StackState users as a link, this will include 
 
 To exit a subview and return to the previous view or explore mode, click the view name in the top bar of the StackState UI.
 
-![Breadcrumbs with view name](/.gitbook/assets/v50_problem_subview_breadcrumb.png)
+![Breadcrumbs with view name](/.gitbook/assets/v51_problem_subview_breadcrumb.png)
 
 ## See also
 

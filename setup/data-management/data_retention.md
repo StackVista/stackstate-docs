@@ -10,7 +10,7 @@ StackState imposes data retention limits to save storage space and improve perfo
 
 ## Retention of topology graph data
 
-By default topology graph data will be retained for 8 days. This works in a way that the latest state of topology graph will always be retained; only history older than 8 days will be removed. You can check and alter the configured retention period this using the StackState CLI.
+By default, topology graph data will be retained for 8 days. This works in a way that the latest state of topology graph will always be retained; only history older than 8 days will be removed. You can check and alter the configured retention period this using the StackState CLI.
 
 {% tabs %}
 {% tab title="CLI: stac" %}

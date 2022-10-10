@@ -45,7 +45,7 @@ StackState Agent V2 executes the Splunk saved searches configured in the [Splunk
 | **msg\_title** (string) | Message title. |
 | **msg\_text** (string) | Message text. |
 | **source\_type\_name** (string) | Source type name. |
-| All other fields | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result. Any other fields present in the result will be mapped to tags in the format `field`:`value`. |
+| All other fields | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/9.0.1/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result. Any other fields present in the result will be mapped to tags in the format `field`:`value`. |
 
 ### Example Splunk query
 
@@ -79,7 +79,7 @@ To enable the Splunk Events integration and begin collecting events data from yo
 
 {% hint style="info" %}
 Example Agent V2 Splunk Events check configuration file:  
-[splunk\_event/conf.yaml.example \(github.com\)](https://l.stackstate.com/ui-splunk-events-v2-check-example)
+[splunk\_event/conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_event/stackstate_checks/splunk_event/data/conf.yaml.example)
 {% endhint %}
 
 To configure the Splunk Events Agent check:
@@ -102,7 +102,7 @@ To configure the Splunk Events Agent check:
      * **max\_query\_chunk\_seconds** - Default `3600`.
      * **unique\_key\_fields** - The fields to use to [uniquely identify a record](splunk_events.md#uniquely-identify-a-record). Default `_bkt` and `_cd`.
      * **parameters** - Used in the Splunk API request. The default parameters provided make sure the Splunk saved search query refreshes. Default `force_dispatch: true` and `dispatch.now: true`.
-4. More advanced options can be found in the [example configuration \(github.com\)](https://l.stackstate.com/ui-splunk-events-v2-check-example). 
+4. More advanced options can be found in the [example configuration \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_event/stackstate_checks/splunk_event/data/conf.yaml.example). 
 5. Save the configuration file.
 6. Restart StackState Agent V2 to apply the configuration changes.
 7. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.
@@ -134,5 +134,5 @@ Events retrieved from splunk are available in StackState as a log telemetry stre
 
 * [StackState Splunk integration details](splunk_stackpack.md)
 * [Map telemetry to components](../../../use/metrics/add-telemetry-to-element.md)
-* [Example Splunk Events configuration file - splunk\_event/conf.yaml.example \(github.com\)](https://l.stackstate.com/ui-splunk-events-v2-check-example)
-* [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields)
+* [Example Splunk Events configuration file - splunk\_event/conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_event/stackstate_checks/splunk_event/data/conf.yaml.example)
+* [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/9.0.1/Data/Aboutdefaultfields)

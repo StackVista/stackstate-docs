@@ -28,7 +28,7 @@ helm repo update
 ## Install StackState
 
 1. [Create the namespace where StackState will be installed](install_stackstate.md#create-namespace)
-2. [Generate the `values.yaml` file](install_stackstate.md#generate-valuesyaml)
+2. [Generate the `values.yaml` file](install_stackstate.md#generate-values.yaml)
 3. [Deploy StackState with Helm](install_stackstate.md#deploy-stackstate-with-helm)
 4. [Access the StackState UI](install_stackstate.md#access-the-stackstate-ui)
 
@@ -92,7 +92,7 @@ To deploy StackState in a high availability setup on Kubernetes:
 
 1. Before you deploy:
    * [Create the namespace where StackState will be installed](install_stackstate.md#create-namespace)
-   * [Generate `values.yaml`](#generate-valuesyaml)
+   * [Generate `values.yaml`](#generate-values.yaml)
 2. Deploy the latest StackState version to the `stackstate` namespace with the following command:
 
 ```text
@@ -110,7 +110,7 @@ To deploy StackState in a non-high availability setup on Kubernetes:
 
 1. Before you deploy:
    * [Create the namespace where StackState will be installed](install_stackstate.md#create-namespace)
-   * [Generate `values.yaml`](#generate-valuesyaml)
+   * [Generate `values.yaml`](#generate-values.yaml)
    * [Create `nonha_values.yaml`](non_high_availability_setup.md)
 3. Deploy the latest StackState version to the `stackstate` namespace with the following command:
 
@@ -163,5 +163,5 @@ Next steps are
 
 StackState has built-in support for Kubernetes by means of the [Kubernetes StackPack](../../../stackpacks/integrations/kubernetes.md). To get started quickly, the StackState installation can automate installation of this StackPack and the required agent for the cluster that StackState itself will be installed on. This is not required and can always be done later from the StackPacks page of the StackState UI for StackState's cluster or any other Kuberenetes cluster.
 
-The only required information is a name for the Kubernetes cluster that will distinguish it from the other Kubernetes clusters monitored by StackState. A good choice usually is the same name that is used in the kube context configuration. This will then automatically install the StackPack and install a Daemonset for the agent and a deployment for the so called cluster agent. For the full details, read the [Kubernetes StackPack](../../../stackpacks/integrations/kubernetes.md) page.
+The only required information is a name for the Kubernetes cluster that will distinguish it from the other Kubernetes clusters monitored by StackState. A good choice usually is the same name that is used in the kube context configuration. This will then automatically install the StackPack and install a Daemonset for the agent and a deployment for the so-called cluster agent. For the full details, read the [Kubernetes StackPack](../../../stackpacks/integrations/kubernetes.md) page.
 

@@ -9,9 +9,9 @@ description: StackState Self-hosted v5.1.x
 When a component or relation reports a `DEVIATING` \(orange\) or `CRITICAL` \(red\) state, StackState will identify this as a problem in your IT environment. As StackState is aware of the connections and dependencies between components in the topology, related unhealthy state changes can be grouped together into a single problem with a single probable root cause. This is helpful because it will:
 
 * **Speed up problem investigation** - all unhealthy elements affected by a single root cause can be found in a dedicated subview.
-* **Reduce noise** - the evolution of the problem can be be tracked as a single entity, rather than a collection of individual, unhealthy elements.
+* **Reduce noise** - the evolution of the problem can be tracked as a single entity, rather than a collection of individual, unhealthy elements.
 
-![Problems in View summary](/.gitbook/assets/v50_problem_summary.png)
+![Problems in View summary](/.gitbook/assets/v51_problem_summary.png)
 
 ## Topology elements in a problem
 

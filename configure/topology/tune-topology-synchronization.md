@@ -97,7 +97,7 @@ stackstate:
                     cpu: 4
 ```
 
-To guarantee performance, requests should ideally be set equal to limits. Limits can never be lower than requests.
+To guarantee performance, `requests` should ideally be set equal to `limits`. `Limits` can never be lower than `requests`.
 
 After making this modification, [observe the synchronization performance](#observe-topology-synchronization-performance) again to be sure that the changes have had the desired effect. If not, do another iteration to further tune the synchronization.
 

@@ -83,7 +83,7 @@ To install the AAD StackPack, simply press the **INSTALL** button. No other acti
 
 ### Training period
 
-The AAD will need to train on your data before it can begin reporting anomalies. With data collected in 1 minute buckets, the AAD requires a 2 hour training period. If historic data exists for relevant metric streams, this will also be used for training the AAD. In this case, the first results can be expected within an hour.  Up to a day of data is used for training.  After the initial training, the AAD will continuously refine its model and adapt to any changes in the data.
+The AAD will need to train on your data before it can begin reporting anomalies. With data collected in 1 minute buckets, the AAD requires a 2-hour training period. If historic data exists for relevant metric streams, this will also be used for training the AAD. In this case, the first results can be expected within an hour.  Up to a day of data is used for training.  After the initial training, the AAD will continuously refine its model and adapt to any changes in the data.
 
 ## Frequently Asked Questions
 
