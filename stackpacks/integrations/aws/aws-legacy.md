@@ -2,10 +2,10 @@
 description: StackState Self-hosted v5.1.x 
 ---
 
-# AWS \(Legacy\)
+# AWS \(legacy\)
 
 {% hint style="info" %}
-The AWS \(Legacy\) StackPack has been deprecated. It is recommended to use the [new AWS integration](aws.md).
+The AWS \(legacy\) StackPack has been deprecated. It is recommended to use the [new AWS integration](aws.md).
 {% endhint %}
 
 ## Overview
@@ -287,15 +287,15 @@ These environment variables have the same names used by the AWS\_CLI utility and
 
 ## Release notes
 
-**AWS \(Legacy\) StackPack v5.3.3 (2021-11-16)**
+**AWS \(legacy\) StackPack v5.3.3 (2021-11-16)**
 
 * Improvement: Updated AWS CLI prerequisite text.
 
-**AWS \(Legacy\) StackPack v5.3.2 (2021-08-20)**
+**AWS \(legacy\) StackPack v5.3.2 (2021-08-20)**
 
 * Improvement: Add description to Views.
 
-**AWS \(Legacy\) StackPack v5.3.1 \(2021-07-16\)**
+**AWS \(legacy\) StackPack v5.3.1 \(2021-07-16\)**
 
 * Feature: Added Legacy logo and deprecation message, the new AWS stackpack is ready to use on StackState 4.4+.
 * Bugfix: Fixed problem when uninstalling CloudFormation Stack that CloudTrail was still producing logs.
