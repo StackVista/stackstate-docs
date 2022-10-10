@@ -83,7 +83,7 @@ To enable the Splunk Metrics integration and begin collecting metrics data from 
 
 {% hint style="info" %}
 Example Agent V2 Splunk Metrics check configuration file:  
-[splunk\_metric/conf.yaml.example \(github.com\)](https://l.stackstate.com/ui-splunk-metrics-v2-check-example)
+[splunk\_metric/conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_metric/stackstate_checks/splunk_metric/data/conf.yaml.example)
 {% endhint %}
 
 To configure the Splunk Metrics Agent check:
@@ -108,7 +108,7 @@ To configure the Splunk Metrics Agent check:
      * **max\_query\_chunk\_seconds** - Default `3600`
      * **unique\_key\_fields** - The fields to use to [uniquely identify a record](splunk_metrics.md#uniquely-identify-a-record). Default `_bkt` and `_cd`.
      * **parameters** - Used in the Splunk API request. The default parameters provided make sure the Splunk saved search query refreshes. Default `force_dispatch: true` and `dispatch.now: true`.
-4. More advanced options can be found in the [example configuration \(github.com\)](https://l.stackstate.com/ui-splunk-metrics-v2-check-example). 
+4. More advanced options can be found in the [example configuration \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_metric/stackstate_checks/splunk_metric/data/conf.yaml.example). 
 5. Save the configuration file.
 6. Restart StackState Agent V2 to apply the configuration changes.
 7. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.
@@ -140,5 +140,5 @@ Metrics retrieved from splunk are available in StackState as a metrics telemetry
 
 * [StackState Splunk integration details](splunk_stackpack.md)
 * [Map telemetry to components](../../../use/metrics/add-telemetry-to-element.md)
-* [Example Splunk Metrics configuration file - splunk\_metric/conf.yaml.example \(github.com\)](https://l.stackstate.com/ui-splunk-metrics-v2-check-example)
+* [Example Splunk Metrics configuration file - splunk\_metric/conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_metric/stackstate_checks/splunk_metric/data/conf.yaml.example)
 
