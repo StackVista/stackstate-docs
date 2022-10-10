@@ -59,8 +59,8 @@ For this step, you will not physically run or create any Docker volumes, but you
 
 To compile a list of all the conf.d Docker volumes, do the following:
 
-- Head over to the `/etc/sts-agent/conf.d/` folder.
-- For each file inside the folder, compile a list of volumes. For example, if we use Splunk as the example:
+1. Go to the directory `/etc/sts-agent/conf.d/`.
+2. For each file in the directory, compile a list of volumes. For example, the files used for the Agent V1 (legacy) Splunk checks (Splunk Events, Splunk Metrics and Splunk Topology V1) are shown below:
   - File 1: `/etc/sts-agent/conf.d/splunk_topology.yaml`
     ```
     - "/etc/sts-agent/conf.d/splunk_topology.yaml:/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml"
@@ -79,23 +79,22 @@ To compile a list of all the conf.d Docker volumes, do the following:
     - "/etc/sts-agent/conf.d/splunk_metric.yaml:/etc/stackstate-agent/conf.d/splunk_metric.d/splunk_metric.yaml"
     ```
 
-Now that you have the snippet above keep it on the side, we will use it in the Docker-Compose file
+3. Keep the above snippet on the side, we will use it in the Docker-Compose file.
 
 
-### 2B. **This part is only required if you have Splunk Topology Check enabled**
+### 2B. **Only required if you have Splunk Topology V1 check enabled on Agent V1 (legacy)**
 
 {% hint style="warning" %}
-**This will break the `splunk_topology.yaml` configuration for Agent V1 (legacy)**
+**This will break the `splunk_topology.yaml` check configuration for Agent V1 (legacy)**
 {% endhint %}
 
-- Edit the check configuration file `/etc/sts-agent/conf.d/splunk_topology.yaml` and replace all occurrences of the following items
+- Edit the check configuration file `/etc/sts-agent/conf.d/splunk_topology.yaml` and replace all occurrences of the following items:
   - `default_polling_interval_seconds` replace with `collection_interval`
   - `polling_interval_seconds` replace with `collection_interval`
 
-
 ### 3. Add the Agent State directory into your volume snippet
 
-With the list of volumes you created in step 2, add one additional line for the Agent State, This will allow us to migrate the existing Agent V1 (legacy) State to the Agent V2 Docker Container.
+Take the list of volumes you created in step 2 and add one additional line for the Agent State. This will allow us to migrate the existing Agent V1 (legacy) State to the new Agent V2 Docker Container.
 
 Add the following line
 ```
@@ -110,29 +109,27 @@ If we look at the splunk example from the previous step, it will look as follows
 - "/etc/sts-agent/conf.d/splunk_metric.yaml:/etc/stackstate-agent/conf.d/splunk_metric.d/splunk_metric.yaml"
 ```
 
-Now that you have the snippet above keep it on the side, we will use it in the Docker-Compose file
+Keep the above snippet on the side, we will use it in the Docker-Compose file.
 
 
 ### 4. Migrate the Agent V1 (legacy) cache
 
-Migrating the Agent V1 (legacy) cache requires a cache conversion process, and this is a manual process that StackState will assist you with.
-Contact StackState to assist with this process.
+Migrating the Agent V1 (legacy) cache requires a cache conversion process. This is a manual process that StackState will assist you with. Contact StackState support to assist with this process.
 
 A breakdown of the steps that will happen in the cache migration is as follows:
 
 - Back up the Agent V1 (legacy) cache folder from the following location `/opt/stackstate-agent/run/`.
 - Run the Agent V1 (legacy) cache migration process.
-  - The output of the cache migration process will either be manually moved into the Agent V2 cache directory or automatically, depending on the conversion process used for Agent V2 (Some steps, depending on the installation, can only be done manually).
+- The output of the cache migration process will be moved into the Agent V2 cache directory. Depending on the installation, some steps may need to be completed manually.
 
+### 5. Install and start Agent V2
 
-### 5. Install and Start Agent V2
-
-To run StackState Agent V2 with Docker compose
+To run StackState Agent V2 with Docker compose:
 
 1. Add the following configuration to the compose file on each node where the Agent will run.  
    * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
    * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState.
-   * `<ADD_YOUR_VOLUME_SNIPPET_YOU_CREATED_HERE>` this is the volume snippet you created in step 2 and 3.
+   * `<THE_VOLUME_SNIPPET_YOU_CREATED>` this is the volume snippet you created in step 2 and 3.
 ```dockerfile
 stackstate-agent:
  image: docker.io/stackstate/stackstate-agent-2:2.17.2
@@ -145,7 +142,7 @@ stackstate-agent:
    - "/sys/fs/cgroup/:/host/sys/fs/cgroup:ro"
    - "/etc/passwd:/etc/passwd:ro"
    - "/sys/kernel/debug:/sys/kernel/debug"
-   <ADD_YOUR_VOLUME_SNIPPET_YOU_CREATED_HERE>
+   <THE_VOLUME_SNIPPET_YOU_CREATED>
  environment:
    STS_API_KEY: "<STACKSTATE_RECEIVER_API_KEY>"
    STS_STS_URL: "<STACKSTATE_RECEIVER_API_ADDRESS>"
@@ -159,7 +156,8 @@ stackstate-agent:
    HOST_SYS: "/host/sys"
 ```
 
-Example with Splunk Included and the Agent V1 (legacy) State Directory
+Example with Splunk included and the Agent V1 (legacy) state directory:
+
 ```dockerfile
 stackstate-agent:
  image: docker.io/stackstate/stackstate-agent-2:2.17.2
@@ -194,10 +192,7 @@ stackstate-agent:
    docker-compose up -d
    ```
 
-
-
-
-## Migration Process - Docker Single Container
+## Migration process - Docker single container
 
 ### 1. Stop Agent V1 (legacy)
 
@@ -225,8 +220,8 @@ For this step, you will not physically run or create any docker volumes, but you
 
 To compile a list of all the conf.d docker volumes, do the following:
 
-- Head over to the `/etc/sts-agent/conf.d/` folder.
-- For each file inside the folder, compile a list of volumes. For example, if we use Splunk as the example **(Remember to add a \ on the ending of each line)**:
+1. Go to the directoty `/etc/sts-agent/conf.d/`
+2. For each file inside the folder, compile a list of volumes. For example, if we use Splunk as the example **(Remember to add a \ on the ending of each line)**:
   - File 1: `/etc/sts-agent/conf.d/splunk_topology.yaml`
     ```
     -v /etc/sts-agent/conf.d/splunk_topology.yaml:/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml \
@@ -245,23 +240,22 @@ To compile a list of all the conf.d docker volumes, do the following:
     -v /etc/sts-agent/conf.d/splunk_metric.yaml:/etc/stackstate-agent/conf.d/splunk_metric.d/splunk_metric.yaml \
     ```
 
-Now that you have the snippet above keep it on the side, we will use it in the docker run command
+3. Keep the above snippet on the side, we will use it in the `docker run` command.
 
-
-### 2B. **This part is only required if you have Splunk Topology Check enabled**
+### 2B. **Only required if you have the Splunk Topology V1 check enabled**
 
 {% hint style="warning" %}
-**This will break the `splunk_topology.yaml` conf for Agent V1 (legacy)**
+**This will break the `splunk_topology.yaml` check configuration for Agent V1 (legacy)**
 {% endhint %}
 
-- Edit the check configuration file `/etc/sts-agent/conf.d/splunk_topology.yaml` and replace all occurrences of the following items
+- Edit the check configuration file `/etc/sts-agent/conf.d/splunk_topology.yaml` and replace all occurrences of the following items:
   - `default_polling_interval_seconds` replace with `collection_interval`
   - `polling_interval_seconds` replace with `collection_interval`
 
 
 ### 3. Add the Agent State directory into your volume snippet
 
-With the list of volumes you created in step 2, add one additional line for the Agent State, This will allow us to migrate the existing Agent V1 (legacy) State to the Agent V2 Docker Container.
+Take the list of volumes you created in step 2 and add one additional line for the Agent State. This will allow us to migrate the existing Agent V1 (legacy) State to the Agent V2 Docker Container.
 
 Add the following line **(Remember to add a \ on the ending of each line)**
 ```

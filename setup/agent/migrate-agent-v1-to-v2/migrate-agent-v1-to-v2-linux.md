@@ -112,16 +112,15 @@ This can be done by following these steps:
   - `polling_interval_seconds` replace with `collection_interval`
 {% endhint %}
 
-### 5. Migrate the Agent V1 (legacy) cache
+### 4. Migrate the Agent V1 (legacy) cache
 
-Migrating the Agent V1 (legacy) cache requires a cache conversion process, and this is a manual process that StackState will assist you with.
-Contact StackState to assist with this process.
+Migrating the Agent V1 (legacy) cache requires a cache conversion process. This is a manual process that StackState will assist you with. Contact StackState support to assist with this process.
 
 A breakdown of the steps that will happen in the cache migration is as follows:
 
-- Backing up the Agent V1 (legacy) cache folder from the following location `/opt/stackstate-agent/run/`.
+- Back up the Agent V1 (legacy) cache folder from the following location `/opt/stackstate-agent/run/`.
 - Run the Agent V1 (legacy) cache migration process.
-    - The output of the cache migration process will either be manually moved into the Agent V2 cache directory or automatically, depending on the conversion process used for Agent V2 (Some steps, depending on the installation, can only be done manually).
+- The output of the cache migration process will be moved into the Agent V2 cache directory. Depending on the installation, some steps may need to be completed manually.
 
 ### 5. Start Agent V2
 
