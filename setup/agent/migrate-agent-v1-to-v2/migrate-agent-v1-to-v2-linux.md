@@ -6,25 +6,24 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-The steps below will assist you in successfully migrating from Agent V1 (legacy) to Agent V2. 
-This migration process will also migrate your existing Agent V1 (legacy) state allowing checks like Splunk to continue from its previous state.
+This page will walk you through the steps required to successfully migrate from Agent V1 (legacy) to Agent V2.  This migration process will also migrate the  existing Agent V1 (legacy) state. This will allow Agent checks, such as Splunk topology, metrics or event checks, to continue on Agent V2 from their previous state.
 
 {% hint style="warning" %}
-These steps **must be done in the correct order** to prevent any Agent V1 (legacy) to Agent V2 issues.
+**These steps must be carried out in the correct order**.
 
-Problems like invalid Agent state files, overwritten state files or even a broken Agent V2 instance can occur when the order is broken.
+Problems can occur if any of the steps is completed out of order. This could result in overwritten Agent state files, invalid Agent state files or a broken Agent V2 instance.
 {% endhint %}
 
 {% hint style="warning" %}
-**If possible, it's highly recommended to run this migration in a Test Environment, It may affect some steps below but reduce the initial impact if something does not work**
+**It is highly recommended to run this migration in a test environment. It may affect some steps below but reduce the initial impact if something does not work**
 {% endhint %}
 
 {% hint style="warning" %}
 ## Impact Analysis
 
 ### Downtime
-- When swapping between Agent V1 (legacy) and Agent V2, there will be some downtime for the StackState Agent to allow a successful migration process.
-- The length the Agent will be down for depends on how fast the process below happens.
+- Some downtime is required for the StackState Agent to allow a successful migration processfrom Agent V1 (legacy) to Agent V2.
+- The length of time that the Agent will be down depends on how quickly the process described on this page is completed.
 
 ### Performance
 - The exact performance impact of switching from Agent V1 (legacy) to Agent V2 can increase or decrease the number of resources used in the environments.
