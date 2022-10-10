@@ -78,7 +78,7 @@ The example Splunk saved search above would result in the following event data i
 To enable the Splunk Events integration and begin collecting events data from your Splunk instance, the Splunk Events check must be configured on StackState Agent V1. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
 
 {% hint style="info" %}
-Example Splunk Events Agent check configuration file:  
+Example Agent V2 Splunk Events check configuration file:  
 [splunk\_event/conf.yaml.example \(github.com\)](https://l.stackstate.com/ui-splunk-events-v2-check-example)
 {% endhint %}
 

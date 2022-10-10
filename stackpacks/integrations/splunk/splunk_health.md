@@ -61,7 +61,7 @@ StackState Agent V2 executes the Splunk saved searches configured in the [Splunk
 To enable the Splunk Health integration and begin collecting health data from your Splunk instance, the Splunk Health check must be configured on StackState Agent V2. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
 
 {% hint style="info" %}
-Example Splunk Health Agent check configuration file:  
+Example Agent V2 Splunk Health check configuration file:  
 [splunk\_health/conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_health/stackstate_checks/splunk_health/data/conf.yaml.example)
 {% endhint %}
 

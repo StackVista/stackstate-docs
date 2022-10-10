@@ -117,12 +117,12 @@ The example Splunk saved search above would result in the following topology rel
 
 ## Agent check
 
-### Configure the Splunk V2 topology check
+### Configure the Splunk Topology check
 
 To enable the Splunk Topology integration and begin collecting component and relation data from your Splunk instance, the Splunk Topology check must be configured on StackState Agent V2. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
 
 {% hint style="info" %}
-Example Splunk Topology Agent check configuration file:  
+Example Agent V2 Splunk Topology check configuration file:  
 [splunk\_topology/conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_topology/stackstate_checks/splunk_topology/data/conf.yaml.example)
 {% endhint %}
 
