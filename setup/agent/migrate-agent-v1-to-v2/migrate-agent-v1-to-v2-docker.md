@@ -236,7 +236,6 @@ To compile a list of all the conf.d docker volumes, do the following:
     -v /etc/sts-agent/conf.d/splunk_event.yaml:/etc/stackstate-agent/conf.d/splunk_event.d/splunk_event.yaml \
     -v /etc/sts-agent/conf.d/splunk_metric.yaml:/etc/stackstate-agent/conf.d/splunk_metric.d/splunk_metric.yaml \
     ```
-
 3. Keep the above snippet on the side, we will use it in the `docker run` command.
 
 {% hint style="info" %}
