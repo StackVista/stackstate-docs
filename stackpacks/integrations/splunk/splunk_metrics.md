@@ -34,11 +34,11 @@ The Splunk Metrics check on StackState Agent V2 will execute all configured Splu
 
 StackState Agent V2 executes the Splunk saved searches configured in the [Splunk Metrics Agent check configuration file](splunk_metrics.md#agent-check) and pushes retrieved data to StackState as a telemetry stream. The following fields from the results of a saved search are sent to StackState:
 
-| Field | Type | Required? | Description |
-| :--- | :--- | :--- | :--- |
-| **\_time** | long | - | Data collection timestamp, millis since epoch. |
-| **metric** | string | - | The name of the metric. Taken from the configured `metric_name_field`. |
-| **value** | numeric | - | The value of the metric. Taken from the configured `metric_value_field`. |
+| Field                | Description                                                            |
+|:---------------------|:-----------------------------------------------------------------------|
+| **\_time** (long)    | Data collection timestamp, millis since epoch.                         |
+| **metric** (string)  | The name of the metric. Taken from the configured `metric_name_field`. |
+| **value**  (numeric) | The value of the metric. Taken from the configured `metric_value_field`. |
 
 ### Example Splunk query
 
