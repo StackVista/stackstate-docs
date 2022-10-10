@@ -36,12 +36,12 @@ StackState Agent V2 executes the Splunk saved searches configured in the [Splunk
 
 | Field | Required? | Description |
 | :--- | :-- | :--- | 
-| **\_time** (long ) | ✅ | The data collection timestamp, in milliseconds since epoch. |
-| **event\_type** (string) | - | Event type, for example `server_created`. |
-| **msg\_title** (string) | - | Message title. |
-| **msg\_text** (string) | - | Message text. |
-| **source\_type\_name** (string) | - | Source type name. |
-| All other fields | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result. Any other fields present in the result will be mapped to tags in the format `field`:`value`. |
+| **\_time** (long ) | Required. The data collection timestamp, in milliseconds since epoch. |
+| **event\_type** (string) |Event type, for example `server_created`. |
+| **msg\_title** (string) | Message title. |
+| **msg\_text** (string) | Message text. |
+| **source\_type\_name** (string) | Source type name. |
+| All other fields | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result. Any other fields present in the result will be mapped to tags in the format `field`:`value`. |
 
 ### Example Splunk query
 
