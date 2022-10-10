@@ -154,5 +154,7 @@ The log files for the above process can be found at the following locations:
 
 
 {% hint style="info" %}
+**Splunk Health check**
+
 In addition to the Splunk Topology, Metrics and Events checks, StackState Agent V2 can also be configured to run a [Splunk Health](/stackpacks/integrations/splunk/splunk_health.md) check to collect health data from Splunk.
 {% endhint %}
