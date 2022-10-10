@@ -220,22 +220,22 @@ For this step, you will not physically run or create any docker volumes, but you
 To compile a list of all the conf.d docker volumes, do the following:
 
 1. Go to the directoty `/etc/sts-agent/conf.d/`
-   1. For each file inside the folder, compile a list of volumes. For example, if we use Splunk as the example **(Remember to add a \ on the ending of each line)**:
-      * **File 1:** `/etc/sts-agent/conf.d/splunk_topology.yaml`
-          ```
-          -v /etc/sts-agent/conf.d/splunk_topology.yaml:/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml \
-          ```
-        * **File 2:** `/etc/sts-agent/conf.d/splunk_event.yaml` - add to the existing list:
-       ```
-       -v /etc/sts-agent/conf.d/splunk_topology.yaml:/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml \
-       -v /etc/sts-agent/conf.d/splunk_event.yaml:/etc/stackstate-agent/conf.d/splunk_event.d/splunk_event.yaml \
-       ```
-      * **File 3:** `/etc/sts-agent/conf.d/splunk_metric.yaml` - add to the existing list:
-       ```
-       -v /etc/sts-agent/conf.d/splunk_topology.yaml:/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml \
-       -v /etc/sts-agent/conf.d/splunk_event.yaml:/etc/stackstate-agent/conf.d/splunk_event.d/splunk_event.yaml \
-       -v /etc/sts-agent/conf.d/splunk_metric.yaml:/etc/stackstate-agent/conf.d/splunk_metric.d/splunk_metric.yaml \
-       ```
+   1. For each file inside the folder, compile a list of volumes. For example, if we use Splunk as the example **(Remember to add a \ on the ending of each line)**: 
+   * **File 1:** `/etc/sts-agent/conf.d/splunk_topology.yaml`
+   ```
+   -v /etc/sts-agent/conf.d/splunk_topology.yaml:/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml \
+   ```
+   * **File 2:** `/etc/sts-agent/conf.d/splunk_event.yaml` - add to the existing list:
+   ```
+   -v /etc/sts-agent/conf.d/splunk_topology.yaml:/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml \
+   -v /etc/sts-agent/conf.d/splunk_event.yaml:/etc/stackstate-agent/conf.d/splunk_event.d/splunk_event.yaml \
+   ```
+   * **File 3:** `/etc/sts-agent/conf.d/splunk_metric.yaml` - add to the existing list:
+   ```
+   -v /etc/sts-agent/conf.d/splunk_topology.yaml:/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml \
+   -v /etc/sts-agent/conf.d/splunk_event.yaml:/etc/stackstate-agent/conf.d/splunk_event.d/splunk_event.yaml \
+   -v /etc/sts-agent/conf.d/splunk_metric.yaml:/etc/stackstate-agent/conf.d/splunk_metric.d/splunk_metric.yaml \
+   ```
 2. Keep the above snippet on the side, we will use it in the `docker run` command.
 
 {% hint style="info" %}
