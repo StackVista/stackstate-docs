@@ -15,7 +15,7 @@ Push-based integrations are built in python and run as part of StackState Agent 
 
 ## Setup
 
-[This repository](https://github.com/StackVista/push-integration-tutorial) contains a sample project that sets up an Agent check called `example` that sends topology into StackState. It uses docker to run StackState Agent V2 to execute the check.
+[This repository](https://github.com/StackVista/push-integration-tutorial) contains a sample project that sets up an Agent check called `example` that sends topology into StackState. It uses Docker to run StackState Agent V2 to execute the check.
 
 Clone the repository to your laptop to get started.
 
@@ -48,7 +48,7 @@ export STS_API_KEY=my-api-key
 export STS_STS_URL=https://stackstate.acme.com/stsAgent
 ```
 
-If you are running the Agent from a container and StackState on your local machine \(for example, via our Kubernetes helm charts\) you can refer the Agent in the docker container to your local StackState:
+If you are running the Agent from a container and StackState on your local machine \(for example, via our Kubernetes helm charts\) you can refer the Agent in the Docker container to your local StackState:
 
 ```text
 export STS_STS_URL=https://host.docker.internal/stsAgent

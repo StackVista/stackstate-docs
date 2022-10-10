@@ -35,7 +35,7 @@ Switching from Agent V1 (legacy) to Agent V2 can either increase or decrease the
 
 ### 1. Stop Agent V1 (legacy)
 
-Agent V1 (legacy) will have to be stopped before proceeding with the **Agent V2 install** and **Agent V1 state** migration.
+Agent V1 (legacy) must be stopped before proceeding with the **Agent V2 install** and **Agent V1 state** migration.
 
 {% hint style="warning" %}
 **If Agent V1 (legacy) is still running, it might interfere with the installation process of Agent V2 or, even worse, break the Agent V2 state.**
@@ -55,9 +55,9 @@ sudo /etc/init.d/stackstate-agent status
 
 ### 2. Create a Docker-Compose volume snippet of the conf.d files
 
-For this step, you will not physically run or create any docker volumes, but you need to create a snippet of docker volumes that will be appended inside your docker-compose file.
+For this step, you will not physically run or create any Docker volumes, but you need to create a snippet of Docker volumes that will be appended inside your docker-compose file.
 
-To compile a list of all the conf.d docker volumes, do the following:
+To compile a list of all the conf.d Docker volumes, do the following:
 
 - Head over to the `/etc/sts-agent/conf.d/` folder.
 - For each file inside the folder, compile a list of volumes. For example, if we use Splunk as the example:
