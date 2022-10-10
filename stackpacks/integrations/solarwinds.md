@@ -135,7 +135,7 @@ The SolarWinds check retrieves the health status from nodes and interfaces and t
 | Critical | `CRITICAL`              |
 
 {% hint style="info" %}
-The configured `collection_interval` will be used as the [`repeat_interval` for the health synchronization](../../../configure/health/health-synchronization.md#repeat-interval). Make sure that the value set for the the `collection_interval` matches the time that the check will take to run.
+The configured `collection_interval` will be used as the [`repeat_interval` for the health synchronization](../../../configure/health/health-synchronization.md#repeat-interval). Make sure that the value set for the `collection_interval` matches the time that the check will take to run.
 {% endhint %}
 
 #### Traces

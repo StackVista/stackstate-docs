@@ -17,7 +17,7 @@ PostgreSQL is a [StackState curated integration](/stackpacks/integrations/about_
 
 ### Installation
 
-The PostgreSQL check is included in the [Agent V2 StackPack](agent.md) StackPack. To start gathering your PostgreSQL metrics and logs, install the Agent V2 first.
+The PostgreSQL check is included in the [Agent V2 StackPack](agent.md). To start gathering your PostgreSQL metrics and logs, install the Agent V2 first.
 
 ### Configuration
 

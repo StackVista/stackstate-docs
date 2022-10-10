@@ -143,7 +143,7 @@ Includes the content of another file inside this template. This can come in hand
 include "<filename>" "<encoding>"
 ```
 
-* **filename** - The name of the file to include from the StackPack. The file must exist in the `provisioning` directory or one of its sub-directories.
+* **filename** - The name of the file to include from the StackPack. The file must exist in the `provisioning` directory or one of its subdirectories.
 * **encoding** \(optional, default = `handlebars`\) - Choice of:
    * `handlebars` - Included file will be interpreted as StackState Templated JSON.
    * `identity` - Included file will be not be interpreted, but simply will be included as text.

@@ -47,7 +47,7 @@ Components should be generic enough to group similar components but specific eno
 
 ## Relations
 
-Relation names depend heavily on how much is known about the relation. Do we only know these nodes are connected or de we know why they are connected. Make sure the name reflects what you know for a fact about the relation. The following are examples of relations used in StackPacks.
+Relation names depend heavily on how much is known about the relation. Do we only know these nodes are connected or de we know why they are connected? Make sure the name reflects what you know for a fact about the relation. The following are examples of relations used in StackPacks.
 
 * connection
 * depends on

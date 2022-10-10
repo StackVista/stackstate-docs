@@ -29,7 +29,7 @@ There are two ways of getting Component Actions in StackState:
 1. Import of Actions predefined in a StackPack
 2. Configure a new custom Action in the Settings page
 
-Components Actions imported with a StackPack appear as locked items in the StackState UI page **Settings** &gt; **Actions** &gt; **Component Actions**. Editing a locked component action will unlock it, but this may prevent the StackPack from correct upgrades in the future. To restore the locked status of a Component Action, reinstall the StackPack that imported it.
+Component Actions imported with a StackPack appear as locked items in the StackState UI page **Settings** &gt; **Actions** &gt; **Component Actions**. Editing a locked component action will unlock it, but this may prevent the StackPack from correct upgrades in the future. To restore the locked status of a Component Action, reinstall the StackPack that imported it.
 
 Find out [how to configure Component Actions](../../develop/developer-guides/custom-functions/component-actions.md).
 

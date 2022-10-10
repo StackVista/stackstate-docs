@@ -14,7 +14,7 @@ Unhealthy components in a view are grouped into [problems](about-problems.md) ba
 
 Problems are listed by the timestamp of the health state change for the root cause component - you will find the oldest problem in the view at the bottom of the list. Select a problem to open [detailed information about the problem ](problem_investigation.md#detailed-information-about-a-problem) in the right panel details tab - **Problem details**.
 
-![View summary](/.gitbook/assets/v50_view_details_problems.png)
+![View summary](/.gitbook/assets/v51_view_details_problems.png)
 
 ## Detailed information about a problem
 
@@ -60,7 +60,7 @@ A problem subview is a temporary StackState view. The filters applied to a probl
 * **Contributing cause** - A problem can contain any number of contributing causes. These are all of the unhealthy components in the problem, other than the root cause.
 * **Healthy components** - A number of healthy components are also included in a problem:
   * Upstream healthy dependencies of the root cause or one of the contributing causes.
-  * Downstream healthy components with an unhealthy [propagated state](/use/concepts/health-state.md#propagated-health-state) that originates from either the root cause or one of the contributing causes.
+  * Downstream healthy components with an unhealthy [propagated state](/use/concepts/health-state.md#element-propagated-health-state) that originates from either the root cause or one of the contributing causes.
 
 Within a problem subview, you have access to all perspectives containing data specific to the problem time window and the involved components. The applied filters can be adjusted, but it is not possible to save the subview. You can share the problem subview with other StackState users, including any modifications you have made, as a link.
 

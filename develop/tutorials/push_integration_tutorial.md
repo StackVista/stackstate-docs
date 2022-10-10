@@ -39,7 +39,7 @@ Instance URL: example://example-1
 
 ## Prepare the tutorial
 
-The StackState Agent V2 container uses the root directory of this repository for it's configuration files.
+The StackState Agent V2 container uses the root directory of this repository for its configuration files.
 
 Before running the example, you need to configure the sample project with your StackState instance URL and API key.
 
@@ -48,7 +48,7 @@ export STS_API_KEY=my-api-key
 export STS_STS_URL=https://stackstate.acme.com/stsAgent
 ```
 
-If you are running the Agent from a container and StackState on your local machine \(eg via our Kubernetes helm charts\) you can refer the Agent in the docker container to your local StackState:
+If you are running the Agent from a container and StackState on your local machine \(for example, via our Kubernetes helm charts\) you can refer the Agent in the docker container to your local StackState:
 
 ```text
 export STS_STS_URL=https://host.docker.internal/stsAgent
@@ -200,7 +200,7 @@ Here is what that looks like:
 
 ![](../../.gitbook/assets/v51_example-check-function.png)
 
-Finally save the check function.
+Finally, save the check function.
 
 Now, let's create some test events for the component. Provided you have set the correct environment variables, the following command sends events into StackState:
 

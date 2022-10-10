@@ -251,7 +251,7 @@ self.event({
 
 StackState can ingest check states from external monitoring systems. Before getting started, you can read up on the core concepts of [health Synchronization](../../../configure/health/health-synchronization.md).
 
-To setup a health synchronization stream within a check, the following function needs to be defined:
+To set up a health synchronization stream within a check, the following function needs to be defined:
 
 ```text
 from stackstate_checks.base import AgentCheck, ConfigurationError, HealthStreamUrn, HealthStream
@@ -289,7 +289,7 @@ In the example below, a check state is created in StackState with the health val
 * The check is attached to the component or relation matching the `topology_element_identifier`.
 * The `check_state_id` is used to distinguish check states within the current health stream.
 
-Check states can be send through the health synchronization api, using the `self.health.check_state()` functions in the `AgentCheck` interface. The example below shows how to submit the data:
+Check states can be sent through the health synchronization api, using the `self.health.check_state()` functions in the `AgentCheck` interface. The example below shows how to submit the data:
 
 ```text
 from stackstate_checks.base import Health

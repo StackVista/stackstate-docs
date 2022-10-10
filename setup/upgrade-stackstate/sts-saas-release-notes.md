@@ -77,7 +77,7 @@ Upgraded:
 
 ### v5.0.0 (2022-06-24)
 
-The StackState v5.0 release delivers brand new features and enhancements that help your team troubleshoot faster. Here are some highlights:
+The StackState v5.0 release delivers brand-new features and enhancements that help your team troubleshoot faster. Here are some highlights:
 
 * **[New 4T® Monitors](/use/checks-and-monitors/monitors.md)** – adds a new, first-in-the-industry dimension to observability monitoring – the ability to now monitor topology and to set validation rules that span topology and multiple other parameters
 * **Improved Topology Visualizer and Right Panel** – substantially enhances user experience and increases productivity with a more modern, focused, easy-to-learn UI and more in-depth troubleshooting capabilities.

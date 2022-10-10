@@ -39,7 +39,7 @@ To configure StackState Agent V2 to read CSV health files:
 3. Once the Agent has restarted, wait for the Agent to collect data from the specified [health CSV file](static_health.md#csv-file-format) and send it to StackState.
 
 {% hint style="info" %}
-The configured `collection_interval` will be used as the [`repeat_interval` for the health synchronization](../../../configure/health/health-synchronization.md#repeat-interval). Make sure that the value set for the the `collection_interval` matches the time that the check will take to run.
+The configured `collection_interval` will be used as the [`repeat_interval` for the health synchronization](../../../configure/health/health-synchronization.md#repeat-interval). Make sure that the value set for the `collection_interval` matches the time that the check will take to run.
 {% endhint %}
 
 ## CSV file format

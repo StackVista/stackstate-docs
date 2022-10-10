@@ -12,7 +12,7 @@ To use anomaly health checks, the [Autonomous Anomaly Detector](../../stackpacks
 
 The [Autonomous Anomaly Detector \(AAD\)](../../stackpacks/add-ons/aad.md) looks for deviations in metric streams. It annotates the metric streams with anomalies and generates corresponding anomaly events. The anomaly events can be viewed in the [event perspective](../stackstate-ui/perspectives/events_perspective.md) and also serve as an input for health checks. Health checks can react to anomaly events and set the component health state to the `DEVIATING` \(orange\). Without a health check responding to generated anomaly events, a component would not change its health state based on found anomalies.
 
-Anomaly health checks are automatically placed on components by the StackPacks but you can also manually create an anomaly health check.
+Anomaly health checks are automatically placed on components by the StackPacks, but you can also manually create an anomaly health check.
 
 ## Manually add an anomaly health check to a component
 
@@ -45,7 +45,7 @@ When enabled, the autonomous metric stream anomaly detection check function will
 * The `Autonomous metric stream anomaly detection` check will remain in an `UNKNOWN` \(gray\) health state unless an anomaly is found.
 * When an anomaly is found, the check will go to a `DEVIATING` \(orange\) health state.
 * Only `HIGH` severity anomalies change the health status of the check to `DEVIATING`.
-* It can take between 5 to 25 minutes before an anomaly is detected, depending on the granularity of the metric stream and the size of the anomaly. Only anomalies lasting for several minutes are considered to be `HIGH` severity anomalies.
+* It can take between 5 and 25 minutes before an anomaly is detected, depending on the granularity of the metric stream and the size of the anomaly. Only anomalies lasting for several minutes are considered to be `HIGH` severity anomalies.
 * Once an anomaly is found, the `DEVIATING` health state will remain for at least 8 minutes.
 
 {% hint style="success" "self-hosted info" %}

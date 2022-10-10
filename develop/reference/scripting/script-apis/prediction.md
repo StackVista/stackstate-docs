@@ -44,7 +44,7 @@ The `PredictionRequest` type has the following fields:
 
 The `MetricTelemetry` has the following fields:
 
-* `MetricTelemetry.result.data` - the two dimensional array with values and time stamps.
+* `MetricTelemetry.result.data` - the two-dimensional array with values and time stamps.
 
 ### Examples
 

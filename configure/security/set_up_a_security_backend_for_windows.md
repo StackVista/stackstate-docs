@@ -204,7 +204,7 @@ To do so, follow steps below:
       sc.exe config StackStateAgent password= "a_new_password"
    ```
 
-You can now login as stsagentuser to test your executable. StackState has a PowerShell script to help you test your executable as another user. It switches user contexts and mimics how the Agent runs your executable. Usage example:
+You can now log in as stsagentuser to test your executable. StackState has a PowerShell script to help you test your executable as another user. It switches user contexts and mimics how the Agent runs your executable. Usage example:
 
 ```text
 .\secrets_tester.ps1 -user stsagentuser -password a_new_password -executable C:\path\to\your\executable.exe -payload '{"version": "1.0", "secrets": ["secret_ID_1", "secret_ID_2"]}'

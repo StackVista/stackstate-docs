@@ -2,41 +2,52 @@
 description: StackState Self-hosted v5.1.x 
 ---
 
-# Splunk Topology V1
-
-{% hint style="info" %}
-This page describes the Splunk Topology V1 integration with StackState Agent V1 (legacy).
-
-**If you are running StackState Agent V2:** See the instructions on how to configure a [Splunk Topology V2](splunk_topology_v2.md) check. You can also [upgrade](splunk_topology_upgrade_v1_to_v2.md) an existing Splunk Topology V1 integration to use StackState Agent V2.
-{% endhint %}
+# Splunk Topology
 
 ## Overview
 
-When the [Splunk StackPack](splunk_stackpack.md) has been installed in StackState, you can configure the Splunk Topology V1 check on StackState Agent V1 (legacy) to begin collecting Splunk topology data.
+{% hint style="info" %}
+This page describes the Splunk Topology check running on StackState Agent V2. 
 
-The StackState Splunk Topology V1 integration collects topology from Splunk by executing Splunk saved searches from StackState Agent V1 (legacy). In order to receive Splunk topology data in StackState, configuration needs to be added to both Splunk and StackState Agent V1 (legacy):
+If you are currently running the Splunk Topology check on Agent V1 (legacy), it is advised that you migrate to Agent V2.
 
-* [In Splunk](splunk_topology.md#splunk-saved-search), there should be at least one saved search that generates the topology data you want to retrieve.
-* [In StackState Agent V1 \(legacy\)](splunk_topology.md#agent-check), a Splunk topology check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
+* [Migrate to Agent V2](TODO_LINK_TO_AGENT_MIGRATION_DOCS)
+* [Documentation for the Splunk Topology check running on Agent V1 \(legacy\)](https://docs.stackstate.com/v/5.0/stackpacks/integrations/splunk/splunk_topology)
+{% endhint %}
 
-The Splunk topology check on StackState Agent V1 (legacy) will execute all configured Splunk saved searches periodically to retrieve a snapshot of the topology at the current time.
+When the [Splunk StackPack](splunk_stackpack.md) is installed in StackState, you can configure the Splunk Topology check on StackState Agent V2 to begin collecting Splunk topology data.
+
+The StackState Splunk Topology integration collects topology from Splunk by executing Splunk saved searches from [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md). In order to receive Splunk topology data in StackState, configuration needs to be added to both Splunk and StackState Agent V2:
+
+* [Splunk saved search](splunk_topology.md#splunk-saved-search) - there should be at least one saved search that generates the topology data you want to retrieve.
+* [StackState Agent V2 Splunk Topology check](splunk_topology.md#agent-check) - a Splunk Topology check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
+
+The Splunk Topology check on StackState Agent V2 will execute all configured Splunk saved searches periodically to retrieve a snapshot of the topology at the current time.
+
+## Prerequisites
+
+To run the Splunk Topology Agent check, you need to have:
+
+* A running Splunk instance.
+* The [Splunk StackPack](splunk_stackpack.md) installed on your StackState instance.
+* [StackState Agent V2 v2.18 or later](/setup/agent/about-stackstate-agent.md) must be installed on a single machine which can connect to Splunk and StackState.
 
 ## Splunk saved search
 
-In the Splunk Topology V1 integration, StackState Agent V1 (legacy) executes the Splunk saved searches configured in the [Splunk topology Agent check configuration file](splunk_topology.md#agent-check) and pushes retrieved data to StackState components and relations. The fields from the results of a saved search that are sent to StackState for topology components and relations are listed in the table below.
+In the Splunk Topology integration, StackState Agent V2 executes the Splunk saved searches configured in the [Splunk Topology Agent check](splunk_topology.md#agent-check) and pushes retrieved data to StackState as components and relations. The fields from the results of a saved search that are sent to StackState are described below.
 
 ### Topology components
 
 The following fields from the results of a saved search are sent to StackState for topology components:
 
-| Field | Type | Required? | Description |
-| :--- | :--- | :--- | :--- |
-| **id** | string | ✅ | The unique identifier for the component. |
-| **name** | string | ✅ | The value will be used as the component name. |
-| **type** | string | ✅ | The type of component or relation. |
-| **labels** | multivalue field or comma separated string | - | The values will be added as labels on the component. |
-| **identifiers** | multivalue field or comma separated string | - | The values will be included as identifiers of the component. |
-| All other fields | - | - | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result. Any other fields present in the result will be available in StackState in the `data` field of the properties `source` tab for a component. |
+| Field                                                        | Description                                             |
+|:-------------------------------------------------------------|:--------------------------------------------------------|
+| **id** (string)                                              | Required. The unique identifier for the component.      |
+| **name** (string)                                            | Required. The value will be used as the component name. |
+| **type** (string)                                            | Required. The type of component or relation.            |
+| **labels** (multivalue field or comma separated string)      | The values will be added as labels on the component. |
+| **identifiers** (multivalue field or comma separated string) | The values will be included as identifiers of the component. |
+| All other fields     | [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/9.0.1/Data/Aboutdefaultfields) other than `_time` will be filtered out of the result. Any other fields present in the result will be available in StackState in the `data` field of the properties `source` tab for a component. |
 
 #### Example query for components
 
@@ -72,11 +83,11 @@ The example Splunk saved search above would result in the following topology com
 
 The following fields from the results of a saved search are sent to StackState for topology relations:
 
-| Field |  | Type | Required? | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| **type** | string | ✅ | The type of component or relation. |  |
-| **sourceId** | string | ✅ | The ID of the component that is the source of the relation. |  |
-| **targetId** | string | ✅ | The ID of the component that is the target of the relation. |  |
+| Field                 | Description                                                            |
+|:----------------------|:-----------------------------------------------------------------------|
+| **type** (string)     | Required. The type of component or relation.                           |
+| **sourceId** (string) | Reqruired. The ID of the component that is the source of the relation. |
+| **targetId** (string) | Required. The ID of the component that is the target of the relation.  |
 
 #### Example query for relations
 
@@ -105,24 +116,23 @@ The example Splunk saved search above would result in the following topology rel
 
 ## Agent check
 
-### Configure the Splunk Topology V1 check
+### Configure the Splunk Topology check
 
-To enable the Splunk topology integration and begin collecting component and relation data from your Splunk instance, the Splunk topology check must be configured on StackState Agent V1 (legacy). The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
+To enable the Splunk Topology integration and begin collecting component and relation data from your Splunk instance, the Splunk Topology check must be configured on StackState Agent V2. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
 
 {% hint style="info" %}
-Example Splunk topology Agent check configuration file:  
-[splunk\_topology/conf.yaml.example \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_topology/conf.yaml.example)
+Example Agent V2 Splunk Topology check configuration file:  
+[splunk\_topology/conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_topology/stackstate_checks/splunk_topology/data/conf.yaml.example)
 {% endhint %}
 
-To configure the Splunk topology Agent check:
+To configure the Splunk Topology Agent check:
 
-1. Edit the StackState Agent V1 (legacy) configuration file `/etc/sts-agent/conf.d/splunk_topology.yaml`.
+1. Edit the StackState Agent V2 check configuration file: `/etc/stackstate-agent/conf.d/splunk_topology.d/conf.yaml`
 2. Under **instances**, add details of your Splunk instance:
    * **url** - The URL of your Splunk instance.
    * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based \(recommended\) or basic authentication. For details, see [authentication configuration details](splunk_stackpack.md#authentication).
    * **ignore\_saved\_search\_errors** - Set to `false` to return an error if one of the configured saved searches does not exist. Default `true`.
    * **tags** - Optional. Can be used to apply specific tags to all reported topology in StackState.
-   * **collection_interval** - The interval at which the check is scheduled to run.
 3. Under **component\_saved\_searches**, add details of each Splunk saved search that the check should execute to retrieve components: 
    * **name** - The name of the [Splunk saved search](splunk_topology.md#splunk-saved-search) to execute.
      * **match** - Regex used for selecting Splunk saved search queries. Default `"comp.*"` for component queries and `"relation*"` for relation queries.
@@ -133,27 +143,27 @@ To configure the Splunk topology Agent check:
      * **batch\_size** - Default `1000`.
      * **parameters** - Used in the Splunk API request. The default parameters provided make sure the Splunk saved search query refreshes. Default `force_dispatch: true` and `dispatch.now: true`.
 4. Under **relation\_saved\_searches**, add details of each Splunk saved search that the check should execute to retrieve relations.
-5. More advanced options can be found in the [example configuration \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_topology/conf.yaml.example). 
+5. More advanced options can be found in the [example configuration \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_topology/stackstate_checks/splunk_topology/data/conf.yaml.example). 
 6. Save the configuration file.
-7. Restart StackState Agent V1 (legacy) to apply the configuration changes.
+7. Restart StackState Agent V2 to apply the configuration changes.
 8. Once the Agent has restarted, wait for the Agent to collect data and send it to StackState.
 
 ### Disable the Agent check
 
-To disable the Splunk topology Agent check:
+To disable the Splunk Topology Agent check:
 
 1. Remove or rename the Agent integration configuration file, for example:
 
    ```text
-    mv conf.d/splunk_topology.yaml conf.d/splunk_topology.yaml.bak
+    mv /etc/stackstate-agent/conf.d/splunk_topology.d/conf.yaml /etc/stackstate-agent/conf.d/splunk_topology.d/conf.yaml.bak
    ```
 
-2. Restart the StackState Agent to apply the configuration changes.
+2. Restart StackState Agent V2 to apply the configuration changes.
 
 ## See also
 
+* [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md)
 * [StackState Splunk integration details](splunk_stackpack.md)
-* [Upgrade to the Splunk Topology V2 integration](splunk_topology_upgrade_v1_to_v2.md)  
-* [Example Splunk Topology V1 configuration file - splunk\_topology/conf.yaml.example \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/splunk_topology/conf.yaml.example)
-* [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/6.5.2/Data/Aboutdefaultfields) 
+* [Example Splunk Topology configuration file - splunk\_topology/conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_topology/stackstate_checks/splunk_topology/data/conf.yaml.example)
+* [Splunk default fields \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/9.0.1/Data/Aboutdefaultfields)
 

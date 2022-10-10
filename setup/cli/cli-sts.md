@@ -94,7 +94,7 @@ Open a terminal, change the `<URL>` and `<API-TOKEN>` and run the command below.
 curl -o- https://dl.stackstate.com/stackstate-cli/install.sh | STS_URL="<URL>" STS_API_TOKEN="<API-TOKEN>" bash
 ```
 
-Alternatively, go to the **CLI** page in the StackState UI and copy the **Quick installation** command for **MacOS** - this is pre-filled with the correct `<URL>` and `<API-TOKEN>` for your StackState instance.
+Alternatively, go to the **CLI** page in the StackState UI and copy the **Quick installation** command for **macOS** - this is pre-filled with the correct `<URL>` and `<API-TOKEN>` for your StackState instance.
 
 {% endtab %}
 

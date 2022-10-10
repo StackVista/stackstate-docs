@@ -422,7 +422,7 @@ IAM is a global service. Only one IAM role is necessary per account.
 Once the Agent has finished reading a file in this bucket, the file will be **deleted**. Do not use an existing bucket for this, the Agent should have its own bucket to read from. The S3 bucket will not be read from if it does not have bucket versioning enabled, to protect data.
 {% endhint %}
 
-The S3 bucket is used to store all incoming events from EventBridge and other event-based sources. The Agent then reads objects from this bucket. These events are used to provide features such as real-time topology updates, and creating relations between components based on event data such as VPC FlowLogs. If the S3 bucket is not available to the Agent it will fallback to reading CloudTrail directly, which introduces a 15 minute delay in real-time updates. EventBridge events and VPC FlowLogs are only available via the S3 bucket.
+The S3 bucket is used to store all incoming events from EventBridge and other event-based sources. The Agent then reads objects from this bucket. These events are used to provide features such as real-time topology updates, and creating relations between components based on event data such as VPC FlowLogs. If the S3 bucket is not available to the Agent it will fall back to reading CloudTrail directly, which introduces a 15-minute delay in real-time updates. EventBridge events and VPC FlowLogs are only available via the S3 bucket.
 
 {% hint style="info" %}
 Only one S3 bucket is necessary per account; all regions can send to the same bucket.
