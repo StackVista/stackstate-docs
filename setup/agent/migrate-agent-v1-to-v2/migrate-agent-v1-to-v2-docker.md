@@ -4,7 +4,7 @@ description: StackState Self-hosted v5.1.x
 
 # Agent V1 \(legacy\) to Agent V2 Migration
 
-### Overview
+## Overview
 
 This page will walk you through the steps required to successfully migrate from Agent V1 (legacy) to Agent V2.  This migration process will also migrate the  existing Agent V1 (legacy) state. This will allow Agent checks, such as Splunk topology, metrics or event checks, to continue on Agent V2 from their previous state.
 
