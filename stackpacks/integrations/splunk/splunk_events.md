@@ -34,8 +34,8 @@ The Splunk Events check on StackState Agent V2 will execute all configured Splun
 
 StackState Agent V2 executes the Splunk saved searches configured in the [Splunk Events Agent check configuration file](splunk_events.md#agent-check) and pushes retrieved data to StackState as a telemetry stream. The following fields from the results of a saved search are sent to StackState:
 
-| Field | Required? | Description |
-| :--- | :-- | :--- | 
+| Field | Description |
+| :--- | :--- | 
 | **\_time** (long ) | Required. The data collection timestamp, in milliseconds since epoch. |
 | **event\_type** (string) |Event type, for example `server_created`. |
 | **msg\_title** (string) | Message title. |
