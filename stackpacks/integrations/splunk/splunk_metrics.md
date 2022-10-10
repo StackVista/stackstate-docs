@@ -7,7 +7,9 @@ description: StackState Self-hosted v5.1.x
 ## Overview
 
 {% hint style="info" %}
-This page describes the Splunk Metrics check running on StackState Agent V2. If you are currently running the Splunk Metrics check on Agent V1 (legacy), it is advised that you migrate to Agent V2.
+This page describes the Splunk Metrics check running on StackState Agent V2. 
+
+If you are currently running the Splunk Metrics check on Agent V1 (legacy), it is advised that you migrate to Agent V2.
 
 * [Migrate to Agent V2](TODO_LINK_TO_AGENT_MIGRATION_DOCS)
 * [Documentation for the Splunk Metrics check running on Agent V1 \(legacy\)](https://docs.stackstate.com/v/5.0/stackpacks/integrations/splunk/splunk_metrics)
