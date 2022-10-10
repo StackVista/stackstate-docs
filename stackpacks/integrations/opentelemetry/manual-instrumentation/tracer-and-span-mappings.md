@@ -96,7 +96,7 @@ The value from `service.name` is used as a primary means to identify a component
 2) This will bring up the `Filter Topology` view, Click on the second button called `Advanced`
 3) In the top input field you can fill in the following
    1) `name = "<YOUR service.name VALUE>"`
-   2) For Example `name = "RDS Database: Service Name"`.
+   2) For example `name = "RDS Database: Service Name"`.
 4) You will then see the component that was created with the trace.
 
 ![Topology Perspective - service.name](../../../../.gitbook/assets/v51_otel_topology_view_filter.png)

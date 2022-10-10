@@ -86,7 +86,7 @@ sudo systemctl status stackstate-agent
 sudo service stackstate-agent status
 ```
 
-### 4. Copy over your existing conf.d checks
+### 4. Copy Agent V1 (legacy) conf.d checks
 
 Migrate your existing conf.d check YAML files to the Agent V2 directory.
 
@@ -96,7 +96,7 @@ This can be done by following these steps:
 2. Copy each of the files in the `conf.d` directory to their respective v2 **subdirectories** inside the Agent V2 conf.d directory found at `/etc/stackstate-agent/conf.d/<CHECK-SUBDIRECTORY>.d/`.
     - **DO NOT** just copy all the files from the `/etc/sts-agent/conf.d/` to  
       `/etc/stackstate-agent/conf.d/` as Agent V2 works with a subdirectory structure.
-    - For Example, If you are using **Splunk** copy the following files:
+    - For example, If you are using **Splunk** copy the following files:
       - `/etc/sts-agent/conf.d/splunk_topology.yaml` into  
         `/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml`
       - `/etc/sts-agent/conf.d/splunk_event.yaml` into  
@@ -112,7 +112,7 @@ This can be done by following these steps:
   - `polling_interval_seconds` replace with `collection_interval`
 {% endhint %}
 
-### 4. Migrate the Agent V1 (legacy) cache
+### 4. Migrate Agent V1 (legacy) cache
 
 Migrating the Agent V1 (legacy) cache requires a cache conversion process. This is a manual process that StackState will assist you with. Contact StackState support to assist with this process.
 

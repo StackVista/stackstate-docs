@@ -81,18 +81,17 @@ To compile a list of all the conf.d Docker volumes, do the following:
 
 3. Keep the above snippet on the side, we will use it in the Docker-Compose file.
 
+{% hint style="info" %}
+**This step is only required if you have Splunk Topology Check enabled**
 
-### 2B. **Only required if you have Splunk Topology V1 check enabled on Agent V1 (legacy)**
-
-{% hint style="warning" %}
-**This will break the `splunk_topology.yaml` check configuration for Agent V1 (legacy)**
-{% endhint %}
+Note that this will break the `splunk_topology.yaml` check configuration for Agent V1 (legacy).
 
 - Edit the check configuration file `/etc/sts-agent/conf.d/splunk_topology.yaml` and replace all occurrences of the following items:
   - `default_polling_interval_seconds` replace with `collection_interval`
   - `polling_interval_seconds` replace with `collection_interval`
+{% endhint %}
 
-### 3. Add the Agent State directory into your volume snippet
+### 3. Add the Agent State directory to your volume snippet
 
 Take the list of volumes you created in step 2 and add one additional line for the Agent State. This will allow us to migrate the existing Agent V1 (legacy) State to the new Agent V2 Docker Container.
 
@@ -222,18 +221,16 @@ To compile a list of all the conf.d docker volumes, do the following:
 
 1. Go to the directoty `/etc/sts-agent/conf.d/`
 2. For each file inside the folder, compile a list of volumes. For example, if we use Splunk as the example **(Remember to add a \ on the ending of each line)**:
-  - File 1: `/etc/sts-agent/conf.d/splunk_topology.yaml`
-    ```
-    -v /etc/sts-agent/conf.d/splunk_topology.yaml:/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml \
-    ```
-  - File 2: `/etc/sts-agent/conf.d/splunk_event.yaml`  
-    **Add to the existing list**
+   * **File 1:** `/etc/sts-agent/conf.d/splunk_topology.yaml`
+       ```
+       -v /etc/sts-agent/conf.d/splunk_topology.yaml:/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml \
+       ```
+   * **File 2:** `/etc/sts-agent/conf.d/splunk_event.yaml` - add to the existing list:
     ```
     -v /etc/sts-agent/conf.d/splunk_topology.yaml:/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml \
     -v /etc/sts-agent/conf.d/splunk_event.yaml:/etc/stackstate-agent/conf.d/splunk_event.d/splunk_event.yaml \
     ```
-  - File 3: `/etc/sts-agent/conf.d/splunk_metric.yaml`  
-    **Add to the existing list**
+   * **File 3:** `/etc/sts-agent/conf.d/splunk_metric.yaml` - add to the existing list:
     ```
     -v /etc/sts-agent/conf.d/splunk_topology.yaml:/etc/stackstate-agent/conf.d/splunk_topology.d/splunk_topology.yaml \
     -v /etc/sts-agent/conf.d/splunk_event.yaml:/etc/stackstate-agent/conf.d/splunk_event.d/splunk_event.yaml \
@@ -242,16 +239,15 @@ To compile a list of all the conf.d docker volumes, do the following:
 
 3. Keep the above snippet on the side, we will use it in the `docker run` command.
 
-### 2B. **Only required if you have the Splunk Topology V1 check enabled**
+{% hint style="info" %}
+**This step is only required if you have Splunk Topology Check enabled**
 
-{% hint style="warning" %}
-**This will break the `splunk_topology.yaml` check configuration for Agent V1 (legacy)**
-{% endhint %}
+Note that this will break the `splunk_topology.yaml` check configuration for Agent V1 (legacy).
 
 - Edit the check configuration file `/etc/sts-agent/conf.d/splunk_topology.yaml` and replace all occurrences of the following items:
   - `default_polling_interval_seconds` replace with `collection_interval`
   - `polling_interval_seconds` replace with `collection_interval`
-
+{% endhint %}
 
 ### 3. Add the Agent State directory into your volume snippet
 
