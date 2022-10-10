@@ -2,41 +2,44 @@
 description: StackState Self-hosted v5.1.x 
 ---
 
-# Push telemetry to StackState over HTTP
+# Push events to StackState over HTTP
 
 ## Overview
 
-StackState can either pull telemetry from a data source or can receive pushed telemetry. Pushed telemetry is stored by StackState, while pulled telemetry is not. Pushed telemetry is stored for the duration of the configured retention period. This page describes how telemetry can be pushed.
+StackState can either pull events from a data source or can receive pushed events. Pushed events are stored by StackState, while pulled events are not. Pushed events are stored for the duration of the configured retention period. This page describes how events can be pushed.
 
-There are several ways to send telemetry to StackState. A large number of [integrations](../../stackpacks/integrations/) are provided out of the box that may help you get started. If there is no out of the box integration you can send telemetry to StackState using either HTTP or the [StackState `stac` CLI](/setup/cli/cli-stac.md).
+There are several ways to send events to StackState. A large number of [integrations](../../stackpacks/integrations/) are provided out of the box that may help you get started. If there is no out of the box integration available,  you can send events to StackState using either HTTP or the [StackState `stac` CLI](/setup/cli/cli-stac.md).
 
 ## StackState Receiver API
 
-The StackState Receiver API accepts topology, telemetry and health data in a common JSON object. By default, the receiver API is hosted at:
+The StackState Receiver API accepts topology, metrics, events and health data in a common JSON object. By default, the receiver API is hosted at the `<STACKSTATE_RECEIVER_API_ADDRESS>` this is constructed using the `<STACKSTATE_BASE_URL>` and <`STACKSTATE_RECEIVER_API_KEY>`.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
+The `<STACKSTATE_RECEIVER_API_ADDRESS>` for StackState deployed on Kubernetes or OpenShift is:
+
 ```text
 https://<STACKSTATE_BASE_URL>/receiver/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>
 ```
 
-The `<STACKSTATE_BASE_URL>` and `<STACKSTATE_RECEIVER_API_KEY>` are set during StackState installation, for details see [Kubernetes install - configuration parameters](../../setup/install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml).
+The `<STACKSTATE_BASE_URL>` and `<STACKSTATE_RECEIVER_API_KEY>` are set during StackState installation, for details see [Kubernetes install - configuration parameters](/setup/install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml).
 {% endtab %}
 
 {% tab title="Linux" %}
+
+The `<STACKSTATE_RECEIVER_API_ADDRESS>` for StackState deployed on Linux is:
+
 ```text
 https://<STACKSTATE_BASE_URL>:<STACKSTATE_RECEIVER_PORT>/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>
 ```
 
-The `<STACKSTATE_BASE_URL>` and `<STACKSTATE_RECEIVER_API_KEY>` are set during StackState installation, for details see [Linux install - configuration parameters](../../setup/install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install).
-
-Note that if a [reverse proxy](/setup/install-stackstate/linux_install/reverse_proxy.md) has been set up for your StackState instance, you should use the port and path that have been configured to access StackState running at port `7070` in place of `<STACKSTATE_BASE_URL>:<STACKSTATE_RECEIVER_PORT>`.
+The `<STACKSTATE_BASE_URL>` and <STACKSTATE_RECEIVER_API_KEY>` are set during StackState installation, for details see [Linux install - configuration parameters](/setup/install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install).
 {% endtab %}
 {% endtabs %}
 
 ## Common JSON object
 
-Topology, telemetry and health data are sent to the receiver API via HTTP POST. There is a common JSON object used for all messages. One message can contain multiple metrics and multiple events.
+Topology, metrics, event and health data are sent to the StackState receiver API via HTTP POST. There is a common JSON object used for all messages. One message can contain multiple metrics and multiple events.
 
 ```javascript
 {
@@ -51,101 +54,14 @@ Topology, telemetry and health data are sent to the receiver API via HTTP POST. 
 ```
 
 {% hint style="info" %}
-Depending on your StackState configuration, received metrics or events that are too old will be ignored.
+Depending on your StackState configuration, received events that are too old will be ignored.
 {% endhint %}
 
-## Metrics
+## JSON property: "events"
 
-Metrics can be sent to the StackState Receiver API using the `"metrics"` property of the [common JSON object](send_telemetry.md#common-json-object).
-
-### JSON property: "metrics"
-
-{% tabs %}
-{% tab title="Example metric JSON" %}
-```javascript
-[
-  "test.metric", // the metric name
-  1548857152,
-  10.0, // double - value of the metric
-  {
-    "hostname": "local.test",
-    "tags": [ 
-      "tag_key1:tag_value1",
-      "tag_key2:tag_value2"
-    ],
-    "type": "gauge"
-  }
-]
-```
-{% endtab %}
-{% endtabs %}
-
-Every metric has the following details:
-
-* **name** - The metric name. Must not start with any of the following prefixes: `host`, `labels`, `name`, `tags` , `timeReceived`, `timestamp`, `tags` or `values`.
-* **timestamp** - The UTC timestamp of the metric expressed in epoch seconds.
-* **value** - The value of the metric.
-* **hostname** - The host this metric is from.
-* **type** - The type of metric. Can be `gauge`, `count`, `rate`, `counter` or `raw`.
-* **tags** - Optional.  A list of key/value tags to associate with the metric.
-
-The `timestamp` and `value` are used to plot the metric as a time series. The `name` and `tags` can be used to define a metric stream in StackState.
-
-### Send metrics to StackState
-
-Multiple metrics can be sent in one JSON message via HTTP POST to the [StackState Receiver API address](#stackstate-receiver-api). For example:
-
-{% tabs %}
-{% tab title="curl" %}
-```javascript
-curl -X POST \
- 'https://<STACKSTATE_RECEIVER_API_ADDRESS> \
- -H 'Content-Type: application/json' \
- -d '{
-  "collection_timestamp": 1548857167,
-  "internalHostname": "local.test",
-  "metrics": [
-    [
-      "test.metric",
-      1548857152,
-      10.0,
-      {
-        "hostname": "local.test",
-        "tags": [
-          "tag_key1:tag_value1",
-          "tag_key2:tag_value2"
-        ],
-        "type": "gauge"
-      }
-    ],
-    [
-      "test.metric",
-      1548857167,
-      10.0,
-      {
-        "hostname": "local.test",
-        "tags": [
-          "tag_key1:tag_value1",
-          "tag_key2:tag_value2"
-        ],
-        "type": "gauge"
-      }
-    ]
-  ]
-}'
-```
-{% endtab %}
-{% endtabs %}
-
-You can also send metrics to StackState using the `stac` CLI `metric send` command.
-
-## Events
-
-Events can be sent to the StackState Receiver API using the `"events"` property of the [common JSON object](send_telemetry.md#common-json-object).
+Events can be sent to the StackState Receiver API using the `"events"` property of the [common JSON object](send_metrics.md#common-json-object).
 
 All events in StackState relate to a topology element or elements. Any properties of an event can be used to define a log stream in StackState.
-
-### JSON property: "events"
 
 {% tabs %}
 {% tab title="Example event JSON" %}
@@ -202,7 +118,7 @@ Events have the following details:
 * **tags** - Optional. A list of key/value tags to associate with the event.
 * **timestamp** - The epoch timestamp for the event.
 
-### Send events to StackState
+## Send events to StackState
 
 Multiple events can be sent in one JSON message via HTTP POST. You can also send a single event to StackState using the `stac` CLI `event send` command. For example:
 
