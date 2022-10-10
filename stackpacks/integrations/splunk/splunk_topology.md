@@ -84,11 +84,11 @@ The example Splunk saved search above would result in the following topology com
 
 The following fields from the results of a saved search are sent to StackState for topology relations:
 
-| Field |  | Type | Required? | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| **type** | string | ✅ | The type of component or relation. |  |
-| **sourceId** | string | ✅ | The ID of the component that is the source of the relation. |  |
-| **targetId** | string | ✅ | The ID of the component that is the target of the relation. |  |
+| Field                 | Description                                                            |
+|:----------------------|:-----------------------------------------------------------------------|
+| **type** (string)     | Required. The type of component or relation.                           |
+| **sourceId** (string) | Reqruired. The ID of the component that is the source of the relation. |
+| **targetId** (string) | Required. The ID of the component that is the target of the relation.  |
 
 #### Example query for relations
 
