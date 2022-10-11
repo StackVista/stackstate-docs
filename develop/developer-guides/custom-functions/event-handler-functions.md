@@ -132,7 +132,7 @@ The properties listed below return details of a `ProblemCreatedEvent` in functio
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the \(node\) ID of the problem.
 * `event.rootCause` - returns the node ID of the root cause component.
-* `event.nodes` - returns the list of node IDs of all the components \(usually just one\) that were related to the problem when it was created.
+* `event.nodes` - returns the list of node IDs of all the components that were related to the problem when it was created.
 
 #### ProblemUpdatedEvent properties \(Asynchronous\)
 
@@ -153,6 +153,7 @@ The properties listed below return details of a `ProblemSubsumedEvent` in functi
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the \(node\) ID of the problem.
+* `event.rootCause` - returns the node ID of the root cause component.
 * `event.superProblemIds` - returns the list of problem IDs that now contain the subsumed problem.
 * `event.nodes` - returns the list of node IDs of all the components that were related to the problem before it was subsumed.
 
@@ -164,7 +165,8 @@ The properties listed below return details of a `ProblemResolvedEvent` in functi
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the \(node\) ID of the problem.
-* `event.nodes` - returns the list of node IDs of all the components \(usually just one\) that were related to the problem before it was resolved.
+* `event.rootCause` - returns the node ID of the root cause component.
+* `event.nodes` - returns the list of node IDs of all the components that were related to the problem before it was resolved.
 
 ## Synchronous execution
 
@@ -236,7 +238,7 @@ The properties listed below return details of a `ProblemCreated` event in functi
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the \(node\) ID of the problem.
 * `event.rootCauseNodeId` - returns the node ID of the root cause component.
-* `event.nodes` - returns the list of node IDs of all the components \(usually just one\) that were related to the problem when it was created.
+* `event.nodes` - returns the list of node IDs of all the components that were related to the problem when it was created.
 
 #### ProblemUpdated properties \(Synchronous\)
 
@@ -257,6 +259,7 @@ The properties listed below return details of a `ProblemSubsumed` event in funct
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the \(node\) ID of the problem.
+* `event.rootCauseNodeId` - returns the node ID of the root cause component.
 * `event.superProblemIds` - returns the list of problem IDs that now contain the subsumed problem.
 * `event.nodes` - returns the list of node IDs of all the components that were related to the problem before it was subsumed.
 
@@ -268,7 +271,8 @@ The properties listed below return details of a `ProblemResolved` event in funct
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
 * `event.identifier` - returns the unique event identifier.
 * `event.problemId` - returns the \(node\) ID of the problem.
-* `event.nodes` - returns the list of node IDs of all the components \(usually just one\) that were related to the problem before it was resolved.
+* `event.rootCauseNodeId` - returns the node ID of the root cause component.
+* `event.nodes` - returns the list of node IDs of all the components that were related to the problem before it was resolved.
 
 ### Plugins for synchronous functions
 

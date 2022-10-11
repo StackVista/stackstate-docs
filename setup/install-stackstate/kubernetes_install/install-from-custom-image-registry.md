@@ -16,7 +16,7 @@ To address this issue, you can copy all the images to a single registry close to
 
 1. Set up a registry close to your Kubernetes cluster.
    * For Amazon Elastic Kubernetes Service (EKS), use [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/).
-   * For Azure Kubernetes Service (AKS), use [Azure Container Registry (ACR)](https://azure.microsoft.com/en-us/services/container-registry/).
+   * For Azure Kubernetes Service (AKS), use [Azure Container Registry (ACR) \(azure.microsoft.com\)](https://azure.microsoft.com/en-us/products/container-registry/).
 2. Use the relevant script to copy all the images used by the Helm chart to the new registry:
    * **StackState:** [stackstate/installation/copy_images.sh \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation) to copy all the images used by the Helm chart to the new registry
    * **StackState Agent:** [cluster-agent/installation/copy_images.sh \(github.com\)](https://github.com/StackVista/helm-charts/blob/master/stable/cluster-agent/installation/copy_images.sh)
@@ -97,9 +97,9 @@ The images listed below are used in StackState v5.0.0:
 
 ### StackState Agent, Cluster Agent and kube-state-metrics
 
-The images listed below are used in StackState Agent v2.17.2:
+The images listed below are used in StackState Agent v2.18.0:
 
 * quay.io/stackstate/kube-state-metrics:2.3.0-focal-20220316-r61.20220418.2032
-* quay.io/stackstate/stackstate-agent-2:2.17.2
-* quay.io/stackstate/stackstate-cluster-agent:2.17.2
+* quay.io/stackstate/stackstate-agent-2:2.18.0
+* quay.io/stackstate/stackstate-cluster-agent:2.18.0
 * quay.io/stackstate/stackstate-process-agent:4.0.7

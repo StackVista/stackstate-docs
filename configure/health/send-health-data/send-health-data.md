@@ -10,10 +10,12 @@ StackState can synchronize health information from your own data sources either 
 
 ## StackState Receiver API
 
-The StackState Receiver API accepts topology, telemetry and health data in a common JSON object. By default, the receiver API is hosted at:
+The StackState Receiver API accepts topology, metrics, events and health data in a common JSON object. By default, the receiver API is hosted at the `<STACKSTATE_RECEIVER_API_ADDRESS>` this is constructed using the `<STACKSTATE_BASE_URL>` and <`STACKSTATE_RECEIVER_API_KEY>`.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
+The `<STACKSTATE_RECEIVER_API_ADDRESS>` for StackState deployed on Kubernetes or OpenShift is:
+
 ```text
 https://<STACKSTATE_BASE_URL>/receiver/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>
 ```
@@ -22,11 +24,14 @@ The `<STACKSTATE_BASE_URL>` and `<STACKSTATE_RECEIVER_API_KEY>` are set during S
 {% endtab %}
 
 {% tab title="Linux" %}
+
+The `<STACKSTATE_RECEIVER_API_ADDRESS>` for StackState deployed on Linux is:
+
 ```text
 https://<STACKSTATE_BASE_URL>:<STACKSTATE_RECEIVER_PORT>/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>
 ```
 
-Both the `<STACKSTATE_BASE_URL>` and <STACKSTATE_RECEIVER_API_KEY>` are set during StackState installation, for details see [Linux install - configuration parameters](/setup/install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install).
+The `<STACKSTATE_BASE_URL>` and <STACKSTATE_RECEIVER_API_KEY>` are set during StackState installation, for details see [Linux install - configuration parameters](/setup/install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install).
 {% endtab %}
 {% endtabs %}
 
@@ -60,5 +65,5 @@ StackState accepts health data based on a chosen [consistency model](/configure/
 
 * [Install the StackState CLI](/setup/cli)
 * [Send topology data over HTTP](/configure/topology/send-topology-data.md)
-* [Send telemetry data over HTTP](/configure/telemetry/send_telemetry.md)
+* [Send telemetry data over HTTP](/configure/telemetry/send_metrics.md)
 

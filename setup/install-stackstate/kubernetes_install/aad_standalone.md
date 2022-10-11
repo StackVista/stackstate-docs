@@ -25,7 +25,7 @@ A minimal deployment of the AAD Kubernetes service with the default options requ
 
 To handle more streams or to reduce detection latency, the service can be scaled. If you want to find out how to scale the service, contact [StackState support](https://support.stackstate.com/hc/en-us).
 
-The AAD Kubernetes service is stateless and survives restarts. It can be relocated to a different Kubernetes node or bounced. To take full advantage of this capability, it is recommended to run the service on low cost AWS Spot Instances or Azure low-priority VMs.
+The AAD Kubernetes service is stateless and survives restarts. It can be relocated to a different Kubernetes node or bounced. To take full advantage of this capability, it is recommended to run the service on low-cost AWS Spot Instances or Azure low-priority VMs.
 
 ## Installation
 
@@ -65,7 +65,7 @@ Create the file `values.yaml` file, including the configuration described below,
 * **image:**
   * **pullSecretUsername** - the image registry username \(from step 1\).
 * **stackstate:**
-  * **instance** - the StackState instance URL. This must be a StackState internal URL to keep traffic inside the Kubernetes network and namespace. e.g `http://stackstate-router:8080/` or `http://<releasename>-stackstate-router:8080/`
+  * **instance** - the StackState instance URL. This must be a StackState internal URL to keep traffic inside the Kubernetes network and namespace. For example, `http://stackstate-router:8080/` or `http://<releasename>-stackstate-router:8080/`
 
 {% tabs %}
 {% tab title="values.yaml" %}
@@ -88,7 +88,7 @@ Details of all configuration options are available in the anomaly-detection char
 
 #### 5. Authentication with StackState
 
-By default, the AAD Kubernetes Service is configured to use kubernetes `token` authentication, so one does not need to configure anything additional to that the AAD Kubernetes service must be installed into the same cluster and namespace as StackState. If this is is not possible there are two other options for authentication:
+By default, the AAD Kubernetes Service is configured to use kubernetes `token` authentication, so one does not need to configure anything additional to that the AAD Kubernetes service must be installed into the same cluster and namespace as StackState. If this is not possible there are two other options for authentication:
 
 * Stackstate Api Token authentication. One can obtain token from User Profile page.
 
@@ -124,7 +124,7 @@ Run the command below, specifying the StackState namespace and the image registr
 
 ### Training period
 
-The AAD will need to train on your data before it can begin reporting anomalies. With data collected in 1 minute buckets, the AAD requires a 2 hour training period. If historic data exists for relevant metric streams, this will also be used for training the AAD. In this case, the first results can be expected within an hour. Up to a day of data is used for training. After the initial training, the AAD will continuously refine its model and adapt to changes in the data.
+The AAD will need to train on your data before it can begin reporting anomalies. With data collected in 1 minute buckets, the AAD requires a 2-hour training period. If historic data exists for relevant metric streams, this will also be used for training the AAD. In this case, the first results can be expected within an hour. Up to a day of data is used for training. After the initial training, the AAD will continuously refine its model and adapt to changes in the data.
 
 ## Upgrade a standalone AAD instance
 

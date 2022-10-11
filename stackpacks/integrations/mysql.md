@@ -21,7 +21,7 @@ MySQL is a [StackState curated integration](/stackpacks/integrations/about_integ
 
 ### Installation
 
-The MySQL check is included in the [Agent V2 StackPack](agent.md) StackPack. No additional installation is needed on your MySQL server.
+The MySQL check is included in the [Agent V2 StackPack](agent.md). No additional installation is needed on your MySQL server.
 
 ### Configuration
 
@@ -123,7 +123,7 @@ Restart the Agent to start sending MySQL metrics to StackState.
 
 #### Log Collection
 
-1. By default MySQL logs everything in `/var/log/syslog` which requires root access to read. To make the logs more accessible, follow these steps:
+1. By default, MySQL logs everything in `/var/log/syslog` which requires root access to read. To make the logs more accessible, follow these steps:
    * Edit `/etc/mysql/conf.d/mysqld_safe_syslog.cnf` and remove or comment the lines.
    * Edit `/etc/mysql/my.cnf` and add following lines to enable general, error, and slow query logs:
 

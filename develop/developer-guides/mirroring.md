@@ -285,7 +285,7 @@ Sample raw metric request:
 }
 ```
 
-A raw metric request is executed when one wants to fetch raw \(non aggregated\) values from the remote telemetry system. The Mirror can recognize this query by the absence of the optional `aggregation` object in the `query` field. Besides common fields, there is a `metricField` which optionally indicates the source field for metric values.
+A raw metric request is executed when one wants to fetch raw \(non aggregated\) values from the remote telemetry system. The Mirror can recognize this query by the absence of the optional `aggregation` object in the `query` field. Besides, common fields, there is a `metricField` which optionally indicates the source field for metric values.
 
 An example response of the raw metric query is given below:
 

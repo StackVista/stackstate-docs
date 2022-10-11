@@ -103,4 +103,4 @@ The original component has a `200` (CLEAR) status and the component that it merg
 
 The unhealthy state will then propagate upwards to the parent relations.
 
-➡️ [Learn more about health state propagation](/use/concepts/health-state.md#propagated-health-state)
+➡️ [Learn more about health state propagation](/use/concepts/health-state.md#element-propagated-health-state)

@@ -13,14 +13,10 @@ Health can be sent to the StackState Receiver API using the `"health"` property 
 {% tabs %}
 {% tab title="Example health `repeat_snapshots` JSON" %}
 ```javascript
-
 {
    "apiKey":"<STACKSTATE_RECEIVER_API_KEY>",
    "collection_timestamp":1585818978,
    "internalHostname":"lnx-343242.srv.stackstate.com",
-   "events":{},
-   "metrics":[],
-   "service_checks":[],
    "health":[
       {
         "consistency_model": "REPEAT_SNAPSHOTS",
@@ -50,8 +46,8 @@ Health can be sent to the StackState Receiver API using the `"health"` property 
           }
         ]
       }
-   ],
-   "topologies":[]
+   ]
+}
 ```
 {% endtab %}
 {% endtabs %}
@@ -79,17 +75,13 @@ Health can be sent in one JSON message via HTTP POST or using the `stac` CLI com
 
 {% tabs %}
 {% tab title="curl" %}
-```javascript
+```bash
 curl -X POST \
- 'http://<STACKSTATE_BASE_URL>/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>' \
+ '<STACKSTATE_RECEIVER_API_ADDRESS>' \
  -H 'Content-Type: application/json' \
  -d '{
   "collection_timestamp": 1548857167,
-  "events": {},
-  "internalHostname": "localdocker.test",
-  "metrics": [],
-  "service_checks": [],
-  "topologies": [],
+  "internalHostname": "local.test",
   "health": [
     {
       "consistency_model": "REPEAT_SNAPSHOTS",

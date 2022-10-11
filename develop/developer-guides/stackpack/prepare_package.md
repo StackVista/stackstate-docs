@@ -83,7 +83,7 @@ upgradeInstructions = "upgrading.md"
 * `isNew` - This specifies whether the StackPack is new, as in the StackPack version is the first publicly available version. The values can be `yes`/`no`/`true`/`false`. By default, it is considered `false`.
 * `logoUrl` - Specifies the logo used as a badge for the StackPack. It could be any of the resource URL as defined [here](how_to_customize_a_stackpack.md). \(Required\)
 * `categories` - These are keywords using which the StackPacks can be filtered. Any list of relevant labels can be passed here. It is recommended to keep labels in capitalized letters.
-* `overviewUrl`- Markdown resource with general information about the StackPack. By default it is assumed to be `/overview.md`.
+* `overviewUrl`- Markdown resource with general information about the StackPack. By default, it is assumed to be `/overview.md`.
 * `detailedOverviewUrl` - Optional Markdown resource that described the StackPack in a bit more detailed fashion. This is displayed in two columns below the installed instances section in the StackPack page. Markdown comment,  `[comment]: # (split)` is used to delimit the two columns in the markdown.
 * `configurationUrls` - Contains the Markdown resources relevant for various states of StackPack provisioning.
 * `faqs` - Frequently asked questions concerning the StackPack or its installation. A list with each element having the format:

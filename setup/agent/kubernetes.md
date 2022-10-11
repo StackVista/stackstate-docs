@@ -68,7 +68,7 @@ Cluster checks configured here are run by the deployed [StackState Checks Agent]
 
 ## Supported Kubernetes versions
 
-StackState Agent v2.17.x is supported to monitor the following versions of Kubernetes or OpenShift:
+StackState Agent v2.18.x is supported to monitor the following versions of Kubernetes or OpenShift:
 
 * Kubernetes:
   * Kubernetes 1.16 - 1.21
@@ -141,7 +141,7 @@ If StackState Agent will run in an environment that does not have a direct conne
 
 1. Internet connection required:
    1. Download or clone the StackState Helm charts repo from GitHub: [https://github.com/StackVista/helm-charts](https://github.com/StackVista/helm-charts)
-   2. In the Helm charts repo, go to the directory `stable/stackstate-agent/installation` and use the script `backup.sh` to backup the required images from StackState. The script will pull all images required for the `stackstate-agent` Helm chart to run, back them up to individual tar archives and add all tars to a single `tar.gz` archive. The images will be in a `tar.gz` archive in the same folder as the working directory from where the script was executed. It is advised to run the script from the `stable/stackstate-agent/installation` directory as this will simplify the process of importing images on the destination system.
+   2. In the Helm charts repo, go to the directory `stable/stackstate-agent/installation` and use the script `backup.sh` to back up the required images from StackState. The script will pull all images required for the `stackstate-agent` Helm chart to run, back them up to individual tar archives and add all tars to a single `tar.gz` archive. The images will be in a `tar.gz` archive in the same folder as the working directory from where the script was executed. It is advised to run the script from the `stable/stackstate-agent/installation` directory as this will simplify the process of importing images on the destination system.
       * By default, the backup script will retrieve charts from the StackState chart repository (https://helm.stackstate.io), images are retrieved from the default StackState image registry (quay.io). The script can be executed from the `installation` directory as simply `./backup.sh`.
         ```text
           Back up helm chart images to a tar.gz archive for easy transport via an external storage device.
@@ -155,11 +155,11 @@ If StackState Agent will run in an environment that does not have a direct conne
       * Add the `-t` (dry-run) parameter to the script to give a predictive output of what work will be performed, for example:
          ```text
          ./backup.sh -t
-         Backing up quay.io/stackstate/stackstate-agent-2:2.17.2 to stackstate/stackstate-agent-2__2.17.2.tar (dry-run)
+         Backing up quay.io/stackstate/stackstate-agent-2:2.18.0 to stackstate/stackstate-agent-2__2.18.0.tar (dry-run)
          Backing up quay.io/stackstate/stackstate-process-agent:4.0.7 to stackstate/stackstate-process-agent__4.0.7.tar (dry-run)
          Backing up quay.io/stackstate/kube-state-metrics:2.3.0-focal-20220316-r61.20220418.2032 to stackstate/kube-state-metrics__2.3.0-focal-20220316-r61.20220418.2032.tar (dry-run)
-         Backing up quay.io/stackstate/stackstate-agent-cluster-agent:2.17.2 to stackstate/stackstate-agent-cluster-agent__2.17.2.tar (dry-run)
-         Backing up quay.io/stackstate/stackstate-agent-2:2.17.2 to stackstate/stackstate-agent-2__2.17.2.tar (dry-run)
+         Backing up quay.io/stackstate/stackstate-agent-cluster-agent:2.18.0 to stackstate/stackstate-agent-cluster-agent__2.18.0.tar (dry-run)
+         Backing up quay.io/stackstate/stackstate-agent-2:2.18.0 to stackstate/stackstate-agent-2__2.18.0.tar (dry-run)
          Images have been backed up to stackstate.tar.gz
          ```
 
@@ -174,7 +174,7 @@ If StackState Agent will run in an environment that does not have a direct conne
         * `-b` - path to the `tar.gz` to be imported
         * `-d` - the destination Docker image registry
       * Additional options when running the script:
-        * `-p` - push images to the destination registry. When not specified, images will be imported and tagged, but but remain on the local machine.
+        * `-p` - push images to the destination registry. When not specified, images will be imported and tagged, but remain on the local machine.
         * `-t` - Dry-run. Use to show the work that will be performed without any action being taken.
 
 **Example script usage**
@@ -187,21 +187,21 @@ In the example below, the StackState Agent images will be extracted from the arc
 Unzipping archive stackstate.tar.gz
 x stackstate/
 x stackstate/stackstate-process-agent__4.0.7.tar
-x stackstate/stackstate-agent-2__2.17.2.tar
+x stackstate/stackstate-agent-2__2.18.0.tar
 x stackstate/kube-state-metrics__2.3.0-focal-20220316-r61.20220418.2032.tar
-x stackstate/stackstate-agent-cluster-agent__2.17.2.tar
+x stackstate/stackstate-agent-cluster-agent__2.18.0.tar
 Restoring stackstate/kube-state-metrics:2.3.0-focal-20220316-r61.20220418.2032 from kube-state-metrics__2.3.0-focal-20220316-r61.20220418.2032.tar (dry-run)
 Imported quay.io/stackstate/kube-state-metrics:2.3.0-focal-20220316-r61.20220418.2032
 Tagged quay.io/stackstate/kube-state-metrics:2.3.0-focal-20220316-r61.20220418.2032 as localhost/stackstate/kube-state-metrics:2.3.0-focal-20220316-r61.20220418.2032
 Untagged: quay.io/stackstate/kube-state-metrics:2.3.0-focal-20220316-r61.20220418.2032
-Restoring stackstate/stackstate-agent-2:2.17.2 from stackstate-agent-2__2.17.2.tar (dry-run)
-Imported quay.io/stackstate/stackstate-agent-2:2.17.2
-Tagged quay.io/stackstate/stackstate-agent-2:2.17.2 as localhost/stackstate/stackstate-agent-2:2.17.2
-Untagged: quay.io/stackstate/stackstate-agent-2:2.17.2
-Restoring stackstate/stackstate-agent-cluster-agent:2.17.2 from stackstate-cluster-agent__2.17.2.tar (dry-run)
-Imported quay.io/stackstate/stackstate-agent-cluster-agent:2.17.2
-Tagged quay.io/stackstate/stackstate-agent-cluster-agent:2.17.2 as localhost/stackstate/stackstate-cluster-agent:2.17.2
-Untagged: quay.io/stackstate/stackstate-agent-cluster-agent:2.17.2
+Restoring stackstate/stackstate-agent-2:2.18.0 from stackstate-agent-2__2.18.0.tar (dry-run)
+Imported quay.io/stackstate/stackstate-agent-2:2.18.0
+Tagged quay.io/stackstate/stackstate-agent-2:2.18.0 as localhost/stackstate/stackstate-agent-2:2.18.0
+Untagged: quay.io/stackstate/stackstate-agent-2:2.18.0
+Restoring stackstate/stackstate-agent-cluster-agent:2.18.0 from stackstate-cluster-agent__2.18.0.tar (dry-run)
+Imported quay.io/stackstate/stackstate-agent-cluster-agent:2.18.0
+Tagged quay.io/stackstate/stackstate-agent-cluster-agent:2.18.0 as localhost/stackstate/stackstate-cluster-agent:2.18.0
+Untagged: quay.io/stackstate/stackstate-agent-cluster-agent:2.18.0
 Restoring stackstate/stackstate-process-agent:4.0.7 from stackstate-process-agent__4.0.7.tar (dry-run)
 Imported quay.io/stackstate/stackstate-process-agent:4.0.7
 Tagged quay.io/stackstate/stackstate-process-agent:4.0.7 as localhost/stackstate/stackstate-process-agent:4.0.7

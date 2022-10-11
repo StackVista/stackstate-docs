@@ -434,7 +434,7 @@ The Condition and KMS sections are only needed if a KMS key is used. This assume
 
 ## stackstate-integration KMS Key
 
-By default this KMS key gives full access to any IAM user within the account to administer the key. This can be modified as necessary to meet your organization's security policies.
+By default, this KMS key gives full access to any IAM user within the account to administer the key. This can be modified as necessary to meet your organization's security policies.
 
 ```javascript
 {

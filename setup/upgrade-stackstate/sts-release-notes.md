@@ -90,7 +90,7 @@ Upgraded:
 
 ### v5.0.0
 
-The StackState v5.0 release delivers brand new features and enhancements that help your team troubleshoot faster. Here are some highlights:
+The StackState v5.0 release delivers brand-new features and enhancements that help your team troubleshoot faster. Here are some highlights:
 
 * **[New 4T® Monitors](/use/checks-and-monitors/monitors.md)** – adds a new, first-in-the-industry dimension to observability monitoring – the ability to now monitor topology and to set validation rules that span topology and multiple other parameters
 * **Improved Topology Visualizer and Right Panel** – substantially enhances user experience and increases productivity with a more modern, focused, easy-to-learn UI and more in-depth troubleshooting capabilities.
@@ -402,7 +402,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 * Integrate network monitoring information from [SolarWinds](../../stackpacks/integrations/solarwinds.md). STAC-13360
 * Signficantly [improved Topology navigation](../../use/stackstate-ui/perspectives/topology-perspective.md): 
   * Improved component popover with direct links to contextual actions. STAC-12909
-  * Double clicking on a topology element \(group, component or relation\) "zooms into" that element in the Topology Perspective
+  * Double-clicking on a topology element \(group, component or relation\) "zooms into" that element in the Topology Perspective
   * Use the Plus button to expand a view with connected components, link from a trace span to the service. STAC-13359
 * Improved propagation functions to reduce noise. Alpha release. Not enabled by default. STAC-13107
 * Simplified installation and configuration of [AWS integration](../../stackpacks/integrations/aws/aws.md) including coverage of Step Functions and VPC FlowLog. STAC-12395
@@ -562,7 +562,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 
 **Bugfixes**
 
-* Fix issue blocking the sync service and not letting process topology any more. STAC-12116
+* Fix issue blocking the sync service and not letting process topology anymore. STAC-12116
 * Fixed problem where LDAP users with a special character in their DN could not be authorized. STAC-12059
 * Fixed issue that caused filtering on a domain containing an ampersand to redirect to the Views page. STAC-11797
 
@@ -744,7 +744,7 @@ StackState v4.0 is End of Life \(EOL\) and is no longer supported.
 
 * Proper handling for trailing slash in a receiver URL configuration. STAC-7817
 * Upgrade the requirement and documentation of Static Topology to use AgentV2. STAC-8640
-* `processmanager-properties.conf` was merged into `processmanager.conf` for both StackState and StackGraph. If you have changes to either one of those configuration files, you changes will need to be reaplied after upgrade. STAC-8473
+* `processmanager-properties.conf` was merged into `processmanager.conf` for both StackState and StackGraph. If you have changes to either one of those configuration files, your changes will need to be reaplied after upgrade. STAC-8473
 * The authentication for the admin API \(port 7071 by default\) is now configured separately from the normal authentication and, for new installations, it is enabled by default. If authentication was enabled for this api \(by default not\) this requires a change in the StackState configuration file. If it was not enabled it is strongly advised to enable it now and change the password. See the `application_stackstate.conf.example` file for an explanation on how to do both. STAC-7993
 * It is now possible to configure a proxy for event handlers, see [how to set this up](../../configure/topology/proxy-for-event-handlers.md). STAC-7784
 * Allow STS process manager to perform HTTPS health check. STAC-7718

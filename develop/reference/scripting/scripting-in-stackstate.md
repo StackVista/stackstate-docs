@@ -13,7 +13,7 @@ StackState uses scripting in many places to:
 * Create reports
 * Connect to external services
 
-StackState scripts are written using the StackState Scripting Language \(STSL\), which is based on [Groovy](https://groovy-lang.org/). The choice of Groovy is motivated by the fact that StackState is written in Scala and runs on JVM. Currently Groovy is the best and most performant script language for JVM. You are not stuck to using Groovy though, you can use the [HTTP script API](script-apis/http.md) to develop logic in any language.
+StackState scripts are written using the StackState Scripting Language \(STSL\), which is based on [Groovy](https://groovy-lang.org/). The choice of Groovy is motivated by the fact that StackState is written in Scala and runs on JVM. Currently, Groovy is the best and most performant script language for JVM. You are not stuck to using Groovy though, you can use the [HTTP script API](script-apis/http.md) to develop logic in any language.
 
 {% hint style="info" %}
 All scripts have a default \(configurable\) timeout of 15 seconds.

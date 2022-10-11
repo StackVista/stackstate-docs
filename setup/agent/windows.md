@@ -24,14 +24,14 @@ StackState Agent V2 will synchronize the following data from the host it is runn
 
 ### Supported versions
 
-StackState Agent V2.17.x is supported to run on:
+StackState Agent V2.18.x is supported to run on:
 
 * Windows 10 or higher
 * Windows Server 2012 or higher
 
 ### Install
 
-StackState Agent V2 is installed using a [PowerShell \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-6) script.
+StackState Agent V2 is installed using a [PowerShell \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-7.2&viewFallbackFrom=powershell-6) script.
 
 * [Online install](windows.md#online-install) - If you have access to the internet on the machine where the Agent will be installed. 
 * [Offline install](windows.md#offline-install) - If you **do not** have access to the internet on the machine where the Agent will be installed.

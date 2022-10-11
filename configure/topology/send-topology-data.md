@@ -14,10 +14,12 @@ You can also create a **custom topology synchronization** and send topology data
 
 ## StackState Receiver API
 
-The StackState Receiver API accepts topology, telemetry and health data in a common JSON object. By default, the receiver API is hosted at:
+The StackState Receiver API accepts topology, metrics, events and health data in a common JSON object. By default, the receiver API is hosted at the `<STACKSTATE_RECEIVER_API_ADDRESS>` this is constructed using the `<STACKSTATE_BASE_URL>` and <`STACKSTATE_RECEIVER_API_KEY>`.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
+The `<STACKSTATE_RECEIVER_API_ADDRESS>` for StackState deployed on Kubernetes or OpenShift is:
+
 ```text
 https://<STACKSTATE_BASE_URL>/receiver/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>
 ```
@@ -26,6 +28,9 @@ The `<STACKSTATE_BASE_URL>` and `<STACKSTATE_RECEIVER_API_KEY>` are set during S
 {% endtab %}
 
 {% tab title="Linux" %}
+
+The `<STACKSTATE_RECEIVER_API_ADDRESS>` for StackState deployed on Linux is:
+
 ```text
 https://<STACKSTATE_BASE_URL>:<STACKSTATE_RECEIVER_PORT>/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>
 ```
@@ -152,5 +157,5 @@ The [push-integration tutorial](../../develop/tutorials/push_integration_tutoria
 ## See also
 
 * [Send health data over HTTP](/configure/health/send-health-data/send-health-data.md)
-* [Send telemetry data over HTTP](/configure/telemetry/send_telemetry.md)
+* [Send telemetry data over HTTP](/configure/telemetry/send_metrics.md)
 * [Debug topology synchronization](/configure/topology/debug-topology-synchronization.md)

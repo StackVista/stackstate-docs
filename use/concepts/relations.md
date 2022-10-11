@@ -18,7 +18,7 @@ You can customize the types of relations displayed in the [visualization setting
 
 ![](/.gitbook/assets/v51_relation_comp_comp.png)  
 
-Direct relations link two components that have a direct connection to each other. A **direct relation** between two components is indicated by a solid line. The direction of the arrowhead shows the direction of the dependency. Select an direct relation to detailed information about the relation in the right panel details tab - **Direct relation details**.    
+Direct relations link two components that have a direct connection to each other. A **direct relation** between two components is indicated by a solid line. The direction of the arrowhead shows the direction of the dependency. Select a direct relation to detailed information about the relation in the right panel details tab - **Direct relation details**.    
 
 #### Direct relation details
 
@@ -29,7 +29,7 @@ The **Direct relation details** tab is shown in the StackState UI right panel wh
 * **Properties** - metadata, such as the relation type and any labels. Click SHOW ALL PROPERTIES to open a pop-up with all details of the relation.
 * **Components** - the source component and target component that the relation connects.
 * **Health** - reports the relation [health state](/use/concepts/health-state.md) as calculated by StackState. Expand to see all [health checks](/use/checks-and-monitors/checks.md) and [monitors](/use/checks-and-monitors/monitors.md) attached to the component.
-* **Propagated health** - reports the relation's [propagated health state](/use/concepts/health-state.md#propagated-health-state). This is derived from the health state of the components and relations that the relation depends upon.
+* **Propagated health** - reports the relation's [propagated health state](/use/concepts/health-state.md#element-propagated-health-state). This is derived from the health state of the components and relations that the relation depends upon.
 * **Problems** - lists all [problems](/use/problem-analysis/about-problems.md) that involve the selected relation. 
 * **Events** - the latest 10 [events](/use/events/about_events.md) that relate to the selected relation. Click VIEW ALL to open the Events perspective in a [subview](/use/stackstate-ui/views/about_views.md#subview) containing only the relation component. 
 * **Telemetry** - all [telemetry streams](/use/metrics/telemetry_streams.md) linked to the relation.
@@ -60,19 +60,19 @@ The **Grouped relation details** tab is shown in the StackState UI right panel w
 
 ## Relation details
 
-![Relation details](/.gitbook/assets/v51_relation_details.png)
+![Relation details](/.gitbook/assets/v51_direct_relation_details.png)
 
 When a relation is selected by clicking on it, detailed information about the component is shown in the right panel details tab - **Direct relation details**, **Indirect relation details** or **Grouped relation details**, depending on the type of relation that has been selected. For details of the tab content, see the relation types [direct relations](#direct-relations), [indirect relations](#indirect-relations) and [grouped relations](#grouped-relations).
 
 ## Dependencies and propagation
 
-If a relation indicates a dependency, the line will have an arrowhead showing the direction of the dependency. A dependency could be in one direction or in both directions, indicating that two components depend on each other, for example a network device talking to another networking device that has a bi-directional connection.
+If a relation indicates a dependency, the line will have an arrowhead showing the direction of the dependency. A dependency could be in one direction or in both directions, indicating that two components depend on each other, for example a network device talking to another networking device that has a bidirectional connection.
 
-[Health state will propagate](health-state.md#propagated-health-state) from one component to the next upwards along a chain of dependencies. If the relation does not show a dependency between the components it connects \(no arrowhead\), it can be considered as merely a line in the visualizer or a connection in the stack topology.
+[Health state will propagate](health-state.md#element-propagated-health-state) from one component to the next upwards along a chain of dependencies. If the relation does not show a dependency between the components it connects \(no arrowhead\), it can be considered as merely a line in the visualizer or a connection in the stack topology.
 
 ## See also
 
 * [Topology perspective](/use/stackstate-ui/perspectives/topology-perspective.md)
 * [Components](/use/concepts/relations.md)
-* [Health state propagation](/use/concepts/health-state.md#propagated-health-state)
+* [Health state propagation](/use/concepts/health-state.md#element-propagated-health-state)
 * [View visualization settings](/use/stackstate-ui/views/visualization_settings.md)

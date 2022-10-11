@@ -24,6 +24,8 @@ You can add an event handler to a view from the StackState UI right panel **View
 Event handlers can only be added to a saved [view](/use/stackstate-ui/views/about_views.md). It is not possible to add event handlers to [subviews](/use/stackstate-ui/views/about_views.md#subview) or while in [explore mode](/use/stackstate-ui/explore_mode.md).
 {% endhint %}
 
+![Add event handler](/.gitbook/assets/v51_add_event_handler.png)
+
 1. Open a [view](/use/stackstate-ui/views/about_views.md).
 2. Select the **View summary** tab in the right panel.
 3. Expand the **Event handlers** section. All currently configured event handlers are listed.
@@ -83,7 +85,7 @@ You can [create your own custom event handler functions](/develop/developer-guid
 
 ## See also
 
-* [Event types for event notifications](/use/metrics-and-events/event-notification.mds#event-types-for-notifications)
+* [Event types for event notifications](/use/events/event-notifications.md#event-types-for-notifications)
 * [Add a health check](/use/checks-and-monitors/add-a-health-check.md)
 * [Configure an SMTP server to send email event notifications](/configure/topology/configure-email-event-notifications.md "StackState Self-Hosted only")
 * [Create a custom event handler function](/develop/developer-guides/custom-functions/event-handler-functions.md "StackState Self-Hosted only")

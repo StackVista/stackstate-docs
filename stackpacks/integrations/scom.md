@@ -35,7 +35,7 @@ Retrieving a large topology can require a high number of API requests, this can 
 
 The StackState SCOM PowerShell integration runs PowerShell scripts on the SCOM box to retrieve topology data and events.
 
-* PowerShell scripts in Agent V2 collect topology data and events from SCOM..
+* PowerShell scripts in Agent V2 collect topology data and events from SCOM.
 * Agent V2 pushes [retrieved data](scom.md#data-retrieved) to StackState.
 * StackState translates incoming SCOM topology data into components and relations. Incoming events are used to determine component health state and publish SCOM alerts in StackState.
 
@@ -111,7 +111,7 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
 
 #### Specify the components to retrieve data for
 
-The components to retrieve data for can be defined using an [Operations Manager Data Query \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/previous-versions/system-center/developer/bb437497%28v=msdn.10%29). For example, to retrieve data for all Microsoft Windows computers:
+The components to retrieve data for can be defined using an [Operations Manager Data Query \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/previous-versions/system-center/developer/bb437497%28v=msdn.10%29). For example, to retrieve data for all Microsoft Windows computers:
 
 ```text
 criteria : “(FullName LIKE ‘Microsoft.Windows.Computer:%’)”
@@ -244,6 +244,6 @@ To uninstall the SCOM StackPack and disable the SCOM check:
 * [StackState Agent V2](../../setup/agent/about-stackstate-agent.md)
 * [Secrets management in StackState](../../configure/security/secrets_management.md)
 * [StackState Agent integrations - SCOM \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/scom)
-* [Operations Manager API reference \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/rest/api/operationsmanager/)
-* [Using Operations Manager data queries \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/previous-versions/system-center/developer/bb437497%28v=msdn.10%29)
+* [Operations Manager API reference \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/rest/api/operationsmanager/)
+* [Using Operations Manager data queries \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/previous-versions/system-center/developer/bb437497%28v=msdn.10%29)
 

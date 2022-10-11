@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-Elements in StackState can have a telemetry \(metrics or log\) stream assigned. This provides additional insight into your topology and is required, for example, to [monitor the health of an element](../checks-and-monitors/add-a-health-check.md). If a telemetry stream was not automatically been assigned to an element or you want to add a custom telemetry stream, you can do this manually from the StackState UI.
+Elements in StackState can have a telemetry \(metrics or log\) stream assigned. This provides additional insight into your topology and is required, for example, to [monitor the health of an element](../checks-and-monitors/add-a-health-check.md). If a telemetry stream was not automatically been assigned to an element, or you want to add a custom telemetry stream, you can do this manually from the StackState UI.
 
 ## Add a telemetry stream to an element
 
