@@ -179,7 +179,7 @@ If StackState Agent will run in an environment that does not have a direct conne
 
 **Example script usage**
 
-In the example below, the StackState Agent images will be extracted from the archive `stackstate.tar.gz`, imported by Docker, and re-tagged to the registry given by the `-d` flag, in this example, `localhost`.  The `-t` argument (dry-run) is provided to show the work that will be performed:
+In the example below, the StackState Agent images will be extracted from the archive `stackstate.tar.gz`, imported by Docker, and re-tagged to the registry given by the `-d` flag, in this example, `localhost`. The `-t` argument (dry-run) is provided to show the work that will be performed:
 
 ```text
 ./import.sh -b stackstate.tar.gz -d localhost -t
@@ -398,9 +398,9 @@ The old `stackstate/cluster-agent` chart used to be the Agent has been replaced 
 
 | stackstate/cluster-agent | stackstate/stackstate-agent | Changes in NEW chart                                                                   |
 | :--- | :--- |:---------------------------------------------------------------------------------------|
-| OLD chart (being deprecated) | NEW chart | It is advised to use the NEW `stackstate/stackstate-agent` chart.                      |
+| OLD chart (being deprecated) | NEW chart | It is advised to use the NEW `stackstate/stackstate-agent` chart.                     |
 | `clusterChecks` | `checksAgent` | Section renamed and enabled by default. |
-| `agent` | `nodeAgent` | Section renamed.                            |
+| `agent` | `nodeAgent` | Section renamed.                           |
 
 In addition to these changes, the kubernetes_state check runs by default in the Checks Agent when using the new chart (`stackstate/stackstate-agent`). This no longer needs to be configured on default installations.
 

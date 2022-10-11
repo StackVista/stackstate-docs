@@ -77,7 +77,7 @@ To upgrade StackState Agent V2 running on Windows,
 
 1. Download the latest version of the Agent installer package and copy this to the host where it will be installed next to the PowerShell install script:
    * [https://stackstate-agent-2.s3.amazonaws.com/windows/stable/stackstate-agent-latest-1-x86\_64.msi](https://stackstate-agent-2.s3.amazonaws.com/windows/stable/stackstate-agent-latest-1-x86_64.msi)
-2. Double-click the downloaded `*.msi` file.   
+2. Double-click the downloaded `*.msi` file.  
 
 ## Configure
 

@@ -13,7 +13,7 @@ The AAD status UI provides details on the technical state of the AAD. It can be 
 Common questions that can be answered in the AAD status UI:
 
 **Is the AAD Kubernetes service running?**  
-If the status UI is accessible: The service is running.  
+If the status UI is accessible: The service is running. 
 If the status UI is not available: Either the service is not running, or the Ingress has not been configured \(See the install section\).
 
 **Can the AAD Kubernetes service reach StackState?**  

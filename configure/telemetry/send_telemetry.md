@@ -87,7 +87,7 @@ Every metric has the following details:
 * **value** - The value of the metric.
 * **hostname** - The host this metric is from.
 * **type** - The type of metric. Can be `gauge`, `count`, `rate`, `counter` or `raw`.
-* **tags** - Optional.  A list of key/value tags to associate with the metric.
+* **tags** - Optional. A list of key/value tags to associate with the metric.
 
 The `timestamp` and `value` are used to plot the metric as a time series. The `name` and `tags` can be used to define a metric stream in StackState.
 
@@ -195,9 +195,9 @@ Events have the following details:
   * **category** - The event category. Can be `Activities`, `Alerts`, `Anomalies`, `Changes` or `Others`.
   * **element\_identifiers** - The [identifiers for the topology element\(s\)](../topology/identifiers.md#topology-identifiers) the event relates to. These are used to bind the event to a topology element or elements. 
   * **source** - The name of the system from which the event originates, for example AWS, Kubernetes or JIRA.
-  * **data** - Optional.  A list of key/value details about the event, for example a configuration version.
+  * **data** - Optional. A list of key/value details about the event, for example a configuration version.
   * **source\_identifier** - Optional. The original identifier of the event in the source system.
-  * **source\_links** - Optional.  A list of links related to the event, for example a dashboard or the event in the source system.
+  * **source\_links** - Optional. A list of links related to the event, for example a dashboard or the event in the source system.
 * **event\_type** - Describes the event being sent. This should generally end with the suffix `Event`, for example `ConfigurationChangedEvent`, `VersionChangedEvent`.
 * **msg\_text** - Required. The text body of the event.
 * **msg\_title** - Required. The title of the event.

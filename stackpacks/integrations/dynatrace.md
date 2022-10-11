@@ -203,8 +203,8 @@ The [Dynatrace health check](#dynatrace-health-check) retrieves all events and t
 | Dynatrace event severity | Available in StackState as                                                                                                                                                                                                                      |
 | :--- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `INFO` | Events are mapped to the associated component. They are listed on the StackState Events Perspective. They are also included in the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**. |
-| `PERFORMANCE`, `RESOURCE_CONTENTION`, `MONITORING_UNAVAILABLE`, `ERROR` | Events are added to a StackState health stream. These event severities will result in a `DEVIATING` state on the associated component.                                                                                                          |
-| `AVAILABILITY`, `CUSTOM_ALERT` | Events are added to a StackState health stream. These event severities will result in a CRITICAL state on the associated component.                                                                                                             |
+| `PERFORMANCE`, `RESOURCE_CONTENTION`, `MONITORING_UNAVAILABLE`, `ERROR` | Events are added to a StackState health stream. These event severities will result in a `DEVIATING` state on the associated component.                                                                                                         |
+| `AVAILABILITY`, `CUSTOM_ALERT` | Events are added to a StackState health stream. These event severities will result in a CRITICAL state on the associated component.                                                                                                            |
 
 
 #### Metrics
@@ -224,7 +224,7 @@ The [Dynatrace topology check](#dynatrace-topology-check) retrieves the followin
 | Data | Description                                                                                                                                                   |
 | :--- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Components | Smartscape Applications, Hosts, Processes, Process-Groups, Services, Custom Devices. Synthetic Monitors are also available when running Agent v2.17 or later. |
-| Relations | Relations between the imported components are included in the component data retrieved from Dynatrace.                                                        |
+| Relations | Relations between the imported components are included in the component data retrieved from Dynatrace.                                                       |
 
 {% hint style="info" %}
 The Dynatrace integration understands StackState [common tags](../../configure/topology/tagging.md#common-tags). These StackState tags can be assigned to elements in Dynatrace to influence the way that the resulting topology is built in StackState. For example, by placing a component in a specific layer or domain.

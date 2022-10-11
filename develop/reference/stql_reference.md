@@ -36,7 +36,7 @@ The filters described below can be combined using the available [operators](#ope
 | `layer` | "all" | Components in the named layer. |
 | `name` | "all" | Components with the specified name. |
 | `type` | "all" | Components of the specified type. |
-| `identifier` | "all" | Components with the specified URN identifier. The identifier filter is only compatible with basic filtering when it is specified using `identifier IN (...)` and combined with other filters using an `OR` operator. When the set filter is compatible with basic filtering, the number of component identifiers queried will be reported in the [**Other filters** box](/use/stackstate-ui/filters.md#other-filters).  |
+| `identifier` | "all" | Components with the specified URN identifier. The identifier filter is only compatible with basic filtering when it is specified using `identifier IN (...)` and combined with other filters using an `OR` operator. When the set filter is compatible with basic filtering, the number of component identifiers queried will be reported in the [**Other filters** box](/use/stackstate-ui/filters.md#other-filters). |
 
 ### Operators
 

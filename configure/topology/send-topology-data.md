@@ -137,11 +137,11 @@ The JSON contains the following fields:
   * **externalId**: A unique ID for this component. This has to be unique for this instance.
   * **type**: A named parameter for this type.
   * **data**: A JSON blob of arbitrary data.
-  * **sourceProperties**: Optional. A JSON blob of arbitrary data. When populated, the contents of this field will be displayed in the StackState UI component properties in place of the `data` field.  The `data` field will still be accessible in templates and the various functions that make use of this data
+  * **sourceProperties**: Optional. A JSON blob of arbitrary data. When populated, the contents of this field will be displayed in the StackState UI component properties in place of the `data` field. The `data` field will still be accessible in templates and the various functions that make use of this data
 * **relations**: A list of relations. Each relation has the following fields:
   * **externalId**: A unique ID for this relation. This has to be unique for this instance.
   * **type**: A named parameter for this type.
-  * **data**: A JSON blob of arbitrary data.  
+  * **data**: A JSON blob of arbitrary data. 
   * **sourceId**: The source component externalId.
   * **targetId**: The target component externalId.
 

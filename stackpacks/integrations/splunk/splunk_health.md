@@ -23,11 +23,11 @@ StackState Agent V2 executes the Splunk saved searches configured in the [Splunk
 
 | Field | Type | Required? | Description                                                                     |
 | :--- | :--- | :--- |:--------------------------------------------------------------------------------|
-| **check\_state\_id** | ✅ | string | The unique identifier for the check state.                                      |
-| **name** | string | ✅ | Display name for the check state.                                               |
+| **check\_state\_id** | ✅ | string | The unique identifier for the check state.                                     |
+| **name** | string | ✅ | Display name for the check state.                                              |
 | **health** | string | ✅ | The health value of the check state. Can be `CLEAR`, `DEVIATING` or `CRITICAL`. |
-| **topology\_element\_identifier** | string | ✅ | The identifier of the component/relation this check state belongs to.           |
-| **message** | string | - | Extended message associated with the check state, supports markdown.            |
+| **topology\_element\_identifier** | string | ✅ | The identifier of the component/relation this check state belongs to.          |
+| **message** | string | - | Extended message associated with the check state, supports markdown.           |
 
 ### Example Splunk query
 

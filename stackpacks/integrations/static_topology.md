@@ -62,7 +62,7 @@ instances:
 agent check static_topology
 ```
 5.[Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
-6.Once the Agent has restarted, wait for the Agent to collect data from the CSV files and send it to StackState.    
+6.Once the Agent has restarted, wait for the Agent to collect data from the CSV files and send it to StackState.   
 
 ### Status
 
