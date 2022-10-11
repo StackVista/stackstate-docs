@@ -29,5 +29,3 @@ Use StackState SaaS to observe cloud technologies, such as Kubernetes and AWS se
 {% hint style="success" %}
 🔒 StackState is SOC2/3 certified. [Learn more](https://www.stackstate.com/compliance)
 {% endhint %}
-
-test
