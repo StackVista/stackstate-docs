@@ -4,9 +4,9 @@ description: StackState Self-hosted v5.1.x
 
 # How to develop Agent checks
 
-This document covers how to create your first check with Agent v2 Check API. Following topics are covered in this document: the agent directory structure, configuring your check, writing your first check, sending topology, metrics, events, and service checks as well as how to add external python dependencies and putting it all together.
+This document covers how to create your first check with Agent V2 Check API. Following topics are covered in this document: the agent directory structure, configuring your check, writing your first check, sending topology, metrics, events, and service checks as well as how to add external python dependencies and putting it all together.
 
-## Installing Agent v2 StackPack
+## Installing Agent V2 StackPack
 
 To install this StackPack navigate to StackState’s StackPacks page using left menu and locate the “StackState Agent V2” section. Click the Agent V2 icon and this opens the installation page. Click the **INSTALL** button and follow installation instructions provided by the StackPack.
 
@@ -70,7 +70,7 @@ instances:
     authentication:
       username:
       password:
-    # min_collection_interval: 30 # use in place of collection_interval for Agent v2.14.x or earlier 
+    # min_collection_interval: 30 # use in place of collection_interval for Agent V2.14.x or earlier 
     collection_interval: 30 # the collection interval in seconds. This check will run try to run every 30 seconds
 ```
 
@@ -105,9 +105,10 @@ instances:
 Now you can start defining your first check. The following "Skeleton" check can be used as a good starting point:
 
 ```text
-from stackstate_checks.base import AgentCheck, ConfigurationError, AgentIntegrationInstance
+from stackstate_checks.base.checks.v2.base import AgentCheckV2
+from stackstate_checks.base import ConfigurationError, AgentIntegrationInstance
 
-class ExampleCheck(AgentCheck):
+class ExampleCheck(AgentCheckV2):
 
     # This method should also be overriden to uniquely identify your integration instance. The AgentIntegrationInstance is synchronized by the StackState Agent V2 StackPack. All topology elements produced by this check can be found by filtering on the `integration-type:{example}` and `integration-url:{instance_url}` tags in StackState for this example.
     def get_instance_key(self, instance):
@@ -362,7 +363,7 @@ The service check can produce the following states:
 
 ### Add Python Dependencies
 
-Sometimes your check may require some external dependencies. To solve this problem the StackState Agent is shipped with python and pip embedded. When installing the dependencies needed by your custom check you should use the embedded pip to do so. This executable for pip can be found here:
+Sometimes your check may require some external dependencies. To solve this problem StackState Agent V2 is shipped with python and pip embedded. When installing the dependencies needed by your custom check you should use the embedded pip to do so. This executable for pip can be found here:
 
 For Linux, you should find it at:
 
@@ -394,7 +395,7 @@ C:\Program Files\StackState\StackState Agent\embedded\agent.exe check <CHECK_NAM
 
 This executes your check once and displays the results.
 
-Once you are happy with the result of your check, you can restart the StackState Agent service and your check will be scheduled alongside the other agent checks.
+Once you are happy with the result of your check, you can restart the StackState Agent V2 service and your check will be scheduled alongside the other agent checks.
 
 For Linux:
 

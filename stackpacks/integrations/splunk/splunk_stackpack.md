@@ -52,7 +52,7 @@ A Splunk check must be configured on StackState Agent V2 for each type of data y
 
 ### Authentication
 
-Each Splunk check configured on StackState Agent V1 must include authentication details to allow the Agent to connect to your Splunk instance and execute the configured Splunk saved searches.
+Each Splunk check configured on StackState Agent V2 must include authentication details to allow the Agent to connect to your Splunk instance and execute the configured Splunk saved searches.
 
 Two authentication mechanisms are available:
 
@@ -87,7 +87,7 @@ instances:
 {% endtab %}
 {% endtabs %}
 
-To enable token-based authentication, the following parameters should be included in the section `authentcation.token_auth` of each StackState Agent V1 Splunk check configuration file:
+To enable token-based authentication, the following parameters should be included in the section `authentcation.token_auth` of each StackState Agent V2 Splunk check configuration file:
 
 * **name** - Name of the user who will use this token.
 * **initial\_token** - An initial, valid token. This token will be used once only and then replaced with a new generated token requested by the integration.
@@ -161,7 +161,7 @@ When the Splunk StackPack is installed, and a Splunk Topology Agent check is con
 
 For details on how to configure the components and relations retrieved, see the [Splunk Topology check configuration](splunk_topology.md).
 
-If you have an existing Splunk Topology integration configured to use StackState Agent V1 and would like to upgrade to use StackState Agent V2, refer to the [Agent migration instructions](TODO_LINK_TO_AGENT_MIGRATION_DOCS).
+If you have an existing Splunk Topology integration configured to use StackState Agent V1 (legacy) and would like to upgrade to use StackState Agent V2, refer to the [Agent migration instructions](/setup/agent/migrate-agent-v1-to-v2/).
 
 #### Health
 

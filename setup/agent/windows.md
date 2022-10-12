@@ -186,7 +186,7 @@ To uninstall StackState Agent V2 running on Windows:
 
 ## See also
 
-* [About the StackState Agent](about-stackstate-agent.md)
+* [About StackState Agent V2](about-stackstate-agent.md)
 * [Advanced Agent configuration](advanced-agent-configuration.md)  
 * [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md)
 * [StackState Agent V2 \(github.com\)](https://github.com/StackVista/stackstate-agent)

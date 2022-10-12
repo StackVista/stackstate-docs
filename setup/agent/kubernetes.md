@@ -15,7 +15,7 @@ To retrieve topology, events and metrics data from a Kubernetes or OpenShift clu
 * StackState Checks Agent on one node
 * kube-state-metrics
 
-To integrate with other services, a separate instance of the StackState Agent should be deployed on a standalone VM.
+To integrate with other services, a separate instance of StackState Agent V2 should be deployed on a standalone VM.
 
 # StackState Agent types
 

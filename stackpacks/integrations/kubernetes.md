@@ -40,7 +40,7 @@ The following prerequisites are required to install the Kubernetes StackPack and
 
 ### Supported container runtimes
 
-From StackState Agent v2.16, the following container runtimes are supported:
+From StackState Agent V2.16, the following container runtimes are supported:
 
 * containerd
 * CRI-O

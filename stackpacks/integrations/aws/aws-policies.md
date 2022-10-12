@@ -7,7 +7,7 @@ description: StackState Self-hosted v5.1.x
 ## Overview
 
 {% hint style="info" %}
-This page includes examples of all IAM and other policies necessary for a working StackState AWS Agent installation. For the AWS \(Legacy\) integration, refer to the policy files provided when the AWS \(Legacy\) StackPack is installed.
+This page includes examples of all IAM and other policies necessary for a working StackState AWS Agent installation. For the AWS \(legacy\) integration, refer to the policy files provided when the AWS \(legacy\) StackPack is installed.
 {% endhint %}
 
 These policies are taken directly from the CloudFormation template and should be used wherever possible.

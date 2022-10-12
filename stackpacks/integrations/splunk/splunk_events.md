@@ -11,7 +11,7 @@ This page describes the Splunk Events check running on StackState Agent V2.
 
 If you are currently running the Splunk Events check on Agent V1 (legacy), it is advised that you migrate to Agent V2.
 
-* [Migrate to Agent V2](TODO_LINK_TO_AGENT_MIGRATION_DOCS)
+* [Migrate to Agent V2](/setup/agent/migrate-agent-v1-to-v2/)
 * [Documentation for the Splunk Events check running on Agent V1 \(legacy\)](https://docs.stackstate.com/v/5.0/stackpacks/integrations/splunk/splunk_events)
 {% endhint %}
 
@@ -75,7 +75,7 @@ The example Splunk saved search above would result in the following event data i
 
 ### Configure the Splunk Events check
 
-To enable the Splunk Events integration and begin collecting events data from your Splunk instance, the Splunk Events check must be configured on StackState Agent V1. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
+To enable the Splunk Events integration and begin collecting events data from your Splunk instance, the Splunk Events check must be configured on StackState Agent V2. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
 
 {% hint style="info" %}
 Example Agent V2 Splunk Events check configuration file:  
