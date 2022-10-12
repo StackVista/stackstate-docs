@@ -137,7 +137,7 @@ The Kubernetes integration retrieves the following data:
 
 ##### Kubernetes events
 
-The Kubernetes integration retrieves all events from the Kubernetes cluster.  The table below shows which event category will be assigned to each event type in StackState:
+The Kubernetes integration retrieves all events from the Kubernetes cluster. The table below shows which event category will be assigned to each event type in StackState:
 
 | StackState event category | Kubernetes events |
 |:--------------------------| :--- |

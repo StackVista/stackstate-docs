@@ -144,7 +144,7 @@ Multiple instances of the same check can run concurrently. If a check is already
 Topology elements can be sent to StackState with the following methods:
 
 * `self.component` - Create a component in StackState. See [send components](agent-check-api.md#send-components).
-* `self.relation` - Create a relation between two components in StackState.  See [send relations](agent-check-api.md#send-relations).
+* `self.relation` - Create a relation between two components in StackState. See [send relations](agent-check-api.md#send-relations).
 * `self.start_snapshot()` - Start a topology snapshot for a specific topology instance source.
 * `self.stop_snapshot()` - Stop a topology snapshot for a specific topology instance source.
 

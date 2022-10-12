@@ -265,7 +265,7 @@ The instructions below will take you through the process of setting up a new gro
    stac permission grant stackstateManager access-view "Business Applications"
    
    # new `sts` CLI:
-   # Command not currently available in the new `sts` CLI. Use the `stac` CLI.   
+   # Command not currently available in the new `sts` CLI. Use the `stac` CLI.  
    ```
 
    Please note that the subject's name, as well as permissions, are case-sensitive.
