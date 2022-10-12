@@ -32,7 +32,7 @@ Install the ??? StackPack from the StackState UI **StackPacks** &gt; **Integrati
 
 To enable the ??? check and begin collecting data from ???, add the following configuration to StackState Agent V2:
 
-1.  Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/???/conf.yaml` to include details of your ??? instance:
+1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/???/conf.yaml` to include details of your ??? instance:
    * **???** - ???.
    * **???** - ???.
 

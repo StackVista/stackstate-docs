@@ -50,11 +50,11 @@ Static health is read from a CSV file with a header row, that specifies the fiel
 
 | Field name | Mandatory | Description                                                                     |
 | :--- | :--- |:--------------------------------------------------------------------------------|
-| **check\_state\_id** | yes | Identification for the check state within the health stream.                    |
-| **name** | yes | The display name of the check state.                                            |
+| **check\_state\_id** | yes | Identification for the check state within the health stream.                   |
+| **name** | yes | The display name of the check state.                                           |
 | **health** | yes | The health state of the check state. Can be `CLEAR`, `DEVIATING` or `CRITICAL`. |
-| **topology\_element\_identifier** | yes | Identifier of the component or relation the check state will be attached to.    |
-| **message** | no | Additional descriptive message of the check state.                              |
+| **topology\_element\_identifier** | yes | Identifier of the component or relation the check state will be attached to.   |
+| **message** | no | Additional descriptive message of the check state.                             |
 
 {% tabs %}
 {% tab title="Example health CSV file" %}

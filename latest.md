@@ -46,7 +46,7 @@ To find documentation for previous StackState versions, use the drop-down menu a
 
 ## Can't find something?
 
-**Search for it!** Use the search bar on the top right.  
+**Search for it!** Use the search bar on the top right. 
 If you believe any documentation is missing, please let us know on the [StackState support site](http://support.stackstate.com/).
 
 ## Troubleshooting and support

@@ -6,18 +6,18 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-Anomaly detection is a CPU bound process and typically there are many more metric streams than can be handled in (near) real-time.  The AAD uses prioritization to most effectively allocate the allotted resources to the most important streams.  But how many resources must be given to the AAD is dependent on the number of metric streams that are present and the way anomalies are used to investigate problems.
+Anomaly detection is a CPU bound process and typically there are many more metric streams than can be handled in (near) real-time. The AAD uses prioritization to most effectively allocate the allotted resources to the most important streams. But how many resources must be given to the AAD is dependent on the number of metric streams that are present and the way anomalies are used to investigate problems.
 
-This page explains how to allocate resources for the AAD and determine if an installation is performing well.  In particular, we show how to use metrics on anomaly health checks to do this.
+This page explains how to allocate resources for the AAD and determine if an installation is performing well. In particular, we show how to use metrics on anomaly health checks to do this.
 
 ## Set the number of workers
 
 The AAD consists of two types of pods:
 
 * A (singleton) manager pod that handles all non-CPU-intensive tasks, such as maintaining the work queue and persisting model state.
-* A configurable number of worker pods that run model selection, training and (near) real-time anomaly detection.  Workers fetch their data from StackState and report back any found anomalies (or their absence).
+* A configurable number of worker pods that run model selection, training and (near) real-time anomaly detection. Workers fetch their data from StackState and report back any found anomalies (or their absence).
 
-The number of workers and their individual resource requirements can be configured in the deployment `values.yaml`.  The snippet below contains the default values, adjust these to scale out (`replicas`) and/or up (`cpu.limit`, `cpu.request`).
+The number of workers and their individual resource requirements can be configured in the deployment `values.yaml`. The snippet below contains the default values, adjust these to scale out (`replicas`) and/or up (`cpu.limit`, `cpu.request`).
 
 {% tabs %}
 {% tab title="values.yaml" %}

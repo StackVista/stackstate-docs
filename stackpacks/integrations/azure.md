@@ -24,7 +24,7 @@ Azure is a [StackState curated integration](/stackpacks/integrations/about_integ
 
 * The StackState Azure Agent is [a collection of Azure functions](azure.md#stackstate-azure-functions) that connect to the [Azure APIs](azure.md#rest-api-endpoints) at a configured interval to collect information about available resources.
   * `TimedStart` triggers data collection every 2 hours.
-  * `EventHubChangesFunction` collects the deltas.  
+  * `EventHubChangesFunction` collects the deltas. 
   * `SendToStackState` pushes [retrieved data](azure.md#data-retrieved) to StackState.
 * StackState translates incoming data into topology components and relations.
 * The StackState Azure plugin pulls available telemetry data per resource on demand from Azure, for example when a component is viewed in the StackState UI or when a health check is run on the telemetry stream.
