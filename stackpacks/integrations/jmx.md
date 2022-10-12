@@ -97,7 +97,7 @@ instances:
 * `trust_store_path` and `trust_store_password` - \(Optional\) - Should be set if ssl is enabled.
 * `process_name_regex` - \(Optional\) - Instead of specifying a host and port or jmx\_url, the agent can connect using the attach api. This requires the JDK to be installed and the path to tools.jar to be set.
 * `tools_jar_path` - \(Optional\) - To be set when process\_name\_regex is set.
-* `refresh_beans` - \(Optional\) - Refresh period for refreshing the matching MBeans list.  Default is 600 seconds.  Decreasing this value may result in increased CPU usage.
+* `refresh_beans` - \(Optional\) - Refresh period for refreshing the matching MBeans list. Default is 600 seconds. Decreasing this value may result in increased CPU usage.
 
 The `conf` parameter is a list of dictionaries. Only 2 keys are allowed in this dictionary:
 

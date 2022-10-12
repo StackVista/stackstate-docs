@@ -8,6 +8,8 @@ description: StackState Self-hosted v5.1.x
 
 Anomaly detection identifies abnormal behavior in your fast-changing IT environment. This helps direct the attention of IT operators to the root cause of problems or can provide an early warning. The Autonomous Anomaly Detector (AAD) requires zero configuration. It is fully autonomous in selecting both the metric streams it will apply anomaly detection to, and the appropriate machine learning algorithms to use for each metric stream.
 
+The AAD supports daily and weekly seasonality, creating an anomaly when the observed values differ a lot from the expected values. Daily seasonality is enabled by default.
+
 {% hint style="info" %}
 Note that a [training period](aad.md#training-period) is required before the AAD can begin to report anomalies.
 {% endhint %}
@@ -83,7 +85,9 @@ To install the AAD StackPack, simply press the **INSTALL** button. No other acti
 
 ### Training period
 
-The AAD will need to train on your data before it can begin reporting anomalies. With data collected in 1 minute buckets, the AAD requires a 2-hour training period. If historic data exists for relevant metric streams, this will also be used for training the AAD. In this case, the first results can be expected within an hour.  Up to a day of data is used for training.  After the initial training, the AAD will continuously refine its model and adapt to any changes in the data.
+The AAD will need to train on your data before it can begin reporting anomalies. With data collected in 1 minute buckets, the AAD requires a 2-hour training period. If historic data exists for relevant metric streams, this will also be used for training the AAD. In this case, the first results can be expected within an hour. Up to three days of data are used for training. After the initial training, the AAD will continuously refine its model and adapt to any changes in the data.
+
+For weekly seasonality, the training period needs to be extended to at least three weeks of data. With fine-grained metrics data, this puts a considerable load on the metrics store. The access pattern is quite different from other typical metric data uses. Enabling weekly seasonality therefore must be validated, in order to prevent degraded performance.
 
 ## Frequently Asked Questions
 
