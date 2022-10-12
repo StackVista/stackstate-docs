@@ -21,6 +21,7 @@ In StackState, different function types complete different tasks. Depending on t
 | [Component mapper functions](mapper-functions.md) | ✅ | - | - |
 | [ID extractor functions](id-extractor-functions.md) | ✅ | - | - |
 | [Relation mapper functions](mapper-functions.md) | ✅ | - | - |
+| [Monitor functions](monitor-functions.md) | - | ✅ | - |
 
 ## Asynchronous and synchronous execution
 

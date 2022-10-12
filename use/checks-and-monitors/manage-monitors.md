@@ -135,10 +135,57 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 
-## Disable a single monitor
+## Disable/Enable a single monitor
 
 {% hint style="info" %}
-When a monitor is disabled (removed), all health states associated with the monitor will also be removed and they will no longer be visible in the StackState UI.
+When a monitor is disabled, all health states associated with the monitor will be removed and they will no longer be visible in the StackState UI. Disabling a monitor is quite useful to debug and fix a failing monitor without having it producing any health states yet as a disabled monitor can still be used to do a `dry-run`
+{% endhint %}
+
+Once a monitor to be disabled/enabled is identified, either by inspecting the definition of a monitor available under the context menu of a monitor result panel, or otherwise by obtaining the Monitors identifier, a dedicated CLI command can be used to disable or enable it:
+
+{% tabs %}[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: sts (new)" %}[](http://not.a.link "StackState Self-Hosted only")
+```
+# Disable By ID
+sts monitor disable --id <id-of-the-monitor>
+# Disable By Identifier
+sts monitor disabled --identifier <identifier-of-the-monitor>
+
+# Enable By ID
+sts monitor enable --id <id-of-the-monitor>
+# Enable By Identifier
+sts monitor enable --identifier <identifier-of-the-monitor>
+
+```
+
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.[](http://not.a.link "StackState Self-Hosted only")
+
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
+```
+# Disable a monitor
+stac monitor disable <id-or-identifier-of-the-monitor>
+
+# Enable a monitor
+stac monitor enable <id-or-identifier-of-the-monitor>
+```
+
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`. [](http://not.a.link "StackState Self-Hosted only")
+
+In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+
+{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
+{% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
+
+## Removing a single monitor
+
+{% hint style="info" %}
+When a monitor is removed, all health states associated with the monitor will also be removed and they will no longer be visible in the StackState UI.
 {% endhint %}
 
 Monitors can be disabled by removing them. Once a monitor to be disabled is identified, either by inspecting the definition of a monitor available under the context menu of a monitor result panel, or otherwise by obtaining the Monitors identifier, a dedicated CLI command can be used to remove it:
