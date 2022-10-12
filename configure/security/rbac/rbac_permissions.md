@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Self-hosted v5.1.x
 ---
 
 # Permissions
@@ -21,7 +21,7 @@ There are two types of permission in StackState. **System permissions** scope us
 
 The following permissions are included in StackState v5.0:
 
-* `access-admin-api` -Access the administrator API. 
+* `access-admin-api` -Access the administrator API.
 * `access-analytics` - Access the [Analytics](/use/stackstate-ui/analytics.md) page in the StackState UI.
 * `access-cli` - Access the CLI page. This provides the API key to use for authentication with the StackState CLI.
 * `access-explore` - Access the [Explore](/use/stackstate-ui/explore_mode.md) page in the StackState UI.
@@ -33,7 +33,7 @@ The following permissions are included in StackState v5.0:
   * Platform Administrator: `everything` (all views)
   * Power User: `everything` (all views)
   * Guest: `everything` (all views)
-* `create-views` - [Create views](/use/stackstate-ui/views/create_edit_views.md) in the StackState UI. 
+* `create-views` - [Create views](/use/stackstate-ui/views/create_edit_views.md) in the StackState UI.
 * `delete-view` - A **view permission**. Delete a specific view \(when granted on a view\) or all views \(when granted on `everything`\). Granted on the following views for predefined StackState roles:
   * Administrator: `everything` (all views)
   * Platform Administrator: -
@@ -51,13 +51,14 @@ The following permissions are included in StackState v5.0:
 * `manage-monitors` - Create, delete and modify [monitors](/use/checks-and-monitors/monitors.md).
 * `manage-service-tokens`- Create/delete [Service Tokens](/configure/security/authentication/service_tokens.md) in StackState.
 * `manage-stackpacks` - Install/upgrade/uninstall StackPacks.
-* `manage-star-view` - Add and remove [stars](/use/stackstate-ui/views/about_views.md#starred-views) from views in the StackState UI. 
+* `manage-star-view` - Add and remove [stars](/use/stackstate-ui/views/about_views.md#starred-views) from views in the StackState UI.
 * `manage-telemetry-streams` - [Create or edit new telemetry streams](/use/metrics/add-telemetry-to-element.md) for components in the StackState UI.
 * `manage-topology-elements` - Create/update/delete topology elements.
 * `perform-custom-query` - Access the [topology filter](/use/stackstate-ui/filters.md#filter-topology).
 * `read-permissions` - List all granted permissions across the entire system using the CLI.
 * `read-settings` - Access the Settings page in the StackState UI.
 * `read-stackpacks`
+* `read-telemetry-streams` - Access the telemetry data for components in the StackState UI
 * `run-monitors` - Execute a [monitor](/use/checks-and-monitors/monitors.md) and make it run periodically.
 * `save-view`- A **view permission**. Update a specific view \(when granted on a view\) or all views \(when granted on `everything`\). Granted on the following views for predefined StackState roles:
   * Administrator: `everything` (all views)
@@ -99,7 +100,10 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+```text
+sts rbac list-permissions
+```
+
 {% endtab %}
 {% endtabs %}
 
@@ -126,7 +130,10 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+```text
+sts rbac describe-permissions --subject [role-name]
+```
+
 {% endtab %}
 {% endtabs %}
 
@@ -143,7 +150,7 @@ Provide a subject with permission to open a view:
 stac permission grant [subject-handle] access-view [view-name]
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`. 
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
 
 In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
@@ -154,7 +161,9 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+```text
+sts rbac grant --subject [role-name] --permission access-view --resource [view-name]
+
 {% endtab %}
 {% endtabs %}
 
@@ -180,7 +189,10 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+```text
+sts rbac grant --subject [role-name] --permission create-views
+```
+
 {% endtab %}
 {% endtabs %}
 
@@ -206,7 +218,10 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+```text
+sts rbac grant --subject [role-name] --permission read-settings
+```
+
 {% endtab %}
 {% endtabs %}
 
@@ -232,7 +247,10 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+```text
+sts rbac grant --subject [role-name] --permission manage-event-handlers
+```
+
 {% endtab %}
 {% endtabs %}
 
@@ -258,7 +276,10 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+```text
+sts rbac revoke --subject [role-name] --permission access-view --resource [view-name]
+```
+
 {% endtab %}
 {% endtabs %}
 

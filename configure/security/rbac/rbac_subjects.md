@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Self-hosted v5.1.x
 ---
 
 # Subjects
@@ -34,7 +34,10 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+```text
+sts rbac create-subject --subject stackstate --scope 'label = "StackState"'
+```
+
 {% endtab %}
 {% endtabs %}
 
@@ -45,7 +48,7 @@ Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 {% tab title="CLI: stac" %}
 
 ```text
-stac subject save stackstateManager 'label = "StackState" AND type = "Business Application"'
+stac subject save stackstateManager 'label = "StackState" AND type = "Business Applications"'
 ```
 
 ⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
@@ -59,7 +62,10 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+```text
+sts rbac create-subject --subject stackstateManager --scope 'label = "StackState" AND type = "Business Applications"'
+```
+
 {% endtab %}
 {% endtabs %}
 
@@ -67,6 +73,6 @@ Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 {% hint style="info" %}
 **NOTE:**
 
-* When passing an STQL query in a `stac` CLI command, all operators \( such as `=`, `<`,`AND`, and so on\) need to be surrounded by spaces, as in the above example.
+* When passing an STQL query in a `stac` or `sts` CLI command, all operators \( such as `=`, `<`,`AND`, and so on\) need to be surrounded by spaces, as in the above example.
 * For LDAP authentication, the subject name must exactly match the username or group name configured in LDAP (case-sensitive).
 {% endhint %}
