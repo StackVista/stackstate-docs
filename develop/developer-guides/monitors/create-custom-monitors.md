@@ -200,6 +200,48 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 
+In particular for monitors the stj `format` can be challenging to work with given the arguments of type `ArgumentScriptMetricQueryVal` where the value is a script on itself, so whenever an update is needed on such a value an option can be to use an external tool as [yq](https://github.com/mikefarah/yq) to get a more friendly formatting. For example, given the monitor example above we could format it with yq :
+```text
+yq -P ./monitor.stj > monitor.yaml
+```
+
+obtaining:
+
+```yaml
+_version: 1.0.39
+timestamp: 2022-05-23T13:16:27.369269Z[GMT]
+nodes:
+  - _type: Monitor
+    name: CPU Usage
+    description: A simple CPU-usage monitor. If the metric is above a given threshold, the state is set to CRITICAL.
+    identifier: urn:system:default:monitor:cpu-usage
+    remediationHint: Turn it off and on again.
+    function:? get "urn:system:default:monitor-function:metric-above-threshold"::
+    arguments:
+      - _type: ArgumentDoubleVal
+        parameter:? get "urn:system:default:monitor-function:metric-above-threshold" "Type=Parameter;Name=threshold"::
+        value: 90.0
+      - _type: ArgumentStringVal
+        parameter:? get "urn:system:default:monitor-function:metric-above-threshold" "Type=Parameter;Name=topologyIdentifierPattern"::
+        value: urn:host:/${tags.host}
+      - _type: ArgumentScriptMetricQueryVal
+        parameter:? get "urn:system:default:monitor-function:metric-above-threshold" "Type=Parameter;Name=metrics"::
+        script: |-
+          Telemetry
+          .query("StackState Metrics", "")
+          .metricField("system.cpu.system")
+          .groupBy("tags.host")
+          .start("-1m")
+          .aggregation("mean", "15s")
+    intervalSeconds: 60
+```
+
+where the script is readable and editable in an easier way. So once we would edit the `script` or any other field in the yaml representation of our monitor we could go back to the stj representation using:
+```text
+yq -o=json '.' monitor.yaml
+```
+
+
 ## See also
 
 * [Custom monitor functions](/develop/developer-guides/custom-functions/monitor-functions.md "StackState Self-Hosted only")

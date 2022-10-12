@@ -467,6 +467,74 @@ After the function has been uploaded, it will be generally available for any mon
 
 ➡️ [Learn how to create a custom monitor that utilizes an existing monitor function](../monitors/create-custom-monitors.md)
 
+In particular for monitor functions the stj `format` can be challenging to work with given the property `scrip` of type `ScriptFunctionBody` where the value is a groovy script, so whenever an update is needed on such a value an option can be to use an external tool as [yq](https://github.com/mikefarah/yq) to get a more friendly formatting. For example, given the monitor function example above we could format it with yq :
+```text
+yq -P ./monitorFunction.stj > monitorFunction.yaml
+```
+
+obtaining:
+
+```yaml
+_version: 1.0.39
+timestamp: 2022-06-23T23:23:23.269369Z[GMT]
+nodes:
+  - _type: MonitorFunction
+    name: Metric above threshold
+    description: Validates that a metric value stays below a given threshold, reports a CRITICAL state otherwise.
+    parameters:
+      - _type: Parameter
+        name: threshold
+        type: DOUBLE
+        required: true
+        multiple: false
+      - _type: Parameter
+        name: topologyIdentifierPattern
+        type: STRING
+        required: true
+        multiple: false
+      - _type: Parameter
+        name: metrics
+        type: SCRIPT_METRIC_QUERY
+        required: true
+        multiple: false
+    identifier: urn:system:default:monitor-function:metric-above-threshold
+    script:
+      _type: ScriptFunctionBody
+      scriptBody: |-
+        def checkThreshold(timeSeries, threshold) {
+          timeSeries.points.any { point -> point.last() > threshold }
+        }
+
+        metrics.map { result ->
+          def state = "CLEAR"
+          if (checkThreshold(result.timeSeries, threshold)) {
+            state = "CRITICAL";
+          }
+
+          return [
+            _type: "MonitorHealthState",
+            id: result.timeSeries.id.toIdentifierString(),
+            state: state,
+            topologyIdentifier: StringTemplate.runForTimeSeriesId(topologyIdentifierPattern, result.timeSeries.id)
+            displayTimeSeries: [
+              [
+                _type: "DisplayTimeSeries",
+                name: "The resulting metric values",
+                query: result.query,
+                timeSeriesId: result.timeSeries.id
+              ]
+            ]
+          ]
+        }
+
+```
+
+where the script is readable and editable in an easier way. So once we would edit the `script` or any other field in the yaml representation of our monitor function we could go back to the stj representation using:
+```text
+yq -o=json '.' monitorFunction.yaml
+```
+
+
 ## See also
 
 * [Monitor STJ format](/develop/developer-guides/monitors/monitor-stj-file-format.md)

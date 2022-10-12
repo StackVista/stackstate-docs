@@ -25,6 +25,7 @@ To enable logging for an instance of a function, use its ID to set a logging lev
 1. Find the ID for the instance of the function that you want to enable logging for:
    * [Check function IDs](enable-logging.md#check-function-ids)
    * [Event handler function IDs](enable-logging.md#event-handler-function-ids)
+   * [Monitor function IDs](enable-logging.md#monitor-function-ids)
    * [Propagation function IDs](enable-logging.md#propagation-function-ids)
    * [View health state configuration function IDs](enable-logging.md#view-health-state-configuration-function-ids)
 2. Use the [`stac` CLI](/setup/cli/cli-stac.md) to set the logging level for the ID, for example:
@@ -34,7 +35,7 @@ To enable logging for an instance of a function, use its ID to set a logging lev
    ```
    
 
-## Monitor logging for a function
+## Review logging for a function
 
 
 After logging has been enabled for the function instance, monitor the `stackstate.log` using the function instance ID.
@@ -59,6 +60,7 @@ Retrieve the ID for a specific instance of a function:
 
 * [Check function IDs](enable-logging.md#check-function-ids)
 * [Event handler function IDs](enable-logging.md#event-handler-function-ids)
+* [Monitor function IDs](enable-logging.md#monitor-function-ids)
 * [Propagation function IDs](enable-logging.md#propagation-function-ids)
 * [View health state configuration function IDs](enable-logging.md#view-health-state-configuration-function-ids)
 
@@ -112,6 +114,54 @@ sts settings list --type EventHandler
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 {% endtab %}
 {% endtabs %}
+
+### Monitor function IDs
+The ID for a monitor function can be found using the [StackState CLI](../../setup/cli/README.md). This is the Id for an instance of a monitor funciton.
+
+{% tabs %}
+{% tab title="CLI: stac" %}
+```text
+# get the list of monitors which contains their corresponding monitor function id
+stac monitor list
+
+             id  status    identifier                                                       name                       description    remediation hint        function id    interval (seconds)  tags
+---------------  --------  ---------------------------------------------------------------  -------------------------  -------------  ------------------  ---------------  --------------------  --------
+198616307478411  DISABLED  urn:stackpack:stackstate-self-health:shared:monitor:cpu-load     CPU Load                   -              -                   270175519739826                    90  []
+218029603836271  ENABLED   urn:stackpack:demo-stackpack:monitor:too-many-restarts           Too many restarts          -              -                   216264360861662                     5  ['demo']
+239992462327332  DISABLED  urn:stackpack:stackstate-self-health:shared:monitor:memory-load  Memory Load                -              -                   152715969986888                    90  []
+ 16039129972954  ENABLED   urn:stackpack:demo-stackpack:monitor:too-many-full-table-scans   Too many full table scans  -              -                   178058775719836                     5  ['demo']
+
+```
+
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`. 
+
+In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+
+{% endtab %}
+{% tab title="CLI: sts (new)" %}
+
+```commandline
+# get the list of monitors which contains their corresponding monitor function id
+sts monitor list
+
+ID              | STATUS   | IDENTIFIER                                                      | NAME                      | FUNCTION ID     | TAGS  
+16039129972954  | ENABLED  | urn:stackpack:demo-stackpack:monitor:too-many-full-table-scans  | Too many full table scans | 178058775719836 | [demo]
+218029603836271 | ENABLED  | urn:stackpack:demo-stackpack:monitor:too-many-restarts          | Too many restarts         | 216264360861662 | [demo]
+198616307478411 | DISABLED | urn:stackpack:stackstate-self-health:shared:monitor:cpu-load    | CPU Load                  | 270175519739826 | []    
+239992462327332 | DISABLED | urn:stackpack:stackstate-self-health:shared:monitor:memory-load | Memory Load               | 152715969986888 | []
+```
+
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endtab %}
+
+{% endtabs %}
+
 
 ### Propagation function IDs
 

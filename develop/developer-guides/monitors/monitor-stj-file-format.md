@@ -37,6 +37,8 @@ Monitors in StackState are represented textually using the [STJ file format](/de
         "parameter": {{ get "urn:system:default:monitor-function:metric-above-threshold" "Type=Parameter;Name=query" }},
         "script": "Telemetry\n.query('StackState Metrics', '')\n.metricField('system.cpu.system')\n.groupBy('tags.host')\n.start('-1m')\n.aggregation('mean', '15s')"
       }],
+      "status": "ENABLED",
+      "tags": ["demo"],
       "intervalSeconds": 60
     }
   ]
@@ -53,6 +55,8 @@ The supported fields are:
 - **remediationHint** - a short, markdown-enabled hint displayed whenever the validation rule represented by this monitor triggers and results in an unhealthy state.
 - **function** - the specific monitor function to use as the basis of computation for this monitor. For more details see [function](#function).
 - **arguments** - lists concrete values that are to be used for parameters in the monitor function invocation. For more details and descriptions of commonly used parameters, see [arguments](#arguments).
+- **status** - either ENABLED|DISABLED. Dictates if the monitor will be running and producing health states. 
+- **tags** - tags associated to the monitor.
 - **intervalSeconds** - dictates how often to execute this particular monitor; new executions are scheduled after the specified number of seconds, counting from the time that the last execution ended. For more details see [run interval](#intervalseconds).
 
 ## Field information
@@ -306,6 +310,8 @@ The declaration of a topology identifier pattern would look something like the f
 {% endtab %}
 {% endtabs %}
 
+### status
+A monitor with a `ENABLED` status will be automatically executed and it's results will be persisted. In case of setting the monitor as `DISABLED` then the monitor will be stopped and any previous results will be deleted. A `DISABLED` monitor is still available for a `dry-run` in order to inspect it's results and execution (helpful for debuggin a monitor). When creating for the very first time a monitor, if the `status` field is not present on the payload then the monitor starts in a `DISABLED` status
 
 ### intervalSeconds
 
