@@ -355,6 +355,7 @@ redirects:
   use/stackstate-ui/views/manage-event-handlers#add-event-handler: ./use/events/manage-event-handlers.md#add-event-handler
   use/metrics-and-events/set-telemetry-stream-priority: ./use/metrics/set-telemetry-stream-priority.md
   use/metrics-and-events/event-notifications#state-change-events: ./use/events/event-notifications.md#state-change-events
+  develop/developer-guides/agent_check/agent-check-state: ./develop/developer-guides/agent_check/agent-check-state.md
   use/metrics-and-events/add-telemetry-to-element#aggregation-method: ./use/metrics/add-telemetry-to-element.md#aggregation-method
   configure/telemetry/send_telemetry: ./configure/telemetry/send_metrics.md
   stackpacks/integrations/splunk/splunk_topology_v2: ./stackpacks/integrations/splunk/splunk_topology.md

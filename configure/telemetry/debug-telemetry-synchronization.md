@@ -73,7 +73,7 @@ Note that for the Kubernetes and OpenShift integrations, different Agent types s
 
 ### StackState Receiver
 
-The StackState Receiver receives JSON data from the StackState Agent. 
+The StackState Receiver receives JSON data from StackState Agent V2. 
 
 - Check the [StackState Receiver logs](#stackstate) for JSON deserialization errors..
 
@@ -127,7 +127,7 @@ The following log files may be useful when debugging telemetry synchronization:
 
 ### StackState Agent
 
-For details of the StackState Agent log files, see the platform-specific Agent pages:
+For details of StackState Agent V2 log files, see the platform-specific Agent pages:
 
 * [StackState Agent V2 on Docker](/setup/agent/docker.md#log-files)
 * [StackState Agent V2 on Kubernetes](/setup/agent/kubernetes.md#log-files)

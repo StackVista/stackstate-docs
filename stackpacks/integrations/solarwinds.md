@@ -62,14 +62,14 @@ To enable the SolarWinds check and begin collecting data from SolarWinds, add th
          - <instance_domain_value_1>
          - <instance_domain_value_2>
          - <instance_domain_value_n>
-       # min_collection_interval: 30 # use in place of collection_interval for Agent v2.14.x or earlier 
+       # min_collection_interval: 30 # use in place of collection_interval for Agent V2.14.x or earlier 
        collection_interval: 30
    ```
 
 2. Set the following filters:
    * **solarwinds\_domain** - The name of a SolarWinds custom property that will be used to select nodes from SolarWinds to include in the StackState dataset.
    * **solarwinds\_domain\_values** - A list of values used by the SolarWinds custom property specified in `solarwinds_domain`. Used to select the correct nodes for inclusion. Any node in SolarWinds that has one of these values set will be included in the data collection. Each value in this list will be represented as a separate domain in StackState.
-3. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 4. Once the Agent has restarted, wait for data to be collected from SolarWinds and sent to StackState.
 
 ### Status
@@ -90,7 +90,7 @@ For considerations and instructions on upgrading a StackPack, see [how to upgrad
 
 ### REST API endpoints
 
-The SolarWinds user configured in the StackState Agent V2 must have read access to the SolarWinds API \(default for all user accounts\). No additional authorization needs to be set for this account in the SolarWinds system.
+The SolarWinds user configured in StackState Agent V2 must have read access to the SolarWinds API \(default for all user accounts\). No additional authorization needs to be set for this account in the SolarWinds system.
 
 Refer to the SolarWinds product documentation for details on how to [Manage Orion Web Console user accounts in the Orion Platform \(documentation.solarwinds.com\)](https://documentation.solarwinds.com/en/success_center/orionplatform/content/core-managing-web-accounts-sw1724.htm).
 
@@ -180,7 +180,7 @@ To uninstall the SolarWinds StackPack and disable the Dynatrace check:
     mv solarwinds.d/conf.yaml solarwinds.d/conf.yaml.bak
    ```
 
-3. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 
 ## Release notes
 

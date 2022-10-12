@@ -69,7 +69,7 @@ To enable the VMWare vSphere check and begin collecting data from your vSphere v
        password: <password>
      ```
 2. If required, you can customise the integration using the [advanced configuration options](vsphere.md#advanced-configuration).
-3. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deployment) to publish the configuration changes.
+3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to publish the configuration changes.
 4. Once the Agent has restarted, wait for the Agent to collect the data and send it to StackState.
 
 #### Advanced configuration
@@ -179,7 +179,7 @@ To uninstall the VMWare vSphere StackPack and disable the VMWare vSphere check:
     mv vsphere.d/conf.yaml vsphere.d/conf.yaml.bak
    ```
 
-3. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 
 ## Release notes
 

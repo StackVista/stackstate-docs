@@ -256,7 +256,7 @@ If StackState Agent is running on a Linux VM:
        regions:
          - global # a special "region" used for global resources
          - eu-west-1
-       # min_collection_interval: 60 # use in place of collection_interval for Agent v2.14.x or earlier 
+       # min_collection_interval: 60 # use in place of collection_interval for Agent V2.14.x or earlier 
        collection_interval: 60 # The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
        # apis_to_run:
        #   - ec2
@@ -519,7 +519,7 @@ The following labels will be added to imported AWS topology in StackState:
 
 {% hint style="success" "self-hosted info" %}
 
-Note that topology with the label `stackpack:aws` was imported by the [AWS \(Legacy\) integration](/stackpacks/integrations/aws/aws-legacy.md "StackState Self-Hosted only").
+Note that topology with the label `stackpack:aws` was imported by the [AWS \(legacy\) integration](/stackpacks/integrations/aws/aws-legacy.md "StackState Self-Hosted only").
 
 {% endhint %}
 
@@ -665,7 +665,7 @@ Find out how to [uninstall using a specific AWS profile or an IAM role \(docs.aw
 
 * [Use and set up OpenTelemetry for NodeJS](/stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md)
 * [AWS policies](aws-policies.md)
-* [StackState AWS \(Legacy\) integration](aws-legacy.md "StackState Self-Hosted only")
+* [StackState AWS \(legacy\) integration](aws-legacy.md "StackState Self-Hosted only")
 * [Working with AWS CloudFormation StackSets \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html)
 * [Uninstall using a specific AWS profile or an IAM role \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html)
 

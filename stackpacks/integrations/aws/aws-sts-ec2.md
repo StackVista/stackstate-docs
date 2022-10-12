@@ -21,7 +21,7 @@ To set up an IAM role for StackState or StackState Agent to use, follow the inst
 
    ![Policy for AssumeRole](/.gitbook/assets/sts_on_ec2_aws_stp_02.png)
 
-3. Attach the newly created EC2 instance role to the EC2 instance where StackState or the StackState Agent is running.
+3. Attach the newly created EC2 instance role to the EC2 instance where StackState or StackState Agent V2 is running.
 
    ![Attach role to EC2 instance](/.gitbook/assets/sts_on_ec2_aws_stp_03.png)
 
