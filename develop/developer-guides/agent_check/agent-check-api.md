@@ -12,6 +12,90 @@ Code examples for the open source StackState Agent checks can be found on GitHub
 
 ## Agent checks
 
+From **Agent 2.18**, we have introduced [AgentChecksV2](https://github.com/StackVista/stackstate-agent-integrations/blob/master/stackstate_checks_base/stackstate_checks/base/checks/v2/base.py#L124) which has some key difference to historic Agent Checks. The key differences being:
+- V2 Agent Check checks requires a return value in the form of a [CheckResponse](https://github.com/StackVista/stackstate-agent-integrations/blob/master/stackstate_checks_base/stackstate_checks/base/checks/v2/types.py#L8)
+- V2 Agent Check includes two new check base classes:
+  - [StatefulAgentCheck](https://github.com/StackVista/stackstate-agent-integrations/blob/master/stackstate_checks_base/stackstate_checks/base/checks/v2/stateful_agent_check.py#L8)
+  - [TransactionalAgentCheck](https://github.com/StackVista/stackstate-agent-integrations/blob/master/stackstate_checks_base/stackstate_checks/base/checks/v2/transactional_agent_check.py#L8)
+
+
+### Agent Check V2 (Agent 2.18+)
+An Agent Check is a Python class that inherits from `AgentCheckV2` and implements the `check` method:
+
+```text
+from stackstate_checks.base.checks.v2.base import AgentCheckV2
+from stackstate_checks.checks import CheckResponse
+
+class MyCheck(AgentCheckV2):
+    def check(self, instance): # type: (InstanceType) -> CheckResponse
+        # Collect metrics and topologies, events, return CheckResponse
+        return CheckResponse()
+
+    def get_instance_key(self, instance):
+        # Provide an identifier (TopologyInstance)
+```
+
+#### Error Handling
+In the event of a check error, the exception should be returned as part of the check response: 
+```python
+from stackstate_checks.base.checks.v2.base import AgentCheckV2
+from stackstate_checks.checks import CheckResponse
+
+class MyCheck(AgentCheckV2):
+    def check(self, instance): # type: (InstanceType) -> CheckResponse
+        # Collect metrics and topologies, events, return CheckResponse
+        try:
+          this_triggers_an_exception()
+        except Exception as e:
+          return CheckResponse(check_error=e)
+
+    def get_instance_key(self, instance):
+        # Provide an identifier (TopologyInstance)
+```
+
+
+A more comprehensive example can be found in the [StackState Agent Integrations repo](https://github.com/StackVista/stackstate-agent-integrations/tree/master/agent_v2_integration_sample)
+
+### StatefulAgentCheck (Agent 2.18+)
+An Stateful Agent Check is a Python class that inherits from `StatefulAgentCheck` and implements the `stateful_check` method. This is intended to be used for agent checks that requires the ability to persist data across check runs and be available in the event of agent failure. If an agent failure occurs, the persisted state will be used in the next check run. **Persistent state is persisted even in the event of check failure.** The `StatefulAgentCheck` receives the current persistent state as an input parameter. The `persistent_state` parameter of the `CheckResponse` return type is then set as the new persistent state value. 
+
+```text
+from stackstate_checks.base.checks.v2.stateful_agent_check import StatefulAgentCheck
+from stackstate_checks.checks import CheckResponse
+
+class MyCheck(StatefulAgentCheck):
+    def stateful_check(self, instance, persistent_state): # type: (InstanceType, StateType) -> CheckResponse
+        # Collect metrics and topologies, events, return CheckResponse
+        return CheckResponse(persistent_state=persistent_state)
+
+    def get_instance_key(self, instance):
+        # Provide an identifier (TopologyInstance)
+```
+
+A more comprehensive example can be found in the [StackState Agent Integrations repo](https://github.com/StackVista/stackstate-agent-integrations/tree/master/agent_v2_integration_stateful_sample)
+
+### TransactionalAgentCheck (Agent 2.18+)
+An Transactional Agent Check is a Python class that inherits from `TransactionalAgentCheck` and implements the `transactional_check` method. This is intended to be used for agent checks that require transactional behavior for updating it's state. A Agent Check transaction is considered a success if the data submitted by the Agent Check reaches StackState. This enables checks to never process / submit data that has already been received by StackState. **Persistent state is persisted even in the event of check failure, while transactional state is only persistent once a transaction has succeeded.** The `TransactionalAgentCheck` receives the current transactional and persistent state as input parameters. The `transactional_state` and `persistent_state` parameters of the `CheckResponse` return type are then correspondingly set as the new state values.
+
+```text
+from stackstate_checks.base.checks.v2.transactional_agent_check import TransactionalAgentCheck
+from stackstate_checks.checks import CheckResponse
+
+class MyCheck(TransactionalAgentCheck):
+    def transactional_check(self, instance, transactional_state, persistent_state):
+        # type: (InstanceType, StateType, StateType) -> CheckResponse
+        # Collect metrics and topologies, events, return CheckResponse
+        return CheckResponse(transactional_state=transactional_state,  persistent_state=persistent_state)
+
+    def get_instance_key(self, instance):
+        # Provide an identifier (TopologyInstance)
+```
+
+A more comprehensive example can be found in the [StackState Agent Integrations repo](https://github.com/StackVista/stackstate-agent-integrations/tree/master/agent_v2_integration_transactional_sample)
+
+
+### Agent Check (To be deprecated)
+
 An Agent Check is a Python class that inherits from `AgentCheck` and implements the `check` method:
 
 ```text
@@ -25,6 +109,7 @@ class MyCheck(AgentCheck):
         # Provide an identifier (TopologyInstance)
 ```
 
+### Agent Checks (all)
 The Agent creates an object of type `MyCheck` for each element contained in the `instances` sequence of the corresponding Agent Check configuration file:
 
 ```text
@@ -42,7 +127,7 @@ See the [example Agent check configuration file \(github.com\)](https://github.c
 
 All mapping included in the `instances` section of the Agent Check configuration file is passed to the `check` method using the declared `instance` value.
 
-The `AgentCheck` class provides the following methods and attributes:
+The `AgentCheck`, `AgentCheckV2`, `StatefulAgentCheck`, `TransactionalAgentCheck` class provides the following methods and attributes:
 
 * `self.name` - a name of the check
 * `self.init_config` - `init_config` that corresponds in the check configuration
@@ -205,12 +290,12 @@ self.event(
 The `event-dict` is a valid [event JSON dictionary](/configure/telemetry/send_events.md#json-property-events).
 
 {% hint style="info" %}
-Note that `msg_title` and `msg_text` are required fields from Agent v2.11.0.
+Note that `msg_title` and `msg_text` are required fields from Agent V2.11.0.
 {% endhint %}
 
 All events will be collected and flushed with the rest of the Agent payload at the end of the `check` function.
 
-### Status
+### Status (Agent Check only)
 
 Reporting status of a service is handled by calling the `service_check` method:
 
@@ -230,6 +315,8 @@ The method can accept the following arguments:
 * `message` - additional information about the current status. \(optional\)
 
 Check the usage in the following [example](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/mysql.py#L434).
+
+This will be fully deprecated in Agent Check V2 in favour of the `CheckResponse`.
 
 ### Health
 
@@ -274,7 +361,7 @@ The `HealthStream` class has the following options:
 
 * **urn** - HealthStreamUrn. The stream urn under which the health information will be grouped.
 * **sub\_stream** - string. Optional. Allows for separating disjoint data sources within a single health synchronization stream. For example, the data for the streams is reported separately from different hosts.
-* **repeat\_interval\_seconds** - integer. Optional. The interval with which data will be repeated, defaults to `collection_interval` (`min_collection_interval` for Agent v2.14.x or earlier). This allows StackState to detect when data arrives later than expected.
+* **repeat\_interval\_seconds** - integer. Optional. The interval with which data will be repeated, defaults to `collection_interval` (`min_collection_interval` for Agent V2.14.x or earlier). This allows StackState to detect when data arrives later than expected.
 * **expiry\_seconds** - integer. Optional. The time after which all data from the stream or substream should be removed. Set to '0' to disable expiry \(this is only possible when the `sub_stream` parameter is omitted\). Default 4\*`repeat_interval_seconds`.
 
 For more information on urns, health synchronization streams, snapshots and how to debug, see [health Synchronization](../../../configure/health/health-synchronization.md).
@@ -532,28 +619,6 @@ class ServiceCheckHealthChecks(object):
         """
 ```
 
-## Override base class methods
-
-{% hint style="info" %}
-Depending on the configuration used, overriding the `__init__` constructor may cause the Agent to create several check instances, each calling the method.
-{% endhint %}
-
-The best practice recommendation is not to override anything from the base class, except the check method. However, sometimes it might be useful for a check to have its own constructor. In such cases, the `__init__` constructor can be overridden with **\_\_init\_\_** method using the following convention:
-
-```text
-from stackstate_checks.checks import AgentCheck
-
-class MyCheck(AgentCheck):
-    def __init__(self, name, init_config, instances):
-        super(MyCheck, self).__init__(name, init_config, instances)
-```
-
-The following arguments are required to pass to `super`:
-
-* **name** - the name of the check.
-* **init\_config** - the `init_config` section of the configuration files.
-* **instances** - a one-element list that contains the instance options from the configuration file.
-
 ## Logging
 
 The `self.log` field is a [Python logger \(python.org\)](https://docs.python.org/2/library/logging.html) instance that prints to the main Agent log file. The log level can be set in the Agent configuration file `stackstate.yaml`.
@@ -597,6 +662,7 @@ Example taken from the [StackState MySQL Agent check \(github.com\)](https://git
 ## See also
 
 * [Connect an Agent check with StackState using the Custom Synchronization StackPack](connect_agent_check_with_stackstate.md)
+* [Agent check state](agent-check-state.md)
 * [How to develop Agent checks](how_to_develop_agent_checks.md)
 * [Developer guide - Custom Synchronization StackPack](../custom_synchronization_stackpack/)
 

@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-If StackState or the StackState Agent are running within an AWS environment in an EKS cluster instance, an IAM role can be attached to the node-group where the pods `stackstate-api`, `stackstate-server` and/or `stackstate-cluster-agent` are running. 
+If StackState or StackState Agent V2 are running within an AWS environment in an EKS cluster instance, an IAM role can be attached to the node-group where the pods `stackstate-api`, `stackstate-server` and/or `stackstate-cluster-agent` are running. 
 
 * `stackstate-api` and `stackstate-server` pods - the attached role can be used for authentication by StackState running in these pods.
 * `stackstate-cluster-agent` pod - the attached role can be used for authentication by StackState Cluster Agent running in this pod.

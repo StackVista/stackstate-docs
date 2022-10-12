@@ -182,7 +182,7 @@ Secrets handle decrypted:
 
 #### Testing your executable
 
-Your executable is executed by the Agent V2 when fetching your secrets. The StackState Agent V2 runs using the stsagentuser. This user has no specific rights, but it is part of the Performance Monitor Users group. The password for this user is randomly generated at install time and is never saved anywhere.
+Your executable is executed by the Agent V2 when fetching your secrets. StackState Agent V2 runs using the stsagentuser. This user has no specific rights, but it is part of the Performance Monitor Users group. The password for this user is randomly generated at install time and is never saved anywhere.
 
 This means that your executable might work with your default user or development user — but not when it is run by the Agent, since stsagentuser has more restricted rights.
 

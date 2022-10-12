@@ -54,7 +54,7 @@ To enable the ServiceNow check and begin collecting data from ServiceNow, add th
      - url: "https://<instance_ID>.service-now.com"
        user: <instance_username>
        password: <instance_password>
-       # min_collection_interval: 5 # use in place of collection_interval for Agent v2.14.x or earlier 
+       # min_collection_interval: 5 # use in place of collection_interval for Agent V2.14.x or earlier 
        collection_interval: 5
        # batch_size: 1000  
        # change_request_bootstrap_days: 10
@@ -75,7 +75,7 @@ To enable the ServiceNow check and begin collecting data from ServiceNow, add th
    * Use queries to [filter change requests retrieved](servicenow.md#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) from ServiceNow \(default all\).
    * Use queries to [filter the CI types retrieved](servicenow.md#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) \(default all\).
    * [Specify the CI types](servicenow.md#specify-ci-types-to-retrieve) that should be retrieved \(default all\).
-3. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 4. Once the Agent has restarted, wait for the Agent to collect data from ServiceNow and send it to StackState.
 
 #### Use ServiceNow queries to filter retrieved events and CI types
@@ -110,7 +110,7 @@ To enable the ServiceNow check and begin collecting data from ServiceNow, add th
    ...
    ```
 
-5. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+5. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 
 #### Specify CI types to retrieve
 
@@ -166,7 +166,7 @@ By default, all available ServiceNow CI types will be sent to StackState. If you
         #        - cmdb_ci_network_adapter
    ```
 
-3. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 
 ### Status
 
@@ -266,7 +266,7 @@ To uninstall the ServiceNow StackPack and disable the ServiceNow check:
     mv servicenow.d/conf.yaml servicenow.d/conf.yaml.bak
    ```
 
-3. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 
 ## Release notes
 

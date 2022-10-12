@@ -266,7 +266,7 @@ log4j.logger.org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/hos
 
 Check Tomcat logging documentation for more information about Tomcat logging capabilities.
 
-* Collecting logs is disabled by default in the StackState Agent, enable it in your `stackstate.yaml` file with:
+* Collecting logs is disabled by default in StackState Agent V2, enable it in your `stackstate.yaml` file with:
 
   ```text
   logs_enabled: true

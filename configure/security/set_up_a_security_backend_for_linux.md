@@ -180,5 +180,5 @@ To test or debug outside of the Agent, you can mimic how the Agent runs it:
 sudo su stackstate-agent - bash -c "echo '{\"version\": \"1.0\", \"secrets\": [\"secret1\", \"secret2\"]}' | /path/to/the/secret_backend_command"
 ```
 
-The stackstate-agent user is created when you install the StackState Agent.
+The stackstate-agent user is created when you install StackState Agent V2.
 

@@ -133,7 +133,7 @@ Example OpenMetrics Agent check configuration file:
    - **ssl_private_key** - required if the certificate linked in `ssl_cert` does not include the private key. Note that the private key to your local certificate must be unencrypted.
    - **ssl_ca_cert** - the path to the trusted CA used for generating custom certificates.
    - **extra_headers** - a list of additional HTTP headers to send in queries to the OpenMetrics endpoint. Can be combined with autodiscovery template variables. For example, `"Authorization: Bearer %%env_TOKEN%%"`.
-3. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 4. Once the Agent has restarted, wait for the Agent to collect data from the OpenMetrics endpoint and send it to StackState.
 
 {% endtab %}

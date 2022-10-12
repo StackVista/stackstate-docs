@@ -96,7 +96,7 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
        
      instances:
      # run every minute
-     - # min_collection_interval: 60 # use in place of collection_interval for Agent v2.14.x or earlier 
+     - # min_collection_interval: 60 # use in place of collection_interval for Agent V2.14.x or earlier 
        collection_interval: 60
        hostip: localhost
        domain: stackstate
@@ -107,7 +107,7 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
        max_number_of_requests: 10000   # default 10000
        criteria : "(FullName LIKE 'Microsoft.Windows.Computer:%')" # an Operations Manager Data Query
      ```
-2. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+2. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 
 #### Specify the components to retrieve data for
 
@@ -146,12 +146,12 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
      ```text
      init_config:
        # run every minute
-       # min_collection_interval: 60 # use in place of collection_interval for Agent v2.14.x or earlier 
+       # min_collection_interval: 60 # use in place of collection_interval for Agent V2.14.x or earlier 
        collection_interval: 60
      instances:
      - integration_mode: powershell    # api or powershell, default api
      ```
-2. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+2. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 {% endtab %}
 {% endtabs %}
 
@@ -231,7 +231,7 @@ To uninstall the SCOM StackPack and disable the SCOM check:
     mv scom.d/conf.yaml scom.d/conf.yaml.bak
    ```
 
-3. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 
 ## Release notes
 

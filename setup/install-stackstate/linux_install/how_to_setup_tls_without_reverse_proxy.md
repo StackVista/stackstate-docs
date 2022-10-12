@@ -94,7 +94,7 @@ cp /path/to/certificate-authority.pem ./ca.crt
 cp ./ca.crt ./ca-certificates.crt
 ```
 
-**b.** Update the docker container parameters with:
+**b.** Update the Docker container parameters with:
 
 * configured URLs with `https` and the hostname in environment variables for receiver endpoints
   * `STS_STS_URL=https://stackstate.infra.company.tld:7077/stsAgent`
