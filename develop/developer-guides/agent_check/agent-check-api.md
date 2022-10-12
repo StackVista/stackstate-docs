@@ -287,7 +287,7 @@ self.event(
 {% endtab %}
 {% endtabs %}
 
-The `event-dict` is a valid [event JSON dictionary](../../../configure/telemetry/send_telemetry.md#event-json).
+The `event-dict` is a valid [event JSON dictionary](/configure/telemetry/send_events.md#json-property-events).
 
 {% hint style="info" %}
 Note that `msg_title` and `msg_text` are required fields from Agent V2.11.0.
