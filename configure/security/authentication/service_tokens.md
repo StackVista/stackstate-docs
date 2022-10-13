@@ -35,7 +35,7 @@ To create a service token for an installed instance of StackState, you can use t
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
-```commandline
+```console
 sts service-token create
 ```
 
@@ -76,7 +76,7 @@ For example, the command below will create a service token with the name `my-ser
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
-```commandline
+```console
 > sts service-token create --name my-service-token --roles stackstate-power-user
 ✅ Service token created: svctok-aaaaa-bbbb-ccccc-ddddd
 ```

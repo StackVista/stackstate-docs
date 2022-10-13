@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Self-hosted v5.1.x
 ---
 
 # How to get a template file
@@ -11,7 +11,7 @@ You can get a complete dump of all configuration using the StackState CLI:
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
 
-```commandline
+```console
 sts settings describe --file <PATH_TO_FILE.stj>
 ```
 
@@ -37,12 +37,12 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 
 Follow the preparation steps below to prepare the `.stj` file, such that it contains only configuration nodes pertaining to your StackPack.
 
-If all of your configuration nodes already have been assigned to the right namespace you can get all the nodes of your StackPack using the command: 
+If all of your configuration nodes already have been assigned to the right namespace you can get all the nodes of your StackPack using the command:
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
 
-```commandline
+```console
 sts settings describe --namespace <NAMESPACE> --file <PATH_TO_FILE.stj>
 ```
 

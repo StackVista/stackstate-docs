@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Self-hosted v5.1.x
 ---
 
 # Configuration backup
@@ -58,7 +58,7 @@ curl -X POST -H 'Content-Type: application/json;charset=UTF-8' \
 
 To export configuration from the StackState UI:
 
-1. Go to **Settings** &gt; **Import/Export** &gt; **Export Settings** 
+1. Go to **Settings** &gt; **Import/Export** &gt; **Export Settings**
 2. Click the button **STS-EXPORT-ALL**.
 
 ![Export configuration from the StackState UI](../../../.gitbook/assets/v51_export_configuration.png)
@@ -155,7 +155,7 @@ export SESSION="<MY_SESSION>"; export TOKEN="<MY_TOKEN>"; \
 
 Alternatively, in the StackState UI:
 
-1. Go to **Settings** &gt; **Import/Export** &gt; **Import Settings**. 
+1. Go to **Settings** &gt; **Import/Export** &gt; **Import Settings**.
 2. Choose the `*.stj` file that you want to import configuration from.
 3. Click the button **START IMPORT**.
 
@@ -175,12 +175,12 @@ There is a way to use identifiers and namespaces that come with them to perform 
 
 Node identifiers are specified in a following pattern: `urn:stackpack:{stackpack_name}:{type_name}:{object_name}`. The namespace effectively used by this process is `urn:stackpack:{stackpack_name}:`. If every configuration node has an identifier and they are all in the same namespace, then you can perform an idempotent update using following STS CLI commands:
 
-For export: 
+For export:
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
 
-```commandline
+```console
 sts settings describe --namespace urn:stackpack:{stackpack_name}:
 ```
 
@@ -255,8 +255,8 @@ A configuration export is supported by versions of StackState that are equal or 
 
 ### For example:
 
-Configuration export version _1.0.0_ was introduced in StackState version _1.14.0_  
-Later configuration export version _1.1.0_ was introduced in StackState version _1.14.1_  
+Configuration export version _1.0.0_ was introduced in StackState version _1.14.0_
+Later configuration export version _1.1.0_ was introduced in StackState version _1.14.1_
 Later configuration export version _2.0.0_ was introduced in StackState version _1.15.0_
 
 This means that Nodes with Configuration version _1.0.0_ will work on both StackState _1.14.0_ and _1.14.1_ but not in _1.15.0_ as a major configuration export version \(_2.0.0_\) was introduced. It also means that configuration export version _1.1.0_ can only be used from StackState version _1.14.1_ but not before as in _1.14.0_

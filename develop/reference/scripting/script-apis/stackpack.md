@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Self-hosted v5.1.x
 ---
 
 # StackPack - script API
@@ -12,12 +12,12 @@ Returns a flag indicating if the StackPack is installed
 
 ### Args
 
-* `name` - the name of a StackPack. This much match exactly \(case-sensitive\). The name of a StackPack can be found in the breadcrumb trail of the StackPack in the StackState UI or can be retrieved using [StackState CLI](../../../../setup/cli/README.md) command: 
+* `name` - the name of a StackPack. This much match exactly \(case-sensitive\). The name of a StackPack can be found in the breadcrumb trail of the StackPack in the StackState UI or can be retrieved using [StackState CLI](../../../../setup/cli/README.md) command:
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
 
-```commandline
+```console
 sts stackpack list
 ```
 
@@ -62,7 +62,7 @@ Returns resources originating from the StackPack.
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
 
-```commandline
+```console
 sts settings list-types
 ```
 

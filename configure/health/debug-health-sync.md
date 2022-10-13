@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Self-hosted v5.1.x
 ---
 
 # Debug health synchronization
@@ -22,7 +22,7 @@ When debugging the health synchronization there are some common verification ste
 {% tabs %}
 {% tab title="CLI: stac" %}
 
-```text
+```console
 stac topic show sts_health_sync
 ```
 
@@ -37,7 +37,10 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+```console
+sts topic describe --name sts_health_sync
+```
+
 {% endtab %}
 {% endtabs %}
 
@@ -83,7 +86,12 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+```console
+$ sts health list
+STREAM URN                                              | STREAM CONSISTENCY MODEL | SUB STREAM COUNT
+urn:health:sourceId:streamId                            | REPEAT_SNAPSHOTS         | 1
+```
+
 {% endtab %}
 {% endtabs %}
 
@@ -96,7 +104,7 @@ Returns a list of all sub streams for a given stream URN, together with the numb
 
 ```javascript
 # List sub streams
-stac health list-sub-streams urn:health:sourceId:streamId 
+stac health list-sub-streams urn:health:sourceId:streamId
 
 sub stream id                     check state count
 ------------------------------  -------------------
@@ -115,7 +123,13 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+```console
+$ sts health list -u urn:health:sourceId:streamId
+SUB STREAM ID  | CHECK STATE COUNT
+subStreamId1   | 1
+subStreamId2   | 1
+```
+
 {% endtab %}
 {% endtabs %}
 
@@ -159,7 +173,10 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+```console
+sts health status -u urn:health:sourceId:streamId
+```
+
 {% endtab %}
 {% endtabs %}
 
@@ -204,7 +221,11 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+```console
+$ sts health status -u urn:health:sourceId:streamId -sub-stream-urn subStreamId3
+```
+
+
 {% endtab %}
 {% endtabs %}
 
@@ -219,7 +240,7 @@ A sub stream status will show the metadata related to the consistency model:
 
 
 The sub stream status can be expanded to include details of matched and unmatched check states using the `-t` command line argument. This is helpful to identify any health states that are not attached to a topology element.
-In the example below, `checkStateId2` is listed under `Check states with identifier which has no matching topology element`. This means that it was not possible to match the check state to a topology element with the identifier `server-2`. 
+In the example below, `checkStateId2` is listed under `Check states with identifier which has no matching topology element`. This means that it was not possible to match the check state to a topology element with the identifier `server-2`.
 
 {% tabs %}
 {% tab title="CLI: stac" %}
@@ -227,8 +248,8 @@ In the example below, `checkStateId2` is listed under `Check states with identif
 ```javascript
 # Show a sub stream status matched/unmatched check states.
 stac health show urn:health:sourceId:streamId -s "subStreamId3" -t
-# If we configured our stream to not use explicit substreams then a default 
-# sub stream can be reached by omitting the optional substreamId parameter as in: 
+# If we configured our stream to not use explicit substreams then a default
+# sub stream can be reached by omitting the optional substreamId parameter as in:
 #stac health show urn:health:sourceId:streamId -t
 
 Check states with identifier matching exactly 1 topology element: 32
@@ -256,7 +277,10 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+```console
+$ sts health status -u urn:health:sourceId:streamId -sub-stream-urn subStreamId3 -t
+```
+
 {% endtab %}
 {% endtabs %}
 
@@ -283,7 +307,10 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+```console
+sts health delete -u urn:health:sourceId:streamId
+```
+
 {% endtab %}
 {% endtabs %}
 
@@ -296,7 +323,7 @@ The `clear-errors` option removes all errors from a health stream. This is helpf
 
 ```javascript
 # Clear health stream errors
-stac health clear-errors urn:health:sourceId:streamId 
+stac health clear-errors urn:health:sourceId:streamId
 
 ```
 
@@ -311,7 +338,10 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+```console
+sts health clear-error -u urn:health:sourceId:streamId
+```
+
 {% endtab %}
 {% endtabs %}
 
@@ -339,7 +369,7 @@ For example a `SubStreamStopWithoutStart` will be closed once the health synchro
 | **SubStreamMissingCheckpoint** | Raised when a Transactional increments sub stream previously observed a checkpoint, but the received message is missing the `previous_checkpoint` |
 | **SubStreamInvalidCheckpoint** | Raised when a Transactional increments sub stream previously observed a checkpoint, but the received message has a `previous_checkpoint` that is not equivalent to the last observed one. |
 | **SubStreamOutdatedCheckpoint** | Raised when a Transactional increments sub stream previously observed a checkpoint, but the received message has a `checkpoint` that precedes the last observed one, meaning that its data that StackState already received. |
-| **SubStreamUnknownCheckState** | Raised when deleting a Transactional increments check_state and the `check_state_id` is not present on the sub stream. 
+| **SubStreamUnknownCheckState** | Raised when deleting a Transactional increments check_state and the `check_state_id` is not present on the sub stream.
 
 ## See also
 

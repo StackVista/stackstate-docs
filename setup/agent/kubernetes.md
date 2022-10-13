@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Self-hosted v5.1.x
 ---
 
 # Overview
@@ -95,7 +95,7 @@ The StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics can be 
 
 1. If you do not already have it, you will need to add the StackState helm repository to the local helm client:
 
-   ```commandline
+   ```console
     helm repo add stackstate https://helm.stackstate.io
     helm repo update
    ```
@@ -110,7 +110,7 @@ The StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics can be 
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-```commandline
+```console
 helm upgrade --install \
    --namespace stackstate \
    --create-namespace \
@@ -121,7 +121,7 @@ helm upgrade --install \
 ```
 {% endtab %}
 {% tab title="OpenShift" %}
-```commandline
+```console
 helm upgrade --install \
 --namespace stackstate \
 --create-namespace \
@@ -329,7 +329,7 @@ helm upgrade --install \
 {% hint style="warning" %}
 The `stackstate/cluster-agent` chart is being deprecated and will no longer be supported.
 
-It is recommended that you [upgrade to the new `stackstate/stackstate-agent` chart](#upgrade-helm-chart). 
+It is recommended that you [upgrade to the new `stackstate/stackstate-agent` chart](#upgrade-helm-chart).
 {% endhint %}
 
 If you need to redeploy the Agent using the old `stackstate/cluster-agent` chart, refer to the [StackState v5.0 documentation \(docs.stackstate.com/v/5.0/\)](https://docs.stackstate.com/v/5.0/setup/agent/kubernetes#install).
@@ -413,7 +413,7 @@ Below is an example comparing the values.yaml required by the new chart (`stacks
 {% tabs %}
 {% tab title="Example: values.yaml file for NEW stackstate/stackstate-agent chart" %}
 ```yaml
-# checksAgent enabled by default 
+# checksAgent enabled by default
 # (Called clusterChecks in the old stackstate/cluster-agent chart)
 # kubernetes_state check disabled by default on regular Agent pods.
 clusterAgent:
@@ -428,7 +428,7 @@ clusterAgent:
        init_config:
          aws_access_key_id: ''
          aws_secret_access_key: ''
-         external_id: uniquesecret!1 
+         external_id: uniquesecret!1
          # full_run_interval: 3600
        instances:
        - role_arn: arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole
@@ -440,7 +440,7 @@ clusterAgent:
 {% endtab %}
 {% tab title="Example: values.yaml file for OLD stackstate/cluster-agent chart" %}
 ```yaml
-# Enable clusterChecks functionality and the clustercheck pods. 
+# Enable clusterChecks functionality and the clustercheck pods.
 # (Called checksAgent in the new stackstate/stackstate-agent chart)
 clusterChecks:
  enabled: true
@@ -470,14 +470,14 @@ clusterAgent:
        init_config:
          aws_access_key_id: ''
          aws_secret_access_key: ''
-         external_id: uniquesecret!1 
+         external_id: uniquesecret!1
          # full_run_interval: 3600
        instances:
        - role_arn: arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole
            regions:
            - global
            - eu-west-1
-           collection_interval: 60 
+           collection_interval: 60
 ```
 {% endtab %}
 {% endtabs %}

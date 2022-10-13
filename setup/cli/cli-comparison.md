@@ -74,7 +74,7 @@ There are now two versions of the StackState CLI and the old version of the CLI 
 
 You can check which version of the `sts` CLI you are running with the following command:
 
-```commandline
+```console
 sts version
 
 # new `sts` CLI - example output:

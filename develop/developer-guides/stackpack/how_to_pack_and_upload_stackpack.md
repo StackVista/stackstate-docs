@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Self-hosted v5.1.x
 ---
 
 # Upload a StackPack file
@@ -11,7 +11,7 @@ To upload the `.sts` file to StackState use the [StackState CLI](../../../setup/
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
 
-```commandline
+```console
 sts stackpack upload --file <PATH_TO_FILE.sts>
 ```
 

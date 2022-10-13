@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Self-hosted v5.1.x
 ---
 
 # Enable logging for functions
@@ -32,7 +32,7 @@ To enable logging for an instance of a function, use its ID to set a logging lev
    ```text
    stac serverlog setlevel <id> DEBUG
    ```
-   
+
 
 ## Monitor logging for a function
 
@@ -167,7 +167,7 @@ sts graph show-node 9161801377514
       ...
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`. 
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
 
 In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
@@ -178,11 +178,11 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-```commandline
+```console
 # get IDs of all views
 sts settings list --type QueryView
 
-TYPE      | ID              | IDENTIFIER | NAME                      | OWNED BY | LAST UPDATED                                          
+TYPE      | ID              | IDENTIFIER | NAME                      | OWNED BY | LAST UPDATED
 QueryView | 165313710240823 |            | Demo - Customer A         |          | Tue Jun 21 13:44:12 2022 CEST
 QueryView | 26281716816873  |            | Demo - Customer B         |          | Tue Jun 21 13:44:12 2022 CEST
 QueryView | 184368967764989 |            | Demo - Customer D         |          | Tue Jun 21 13:44:12 2022 CEST
