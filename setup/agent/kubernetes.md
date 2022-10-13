@@ -95,7 +95,7 @@ The StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics can be 
 
 1. If you do not already have it, you will need to add the StackState helm repository to the local helm client:
 
-   ```console
+   ```shellsession
     helm repo add stackstate https://helm.stackstate.io
     helm repo update
    ```
@@ -110,7 +110,7 @@ The StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics can be 
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-```console
+```shellsession
 helm upgrade --install \
    --namespace stackstate \
    --create-namespace \
@@ -121,7 +121,7 @@ helm upgrade --install \
 ```
 {% endtab %}
 {% tab title="OpenShift" %}
-```console
+```shellsession
 helm upgrade --install \
 --namespace stackstate \
 --create-namespace \

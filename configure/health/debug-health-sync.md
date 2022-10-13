@@ -22,7 +22,7 @@ When debugging the health synchronization there are some common verification ste
 {% tabs %}
 {% tab title="CLI: stac" %}
 
-```console
+```shellsession
 stac topic show sts_health_sync
 ```
 
@@ -37,7 +37,7 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-```console
+```shellsession
 sts topic describe --name sts_health_sync
 ```
 
@@ -86,7 +86,7 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-```console
+```shellsession
 $ sts health list
 STREAM URN                                              | STREAM CONSISTENCY MODEL | SUB STREAM COUNT
 urn:health:sourceId:streamId                            | REPEAT_SNAPSHOTS         | 1
@@ -123,7 +123,7 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-```console
+```shellsession
 $ sts health list -u urn:health:sourceId:streamId
 SUB STREAM ID  | CHECK STATE COUNT
 subStreamId1   | 1
@@ -173,7 +173,7 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-```console
+```shellsession
 sts health status -u urn:health:sourceId:streamId
 ```
 
@@ -221,7 +221,7 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-```console
+```shellsession
 $ sts health status -u urn:health:sourceId:streamId -sub-stream-urn subStreamId3
 ```
 
@@ -277,7 +277,7 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-```console
+```shellsession
 $ sts health status -u urn:health:sourceId:streamId -sub-stream-urn subStreamId3 -t
 ```
 
@@ -307,7 +307,7 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-```console
+```shellsession
 sts health delete -u urn:health:sourceId:streamId
 ```
 
@@ -338,7 +338,7 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-```console
+```shellsession
 sts health clear-error -u urn:health:sourceId:streamId
 ```
 

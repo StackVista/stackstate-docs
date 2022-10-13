@@ -178,7 +178,7 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-```console
+```shellsession
 # get IDs of all views
 sts settings list --type QueryView
 

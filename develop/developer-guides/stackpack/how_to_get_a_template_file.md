@@ -11,7 +11,7 @@ You can get a complete dump of all configuration using the StackState CLI:
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
 
-```console
+```shellsession
 sts settings describe --file <PATH_TO_FILE.stj>
 ```
 
@@ -42,7 +42,7 @@ If all of your configuration nodes already have been assigned to the right names
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
 
-```console
+```shellsession
 sts settings describe --namespace <NAMESPACE> --file <PATH_TO_FILE.stj>
 ```
 

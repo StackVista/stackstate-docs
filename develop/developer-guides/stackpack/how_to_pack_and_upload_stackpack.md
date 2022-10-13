@@ -11,7 +11,7 @@ To upload the `.sts` file to StackState use the [StackState CLI](../../../setup/
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
 
-```console
+```shellsession
 sts stackpack upload --file <PATH_TO_FILE.sts>
 ```
 

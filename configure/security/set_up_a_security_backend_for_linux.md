@@ -125,7 +125,7 @@ The `secret` command in the Agent CLI shows any errors related to your setup. Fo
 
 On Linux, the command outputs file mode, owner and group for the executable. Example:
 
-```console
+```shellsession
 $> stackstate-agent secret
 === Checking executable rights ===
 Executable path: /path/to/you/executable
@@ -148,7 +148,7 @@ Secrets handle decrypted:
 
 To quickly see how the check’s configurations are resolved, you can use the `configcheck` command:
 
-```console
+```shellsession
 sudo -u stackstate-agent -- stackstate-agent configcheck
 
 === a check ===
@@ -176,7 +176,7 @@ password: <decrypted_password2>
 
 To test or debug outside of the Agent, you can mimic how the Agent runs it:
 
-```console
+```shellsession
 sudo su stackstate-agent - bash -c "echo '{\"version\": \"1.0\", \"secrets\": [\"secret1\", \"secret2\"]}' | /path/to/the/secret_backend_command"
 ```
 

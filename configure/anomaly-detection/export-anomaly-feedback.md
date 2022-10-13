@@ -27,7 +27,7 @@ Using StackState CLI `sts` (new), anomaly feedback can be exported from StackSta
 
 For example:
 
-```console
+```shellsession
 # Export all feedback on all anomalies in the last 7 days,
 # include 1 day of metric data for each anomaly
 sts anomaly collect-feedback --start-time -7d --file feedback.json
@@ -43,7 +43,7 @@ Using StackState CLI `stac`, anomaly feedback can be exported from StackState wi
 
 For example:
 
-```console
+```shellsession
 # Export all feedback on all anomalies in the last 7 days,
 # include 1 day of metric data for each anomaly
 stac anomaly collect-feedback --start-time=-7d > feedback.json

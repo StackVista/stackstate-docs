@@ -180,7 +180,7 @@ For export:
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
 
-```console
+```shellsession
 sts settings describe --namespace urn:stackpack:{stackpack_name}:
 ```
 
