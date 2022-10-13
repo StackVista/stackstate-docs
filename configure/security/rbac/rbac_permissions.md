@@ -155,6 +155,10 @@ Provide a subject with permission to open a view:
 ```text
 sts rbac grant --subject [role-name] --permission access-view --resource [view-name]
 ```
+
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
 {% tab title="CLI: stac" %}
 
