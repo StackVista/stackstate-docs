@@ -315,7 +315,7 @@ The declaration of a topology identifier pattern would look something like the f
 A monitor with a `ENABLED` status will be automatically executed and it's results will be persisted. A `DISABLED` monitor is still available for a `dry-run` in order to inspect it's results and execution (helpful for debuggin a monitor). When creating for the very first time a monitor, if the `status` field is not present on the payload then the monitor starts in a `DISABLED` status. When updating a monitor if the `status` is not specified then the monitor will keep it's own `status`.
 
 {% hint style="info" %}
-When a monitor is disabled, all health states associated with the monitor will be removed and they will no longer be visible in the StackState UI. Disabling a monitor is quite useful to debug and fix a failing monitor without having it producing any health states yet as a disabled monitor can still be used to do a `dry-run`
+When a monitor is disabled, all health states associated with the monitor will be removed and they will no longer be visible in the StackState UI. Disabling a monitor is quite useful to debug and fix execution errors without having it producing any health states or errors yet as a disabled monitor can still be used to do a `dry-run` 
 {% endhint %}
 
 

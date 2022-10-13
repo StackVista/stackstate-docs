@@ -170,35 +170,7 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 
-You can also preview the results it generates by invoking the CLI command:
 
-{% tabs %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: sts (new)" %}[](http://not.a.link "StackState Self-Hosted only")
-```
-# By ID
-sts monitor run --id <id-of-a-monitor>
-# By Identifier
-sts monitor run --identifier <identifier-of-a-monitor>
-```
-
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.[](http://not.a.link "StackState Self-Hosted only")
-
-➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
-`stac monitor preview <id-or-identifier-of-a-monitor>`[](http://not.a.link "StackState Self-Hosted only")
-
-
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`. [](http://not.a.link "StackState Self-Hosted only")
-
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
-
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
-
-{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 
 In particular for monitors the stj `format` can be challenging to work with given the arguments of type `ArgumentScriptMetricQueryVal` where the value is a script on itself, so whenever an update is needed on such a value an option can be to use an external tool as [yq](https://github.com/mikefarah/yq) to get a more friendly formatting. For example, given the monitor example above we could format it with yq :
 ```text
