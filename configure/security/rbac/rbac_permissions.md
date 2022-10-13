@@ -89,6 +89,9 @@ List all permissions:
 sts rbac list-permissions
 ```
 
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
 {% tab title="CLI: stac" %}
 
@@ -118,6 +121,9 @@ Show the permissions granted to a specific role.
 sts rbac describe-permissions --subject [role-name]
 ```
 
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
 {% tab title="CLI: stac" %}
 
@@ -178,6 +184,9 @@ Provide a subject with the system permission to create \(save\) views:
 sts rbac grant --subject [role-name] --permission create-views
 ```
 
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
 {% tab title="CLI: stac" %}
 
@@ -207,6 +216,9 @@ Provide a subject with the system permission to check StackState settings:
 sts rbac grant --subject [role-name] --permission read-settings
 ```
 
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
 {% tab title="CLI: stac" %}
 
@@ -236,6 +248,9 @@ Provide a subject with the system permission to add new event handlers and edit 
 sts rbac grant --subject [role-name] --permission manage-event-handlers
 ```
 
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
 {% tab title="CLI: stac" %}
 
@@ -265,6 +280,9 @@ Revoke permissions for a subject to open a view:
 sts rbac revoke --subject [role-name] --permission access-view --resource [view-name]
 ```
 
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
 {% tab title="CLI: stac" %}
 
