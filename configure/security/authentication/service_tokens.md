@@ -44,6 +44,7 @@ From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is 
 ```sh
 sts service-token create
 ```
+{% endtab %}
 {% tab title="CLI: stac" %}
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
