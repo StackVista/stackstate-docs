@@ -22,8 +22,8 @@ When debugging the health synchronization there are some common verification ste
 {% tabs %}
 {% tab title="CLI: stac" %}
 
-```shellsession
-stac topic show sts_health_sync
+```sh
+$ stac topic show sts_health_sync
 ```
 
 ⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
@@ -37,8 +37,8 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-```shellsession
-sts topic describe --name sts_health_sync
+```sh
+$ sts topic describe --name sts_health_sync
 ```
 
 {% endtab %}
@@ -66,9 +66,9 @@ Returns a list of all current synchronized health streams and the number of sub 
 {% tabs %}
 {% tab title="CLI: stac" %}
 
-```javascript
+```sh
 # List streams
-stac health list-streams
+$ stac health list-streams
 
 stream urn                                            sub stream count
 --------------------------------------------------  ------------------
@@ -86,7 +86,7 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-```shellsession
+```sh
 $ sts health list
 STREAM URN                                              | STREAM CONSISTENCY MODEL | SUB STREAM COUNT
 urn:health:sourceId:streamId                            | REPEAT_SNAPSHOTS         | 1
@@ -102,9 +102,9 @@ Returns a list of all sub streams for a given stream URN, together with the numb
 {% tabs %}
 {% tab title="CLI: stac" %}
 
-```javascript
+```sh
 # List sub streams
-stac health list-sub-streams urn:health:sourceId:streamId
+$ stac health list-sub-streams urn:health:sourceId:streamId
 
 sub stream id                     check state count
 ------------------------------  -------------------
@@ -123,7 +123,7 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-```shellsession
+```sh
 $ sts health list -u urn:health:sourceId:streamId
 SUB STREAM ID  | CHECK STATE COUNT
 subStreamId1   | 1
@@ -141,9 +141,9 @@ The stream status command returns the aggregated stream latency and throughput m
 {% tabs %}
 {% tab title="CLI: stac" %}
 
-```javascript
+```sh
 # Show a stream status
-stac health show urn:health:sourceId:streamId
+$ stac health show urn:health:sourceId:streamId
 
 Aggregate metrics for the stream and all substreams:
 
@@ -173,8 +173,8 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-```shellsession
-sts health status -u urn:health:sourceId:streamId
+```sh
+$ sts health status -u urn:health:sourceId:streamId
 ```
 
 {% endtab %}
@@ -186,9 +186,9 @@ The sub stream status provides useful information to verify that check states se
 
 {% tabs %}
 {% tab title="CLI: stac" %}
-```javascript
+```sh
 # Show a sub stream status.
-stac health show urn:health:sourceId:streamId -s "subStreamId3"
+$ stac health show urn:health:sourceId:streamId -s "subStreamId3"
 
 Synchronized check state count: 32
 Repeat interval (Seconds): 120
@@ -221,7 +221,7 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-```shellsession
+```sh
 $ sts health status -u urn:health:sourceId:streamId -sub-stream-urn subStreamId3
 ```
 
@@ -245,12 +245,12 @@ In the example below, `checkStateId2` is listed under `Check states with identif
 {% tabs %}
 {% tab title="CLI: stac" %}
 
-```javascript
+```sh
 # Show a sub stream status matched/unmatched check states.
-stac health show urn:health:sourceId:streamId -s "subStreamId3" -t
+$ stac health show urn:health:sourceId:streamId -s "subStreamId3" -t
 # If we configured our stream to not use explicit substreams then a default
 # sub stream can be reached by omitting the optional substreamId parameter as in:
-#stac health show urn:health:sourceId:streamId -t
+$ stac health show urn:health:sourceId:streamId -t
 
 Check states with identifier matching exactly 1 topology element: 32
 
@@ -277,7 +277,7 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-```shellsession
+```sh
 $ sts health status -u urn:health:sourceId:streamId -sub-stream-urn subStreamId3 -t
 ```
 
@@ -291,9 +291,9 @@ The `delete` stream functionality is helpful while setting up a health synchroni
 {% tabs %}
 {% tab title="CLI: stac" %}
 
-```javascript
+```sh
 # Delete a health synchronization stream
-stac health delete urn:health:sourceId:streamId
+$ stac health delete urn:health:sourceId:streamId
 ```
 
 ⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
@@ -307,8 +307,8 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-```shellsession
-sts health delete -u urn:health:sourceId:streamId
+```sh
+$ sts health delete -u urn:health:sourceId:streamId
 ```
 
 {% endtab %}
@@ -321,9 +321,9 @@ The `clear-errors` option removes all errors from a health stream. This is helpf
 {% tabs %}
 {% tab title="CLI: stac" %}
 
-```javascript
+```sh
 # Clear health stream errors
-stac health clear-errors urn:health:sourceId:streamId
+$ stac health clear-errors urn:health:sourceId:streamId
 
 ```
 
@@ -338,8 +338,8 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-```shellsession
-sts health clear-error -u urn:health:sourceId:streamId
+```sh
+$ sts health clear-error -u urn:health:sourceId:streamId
 ```
 
 {% endtab %}

@@ -46,7 +46,7 @@ For example, to run the monitor every 5 minutes, set the `intervalSeconds` to `3
 
 {% tabs %}
 {% tab title="Monitor STJ definition" %}
-```shellsession
+```sh
 {
   "_version": "1.0.39",
   "timestamp": "2022-05-23T13:16:27.369269Z[GMT]",

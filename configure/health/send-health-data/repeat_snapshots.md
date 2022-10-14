@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Self-hosted v5.1.x
 ---
 
 ## Overview
@@ -140,6 +140,6 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+The new `sts` CLI does not support sending health states. This will only be supported by directly reaching out to the receiver API.
 {% endtab %}
 {% endtabs %}

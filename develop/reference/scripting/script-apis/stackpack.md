@@ -17,7 +17,7 @@ Returns a flag indicating if the StackPack is installed
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
 
-```shellsession
+```sh
 sts stackpack list
 ```
 
@@ -62,7 +62,7 @@ Returns resources originating from the StackPack.
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
 
-```shellsession
+```sh
 sts settings list-types
 ```
 

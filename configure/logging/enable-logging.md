@@ -178,7 +178,7 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 {% endtab %}
 {% tab title="CLI: sts (new)" %}
 
-```shellsession
+```sh
 # get IDs of all views
 sts settings list --type QueryView
 
