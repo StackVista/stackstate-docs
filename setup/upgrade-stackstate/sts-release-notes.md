@@ -1,19 +1,91 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Self-hosted v5.1.x
 ---
 
 # StackState release notes
 
 ## Overview
 
-This page includes release notes for the StackState self-hosted product. 
+This page includes release notes for the StackState self-hosted product.
 
 * For StackPack release notes, see the page [StackPack versions](stackpack-versions.md).
 * For StackState Agent release notes, see [StackState Agent on GitHub \(github.com\)](https://github.com/StackVista/stackstate-agent/blob/master/stackstate-changelog.md).
 
 ## StackState v5.1.0
 
-TODO
+The StackState v5.1 release delivers brand-new features and enhancements that help your team troubleshoot faster. Details of the included features, improvements, bug fixes and updated StackPacks can be found below.
+
+The StackState v5.1 release is the last release containing the `stac` CLI. The new `sts` CLI replaces the `stac` CLI in all upcoming versions of StackState. For details see [Comparison between the CLIs](/setup/cli/cli-comparison.md).
+
+**Improvements**
+
+- The Minio pod in the StackState Helm chart has default CPU requests and limits set. STAC-17882
+- Added rootCause getter to ProblemResolved and ProblemSubsumed type events. STAC-17869
+- The kube-state-metrics Helm chart dependency of the stackstate-agent Helm chart has been upgraded to version 3.2.2. STAC-17830
+- Introduced a new `ReadTelemetryStreams` permission to allow more fine-grained access control to telemetry streams. STAC-17744
+- Improved problem analysis: better causing events discovery algorithm, more event types can be discovered including the user defined types. STAC-17620
+- The total number of stored topology components and relations are now exposed as metrics. STAC-17607
+- The right hand side panel in the topology explorer shows if health checks have warnings. STAC-17591
+- The total amount of login attempts is now exposed as a metric. STAC-17517
+- The "+" button displayed on the visualizer (to show a component's hidden connections) now shows the number of hidden connections on hover. STAC-17430
+- The StackState Kubernetes Service Account authenticator now only accepts RoleBindings that have been defined in the current namespace. STAC-17400
+- Add support to OpenAPI for the Kubernetes Service Account authentication method. STAC-16951
+- Include a time context on Component Actions accessible by default via the `telemetryTimeStart`, `telemetryTimeEnd` and `topologyTime` variables. STAC-16936
+- We have improved the way we display the "Top metrics" values on the "Component popover" to bypass polling delays. STAC-16771
+- In the RHS panel, the previous "Selection" tab shown when an element got selected is now renamed to dynamically reflect the specific type of element being shown. STAC-16595
+- RHS sections' headers now sticks to the top when scrolling. STAC-16588
+- The "Probable causes" section on the Problem details panel now groups together the consecutive events of the same type, happening on the same component. STAC-15832
+- Health checks have more informative preview items in the right-hand side panel. STAC-14845
+- The "Event handlers" have been redesigned and relocated from the LHS panel to the "View summary" tab on the RHS panel. STAC-14815
+- Ability to enable and disable monitors. Helpful while you are developing your monitor to not having running on it's configured schedule but just on demand via `sts monitor run -i`. STAC-14719
+- The relations panel indicates which side of the relation the current component is. STAC-17371
+- All the "tag" looking properties (e.g. identifiers, labels, sources, etc), active or disabled, have now a direct "copy-to-clipboard" option added on hover. STAC-16967
+- The component detail panels now features a "Relations" section to showcase all the direct relations that particular component has, inside or outside the current view. STAC-16682
+- Both component and direct relation detail panels now feature a "Problems" section to showcase the problems that are caused by or affect a particular component or a direct relation. STAC-11526
+- Both component and direct relation detail panels now feature an "Events" section to showcase the latest events happening on a particular component or a direct relation, based on the telemetry interval selected on the timeline and event filters set on the view. STAC-11522
+
+**Bug fixes**
+
+- Fixed an issue where the guest user got logged out when hovering a component. STAC-17953
+- Fixed an issue where deleting a view would redirect the user to an empty page. STAC-17855
+- Fixed an issue that prevented StackState from using MS Edge as a browser. STAC-17848
+- Fixed an issue that prevented expanding a view to include a relation. STAC-17842
+- Fixed issue that prevented the context menu to be displayed for subviews. STAC-17835
+- Fixed an issue where a user would get logged out when he doesn't have permissions for a certain part of the UI. STAC-17745
+- Fixed a bug where by default also internal ES indexes where tried to be restored during a backup/ restore. (effects k8s deployment). STAC-17742
+- Fixed issue that caused problems to display without contributing components in some cases. STAC-17731
+- Fixed an issue where a broken telemetry stream would break all other telemetry streams. STAC-17709
+- Fixed issue that caused incorrect timestamp to be displayed in the Problem Contributors view. STAC-17487
+- Fixed issue that caused improperly encoded URLs to display a blank screen. STAC-17477
+- Fixed issue that caused the Problem producer to crash in certain circumstances. STAC-17361
+- The StackState Helm chart now has a configurable replicaCount for all resources. STAC-17313
+- Fixed race-condition in updating the OIDC refresh_token. STAC-17261
+- Fixed multi-level tags not working correctly when used for telemetry grouping. STAC-17201
+- Fix memory leak due to excessive storing of sessions when using token based authentication. STAC-17136
+- Fixed an issue causing the problem producer to crash in a loop. STAC-17028
+- The pagination has been removed from all the "Settings" pages. STAC-16982
+- Fix invalid relation type display on direct relation details panel. STAC-16969
+- Fix performance degradation when repeatedly expanding using the '+' show neighbors functionality. STAC-16863
+- Fixed issue that caused groups with big names to be displayed outside of the visualizer canvas. STAC-16844
+- Ensure that HBase is respecting the STACKSTATE_TMP_DIR environment variable. STAC-16785
+- Long view queries and view descriptions are now properly truncated in the "Properties" section of the View summary, in the RHS panel. STAC-15928
+- StackState correctly reads the Kubernetes RoleBinding(s) when using a Kubernetes ServiceAccount token to authenticate. STAC-15814
+- Fixed STQL query generation for relation based problems. STAC-13333
+
+**Security**
+
+- Removed curl executable from UI Docker container resolving CVE-2022-32207. STAC-17319
+- Upgraded libssl/libcrypto to 1.1.1q-r0, patching the CVE-2022-2097 vulnerability. STAC-17145
+- Upgraded ncurses-terminfo and ncurses-libs to 6.2_p20210612-r1, patching the CVE-2022-29458 vulnerability. STAC-17144
+- Upgraded tmpl to 1.0.5, patching the CVE-2021-3777 vulnerability. STAC-17085
+- Upgraded shelljs to 0.8.5, patching the CVE-2022-0144 vulnerability. STAC-17079
+- Upgraded shell-quote to 1.7.3, patching the CVE-2021-42470 vulnerability. STAC-17078
+- Upgraded ini to 1.3.6 patching the CVE-2020-7780 vulnerability. STAC-17070
+- Upgraded jmx-exporter to v0.17, patching the CVE-2017-18640 vulnerability. STAC-17027
+
+**StackPack updates:**
+
+TBD
 
 ## StackState v5.0.x
 
@@ -194,8 +266,8 @@ Details of the included improvements, bug fixes and StackPack updates can be fou
 - Increased performance of network connections correlation by better data scheduling and by adjusting CPU limits in the Helm chart (default from 0.6 to 2). STAC-15822
 - Fixed an issue that caused custom Kafka producer configuration to be disregarded by the correlator and receiver. STAC-15795
 - Clears the following CVEs STAC-15733:
-  - CVE-2022-23852 
-  - CVE-2022-23990. 
+  - CVE-2022-23852
+  - CVE-2022-23990.
 - The limit of problems visible in the StackState UI has been increased to 999. STAC-15688
 - Remediation for CVE-2022-23307 by removing Log4J dependencies from StackGraph. STAC-15655
 - Fixed an issue that caused several pods to be stuck in Pending mode after an API key update. STAC-15525
@@ -255,7 +327,7 @@ Before you upgrade, [check the version specific upgrade instructions](/setup/upg
 **Bug fixes**
 
 - Clears the following CVEs:
-  - CVE-2022-23852 
+  - CVE-2022-23852
   - CVE-2022-23990. STAC-15733
 - Fixed timeline health state not showing up properly on views with trailing whitespace in the query. STAC-15662
 - Fixed issue that incorrectly calculates Problem Clusters in certain circumstances. STAC-15657
@@ -400,7 +472,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 **Features**
 
 * Integrate network monitoring information from [SolarWinds](../../stackpacks/integrations/solarwinds.md). STAC-13360
-* Signficantly [improved Topology navigation](../../use/stackstate-ui/perspectives/topology-perspective.md): 
+* Signficantly [improved Topology navigation](../../use/stackstate-ui/perspectives/topology-perspective.md):
   * Improved component popover with direct links to contextual actions. STAC-12909
   * Double-clicking on a topology element \(group, component or relation\) "zooms into" that element in the Topology Perspective
   * Use the Plus button to expand a view with connected components, link from a trace span to the service. STAC-13359
@@ -748,4 +820,3 @@ StackState v4.0 is End of Life \(EOL\) and is no longer supported.
 * The authentication for the admin API \(port 7071 by default\) is now configured separately from the normal authentication and, for new installations, it is enabled by default. If authentication was enabled for this api \(by default not\) this requires a change in the StackState configuration file. If it was not enabled it is strongly advised to enable it now and change the password. See the `application_stackstate.conf.example` file for an explanation on how to do both. STAC-7993
 * It is now possible to configure a proxy for event handlers, see [how to set this up](../../configure/topology/proxy-for-event-handlers.md). STAC-7784
 * Allow STS process manager to perform HTTPS health check. STAC-7718
-

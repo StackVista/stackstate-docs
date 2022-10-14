@@ -6,9 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 {% hint style="info" %}
-From StackState v5.0, the old `sts` CLI is called `stac`.
-
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the sts CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli)
@@ -248,9 +246,9 @@ StackState receives topology, telemetry and trace data via the Receiver API. If 
 The `stac` CLI will issue a warning when username/password authentication is used for the Base API and the Admin API. It is recommended to switch to token based authentication as described below.
 {% endhint %}
 
-The `stac` CLI authenticates against the Base API and the Admin API using a unique API token that is auto-generated for your StackState user account. The same API token should be entered in the `stac` CLI configuration file for both the Base API and the Admin API. 
+The `stac` CLI authenticates against the Base API and the Admin API using a unique API token that is auto-generated for your StackState user account. The same API token should be entered in the `stac` CLI configuration file for both the Base API and the Admin API.
 
-* The Base API is used for most operations. All users have access to this API, although the available operations will be restricted in accordance with the permissions assigned to each role. 
+* The Base API is used for most operations. All users have access to this API, although the available operations will be restricted in accordance with the permissions assigned to each role.
 * The Admin API is used for some operations that affect the global configuration of StackState, such as the configuration of StackGraph's retention. Only users with the permission `access-admin-api` will have access to the Admin API and the associated operations.
 
 You can find your API token in the StackState UI, go to **Main menu** &gt; **CLI**.
@@ -276,13 +274,13 @@ Follow the steps below to upgrade an installed version of the CLI. Note that it 
       * Version 4.6 and older: The file was downloaded as `sts-cli-VERSION-linux64` and renamed to `sts`.
       * Version 5.0 and above: The file was downloaded as `sts-cli-VERSION-linux64` and renamed to `stac`.
    * **Docker:**
-     * The zip archive was downloaded as `sts-cli-VERSION.zip` and extracted. All files extracted from the zip archive should be removed. 
+     * The zip archive was downloaded as `sts-cli-VERSION.zip` and extracted. All files extracted from the zip archive should be removed.
 
 2. Follow the instructions to download and install the upgraded CLI:
    * [Linux install](#linux-install)
    * [Windows install](#windows-install)
    * [Docker install \(macOS, Linux, Windows\)](#docker-install-macos-linux-windows)
-   
+
 3. It is not necessary to configure the CLI again, the existing CLI configuration will be used.
 
 ## Uninstall
@@ -294,14 +292,14 @@ To uninstall an installed version of the `stac` CLI:
       1. Version 4.6 and older: The file was downloaded as `sts-cli-VERSION-linux64` and renamed to `sts`.
       2. Version 5.0 and above: The file was downloaded as `sts-cli-VERSION-linux64` and renamed to `stac`.
    * **Docker:**
-     * The zip archive was downloaded as `sts-cli-VERSION.zip` and extracted. All files extracted from the zip archive should be removed. 
+     * The zip archive was downloaded as `sts-cli-VERSION.zip` and extracted. All files extracted from the zip archive should be removed.
 
 2. Delete any `stac` CLI configuration files:
    * **Linux or Windows:**
      * `conf.d/conf.yaml` - relative to the directory where the CLI is run.
      * `~/.stackstate/cli/conf.yaml` - relative to the user's home directory.
      * `%APPDATA%/StackState/cli/conf.yaml` - relative to the user's home directory.
-   * **Docker:** 
+   * **Docker:**
      * `conf.d/conf.yaml` - relative to the directory where the CLI would run. Should have been removed together with the old CLI files in step 1.
 
 3. If you added the CLI file or directory to your path (an optional installation step), remove it.

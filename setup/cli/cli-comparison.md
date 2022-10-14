@@ -11,7 +11,7 @@ StackState has a new CLI! The new CLI has many advantages and a few notable diff
 {% hint style="info" %}
 **The old `sts` CLI has been renamed to `stac`.**
 
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. Most commands will be ported to the new `sts` CLI, but some will be deprecated. See the [CLI command overview](#cli-command-overview) for up-to-date information on the port process.
+The new `sts` CLI replaces the `stac` CLI. Most commands will be ported to the new `sts` CLI, but some will be deprecated. See the [CLI command overview](#cli-command-overview) for up-to-date information on the port process.
 {% endhint %}
 
 ## Why a new CLI?
@@ -47,7 +47,7 @@ The `sts` CLI is:
 The `stac` CLI is:
 
 * The old CLI.
-* Works with all supported versions of StackState
+* Works with StackState v5.1 or earlier.
 * ⚠️ Does not include the newest commands - see the [CLI command overview](#cli-command-overview).
 * ⚠️ Will be deprecated in a future release of StackState.
 
@@ -55,7 +55,7 @@ The `stac` CLI is:
 
 **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
 
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
@@ -99,7 +99,7 @@ If you are not running the new `sts` CLI yet, we recommend that you:
 
 ## CLI command overview
 
-The new `sts` CLI will completely replace the old `stac` CLI. Not all commands have been moved to the new CLI yet and some commands are not available in the old CLI. The following table gives an overview of the commands available in each CLI and the current `port` status.
+The new `sts` CLI replaces the old `stac` CLI. Not all commands have been moved to the new CLI yet and some commands are not available in the old CLI. The following table gives an overview of the commands available in each CLI and the current `port` status.
 
  - 🚧 - Work in progress.
  - ❌ - Command will not be available in this CLI.
