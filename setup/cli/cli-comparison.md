@@ -75,7 +75,7 @@ There are now two versions of the StackState CLI and the old version of the CLI 
 You can check which version of the `sts` CLI you are running with the following command:
 
 ```shellsession
-sts version
+$ sts version
 
 # new `sts` CLI - example output:
 VERSION | BUILD DATE           | COMMIT
@@ -124,5 +124,5 @@ The new `sts` CLI replaces the old `stac` CLI. Not all commands have been moved 
 | `subscription *` | `license *` | Configure the StackState license. |
 | `subject *` | `rbac *` | Configure users/groups. |
 | `topology send` | ❌ | Send topology. Will not be ported to the new `sts` CLI. This remains possible via the StackState Agent or the StackState Receiver API. |
-| `topic *` | 🚧 | Inspect StackState messaging topics. |
+| `topic *` | `topic *` | Inspect StackState messaging topics. |
 | `trace send` |❌ | Send traces. Will not be ported to the new `sts` CLI. This remains possible via the StackState Agent or the StackState Receiver API. |
