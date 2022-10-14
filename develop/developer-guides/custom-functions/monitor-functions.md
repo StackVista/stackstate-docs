@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-Monitor functions, much like any other type of function in StackState, are represented using the STJ file format. 
+Monitor functions, much like any other type of function in StackState, are represented using the STJ file format.
 
 ## Monitor function definition
 
@@ -437,7 +437,7 @@ The function can be uploaded to StackState in one of three ways:
 - Use the [StackState CLI](../../../setup/cli/README.md):
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 ```
 sts settings import < path/to/file.stj
 ```
@@ -447,7 +447,7 @@ sts settings import < path/to/file.stj
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 ```
 stac graph import < path/to/file.stj
 ```

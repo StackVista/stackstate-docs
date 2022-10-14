@@ -13,7 +13,7 @@ StackState imposes data retention limits to save storage space and improve perfo
 By default, topology graph data will be retained for 8 days. This works in a way that the latest state of topology graph will always be retained; only history older than 8 days will be removed. You can check and alter the configured retention period this using the StackState CLI.
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 {% hint style="info" %}
 From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
@@ -25,7 +25,7 @@ $ sts graph retention
 ```
 
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
@@ -46,7 +46,7 @@ $ stac graph retention get-window
 In some cases, it may be useful to keep historical data for more than eight days.
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 {% hint style="info" %}
 From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
@@ -59,7 +59,7 @@ $ sts graph retention --set 10d
 
 \(note that the duration can be specified as a duration string\)
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
@@ -84,7 +84,7 @@ Note that by adding more time to the data retention period, the amount of data s
 After the new retention window is applied, you can schedule a new removal with this command:
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 {% hint style="info" %}
 From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
@@ -97,7 +97,7 @@ $ sts graph retenstion --set 10d --schedule-removal
 
 Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
@@ -120,7 +120,7 @@ After changing the retention period to a smaller window, you may end up with som
 Note that this may take some time to have an effect.
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
 {% hint style="info" %}
 From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
@@ -132,7 +132,7 @@ From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is 
 $ sts graph delete-expired-data
 ```
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
@@ -155,7 +155,7 @@ $ stac graph retention remove-expired-data
 However, if you would like to perform data deletion without having to wait for an additional scheduled cleanup, you can use `--immediately` argument:
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
 {% hint style="info" %}
 From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
@@ -167,7 +167,7 @@ From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is 
 $ sts graph delete-expired-data --immediate
 ```
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 

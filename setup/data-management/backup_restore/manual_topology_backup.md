@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Self-hosted v5.1.x
 ---
 
 # Manually created topology backup
@@ -16,7 +16,7 @@ This page describes the process of exporting and importing manual topology data,
 To export all manually created components and relations to a file `manual_topo.stj` using the [StackState CLI](/setup/cli/README.md):
 
 {% tabs %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 
 1. Create the export file:
 
@@ -45,7 +45,7 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
 
 {% endtab %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
 Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 {% endtab %}

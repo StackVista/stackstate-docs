@@ -15,7 +15,7 @@ Returns a flag indicating if the StackPack is installed
 * `name` - the name of a StackPack. This much match exactly \(case-sensitive\). The name of a StackPack can be found in the breadcrumb trail of the StackPack in the StackState UI or can be retrieved using [StackState CLI](../../../../setup/cli/README.md) command:
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
 ```sh
 sts stackpack list
@@ -25,7 +25,7 @@ sts stackpack list
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 
 ```text
 stac stackpack list
@@ -60,7 +60,7 @@ Returns resources originating from the StackPack.
 * `nodeType` - the type of node, for example `CheckFunction` or `QueryView`. You can get a full listing of all using the [StackState CLI](../../../../setup/cli/README.md) command:
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
 ```sh
 sts settings list-types
@@ -70,7 +70,7 @@ sts settings list-types
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 
 ```text
 stac graph list-types

@@ -17,7 +17,7 @@ To export anomaly feedback from StackState, the [StackState CLI](/setup/cli/READ
 {% endhint %}
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
 {% hint style="info" %}
 From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
@@ -39,7 +39,7 @@ $ sts anomaly collect-feedback --start-time -7d --file feedback.json
 $ sts anomaly collect-feedback --start-time -10d --end-time -2d --history 3d --file feedback.json
 ```
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`.**
 

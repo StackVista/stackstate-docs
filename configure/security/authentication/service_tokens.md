@@ -34,7 +34,7 @@ It is also possible to [set up a bootstrap service token](#set-up-a-bootstrap-se
 To create a service token for an installed instance of StackState, you can use the new `sts` CLI.
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 {% hint style="info" %}
 From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
@@ -45,7 +45,7 @@ From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is 
 sts service-token create
 ```
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
@@ -77,7 +77,7 @@ This command takes the following command line arguments:
 For example, the command below will create a service token with the name `my-service-token` and the role `stackstate-power-user`:
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 {% hint style="info" %}
 From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
@@ -89,7 +89,7 @@ From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is 
 ✅ Service token created: svctok-aaaaa-bbbb-ccccc-ddddd
 ```
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
@@ -189,7 +189,7 @@ Follow the steps below to configure StackState to create a bootstrap service tok
 The ID, name, expiration date and roles of all created service tokens can be seen using the new `sts` CLI. For example:
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 {% hint style="info" %}
 From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
@@ -202,7 +202,7 @@ ID              | NAME             | EXPIRATION | ROLES
 107484341630693 | my-service-token |            | [stackstate-power-user]
 ```
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
@@ -222,7 +222,7 @@ Command not available in the `stac` CLI, use the new `sts` CLI.
 A service token can be deleted using the new `sts` CLI. Pass the ID of the service token as an argument. For example:
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 {% hint style="info" %}
 From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
@@ -234,7 +234,7 @@ From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is 
 ✅ Service token deleted: 107484341630693
 ```
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 

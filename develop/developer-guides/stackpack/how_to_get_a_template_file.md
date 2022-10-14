@@ -9,7 +9,7 @@ description: StackState Self-hosted v5.1.x
 You can get a complete dump of all configuration using the StackState CLI:
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
 ```sh
 sts settings describe --file <PATH_TO_FILE.stj>
@@ -19,7 +19,7 @@ sts settings describe --file <PATH_TO_FILE.stj>
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 ```text
 stac graph export > <PATH_TO_FILE.stj>
 ```
@@ -40,7 +40,7 @@ Follow the preparation steps below to prepare the `.stj` file, such that it cont
 If all of your configuration nodes already have been assigned to the right namespace you can get all the nodes of your StackPack using the command:
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
 ```sh
 sts settings describe --namespace <NAMESPACE> --file <PATH_TO_FILE.stj>
@@ -50,7 +50,7 @@ sts settings describe --namespace <NAMESPACE> --file <PATH_TO_FILE.stj>
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 
 ```text
 stac graph export --namespace <namespace> > <PATH_TO_FILE.stj>

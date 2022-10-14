@@ -15,7 +15,7 @@ An export of the StackState configuration can be obtained from the StackState UI
 To export configuration using the StackState CLI or curl:
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
 ```text
 # Output in terminal window
@@ -29,7 +29,7 @@ sts settings describe --file <PATH_TO_FILE.stj>
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 ```text
 # Output in terminal window
 stac graph export
@@ -98,7 +98,7 @@ Import is intended to be a one-off action - importing multiple times might resul
 To clear the StackState configuration and import from a file using the StackState CLI or curl. The `<token>` used for authorization with curl is available on the **CLI** page in the StackState UI main menu:
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
 ```text
 sts settings apply --file <PATH_TO_FILE.stj>
@@ -108,7 +108,7 @@ sts settings apply --file <PATH_TO_FILE.stj>
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 ```text
 stac graph import < <PATH_TO_FILE.stj>
 ```
@@ -178,7 +178,7 @@ Node identifiers are specified in a following pattern: `urn:stackpack:{stackpack
 For export:
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
 ```sh
 sts settings describe --namespace urn:stackpack:{stackpack_name}:
@@ -188,7 +188,7 @@ sts settings describe --namespace urn:stackpack:{stackpack_name}:
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 ```text
 stac graph export --namespace urn:stackpack:{stackpack_name}:
 ```

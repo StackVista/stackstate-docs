@@ -17,7 +17,7 @@ To create a new subject \(a group or a username\), you must follow the `stac` CL
 * Create the `stackstate` subject with a scope that allows the user to see all elements with the `StackState` label:
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 {% hint style="info" %}
 From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
@@ -29,7 +29,7 @@ sts rbac create-subject --subject stackstate --scope 'label = "StackState"'
 ```
 
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
@@ -50,7 +50,7 @@ stac subject save stackstate 'label = "StackState"'
 * Give more context and specific limitations, create the subject `stackstateManager` with the same scope of the `StackState` label and additional access to Business Applications within that label:
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 {% hint style="info" %}
 From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
@@ -62,7 +62,7 @@ sts rbac create-subject --subject stackstateManager --scope 'label = "StackState
 ```
 
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 

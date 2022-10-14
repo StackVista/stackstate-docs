@@ -75,7 +75,7 @@ For example, to run the monitor every 5 minutes, set the `intervalSeconds` to `3
 The status of a monitor can be obtained via the StackState CLI:
 
 {% tabs %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: sts (new)" %}[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: sts" %}[](http://not.a.link "StackState Self-Hosted only")
 {% hint style="info" %}
 From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
@@ -89,7 +89,7 @@ $ sts monitor status --id <id-of-a-monitor>
 $ sts monitor status --identifier <identifier-of-a-monitor>
 ```
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: stac (deprecated)" %}[](http://not.a.link "StackState Self-Hosted only")
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
@@ -114,7 +114,7 @@ The output of this command indicates the specific errors that occurred along wit
 You can use the CLI run a monitor and preview its output without persisting its results.
 
 {% tabs %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: sts (new)" %}[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: sts" %}[](http://not.a.link "StackState Self-Hosted only")
 
 {% hint style="info" %}
 From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
@@ -129,7 +129,7 @@ $ sts monitor run --id <id-of-a-monitor>
 $ sts monitor run --identifier <identifier-of-a-monitor>
 ```
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: stac (deprecated)" %}[](http://not.a.link "StackState Self-Hosted only")
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
@@ -155,7 +155,7 @@ When a monitor is disabled (removed), all health states associated with the moni
 Monitors can be disabled by removing them. Once a monitor to be disabled is identified, either by inspecting the definition of a monitor available under the context menu of a monitor result panel, or otherwise by obtaining the Monitors identifier, a dedicated CLI command can be used to remove it:
 
 {% tabs %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: sts (new)" %}[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: sts" %}[](http://not.a.link "StackState Self-Hosted only")
 {% hint style="info" %}
 From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
@@ -169,7 +169,7 @@ $ sts monitor delete --id <id-of-the-monitor>
 $ sts monitor delete --identifier <identifier-of-the-monitor>
 ```
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: stac (deprecated)" %}[](http://not.a.link "StackState Self-Hosted only")
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 

@@ -136,7 +136,7 @@ curl -X POST \
 }'
 ```
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
@@ -150,7 +150,7 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 Sending of Transactional increments check_states is not available in the CLI, but all the debugging and introspection features can still be used.
 
 {% endtab %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
 Sending of Transactional increments check_states is not available in the `sts` CLI.
 {% endtab %}

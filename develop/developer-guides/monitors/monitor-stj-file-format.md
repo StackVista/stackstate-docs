@@ -43,7 +43,7 @@ Monitors in StackState are represented textually using the [STJ file format](/de
 }
 ```
 
-In addition to the usual elements of an STJ file, the protocol version and timestamp, the snippet defines a single node of type `Monitor`. 
+In addition to the usual elements of an STJ file, the protocol version and timestamp, the snippet defines a single node of type `Monitor`.
 
 The supported fields are:
 
@@ -75,7 +75,7 @@ Monitor functions are scripts that accept 4T data as input, check the data based
 You can list the available monitor functions using the CLI command:
 
 {% tabs %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: sts (new)" %}[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: sts" %}[](http://not.a.link "StackState Self-Hosted only")
 ```
 sts settings list --type MonitorFunction
 ```
@@ -84,7 +84,7 @@ sts settings list --type MonitorFunction
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: stac (deprecated)" %}[](http://not.a.link "StackState Self-Hosted only")
 `stac graph list MonitorFunction`[](http://not.a.link "StackState Self-Hosted only")
 
 ⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`. [](http://not.a.link "StackState Self-Hosted only")
@@ -106,7 +106,7 @@ You can [create custom monitor function](../custom-functions/monitor-functions.m
 
 ### arguments
 
-The arguments defined in the monitor STJ definition should match the parameters defined in the monitor function STJ definition. 
+The arguments defined in the monitor STJ definition should match the parameters defined in the monitor function STJ definition.
 
 The parameter binding syntax is common for all parameter types, and utilizes the following format:
 
@@ -120,7 +120,7 @@ The parameter binding syntax is common for all parameter types, and utilizes the
 
 * **_type** - The type of the parameter.
 * **parameter** - A reference to the concrete instance of a parameter within a function's parameter list. The `Name` must match the name specified in the monitor function.
-* **value** - the value of the parameter to pass to the monitor function. 
+* **value** - the value of the parameter to pass to the monitor function.
 
 During an invocation of a monitor function, the parameter value is interpreted and instantiated beforehand with all of the requisite validations applied to it. Assuming it passes type and value validations, it will become available in the body of the function as a global value of the same name, with the assigned value.
 
@@ -139,7 +139,7 @@ Descriptions of parameters that are commonly used by monitor functions can be fo
 * [Topology identifier pattern](#topology-identifier-pattern) - the pattern of the topology element identifiers to which the monitor function should assign calculated health states.
 
 #### Numeric values
-The most common and simple monitor function parameter types are numeric values. 
+The most common and simple monitor function parameter types are numeric values.
 
 {% tabs %}
 {% tab title="Monitor STJ definition" %}
@@ -175,7 +175,7 @@ The declaration of a numeric value in a monitor function STJ definition can look
 
 #### Topology Query
 
-Monitor functions that utilize Topology often times take a Topology Query as a parameter. 
+Monitor functions that utilize Topology often times take a Topology Query as a parameter.
 
 {% tabs %}
 {% tab title="Monitor STJ definition" %}
@@ -219,7 +219,7 @@ Monitor functions that utilize telemetry tend to be parameterized with the exact
 
 {% tabs %}
 {% tab title="Monitor STJ definition" %}
-To supply a value to the `telemetryQuery` parameter defined in the monitor function, the monitor STJ definition would look something like the following. Note that the provided `value` must utilize the StackState Telemetry Script API and evaluate to a telemetry query, otherwise it will not pass the argument validation that is performed before the function execution begins. 
+To supply a value to the `telemetryQuery` parameter defined in the monitor function, the monitor STJ definition would look something like the following. Note that the provided `value` must utilize the StackState Telemetry Script API and evaluate to a telemetry query, otherwise it will not pass the argument validation that is performed before the function execution begins.
 
 ```json
 ...

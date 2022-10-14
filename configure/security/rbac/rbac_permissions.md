@@ -83,7 +83,7 @@ StackState permissions can be managed using the `stac` CLI.
 List all permissions:
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 {% hint style="info" %}
 From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
@@ -94,7 +94,7 @@ From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is 
 sts rbac list-permissions
 ```
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
@@ -117,7 +117,7 @@ stac permission list
 Show the permissions granted to a specific role.
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 {% hint style="info" %}
 From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
@@ -128,7 +128,7 @@ From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is 
 sts rbac describe-permissions --subject [role-name]
 ```
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
@@ -152,7 +152,7 @@ stac permission show [role-name]
 Provide a subject with permission to open a view:
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 {% hint style="info" %}
 From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
@@ -163,7 +163,7 @@ From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is 
 sts rbac grant --subject [role-name] --permission access-view --resource [view-name]
 ```
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
@@ -185,7 +185,7 @@ stac permission grant [subject-handle] access-view [view-name]
 Provide a subject with the system permission to create \(save\) views:
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 {% hint style="info" %}
 From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
@@ -196,7 +196,7 @@ From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is 
 sts rbac grant --subject [role-name] --permission create-views
 ```
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
@@ -218,7 +218,7 @@ stac permission grant [subject-handle] create-views system
 Provide a subject with the system permission to check StackState settings:
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 {% hint style="info" %}
 From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
@@ -229,7 +229,7 @@ From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is 
 sts rbac grant --subject [role-name] --permission read-settings
 ```
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
@@ -251,7 +251,7 @@ stac permission grant [subject-handle] read-settings system
 Provide a subject with the system permission to add new event handlers and edit existing event handlers:
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 {% hint style="info" %}
 From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
@@ -262,7 +262,7 @@ From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is 
 sts rbac grant --subject [role-name] --permission manage-event-handlers
 ```
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
@@ -284,7 +284,7 @@ stac permission grant [subject-handle] manage-event-handlers system
 Revoke permissions for a subject to open a view:
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 {% hint style="info" %}
 From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
@@ -295,7 +295,7 @@ From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is 
 sts rbac revoke --subject [role-name] --permission access-view --resource [view-name]
 ```
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 

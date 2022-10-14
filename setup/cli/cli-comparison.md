@@ -37,7 +37,7 @@ The new `sts` CLI has been built for a reason. Here are the major advantages of 
  * The new `sts` CLI only works with StackState v5.0 or later.
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 The `sts` CLI is:
 
 * 🎉 The new CLI!
@@ -46,7 +46,7 @@ The `sts` CLI is:
 
 ➡️ [Install the new `sts` CLI](cli-sts.md)
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 
 The `stac` CLI is:
 

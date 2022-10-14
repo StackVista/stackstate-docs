@@ -113,7 +113,7 @@ curl -X POST \
 }'
 ```
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
@@ -141,7 +141,7 @@ stac health send check-state urn:health:sourceId:streamId \
 ```
 
 {% endtab %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
 The new `sts` CLI does not support sending health states. This is only supported by directly calling out to the receiver API.
 {% endtab %}

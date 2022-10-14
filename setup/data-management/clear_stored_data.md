@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Self-hosted v5.1.x
 ---
 
 # Clear stored data
@@ -27,7 +27,7 @@ Running the `stac` CLI delete command will:
 * Start StackState.
 
 {% tabs %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 
 ```text
 # Delete all topology and telemetry data
@@ -46,7 +46,7 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
 
 {% endtab %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
 Command not available in the new `sts` CLI. Use the `stac` CLI.
 {% endtab %}

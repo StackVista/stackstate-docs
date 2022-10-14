@@ -83,7 +83,7 @@ The ID for an event handler can be found using the [StackState CLI](../../setup/
 * Use the `id` from the command output to [enable logging](enable-logging.md#set-the-logging-level-for-a-function-instance) for a specific event handler.
 
 {% tabs %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 ```text
 stac graph list EventHandler
 
@@ -101,7 +101,7 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
 
 {% endtab %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
 ```text
 sts settings list --type EventHandler
@@ -127,7 +127,7 @@ The ID for a view health state configuration can be found using the [StackState 
 * Use the `viewHealthStateConfiguration` ID from the retrieved view JSON to [enable logging](enable-logging.md#set-the-logging-level-for-a-function-instance) for this instance of the view health state configuration function. In the example below, this would be `39710412772194`.
 
 {% tabs %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 ```text
 # get IDs of all views
 stac graph list QueryView
@@ -176,7 +176,7 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
 
 {% endtab %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
 ```sh
 # get IDs of all views
