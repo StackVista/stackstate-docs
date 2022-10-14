@@ -22,7 +22,7 @@ The executable respects a simple API that reads JSON structures from the standar
 
 The executable receives a JSON payload from the standard input, containing the list of secrets to fetch:
 
-```text
+```json
 {
   "version": "1.0",
   "secrets": ["secret1", "secret2"]
@@ -36,7 +36,7 @@ The executable receives a JSON payload from the standard input, containing the l
 
 The executable is expected to output to the standard output a JSON payload containing the:
 
-```text
+```json
 {
   "secret1": {
     "value": "secret_value",
@@ -149,7 +149,7 @@ Secrets handle decrypted:
 To quickly see how the check’s configurations are resolved, you can use the `configcheck` command:
 
 ```sh
-sudo -u stackstate-agent -- stackstate-agent configcheck
+$ sudo -u stackstate-agent -- stackstate-agent configcheck
 
 === a check ===
 Source: File Configuration Provider

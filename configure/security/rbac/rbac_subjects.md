@@ -17,27 +17,32 @@ To create a new subject \(a group or a username\), you must follow the `stac` CL
 * Create the `stackstate` subject with a scope that allows the user to see all elements with the `StackState` label:
 
 {% tabs %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: sts (new)" %}
+{% hint style="info" %}
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endhint %}
 
 ```text
-stac subject save stackstate 'label = "StackState"'
+sts rbac create-subject --subject stackstate --scope 'label = "StackState"'
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
+{% endtab %}
+{% tab title="CLI: stac" %}
+{% hint style="warning" %}
+**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
-
-{% endtab %}
-{% tab title="CLI: sts (new)" %}
+{% endhint %}
 
 ```text
-sts rbac create-subject --subject stackstate --scope 'label = "StackState"'
+stac subject save stackstate 'label = "StackState"'
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -45,27 +50,32 @@ sts rbac create-subject --subject stackstate --scope 'label = "StackState"'
 * Give more context and specific limitations, create the subject `stackstateManager` with the same scope of the `StackState` label and additional access to Business Applications within that label:
 
 {% tabs %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: sts (new)" %}
+{% hint style="info" %}
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endhint %}
 
 ```text
-stac subject save stackstateManager 'label = "StackState" AND type = "Business Applications"'
+sts rbac create-subject --subject stackstateManager --scope 'label = "StackState" AND type = "Business Applications"'
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
+{% endtab %}
+{% tab title="CLI: stac" %}
+{% hint style="warning" %}
+**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
-
-{% endtab %}
-{% tab title="CLI: sts (new)" %}
+{% endhint %}
 
 ```text
-sts rbac create-subject --subject stackstateManager --scope 'label = "StackState" AND type = "Business Applications"'
+stac subject save stackstateManager 'label = "StackState" AND type = "Business Applications"'
 ```
-
 {% endtab %}
 {% endtabs %}
 

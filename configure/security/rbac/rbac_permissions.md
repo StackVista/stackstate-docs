@@ -84,28 +84,30 @@ List all permissions:
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
+{% hint style="info" %}
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endhint %}
 
 ```text
 sts rbac list-permissions
 ```
-
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
-
-➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
 {% tab title="CLI: stac" %}
-
-```text
-stac permission list
-```
-
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
+{% hint style="warning" %}
+**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+{% endhint %}
+
+```text
+stac permission list
+```
 
 {% endtab %}
 {% endtabs %}
@@ -116,30 +118,30 @@ Show the permissions granted to a specific role.
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
+{% hint style="info" %}
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endhint %}
 
 ```text
 sts rbac describe-permissions --subject [role-name]
 ```
-
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
-
-➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
 {% tab title="CLI: stac" %}
-
-```text
-stac permission show [role-name]
-```
-
-
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
+{% hint style="warning" %}
+**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+{% endhint %}
 
+```text
+stac permission show [role-name]
+```
 {% endtab %}
 {% endtabs %}
 
@@ -151,29 +153,30 @@ Provide a subject with permission to open a view:
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
+{% hint style="info" %}
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endhint %}
 
 ```text
 sts rbac grant --subject [role-name] --permission access-view --resource [view-name]
 ```
-
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
-
-➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
 {% tab title="CLI: stac" %}
-
-```text
-stac permission grant [subject-handle] access-view [view-name]
-```
-
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
+{% hint style="warning" %}
+**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+{% endhint %}
 
+```text
+stac permission grant [subject-handle] access-view [view-name]
+```
 {% endtab %}
 {% endtabs %}
 
@@ -183,29 +186,30 @@ Provide a subject with the system permission to create \(save\) views:
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
+{% hint style="info" %}
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endhint %}
 
 ```text
 sts rbac grant --subject [role-name] --permission create-views
 ```
-
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
-
-➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
 {% tab title="CLI: stac" %}
-
-```text
-stac permission grant [subject-handle] create-views system
-```
-
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
+{% hint style="warning" %}
+**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+{% endhint %}
 
+```text
+stac permission grant [subject-handle] create-views system
+```
 {% endtab %}
 {% endtabs %}
 
@@ -215,29 +219,30 @@ Provide a subject with the system permission to check StackState settings:
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
+{% hint style="info" %}
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endhint %}
 
 ```text
 sts rbac grant --subject [role-name] --permission read-settings
 ```
-
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
-
-➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
 {% tab title="CLI: stac" %}
-
-```text
-stac permission grant [subject-handle] read-settings system
-```
-
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
+{% hint style="warning" %}
+**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+{% endhint %}
 
+```text
+stac permission grant [subject-handle] read-settings system
+```
 {% endtab %}
 {% endtabs %}
 
@@ -247,29 +252,30 @@ Provide a subject with the system permission to add new event handlers and edit 
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
+{% hint style="info" %}
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endhint %}
 
 ```text
 sts rbac grant --subject [role-name] --permission manage-event-handlers
 ```
-
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
-
-➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
 {% tab title="CLI: stac" %}
-
-```text
-stac permission grant [subject-handle] manage-event-handlers system
-```
-
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
+{% hint style="warning" %}
+**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+{% endhint %}
 
+```text
+stac permission grant [subject-handle] manage-event-handlers system
+```
 {% endtab %}
 {% endtabs %}
 
@@ -279,29 +285,30 @@ Revoke permissions for a subject to open a view:
 
 {% tabs %}
 {% tab title="CLI: sts (new)" %}
+{% hint style="info" %}
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endhint %}
 
 ```text
 sts rbac revoke --subject [role-name] --permission access-view --resource [view-name]
 ```
-
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
-
-➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
 {% tab title="CLI: stac" %}
-
-```text
-stac permission revoke [subject-handle] access-view [view-name]
-```
-
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
+{% hint style="warning" %}
+**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+{% endhint %}
 
+```text
+stac permission revoke [subject-handle] access-view [view-name]
+```
 {% endtab %}
 {% endtabs %}
 
