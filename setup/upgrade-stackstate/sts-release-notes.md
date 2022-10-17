@@ -85,7 +85,11 @@ The StackState v5.1 release is the last release containing the `stac` CLI. The n
 
 **StackPack updates:**
 
-TBD
+- [Kubernetes](../../stackpacks/integrations/kubernetes.md)
+- [OpenShift](../../stackpacks/integrations/openshift.md)
+- [SAP](../../stackpacks/integrations/sap.md)   
+- [SolarWinds](../../stackpacks/integrations/solarwinds.md)  
+- [Splunk](../../stackpacks/integrations/splunk/splunk_stackpack.md)
 
 ## StackState v5.0.x
 

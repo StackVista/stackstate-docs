@@ -337,6 +337,14 @@ See the Kubernetes Agent documentation for instructions on [how to uninstall the
 
 ## Release notes
 
+**OpenShift StackPack v3.8.2 (2022-09-28)**
+
+- Improvement: Updated documentation.
+
+**OpenShift StackPack v3.8.1 (2022-09-15)**
+
+- Improvement: Added validation for cluster name
+
 **OpenShift StackPack v3.7.13 (2022-06-21)**
 
 - Bug Fix: Fixed description for services/ingresses view.
