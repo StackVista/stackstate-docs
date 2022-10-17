@@ -48,7 +48,7 @@
     * [Linux](setup/agent/migrate-agent-v1-to-v2/migrate-agent-v1-to-v2-linux.md)
     * [Docker](setup/agent/migrate-agent-v1-to-v2/migrate-agent-v1-to-v2-docker.md)
 * [StackState CLI](setup/cli/README.md)
-  * [CLI: sts new](setup/cli/cli-sts.md)
+  * [CLI: sts](setup/cli/cli-sts.md)
   * [CLI: stac \(deprecated\)](setup/cli/cli-stac.md)
   * [Comparison between CLIs](setup/cli/cli-comparison.md)
 * [Data management](setup/data-management/README.md)
