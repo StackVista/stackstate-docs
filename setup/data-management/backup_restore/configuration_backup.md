@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Self-hosted v5.1.x
 ---
 
 # Configuration backup
@@ -15,7 +15,7 @@ An export of the StackState configuration can be obtained from the StackState UI
 To export configuration using the StackState CLI or curl:
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
 ```text
 # Output in terminal window
@@ -25,11 +25,11 @@ sts settings describe
 sts settings describe --file <PATH_TO_FILE.stj>
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 ```text
 # Output in terminal window
 stac graph export
@@ -38,9 +38,9 @@ stac graph export
 stac graph export > export.stj
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
+⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
@@ -58,7 +58,7 @@ curl -X POST -H 'Content-Type: application/json;charset=UTF-8' \
 
 To export configuration from the StackState UI:
 
-1. Go to **Settings** &gt; **Import/Export** &gt; **Export Settings** 
+1. Go to **Settings** &gt; **Import/Export** &gt; **Export Settings**
 2. Click the button **STS-EXPORT-ALL**.
 
 ![Export configuration from the StackState UI](../../../.gitbook/assets/v51_export_configuration.png)
@@ -98,24 +98,24 @@ Import is intended to be a one-off action - importing multiple times might resul
 To clear the StackState configuration and import from a file using the StackState CLI or curl. The `<token>` used for authorization with curl is available on the **CLI** page in the StackState UI main menu:
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
 ```text
 sts settings apply --file <PATH_TO_FILE.stj>
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 ```text
 stac graph import < <PATH_TO_FILE.stj>
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
+⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
@@ -155,7 +155,7 @@ export SESSION="<MY_SESSION>"; export TOKEN="<MY_TOKEN>"; \
 
 Alternatively, in the StackState UI:
 
-1. Go to **Settings** &gt; **Import/Export** &gt; **Import Settings**. 
+1. Go to **Settings** &gt; **Import/Export** &gt; **Import Settings**.
 2. Choose the `*.stj` file that you want to import configuration from.
 3. Click the button **START IMPORT**.
 
@@ -175,27 +175,27 @@ There is a way to use identifiers and namespaces that come with them to perform 
 
 Node identifiers are specified in a following pattern: `urn:stackpack:{stackpack_name}:{type_name}:{object_name}`. The namespace effectively used by this process is `urn:stackpack:{stackpack_name}:`. If every configuration node has an identifier and they are all in the same namespace, then you can perform an idempotent update using following STS CLI commands:
 
-For export: 
+For export:
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
-```commandline
+```sh
 sts settings describe --namespace urn:stackpack:{stackpack_name}:
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 ```text
 stac graph export --namespace urn:stackpack:{stackpack_name}:
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
+⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
@@ -255,8 +255,8 @@ A configuration export is supported by versions of StackState that are equal or 
 
 ### For example:
 
-Configuration export version _1.0.0_ was introduced in StackState version _1.14.0_  
-Later configuration export version _1.1.0_ was introduced in StackState version _1.14.1_  
+Configuration export version _1.0.0_ was introduced in StackState version _1.14.0_
+Later configuration export version _1.1.0_ was introduced in StackState version _1.14.1_
 Later configuration export version _2.0.0_ was introduced in StackState version _1.15.0_
 
 This means that Nodes with Configuration version _1.0.0_ will work on both StackState _1.14.0_ and _1.14.1_ but not in _1.15.0_ as a major configuration export version \(_2.0.0_\) was introduced. It also means that configuration export version _1.1.0_ can only be used from StackState version _1.14.1_ but not before as in _1.14.0_

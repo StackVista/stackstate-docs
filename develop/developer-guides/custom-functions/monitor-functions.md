@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-Monitor functions, much like any other type of function in StackState, are represented using the STJ file format. 
+Monitor functions, much like any other type of function in StackState, are represented using the STJ file format.
 
 ## Monitor function definition
 
@@ -387,7 +387,7 @@ The above specification ensures that each function invocation is passed all the 
 
 ### Populate the monitor function script
 
-The script for the monitor functions should be provided as a groovy script in STJ format in the property `script` of type `ScriptFunctionBody`. This can be challenging to work with. An external tool can be used to allow you to more easily [work with scripts in YAML format and add these to a monitor file in STJ format](/develop/developer-guides/monitors/monitor-stj-file-format.md#add-scripts-and-queries-in-stj).
+The script for the monitor functions should be provided as a groovy script in STJ format in the property `script` of type `ScriptFunctionBody`. This can be challenging to work with. An external tool can be used to allow you to more easily [work with scripts in YAML format and add these to a monitor file in STJ format](/develop/developer-guides/monitors/monitor-stj-file-format.md#add-scripts-and-queries-to-stj).
 
 ### Upload to StackState
 
@@ -442,24 +442,24 @@ The function can be uploaded to StackState in one of three ways:
 - Use the [StackState CLI](../../../setup/cli/README.md):
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 ```
 sts settings import < path/to/file.stj
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 ```
 stac graph import < path/to/file.stj
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
+⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")

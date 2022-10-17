@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Self-hosted v5.1.x
 ---
 
 # Debug health synchronization
@@ -20,24 +20,32 @@ When debugging the health synchronization there are some common verification ste
    * **No streams / sub streams are present** - Use the CLI command below to verify that health data sent to the Receiver API is arriving in StackState:
 
 {% tabs %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: sts" %}
+{% hint style="info" %}
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
-```text
-stac topic show sts_health_sync
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endhint %}
+
+```sh
+$ sts topic describe --name sts_health_sync
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
+{% endtab %}
+{% tab title="CLI: stac (deprecated)" %}
+{% hint style="warning" %}
+**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+{% endhint %}
 
-{% endtab %}
-{% tab title="CLI: sts (new)" %}
-
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+```sh
+$ stac topic show sts_health_sync
+```
 {% endtab %}
 {% endtabs %}
 
@@ -61,30 +69,41 @@ The main reason for this is that the latency of the health synchronization is hi
 Returns a list of all current synchronized health streams and the number of sub streams included in each.
 
 {% tabs %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: sts" %}
+{% hint style="info" %}
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
-```javascript
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endhint %}
+
+```sh
+$ sts health list
+STREAM URN                                              | STREAM CONSISTENCY MODEL | SUB STREAM COUNT
+urn:health:sourceId:streamId                            | REPEAT_SNAPSHOTS         | 1
+```
+
+{% endtab %}
+{% tab title="CLI: stac (deprecated)" %}
+{% hint style="warning" %}
+**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+{% endhint %}
+
+```sh
 # List streams
-stac health list-streams
+$ stac health list-streams
 
 stream urn                                            sub stream count
 --------------------------------------------------  ------------------
 urn:health:sourceId:streamId                                         1
 ```
-
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
-
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
-
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
-
 {% endtab %}
-{% tab title="CLI: sts (new)" %}
 
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
-{% endtab %}
 {% endtabs %}
 
 ### List sub streams
@@ -92,11 +111,35 @@ Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 Returns a list of all sub streams for a given stream URN, together with the number of check states in each.
 
 {% tabs %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: sts" %}
+{% hint style="info" %}
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
-```javascript
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endhint %}
+
+```sh
+$ sts health list -u urn:health:sourceId:streamId
+SUB STREAM ID  | CHECK STATE COUNT
+subStreamId1   | 1
+subStreamId2   | 1
+```
+
+{% endtab %}
+{% tab title="CLI: stac (deprecated)" %}
+{% hint style="warning" %}
+**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+{% endhint %}
+
+```sh
 # List sub streams
-stac health list-sub-streams urn:health:sourceId:streamId 
+$ stac health list-sub-streams urn:health:sourceId:streamId
 
 sub stream id                     check state count
 ------------------------------  -------------------
@@ -104,18 +147,6 @@ subStreamId1                                     20
 subStreamId2                                     17
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
-
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
-
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
-
-{% endtab %}
-{% tab title="CLI: sts (new)" %}
-
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 {% endtab %}
 {% endtabs %}
 
@@ -125,11 +156,32 @@ Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 The stream status command returns the aggregated stream latency and throughput metrics. This is helpful when debugging why a health check takes a long time to land on the expected topology elements. It will help diagnose if the frequency of data sent to StackState should be adjusted. The output contains a section `Errors for non-existing sub streams:` as some errors are only relevant when a sub stream could not be created, for example `StreamMissingSubStream`. Sub stream errors can be any of the documented [error messages](debug-health-sync.md#error-messages).
 
 {% tabs %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: sts" %}
+{% hint style="info" %}
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
-```javascript
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endhint %}
+
+```sh
+$ sts health status -u urn:health:sourceId:streamId
+```
+
+{% endtab %}
+{% tab title="CLI: stac (deprecated)" %}
+{% hint style="warning" %}
+**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+{% endhint %}
+
+```sh
 # Show a stream status
-stac health show urn:health:sourceId:streamId
+$ stac health show urn:health:sourceId:streamId
 
 Aggregate metrics for the stream and all substreams:
 
@@ -147,19 +199,6 @@ error message                                                                   
 ----------------------------------------------------------------------------------------------  ------------------------
 Sub stream `substream with ID `subStreamId2`` not started when receiving snapshot stop                          6
 ```
-
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
-
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
-
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
-
-{% endtab %}
-{% tab title="CLI: sts (new)" %}
-
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 {% endtab %}
 {% endtabs %}
 
@@ -168,10 +207,32 @@ Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 The sub stream status provides useful information to verify that check states sent to StackState from an external system could be bound and linked to existing topology elements. This information is helpful to debug why a specific check is not visible on the expected topology element.
 
 {% tabs %}
-{% tab title="CLI: stac" %}
-```javascript
+{% tab title="CLI: sts" %}
+{% hint style="info" %}
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endhint %}
+
+```sh
+$ sts health status -u urn:health:sourceId:streamId -sub-stream-urn subStreamId3
+```
+
+{% endtab %}
+{% tab title="CLI: stac (deprecated)" %}
+{% hint style="warning" %}
+**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+{% endhint %}
+
+```sh
 # Show a sub stream status.
-stac health show urn:health:sourceId:streamId -s "subStreamId3"
+$ stac health show urn:health:sourceId:streamId -s "subStreamId3"
 
 Synchronized check state count: 32
 Repeat interval (Seconds): 120
@@ -192,23 +253,8 @@ check states created (per second)  -                                        -   
 check states updated (per second)  -                                        -                                        -
 check states deleted (per second)  -
 ```
-
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
-
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
-
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
-
-{% endtab %}
-{% tab title="CLI: sts (new)" %}
-
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 {% endtab %}
 {% endtabs %}
-
-
 
 {% hint style="info" %}
 A sub stream status will show the metadata related to the consistency model:
@@ -217,19 +263,39 @@ A sub stream status will show the metadata related to the consistency model:
 * **Transactional Increments** - Show checkpoint offset and checkpoint batch index
 {% endhint %}
 
-
 The sub stream status can be expanded to include details of matched and unmatched check states using the `-t` command line argument. This is helpful to identify any health states that are not attached to a topology element.
-In the example below, `checkStateId2` is listed under `Check states with identifier which has no matching topology element`. This means that it was not possible to match the check state to a topology element with the identifier `server-2`. 
+In the example below, `checkStateId2` is listed under `Check states with identifier which has no matching topology element`. This means that it was not possible to match the check state to a topology element with the identifier `server-2`.
 
 {% tabs %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: sts" %}
+{% hint style="info" %}
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
-```javascript
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endhint %}
+
+```sh
+$ sts health status -u urn:health:sourceId:streamId -sub-stream-urn subStreamId3 -t
+```
+
+{% endtab %}
+{% tab title="CLI: stac (deprecated)" %}
+{% hint style="warning" %}
+**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+{% endhint %}
+
+```sh
 # Show a sub stream status matched/unmatched check states.
-stac health show urn:health:sourceId:streamId -s "subStreamId3" -t
-# If we configured our stream to not use explicit substreams then a default 
-# sub stream can be reached by omitting the optional substreamId parameter as in: 
-#stac health show urn:health:sourceId:streamId -t
+$ stac health show urn:health:sourceId:streamId -s "subStreamId3" -t
+# If we configured our stream to not use explicit substreams then a default
+# sub stream can be reached by omitting the optional substreamId parameter as in:
+$ stac health show urn:health:sourceId:streamId -t
 
 Check states with identifier matching exactly 1 topology element: 32
 
@@ -245,18 +311,6 @@ check state id    topology element identifier    number of matched topology elem
 ----------------  -----------------------------  -------------------------------------
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
-
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
-
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
-
-{% endtab %}
-{% tab title="CLI: sts (new)" %}
-
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 {% endtab %}
 {% endtabs %}
 
@@ -265,25 +319,34 @@ Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 The `delete` stream functionality is helpful while setting up a health synchronization in StackState. It allows you to experiment, delete the data and start over again clean. You can also delete a stream and drop its data when you are sure that you do not want to keep using it.
 
 {% tabs %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: sts" %}
+{% hint style="info" %}
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
-```javascript
-# Delete a health synchronization stream
-stac health delete urn:health:sourceId:streamId
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endhint %}
+
+```sh
+$ sts health delete -u urn:health:sourceId:streamId
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
+{% endtab %}
+{% tab title="CLI: stac (deprecated)" %}
+{% hint style="warning" %}
+**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+{% endhint %}
 
-{% endtab %}
-{% tab title="CLI: sts (new)" %}
+```sh
+# Delete a health synchronization stream
+$ stac health delete urn:health:sourceId:streamId
+```
 
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 {% endtab %}
 {% endtabs %}
 
@@ -292,26 +355,35 @@ Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 The `clear-errors` option removes all errors from a health stream. This is helpful while setting up a health synchronization in StackState, or, for the case of the `TRANSACTIONAL_INCREMENTS` consistency model, when some errors can't be removed organically. For example, a request to delete a check state might raise an error if the check state is not known to StackState. The only way to suppress such an error would be to use the `clear-errors` command.
 
 {% tabs %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: sts" %}
+{% hint style="info" %}
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
-```javascript
-# Clear health stream errors
-stac health clear-errors urn:health:sourceId:streamId 
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endhint %}
 
+```sh
+$ sts health clear-error -u urn:health:sourceId:streamId
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
+{% endtab %}
+{% tab title="CLI: stac (deprecated)" %}
+{% hint style="warning" %}
+**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+{% endhint %}
 
-{% endtab %}
-{% tab title="CLI: sts (new)" %}
+```sh
+# Clear health stream errors
+$ stac health clear-errors urn:health:sourceId:streamId
 
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+```
+
 {% endtab %}
 {% endtabs %}
 
@@ -339,9 +411,8 @@ For example a `SubStreamStopWithoutStart` will be closed once the health synchro
 | **SubStreamMissingCheckpoint** | Raised when a Transactional increments sub stream previously observed a checkpoint, but the received message is missing the `previous_checkpoint` |
 | **SubStreamInvalidCheckpoint** | Raised when a Transactional increments sub stream previously observed a checkpoint, but the received message has a `previous_checkpoint` that is not equivalent to the last observed one. |
 | **SubStreamOutdatedCheckpoint** | Raised when a Transactional increments sub stream previously observed a checkpoint, but the received message has a `checkpoint` that precedes the last observed one, meaning that its data that StackState already received. |
-| **SubStreamUnknownCheckState** | Raised when deleting a Transactional increments check_state and the `check_state_id` is not present on the sub stream. 
+| **SubStreamUnknownCheckState** | Raised when deleting a Transactional increments check_state and the `check_state_id` is not present on the sub stream.
 
 ## See also
 
 * [Install the StackState CLI](/setup/cli/README.md)
-

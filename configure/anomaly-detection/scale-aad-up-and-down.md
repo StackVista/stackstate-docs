@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Self-hosted v5.1.x
 ---
 
 # Scale the AAD up and down
@@ -48,7 +48,7 @@ As streams with an anomaly check have the highest priority in the AAD, these met
 
 2. Use this query to plot the number of streams checked over the last 6 hours:
 
-    ```text
+    ```java
     Telemetry
       .query("StackState Metrics", "")
       .metricField("stackstate.spotlight_streams_checked")
@@ -57,7 +57,7 @@ As streams with an anomaly check have the highest priority in the AAD, these met
 
 3. Use this query to plot the number of streams with an anomaly health check defined:
 
-    ```text
+    ```java
     Telemetry
       .query("StackState Metrics", "")
       .metricField("stackstate.spotlight_streams_with_anomaly_check")

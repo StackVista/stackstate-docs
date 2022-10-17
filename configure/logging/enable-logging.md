@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Self-hosted v5.1.x
 ---
 
 # Enable logging for functions
@@ -33,7 +33,7 @@ To enable logging for an instance of a function, use its ID to set a logging lev
    ```text
    stac serverlog setlevel <id> DEBUG
    ```
-   
+
 
 ## Review logging for a function
 
@@ -84,7 +84,7 @@ The ID for an instance of an event handler function can be found using the [Stac
 * Use the `id` from the command output to [enable logging](enable-logging.md#set-the-logging-level-for-a-function-instance) for a specific event handler.
 
 {% tabs %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 ```text
 stac graph list EventHandler
 
@@ -93,22 +93,22 @@ stac graph list EventHandler
 114118706410878  EventHandler  demo_handler                             True      Fri Nov 13 11:32:29 2020
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
+⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
 
 {% endtab %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
 ```text
 sts settings list --type EventHandler
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 {% endtab %}
@@ -118,7 +118,7 @@ sts settings list --type EventHandler
 The ID for an instance of a monitor function can be found using the [StackState CLI](../../setup/cli/README.md). 
 
 {% tabs %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 ```text
 # get the list of monitors which contains their corresponding monitor function id
 stac monitor list
@@ -132,7 +132,7 @@ stac monitor list
 
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`. 
+⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.** 
 
 In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
@@ -141,7 +141,7 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
 
 {% endtab %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
 ```commandline
 # get the list of monitors which contains their corresponding monitor function id
@@ -154,7 +154,7 @@ ID              | STATUS   | IDENTIFIER                                         
 239992462327332 | DISABLED | urn:stackpack:stackstate-self-health:shared:monitor:memory-load | Memory Load               | 152715969986888 | []
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 {% endtab %}
@@ -176,7 +176,7 @@ The ID for an instance of a view health state configuration function can be foun
 * Use the `viewHealthStateConfiguration` ID from the retrieved view JSON to [enable logging](enable-logging.md#set-the-logging-level-for-a-function-instance) for this instance of the view health state configuration function. In the example below, this would be `39710412772194`.
 
 {% tabs %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 ```text
 # get IDs of all views
 stac graph list QueryView
@@ -216,22 +216,22 @@ sts graph show-node 9161801377514
       ...
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`. 
+⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
 
 {% endtab %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
-```commandline
+```sh
 # get IDs of all views
 sts settings list --type QueryView
 
-TYPE      | ID              | IDENTIFIER | NAME                      | OWNED BY | LAST UPDATED                                          
+TYPE      | ID              | IDENTIFIER | NAME                      | OWNED BY | LAST UPDATED
 QueryView | 165313710240823 |            | Demo - Customer A         |          | Tue Jun 21 13:44:12 2022 CEST
 QueryView | 26281716816873  |            | Demo - Customer B         |          | Tue Jun 21 13:44:12 2022 CEST
 QueryView | 184368967764989 |            | Demo - Customer D         |          | Tue Jun 21 13:44:12 2022 CEST
@@ -243,7 +243,7 @@ sts settings describe --ids <VIEW_ID>
 
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 {% endtab %}

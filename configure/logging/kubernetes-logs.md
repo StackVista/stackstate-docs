@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Self-hosted v5.1.x
 ---
 
 # Kubernetes logs
@@ -28,12 +28,12 @@ Note that logs stored on pods will be regularly removed. For long term access to
 | Synchronization | `stackstate-sync`                                                                                                                                   |
 | View health state | `stackstate-view-health`                                                                                                                            |
 
-You can access logs on a specific pod using the `kubectl logs` command. 
+You can access logs on a specific pod using the `kubectl logs` command.
 
 For example:
 
-```text
-kubectl logs stackstate-api-0
+```sh
+$ kubectl logs stackstate-api-0
 ```
 
 ## Access recent logs
@@ -44,18 +44,18 @@ The most recent logs can be retrieved from Kubernetes using the `kubectl logs` c
 
 For example:
 
-```text
+```sh
 # Snapshot of logs for all containers of <pod-name>
-kubectl logs <pod-name> --all-containers=true
+$ kubectl logs <pod-name> --all-containers=true
 
 # Stream logs for all containers of <pod-name>
-kubectl logs -f <pod-name> --all-containers=true
+$ kubectl logs -f <pod-name> --all-containers=true
 
 # Snapshot of logs for a specific container of <pod-name>
-kubectl logs -c <container-name> <pod-name>
+$ kubectl logs -c <container-name> <pod-name>
 
 # Snapshot of logs for previous terminated container of <pod-name>
-kubectl logs -p -c <container-name> <pod-name>
+$ kubectl logs -p -c <container-name> <pod-name>
 ```
 
 ### Synchronization logs
@@ -64,12 +64,12 @@ All synchronization logs can be found in a pod `stackstate-sync-<suffix>`. You c
 
 For example:
 
-```text
+```sh
 # Logs of the synchronization for a specific Kubernetes cluster
-kubectl logs stackstate-sync-0 | grep "Kubernetes - \<cluster-name\>"
+$ kubectl logs stackstate-sync-0 | grep "Kubernetes - \<cluster-name\>"
 
 # Logs of the agent synchronization
-kubectl logs stackstate-sync-0 | grep "Agent"
+$ kubectl logs stackstate-sync-0 | grep "Agent"
 ```
 
 ## Log aggregation

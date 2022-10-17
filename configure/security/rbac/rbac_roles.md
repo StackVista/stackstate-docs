@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Self-hosted v5.1.x
 ---
 
 # Roles
@@ -15,7 +15,7 @@ There are four roles predefined in StackState:
 * **Administrator** - has full access to all views and has all permissions, except for platform management.
 * **Platform Administrator** - has platform management permissions and access to all views.
 * **Power User** - typically granted to a user that needs to configure StackState for a team\(s\), but will not manage the entire StackState installation.
-* **Guest** - has read-only access to StackState. 
+* **Guest** - has read-only access to StackState.
 
 The permissions assigned to each predefined StackState role can be found below. For details of the different permissions and how to manage them using the `stac` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md)
 
@@ -24,82 +24,62 @@ The permissions assigned to each predefined StackState role can be found below. 
 
 The Administrator role \(`stackstate-admin`\): has all permissions assigned, except for `access-admin-api`, which is assigned only to the Platform Administrator predefined role.
 
-Permissions assigned to the predefined Administrator role (`stackstate-admin`) are listed below, these were retrieved using the `stac` CLI. For details of the different permissions and how to manage them using the `stac` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md).
+Permissions assigned to the predefined Administrator role (`stackstate-admin`) are listed below, these were retrieved using the `sts` CLI. For details of the different permissions and how to manage them using the `sts` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md).
 
 ```text
-$ stac permission show stackstate-admin         
-subject           permission                   resource
-----------------  ---------------------------  ----------
-stackstate-admin  manage-annotations           system
-stackstate-admin  execute-scripts              system
-stackstate-admin  read-settings                system
-stackstate-admin  access-cli                   system
-stackstate-admin  run-monitors                 system
-stackstate-admin  access-explore               system
-stackstate-admin  access-analytics             system
-stackstate-admin  access-synchronization-data  system
-stackstate-admin  access-log-data              system
-stackstate-admin  execute-node-sync            system
-stackstate-admin  manage-event-handlers        system
-stackstate-admin  access-topic-data            system
-stackstate-admin  manage-topology-elements     system
-stackstate-admin  import-settings              system
-stackstate-admin  export-settings              system
-stackstate-admin  execute-restricted-scripts   system
-stackstate-admin  perform-custom-query         system
-stackstate-admin  read-stackpacks              system
-stackstate-admin  update-permissions           system
-stackstate-admin  read-permissions             system
-stackstate-admin  manage-telemetry-streams     system
-stackstate-admin  execute-component-templates  system
-stackstate-admin  update-visualization         system
-stackstate-admin  upload-stackpacks            system
-stackstate-admin  create-views                 system
-stackstate-admin  update-settings              system
-stackstate-admin  manage-stackpacks            system
-stackstate-admin  manage-star-view             system
-stackstate-admin  manage-monitors              system
-stackstate-admin  execute-component-actions    system
-stackstate-admin  manage-service-tokens        system
-stackstate-admin  access-view                  everything
-stackstate-admin  save-view                    everything
-stackstate-admin  delete-view                  everything
+$ ./sts rbac describe-permissions --subject stackstate-admin
+PERMISSION                  | RESOURCE
+access-view                 | everything
+delete-view                 | everything
+save-view                   | everything
+access-analytics            | system
+access-cli                  | system
+access-explore              | system
+access-log-data             | system
+access-synchronization-data | system
+access-topic-data           | system
+create-views                | system
+execute-component-actions   | system
+execute-component-templates | system
+execute-node-sync           | system
+execute-restricted-scripts  | system
+execute-scripts             | system
+export-settings             | system
+import-settings             | system
+manage-annotations          | system
+manage-event-handlers       | system
+manage-monitors             | system
+manage-service-tokens       | system
+manage-stackpacks           | system
+manage-star-view            | system
+manage-telemetry-streams    | system
+manage-topology-elements    | system
+perform-custom-query        | system
+read-permissions            | system
+read-settings               | system
+read-stackpacks             | system
+run-monitors                | system
+update-permissions          | system
+update-settings             | system
+update-visualization        | system
+upload-stackpacks           | system
 ```
-
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
-
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
-
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
-
 {% endtab %}
 {% tab title="Platform Administrator" %}
 
 Platform Administrator \(`stackstate-platform-admin`\) is the only predefined role that is assigned the permission `access-admin-api`.
 
-Permissions assigned to the predefined Platform Administrator role (`stackstate-platform-admin`) are listed below, these were retrieved using the `stac` CLI. For details of the different permissions and how to manage them using the `stac` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md).
+Permissions assigned to the predefined Platform Administrator role (`stackstate-platform-admin`) are listed below, these were retrieved using the `sts` CLI. For details of the different permissions and how to manage them using the `sts` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md).
 
 ```text
-$ stac permission show stackstate-platform-admin
-subject                    permission        resource
--------------------------  ----------------  ----------
-stackstate-platform-admin  access-admin-api  system
-stackstate-platform-admin  access-cli        system
-stackstate-platform-admin  access-log-data   system
-stackstate-platform-admin  manage-star-view  system
-stackstate-platform-admin  access-view       everything
+❯ ./sts rbac describe-permissions --subject stackstate-platform-admin
+PERMISSION       | RESOURCE
+access-view      | everything
+access-admin-api | system
+access-cli       | system
+access-log-data  | system
+manage-star-view | system
 ```
-
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
-
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
-
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
-
 {% endtab %}
 {% tab title="Power User" %}
 
@@ -108,81 +88,62 @@ The Power User role \(`stackstate-power-user`\) has all Administrator permission
 * `update-permissions`
 * `upload-stackpacks`
 
-Permissions assigned to the predefined Power User role (`stackstate-power-user`) are listed below, these were retrieved using the `stac` CLI. For details of the different permissions and how to manage them using the `stac` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md).
+Permissions assigned to the predefined Power User role (`stackstate-power-user`) are listed below, these were retrieved using the `sts` CLI. For details of the different permissions and how to manage them using the `sts` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md).
 
 ```text
-$ stac permission show stackstate-power-user    
-subject                permission                   resource
----------------------  ---------------------------  ----------
-stackstate-power-user  manage-annotations           system
-stackstate-power-user  execute-scripts              system
-stackstate-power-user  read-settings                system
-stackstate-power-user  access-cli                   system
-stackstate-power-user  run-monitors                 system
-stackstate-power-user  access-explore               system
-stackstate-power-user  access-analytics             system
-stackstate-power-user  access-synchronization-data  system
-stackstate-power-user  access-log-data              system
-stackstate-power-user  execute-node-sync            system
-stackstate-power-user  manage-event-handlers        system
-stackstate-power-user  access-topic-data            system
-stackstate-power-user  manage-topology-elements     system
-stackstate-power-user  import-settings              system
-stackstate-power-user  export-settings              system
-stackstate-power-user  perform-custom-query         system
-stackstate-power-user  read-stackpacks              system
-stackstate-power-user  read-permissions             system
-stackstate-power-user  manage-telemetry-streams     system
-stackstate-power-user  execute-component-templates  system
-stackstate-power-user  update-visualization         system
-stackstate-power-user  create-views                 system
-stackstate-power-user  update-settings              system
-stackstate-power-user  manage-stackpacks            system
-stackstate-power-user  manage-star-view             system
-stackstate-power-user  manage-monitors              system
-stackstate-power-user  execute-component-actions    system
-stackstate-power-user  access-view                  everything
-stackstate-power-user  save-view                    everything
-stackstate-power-user  delete-view                  everything
+❯ ./sts rbac describe-permissions --subject stackstate-power-user
+PERMISSION                  | RESOURCE
+access-view                 | everything
+delete-view                 | everything
+save-view                   | everything
+access-analytics            | system
+access-cli                  | system
+access-explore              | system
+access-log-data             | system
+access-synchronization-data | system
+access-topic-data           | system
+create-views                | system
+execute-component-actions   | system
+execute-component-templates | system
+execute-node-sync           | system
+execute-scripts             | system
+export-settings             | system
+import-settings             | system
+manage-annotations          | system
+manage-event-handlers       | system
+manage-monitors             | system
+manage-stackpacks           | system
+manage-star-view            | system
+manage-telemetry-streams    | system
+manage-topology-elements    | system
+perform-custom-query        | system
+read-permissions            | system
+read-settings               | system
+read-stackpacks             | system
+run-monitors                | system
+update-settings             | system
+update-visualization        | system
 ```
-
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
-
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
-
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
-
 {% endtab %}
 {% tab title="Guest" %}
 
 The Guest role \(`stackstate-guest`\) has read-only access to StackState.
 
-Permissions assigned to the predefined Guest role are listed below, these were retrieved using the `stac` CLI. For details of the different permissions and how to manage them using the `stac` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md).
+Permissions assigned to the predefined Guest role are listed below, these were retrieved using the `sts` CLI. For details of the different permissions and how to manage them using the `sts` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md).
 
 ```text
-$ stac permission show stackstate-guest
-subject           permission                 resource
-----------------  -------------------------  ----------
-stackstate-guest  access-cli                 system
-stackstate-guest  access-explore             system
-stackstate-guest  perform-custom-query       system
-stackstate-guest  read-permissions           system
-stackstate-guest  update-visualization       system
-stackstate-guest  manage-star-view           system
-stackstate-guest  execute-component-actions  system
-stackstate-guest  access-view                everything
+❯ ./sts rbac describe-permissions --subject stackstate-guest
+PERMISSION                | RESOURCE
+access-view               | everything
+access-cli                | system
+access-explore            | system
+execute-component-actions | system
+manage-star-view          | system
+perform-custom-query      | system
+read-permissions          | system
+read-telemetry-streams    | everything
+update-visualization      | system
 ```
-
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
-
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
-
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
-
 {% endtab %}
 {% endtabs %}
 
@@ -249,12 +210,12 @@ The instructions below will take you through the process of setting up a new gro
    ```text
    # `stac` CLI:
    stac subject save stackstateManager 'label = "StackState" AND type = "Business Application"'
-   
+
    # new `sts` CLI:
-   # Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+   sts rbac create-subject --subject stackstateManager --scope 'label = "StackState" AND type = "Business Application"'
    ```
 
-   Please note that when passing an STQL query in a `stac` CLI command, all operators \(like `=`, `<`,`AND`, and so on\) need to be surrounded by spaces, as in the above example.
+   Please note that when passing an STQL query in a `stac` or `sts` CLI command, all operators \(like `=`, `<`,`AND`, and so on\) need to be surrounded by spaces, as in the above example.
 
    Also, please note that the subject's name is case-sensitive.
 
@@ -263,9 +224,9 @@ The instructions below will take you through the process of setting up a new gro
    ```text
    # `stac` CLI:
    stac permission grant stackstateManager access-view "Business Applications"
-   
+
    # new `sts` CLI:
-   # Command not currently available in the new `sts` CLI. Use the `stac` CLI.  
+   sts rbac grant --subject stackstateManager --resource "Business Applications" --permission access-view
    ```
 
    Please note that the subject's name, as well as permissions, are case-sensitive.

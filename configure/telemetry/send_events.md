@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Self-hosted v5.1.x
 ---
 
 # Push events to StackState over HTTP
@@ -70,7 +70,7 @@ All events in StackState relate to a topology element or elements. Any propertie
   {
     "context": {
       "category": "Changes",
-      "data": { 
+      "data": {
         "data_key1":"data_value1",
         "data_key2":"data_value2"
       },
@@ -106,7 +106,7 @@ Events have the following details:
 * An event name. this must not start with any of the following prefixes: `eventType`, `host`, `labels`, `message`, `name`, `tags`, `timeReceived`, `timestamp` or `title`.
 * **context** - Optional. Includes details of the source system for an event. Events that contain a context will be visible in the StackState [Events Perspective](../../use/stackstate-ui/perspectives/events_perspective.md) for views that contain a component with a matching source identifier. Events without a context will be available in StackState as a log stream:
   * **category** - The event category. Can be `Activities`, `Alerts`, `Anomalies`, `Changes` or `Others`.
-  * **element\_identifiers** - The [identifiers for the topology element\(s\)](../topology/identifiers.md#topology-identifiers) the event relates to. These are used to bind the event to a topology element or elements. 
+  * **element\_identifiers** - The [identifiers for the topology element\(s\)](../topology/identifiers.md#topology-identifiers) the event relates to. These are used to bind the event to a topology element or elements.
   * **source** - The name of the system from which the event originates, for example AWS, Kubernetes or JIRA.
   * **data** - Optional. A list of key/value details about the event, for example a configuration version.
   * **source\_identifier** - Optional. The original identifier of the event in the source system.
@@ -136,7 +136,7 @@ curl -X POST \
       {
         "context": {
           "category": "Changes",
-          "data": { 
+          "data": {
             "data_key1":"data_value1",
             "data_key2":"data_value2"
           },
@@ -163,11 +163,11 @@ curl -X POST \
         "timestamp": 1607432944
       }
     ],
-    "event.test02": [ 
+    "event.test02": [
       {
         "context": {
           "category": "Changes",
-          "data": { 
+          "data": {
             "data_key1":"data_value1",
             "data_key2":"data_value2"
           },
@@ -199,7 +199,7 @@ curl -X POST \
 ```
 {% endtab %}
 
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 ```text
 stac event send "event_type" \
     --title "event_title" \
@@ -210,16 +210,16 @@ stac event send "event_type" \
     --links "link_title1: link_url1" "link_title2: link_url2"
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
+⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
 
 {% endtab %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
 Command not available in the new `sts` CLI. Use the `stac` CLI.
 {% endtab %}
