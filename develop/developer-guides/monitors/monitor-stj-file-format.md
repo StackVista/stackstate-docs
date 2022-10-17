@@ -326,7 +326,7 @@ The monitor run interval determines how often a monitor logic will be executed. 
 
 A monitor STJ file contains the following script and queries:
 
-* [Argument of type `ArgumentScriptMetricQueryVal`](#arguments) - define a telemetry query to be used by the monitor function.
+* [Arguments of type `ArgumentScriptMetricQueryVal`](#arguments) - define a telemetry query to be used by the monitor function.
 * [The property `script` of type `ScriptFunctionBody`](/develop/developer-guides/custom-functions/monitor-functions.md#monitor-function-definition) - defines a groovy script that is run by the monitor function.
 
 It can be challenging to add scripts and queries to the STJ format. An external tool, such as [yq \(github.com\)](https://github.com/mikefarah/yq), can be used to get a more friendly formatting of the script or query to work with and update as required.
