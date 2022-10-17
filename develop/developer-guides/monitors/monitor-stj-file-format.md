@@ -55,7 +55,7 @@ The supported fields are:
 - **remediationHint** - a short, markdown-enabled hint displayed whenever the validation rule represented by this monitor triggers and results in an unhealthy state.
 - **function** - the specific monitor function to use as the basis of computation for this monitor. For more details see [function](#function).
 - **arguments** - lists concrete values that are to be used for parameters in the monitor function invocation. For more details and descriptions of commonly used parameters, see [arguments](#arguments).
-- **status** - either ENABLED|DISABLED. Dictates if the monitor will be running and producing health states. 
+- **status** - either `ENABLED`|`DISABLED`. Dictates if the monitor will be running and producing health states. Optional. If not specified, the previous status will be used (`DISABLED` for newly created monitors).
 - **tags** - tags associated to the monitor.
 - **intervalSeconds** - dictates how often to execute this particular monitor; new executions are scheduled after the specified number of seconds, counting from the time that the last execution ended. For more details see [run interval](#intervalseconds).
 
@@ -312,10 +312,10 @@ The declaration of a topology identifier pattern would look something like the f
 
 ### status
 
-A monitor with a `ENABLED` status will be automatically executed and it's results will be persisted. A `DISABLED` monitor is still available for a `dry-run` in order to inspect it's results and execution (helpful for debuggin a monitor). When creating for the very first time a monitor, if the `status` field is not present on the payload then the monitor starts in a `DISABLED` status. When updating a monitor if the `status` is not specified then the monitor will keep it's own `status`.
+A monitor with an `ENABLED` status will be automatically executed and its results will be persisted. A `DISABLED` monitor is still available for a `dry-run` in order to inspect its results and execution (helpful for debugging a monitor). When a monitor is initially created it will start with a `DISABLED` status, unless the `status` field is present in the payload. When a monitor is updated, it will keep its own `status`, unless the `status` is specified. If the `status` field is included in the payload, the monitor will assume the specified `status`.
 
 {% hint style="info" %}
-When a monitor is disabled, all health states associated with the monitor will be removed and they will no longer be visible in the StackState UI. Disabling a monitor is quite useful to debug and fix execution errors without having it producing any health states or errors yet as a disabled monitor can still be used to do a `dry-run` 
+When a monitor is disabled, all health states associated with the monitor will be removed, and they will no longer be visible in the StackState UI. Disabling a monitor is quite useful to debug and fix execution errors without having the monitor produce health states or errors. A disabled monitor can still be used to do a `dry-run`.
 {% endhint %}
 
 ### intervalSeconds
