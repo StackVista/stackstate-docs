@@ -40,7 +40,7 @@ You can place multiple monitors on the same STJ file. You can also add other nod
 
 ### Populate the monitor node
 
-A monitor node of type `Monitor` needs to be added to the import file. This type of node is supported in API version 1.0.39 and above. The required fields are the `name`, `identifier` and `description`. The `identifier` should be a value that uniquely identifies this specific monitor definition. `intervalSeconds`, `function` and `arguments` determine what validation rule and how often it is run. An optional parameter of `remediationHint` can be specified - it is a Markdown-encoded instruction of what to do if this monitor produces an unhealthy health state. It is displayed on the interface together with the monitor result panel.
+A monitor node of type `Monitor` needs to be added to the import file. This type of node is supported in API version 1.0.39 and above. The required fields are the `name`, `identifier` and `description`. The `identifier` should be a value that uniquely identifies this specific monitor definition. `intervalSeconds`, [`function`](/develop/developer-guides/custom-functions/monitor-functions.md) and [`arguments`](/develop/developer-guides/monitors/monitor-stj-file-format.md#arguments) determine what validation rule and how often it is run. An optional parameter of `remediationHint` can be specified - it is a Markdown-encoded instruction of what to do if this monitor produces an unhealthy health state. It is displayed on the interface together with the monitor result panel.
 
 Configuring the monitor function is best done by utilizing the [`get` helper function](/develop/reference/stj/stj_reference.md#get) paired with the `identifier` of the function itself. In this example the function is named `Metric above threshold` and its identifier is `urn:system:default:monitor-function:metric-above-threshold`.
 
@@ -198,49 +198,7 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
 
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
-
-In particular for monitors the stj `format` can be challenging to work with given the arguments of type `ArgumentScriptMetricQueryVal` where the value is a script on itself, so whenever an update is needed on such a value an option can be to use an external tool as [yq](https://github.com/mikefarah/yq) to get a more friendly formatting. For example, given the monitor example above we could format it with yq :
-```text
-yq -P ./monitor.stj > monitor.yaml
-```
-
-obtaining:
-
-```yaml
-_version: 1.0.39
-timestamp: 2022-05-23T13:16:27.369269Z[GMT]
-nodes:
-  - _type: Monitor
-    name: CPU Usage
-    description: A simple CPU-usage monitor. If the metric is above a given threshold, the state is set to CRITICAL.
-    identifier: urn:system:default:monitor:cpu-usage
-    remediationHint: Turn it off and on again.
-    function:? get "urn:system:default:monitor-function:metric-above-threshold"::
-    arguments:
-      - _type: ArgumentDoubleVal
-        parameter:? get "urn:system:default:monitor-function:metric-above-threshold" "Type=Parameter;Name=threshold"::
-        value: 90.0
-      - _type: ArgumentStringVal
-        parameter:? get "urn:system:default:monitor-function:metric-above-threshold" "Type=Parameter;Name=topologyIdentifierPattern"::
-        value: urn:host:/${tags.host}
-      - _type: ArgumentScriptMetricQueryVal
-        parameter:? get "urn:system:default:monitor-function:metric-above-threshold" "Type=Parameter;Name=metrics"::
-        script: |-
-          Telemetry
-          .query("StackState Metrics", "")
-          .metricField("system.cpu.system")
-          .groupBy("tags.host")
-          .start("-1m")
-          .aggregation("mean", "15s")
-    intervalSeconds: 60
-```
-
-where the script is readable and editable in an easier way. So once we would edit the `script` or any other field in the yaml representation of our monitor we could go back to the stj representation using:
-```text
-yq -o=json '.' monitor.yaml
-```
-
+{% endtabs %}
 
 ## See also
 
