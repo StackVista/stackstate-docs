@@ -161,7 +161,7 @@ Individual monitors can be disabled using the StackState CLI. To disable/enable 
 2. Enable/disable the monitor using the StackState CLI:
 
 {% tabs %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: sts (new)" %}[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: sts" %}[](http://not.a.link "StackState Self-Hosted only")
 ```
 # Disable By ID
 sts monitor disable --id <id-of-the-monitor>

@@ -141,7 +141,7 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
 
 {% endtab %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
 ```commandline
 # get the list of monitors which contains their corresponding monitor function id
