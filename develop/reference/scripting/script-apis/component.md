@@ -10,14 +10,14 @@ Get access to a component by its ID.
 
 ### Args
 
-* `id` - id of the component we are querying for. Each component has a unique randomly assigned id number.
+* `id` - ID of the component we are querying for. Each component has a unique randomly assigned ID number.
 
 **Builder methods**
 
-Each of the methods below give you a Async result with a set of properties
+Each of the methods below give you an Async result with a set of properties
 
 - `at(time: Instant or Timeslice)` - specifes a [time](time.md) for which the query should be executed. 
-- `get` - Gets components details in full with following fields:
+- `get` - gets components details in full, with the following fields:
     ```text
     id
     name
@@ -112,7 +112,7 @@ Each of the methods below give you a Async result with a set of properties
 
 ### Examples
 
-This example returns the name of the layer for the component with id `123`. After getting the layer the [AsyncScriptResult](../async-script-result.md) `then` function is used to get the name of the layer.
+This example returns the name of the layer for the component with ID `123`. After getting the layer the [AsyncScriptResult](../async-script-result.md) `then` function is used to get the name of the layer.
 
 ```text
 Component.withId(123).layer().then { it.name }

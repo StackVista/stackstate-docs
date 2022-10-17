@@ -51,7 +51,7 @@ Shows a table of size `rows x columns` with color coded `CLEAR`, `DEVIATING`, an
 
 * `rows` - array of the labels placed on the rows. The number of rows is determined by the size of the array.
 * `cols` - array of the labels placed on the columns. The number of cells is determined by the size of the array.
-* `cells` - two-dimensional array of state elements. Each element in the two dimensional array can either be `CLEAR` \(green\), `DEVIATING` \(warning\) or `CRITICAL` \(red\).
+* `cells` - two-dimensional array of state elements. Each element in the two-dimensional array can either be `CLEAR` \(green\), `DEVIATING` \(warning\) or `CRITICAL` \(red\).
 
 **Examples:**
 

@@ -2,10 +2,10 @@
 description: StackState Self-hosted v5.1.x 
 ---
 
-# AWS \(Legacy\)
+# AWS \(legacy\)
 
 {% hint style="info" %}
-The AWS \(Legacy\) StackPack has been deprecated. It is recommended to use the [new AWS integration](aws.md).
+The AWS \(legacy\) StackPack has been deprecated. It is recommended to use the [new AWS integration](aws.md).
 {% endhint %}
 
 ## Overview
@@ -33,7 +33,7 @@ To set up the StackState AWS integration, you need to have:
   * `cloudwatch:GetMetricData`
   * `cloudwatch:ListMetrics`
 
-    A policy file to create a user with the correct rights can be downloaded from the the StackState UI screen **StackPacks** &gt; **Integrations** &gt; **AWS**.
+    A policy file to create a user with the correct rights can be downloaded from the StackState UI screen **StackPacks** &gt; **Integrations** &gt; **AWS**.
 * An AWS user with the required access rights to install StackState monitoring in your account. See [AWS IAM policies](aws-legacy.md#aws-iam-policies), below.
 
 ### Proxy URL
@@ -232,7 +232,7 @@ When the AWS integration is enabled, three [views](../../../use/stackstate-ui/vi
 
 ### AWS actions in StackState
 
-Components retrieved from AWS will have an additional [action](/use/stackstate-ui/perspectives/topology-perspective.md#actions) available in the component context menu and in the right panel **Selection details** tab when the component is selected. This provides a deep link through to the relevant AWS console at the correct point.
+Components retrieved from AWS will have an additional [Action](/use/stackstate-ui/perspectives/topology-perspective.md#actions) available in the component context menu and in the right panel details tab - **Component details** - when the component is selected. This provides a deep link through to the relevant AWS console at the correct point.
 
 For example, in the StackState Topology Perspective:
 
@@ -287,15 +287,15 @@ These environment variables have the same names used by the AWS\_CLI utility and
 
 ## Release notes
 
-**AWS \(Legacy\) StackPack v5.3.3 (2021-11-16)**
+**AWS \(legacy\) StackPack v5.3.3 (2021-11-16)**
 
 * Improvement: Updated AWS CLI prerequisite text.
 
-**AWS \(Legacy\) StackPack v5.3.2 (2021-08-20)**
+**AWS \(legacy\) StackPack v5.3.2 (2021-08-20)**
 
 * Improvement: Add description to Views.
 
-**AWS \(Legacy\) StackPack v5.3.1 \(2021-07-16\)**
+**AWS \(legacy\) StackPack v5.3.1 \(2021-07-16\)**
 
 * Feature: Added Legacy logo and deprecation message, the new AWS stackpack is ready to use on StackState 4.4+.
 * Bugfix: Fixed problem when uninstalling CloudFormation Stack that CloudTrail was still producing logs.

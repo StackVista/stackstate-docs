@@ -20,7 +20,7 @@ To set up the Static Health integration you will need to have:
 
 ### Configure
 
-To configure the StackState Agent to read CSV health files:
+To configure StackState Agent V2 to read CSV health files:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/static_health.d/conf.yaml` to include the following details:
    * **type** - set to `csv` for parsing CSV typed files.
@@ -35,11 +35,11 @@ To configure the StackState Agent to read CSV health files:
       health_file: /path/to/health.csv
       delimiter: ';'
      ```
-2. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+2. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 3. Once the Agent has restarted, wait for the Agent to collect data from the specified [health CSV file](static_health.md#csv-file-format) and send it to StackState.
 
 {% hint style="info" %}
-The configured `collection_interval` will be used as the [`repeat_interval` for the health synchronization](../../../configure/health/health-synchronization.md#repeat-interval). Make sure that the value set for the the `collection_interval` matches the time that the check will take to run.
+The configured `collection_interval` will be used as the [`repeat_interval` for the health synchronization](../../../configure/health/health-synchronization.md#repeat-interval). Make sure that the value set for the `collection_interval` matches the time that the check will take to run.
 {% endhint %}
 
 ## CSV file format
@@ -50,11 +50,11 @@ Static health is read from a CSV file with a header row, that specifies the fiel
 
 | Field name | Mandatory | Description                                                                     |
 | :--- | :--- |:--------------------------------------------------------------------------------|
-| **check\_state\_id** | yes | Identification for the check state within the health stream.                    |
-| **name** | yes | The display name of the check state.                                            |
+| **check\_state\_id** | yes | Identification for the check state within the health stream.                   |
+| **name** | yes | The display name of the check state.                                           |
 | **health** | yes | The health state of the check state. Can be `CLEAR`, `DEVIATING` or `CRITICAL`. |
-| **topology\_element\_identifier** | yes | Identifier of the component or relation the check state will be attached to.    |
-| **message** | no | Additional descriptive message of the check state.                              |
+| **topology\_element\_identifier** | yes | Identifier of the component or relation the check state will be attached to.   |
+| **message** | no | Additional descriptive message of the check state.                             |
 
 {% tabs %}
 {% tab title="Example health CSV file" %}
@@ -68,7 +68,7 @@ check_2,Another example check,clear,urn:component/some_component,This is going w
 
 ### Delimiter
 
-The delimiter used in the CSV file can be specified when you [configure the Static Health check](static_health.md#configure) on the StackState Agent.
+The delimiter used in the CSV file can be specified when you [configure the Static Health check](static_health.md#configure) on StackState Agent V2.
 
 ## See also
 

@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.1.x
 
 StackState is built for scale and runs on Kubernetes in your cloud or data center.
 
-In most cases, a single Host Agent is installed on the StackState server to provide Agent-less integration with APIs from multiple sources. Data is gathered and received by one or more Agents and delivered at the Receiver API. From there, all data is put on Kafka. The data is processed by microservices and ends up as Topology in our versioned graph database, called StackGraph. Traces, and some telemetry data, are temporarily stored in Elastic Search.
+In most cases, a single Host Agent is installed on the StackState server to provide Agent-less integration with APIs from multiple sources. Data is gathered and received by one or more Agents and delivered at the Receiver API. From there, all data is put on Kafka. The data is processed by microservices and ends up as Topology in our versioned graph database, called StackGraph. Traces, and some telemetry data, are temporarily stored in Elasticsearch.
 
 A Script and Query Language provides access to all dimensions of the 4T Data Model. They are also used by our own AI Microservices to interface with the 4T Data Model.
 
@@ -47,5 +47,6 @@ The StackPacks listed below are open source and available on GitHub:
 
 * Custom Sync StackPack - [https://github.com/StackVista/stackpack-autosync](https://github.com/StackVista/stackpack-autosync)
 * SAP StackPack - [https://github.com/StackVista/stackpack-sap](https://github.com/StackVista/stackpack-sap)
+* SolarWinds StackPack - [https://github.com/StackVista/stackpack-solarwinds](https://github.com/StackVista/stackpack-solarwinds)
 * Splunk StackPack - [https://github.com/StackVista/stackpack-splunk](https://github.com/StackVista/stackpack-splunk)
 

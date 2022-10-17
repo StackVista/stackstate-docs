@@ -22,9 +22,9 @@ Clone the repository to your laptop to get started.
 
 ## Preparing StackState
 
-Before you get started, StackState must be configured to handle the data that will be sent from the sample project. The project uses a StackState Agent installed on the virtual machine to send data in a format that is consumed by the StackState **Agent v2 StackPack**.
+Before you get started, StackState must be configured to handle the data that will be sent from the sample project. The project uses a StackState Agent installed on the virtual machine to send data in a format that is consumed by the StackState **Agent V2 StackPack**.
 
-The sample project will handle installation of a StackState Agent on the virtual machine. You will need to install the **Agent v2 StackPack** in StackState to interpret the data it sends. If you're running the tutorial on an existing instance of StackState, we advise you to install a dedicated instance of the Agent v2 StackPack for the tutorial. This will allow you to easily clean up and remove all configuration and topology imported during the tutorial when you're finished.
+The sample project will handle installation of a StackState Agent on the virtual machine. You will need to install the **Agent V2 StackPack** in StackState to interpret the data it sends. If you're running the tutorial on an existing instance of StackState, we advise you to install a dedicated instance of the Agent V2 StackPack for the tutorial. This will allow you to easily clean up and remove all configuration and topology imported during the tutorial when you're finished.
 
 ## Preparing the tutorial
 
@@ -61,8 +61,8 @@ The sample project is shipped with a single `run.sh` script that does the follow
 
 1. Check for the presence of the `STS_STS_URL` and `STS_API_KEY` environment variables.
 2. Place the environment variables in the correct configuration files.
-3. Install the StackState Agent if it isn't already installed.
-4. Starts the StackState Agent if it isn't already started.
+3. Install StackState Agent V2 if it isn't already installed.
+4. Start StackState Agent V2 if it isn't already started.
 5. Invoke Puppet to make some configuration changes to the virtual machine.
 
 Now, go ahead and trigger the script:
@@ -106,11 +106,11 @@ vagrant destroy
 
 When you are done with this tutorial, you can remove the configuration from your StackState instance as follows:
 
-* Uninstall the **Agent v2 StackPack**. This will remove the configuration and data received \(topology\) from StackState.
+* Uninstall the **Agent V2 StackPack**. This will remove the configuration and data received \(topology\) from StackState.
 
 ## See also
 
 * [StackState Events Perspective](../../use/stackstate-ui/perspectives/events_perspective.md)
-* [Send events to StackState over HTTP](../../configure/telemetry/send_telemetry.md#send-telemetry-over-http)
+* [Send events to StackState over HTTP](../../configure/telemetry/send_metrics.md#send-telemetry-over-http)
 * [Automate event notifications and actions based on events](../developer-guides/custom-functions/event-handler-functions.md)
 

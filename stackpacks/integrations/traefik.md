@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 The StackState Agent V2 Traefik integration provides the following functionality:
 
-* Reporting Traefik frontends and backends as topology elements.   
+* Reporting Traefik frontends and backends as topology elements.  
 * Reporting all network connections between services, including network traffic telemetry.
 
 Traefik is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
@@ -15,11 +15,11 @@ Traefik is a [StackState curated integration](/stackpacks/integrations/about_int
 
 ### Installation
 
-The StackState Traefik integration is included in the [Agent V2 StackPack](agent.md). Currently this integration supports tracing of Traefik requests using the Datadog tracing backend supported by Traefik.
+The StackState Traefik integration is included in the [Agent V2 StackPack](agent.md). Currently, this integration supports tracing of Traefik requests using the Datadog tracing backend supported by Traefik.
 
 ### Configuration
 
-Configure your Traefik instance to report [Datadog tracing data](https://doc.traefik.io/traefik/observability/tracing/datadog/) to the StackState Agent. Your Traefik.toml configuration file must include the following parameters:
+Configure your Traefik instance to report [Datadog tracing data](https://doc.traefik.io/traefik/observability/tracing/datadog/) to StackState Agent V2. Your Traefik.toml configuration file must include the following parameters:
 
 ```text
 # Tracing definition
@@ -35,7 +35,7 @@ Configure your Traefik instance to report [Datadog tracing data](https://doc.tra
   spanNameLimit = 100
 
   [tracing.datadog]
-    # StackState Agent Host Port instructs reporter to send spans to the StackState Agent at this address
+    # StackState Agent Host Port instructs reporter to send spans to StackState Agent V2 at this address
     localAgentHostPort = "agentHost:8126"
 
     # Applies a shared tag in a form of source:traefik to all the spans of the trace
@@ -44,9 +44,9 @@ Configure your Traefik instance to report [Datadog tracing data](https://doc.tra
 
 ### Integrate with Java traces
 
-When using Traefik in conjunction with one of our language specific trace clients, eg. [StackState Java Trace Client - Java APM](java-apm.md) it is important to note that you should use the `backend` name of your Traefik service as the `service-name` for the trace client to allow automatic merging of the service components within StackState.
+When using Traefik in conjunction with one of our language specific trace clients, e.g. [StackState Java Trace Client - Java APM](java-apm.md) it is important to note that you should use the `backend` name of your Traefik service as the `service-name` for the trace client to allow automatic merging of the service components within StackState.
 
-Eg. for the following `Traefik.toml`:
+E.g. for the following `Traefik.toml`:
 
 ```text
 ...

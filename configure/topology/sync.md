@@ -25,18 +25,15 @@ A synchronization pipeline takes data through these two models using configurabl
 
 The data source configures the plugin to connect to a specific instance of an external system. The Plugins section of the documentation contains more details on configurations of specific plugins. It is possible to define several synchronizations for the same data source.
 
-### Id Extraction
+### ID Extraction
 
 `https://<my_instance>/#/settings/idextractors`
 
-To turn external data into 'External Topology', we use id extraction. The goal of this step is to take the external data and produce the following information:
+To turn external data into `External Topology`, we use ID extraction. The goal of this step is to take the external data and produce the following information:
 
-* A 'type' for the component/relation for differentiation later on
-* An 'externalId'. An identifier with which the element is uniquely identifiable in the
-
-  external source
-
-* Multiple 'identifiers'. A set of identifiers that identify the object internally in StackState.
+* A `type` for the component/relation for differentiation later on
+* An `externalId`. An identifier with which the element is uniquely identifiable in the external source
+* Multiple `identifiers`. A set of identifiers that identify the object internally in StackState.
 
 StackState comes with some default identity extractor functions, which should be suitable for most cases.
 

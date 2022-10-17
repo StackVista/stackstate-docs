@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-This how-to describes the steps to create a [component action](../../../configure/topology/component_actions.md) that is available for specific components. Component actions can be executed from the component context menu in the StackState Topology Perspective or the right panel **Selection details** tab when detailed information about a component is displayed.
+This how-to describes the steps to create a [component action](../../../configure/topology/component_actions.md) that is available for specific components. Component actions can be executed from the component context menu in the StackState UI Topology Perspective or the right panel details tab when detailed information about a component has been selected - **Component details**.
 
 ## Add or edit a component action
 
@@ -63,7 +63,7 @@ Other variables accessible from the script are the following:
 - `telemetryTimeStart: Instant` - is a [telemetry interval](../../../use/stackstate-ui/timeline-time-travel.md#telemetry-interval) start. This variable always have a value.
 - `telemetryTimeEnd: Instant` - is a telemetry interval end. For live mode the variable value is `null`.
 
-For more details for time usage in scripts see [script API documentation](../../reference/scripting/time-in-scripts.md).
+For more details for time usage in scripts see [script API documentation](/develop/reference/scripting/script-apis/time.md).
 
 
 ### Identifier

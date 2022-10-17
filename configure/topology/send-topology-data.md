@@ -14,10 +14,12 @@ You can also create a **custom topology synchronization** and send topology data
 
 ## StackState Receiver API
 
-The StackState Receiver API accepts topology, telemetry and health data in a common JSON object. By default, the receiver API is hosted at:
+The StackState Receiver API accepts topology, metrics, events and health data in a common JSON object. By default, the receiver API is hosted at the `<STACKSTATE_RECEIVER_API_ADDRESS>` this is constructed using the `<STACKSTATE_BASE_URL>` and <`STACKSTATE_RECEIVER_API_KEY>`.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
+The `<STACKSTATE_RECEIVER_API_ADDRESS>` for StackState deployed on Kubernetes or OpenShift is:
+
 ```text
 https://<STACKSTATE_BASE_URL>/receiver/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>
 ```
@@ -26,6 +28,9 @@ The `<STACKSTATE_BASE_URL>` and `<STACKSTATE_RECEIVER_API_KEY>` are set during S
 {% endtab %}
 
 {% tab title="Linux" %}
+
+The `<STACKSTATE_RECEIVER_API_ADDRESS>` for StackState deployed on Linux is:
+
 ```text
 https://<STACKSTATE_BASE_URL>:<STACKSTATE_RECEIVER_PORT>/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>
 ```
@@ -137,11 +142,11 @@ The JSON contains the following fields:
   * **externalId**: A unique ID for this component. This has to be unique for this instance.
   * **type**: A named parameter for this type.
   * **data**: A JSON blob of arbitrary data.
-  * **sourceProperties**: Optional. A JSON blob of arbitrary data. When populated, the contents of this field will be displayed in the StackState UI component properties in place of the `data` field.  The `data` field will still be accessible in templates and the various functions that make use of this data
+  * **sourceProperties**: Optional. A JSON blob of arbitrary data. When populated, the contents of this field will be displayed in the StackState UI component properties in place of the `data` field. The `data` field will still be accessible in templates and the various functions that make use of this data
 * **relations**: A list of relations. Each relation has the following fields:
   * **externalId**: A unique ID for this relation. This has to be unique for this instance.
   * **type**: A named parameter for this type.
-  * **data**: A JSON blob of arbitrary data.  
+  * **data**: A JSON blob of arbitrary data. 
   * **sourceId**: The source component externalId.
   * **targetId**: The target component externalId.
 
@@ -152,5 +157,5 @@ The [push-integration tutorial](../../develop/tutorials/push_integration_tutoria
 ## See also
 
 * [Send health data over HTTP](/configure/health/send-health-data/send-health-data.md)
-* [Send telemetry data over HTTP](/configure/telemetry/send_telemetry.md)
+* [Send telemetry data over HTTP](/configure/telemetry/send_metrics.md)
 * [Debug topology synchronization](/configure/topology/debug-topology-synchronization.md)

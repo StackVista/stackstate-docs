@@ -50,7 +50,7 @@ docker run -d \
     -e STS_APM_ENABLED="true" \
     -e HOST_PROC="/host/proc" \
     -e HOST_SYS="/host/sys" \
-    docker.io/stackstate/stackstate-agent-2:2.17.2
+    docker.io/stackstate/stackstate-agent-2:2.18.0
 ```
 
 ### Docker compose
@@ -64,7 +64,7 @@ To run StackState Agent V2 with Docker compose:
 
    ```bash
    stackstate-agent:
-    image: docker.io/stackstate/stackstate-agent-2:2.17.2
+    image: docker.io/stackstate/stackstate-agent-2:2.18.0
     network_mode: "host"
     pid: "host"
     privileged: true
@@ -107,7 +107,7 @@ To run StackState Cluster Agent in Docker Swarm mode:
 
    ```bash
    stackstate-agent:
-       image: docker.io/stackstate/stackstate-cluster-agent:2.17.2
+       image: docker.io/stackstate/stackstate-cluster-agent:2.18.0
        deploy:
          placement:
            constraints: [ node.role == manager ]
@@ -160,13 +160,13 @@ StackState Agent V2 can be configured to reduce data production, tune the proces
 
 ### External integration configuration
 
-StackState Agent V2 can be configured to run checks that integrate with external systems. Each integration has its own configuration file that is used by the associated Agent check. Configuration files for integrations that will run through the StackState Agent in Docker should be added as a volume to the directory `/etc/stackstate-agent/conf.d/` when the container is started.
+StackState Agent V2 can be configured to run checks that integrate with external systems. Each integration has its own configuration file that is used by the associated Agent check. Configuration files for integrations that will run through StackState Agent V2 in Docker should be added as a volume to the directory `/etc/stackstate-agent/conf.d/` when the container is started.
 
 For example, the Agent Docker configuration below includes a volume with a check configuration file for the ServiceNow integration:
 
 ```bash
 stackstate-agent:
-    image: docker.io/stackstate/stackstate-agent-2:2.17.2
+    image: docker.io/stackstate/stackstate-agent-2:2.18.0
     network_mode: "host"
     pid: "host"
     privileged: true
@@ -251,7 +251,7 @@ To troubleshoot the Agent, try to [check the Agent status](docker.md#status) or 
 
 ### Log files
 
-Docker logs for the StackState Agent container can be followed using the command:
+Docker logs for the StackState Agent V2 container can be followed using the command:
 
 ```text
 docker logs -f stackstate-agent
@@ -277,7 +277,7 @@ For example:
 {% tab title="Docker compose" %}
 ```bash
 stackstate-agent:
-  image: docker.io/stackstate/stackstate-agent-2:2.17.2
+  image: docker.io/stackstate/stackstate-agent-2:2.18.0
   network_mode: "host"
   pid: "host"
   privileged: true
@@ -360,7 +360,7 @@ The list below shows the container metrics that are provided by default. Additio
 
 ## See also
 
-* [About the StackState Agent](about-stackstate-agent.md)
+* [About StackState Agent V2](about-stackstate-agent.md)
 * [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md)
 * [StackPack integration documentation](../../stackpacks/integrations/)
 * [StackState Agent V2 \(github.com\)](https://github.com/StackVista/stackstate-agent)

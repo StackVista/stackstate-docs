@@ -8,6 +8,8 @@ description: StackState Self-hosted v5.1.x
 
 Anomaly detection identifies abnormal behavior in your fast-changing IT environment. This helps direct the attention of IT operators to the root cause of problems or can provide an early warning. The Autonomous Anomaly Detector (AAD) requires zero configuration. It is fully autonomous in selecting both the metric streams it will apply anomaly detection to, and the appropriate machine learning algorithms to use for each metric stream.
 
+The AAD supports daily and weekly seasonality, creating an anomaly when the observed values differ a lot from the expected values. Daily seasonality is enabled by default.
+
 {% hint style="info" %}
 Note that a [training period](aad.md#training-period) is required before the AAD can begin to report anomalies.
 {% endhint %}
@@ -34,7 +36,7 @@ Each identified anomaly is given a severity. This can be HIGH, MEDIUM or LOW. Th
 
 ### Anomaly events
 
-When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream Anomaly` event is generated. Anomaly events are listed on the Events Perspective and will also be reported as one of the [Probable Causes for any associated problem](../../use/problem-analysis/problem_investigation.md#probable-causes). Select an event to display detailed information about it in the right panel **Selection details** tab.
+When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream Anomaly` event is generated. Anomaly events are listed on the Events Perspective and will also be reported as one of the [Probable Causes for any associated problem](../../use/problem-analysis/problem_investigation.md#probable-causes). Select an event to display detailed information about it in the right panel details tab - **Event details**.
 
 ![Metric stream anomaly event detailed information](../../.gitbook/assets/v51_event_metric_stream_anomaly.png)
 
@@ -83,7 +85,9 @@ To install the AAD StackPack, simply press the **INSTALL** button. No other acti
 
 ### Training period
 
-The AAD will need to train on your data before it can begin reporting anomalies. With data collected in 1 minute buckets, the AAD requires a 2 hour training period. If historic data exists for relevant metric streams, this will also be used for training the AAD. In this case, the first results can be expected within an hour.  Up to a day of data is used for training.  After the initial training, the AAD will continuously refine its model and adapt to any changes in the data.
+The AAD will need to train on your data before it can begin reporting anomalies. With data collected in 1 minute buckets, the AAD requires a 2-hour training period. If historic data exists for relevant metric streams, this will also be used for training the AAD. In this case, the first results can be expected within an hour. Up to three days of data are used for training. After the initial training, the AAD will continuously refine its model and adapt to any changes in the data.
+
+For weekly seasonality, the training period needs to be extended to at least three weeks of data. With fine-grained metrics data, this puts a considerable load on the metrics store. The access pattern is quite different from other typical metric data uses. Enabling weekly seasonality therefore must be validated, in order to prevent degraded performance.
 
 ## Frequently Asked Questions
 
@@ -93,7 +97,7 @@ The AAD scales to large environments by autonomously prioritizing metric streams
 
 * The top ranking is given to metric streams with [anomaly health checks](../../use/checks-and-monitors/anomaly-health-checks.md).
 * Components in views that have the most stars by the most users are ranked highest.
-* From those components, the metric streams with the highest priorities are ranked highest. See [how to set the priority for a stream](../../use/metrics-and-events/set-telemetry-stream-priority.md).
+* From those components, the metric streams with the highest priorities are ranked highest. See [how to set the priority for a stream](../../use/metrics/set-telemetry-stream-priority.md).
 * Anomaly detection will be disabled on streams if more than 20% of their time is flagged as anomalous.
 
 You cannot directly control the stream selected, but you can steer the metric stream selection of the AAD by manipulating the above-mentioned factors.
@@ -109,7 +113,7 @@ After an initial [training period](aad.md#training-period), the AAD ensures that
 
 ### Can anomalies trigger alerts?
 
-Yes. The AAD itself does not alert on anomalies found, but [anomaly health checks](../../use/checks-and-monitors/anomaly-health-checks.md) can be added to components to automatically change the health status of the component to `DEVIATING`. This health state change event can then trigger notifications by [adding an event handler](../../use/stackstate-ui/views/manage-event-handlers.md) to a view.
+Yes. The AAD itself does not alert on anomalies found, but [anomaly health checks](../../use/checks-and-monitors/anomaly-health-checks.md) can be added to components to automatically change the health status of the component to `DEVIATING`. This health state change event can then trigger notifications by [adding an event handler](../../use/events/manage-event-handlers.md) to a view.
 
 ## Uninstall
 

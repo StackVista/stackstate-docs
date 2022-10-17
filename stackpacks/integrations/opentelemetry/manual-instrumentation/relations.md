@@ -54,7 +54,7 @@ A visual example of this in the StackState UI will be as follows:
 
 So remember to create your parent and children spans in the correct order as it may affect the propagation of health state.
 
-➡️ [Learn more about health state propagation](/use/concepts/health-state.md#propagated-health-state)
+➡️ [Learn more about health state propagation](/use/concepts/health-state.md#element-propagated-health-state)
 
 ## Relations when merging
 

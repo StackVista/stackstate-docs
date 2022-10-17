@@ -2,21 +2,37 @@
 description: StackState Self-hosted v5.1.x 
 ---
 
-# Agent V1 \(Legacy\)
+# Agent V1 \(legacy\)
+
+{% hint style="warning" %}
+**Agent V1 (legacy) will be deprecated in a future release of StackState.** 
+
+If you are still running Agent V1 (legacy), it is advised that you upgrade to Agent V2 and migrate all checks to run on Agent V2.
+
+➡️ [Migrate Agent V1 (legacy) to Agent V2](/setup/agent/migrate-agent-v1-to-v2/)
+{% endhint %}
 
 ## Overview
 
-StackState Agent V1 allows you to run checks that connect to [Splunk](/stackpacks/integrations/splunk/splunk_stackpack.md) to retrieve metrics and events data. All other Agent checks run on [StackState Agent V2](about-stackstate-agent.md).
+Prior to StackState v5.1, Agent V1 (legacy) was used to run checks that connect to [Splunk](/stackpacks/integrations/splunk/splunk_stackpack.md) to retrieve metrics and events data. From StackState v5.1, all Agent checks run on [StackState Agent V2](about-stackstate-agent.md).
 
-StackState Agent V1 is open source: [View the source code on GitHub](https://github.com/StackVista/sts-agent).
+StackState Agent V1 (legacy) is open source: [View the source code on GitHub](https://github.com/StackVista/sts-agent).
 
 ## Installation
 
-Install StackState Agent V1 by using the following sequence of steps:
+{% hint style="warning" %}
+**Agent V1 (legacy) will be deprecated in a future release of StackState.** 
+
+It is advised that you install Agent V2 and migrate all checks to run on Agent V2.
+
+➡️ [Migrate Agent V1 (legacy) to Agent V2](/setup/agent/migrate-agent-v1-to-v2/)
+{% endhint %}
+
+Install StackState Agent V1 (legacy) by using the following sequence of steps:
 
 {% tabs %}
 {% tab title="Debian, Ubuntu" %}
-1. Download the [StackState Agent V1 Debian package](https://l.stackstate.com/stackstate-agent-1-deb-latest) or run this command on the machine where you wish to install the Agent:
+1. Download the [StackState Agent V1 \(legacy\) Debian package](https://l.stackstate.com/stackstate-agent-1-deb-latest) or run this command on the machine where you wish to install the Agent:
 
    ```text
    wget https://s3-eu-west-1.amazonaws.com/agent.stackstate.com/stackstate-agent-deb-repo/pool/s/stackstate-agent/stackstate-agent_1.3.0-1_amd64.deb'
@@ -43,7 +59,7 @@ Install StackState Agent V1 by using the following sequence of steps:
 {% endtab %}
 
 {% tab title="Amazon linux, CentOS, Fedora, Red Hat" %}
-1. Download the [StackState Agent V1 RPM package](https://l.stackstate.com/stackstate-agent-1-rpm-latest) or run this command on the machine where you wish to install the Agent:
+1. Download the [StackState Agent V1 \(legacy\) RPM package](https://l.stackstate.com/stackstate-agent-1-rpm-latest) or run this command on the machine where you wish to install the Agent:
 
    ```text
    wget 'https://s3-eu-west-1.amazonaws.com/agent.stackstate.com/stackstate-agent-yum-repo/stackstate-agent_1.3.0-1.x86_64.rpm'
@@ -76,10 +92,10 @@ If you need further assistance, our [support team](https://support.stackstate.co
 
 {% hint style="info" %}
 * Commands require elevated privileges.
-* Restarting the StackState Agent will reload the configuration files.
+* Restarting StackState Agent V1 (legacy) will reload the configuration files.
 {% endhint %}
 
-To manually start, stop or restart the StackState Agent:
+To manually start, stop or restart StackState Agent V1 (legacy):
 
 {% tabs %}
 {% tab title="Linux" %}
@@ -113,13 +129,13 @@ sudo /etc/init.d/stackstate-agent restart
 
 {% tabs %}
 {% tab title="Linux" %}
-To check if StackState Agent V1 is running:
+To check if StackState Agent V1 (legacy) is running:
 
 ```text
 sudo /etc/init.d/stackstate-agent status
 ```
 
-To receive information about the StackState Agent V1 state:
+To receive information about the StackState Agent V1 (legacy) state:
 
 ```text
 sudo /etc/init.d/stackstate-agent info
@@ -133,7 +149,7 @@ sudo /etc/init.d/stackstate-agent info -v
 {% endtab %}
 
 {% tab title="Windows" %}
-To check if the StackState Agent is running and receive information about the Agent's state:
+To check if the StackState Agent V1 (legacy) is running and receive information about the Agent's state:
 
 ```text
 "./agent.exe status"
@@ -143,7 +159,7 @@ To check if the StackState Agent is running and receive information about the Ag
 
 ## Troubleshooting
 
-Try running the [info command](agent-v1.md#status-and-information) to see the state of StackState Agent V1.
+Try running the [info command](agent-v1.md#status-and-information) to see the state of StackState Agent V1 (legacy).
 
 Logs for the subsystems are in the following files:
 
@@ -153,4 +169,9 @@ Logs for the subsystems are in the following files:
 * `/var/log/stackstate/forwarder.log`
 
 If you are still having trouble, contact our support team on the [StackState support site](http://support.stackstate.com/).
+
+## See also
+
+* [StackState Agent V2](/setup/agent/about-stackstate-agent.md)
+* [Migrate Agent V1 \(lecacy\) to Agent V2](/setup/agent/migrate-agent-v1-to-v2/)
 

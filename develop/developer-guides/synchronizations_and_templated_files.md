@@ -64,11 +64,11 @@ There are some default component and relation types in StackState. Component typ
 
 Component types and Relation types can also be created automatically by StackState using the `getOrCreate` functionality described in the `Component + Relation Templates` section. Auto-generated components types will be created without an icon.
 
-### 5. Prepare Id Extractor Functions
+### 5. Prepare ID Extractor Functions
 
-When creating a StackPack, it is important to have a `component` and `relation` identity extractor function. There are a few default Id Extractor Functions present in StackState. The `Auto sync component id extractor` and `Auto sync relation id extractor` are good starting points for your StackPack. You can go ahead and rename these, add a description if needed, and confirm the popup dialog to unlock these Id Extractor Functions from the `Custom Synchronization` StackPack.
+When creating a StackPack, it is important to have a `component` and `relation` identity extractor function. There are a few default ID Extractor Functions present in StackState. The `Auto sync component id extractor` and `Auto sync relation id extractor` are good starting points for your StackPack. You can go ahead and rename these, add a description if needed, and confirm the popup dialog to unlock these ID Extractor Functions from the `Custom Synchronization` StackPack.
 
-➡️ [Learn more about Id Extractors](custom-functions/id-extractor-functions.md)
+➡️ [Learn more about ID Extractors](custom-functions/id-extractor-functions.md)
 
 ### 6. Prepare Component and Relation Mapping Functions
 
@@ -96,7 +96,7 @@ Synchronizations are defined by a data source and several mappings from the exte
 
 #### Step 1
 
-We recommend that you change the `Synchronization Name` and add a `Description` if needed. There is no action required on `Plugin`, it uses the `Sts` plugin to synchronize data from the StackState Agent.
+We recommend that you change the `Synchronization Name` and add a `Description` if needed. There is no action required on `Plugin`, it uses the `Sts` plugin to synchronize data from StackState Agent V2.
 
 #### Step 2
 

@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.1.x
 
 The JMX integration collects metrics from applications that expose [JMX](http://www.oracle.com/technetwork/java/javase/tech/javamanagement-140525.html) metrics.
 
-A lightweight Java plugin named JMXFetch is called by the Stackstate Agent to connect to the MBean Server and to collect these metrics. This plugin sends metrics to the Stackstate Agent using the Stsstatsd server running within the Agent. This functionality is also leveraged in the integrations for ActiveMQ, Cassandra, Solr, and Tomcat.
+A lightweight Java plugin named JMXFetch is called by StackState Agent V2 to connect to the MBean Server and to collect these metrics. This plugin sends metrics to StackState Agent V2 using the Stsstatsd server running within the Agent. This functionality is also leveraged in the integrations for ActiveMQ, Cassandra, Solr, and Tomcat.
 
 JMXFetch also sends service checks that report on the status of your monitored instances.
 
@@ -24,7 +24,7 @@ The Java/JMX check is included in the [Agent V2 StackPack](agent.md).
 
 Make sure you can open a [JMX remote connection](http://docs.oracle.com/javase/1.5.0/docs/guide/management/agent.html).
 
-A remote connection is required for the StackState Agent to connect to the JVM, even when the two are on the same host.
+A remote connection is required for StackState Agent V2 to connect to the JVM, even when the two are on the same host.
 
 ### Configuration
 
@@ -97,7 +97,7 @@ instances:
 * `trust_store_path` and `trust_store_password` - \(Optional\) - Should be set if ssl is enabled.
 * `process_name_regex` - \(Optional\) - Instead of specifying a host and port or jmx\_url, the agent can connect using the attach api. This requires the JDK to be installed and the path to tools.jar to be set.
 * `tools_jar_path` - \(Optional\) - To be set when process\_name\_regex is set.
-* `refresh_beans` - \(Optional\) - Refresh period for refreshing the matching MBeans list.  Default is 600 seconds.  Decreasing this value may result in increased CPU usage.
+* `refresh_beans` - \(Optional\) - Refresh period for refreshing the matching MBeans list. Default is 600 seconds. Decreasing this value may result in increased CPU usage.
 
 The `conf` parameter is a list of dictionaries. Only 2 keys are allowed in this dictionary:
 
@@ -284,7 +284,7 @@ To see what you're collecting and get below the limit, begin by using the comman
 
 ### Java Path
 
-The agent does not come with a bundled JVM, but will use the one installed on your system. Therefore you must make sure that the Java home directory is present in the path of the user running the agent.
+The agent does not come with a bundled JVM, but will use the one installed on your system. Therefore, you must make sure that the Java home directory is present in the path of the user running the agent.
 
 Alternatively, you can specify the JVM path in the integration's configuration file:
 

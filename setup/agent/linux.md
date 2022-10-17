@@ -21,7 +21,7 @@ StackState Agent V2 will synchronize the following data with StackState from the
 * For OS versions with a network tracer: 
   * Network connections between processes and containers.
   * Network traffic telemetry. 
-  * [Golden signals](/use/metrics-and-events/golden_signals.md), such as HTTP server latencies, errors and request counts.
+  * [Golden signals](/use/metrics/golden_signals.md), such as HTTP server latencies, errors and request counts.
 
 ## Setup
 
@@ -31,7 +31,7 @@ StackState Agent is tested to run on the Linux versions listed below with 64bit 
 
 | Platform | Minimum version | Notes |
 | :--- | :--- | :--- |
-| CentOS | CentOS 6 | CentOS 6 requires Agent v2.0.2 or above. Network tracer available from CentOS 8. |
+| CentOS | CentOS 6 | CentOS 6 requires Agent V2.0.2 or above. Network tracer available from CentOS 8. |
 | Debian | Debian 7 \(Wheezy\) | Debian 7 \(Wheezy\) requires glibc upgrade to 2.17. Network tracer available from Debian 9 \(Stretch\). |
 | Fedora | Fedora 28 | - |
 | RHEL | RHEL 7 | Network tracer available from RHEL 8. |
@@ -268,7 +268,7 @@ sudo apt-get remove stackstate-agent
 
 ## See also
 
-* [About the StackState Agent](about-stackstate-agent.md)
+* [About StackState Agent V2](about-stackstate-agent.md)
 * [Advanced Agent configuration](advanced-agent-configuration.md)  
 * [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md)
 * [StackPack integration documentation](../../stackpacks/integrations/)

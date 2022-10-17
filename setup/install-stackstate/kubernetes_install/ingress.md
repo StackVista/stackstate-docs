@@ -4,7 +4,7 @@ description: StackState Self-hosted v5.1.x
 
 # Configure Ingress
 
-The StackState Helm chart exposes an `ingress` section in its values. By default ingress is disabled.
+The StackState Helm chart exposes an `ingress` section in its values. By default, ingress is disabled.
 
 We give an example here for how to configure an nginx-ingress controller with TLS encryption enabled. Setting up the controller itself and the certificates is beyond the scope of this document.
 
@@ -23,7 +23,7 @@ ingress:
       secretName: tls-secret
 ```
 
-The one thing standing out in this file is the nginx annotation to increase the allowed `proxy-body-size` to `50m` \(larger than any expected request\). By default Nginx allows only body sizes of maximum `1m`. StackState agents and other data providers can sometimes send much larger requests. Therefore regardless if you're using Nginx or another ingress controller you want make sure that the allowed body size is large enough.
+The one thing standing out in this file is the nginx annotation to increase the allowed `proxy-body-size` to `50m` \(larger than any expected request\). By default, Nginx allows only body sizes of maximum `1m`. StackState agents and other data providers can sometimes send much larger requests. Therefore, regardless if you're using Nginx or another ingress controller, you want to make sure that the allowed body size is large enough.
 
 Now include this `ingress_values.yaml` file when running the helm command to deploy StackState:
 
@@ -37,7 +37,7 @@ stackstate \
 stackstate/stackstate
 ```
 
-* [AKS](https://docs.microsoft.com/en-us/azure/aks/ingress-tls)
+* [AKS \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/azure/aks/ingress-tls?tabs=azure-cli)
 * [EKS Official docs](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html) \(not using nginx\)
 * [EKS blog post](https://aws.amazon.com/blogs/opensource/network-load-balancer-nginx-ingress-controller-eks/) \(using nginx\)
 

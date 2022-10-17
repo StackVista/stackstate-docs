@@ -87,9 +87,9 @@ System parameters are predefined parameters that are passed automatically to the
 
 | System parameter   | Description                                                                                      |
 |:-------------------|:-------------------------------------------------------------------------------------------------|
-| `transparentState` | The precomputed [transparent state](#transparent-state).                                         |
+| `transparentState` | The precomputed [transparent state](#transparent-state).                                        |
 | `autoState`        | The precomputed [transparent state](#transparent-state). This is the same as `transparentState`. |
-| `component`        | The ID of the current component.                                                                 |
+| `component`        | The ID of the current component.                                                                |
 
 ### User parameters
 

@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 This tutorial shows you how to create push-based integrations for StackState.
 
-Push-based integrations are built in python and run as part of the StackState Agent. Each python integration is called a `check` and it can:
+Push-based integrations are built in python and run as part of StackState Agent V2. Each python integration is called a `check` and it can:
 
 * retrieve information from external systems
 * convert the information into topology
@@ -15,7 +15,7 @@ Push-based integrations are built in python and run as part of the StackState Ag
 
 ## Setup
 
-[This repository](https://github.com/StackVista/push-integration-tutorial) contains a sample project that sets up an Agent check called `example` that sends topology into StackState. It uses docker to run the StackState Agent to execute the check.
+[This repository](https://github.com/StackVista/push-integration-tutorial) contains a sample project that sets up an Agent check called `example` that sends topology into StackState. It uses Docker to run StackState Agent V2 to execute the check.
 
 Clone the repository to your laptop to get started.
 
@@ -39,7 +39,7 @@ Instance URL: example://example-1
 
 ## Prepare the tutorial
 
-The StackState Agent container uses the root directory of this repository for it's configuration files.
+The StackState Agent V2 container uses the root directory of this repository for its configuration files.
 
 Before running the example, you need to configure the sample project with your StackState instance URL and API key.
 
@@ -48,7 +48,7 @@ export STS_API_KEY=my-api-key
 export STS_STS_URL=https://stackstate.acme.com/stsAgent
 ```
 
-If you are running the Agent from a container and StackState on your local machine \(eg via our Kubernetes helm charts\) you can refer the Agent in the docker container to your local StackState:
+If you are running the Agent from a container and StackState on your local machine \(for example, via our Kubernetes helm charts\) you can refer the Agent in the Docker container to your local StackState:
 
 ```text
 export STS_STS_URL=https://host.docker.internal/stsAgent
@@ -58,7 +58,7 @@ That's it, you are now ready to run the Agent.
 
 ## Run the sample check using the Agent
 
-The sample project contains a `run.sh` shell script that runs the StackState Agent in a docker container. It reads the configuration from this sample project and executes the `example` check.
+The sample project contains a `run.sh` shell script that runs StackState Agent V2 in a docker container. It reads the configuration from this sample project and executes the `example` check.
 
 When you run the Agent, it writes logging to its standard output. The agent has debugging turned on by default \(check the `stackstate.yaml` file\) so it is fairly verbose.
 
@@ -72,9 +72,9 @@ When you log into your StackState instance, go to the **Explore Mode**. Using th
 
 ![](../../.gitbook/assets/v51_example-topology.png)
 
-Note that the components you see are hardcoded in the `example` agent check. The components appear in the **Example** domain and **Applications** and **Hosts** layers. The check produces two application components that StackState has grouped together. This is shown as a circle icon. Select the group to display the individual components that make up the group in the right panel **Selection details** tab.
+Note that the components you see are hardcoded in the `example` agent check. The components appear in the **Example** domain and **Applications** and **Hosts** layers. The check produces two application components that StackState has grouped together. This is shown as a circle icon. Select the group to display the individual components that make up the group in the right panel details tab - **Group details**.
 
-Select a component to display detailed information about it in the right panel **Selection details** tab. You'll see the component's labels and other metadata that the check sent.
+Select a component to display detailed information about it in the right panel details tab - **Component details**. You'll see the component's labels and other metadata that the check sent.
 
 ## Merge topology
 
@@ -94,7 +94,7 @@ Our documentation contains a description of the [identifiers used by various Sta
 
 The sample check we are running also sends telemetry \(metrics\) to StackState, one metric stream for each of the application components. Let's find that telemetry data and map it to one of our applications.
 
-Find the sample check's components in StackState and select the **some-application-1** component. Detailed information about the component is displayed in the right panel **Selection details** tab, showing the metadata of this component.
+Find the sample check's components in StackState and select the **some-application-1** component. Detailed information about the component, including the metadata of this component, is displayed in the right panel details tab - **Component details**.
 
 In the **Telemetry** section, click **ADD NEW STREAM**. This opens the Stream Wizard and allows you to add a new stream. Enter **Gauge** as the name for the stream and select the **StackState Metrics** datasource.
 
@@ -114,7 +114,7 @@ Click the **Save** button to permanently add the stream to the **some-applicatio
 
 The **some-application-1** component now has our telemetry stream. The sample check, however, also produces telemetry for the second application component. To map a stream to all components of a certain type, we need to update the component's _template_.
 
-Select the **some-application-1** component again to display detailed information about it in the right panel **Selection details** tab. Find the triple dots menu in the top-right corner. There, select the **Edit template** option. This brings up the **Template Editor**.
+Select the **some-application-1** component again to display detailed information about it in the right panel details tab - **Component details**. Find the triple dots menu in the top-right corner. There, select the **Edit template** option. This brings up the **Template Editor**.
 
 In the Template Editor you can edit the template used to create components based on data coming in from your sample check. It shows the following information:
 
@@ -200,7 +200,7 @@ Here is what that looks like:
 
 ![](../../.gitbook/assets/v51_example-check-function.png)
 
-Finally save the check function.
+Finally, save the check function.
 
 Now, let's create some test events for the component. Provided you have set the correct environment variables, the following command sends events into StackState:
 
@@ -210,7 +210,7 @@ TS=`date +%s`; cat custom-event.json | sed -e "s/##TIMESTAMP##/$TS/" | curl -H "
 
 Just execute a few of these so we have a few datapoints to work with.
 
-Next, let's create a _log stream_ for the component. Find the **a-host** component and select it to display detailed information about the component in the right panel **Selection details** tab. In the **Telemetry** section, click **ADD NEW STREAM**. This opens the Stream Wizard and allows you to add a new stream. Enter **External monitor** as the name for the stream and select the **StackState Generic Events** datasource.
+Next, let's create a _log stream_ for the component. Find the **a-host** component and select it to display detailed information about the component in the right panel details tab - **Component details**. In the **Telemetry** section, click **ADD NEW STREAM**. This opens the Stream Wizard and allows you to add a new stream. Enter **External monitor** as the name for the stream and select the **StackState Generic Events** datasource.
 
 In the Stream Creation screen, select to output as a **Log stream** at the top. Then fill in the following parameters:
 

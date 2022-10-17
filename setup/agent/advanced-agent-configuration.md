@@ -10,21 +10,14 @@ A number of advanced configuration options are available for StackState Agent V2
 
 ## Reduce data production
 
-The StackState Agent collection interval can be configured. This will reduce the amount of data produced by the Agent.
+The StackState Agent V2 collection interval can be configured. This will reduce the amount of data produced by the Agent.
 
 {% tabs %}
 {% tab title="Kubernetes, OpenShift" %}
-To configure the collection interval of the Kubernetes and system level integrations, create a `values.yaml` file with the below contents and specify this when you install/upgrade the StackState Agent. In this `values.yaml` example, the `min_collection_interval` has been set to double the default setting. This should result in a noticeable drop in the amount of data produced. If required, you can increase the interval further, however, the aim should be to find a balance between the frequency of data collection and the amount of data received by StackState: 
-
-{% hint style="info" %}
-Note that the `values.yaml` example below includes configuration to [enable clusterChecks](/setup/agent/kubernetes.md#enable-cluster-checks) and [run the Kubernetes_state check as a cluster check](/stackpacks/integrations/kubernetes.md#configure-cluster-check-kubernetes_state-check).
-{% endhint %}
+To configure the collection interval of the Kubernetes and system level integrations, create a `values.yaml` file with the below contents and specify this when you install/upgrade StackState Agent V2. In this `values.yaml` example, the `min_collection_interval` has been set to double the default setting. This should result in a noticeable drop in the amount of data produced. If required, you can increase the interval further, however, the aim should be to find a balance between the frequency of data collection and the amount of data received by StackState: 
 
 ```yaml
-clusterChecks:
-# clusterChecks.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods.
-  enabled: true
-agent:
+nodeAgent:
   config:
     override:
     - name: conf.yaml
@@ -130,7 +123,7 @@ helm upgrade --install \
 --set-string 'stackstate.apiKey=<STACKSTATE_RECEIVER_API_KEY>' \
 ... (set all custom fields)
 --values values.yaml
-stackstate-cluster-agent stackstate/cluster-agent
+stackstate-agent stackstate/stackstate-agent
 ```
 
 {% endtab %}

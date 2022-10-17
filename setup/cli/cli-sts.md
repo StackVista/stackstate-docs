@@ -2,7 +2,7 @@
 description: StackState Self-hosted v5.1.x
 ---
 
-# CLI: sts (new)
+# CLI: sts
 
 ## Overview
 
@@ -10,7 +10,7 @@ The new StackState `sts` CLI provides easy access to the functionality provided 
 
 {% hint style="success" "self-hosted info" %}
 
-* The new `sts` CLI will eventually replace the [`stac` CLI](cli-stac.md), however, not all commands are currently supported. For an overview of the differences and overlap between the new `sts` CLI and the `stac` CLI, see the [CLI comparison page](/setup/cli/cli-comparison.md).
+* The new `sts` CLI replaces the [`stac` CLI](cli-stac.md), however, not all commands are currently supported. For an overview of the differences and overlap between the new `sts` CLI and the `stac` CLI, see the [CLI comparison page](/setup/cli/cli-comparison.md).
 * In the meantime, you can install and run as the new `sts` CLI on the same machine as the `stac` CLI.
 
 {% endhint %}
@@ -247,11 +247,11 @@ If multiple types of configuration are presented to the CLI the order of process
 
 | Environment variable    | Flag | Description                                                                                                                                                                                                                                     |
 |:------------------------|:--- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `STS_CLI_URL`           | `--url` | URL to your StackState instance.                                                                                                                                                                                                                |
-| `STS_CLI_API_TOKEN`     | `--api-token` | API token to your StackState instance. The most secure way to use your API token is through an environment variable. You can store the API token with a secrets manager and inject it as an environment variable into your shell.               |
+| `STS_CLI_URL`           | `--url` | URL to your StackState instance.                                                                                                                                                                                                               |
+| `STS_CLI_API_TOKEN`     | `--api-token` | API token to your StackState instance. The most secure way to use your API token is through an environment variable. You can store the API token with a secrets manager and inject it as an environment variable into your shell.              |
 | `STS_CLI_SERVICE_TOKEN` | `--service-token` | A service token to your StackState instance. The most secure way to use your service token is through an environment variable. You can store the service token with a secrets manager and inject it as an environment variable into your shell. |
 | `STS_CLI_API_PATH`      | n/a | The path appended to the end of the URL to get the API endpoint. (Defaults to `/api`)                                                                                                                                                           |
-| `STS_CLI_CONTEXT` | `--context` | The name of the context to use.                                                                                                                                                                                                                 |
+| `STS_CLI_CONTEXT` | `--context` | The name of the context to use.                                                                                                                                                                                                                |
 
 Next to overriding specific parts of the config file, it is also possible to override the default config file location. This is done through the `--config <PATH>` flag.
 
@@ -378,4 +378,6 @@ docker rmi -f stackstate/stackstate-cli2
 
 ## Open source
 
-The StackState CLI is open source.
+The StackState `sts` CLI is open source and can be found on GitHub at:
+
+* [https://github.com/stackvista/stackstate-cli](https://github.com/stackvista/stackstate-cli)

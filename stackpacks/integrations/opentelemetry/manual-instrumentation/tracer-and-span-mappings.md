@@ -96,7 +96,7 @@ The value from `service.name` is used as a primary means to identify a component
 2) This will bring up the `Filter Topology` view, Click on the second button called `Advanced`
 3) In the top input field you can fill in the following
    1) `name = "<YOUR service.name VALUE>"`
-   2) For Example `name = "RDS Database: Service Name"`.
+   2) For example `name = "RDS Database: Service Name"`.
 4) You will then see the component that was created with the trace.
 
 ![Topology Perspective - service.name](../../../../.gitbook/assets/v51_otel_topology_view_filter.png)
@@ -154,7 +154,7 @@ The `service.type` is used to identify the type of service in the span in the St
 {% tabs %}
 {% tab title="Span properties" %}
 
-**Example of where the service.type is displayed within the Traces Perspective Span properties view**
+**Example of where the `service.type` is displayed within the Traces Perspective Span properties view**
 
 1) In the navigation bar, click **Traces Perspective**
 2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your trace).
@@ -184,7 +184,7 @@ Components with the same service identifiers will merge into one component. This
 {% tabs %}
 {% tab title="Component properties" %}
 
-**Example of where the service.identifier is displayed within the Topology Perspective Component properties view**
+**Example of where the `service.identifier` is displayed within the Topology Perspective Component properties view**
 
 1) Click on your component in the StackState Topology Perspective
 2) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
@@ -255,7 +255,7 @@ This means that your component is in a CRITICAL state.
 
 {% tab title="Span properties" %}
 
-**The http status can be found in the following location regardless of what the HTTP status actually is**
+**The HTTP status can be found in the following location regardless of what the HTTP status actually is**
 
 1) In your top navigation bar click on the `trace perspective` menu item.
 2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your trace).

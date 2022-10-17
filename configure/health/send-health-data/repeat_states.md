@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Self-hosted v5.1.x
 ---
 
 ## Overview
@@ -75,17 +75,13 @@ Health can be sent in one JSON message via HTTP POST or using the `stac` CLI com
 
 {% tabs %}
 {% tab title="curl" %}
-```javascript
+```bash
 curl -X POST \
- 'http://<STACKSTATE_BASE_URL>/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>' \
+ '<STACKSTATE_RECEIVER_API_ADDRESS>' \
  -H 'Content-Type: application/json' \
  -d '{
   "collection_timestamp": 1548857167,
-  "events": {},
-  "internalHostname": "localdocker.test",
-  "metrics": [],
-  "service_checks": [],
-  "topologies": [],
+  "internalHostname": "local.test",
   "health": [
     {
       "consistency_model": "REPEAT_STATES",
@@ -117,7 +113,17 @@ curl -X POST \
 }'
 ```
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
+{% hint style="warning" %}
+**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+{% endhint %}
+
 ```
 stac health send expiry urn:health:sourceId:streamId \
   --repeat-interval-seconds 300 \
@@ -134,18 +140,10 @@ stac health send check-state urn:health:sourceId:streamId \
   --consistency-model="REPEAT_STATES"
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
-
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
-
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
-
 {% endtab %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
+The new `sts` CLI does not support sending health states. This is only supported by directly calling out to the receiver API.
 {% endtab %}
 
 {% endtabs %}

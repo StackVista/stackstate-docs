@@ -30,7 +30,7 @@ To add an Elasticsearch data source:
    * **Name** - the name to identify the Elasticsearch data source in StackState.
    * **Base URL** - the URL of the REST API of your Elasticsearch instance \(default port 9200\). Note that this must be reachable by StackState.
    * **Index pattern** - the Elasticsearch index to retrieve. It is possible to specify a pattern if the index is sliced by time. See [how to find the Elasticsearch index pattern](elasticsearch.md#find-the-elasticsearch-index-pattern).
-   * **Time zone** - the timezone of the timestamps stored in the Elasticsearch documents.  This is required to ensure data is correctly processed by StackState.
+   * **Time zone** - the timezone of the timestamps stored in the Elasticsearch documents. This is required to ensure data is correctly processed by StackState.
    * **Time field** - the field in the Elasticsearch documents that contains the timestamp of the event/metric.
    * **Time field format** - the format of the value in the specified **Time field**. See [how to find the Elasticsearch time field format](elasticsearch.md#find-the-elasticsearch-time-field-format).
    * A number of additional settings can be tweaked in non-standard use-cases. See the [advanced settings](elasticsearch.md#advanced-settings).
@@ -93,7 +93,7 @@ To find the correct time field format to specify in the StackState Elasticsearch
 
 ### Work with Elasticsearch data in StackState
 
-Elasticsearch data sources can be used to add telemetry streams to components and relations in StackState. This can be done manually by [adding a telemetry stream](../../../use/metrics-and-events/add-telemetry-to-element.md) directly to an element or as part of an integration or topology synchronization, for details see how to [add telemetry during topology synchronization](../telemetry_synchronized_topology.md).
+Elasticsearch data sources can be used to add telemetry streams to components and relations in StackState. This can be done manually by [adding a telemetry stream](../../../use/metrics/add-telemetry-to-element.md) directly to an element or as part of an integration or topology synchronization, for details see how to [add telemetry during topology synchronization](../telemetry_synchronized_topology.md).
 
 ## Advanced settings
 
@@ -125,6 +125,6 @@ Wildcards can be slow in Elasticsearch. By default, StackState will escape wildc
 
 ## See also
 
-* [Add a telemetry stream to a component or relation](../../../use/metrics-and-events/add-telemetry-to-element.md)
+* [Add a telemetry stream to a component or relation](../../../use/metrics/add-telemetry-to-element.md)
 * [Add telemetry during topology synchronization](../telemetry_synchronized_topology.md)
 

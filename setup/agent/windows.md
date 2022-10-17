@@ -24,14 +24,14 @@ StackState Agent V2 will synchronize the following data from the host it is runn
 
 ### Supported versions
 
-StackState Agent V2.17.x is supported to run on:
+StackState Agent V2.18.x is supported to run on:
 
 * Windows 10 or higher
 * Windows Server 2012 or higher
 
 ### Install
 
-StackState Agent V2 is installed using a [PowerShell \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-6) script.
+StackState Agent V2 is installed using a [PowerShell \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-7.2&viewFallbackFrom=powershell-6) script.
 
 * [Online install](windows.md#online-install) - If you have access to the internet on the machine where the Agent will be installed. 
 * [Offline install](windows.md#offline-install) - If you **do not** have access to the internet on the machine where the Agent will be installed.
@@ -77,7 +77,7 @@ To upgrade StackState Agent V2 running on Windows,
 
 1. Download the latest version of the Agent installer package and copy this to the host where it will be installed next to the PowerShell install script:
    * [https://stackstate-agent-2.s3.amazonaws.com/windows/stable/stackstate-agent-latest-1-x86\_64.msi](https://stackstate-agent-2.s3.amazonaws.com/windows/stable/stackstate-agent-latest-1-x86_64.msi)
-2. Double-click the downloaded `*.msi` file.   
+2. Double-click the downloaded `*.msi` file.  
 
 ## Configure
 
@@ -186,7 +186,7 @@ To uninstall StackState Agent V2 running on Windows:
 
 ## See also
 
-* [About the StackState Agent](about-stackstate-agent.md)
+* [About StackState Agent V2](about-stackstate-agent.md)
 * [Advanced Agent configuration](advanced-agent-configuration.md)  
 * [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md)
 * [StackState Agent V2 \(github.com\)](https://github.com/StackVista/stackstate-agent)

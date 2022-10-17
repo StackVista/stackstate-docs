@@ -29,27 +29,51 @@ For a standard deployment, the StackState Helm chart will deploy backend service
 
 {% tabs %}
 {% tab title="Recommended setup" %}
-Requirements for the recommended high availability setup:
 
-* **Amazon EKS:** 8 instances of type `m5.2xlarge` or `m4.2xlarge`
-* **Azure AKS:** 8 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
-* **Virtual machines:** 8 nodes with `32GB memory`, `8 vCPUs`
+{% hint style="info" %}
+The recommended requirements include spare CPU/Memory capacity to ensure smooth application rolling update.
+{% endhint %}
+
+Requirements for the recommended high availability setup with backups enabled:
+
+* Node requirements: minimum 8 vCPUs, minimum 32GB memory
+* Total of 56 vCPUs available for StackState
+* Total of 120 GB memory available for StackState
+* Total of 2 TB disk space for data storing services (does not include disk space required for backups)
+
 {% endtab %}
 
 {% tab title="Minimal setup" %}
-Requirements for the minimal high availability setup: 
+Requirements for the minimal high availability setup with backups enabled:
 
-* **Amazon EKS:** 5 instances of type `m5.2xlarge` or `m4.2xlarge`
-* **Azure AKS:** 5 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
-* **Virtual machines:** 5 nodes with `32GB memory`, `8 vCPUs`
+* Node requirements: minimum 8 vCPUs, minimum 32GB memory
+* Total of 37 vCPUs available for StackState
+* Total of 98 GB memory available for StackState
+* Total of 2 TB disk space for data storing services (does not include disk space required for backups)
+
 {% endtab %}
 
 {% tab title="Non-high availability setup" %}
-Optionally, a [non-high availability setup](/setup/install-stackstate/kubernetes_install/non_high_availability_setup.md) can be configured which has the following requirements:
+Optionally, a [non-high availability setup](/setup/install-stackstate/kubernetes_install/non_high_availability_setup.md) can be configured which has the requirements listed below.
 
-* **Amazon EKS:** 4 instances of type `m5.2xlarge` or `m4.2xlarge`
-* **Azure AKS:** 4 instances of type `D8s v3` or `D8as V4` \(Intel or AMD CPUs\)
-* **Virtual machines:** 4 nodes with `32GB memory`, `8 vCPUs`
+**Recommended setup** 
+
+Requirements for the recommended non-high availability setup:
+
+* Node requirements: minimum 8 vCPUs, minimum 32GB memory
+* Total of 38 vCPUs available for StackState
+* Total of 90 GB memory available for StackState
+* Total of 850 GB disk space for data storing services
+
+**Minimal setup**
+
+Requirements for the minimal non-high availability setup:
+
+* Node requirements: minimum 8 vCPUs, minimum 32GB memory
+* Total of 25 vCPUs available for StackState
+* Total of 56 GB memory available for StackState
+* Total of 850 GB disk space for data storing services
+
 {% endtab %}
 {% endtabs %}
 
@@ -102,11 +126,7 @@ One of the following operating systems running Java. Check also the specific req
 
 #### Java
 
-OpenJDK 8 **patch level 121** or later.
-
-{% hint style="info" %}
-StackState **does not work** with JDK versions 9 or higher at this time.
-{% endhint %}
+OpenJDK 11.
 
 ### Size requirements
 

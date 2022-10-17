@@ -10,14 +10,14 @@ The Humio StackPack allows you to access your logs stored in Humio.
 
 Using this StackPack, you can:
 
-* Jump straight to your container logs in Humio using a Quick Action on docker container components running in Kubernetes
+* Jump straight to your container logs in Humio using a Quick Action on Docker container components running in Kubernetes
 
 Humio is a [community integration](/stackpacks/integrations/about_integrations.md#community-integrations).
 
 ## Prerequisites
 
 * A Humio cloud account
-* The Humio Kubernetes agent, see the [Humio Kubernetes platform integration](https://docs.humio.com/integrations/ingest-logs-from-a-specific-system/kubernetes/).
+* The Humio Kubernetes agent, see the [Humio Kubernetes platform integration \(library.humio.com\)](hhttps://library.humio.com/humio-server/log-formats-kubernetes.html).
 * Logging from each Kubernetes cluster must be stored in a **repository with the same name as your cluster** in Humio.
 
 ## Using the Humio StackPack

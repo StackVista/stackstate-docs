@@ -24,7 +24,7 @@ Once you have installed the `Custom Synchronization` StackPack, it creates a Com
 
 You can go ahead and rename it, add a description if needed. It is recommended to change the default value of the `ComponentType` from `Auto-synced Component` to something that represents a generic component in your data source. The same goes for `Layer`, `Domain` and `Environment` which defaults to `Auto-synced Components`, `Auto-synced Domain`,`Auto-synced Environment` respectively. As this template is using the `getOrCreate` functionality, these values are auto-created by StackState if they don't already exist. [Find more on Templates](../../reference/stj/using_stj.md).
 
-The `getOrCreate` function tries to resolve a node by first its identifier and then by the fallback create-identifier. If it can't find any it'll create it using the type and name argument and it'll identify the newly created node with the create-identifier value.
+The `getOrCreate` function tries to resolve a node by first its identifier and then by the fallback create-identifier. If it can't find any, one will be created using the type and name argument. The newly created node will be identified with the create-identifier value.
 
 ```text
 getOrCreate <identifier> <create-identifier> Type=<type>;Name=<name>
@@ -32,11 +32,11 @@ getOrCreate <identifier> <create-identifier> Type=<type>;Name=<name>
 
 Once you have completed all the changes, you can click **UPDATE** and confirm the popup dialog to unlock this Template from the `Custom Synchronization` StackPack.
 
-## 4. Prepare Id Extractor Functions
+## 4. Prepare ID Extractor Functions
 
-When creating an integration, or a StackPack, it is important to have a `component` and `relation` identity extractor function. There are a few default Id Extractor Functions present in StackState. The `Auto sync component id extractor` and `Auto sync relation id extractor` are good starting points for your StackPack. You can go ahead and rename these, add a description if needed, and confirm the popup dialog to unlock these Id Extractor Functions from the `Custom Synchronization` StackPack.
+When creating an integration, or a StackPack, it is important to have a `component` and `relation` identity extractor function. There are a few default ID Extractor Functions present in StackState. The `Auto sync component id extractor` and `Auto sync relation id extractor` are good starting points for your StackPack. You can go ahead and rename these, add a description if needed, and confirm the popup dialog to unlock these ID Extractor Functions from the `Custom Synchronization` StackPack.
 
-You can find more on [Id Extractors page](../custom-functions/id-extractor-functions.md).
+You can find more on [ID Extractors page](../custom-functions/id-extractor-functions.md).
 
 ## 5. Configure Sts Sources - Topology Sources
 

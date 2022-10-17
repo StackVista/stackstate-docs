@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Self-hosted v5.1.x
 ---
 
 # Create a simple StackPack
@@ -20,7 +20,7 @@ Specifically, the StackPack contains:
 
 * A [Groovy](https://groovy-lang.org/) provisioning script that installs the components of the StackPack \(`TutorialProvision.groovy`\)
 * A component and relation template that tell StackState how to process incoming data into components and relations \(`tutorial-component-template.json.handlebars` and `tutorial-relation-template.json.handlebars`\)
-* [Groovy](https://groovy-lang.org/) component and relation id extractor scripts that tell StackState how to extract the identifiers from the incoming data \(`Tutorial component id extractor.groovy` and `Tutorial relation id extractor.groovy`\)
+* [Groovy](https://groovy-lang.org/) component and relation ID extractor scripts that tell StackState how to extract the identifiers from the incoming data \(`Tutorial component id extractor.groovy` and `Tutorial relation id extractor.groovy`\)
 * [Markdown](https://en.wikipedia.org/wiki/Markdown) files and images that are shown in the StackState GUI when users interact with the StackPack \(in the `resources` directory\)
 * A configuration file that describes all components of the StackPack \(`stackpack.conf`\)
 
@@ -41,9 +41,9 @@ The StackPack must be imported into StackState before it can be installed. This 
 The following command installs our new tutorial StackPack in StackState:
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 
@@ -51,14 +51,14 @@ The following command installs our new tutorial StackPack in StackState:
 sts stackpack upload tutorial-stackpack-0.0.1.sts
 ```
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 ```text
 stac stackpack upload tutorial-stackpack-0.0.1.sts
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
+⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
@@ -101,13 +101,13 @@ When you log into your StackState instance, go to the **Explore Mode**. Using th
 
 Note that the components you see are constructed from the JSON data you sent in. The components appear in the **Tutorial Domain** domain and **Tutorial Components** layers.
 
-Select a component to display detailed information about it in the right panel **Selection details** tab. You'll see the component's labels and other meta-data you sent.
+Select a component to display detailed information about it in the right panel details tab - **Component details**. You'll see the component's labels and other meta-data you sent.
 
 ## Making a change to the StackPack
 
 Now we are going to make a change to the tutorial StackPack. Let's say you want to add a telemetry stream to all of the components that the StackPack creates. This requires a change to the StackPack's component template. We are going to make this change in StackState and then update the StackPack with our changes.
 
-Select the **myDummyApp** component to display detailed information about it in the right panel **Selection details** tab. Find the triple dots menu in the top-right corner. There, select the **Edit template** option. This brings up the **Template Editor**.
+Select the **myDummyApp** component to display detailed information about it in the right panel tab - **Component details**. Find the triple dots menu in the top-right corner. There, select the **Edit template** option. This brings up the **Template Editor**.
 
 In the Template Editor you can edit the template used to create components based on data coming in from your sample check. It shows the following information:
 

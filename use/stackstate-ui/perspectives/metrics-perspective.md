@@ -33,7 +33,7 @@ The **View Filters** panel on the left of the StackState UI can be used to filte
 
 ## Charts
 
-Charts show metrics data for the selected components in near real-time - data is fetched every 30 seconds. If a process is stopped and no more data is received, the process will eventually leave the chart as the data shifts left at least every 30 seconds. If more data arrives during the 30 second interval, it will be pushed to a chart. A single chart can display multiple lines for the same metric when multiple components are selected - this grouping is based on the name of the stream. It is possible to cycle through data for each of these components to depict them as a single line in a single chart using the arrow controls on the chart.
+Charts show metrics data for the selected components in near real-time - data is fetched every 30 seconds. If a process is stopped and no more data is received, the process will eventually leave the chart as the data shifts left at least every 30 seconds. If more data arrives during the 30-second interval, it will be pushed to a chart. A single chart can display multiple lines for the same metric when multiple components are selected - this grouping is based on the name of the stream. It is possible to cycle through data for each of these components to depict them as a single line in a single chart using the arrow controls on the chart.
 
 ## Time travel
 
@@ -41,5 +41,5 @@ Time travel is possible in the Metrics Perspective. When time traveling, the cur
 
 ## Ordering
 
-Metric charts are ordered based on the priority of the associated telemetry stream. The priority of a stream can be configured in the [Telemetry Inspector](/use/metrics-and-events/browse-telemetry.md).
+Metric charts are ordered based on the priority of the associated telemetry stream. The priority of a stream can be configured in the [Telemetry Inspector](/use/metrics/browse-telemetry.md).
 

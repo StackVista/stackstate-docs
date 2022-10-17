@@ -17,49 +17,53 @@ To export anomaly feedback from StackState, the [StackState CLI](/setup/cli/READ
 {% endhint %}
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+{% hint style="info" %}
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endhint %}
 
-Using StackState CLI `sts` (new), anomaly feedback can be exported from StackState with the command `sts anomaly collect-feedback`. 
+Using StackState CLI `sts` (new), anomaly feedback can be exported from StackState with the command `sts anomaly collect-feedback`.
 
 For example:
 
-```commandline
+```sh
 # Export all feedback on all anomalies in the last 7 days,
 # include 1 day of metric data for each anomaly
-sts anomaly collect-feedback --start-time -7d --file feedback.json
+$ sts anomaly collect-feedback --start-time -7d --file feedback.json
 
 # Export all feedback on anomalies from 10 to 2 days ago,
 # include 3 days of metric data for each anomaly
-sts anomaly collect-feedback --start-time -10d --end-time -2d --history 3d --file feedback.json
+$ sts anomaly collect-feedback --start-time -10d --end-time -2d --history 3d --file feedback.json
 ```
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
+{% hint style="warning" %}
+**From StackState v5.0, the old `sts` CLI is called `stac`.**
 
-Using StackState CLI `stac`, anomaly feedback can be exported from StackState with the command `stac anomaly collect-feedback`. 
-
-For example:
-
-```commandline
-# Export all feedback on all anomalies in the last 7 days,
-# include 1 day of metric data for each anomaly
-stac anomaly collect-feedback --start-time=-7d > feedback.json
-
-# Export all feedback on anomalies from 10 to 2 days ago,
-# include 3 days of metric data for each anomaly
-stac anomaly collect-feedback --start-time=-10d --end-time=-2d --history=3d > feedback.json
-```
-
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
-
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+{% endhint %}
+
+Using StackState CLI `stac`, anomaly feedback can be exported from StackState with the command `stac anomaly collect-feedback`.
+
+For example:
+
+```sh
+# Export all feedback on all anomalies in the last 7 days,
+# include 1 day of metric data for each anomaly
+$ stac anomaly collect-feedback --start-time=-7d > feedback.json
+
+# Export all feedback on anomalies from 10 to 2 days ago,
+# include 3 days of metric data for each anomaly
+$ stac anomaly collect-feedback --start-time=-10d --end-time=-2d --history=3d > feedback.json
+```
+
 
 {% endtab %}
 {% endtabs %}

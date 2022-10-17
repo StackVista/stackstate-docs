@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-The Slack StackPack allows you to receive event notifications in Slack channels. The StackPack installs a number of event handler functions that can be used when [adding an event handler](/use/stackstate-ui/views/manage-event-handlers.md#add-event-handler) to a view in StackState.
+The Slack StackPack allows you to receive event notifications in Slack channels. The StackPack installs a number of event handler functions that can be used when [adding an event handler](/use/events/manage-event-handlers.md#add-event-handler) to a view in StackState.
 
 Slack is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
 
@@ -26,7 +26,7 @@ Install the Slack StackPack from the StackState UI **StackPacks** > **Integratio
 
 ### Configure
 
-After the Slack StackPack has been installed, a Slack event handler function will be listed when you [add an event handler to a view](/use/stackstate-ui/views/manage-event-handlers.md#add-event-handler).
+After the Slack StackPack has been installed, a Slack event handler function will be listed when you [add an event handler to a view](/use/events/manage-event-handlers.md#add-event-handler).
 
 Note that you will need to [create a Slack Webhook \(slack.com\)](https://api.slack.com/messaging/webhooks).
 
@@ -71,8 +71,8 @@ Before you uninstall the Slack StackPack, all event handlers that have been conf
 
 ## See also
 
-* [Manage event handlers](/use/stackstate-ui/views/manage-event-handlers.md)
-* [Event notifications](/use/metrics-and-events/event-notifications.md)
+* [Manage event handlers](/use/events/manage-event-handlers.md)
+* [Event notifications](/use/events/event-notifications.md)
 * [Problem notifications](/use/problem-analysis/problem_notifications.md)
 * [Event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md "StackState Self-Hosted only")
 * [Create a Slack Webhook\(slack.com\)](https://api.slack.com/messaging/webhooks)

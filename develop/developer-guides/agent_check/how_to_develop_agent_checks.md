@@ -4,9 +4,9 @@ description: StackState Self-hosted v5.1.x
 
 # How to develop Agent checks
 
-This document covers how to create your first check with Agent v2 Check API. Following topics are covered in this document: the agent directory structure, configuring your check, writing your first check, sending topology, metrics, events, and service checks as well as how to add external python dependencies and putting it all together.
+This document covers how to create your first check with Agent V2 Check API. Following topics are covered in this document: the agent directory structure, configuring your check, writing your first check, sending topology, metrics, events, and service checks as well as how to add external python dependencies and putting it all together.
 
-## Installing Agent v2 StackPack
+## Installing Agent V2 StackPack
 
 To install this StackPack navigate to StackState’s StackPacks page using left menu and locate the “StackState Agent V2” section. Click the Agent V2 icon and this opens the installation page. Click the **INSTALL** button and follow installation instructions provided by the StackPack.
 
@@ -70,7 +70,7 @@ instances:
     authentication:
       username:
       password:
-    # min_collection_interval: 30 # use in place of collection_interval for Agent v2.14.x or earlier 
+    # min_collection_interval: 30 # use in place of collection_interval for Agent V2.14.x or earlier 
     collection_interval: 30 # the collection interval in seconds. This check will run try to run every 30 seconds
 ```
 
@@ -105,9 +105,10 @@ instances:
 Now you can start defining your first check. The following "Skeleton" check can be used as a good starting point:
 
 ```text
-from stackstate_checks.base import AgentCheck, ConfigurationError, AgentIntegrationInstance
+from stackstate_checks.base.checks.v2.base import AgentCheckV2
+from stackstate_checks.base import ConfigurationError, AgentIntegrationInstance
 
-class ExampleCheck(AgentCheck):
+class ExampleCheck(AgentCheckV2):
 
     # This method should also be overriden to uniquely identify your integration instance. The AgentIntegrationInstance is synchronized by the StackState Agent V2 StackPack. All topology elements produced by this check can be found by filtering on the `integration-type:{example}` and `integration-url:{instance_url}` tags in StackState for this example.
     def get_instance_key(self, instance):
@@ -182,7 +183,7 @@ self.relation("some-application-unique-identifier", "this-host-unique-identifier
 
 This creates two components in StackState. One for the host named `this-host` and one for an application named `some-application`. The `domain` value is used in the horizontal grouping of the components in StackState and `layer` is used for vertical grouping. The `labels`, `tags` and `environment` add some metadata to the component and can also be used for filtering in StackState. An `IS_HOSTED_ON` relation is created between `some-application` and `this-host`. The `labels` and `tags` fields can also be used on relations to add some metadata. The component types \(`Host`, `Application`\) and relation type \(`IS_HOSTED_ON`\) will be automatically created in StackState and can later be used in the synchronization to create mappings for the different types.
 
-The identifiers and the external identifier, for example `some-application-unique-identifier` will be used as the StackState Id. The `external identifer` should be unique within this integration.
+The identifiers and the external identifier, for example `some-application-unique-identifier` will be used as the StackState ID. The `external identifer` should be unique within this integration.
 
 #### Merge Identifiers
 
@@ -250,7 +251,7 @@ self.event({
 
 StackState can ingest check states from external monitoring systems. Before getting started, you can read up on the core concepts of [health Synchronization](../../../configure/health/health-synchronization.md).
 
-To setup a health synchronization stream within a check, the following function needs to be defined:
+To set up a health synchronization stream within a check, the following function needs to be defined:
 
 ```text
 from stackstate_checks.base import AgentCheck, ConfigurationError, HealthStreamUrn, HealthStream
@@ -288,7 +289,7 @@ In the example below, a check state is created in StackState with the health val
 * The check is attached to the component or relation matching the `topology_element_identifier`.
 * The `check_state_id` is used to distinguish check states within the current health stream.
 
-Check states can be send through the health synchronization api, using the `self.health.check_state()` functions in the `AgentCheck` interface. The example below shows how to submit the data:
+Check states can be sent through the health synchronization api, using the `self.health.check_state()` functions in the `AgentCheck` interface. The example below shows how to submit the data:
 
 ```text
 from stackstate_checks.base import Health
@@ -362,7 +363,7 @@ The service check can produce the following states:
 
 ### Add Python Dependencies
 
-Sometimes your check may require some external dependencies. To solve this problem the StackState Agent is shipped with python and pip embedded. When installing the dependencies needed by your custom check you should use the embedded pip to do so. This executable for pip can be found here:
+Sometimes your check may require some external dependencies. To solve this problem StackState Agent V2 is shipped with python and pip embedded. When installing the dependencies needed by your custom check you should use the embedded pip to do so. This executable for pip can be found here:
 
 For Linux, you should find it at:
 
@@ -394,7 +395,7 @@ C:\Program Files\StackState\StackState Agent\embedded\agent.exe check <CHECK_NAM
 
 This executes your check once and displays the results.
 
-Once you are happy with the result of your check, you can restart the StackState Agent service and your check will be scheduled alongside the other agent checks.
+Once you are happy with the result of your check, you can restart the StackState Agent V2 service and your check will be scheduled alongside the other agent checks.
 
 For Linux:
 

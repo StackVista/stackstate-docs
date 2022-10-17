@@ -21,8 +21,8 @@ helm repo update
 ## Install StackState
 
 1. [Create the project where StackState will be installed](openshift_install.md#create-project)
-2. [Generate the `values.yaml` file](openshift_install.md#generate-valuesyaml)
-3. [Create the `openshift-values.yaml` file](openshift_install.md#create-openshift-valuesyaml)
+2. [Generate the `values.yaml` file](openshift_install.md#generate-values.yaml)
+3. [Create the `openshift-values.yaml` file](openshift_install.md#create-openshift-values.yaml)
 4. [Automatically install the Cluster Agent for OpenShift](openshift_install.md#automatically-install-the-cluster-agent-for-openshift)
 5. [Deploy StackState with Helm](openshift_install.md#deploy-stackstate-with-helm)
 6. [Access the StackState UI](openshift_install.md#access-the-stackstate-ui)
@@ -66,11 +66,11 @@ The script requires the following configuration options:
 
 | Configuration | Flag | Description                                                                                                                                                                                                                                                                               |
 | :--- | :--- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Base URL | `-b` | The `<STACKSTATE_BASE_URL>`. The external URL for StackState that users and agents will use to connect. For example `https://stackstate.internal`.  If you haven't decided on an Ingress configuration yet, use `http://localhost:8080`. This can be updated later in the generated file. |
-| Username and password\*\* | `-u` `-p` | The username and password used by StackState to pull images from quay.io/stackstate repositories.                                                                                                                                                                                         |
-| License key | `-l` | The StackState license key.                                                                                                                                                                                                                                                               |
-| Admin API password | `-a` | The password for the admin API. Note that this API contains system maintenance functionality and should only be accessible by the maintainers of the StackState installation. This can be omitted from the command line, the script will prompt for it.                                   |
-| Default password | `-d` | The password for the default user \(`admin`\) to access StackState's UI. This can be omitted from the command line, the script will prompt for it.                                                                                                                                        |
+| Base URL | `-b` | The `<STACKSTATE_BASE_URL>`. The external URL for StackState that users and agents will use to connect. For example `https://stackstate.internal`. If you haven't decided on an Ingress configuration yet, use `http://localhost:8080`. This can be updated later in the generated file. |
+| Username and password\*\* | `-u` `-p` | The username and password used by StackState to pull images from quay.io/stackstate repositories.                                                                                                                                                                                        |
+| License key | `-l` | The StackState license key.                                                                                                                                                                                                                                                              |
+| Admin API password | `-a` | The password for the admin API. Note that this API contains system maintenance functionality and should only be accessible by the maintainers of the StackState installation. This can be omitted from the command line, the script will prompt for it.                                  |
+| Default password | `-d` | The password for the default user \(`admin`\) to access StackState's UI. This can be omitted from the command line, the script will prompt for it.                                                                                                                                       |
 | Kubernetes cluster name | `-k` | Option only available for plain Kubernetes installation                                                                                                                                                                                                                                   |
 
 {% hint style="info" %}
@@ -140,6 +140,9 @@ kafka:
     enabled: false
   volumePermissions:
     enabled: false
+kafkaup-operator:
+  securityContext:
+    enabled: false
 minio:
   securityContext:
     enabled: false
@@ -152,7 +155,7 @@ zookeeper:
 
 StackState has built-in support for OpenShift by means of the [OpenShift StackPack](../../stackpacks/integrations/openshift.md). To get started quickly, the StackState installation can automate installation of this StackPack and the required Agent for the cluster that StackState itself will be installed on. This is not required and can always be done later from the StackPacks page of the StackState UI for StackState's cluster or any other OpenShift cluster.
 
-The only required information is a name for the OpenShift cluster that will distinguish it from the other OpenShift clusters monitored by StackState. A good choice usually is the same name that is used in the kube context configuration. This will then automatically install the StackPack and install a Daemonset for the agent and a deployment for the so called cluster agent. For the full details, read the [OpenShift StackPack](../../stackpacks/integrations/openshift.md) page.
+The only required information is a name for the OpenShift cluster that will distinguish it from the other OpenShift clusters monitored by StackState. A good choice usually is the same name that is used in the kube context configuration. This will then automatically install the StackPack and install a Daemonset for the agent and a deployment for the so-called cluster agent. For the full details, read the [OpenShift StackPack](../../stackpacks/integrations/openshift.md) page.
 
 To automate this installation, the below values file can be added to the `helm install` command. The agent chart needs to add specific OpenShift `SecurityContextConfiguration` objects to the OpenShift installation.
 
@@ -209,8 +212,8 @@ To deploy StackState in a high availability setup on OpenShift:
 
 1. Before you deploy:
    * [Create the project where StackState will be installed](openshift_install.md#create-project)
-   * [Generate `values.yaml`](#generate-valuesyaml)
-   * [Create `openshift-values.yaml`](#create-openshift-valuesyaml)
+   * [Generate `values.yaml`](#generate-values.yaml)
+   * [Create `openshift-values.yaml`](#create-openshift-values.yaml)
    * If you want to automatically install the Cluster Agent for OpenShift, [create `agent-values.yaml`](#automatically-install-the-cluster-agent-for-openshift)
 4. Deploy the latest StackState version to the `stackstate` namespace with the following command:
 
@@ -230,8 +233,8 @@ To deploy StackState in a non-high availability setup on OpenShift:
 
 1. Before you deploy:
    * [Create the project where StackState will be installed](openshift_install.md#create-project)
-   * [Generate `values.yaml`](#generate-valuesyaml)
-   * [Create `openshift-values.yaml`](#create-openshift-valuesyaml)
+   * [Generate `values.yaml`](#generate-values.yaml)
+   * [Create `openshift-values.yaml`](#create-openshift-values.yaml)
    * [Create `nonha_values.yaml`](/setup/install-stackstate/kubernetes_install/non_high_availability_setup.md)
    * If you want to automatically install the Cluster Agent for OpenShift, [create `agent-values.yaml`](#automatically-install-the-cluster-agent-for-openshift)
 5. Deploy the latest StackState version to the `stackstate` namespace with the following command:
@@ -342,7 +345,7 @@ oc apply -f agent-scc.yaml
 After this file is applied, execute the following command as administrator to grant the service account access to this `SecurityContextConfiguration` object:
 
 ```text
-> oc adm policy add-scc-to-user stackstate-agent-scc system:serviceaccount:stackstate:stackstate-cluster-agent-agent
+> oc adm policy add-scc-to-user stackstate-agent-scc system:serviceaccount:stackstate:stackstate-agent-node-agent
 ```
 
 ## See also

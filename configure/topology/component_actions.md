@@ -4,7 +4,7 @@ description: StackState Self-hosted v5.1.x
 
 # Component actions
 
-Component Actions in StackState provide an ability to act based on various events and inputs provided by StackState monitoring capabilities. This functionality provides users with configurable Actions that can be executed from the component context menu or the right panel **Selection details** tab when detailed information about a component is displayed.
+Component Actions in StackState provide an ability to act based on various events and inputs provided by StackState monitoring capabilities. This functionality provides users with configurable **Actions** that can be executed from the component context menu or the right panel details tab when a component has been selected - **Component details**.
 
 ![Component Actions](../../.gitbook/assets/v51_actions.png)
 
@@ -29,7 +29,7 @@ There are two ways of getting Component Actions in StackState:
 1. Import of Actions predefined in a StackPack
 2. Configure a new custom Action in the Settings page
 
-Components Actions imported with a StackPack appear as locked items in the StackState UI page **Settings** &gt; **Actions** &gt; **Component Actions**. Editing a locked component action will unlock it, but this may prevent the StackPack from correct upgrades in the future. To restore the locked status of a Component Action, reinstall the StackPack that imported it.
+Component Actions imported with a StackPack appear as locked items in the StackState UI page **Settings** &gt; **Actions** &gt; **Component Actions**. Editing a locked component action will unlock it, but this may prevent the StackPack from correct upgrades in the future. To restore the locked status of a Component Action, reinstall the StackPack that imported it.
 
 Find out [how to configure Component Actions](../../develop/developer-guides/custom-functions/component-actions.md).
 

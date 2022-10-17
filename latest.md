@@ -21,15 +21,22 @@ StackState Self-hosted can be used to observe an extensive set of technologies t
 
 {% page-ref page="stackpacks/integrations/" %}
 
+{% page-ref page="setup/agent/" %}
+
 ### StackState developer
 
 {% page-ref page="develop/tutorials/" %}
+
+{% page-ref page="develop/developer-guides/" %}
+
+{% page-ref page="develop/reference/" %}
 
 ## Supported StackState versions
 
 The supported versions of StackState are listed below:
 
-* **StackState v5.0** - You are currently reading the documentation for StackState version 5.0.
+* **StackState v5.1** - You are currently reading the documentation for StackState version 5.1.
+* **StackState v5.0** - [Switch to the v5.0 docs](https://docs.stackstate.com/v/5.0/).
 * **StackState v4.6** - [Switch to the v4.6 docs](https://docs.stackstate.com/v/4.6/).
 * **StackState v4.5** - [Switch to the v4.5 docs](https://docs.stackstate.com/v/4.5/).
 
@@ -39,7 +46,7 @@ To find documentation for previous StackState versions, use the drop-down menu a
 
 ## Can't find something?
 
-**Search for it!** Use the search bar on the top right.  
+**Search for it!** Use the search bar on the top right. 
 If you believe any documentation is missing, please let us know on the [StackState support site](http://support.stackstate.com/).
 
 ## Troubleshooting and support

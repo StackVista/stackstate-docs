@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.1.x
 
 Monitors process 4T data, such as metrics, events and topology, to produce a health state for elements \(components and relations\). The states are calculated and attached to relevant topology elements by a specific monitor function that is selected by the user.
 
-Monitors are run by a dedicated subsystem of StackState called the monitor runner. The main task of the monitor runner is to schedule the execution of all existing monitors in such a way as to ensure that all of them produce viable results in a timely manner. The monitor runner is maintenance free - it starts whenever StackState starts and picks up any newly applied monitor definitions automatically whenever they are created, changed or removed. Any changes that have been applied to the monitors are reflected with the next execution cycle. 
+Monitors are run by a dedicated subsystem of StackState called the monitor runner. The main task of the monitor runner is to schedule the execution of all existing monitors in such a way as to ensure that all of them produce viable results in a timely manner. The monitor runner is maintenance free - it starts whenever StackState starts and picks up any newly applied monitor definitions automatically whenever they are created, changed or removed. Any changes that have been applied to the monitors are reflected with the next execution cycle.
 
 ## Add a monitor
 
@@ -21,7 +21,7 @@ It might be beneficial to modify an existing monitor definition to change its pa
 
 ## Make and apply changes to a monitor
 
-Monitor configuration can be changed by modifying the monitor definition. 
+Monitor configuration can be changed by modifying the monitor definition.
 
 1. Find the ID or the identifier of the monitor to be modified. For example:
    * **In the StackState UI:** Inspect the monitor definition using the context menu (...) of the [monitor result panel](/use/checks-and-monitors/monitors.md#monitor-results).
@@ -29,24 +29,24 @@ Monitor configuration can be changed by modifying the monitor definition.
 2. Export the monitor definition into a file named `path/to/export.stj`:
    * **new `sts` CLI**: `sts settings describe --ids <id-of-a-monitor> -f path/to/export.stj`
    * **`stac` CLI**: `stac monitor describe <id-or-identifier-of-a-monitor> > path/to/export.stj`[](http://not.a.link "StackState Self-Hosted only")
-3. Modify the exported file to change the monitor `parameters` or `intervalSeconds`. 
+3. Modify the exported file to change the monitor `parameters` or `intervalSeconds`.
 4. Apply the changes to the monitor:
    * **new `sts` CLI**: `sts monitor apply -f path/to/export.stj`
    * **`stac` CLI**: `stac monitor apply < path/to/export.stj`[](http://not.a.link "StackState Self-Hosted only")
 
-Once applied, the updated monitor definition will be in effect. Changes will be reflected with the next execution cycle. 
+Once applied, the updated monitor definition will be in effect. Changes will be reflected with the next execution cycle.
 
 ## Set the run interval for a monitor
 
 The monitor runner schedules monitor execution using an interval parameter that is configured on a per-monitor basis - the `intervalSeconds`. The runner will attempt to schedule a monitor execution every `intervalSeconds`, counting from the end of the previous execution cycle, in parallel to the other existing monitors (subject to resource limits). For example, setting `intervalSeconds` of a monitor definition to the value `600` will cause the monitor runner to attempt to schedule the execution of this monitor every ten minutes, assuming that the execution time itself is negligible.
 
-To set a new run interval for a monitor, adjust the `intervalSeconds` parameter in the monitor STJ definition as described in the instructions to [make and apply changes to the monitor](#make-and-apply-changes-to-a-monitor). 
+To set a new run interval for a monitor, adjust the `intervalSeconds` parameter in the monitor STJ definition as described in the instructions to [make and apply changes to the monitor](#make-and-apply-changes-to-a-monitor).
 
 For example, to run the monitor every 5 minutes, set the `intervalSeconds` to `300`:
 
 {% tabs %}
 {% tab title="Monitor STJ definition" %}
-```commandline
+```sh
 {
   "_version": "1.0.39",
   "timestamp": "2022-05-23T13:16:27.369269Z[GMT]",
@@ -75,29 +75,34 @@ For example, to run the monitor every 5 minutes, set the `intervalSeconds` to `3
 The status of a monitor can be obtained via the StackState CLI:
 
 {% tabs %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: sts (new)" %}[](http://not.a.link "StackState Self-Hosted only")
-```
+{% tab title="CLI: sts" %}[](http://not.a.link "StackState Self-Hosted only")
+{% hint style="info" %}
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endhint %}
+
+```shell
 # By ID
-sts monitor status --id <id-of-a-monitor>
+$ sts monitor status --id <id-of-a-monitor>
 # By Identifier
-sts monitor status --identifier <identifier-of-a-monitor>
+$ sts monitor status --identifier <identifier-of-a-monitor>
 ```
-
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.[](http://not.a.link "StackState Self-Hosted only")
-
-➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
-`stac monitor status <id-or-identifier-of-a-monitor>`[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: stac (deprecated)" %}[](http://not.a.link "StackState Self-Hosted only")
+{% hint style="warning" %}
+**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`. [](http://not.a.link "StackState Self-Hosted only")
-
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+{% endhint %}
+
+```shell
+$ stac monitor status <id-or-identifier-of-a-monitor>
+```
 
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
@@ -106,25 +111,87 @@ The output of this command indicates the specific errors that occurred along wit
 
 ## Preview a monitor
 
-You can use the CLI run a monitor and preview its output without persisting its results. 
+You can use the CLI run a monitor and preview its output without persisting its results.
 
 {% tabs %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: sts (new)" %}[](http://not.a.link "StackState Self-Hosted only")
-```
+{% tab title="CLI: sts" %}[](http://not.a.link "StackState Self-Hosted only")
+
+{% hint style="info" %}
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endhint %}
+
+```shell
 # By ID
-sts monitor run --id <id-of-a-monitor>
+$ sts monitor run --id <id-of-a-monitor>
 # By Identifier
-sts monitor run --identifier <identifier-of-a-monitor>
+$ sts monitor run --identifier <identifier-of-a-monitor>
+```
+{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: stac (deprecated)" %}[](http://not.a.link "StackState Self-Hosted only")
+{% hint style="warning" %}
+**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+{% endhint %}
+
+```shell
+$ stac monitor preview <id-or-identifier-of-a-monitor>
+```
+{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
+{% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
+
+## Enable/disable a single monitor
+
+{% hint style="info" %}
+When a monitor is disabled, all health states associated with the monitor will be removed, and they will no longer be visible in the StackState UI. Disabling a monitor is quite useful to debug and fix execution errors without having the monitor produce health states or errors. A disabled monitor can still be used to do a `dry-run`.
+{% endhint %}
+
+Individual monitors can be disabled using the StackState CLI. To disable/enable a monitor:
+
+1. Identify the monitor to enable/disable. This can be done by finding the monitor identifier or ID in the StackState UI or using the StackState CLI:
+   * Inspect the monitor definition available under the context menu of a monitor result panel in the StackState UI.
+   * Use the StackState CLI command `sts monitor list` to retrieve details of all monitors.
+
+2. Enable/disable the monitor using the StackState CLI:
+
+{% tabs %}[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: sts" %}[](http://not.a.link "StackState Self-Hosted only")
+```
+# Disable By ID
+sts monitor disable --id <id-of-the-monitor>
+
+# Disable By Identifier
+sts monitor disabled --identifier <identifier-of-the-monitor>
+
+
+# Enable By ID
+sts monitor enable --id <id-of-the-monitor>
+
+# Enable By Identifier
+sts monitor enable --identifier <identifier-of-the-monitor>
+
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.[](http://not.a.link "StackState Self-Hosted only")
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.[](http://not.a.link "StackState Self-Hosted only")
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
-`stac monitor preview <id-or-identifier-of-a-monitor>`[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: stac (deprecated)" %}[](http://not.a.link "StackState Self-Hosted only")
+```
+# Disable a monitor
+stac monitor disable <id-or-identifier-of-the-monitor>
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`. [](http://not.a.link "StackState Self-Hosted only")
+# Enable a monitor
+stac monitor enable <id-or-identifier-of-the-monitor>
+```
+
+⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.** [](http://not.a.link "StackState Self-Hosted only")
 
 In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
 
@@ -135,38 +202,45 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 
-## Disable a single monitor
+## Delete a single monitor
 
 {% hint style="info" %}
-When a monitor is disabled (removed), all health states associated with the monitor will also be removed and they will no longer be visible in the StackState UI.
+A deleted monitor will be entirely removed from StackState. When a monitor is deleted, all health states associated with the monitor will also be removed, and they will no longer be visible in the StackState UI.
+
+You can also [disable a monitor](#enable-disable-a-single-monitor) to stop it running and producing health states without the need to completely delete it.
 {% endhint %}
 
-Monitors can be disabled by removing them. Once a monitor to be disabled is identified, either by inspecting the definition of a monitor available under the context menu of a monitor result panel, or otherwise by obtaining the Monitors identifier, a dedicated CLI command can be used to remove it:
+To delete a monitor and remove it from StackState, use the StackState CLI:
 
 {% tabs %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: sts (new)" %}[](http://not.a.link "StackState Self-Hosted only")
-```
+{% tab title="CLI: sts" %}[](http://not.a.link "StackState Self-Hosted only")
+{% hint style="info" %}
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
+{% endhint %}
+
+```shell
 # By ID
-sts monitor delete --id <id-of-the-monitor>
+$ sts monitor delete --id <id-of-the-monitor>
 # By Identifier
-sts monitor delete --identifier <identifier-of-the-monitor>
+$ sts monitor delete --identifier <identifier-of-the-monitor>
 ```
-
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.[](http://not.a.link "StackState Self-Hosted only")
-
-➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
-`stac monitor delete --identifier <identifier-of-the-monitor>`[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: stac (deprecated)" %}[](http://not.a.link "StackState Self-Hosted only")
+{% hint style="warning" %}
+**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`. [](http://not.a.link "StackState Self-Hosted only")
-
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+{% endhint %}
 
+```shell
+$ stac monitor delete --identifier <identifier-of-the-monitor>
+```
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 

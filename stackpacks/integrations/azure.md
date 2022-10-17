@@ -24,7 +24,7 @@ Azure is a [StackState curated integration](/stackpacks/integrations/about_integ
 
 * The StackState Azure Agent is [a collection of Azure functions](azure.md#stackstate-azure-functions) that connect to the [Azure APIs](azure.md#rest-api-endpoints) at a configured interval to collect information about available resources.
   * `TimedStart` triggers data collection every 2 hours.
-  * `EventHubChangesFunction` collects the deltas.  
+  * `EventHubChangesFunction` collects the deltas. 
   * `SendToStackState` pushes [retrieved data](azure.md#data-retrieved) to StackState.
 * StackState translates incoming data into topology components and relations.
 * The StackState Azure plugin pulls available telemetry data per resource on demand from Azure, for example when a component is viewed in the StackState UI or when a health check is run on the telemetry stream.
@@ -37,12 +37,12 @@ Azure is a [StackState curated integration](/stackpacks/integrations/about_integ
 To set up the StackState Azure integration, you need to have:
 
 * PowerShell version &gt;= 5.0 or Bash.
-* The [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+* The [Azure CLI \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
 * A Resource Group where the StackState resources can be deployed. We recommend that you create a separate resource group for all the resources related to StackState.
 * An Azure Service Principal \(SPN\) for the StackState Azure Agent with the following permissions:
   * `Contributor` role for the StackPack Resource Group to deploy and delete resources.
   * `Reader` role for each of the subscriptions the StackPack instance will monitor.
-* If StackState is installed on premise and behind a firewall, the [IP addresses used by Azure monitor \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/azure/azure-monitor/app/ip-addresses) need to be reachable.
+* If StackState is installed on premise and behind a firewall, the [IP addresses used by Azure monitor \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/azure/azure-monitor/app/ip-addresses) need to be reachable.
 * StackState should not be configured to use a [custom trust store](/configure/security/self-signed-certificates.md).
 
 ### Install StackPack
@@ -50,9 +50,9 @@ To set up the StackState Azure integration, you need to have:
 Install the Azure StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
 
 * **Azure instance name** - the user-defined name of the Azure instance shown in configurations such as views.
-* **Client Id** - the client id of the Azure Service Principal.
+* **Client Id** - the client ID of the Azure Service Principal.
 * **Client Secret** - the client secret used to authenticate the client.
-* **Tenant Id** - the Id of the Azure Tenant / Active Directory.
+* **Tenant Id** - the ID of the Azure Tenant / Active Directory.
 
 ### Deploy Azure Agent
 
@@ -253,6 +253,6 @@ To do so, you can use the scripts in the manual installation zip file you downlo
 ## See also
 
 * [Troubleshooting the Azure StackPack](https://support.stackstate.com/hc/en-us/articles/360016450300-Troubleshooting-StackState-Azure-StackPack)
-* [Service principals in Azure \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)
-* [IP addresses used by Azure monitor \(docs.microsoft.com\)](https://docs.microsoft.com/en-us/azure/azure-monitor/app/ip-addresses)
+* [Service principals in Azure \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)
+* [IP addresses used by Azure monitor \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/azure/azure-monitor/app/ip-addresses)
 

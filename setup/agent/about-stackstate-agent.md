@@ -2,27 +2,22 @@
 description: StackState Self-hosted v5.1.x 
 ---
 
-# About the StackState Agent
+# About StackState Agent V2
 
 ## Overview
 
-The StackState Agent functions as a collector and gateway. It connects to external systems to retrieve data and pushes this to StackState.
+StackState Agent V2 functions as a collector and gateway. It connects to external systems to retrieve data and pushes this to StackState.
 
 ## About the Agent
 
 ### Architecture
 
-StackState Agent V2 can be run on Linux or Windows systems or inside a Docker container. It is not necessary to deploy the StackState Agent on every machine to retrieve data. Each deployed StackState Agent can run multiple checks to collect data from different external systems.
+StackState Agent V2 can be run on Linux or Windows systems or inside a Docker container. It is not necessary to deploy StackState Agent V2 on every machine to retrieve data. Each deployed StackState Agent can run multiple checks to collect data from different external systems.
 
 ![StackState Agent architecture](../../.gitbook/assets/stackstate-agent.svg)
 
 * In [Docker Swarm mode](docker.md#docker-swarm-mode), the Cluster Agent is deployed on the manager node and one Agent on each node.
-* On [Kubernetes or OpenShift](kubernetes.md) clusters, a single Cluster Agent is deployed per cluster and one Agent on each node. The ClusterCheck Agent can optionally be deployed to run checks that are configured on the Cluster Agent.
-
-{% hint style="success" "self-hosted info" %}
-
-The [API Integration Agent \(Legacy\)](agent-v1.md) can be run on Linux.
-{% endhint %}
+* On [Kubernetes or OpenShift](kubernetes.md) clusters, a single Cluster Agent is deployed per cluster and one Agent on each node. The Checks Agent runs checks that are configured on the Cluster Agent.
 
 ### Integrations
 
@@ -38,7 +33,7 @@ StackState Agent V2 is open source and can be found on GitHub at: [https://githu
 
 ### Processes and overhead
 
-StackState Agent V2 consists of up to four different processes - `stackstate-agent`, `trace-agent`, `process-agent` and `cluster-agent`. To run the basic Agent, the resources named below are required. These were observed running StackState Agent V2 v2.13.0 on a c5.xlarge instance with 4 vCPU cores and 8GB RAM. They give an indication of the overhead for the most simple set up. Actual resource usage will increase based on the Agent configuration running. This can be impacted by factors such as the Agent processes that are enabled, the number and nature of checks running, whether network connection tracking and protocol inspection are enabled, and the number of Kubernetes pods from which metrics are collected on the same host as the Agent.
+StackState Agent V2 consists of up to four different processes - `stackstate-agent`, `trace-agent`, `process-agent` and `cluster-agent`. To run the basic Agent, the resources named below are required. These were observed running StackState Agent V2 (v2.13.0) on a c5.xlarge instance with 4 vCPU cores and 8GB RAM. They give an indication of the overhead for the most simple set up. Actual resource usage will increase based on the Agent configuration running. This can be impacted by factors such as the Agent processes that are enabled, the number and nature of checks running, whether network connection tracking and protocol inspection are enabled, and the number of Kubernetes pods from which metrics are collected on the same host as the Agent.
 
 {% tabs %}
 {% tab title="stackstate-agent" %}
@@ -83,19 +78,19 @@ Deployment instructions, commands to work with StackState Agent V2 and other pla
 
 #### Receiver API address
 
-StackState Agent connects to the StackState Receiver API at the configured address.
+StackState Agent connects to the StackState Receiver API at the configured `<STACKSTATE_RECEIVER_API_ADDRESS>`.
 
 {% tabs %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="Kubernetes" %}[](http://not.a.link "StackState Self-Hosted only")
-For StackState running on Kubernetes, the Receiver API is hosted by default at:[](http://not.a.link "StackState Self-Hosted only")
+For StackState running on Kubernetes or OpenShift, the `<STACKSTATE_RECEIVER_API_ADDRESS>` is by default:[](http://not.a.link "StackState Self-Hosted only")
 
 `https://<STACKSTATE_BASE_URL>/receiver/stsAgent`[](http://not.a.link "StackState Self-Hosted only")
 
-The `<STACKSTATE_BASE_URL>` is set during StackState installation. For details see [Kubernetes install - configuration parameters](../../setup/install-stackstate/kubernetes_install/install_stackstate.md#generate-valuesyaml "StackState Self-Hosted only").
+The `<STACKSTATE_BASE_URL>` is set during StackState installation. For details see [Kubernetes install - configuration parameters](../../setup/install-stackstate/kubernetes_install/install_stackstate.md#generate-values.yaml "StackState Self-Hosted only").
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 
 {% tab title="Linux" %}[](http://not.a.link "StackState Self-Hosted only")
-For StackState running on Linux, the Receiver API is hosted by default at:[](http://not.a.link "StackState Self-Hosted only")
+For StackState running on Linux, the `<STACKSTATE_RECEIVER_API_ADDRESS>` is by default:[](http://not.a.link "StackState Self-Hosted only")
 
 `https://<STACKSTATE_RECEIVER_BASE_URL>/stsAgent`[](http://not.a.link "StackState Self-Hosted only")
 
@@ -103,7 +98,7 @@ The `<STACKSTATE_RECEIVER_BASE_URL>` is set during StackState installation. For 
 
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="StackState SaaS" %}[](http://not.a.link "StackState Self-Hosted only")
-For the StackState SaaS product, the StackState Receiver API address will be provided on the StackState UI Agent StackPack page after the StackPack has been installed.
+For the StackState SaaS product, the StackState Receiver API address will be provided on the StackState UI Agent V2 StackPack page after the StackPack has been installed.
 
 [➡️ Go to the StackState SaaS product documentation](https://docs.stackstate.com/v/stackstate-saas/ "StackState Self-Hosted only")
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
@@ -154,4 +149,4 @@ Release notes for StackState Agent V2 can be found on GitHub at: [https://github
 
 * [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md)
 * [StackState integrations](../../stackpacks/integrations/)
-* [StackState Agent V1 \(Legacy\)](agent-v1.md "StackState Self-Hosted only")
+* [StackState Agent V1 \(legacy\)](agent-v1.md "StackState Self-Hosted only")

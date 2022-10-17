@@ -258,9 +258,9 @@ The example below shows a check function that listens to anomaly events. The fun
 
 ## See also
 
-* [Send notifications in response to events](/use/stackstate-ui/views/manage-event-handlers.md)
+* [Send notifications in response to events](/use/events/manage-event-handlers.md)
 * [Add a health check to a component or relation](../../../use/checks-and-monitors/add-a-health-check.md)
-* [Telemetry streams](../../../use/metrics-and-events/telemetry_streams.md)
+* [Telemetry streams](../../../use/metrics/telemetry_streams.md)
 * [Autonomous Anomaly Detector](../../../stackpacks/add-ons/aad.md)
 * [StackPack development](../stackpack/)
 

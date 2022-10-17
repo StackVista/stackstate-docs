@@ -16,7 +16,7 @@ To address this issue, you can copy all the images to a single registry close to
 
 1. Set up a registry close to your Kubernetes cluster.
    * For Amazon Elastic Kubernetes Service (EKS), use [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/).
-   * For Azure Kubernetes Service (AKS), use [Azure Container Registry (ACR)](https://azure.microsoft.com/en-us/services/container-registry/).
+   * For Azure Kubernetes Service (AKS), use [Azure Container Registry (ACR) \(azure.microsoft.com\)](https://azure.microsoft.com/en-us/products/container-registry/).
 2. Use the relevant script to copy all the images used by the Helm chart to the new registry:
    * **StackState:** [stackstate/installation/copy_images.sh \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation) to copy all the images used by the Helm chart to the new registry
    * **StackState Agent:** [cluster-agent/installation/copy_images.sh \(github.com\)](https://github.com/StackVista/helm-charts/blob/master/stable/cluster-agent/installation/copy_images.sh)
@@ -73,33 +73,34 @@ To address this issue, you can copy all the images to a single registry close to
 
 The images listed below are used in StackState v5.0.0:
 
-* quay.io/stackstate/container-tools:1.1.3
-* quay.io/stackstate/elasticsearch:7.17.2-sts.20220425.0743
-* quay.io/stackstate/envoy-alpine:v1.19.1-sts.20211207.0748
-* quay.io/stackstate/hadoop:2.10.1-java11-5-20220503082249
-* quay.io/stackstate/hbase-master:4.6.7
-* quay.io/stackstate/hbase-regionserver:4.6.7
-* quay.io/stackstate/jmx-exporter:0.15.0-focal-20220316-r138.20220405.1513
-* quay.io/stackstate/kafka:2.8.0-focal-20220316-r108.20220405.1511
-* quay.io/stackstate/kafka:2.8.1-focal-20220316-r90.20220405.1508
-* quay.io/stackstate/kafkaup-operator:0.0.1
-* quay.io/stackstate/minio:2021.2.19-focal-20220316-r5.20220405.1533
-* quay.io/stackstate/nginx-prometheus-exporter:0.9.0
-* quay.io/stackstate/spotlight:5.0.0
-* quay.io/stackstate/stackstate-correlate-stable:5.0.0
-* quay.io/stackstate/stackstate-kafka-to-es-stable:5.0.0
-* quay.io/stackstate/stackstate-receiver-stable:5.0.0
-* quay.io/stackstate/stackstate-server-stable:5.0.0
-* quay.io/stackstate/stackstate-ui-stable:5.0.0
-* quay.io/stackstate/tephra-server:4.6.7
-* quay.io/stackstate/wait:1.0.6
-* quay.io/stackstate/zookeeper:3.6.3-focal-20220316-r302.20220411.1232
+* quay.io/stackstate/container-tools:1.1.4
+* quay.io/stackstate/elasticsearch-exporter:v1.2.1-2738680411
+* quay.io/stackstate/elasticsearch:7.17.2-2738749846
+* quay.io/stackstate/envoy:v1.19.1-2738711656
+* quay.io/stackstate/hadoop:2.10.1-java11-6-2738734712
+* quay.io/stackstate/hbase-master:4.9.1
+* quay.io/stackstate/hbase-regionserver:4.9.1
+* quay.io/stackstate/jmx-exporter:0.17.0-2738680727
+* quay.io/stackstate/kafka:2.8.1-2738720666
+* quay.io/stackstate/kafkaup-operator:0.0.2
+* quay.io/stackstate/minio:RELEASE.2021-02-14T04-01-33Z-3118065624
+* quay.io/stackstate/nginx-prometheus-exporter:0.9.0-2738682730
+* quay.io/stackstate/spotlight:5.1.0
+* quay.io/stackstate/stackgraph-console:4.9.1
+* quay.io/stackstate/stackstate-correlate-stable:5.1.0
+* quay.io/stackstate/stackstate-kafka-to-es-stable:5.1.0
+* quay.io/stackstate/stackstate-receiver-stable:5.1.0
+* quay.io/stackstate/stackstate-server-stable:5.1.0
+* quay.io/stackstate/stackstate-ui-stable:5.1.0
+* quay.io/stackstate/tephra-server:4.9.1
+* quay.io/stackstate/wait:1.0.7-2755960650
+* quay.io/stackstate/zookeeper:3.6.3-2738717608
 
 ### StackState Agent, Cluster Agent and kube-state-metrics
 
-The images listed below are used in StackState Agent v2.17.2:
+The images listed below are used in StackState Agent v2.18.0:
 
 * quay.io/stackstate/kube-state-metrics:2.3.0-focal-20220316-r61.20220418.2032
-* quay.io/stackstate/stackstate-agent-2:2.17.2
-* quay.io/stackstate/stackstate-cluster-agent:2.17.2
+* quay.io/stackstate/stackstate-agent-2:2.18.0
+* quay.io/stackstate/stackstate-cluster-agent:2.18.0
 * quay.io/stackstate/stackstate-process-agent:4.0.7

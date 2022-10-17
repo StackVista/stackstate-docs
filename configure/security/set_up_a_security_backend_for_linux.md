@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Self-hosted v5.1.x
 ---
 
 # Set up a security backend for Linux
@@ -22,7 +22,7 @@ The executable respects a simple API that reads JSON structures from the standar
 
 The executable receives a JSON payload from the standard input, containing the list of secrets to fetch:
 
-```text
+```json
 {
   "version": "1.0",
   "secrets": ["secret1", "secret2"]
@@ -36,7 +36,7 @@ The executable receives a JSON payload from the standard input, containing the l
 
 The executable is expected to output to the standard output a JSON payload containing the:
 
-```text
+```json
 {
   "secret1": {
     "value": "secret_value",
@@ -58,7 +58,7 @@ The expected payload is a JSON object, where each key is one of the handles requ
 
 The following is a dummy implementation of the secret reader that is prefixing every secret with `decrypted_`:
 
-```text
+```golang
 package main
 
 import (
@@ -101,7 +101,7 @@ func main() {
 
 Above example updates the following configuration \(from the check file\):
 
-```text
+```yaml
 instances:
   - server: db_prod
     user: ENC[db_prod_user]
@@ -110,7 +110,7 @@ instances:
 
 into this in the Agent's memory:
 
-```text
+```yaml
 instances:
   - server: db_prod
     user: decrypted_db_prod_user
@@ -125,7 +125,7 @@ The `secret` command in the Agent CLI shows any errors related to your setup. Fo
 
 On Linux, the command outputs file mode, owner and group for the executable. Example:
 
-```text
+```sh
 $> stackstate-agent secret
 === Checking executable rights ===
 Executable path: /path/to/you/executable
@@ -148,8 +148,8 @@ Secrets handle decrypted:
 
 To quickly see how the check’s configurations are resolved, you can use the `configcheck` command:
 
-```text
-sudo -u stackstate-agent -- stackstate-agent configcheck
+```sh
+$ sudo -u stackstate-agent -- stackstate-agent configcheck
 
 === a check ===
 Source: File Configuration Provider
@@ -176,9 +176,9 @@ password: <decrypted_password2>
 
 To test or debug outside of the Agent, you can mimic how the Agent runs it:
 
-```text
+```sh
 sudo su stackstate-agent - bash -c "echo '{\"version\": \"1.0\", \"secrets\": [\"secret1\", \"secret2\"]}' | /path/to/the/secret_backend_command"
 ```
 
-The stackstate-agent user is created when you install the StackState Agent.
+The stackstate-agent user is created when you install StackState Agent V2.
 

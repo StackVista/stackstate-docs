@@ -17,7 +17,7 @@ If telemetry data is not available in StackState, follow the steps below to pinp
 The first step in troubleshooting a telemetry issue is to identify if all metrics are missing or just specific metrics from a single integration. To do this: 
 
 1. Click through the topology in the StackState UI to check which components have telemetry available. If telemetry is missing for a single integration only, this will be clear in the elements and views associated with this integration. 
-2. Open the [telemetry inspector](/use/metrics-and-events/browse-telemetry.md) and adjust the selected metric and filters to check if any telemetry data is available.
+2. Open the [telemetry inspector](/use/metrics/browse-telemetry.md) and adjust the selected metric and filters to check if any telemetry data is available.
    * Metrics from all integrations that run through StackState Agent (push-based) can be found in the data source **StackState Metrics**. 
    * Metrics from integrations that run through StackState plugins or the Prometheus mirror (pull-based) can be found in the associated data source that has been configured in the StackState Settings. 
 
@@ -68,12 +68,12 @@ For integrations that run through StackState Agent, StackState Agent is a good p
 
 Note that for the Kubernetes and OpenShift integrations, different Agent types supply different sets of metrics. 
 
-- **StackState Agents (node Agents):** Supply metrics from the node on which they are deployed only. If cluster checks are not enabled, this will include metrics from kube-state-metrics if it is deployed on the same node.
-- **ClusterCheck Agent:** When cluster checks are enabled, supplies metrics from kube-state-metrics.
+- **StackState Agents (node Agents):** Supplies metrics from the node on which they are deployed on. If the Checks Agent is disabled, the node agent will collect metrics from kube-state-metrics instead of the Checks Agent.
+- **Checks Agent:** Supplies metrics from kube-state-metrics.
 
 ### StackState Receiver
 
-The StackState Receiver receives JSON data from the StackState Agent. 
+The StackState Receiver receives JSON data from StackState Agent V2. 
 
 - Check the [StackState Receiver logs](#stackstate) for JSON deserialization errors..
 
@@ -81,14 +81,14 @@ The StackState Receiver receives JSON data from the StackState Agent.
 
 Telemetry data from push-based integrations is stored in an Elasticsearch index. The naming of the fields within the index is entirely based on the data retrieved from the external source system.
 
-- Use the [telemetry inspector](/use/metrics-and-events/browse-telemetry.md) to check which data is available in Elasticsearch by selecting the data source `StackState Multi Metrics`. All metrics available in the selected data source are listed under **Select**.  Note that if no data is available for a telemetry stream, the telemetry inspector can still be opened by selecting **inspect** from the context menu (the triple dots menu in the top-right corner of the telemetry stream). 
+- Use the [telemetry inspector](/use/metrics/browse-telemetry.md) to check which data is available in Elasticsearch by selecting the data source `StackState Multi Metrics`. All metrics available in the selected data source are listed under **Select**. Note that if no data is available for a telemetry stream, the telemetry inspector can still be opened by selecting **inspect** from the context menu (the triple dots menu in the top-right corner of the telemetry stream). 
 - If the expected data is not in Elasticsearch, check the [KafkaToES log](#stackstate) for errors.
 
 ### Telemetry stream configuration
 
 To add telemetry to an element, the filters specified for each telemetry stream attached to an element are used to build a query. For push-based synchronizations, Elasticsearch is queried to retrieve the associated telemetry data. For pull-based synchronizations, the associated StackState plugin queries the external data source directly. 
 
-In the StackState UI, [open the telemetry inspector](/use/metrics-and-events/browse-telemetry.md) to see details of the applied filters:
+In the StackState UI, [open the telemetry inspector](/use/metrics/browse-telemetry.md) to see details of the applied filters:
 
 - Check that data is available for the selected filters. An update to an external system may result in a change to the name applied to metrics in Elasticsearch or no results being returned when the external data source is queried.
 - Use auto-complete to select the filters. This ensures that the correct names are entered.
@@ -127,7 +127,7 @@ The following log files may be useful when debugging telemetry synchronization:
 
 ### StackState Agent
 
-For details of the StackState Agent log files, see the platform-specific Agent pages:
+For details of StackState Agent V2 log files, see the platform-specific Agent pages:
 
 * [StackState Agent V2 on Docker](/setup/agent/docker.md#log-files)
 * [StackState Agent V2 on Kubernetes](/setup/agent/kubernetes.md#log-files)
@@ -137,5 +137,5 @@ For details of the StackState Agent log files, see the platform-specific Agent p
 ## See also
 
 * [Working with StackState log files](/configure/logging/README.md)
-* [Browse telemetry](/use/metrics-and-events/browse-telemetry.md)
-* [Add a telemetry stream to an element](/use/metrics-and-events/add-telemetry-to-element.md)
+* [Browse telemetry](/use/metrics/browse-telemetry.md)
+* [Add a telemetry stream to an element](/use/metrics/add-telemetry-to-element.md)

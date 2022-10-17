@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Self-hosted v5.1.x
 ---
 
 # Debug topology synchronization
@@ -19,24 +19,24 @@ A topology synchronized using StackState Agent follows the process described bel
    * Connects to the StackState Receiver to push collected data to StackState (in JSON format).
    * Read the [troubleshooting steps for StackState Agent](#stackstate-agent).
 2. StackState Receiver:
-   * Extracts topology and telemetry payloads from the received JSON. 
-   * Puts messages on the Kafka bus. 
+   * Extracts topology and telemetry payloads from the received JSON.
+   * Puts messages on the Kafka bus.
    * Read the [troubleshooting steps for StackState Receiver](#stackstate-receiver).
 3. Kafka:
    * Stores received data in topics.
    * Read the [troubleshooting steps for Kafka](#kafka).
 4. Synchronization:
-   * Reads data from a topic as it becomes available on the Kafka bus. 
-   * Processes retrieved data. 
+   * Reads data from a topic as it becomes available on the Kafka bus.
+   * Processes retrieved data.
    * Read the [troubleshooting steps for synchronization](#synchronization).
 
 ## Troubleshooting steps
 
-1. Confirm that a custom synchronization is running: 
-   - Use the `stac` CLI to [list all topology synchronization streams](debug-topology-synchronization.md#list-all-topology-synchronization-streams). 
-   - The synchronization should be included in the list and have created components/relations. 
+1. Confirm that a custom synchronization is running:
+   - Use the `stac` CLI to [list all topology synchronization streams](debug-topology-synchronization.md#list-all-topology-synchronization-streams).
+   - The synchronization should be included in the list and have created components/relations.
    - If a custom synchronization is not listed, you will need to [recreate the synchronization](/configure/topology/sync.md).
-2. If no components appear after making changes to a synchronization, or the data is not as expected, follow the steps described in the sections below to check each step in the [topology synchronization process](#topology-synchronization-process). 
+2. If no components appear after making changes to a synchronization, or the data is not as expected, follow the steps described in the sections below to check each step in the [topology synchronization process](#topology-synchronization-process).
 3. If relations are missing from the topology, read the note on [troubleshooting synchronization of relations](#relations).
 
 ### StackState Agent
@@ -47,9 +47,9 @@ For integrations that run through StackState Agent, StackState Agent is a good p
 
 ### StackState Receiver
 
-The StackState Receiver receives JSON data from the StackState Agent. 
- 
-- Check the StackState Receiver logs for JSON deserialization errors. 
+The StackState Receiver receives JSON data from StackState Agent V2.
+
+- Check the StackState Receiver logs for JSON deserialization errors.
 
 ### Kafka
 
@@ -64,13 +64,13 @@ Use the `stac` CLI to list the topics on Kafka and check the messages on a topic
 The StackState topology synchronization reads messages from a topic on the Kafka data bus. The Kafka topic used by a synchronization is defined in the Sts data source.
 
 - Check if the topic name defined in the Sts data source matches what is returned by the `stackstate-agent check` command. Note that topic names are case-sensitive.
-- Check the error counter for the synchronization on the StackState UI page **Settings** > **Topology Synchronization** > **Synchronizations**. Increasing numbers tell you that there was an error while processing received data. 
-  
+- Check the error counter for the synchronization on the StackState UI page **Settings** > **Topology Synchronization** > **Synchronizations**. Increasing numbers tell you that there was an error while processing received data.
+
 ![Synchronization errors](/.gitbook/assets/settings_synchronizations.png)
 
 To troubleshoot processing errors, refer to the relevant StackState log files. The provided log messages will help you to resolve the issue. For details on working with the StackState log files on Kubernetes and Linux see the pages under [Configure > Logging](/configure/logging/README.md).
 
-- Check the `stackstate.log` or, for Kubernetes, the `stackstate-api` pod. 
+- Check the `stackstate.log` or, for Kubernetes, the `stackstate-api` pod.
   - If there is an issue with the ID extractor, an exception will be logged here on each received topology element. No topology will be synchronized, however, the synchronization’s error counter will **not** increase.
 
 - Check the synchronization’s specific log file or, for Kubernetes, the `stackstate-sync` pod for log messages that include the synchronization’s name.
@@ -135,7 +135,7 @@ There is a log file for each StackPack. The name of the log file is set to the S
 Returns a list of all current topology synchronization streams.
 
 {% tabs %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 
 ```javascript
 # List streams
@@ -148,27 +148,27 @@ stac topology list
 144667609743389  urn:stackpack:stackstate:instance:44a9ce1e-413c-4c4c-819d-2095c1229dda:sync:stackstate   Running                  13599                  5496                    0                    0       329
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`. 
+⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
 
 {% endtab %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
 Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 {% endtab %}
 {% endtabs %}
 
-### Show status of a stream 
+### Show status of a stream
 
 Shows the data of a specific topology synchronization stream, including detailed latency of the data being processed. The `id` might be either a `node id` or the identifier of a topology synchronization. The search gives priority to the `node id`.
 
 {% tabs %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 
 ```javascript
 # Show a topology synchronization status
@@ -183,16 +183,16 @@ metric               value between now and 500 seconds ago  value between 500 an
 latency (Seconds)                                   35.754  ---                                       ---
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
+⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
 
 {% endtab %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
 Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 {% endtab %}

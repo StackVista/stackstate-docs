@@ -36,7 +36,7 @@ To enable the Nagios check and begin collecting data from your Nagios instance:
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/nagios.d/conf.yaml`:
    * Include details of your Nagios instance: 
      * **nagios\_conf** - path to the `nagios.cfg` file
-   * By default the Nagios check will not collect any metrics. To enable data collection, set one or both of the following to **True**:
+   * By default, the Nagios check will not collect any metrics. To enable data collection, set one or both of the following to **True**:
 
      * **collect\_host\_performance\_data**
      * **collect\_service\_performance\_data**.
@@ -53,7 +53,7 @@ To enable the Nagios check and begin collecting data from your Nagios instance:
        collect_host_performance_data: True      # default is False
        collect_service_performance_data: True   # default is False
      ```
-2. [Restart the StackState Agent\(s\)](../../setup/agent/about-stackstate-agent.md#deployment) to publish the configuration changes.
+2. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to publish the configuration changes.
 3. Once the Agent is restarted, wait for the Agent to collect data and send it to StackState.
 
 ## Permissions for Nagios files

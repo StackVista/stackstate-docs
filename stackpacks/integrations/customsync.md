@@ -18,5 +18,5 @@ Read up on [configuring synchronizations](../../configure/topology/sync.md), fol
 
 ## Open-source
 
-The Custom Synchronization StackPack is open-source and can be found [on StackState's github page](https://github.com/StackVista/stackpack-autosync).
+The Custom Synchronization StackPack is open-source and can be found [on StackState's gitHub page](https://github.com/StackVista/stackpack-autosync).
 

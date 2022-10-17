@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.1.x
 
 Reacting to each event in an environment can cause a lot of noise. This may be both undesirable and unnecessary. For example, if one or multiple components have an impact on a service, it can be sufficient to report on changes to the problem itself and not each related state change.
 
-StackState can reduce this noise by looking at the overall health state of a **view** rather than that of individual elements. The view health state is determined by the combined health of its elements. When a view changes its health state, a view state change event is triggered and that can in turn trigger an event notification or automated action.
+StackState can reduce this noise by looking at the overall [health state of a view](/use/concepts/health-state.md#view-health-state) rather than that of individual elements. The view health state is determined by the combined health of its elements. When a view changes its health state, a view state change event is triggered and that can in turn trigger an [event notification](/use/events/event-notifications.md) or automated action.
 
 ![Views list with view health state](../../../.gitbook/assets/v51_views_list.png)
 
@@ -36,7 +36,7 @@ View health state is calculated by a **view state configuration function**. To c
 
 ## React to view state changes
 
-When the View health state changes, a `ViewHealthStateChangedEvent` is generated. This event can be used to trigger an [event notification](../../metrics-and-events/event-notifications.md), such as an e-mail or Slack message.
+When the View health state changes, a `ViewHealthStateChangedEvent` is generated. This event can be used to trigger an [event notification](../../events/event-notifications.md), such as an e-mail or Slack message.
 
 ## View health state configuration functions
 
@@ -62,6 +62,6 @@ Use the **MINIMUM HEALTH STATES** view health state configuration as a starting 
 ## See also
 
 * [Add a health check](../../checks-and-monitors/add-a-health-check.md)
-* [Send event notifications when a health state changes](/use/stackstate-ui/views/manage-event-handlers.md)
+* [Send event notifications when a health state changes](/use/events/manage-event-handlers.md)
 * [Customize the view state configuration](../../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md "StackState Self-Hosted only")
 * [Create a custom view health state configuration function](../../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#create-a-custom-view-health-state-configuration-function "StackState Self-Hosted only")

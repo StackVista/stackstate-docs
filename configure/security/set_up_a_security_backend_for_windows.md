@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Self-hosted v5.1.x
 ---
 
 # Set up a security backend for Windows
@@ -26,7 +26,7 @@ The executable respects a simple API that reads JSON structures from the standar
 
 The executable receives a JSON payload from the standard input, containing the list of secrets to fetch:
 
-```text
+```json
 {
   "version": "1.0",
   "secrets": ["secret1", "secret2"]
@@ -40,7 +40,7 @@ The executable receives a JSON payload from the standard input, containing the l
 
 The executable is expected to output to the standard output a JSON payload containing the:
 
-```text
+```json
 {
   "secret1": {
     "value": "secret_value",
@@ -62,7 +62,7 @@ The expected payload is a JSON object, where each key is one of the handles requ
 
 The following is a dummy implementation of the secret reader that is prefixing every secret with `decrypted_`:
 
-```text
+```golang
 package main
 
 import (
@@ -105,7 +105,7 @@ func main() {
 
 Above example updates the following configuration \(from the check file\):
 
-```text
+```yaml
 instances:
   - server: db_prod
     user: ENC[db_prod_user]
@@ -114,7 +114,7 @@ instances:
 
 into this in the Agent's memory:
 
-```text
+```yaml
 instances:
   - server: db_prod
     user: decrypted_db_prod_user
@@ -129,7 +129,7 @@ The `secret` command in the Agent CLI shows any errors related to your setup. Fo
 
 The command outputs ACL rights for the executable, as in the example from an Administrator PowerShell below:
 
-```text
+```sh
 PS C:\> & '%PROGRAMFILES%\StackState\StackState Agent\embedded\agent.exe' secret
 === Checking executable rights ===
 Executable path: C:\path\to\you\executable.exe
@@ -182,7 +182,7 @@ Secrets handle decrypted:
 
 #### Testing your executable
 
-Your executable is executed by the Agent V2 when fetching your secrets. The StackState Agent V2 runs using the stsagentuser. This user has no specific rights, but it is part of the Performance Monitor Users group. The password for this user is randomly generated at install time and is never saved anywhere.
+Your executable is executed by the Agent V2 when fetching your secrets. StackState Agent V2 runs using the stsagentuser. This user has no specific rights, but it is part of the Performance Monitor Users group. The password for this user is randomly generated at install time and is never saved anywhere.
 
 This means that your executable might work with your default user or development user — but not when it is run by the Agent, since stsagentuser has more restricted rights.
 
@@ -200,11 +200,11 @@ To do so, follow steps below:
 
 3. Update the password to be used by StackStateAgent service in the Service Control Manager. In PowerShell, run:
 
-   ```text
-      sc.exe config StackStateAgent password= "a_new_password"
+   ```sh
+      $> sc.exe config StackStateAgent password= "a_new_password"
    ```
 
-You can now login as stsagentuser to test your executable. StackState has a PowerShell script to help you test your executable as another user. It switches user contexts and mimics how the Agent runs your executable. Usage example:
+You can now log in as stsagentuser to test your executable. StackState has a PowerShell script to help you test your executable as another user. It switches user contexts and mimics how the Agent runs your executable. Usage example:
 
 ```text
 .\secrets_tester.ps1 -user stsagentuser -password a_new_password -executable C:\path\to\your\executable.exe -payload '{"version": "1.0", "secrets": ["secret_ID_1", "secret_ID_2"]}'

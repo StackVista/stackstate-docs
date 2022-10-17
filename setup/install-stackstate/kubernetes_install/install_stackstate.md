@@ -28,7 +28,7 @@ helm repo update
 ## Install StackState
 
 1. [Create the namespace where StackState will be installed](install_stackstate.md#create-namespace)
-2. [Generate the `values.yaml` file](install_stackstate.md#generate-valuesyaml)
+2. [Generate the `values.yaml` file](install_stackstate.md#generate-values.yaml)
 3. [Deploy StackState with Helm](install_stackstate.md#deploy-stackstate-with-helm)
 4. [Access the StackState UI](install_stackstate.md#access-the-stackstate-ui)
 
@@ -66,11 +66,11 @@ The script requires the following configuration items:
 
 | Configuration | Flag | Description                                                                                                                                                                                                                                                                                                                                                                                 |
 | :--- | :--- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Base URL | `-b` | The `<STACKSTATE_BASE_URL>`. The external URL for StackState that users and agents will use to connect. For example `https://stackstate.internal`.  If you haven't decided on an Ingress configuration yet, use `http://localhost:8080`. This can be updated later in the generated file.                                                                                                   |
-| Username and password\*\* | `-u` `-p` | The username and password used by StackState to pull images from quay.io/stackstate repositories.                                                                                                                                                                                                                                                                                           |
-| License key | `-l` | The StackState license key.                                                                                                                                                                                                                                                                                                                                                                 |
-| Admin API password | `-a` | The password for the admin API. Note that this API contains system maintenance functionality and should only be accessible by the maintainers of the StackState installation. This can be omitted from the command line, the script will prompt for it.                                                                                                                                     |
-| Default password | `-d` | The password for the default user \(`admin`\) to access StackState's UI. This can be omitted from the command line, the script will prompt for it.                                                                                                                                                                                                                                          |
+| Base URL | `-b` | The `<STACKSTATE_BASE_URL>`. The external URL for StackState that users and agents will use to connect. For example `https://stackstate.internal`. If you haven't decided on an Ingress configuration yet, use `http://localhost:8080`. This can be updated later in the generated file.                                                                                                  |
+| Username and password\*\* | `-u` `-p` | The username and password used by StackState to pull images from quay.io/stackstate repositories.                                                                                                                                                                                                                                                                                          |
+| License key | `-l` | The StackState license key.                                                                                                                                                                                                                                                                                                                                                                |
+| Admin API password | `-a` | The password for the admin API. Note that this API contains system maintenance functionality and should only be accessible by the maintainers of the StackState installation. This can be omitted from the command line, the script will prompt for it.                                                                                                                                    |
+| Default password | `-d` | The password for the default user \(`admin`\) to access StackState's UI. This can be omitted from the command line, the script will prompt for it.                                                                                                                                                                                                                                         |
 | Kubernetes cluster name | `-k` | StackState will use this name to identify the cluster. In non-interactive mode, specifying `-k` will both enable [automatic Kubernetes support](install_stackstate.md#automatic-kubernetes-support) and set the cluster name. In interactive mode, you will first be asked if you want to automatically install the [Kubernetes StackPack](../../../stackpacks/integrations/kubernetes.md). |
 
 {% hint style="info" %}
@@ -92,7 +92,7 @@ To deploy StackState in a high availability setup on Kubernetes:
 
 1. Before you deploy:
    * [Create the namespace where StackState will be installed](install_stackstate.md#create-namespace)
-   * [Generate `values.yaml`](#generate-valuesyaml)
+   * [Generate `values.yaml`](#generate-values.yaml)
 2. Deploy the latest StackState version to the `stackstate` namespace with the following command:
 
 ```text
@@ -110,7 +110,7 @@ To deploy StackState in a non-high availability setup on Kubernetes:
 
 1. Before you deploy:
    * [Create the namespace where StackState will be installed](install_stackstate.md#create-namespace)
-   * [Generate `values.yaml`](#generate-valuesyaml)
+   * [Generate `values.yaml`](#generate-values.yaml)
    * [Create `nonha_values.yaml`](non_high_availability_setup.md)
 3. Deploy the latest StackState version to the `stackstate` namespace with the following command:
 
@@ -163,5 +163,5 @@ Next steps are
 
 StackState has built-in support for Kubernetes by means of the [Kubernetes StackPack](../../../stackpacks/integrations/kubernetes.md). To get started quickly, the StackState installation can automate installation of this StackPack and the required agent for the cluster that StackState itself will be installed on. This is not required and can always be done later from the StackPacks page of the StackState UI for StackState's cluster or any other Kuberenetes cluster.
 
-The only required information is a name for the Kubernetes cluster that will distinguish it from the other Kubernetes clusters monitored by StackState. A good choice usually is the same name that is used in the kube context configuration. This will then automatically install the StackPack and install a Daemonset for the agent and a deployment for the so called cluster agent. For the full details, read the [Kubernetes StackPack](../../../stackpacks/integrations/kubernetes.md) page.
+The only required information is a name for the Kubernetes cluster that will distinguish it from the other Kubernetes clusters monitored by StackState. A good choice usually is the same name that is used in the kube context configuration. This will then automatically install the StackPack and install a Daemonset for the agent and a deployment for the so-called cluster agent. For the full details, read the [Kubernetes StackPack](../../../stackpacks/integrations/kubernetes.md) page.
 

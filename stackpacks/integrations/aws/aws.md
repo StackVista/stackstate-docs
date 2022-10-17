@@ -68,10 +68,10 @@ The policy can be made available to StackState and the StackState Agent in one o
 
 #### IAM role on EC2 or EKS
 
-StackState Agent collects topology, logs and (if configured) VPC flow logs, and StackState pulls CloudWatch metrics from AWS.  If StackState Agent and/or StackState run in an AWS environment and the Data Collection Account and Monitor Account are in the same AWS organization, an IAM role can be attached to the EC2 instance or EKS pod that they run on and used for authentication. This removes the need to specify an AWS Access Key ID and Secret when a StackPack instance is installed or in the Agent AWS check configuration.
+StackState Agent collects topology, logs and (if configured) VPC flow logs, and StackState pulls CloudWatch metrics from AWS. If StackState Agent and/or StackState run in an AWS environment and the Data Collection Account and Monitor Account are in the same AWS organization, an IAM role can be attached to the EC2 instance or EKS pod that they run on and used for authentication. This removes the need to specify an AWS Access Key ID and Secret when a StackPack instance is installed or in the Agent AWS check configuration.
 
 {% hint style="info" %}
-Note: The AWS Data Collection Account and Monitor Account must be a part of the same AWS organization to be able to authenticate using an IAM role in this way. For details, see the AWS documentation on [AWS organizations \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html).  
+Note: The AWS Data Collection Account and Monitor Account must be a part of the same AWS organization to be able to authenticate using an IAM role in this way. For details, see the AWS documentation on [AWS organizations \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html). 
 {% endhint %}
 
 To attach an IAM role and use it for authentication:
@@ -163,21 +163,17 @@ If StackState Agent is running on Kubernetes, the AWS check should be configured
     helm repo update
    ```
    
-2. Update the `values.yaml` file used to deploy the `cluster-agent` with details of your AWS instance:
+2. Update the `values.yaml` file used to deploy the `stackstate-agent` with details of your AWS instance:
     - **aws_access_key_id** - The AWS Access Key ID. Leave empty quotes to [use an attached IAM role](/stackpacks/integrations/aws/aws-sts-eks.md).
     - **aws_secret_access_key** - The AWS Secret Access Key. Leave empty quotes to [use an attached IAM role](/stackpacks/integrations/aws/aws-sts-eks.md).
     - **external_id** - The same external ID used to create the CloudFormation stack in every account and region.
     - **role_arn** - In the example `arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole`, substitute 123456789012 with the target AWS account ID to read.
     - **regions** - The Agent will only attempt to find resources in the specified regions. `global` is a special region for global resources, such as Route53.
     ```yaml
-    clusterChecks:
-    # clusterChecks.enabled -- Enables the cluster checks functionality _and_ the clustercheck pods.
-      enabled: true
-
     clusterAgent:
       config:
         override:
-    #clusterAgent.config.override -- Defines kubernetes_state check for clusterchecks agents. Auto-discovery
+    #clusterAgent.config.override -- Defines kubernetes_state check for checksAgent agents. Auto-discovery
     #with ad_identifiers does not work here. Use a specific URL instead.
         - name: conf.yaml
           path: /etc/stackstate-agent/conf.d/aws_topology.d
@@ -203,7 +199,7 @@ If StackState Agent is running on Kubernetes, the AWS check should be configured
                 #   - foo:bar
     ```
 
-3. Deploy the `cluster_agent` using the updated `values.yaml`:
+3. Deploy the `checks_agent` using the updated `values.yaml`:
    * **Kubernetes:**
     ```yaml
     helm upgrade --install \
@@ -214,7 +210,7 @@ If StackState Agent is running on Kubernetes, the AWS check should be configured
     --set-string 'stackstate.cluster.authToken=<CLUSTER_AUTH_TOKEN>' \
     --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
     --values values.yaml \
-    stackstate-cluster-agent stackstate/cluster-agent    
+    stackstate-agent stackstate/stackstate-agent    
     ```
 
    * **OpenShift:**
@@ -230,7 +226,7 @@ If StackState Agent is running on Kubernetes, the AWS check should be configured
     --set 'agent.scc.enabled'=true \
     --set 'kube-state-metrics.securityContext.enabled'=false \
     --values values.yaml \
-    stackstate-cluster-agent stackstate/cluster-agent    
+    stackstate-agent stackstate/stackstate-agent    
     ```
 
 {% endtab %}
@@ -260,7 +256,7 @@ If StackState Agent is running on a Linux VM:
        regions:
          - global # a special "region" used for global resources
          - eu-west-1
-       # min_collection_interval: 60 # use in place of collection_interval for Agent v2.14.x or earlier 
+       # min_collection_interval: 60 # use in place of collection_interval for Agent V2.14.x or earlier 
        collection_interval: 60 # The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
        # apis_to_run:
        #   - ec2
@@ -426,7 +422,7 @@ IAM is a global service. Only one IAM role is necessary per account.
 Once the Agent has finished reading a file in this bucket, the file will be **deleted**. Do not use an existing bucket for this, the Agent should have its own bucket to read from. The S3 bucket will not be read from if it does not have bucket versioning enabled, to protect data.
 {% endhint %}
 
-The S3 bucket is used to store all incoming events from EventBridge and other event-based sources. The Agent then reads objects from this bucket. These events are used to provide features such as real-time topology updates, and creating relations between components based on event data such as VPC FlowLogs. If the S3 bucket is not available to the Agent it will fallback to reading CloudTrail directly, which introduces a 15 minute delay in real-time updates. EventBridge events and VPC FlowLogs are only available via the S3 bucket.
+The S3 bucket is used to store all incoming events from EventBridge and other event-based sources. The Agent then reads objects from this bucket. These events are used to provide features such as real-time topology updates, and creating relations between components based on event data such as VPC FlowLogs. If the S3 bucket is not available to the Agent it will fall back to reading CloudTrail directly, which introduces a 15-minute delay in real-time updates. EventBridge events and VPC FlowLogs are only available via the S3 bucket.
 
 {% hint style="info" %}
 Only one S3 bucket is necessary per account; all regions can send to the same bucket.
@@ -504,7 +500,7 @@ When the AWS integration is enabled, three [views](../../../use/stackstate-ui/vi
 
 ### AWS actions in StackState
 
-Components retrieved from AWS will have an additional [action](/use/stackstate-ui/perspectives/topology-perspective.md#actions) available in the component context menu and in the right panel **Selection details** tab when the component is selected. This provides a deep link through to the relevant AWS console at the correct point.
+Components retrieved from AWS will have an additional [Action](/use/stackstate-ui/perspectives/topology-perspective.md#actions) available in the component context menu and in the right panel details tab - **Component details** - when the component is selected. This provides a deep link through to the relevant AWS console at the correct point.
 
 For example, in the StackState Topology Perspective:
 
@@ -523,7 +519,7 @@ The following labels will be added to imported AWS topology in StackState:
 
 {% hint style="success" "self-hosted info" %}
 
-Note that topology with the label `stackpack:aws` was imported by the [AWS \(Legacy\) integration](/stackpacks/integrations/aws/aws-legacy.md "StackState Self-Hosted only").
+Note that topology with the label `stackpack:aws` was imported by the [AWS \(legacy\) integration](/stackpacks/integrations/aws/aws-legacy.md "StackState Self-Hosted only").
 
 {% endhint %}
 
@@ -669,7 +665,7 @@ Find out how to [uninstall using a specific AWS profile or an IAM role \(docs.aw
 
 * [Use and set up OpenTelemetry for NodeJS](/stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md)
 * [AWS policies](aws-policies.md)
-* [StackState AWS \(Legacy\) integration](aws-legacy.md "StackState Self-Hosted only")
+* [StackState AWS \(legacy\) integration](aws-legacy.md "StackState Self-Hosted only")
 * [Working with AWS CloudFormation StackSets \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html)
 * [Uninstall using a specific AWS profile or an IAM role \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html)
 
