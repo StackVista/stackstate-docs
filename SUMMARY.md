@@ -284,7 +284,7 @@
     * [StackState Common Layer](develop/developer-guides/stackpack/stackstate-common-layer.md)
   * [Synchronizations and templated files](develop/developer-guides/synchronizations_and_templated_files.md)
 * [Reference](develop/reference/README.md)
-  * [StackState OpenAPI docs](https://dl.stackstate.com/stackstate-openapi/v5.0/openapi-v5.1.0.html)
+  * [StackState OpenAPI docs](https://dl.stackstate.com/stackstate-openapi/v5.0/openapi-v5.0.0.html)
   * [StackState Template JSON \(STJ\)](develop/reference/stj/README.md)
     * [Using STJ](develop/reference/stj/using_stj.md)
     * [Template functions](develop/reference/stj/stj_reference.md)
