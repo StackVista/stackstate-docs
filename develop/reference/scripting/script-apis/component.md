@@ -10,7 +10,7 @@ description: StackState Self-hosted v5.0.x
 Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/reference/scripting/script-apis/component).
 {% endhint %}
 
-## Function: `withId`
+## Function: `Component.withId(id: Long)`
 
 Get access to a component by its ID.
 

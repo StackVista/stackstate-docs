@@ -20,6 +20,28 @@ Go to the [documentation for the latest StackState release](https://docs.stackst
 
 Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
 
+### v5.0.6
+
+**Improvements**
+
+- The Minio pod in the StackState Helm chart has default CPU requests and limits set. STAC-17882
+
+**Bug fixes**
+
+- Fixed an issue that prevented StackState from using MS Edge as a browser. STAC-17848
+
+### v5.0.5
+
+**Bug fixes**
+
+- Fixed issue that caused problems to display without contributing components in some cases. STAC-17731
+
+### v5.0.4
+
+**Improvements**
+
+- Added a time context on Component Actions accessible by default via the variables `telemetryTimeStart`, `telemetryTimeEnd` and `topologyTime`. STAC-16936
+
 ### v5.0.3
 
 **Bug fixes**

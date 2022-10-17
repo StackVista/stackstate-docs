@@ -12,7 +12,7 @@ Go to the [documentation for the latest StackState release](https://docs.stackst
 
 The StackPack script API provides handy operations to get the status of a StackPack or resources that are provided by a StackPack.
 
-## Function: `isInstalled`
+## Function: `StackPack.isInstalled(name: String)`
 
 Returns a flag indicating if the StackPack is installed
 
@@ -27,7 +27,7 @@ Returns a flag indicating if the StackPack is installed
 sts stackpack list
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
@@ -56,7 +56,7 @@ The example below will return an `AsyncScriptResult` of a boolean indicating if 
 StackPack.isInstalled("agent")
 ```
 
-## Function: `getResources`
+## Function: `StackPack.getResources(stackPackNamespace: String, nodeType: String)`
 
 Returns resources originating from the StackPack.
 
@@ -72,7 +72,7 @@ Returns resources originating from the StackPack.
 sts settings list-types
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to`stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}

@@ -16,7 +16,7 @@ Sometimes it may be useful to process the retrieved topology or telemetry data u
 The permission `execute-restricted-scripts` is required to execute scripts using the HTTP script API in the StackState UI analytics environment. For details, see the [analytics page permissions](../../../../configure/security/rbac/rbac_permissions.md#analytics-page-permissions).
 {% endhint %}
 
-## Function: `get`
+## Function: `HTTP.get(uri: String)`
 
 Submit HTTP get request.
 
@@ -43,7 +43,7 @@ Http.get("https://www.google.com/?q=apples")
     .header("name", "value")
 ```
 
-## Function: `put`
+## Function: `HTTP.put(uri: String)`
 
 Submit HTTP put request.
 
@@ -78,7 +78,7 @@ Http.put("http://http_server:8080/api")
   .jsonResponse()
 ```
 
-## Function: `post`
+## Function: `HTTP.post(uri: String)`
 
 Submit HTTP post request.
 
@@ -117,7 +117,7 @@ Http.post("http://http_server:8080/api")
 }.jsonBody()
 ```
 
-## Function: `delete`
+## Function: `HTTP.delete(uri: String)`
 
 Submit HTTP delete request.
 
@@ -144,9 +144,15 @@ Http.delete("http://http_server:8080/api")
     .header("name", "value")
 ```
 
-## Function: `options`
+## Function: `HTTP.options(uri: String)`
 
 Submit HTTP options request.
+
+### Args
+
+* `uri` - uri of the HTTP server.
+
+### Examples
 
 ```text
 Http.options("http://http_server:8080/api")
@@ -155,7 +161,7 @@ Http.options("http://http_server:8080/api")
     .header("name", "value")
 ```
 
-## Function: `patch`
+## Function: `HTTP.patch(uri: String)`
 
 Submit HTTP patch request.
 
@@ -188,7 +194,7 @@ Http.patch("http://http_server:8080/api")
     .textRequest("{'property', 'value'}")
 ```
 
-## Function: `head`
+## Function: `HTTP.head(uri: String)`
 
 Submit HTTP head request.
 

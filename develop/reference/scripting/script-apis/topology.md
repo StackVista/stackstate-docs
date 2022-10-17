@@ -12,13 +12,9 @@ Go to the [documentation for the latest StackState release](https://docs.stackst
 
 # Topology - script API
 
-## Function: `query`
+## Function: `Topology.query(query: String)`
 
 Query the topology at any point in time. Builder methods available for extracting components, relations and comparing topological queries.
-
-```text
-Topology.query(query: String)
-```
 
 ### Args
 

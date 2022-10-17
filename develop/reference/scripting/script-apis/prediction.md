@@ -10,7 +10,7 @@ description: StackState Self-hosted v5.0.x
 Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/reference/scripting/script-apis/prediction).
 {% endhint %}
 
-## Function: `predictMetrics`
+## Function: `Prediction.predictMetrics(predictorName: String, horizon: Duration, query: String)`
 
 Predict metrics for any metric query coming from any data source.
 
@@ -20,7 +20,7 @@ Predict metrics for any metric query coming from any data source.
   * **fft** - Fast Fourier Transformation. Used for seasonal metrics with a repeatable pattern that has a cycle.
   * **linear** - Used for metrics that have a linear trend.
   * **hmn** - Harmonic Mean Normal. Used in difficult cases when metrics are not clearly seasonal or linear.
-* `horizon` - How much future to predict. The horizon is specified in [duration format](time.md).
+* `horizon` - How much future to predict. The horizon is specified in [duration format](../time-in-scripts.md).
 * `query` - The metrics to use for the prediction. A telemetry query that returns metrics, created using the `Telemetry.query()` function followed by `.compileQuery()`.
 
 ### Builder methods
