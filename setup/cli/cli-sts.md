@@ -88,13 +88,22 @@ Open a **Powershell** terminal (version 5.1 or later) and run the steps below. T
 
 {% tabs %}
 {% tab title="Installer" %}
-Open a terminal, change the `<URL>` and `<API-TOKEN>` and run the command below. After installation, the `sts` command will be available for the current user.
+Open a terminal, change the `<URL>` and `<API-TOKEN>` and run the command below. 
+
+* The default install location is `/usr/local/bin`,  which might require sudo permissions depending on the version of your machine. 
+* You can specify an install location by adding `STS_CLI_LOCATION` to the command, as shown below. Note that the path provided must be available in your OS Path or the script might fail to complete.
+
+After installation, the `sts` command will be available for the current user.
 
 ```bash
+# Install in default location `/usr/local/bin`
 curl -o- https://dl.stackstate.com/stackstate-cli/install.sh | STS_URL="<URL>" STS_API_TOKEN="<API-TOKEN>" bash
+
+# Install in a specified location
+curl -o- https://dl.stackstate.com/stackstate-cli/install.sh | STS_URL="<URL>" STS_API_TOKEN="<API-TOKEN>" STS_CLI_LOCATION="<INSTALL-PATH>" bash
 ```
 
-Alternatively, go to the **CLI** page in the StackState UI and copy the **Quick installation** command for **macOS** - this is pre-filled with the correct `<URL>` and `<API-TOKEN>` for your StackState instance.
+Alternatively, go to the **CLI** page in the StackState UI and copy the **Quick installation** command for **MacOS** - this is pre-filled with the correct `<URL>` and `<API-TOKEN>` for your StackState instance and will install the CLI at the default location.
 
 {% endtab %}
 
