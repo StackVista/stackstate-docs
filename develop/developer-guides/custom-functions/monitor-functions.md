@@ -387,77 +387,7 @@ The above specification ensures that each function invocation is passed all the 
 
 ### Populate the monitor function script
 
-The script for the monitor functions should be provided as a groovy script in STJ format in the property `script` of type `ScriptFunctionBody`. This can be challenging to work with. An external tool, such as [yq](https://github.com/mikefarah/yq), can be used to get a more friendly formatting of the script to work with when updates are required. 
-
-For example, given the monitor function example above, we could format it with yq :
-```text
-yq -P ./monitorFunction.stj > monitorFunction.yaml
-```
-
-This will obtain:
-
-```yaml
-_version: 1.0.39
-timestamp: 2022-06-23T23:23:23.269369Z[GMT]
-nodes:
-  - _type: MonitorFunction
-    name: Metric above threshold
-    description: Validates that a metric value stays below a given threshold, reports a CRITICAL state otherwise.
-    parameters:
-      - _type: Parameter
-        name: threshold
-        type: DOUBLE
-        required: true
-        multiple: false
-      - _type: Parameter
-        name: topologyIdentifierPattern
-        type: STRING
-        required: true
-        multiple: false
-      - _type: Parameter
-        name: metrics
-        type: SCRIPT_METRIC_QUERY
-        required: true
-        multiple: false
-    identifier: urn:system:default:monitor-function:metric-above-threshold
-    script:
-      _type: ScriptFunctionBody
-      scriptBody: |-
-        def checkThreshold(timeSeries, threshold) {
-          timeSeries.points.any { point -> point.last() > threshold }
-        }
-
-        metrics.map { result ->
-          def state = "CLEAR"
-          if (checkThreshold(result.timeSeries, threshold)) {
-            state = "CRITICAL";
-          }
-
-          return [
-            _type: "MonitorHealthState",
-            id: result.timeSeries.id.toIdentifierString(),
-            state: state,
-            topologyIdentifier: StringTemplate.runForTimeSeriesId(topologyIdentifierPattern, result.timeSeries.id)
-            displayTimeSeries: [
-              [
-                _type: "DisplayTimeSeries",
-                name: "The resulting metric values",
-                query: result.query,
-                timeSeriesId: result.timeSeries.id
-              ]
-            ]
-          ]
-        }
-
-```
-
-The script is now readable and easier to edit. After editing the `script`, or any other field, of our monitor function in the YAML representation, we could go back to the STJ representation using:
-
-```text
-yq -o=json '.' monitorFunction.yaml
-```
-
-This can then be added back to the property `script` of type `ScriptFunctionBody`.
+The script for the monitor functions should be provided as a groovy script in STJ format in the property `script` of type `ScriptFunctionBody`. This can be challenging to work with. An external tool can be used to allow you to more easily [work with scripts in YAML format and add these to a monitor file in STJ format](/develop/developer-guides/monitors/monitor-stj-file-format.md#add-scripts-and-queries-in-stj).
 
 ### Upload to StackState
 
