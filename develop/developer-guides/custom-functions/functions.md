@@ -17,6 +17,7 @@ In StackState, different function types complete different tasks. Depending on t
 | [Propagation functions](propagation-functions.md#propagation-functions) | ✅ | ✅ | ✅ |
 | [Event handler functions](event-handler-functions.md) | ✅ | ✅ | - |
 | [Component actions](component-actions.md) | - | ✅ | - |
+| [Monitor functions](monitor-functions.md) | - | ✅ | - |
 | [Check functions](check-functions.md) | ✅ | - | - |
 | [Component mapper functions](mapper-functions.md) | ✅ | - | - |
 | [ID extractor functions](id-extractor-functions.md) | ✅ | - | - |

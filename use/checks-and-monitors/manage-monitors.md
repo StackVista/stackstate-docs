@@ -146,13 +146,71 @@ $ stac monitor preview <id-or-identifier-of-a-monitor>
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 
-## Disable a single monitor
+## Enable/disable a single monitor
 
 {% hint style="info" %}
-When a monitor is disabled (removed), all health states associated with the monitor will also be removed and they will no longer be visible in the StackState UI.
+When a monitor is disabled, all health states associated with the monitor will be removed, and they will no longer be visible in the StackState UI. Disabling a monitor is quite useful to debug and fix execution errors without having the monitor produce health states or errors. A disabled monitor can still be used to do a `dry-run`.
 {% endhint %}
 
-Monitors can be disabled by removing them. Once a monitor to be disabled is identified, either by inspecting the definition of a monitor available under the context menu of a monitor result panel, or otherwise by obtaining the Monitors identifier, a dedicated CLI command can be used to remove it:
+Individual monitors can be disabled using the StackState CLI. To disable/enable a monitor:
+
+1. Identify the monitor to enable/disable. This can be done by finding the monitor identifier or ID in the StackState UI or using the StackState CLI:
+   * Inspect the monitor definition available under the context menu of a monitor result panel in the StackState UI.
+   * Use the StackState CLI command `sts monitor list` to retrieve details of all monitors.
+
+2. Enable/disable the monitor using the StackState CLI:
+
+{% tabs %}[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: sts (new)" %}[](http://not.a.link "StackState Self-Hosted only")
+```
+# Disable By ID
+sts monitor disable --id <id-of-the-monitor>
+
+# Disable By Identifier
+sts monitor disabled --identifier <identifier-of-the-monitor>
+
+
+# Enable By ID
+sts monitor enable --id <id-of-the-monitor>
+
+# Enable By Identifier
+sts monitor enable --identifier <identifier-of-the-monitor>
+
+```
+
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.[](http://not.a.link "StackState Self-Hosted only")
+
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
+{% tab title="CLI: stac" %}[](http://not.a.link "StackState Self-Hosted only")
+```
+# Disable a monitor
+stac monitor disable <id-or-identifier-of-the-monitor>
+
+# Enable a monitor
+stac monitor enable <id-or-identifier-of-the-monitor>
+```
+
+⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`. [](http://not.a.link "StackState Self-Hosted only")
+
+In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+
+{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
+{% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
+
+## Delete a single monitor
+
+{% hint style="info" %}
+A deleted monitor will be entirely removed from StackState. When a monitor is deleted, all health states associated with the monitor will also be removed, and they will no longer be visible in the StackState UI.
+
+You can also [disable a monitor](#enable-disable-a-single-monitor) to stop it running and producing health states without the need to completely delete it.
+{% endhint %}
+
+To delete a monitor and remove it from StackState, use the StackState CLI:
 
 {% tabs %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="CLI: sts" %}[](http://not.a.link "StackState Self-Hosted only")

@@ -37,6 +37,8 @@ Monitors in StackState are represented textually using the [STJ file format](/de
         "parameter": {{ get "urn:system:default:monitor-function:metric-above-threshold" "Type=Parameter;Name=query" }},
         "script": "Telemetry\n.query('StackState Metrics', '')\n.metricField('system.cpu.system')\n.groupBy('tags.host')\n.start('-1m')\n.aggregation('mean', '15s')"
       }],
+      "status": "ENABLED",
+      "tags": ["demo"],
       "intervalSeconds": 60
     }
   ]
@@ -53,6 +55,8 @@ The supported fields are:
 - **remediationHint** - a short, markdown-enabled hint displayed whenever the validation rule represented by this monitor triggers and results in an unhealthy state.
 - **function** - the specific monitor function to use as the basis of computation for this monitor. For more details see [function](#function).
 - **arguments** - lists concrete values that are to be used for parameters in the monitor function invocation. For more details and descriptions of commonly used parameters, see [arguments](#arguments).
+- **status** - either `ENABLED`|`DISABLED`. Dictates if the monitor will be running and producing health states. Optional. If not specified, the previous status will be used (`DISABLED` for newly created monitors).
+- **tags** - tags associated to the monitor.
 - **intervalSeconds** - dictates how often to execute this particular monitor; new executions are scheduled after the specified number of seconds, counting from the time that the last execution ended. For more details see [run interval](#intervalseconds).
 
 ## Field information
@@ -175,7 +179,7 @@ The declaration of a numeric value in a monitor function STJ definition can look
 
 #### Topology Query
 
-Monitor functions that utilize Topology often times take a Topology Query as a parameter.
+Monitor functions that utilize Topology often times take a Topology Query as a parameter. An external tool can be used to allow you to easily [work with queries in YAML format and add these to a monitor file in STJ format](#add-scripts-and-queries-in-stj).
 
 {% tabs %}
 {% tab title="Monitor STJ definition" %}
@@ -306,14 +310,158 @@ The declaration of a topology identifier pattern would look something like the f
 {% endtab %}
 {% endtabs %}
 
+### status
+
+A monitor with an `ENABLED` status will be automatically executed and its results will be persisted. A `DISABLED` monitor is still available for a `dry-run` in order to inspect its results and execution (helpful for debugging a monitor). When a monitor is initially created it will start with a `DISABLED` status, unless the `status` field is present in the payload. When a monitor is updated, it will keep its own `status`, unless the `status` is specified. If the `status` field is included in the payload, the monitor will assume the specified `status`.
+
+{% hint style="info" %}
+When a monitor is disabled, all health states associated with the monitor will be removed, and they will no longer be visible in the StackState UI. Disabling a monitor is quite useful to debug and fix execution errors without having the monitor produce health states or errors. A disabled monitor can still be used to do a `dry-run`.
+{% endhint %}
 
 ### intervalSeconds
 
 The monitor run interval determines how often a monitor logic will be executed. This is configured in the monitor STJ file as a number of seconds using the `intervalSeconds` field. For example, an `intervalSeconds: 60` configuration means that StackState will attempt to execute the monitor function associated with the monitor every 60 seconds. If the monitor function execution takes significant time, the next scheduled run will occur 60 seconds after the previous run finishes.
+
+## Add scripts and queries in STJ
+
+A monitor STJ file and an STJ monitor function definition contain the following script and queries:
+
+* [Arguments of type `ArgumentScriptMetricQueryVal`](#arguments) in the monitor STJ file define a telemetry query to be used by the monitor function.
+* [The property `script` of type `ScriptFunctionBody`](/develop/developer-guides/custom-functions/monitor-functions.md#monitor-function-definition) in the monitor function definition provides a groovy script that is run by the monitor function.
+
+It can be challenging to add scripts and queries to the STJ format. An external tool, such as [yq \(github.com\)](https://github.com/mikefarah/yq), can be used to get a more friendly formatting of the script or query to work with and update as required.
+
+For example:
+
+{% tabs %}
+{% tab title="Add a query to `ArgumentScriptMetricQueryVal`" %}
+
+Update a query defined in `ArgumentScriptMetricQueryVal` for a monitor using the external tool [yq \(github.com\)](https://github.com/mikefarah/yq) to get a more friendly formatting:
+```text
+yq -P ./monitor.stj > monitor.yaml
+```
+
+Obtains something like the following:
+
+```yaml
+_version: 1.0.39
+timestamp: 2022-05-23T13:16:27.369269Z[GMT]
+nodes:
+  - _type: Monitor
+    name: CPU Usage
+    description: A simple CPU-usage monitor. If the metric is above a given threshold, the state is set to CRITICAL.
+    identifier: urn:system:default:monitor:cpu-usage
+    remediationHint: Turn it off and on again.
+    function:? get "urn:system:default:monitor-function:metric-above-threshold"::
+    arguments:
+      - _type: ArgumentDoubleVal
+        parameter:? get "urn:system:default:monitor-function:metric-above-threshold" "Type=Parameter;Name=threshold"::
+        value: 90.0
+      - _type: ArgumentStringVal
+        parameter:? get "urn:system:default:monitor-function:metric-above-threshold" "Type=Parameter;Name=topologyIdentifierPattern"::
+        value: urn:host:/${tags.host}
+      - _type: ArgumentScriptMetricQueryVal
+        parameter:? get "urn:system:default:monitor-function:metric-above-threshold" "Type=Parameter;Name=metrics"::
+        script: |-
+          Telemetry
+          .query("StackState Metrics", "")
+          .metricField("system.cpu.system")
+          .groupBy("tags.host")
+          .start("-1m")
+          .aggregation("mean", "15s")
+    intervalSeconds: 60
+```
+
+Here the `ArgumentScriptMetricQueryVal` script (query) is readable and more easily editable in a YAML representation of the monitor. 
+
+After the `script`, or any other field, has been edited in the YAML representation, you can go back to the STJ representation using:
+
+```text
+yq -o=json '.' monitor.yaml
+```
+
+
+{% endtab %}
+{% tab title="Add a script to `ScriptFunctionBody`" %}
+
+Update the monitor function example shown on the page [monitor functions](/develop/developer-guides/custom-functions/monitor-functions.md#upload-to-stackstate) using the external tool [yq \(github.com\)](https://github.com/mikefarah/yq) to get a more friendly formatting:
+
+```text
+yq -P ./monitorFunction.stj > monitorFunction.yaml
+```
+
+This will obtain:
+
+```yaml
+_version: 1.0.39
+timestamp: 2022-06-23T23:23:23.269369Z[GMT]
+nodes:
+  - _type: MonitorFunction
+    name: Metric above threshold
+    description: Validates that a metric value stays below a given threshold, reports a CRITICAL state otherwise.
+    parameters:
+      - _type: Parameter
+        name: threshold
+        type: DOUBLE
+        required: true
+        multiple: false
+      - _type: Parameter
+        name: topologyIdentifierPattern
+        type: STRING
+        required: true
+        multiple: false
+      - _type: Parameter
+        name: metrics
+        type: SCRIPT_METRIC_QUERY
+        required: true
+        multiple: false
+    identifier: urn:system:default:monitor-function:metric-above-threshold
+    script:
+      _type: ScriptFunctionBody
+      scriptBody: |-
+        def checkThreshold(timeSeries, threshold) {
+          timeSeries.points.any { point -> point.last() > threshold }
+        }
+
+        metrics.map { result ->
+          def state = "CLEAR"
+          if (checkThreshold(result.timeSeries, threshold)) {
+            state = "CRITICAL";
+          }
+
+          return [
+            _type: "MonitorHealthState",
+            id: result.timeSeries.id.toIdentifierString(),
+            state: state,
+            topologyIdentifier: StringTemplate.runForTimeSeriesId(topologyIdentifierPattern, result.timeSeries.id)
+            displayTimeSeries: [
+              [
+                _type: "DisplayTimeSeries",
+                name: "The resulting metric values",
+                query: result.query,
+                timeSeriesId: result.timeSeries.id
+              ]
+            ]
+          ]
+        }
+
+```
+
+The script is now readable and easier to edit. After editing the `script`, or any other field, of our monitor function in the YAML representation, we could go back to the STJ representation using:
+
+```text
+yq -o=json '.' monitorFunction.yaml
+```
+
+This can then be added back to the property `script` of type `ScriptFunctionBody`.
+
+{% endtab %}
+{% endtabs %}
+
 
 ## See also
 
 * [Create a custom monitor](create-custom-monitors.md)
 * [Monitor functions](/develop/developer-guides/custom-functions/monitor-functions.md "StackState Self-Hosted only")
 * [Manage monitors](/use/checks-and-monitors/manage-monitors.md)
-* [STJ file format](/develop/reference/stj/using_stj.md)
+* [STJ reference](/develop/reference/stj/using_stj.md)
