@@ -384,7 +384,7 @@ yq -o=json '.' monitor.yaml
 {% endtab %}
 {% tab title="Add a script to `ScriptFunctionBody`" %}
 
-To update the monitor function example shown on the page [monitor functions](/develop/developer-guides/custom-functions/monitor-functions.md#upload-to-stackstate), we could use the external tool [yq \(github.com\)](https://github.com/mikefarah/yq) to get a more friendly formatting:
+Update the monitor function example shown on the page [monitor functions](/develop/developer-guides/custom-functions/monitor-functions.md#upload-to-stackstate) using the external tool [yq \(github.com\)](https://github.com/mikefarah/yq) to get a more friendly formatting:
 
 ```text
 yq -P ./monitorFunction.stj > monitorFunction.yaml
