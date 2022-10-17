@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Visualization settings
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/use/stackstate-ui/views/visualization_settings).
+{% endhint %}
+
 ## Overview
 
 Visualization settings let you customize how components in the view and the relations between them are displayed. Each view contains all components that match the saved topology filter. You may want or need to optimize the way in which these components are visualized in the topology perspective. A number of visualization options can be adjusted to achieve the best visibility for your situation and environment:

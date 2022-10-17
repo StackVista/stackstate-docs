@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Template functions
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/developer-guides/custom-functions/template-functions).
+{% endhint %}
+
 ## Overview
 
 Template functions are defined by a JSON template and input parameters required by the template to render elements of StackState topology - mainly components or relations. When executed template functions substitutes all handlebar parameter references with values of input parameters. Template functions must define all parameters that template body refers to.

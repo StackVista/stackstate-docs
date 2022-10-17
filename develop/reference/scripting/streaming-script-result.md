@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Streaming script result
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/reference/scripting/streaming-script-result).
+{% endhint %}
+
 Most API functions execute asynchronously. That means they will not directly return results. Some functions are dependent on the network or other resources in order to complete, therefore they cannot immediately return results. Such asynchronous functions return an `AsyncScriptResult`. On top of that, some APIs can deal with large amounts of data, in which case we do not want to process all the data at once. Such APIs return a `StreamingScriptResult`, which allows for the result to be processed one element at a time. 
 
 ## Working with `StreamingScriptResult.then`

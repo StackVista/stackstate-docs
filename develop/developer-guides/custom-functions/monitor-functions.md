@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Monitor functions
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/developer-guides/custom-functions/monitor-functions).
+{% endhint %}
+
 ## Overview
 
 Monitor functions, much like any other type of function in StackState, are represented using the STJ file format. 

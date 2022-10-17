@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # AWS X-ray
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/aws/aws-x-ray).
+{% endhint %}
+
 ## Overview
 
 AWS X-Ray is a service that collects data about requests that your application serves, and provides tools you can use to view, filter, and gain insights into that data to identify issues, and opportunities for optimization.

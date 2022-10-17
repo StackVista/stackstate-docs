@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Manage monitors
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/use/checks-and-monitors/manage-monitors).
+{% endhint %}
+
 ## Overview
 
 Monitors process 4T data, such as metrics, events and topology, to produce a health state for elements \(components and relations\). The states are calculated and attached to relevant topology elements by a specific monitor function that is selected by the user.

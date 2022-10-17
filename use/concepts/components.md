@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Components
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/use/concepts/components).
+{% endhint %}
+
 ## Overview
 
 A component is anything that has a run-time state and some relation with other components. Some component examples are a load balancer, a database server, a network switch, or a business service. It is possible to define custom components, and they can be anything - the granularity and range can be defined according to the needs. Each component is of a specific type. Types can be configured.

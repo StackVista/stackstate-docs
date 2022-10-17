@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Requirements
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/install-stackstate/requirements).
+{% endhint %}
+
 ## Overview
 
 This page details the requirements for all supported installations of StackState:

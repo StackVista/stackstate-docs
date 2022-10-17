@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Prometheus mirror
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/telemetry/data-sources/prometheus-mirror).
+{% endhint %}
+
 ## Overview
 
 Prometheus mirror is a gateway between StackState and Prometheus that enables Prometheus telemetry in StackState.

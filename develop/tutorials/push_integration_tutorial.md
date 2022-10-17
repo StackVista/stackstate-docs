@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Push data to StackState from an external system
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/tutorials/push_integration_tutorial).
+{% endhint %}
+
 This tutorial shows you how to create push-based integrations for StackState.
 
 Push-based integrations are built in python and run as part of the StackState Agent. Each python integration is called a `check` and it can:

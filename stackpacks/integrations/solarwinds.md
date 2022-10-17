@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # SolarWinds
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/solarwinds).
+{% endhint %}
+
 ## Overview
 
 The SolarWinds StackPack allows near real time synchronization between SolarWinds Orion \(SolarWinds\) and StackState. When the integration is enabled, SolarWinds nodes, interfaces and connections will be added to the StackState topology as components and relations. In addition, health status is applied to the components in StackState.

@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Debug topology synchronization
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/topology/debug-topology-synchronization).
+{% endhint %}
+
 ## Overview
 
 This page explains several tools that can be used to troubleshoot a topology synchronization.

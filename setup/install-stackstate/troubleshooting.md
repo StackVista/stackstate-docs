@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Troubleshooting
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/install-stackstate/troubleshooting).
+{% endhint %}
+
 ## Quick troubleshooting guide
 
 Here is a quick guide for troubleshooting the startup of StackState on Kubernetes and Linux:

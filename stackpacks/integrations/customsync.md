@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Custom Synchronization
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/customsync).
+{% endhint %}
+
 ## Overview
 
 The Custom Synchronization StackPack contains everything you need to automatically synchronize topology information from an external topology source.

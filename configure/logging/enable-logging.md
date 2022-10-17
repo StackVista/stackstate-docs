@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Enable logging for functions
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/logging/enable-logging).
+{% endhint %}
+
 ## Overview
 
 {% hint style="info" %}

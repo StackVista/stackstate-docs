@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Kubernetes logs
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/logging/kubernetes-logs).
+{% endhint %}
+
 ## Overview
 
 In a Kubernetes setup, StackState functions are distributed across different pods and logs for each function are stored per pod and container. You can access recent logs using `kubectl`, although for long term storage it is recommended to set up log aggregation.

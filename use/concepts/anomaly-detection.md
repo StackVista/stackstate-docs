@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Anomaly detection
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/use/concepts/anomaly-detection).
+{% endhint %}
+
 ## Overview
 
 StackState can detect anomalies in your IT infrastructure by monitoring the metric streams attached to elements.

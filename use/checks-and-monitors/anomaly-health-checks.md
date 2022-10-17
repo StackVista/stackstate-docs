@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Anomaly health checks
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/use/checks-and-monitors/anomaly-health-checks).
+{% endhint %}
+
 {% hint style="info" %}
 To use anomaly health checks, the [Autonomous Anomaly Detector](../../stackpacks/add-ons/aad.md) StackPack must be installed.
 {% endhint %}

@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Add telemetry during topology synchronization
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/telemetry/telemetry_synchronized_topology).
+{% endhint %}
+
 ## Overview
 
 Topology that is imported to StackState using a StackPack or other integration is described as synchronized topology. Synchronized topology data arriving in StackState from external systems is normalized using a template. The template defines how a topology element should be built in StackState, such as the layer it should belong to, the health checks that should be added and any telemetry streams that should be attached to it.

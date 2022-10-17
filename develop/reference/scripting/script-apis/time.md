@@ -4,7 +4,13 @@ description: StackState Self-hosted v5.0.x
 
 # Time - script API
 
-Time API offers helper functions to manipulate with [time type](../time-in-scripts.md) in StackState scripts.
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/reference/scripting/script-apis/time).
+{% endhint %}
+
+The Time API offers helper functions to manipulate with [time type](../time-in-scripts.md) in StackState scripts.
 
 ## Function: `Time.currentTimeSlice()`
 

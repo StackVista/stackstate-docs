@@ -4,7 +4,13 @@ description: StackState Self-hosted v5.0.x
 
 # Async - script API
 
-Async API offers top-level helper functions for working with [asynchronous script results](../async-script-result.md).
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/reference/scripting/script-apis/async).
+{% endhint %}
+
+The Async API offers top-level helper functions for working with [asynchronous script results](../async-script-result.md).
 
 ## Function: `Async.sequence(list: AsyncScriptResult[])`
 

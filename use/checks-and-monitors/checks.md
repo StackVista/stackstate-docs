@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Checks
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/use/checks-and-monitors/checks).
+{% endhint %}
+
 ## Overview
 
 StackState reports a health state for elements in the topology based on the health state reported by checks and monitors attached to the element. Checks and monitors have a similar function in StackState, but work very differently under the hood.

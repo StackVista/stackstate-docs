@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Prediction - script API
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/reference/scripting/script-apis/prediction).
+{% endhint %}
+
 ## Function: `Prediction.predictMetrics(predictorName: String, horizon: Duration, query: String)`
 
 Predict metrics for any metric query coming from any data source.

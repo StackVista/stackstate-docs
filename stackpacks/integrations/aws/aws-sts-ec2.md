@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # StackState/Agent IAM role for EC2
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/aws/aws-sts-ec2).
+{% endhint %}
+
 ## Overview
 
 If StackState and/or StackState Agent are running within an AWS environment on an EC2 instance, an IAM role can be attached to the EC2 instance for authentication. When this role is available it can be used for authentication by StackState or StackState Agent running on the same EC2 instance.

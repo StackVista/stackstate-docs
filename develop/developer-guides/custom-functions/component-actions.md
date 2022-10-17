@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Component actions
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/developer-guides/custom-functions/component-actions).
+{% endhint %}
+
 ## Overview
 
 This how-to describes the steps to create a [component action](../../../configure/topology/component_actions.md) that is available for specific components. Component actions can be executed from the component context menu in the StackState Topology Perspective or the right panel **Selection details** tab when detailed information about a component is displayed.

@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Override default configuration
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/setup/install-stackstate/kubernetes_install/customize_config).
+{% endhint %}
+
 A number of values can be set in the [StackState Helm chart](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate). For example, it is possible to customize the `tolerations` and `nodeSelectors` for each of the components. You can also add customized configuration and include environment variables
 
 ## Custom configuration for StackState `api`

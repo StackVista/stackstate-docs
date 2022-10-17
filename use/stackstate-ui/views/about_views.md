@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # About views
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/use/stackstate-ui/views/about_views).
+{% endhint %}
+
 ## Overview
 
 The full topology available in StackState is likely much larger than you need to be concerned with at any given point in time. StackState allows you to create a filter to select a specific set of components from your topology and save it as a view. Each stored view includes:

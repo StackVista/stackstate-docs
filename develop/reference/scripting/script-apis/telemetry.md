@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Telemetry - script API
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/reference/scripting/script-apis/telemetry).
+{% endhint %}
+
 ## Function: `Telemetry.query(dataSourceName: String, query: String)`
 
 A telemetry query is a conjunction of equality conditions. For example, `name = 'system.load.norm.15' and host='localhost'`. There are several builder methods available that help to refine the query time range, limit the number of points returned, or set a metric field.

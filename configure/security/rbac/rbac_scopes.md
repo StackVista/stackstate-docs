@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Scopes
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/configure/security/rbac/rbac_scopes).
+{% endhint %}
+
 ## How do scopes work?
 
 The scope is an [STQL query](../../../develop/reference/stql_reference.md) that is added as a prefix to every query executed in StackState. Whenever a user wants to select a view or pass a query in StackState, this prefix query is executed as a part of the user's query, limiting the results accordingly to the user's role.

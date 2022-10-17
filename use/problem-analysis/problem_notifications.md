@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Problem notifications
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/use/problem-analysis/problem_notifications).
+{% endhint %}
+
 ## Overview
 
 Problems in StackState generate events that can be used to trigger event notifications.

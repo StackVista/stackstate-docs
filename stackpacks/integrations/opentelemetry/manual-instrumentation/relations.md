@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Relations between components
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/stackpacks/integrations/opentelemetry/manual-instrumentation/relations).
+{% endhint %}
+
 ## Overview
 
 Component and span relations show the relationship between components in StackState. For example, the image below shows a relation running from a parent to a child component, that child also then has another component as a child component:

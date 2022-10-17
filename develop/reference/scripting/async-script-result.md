@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Async script result
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/reference/scripting/async-script-result).
+{% endhint %}
+
 Most API functions execute asynchronously. That means they will not directly return results. Some functions are dependent on the network or other resources in order to complete, therefore they cannot immediately return results. Such asynchronous functions return an `AsyncScriptResult`. The concept of an `AsyncScriptResult` is modelled after how promises work in JavaScript.
 
 ## Working with `AsyncScriptResult.then`

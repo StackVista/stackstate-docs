@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # View - script API
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/reference/scripting/script-apis/view).
+{% endhint %}
+
 ## Function: `View.getAll()`
 
 Returns a list of all views.

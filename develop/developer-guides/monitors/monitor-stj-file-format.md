@@ -4,6 +4,12 @@ description: StackState Self-hosted v5.0.x
 
 # Monitor STJ file format
 
+{% hint style="warning" %}
+**This page describes StackState version 5.0.**
+
+Go to the [documentation for the latest StackState release](https://docs.stackstate.com/develop/developer-guides/monitors/monitor-stj-file-format).
+{% endhint %}
+
 ## Overview
 
 Monitors can be attached to any number of elements in the StackState topology to calculate a health state based on 4T data. Each monitor consists of a monitor definition and a monitor function. Monitors are created and managed by StackPacks, you can also create custom monitors and monitor functions outside of a StackPack without having to modify any configuration.
