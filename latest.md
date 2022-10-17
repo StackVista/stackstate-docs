@@ -1,7 +1,9 @@
 # StackState Self-hosted v5.1 docs
 
 {% hint style="success" %}
-StackState v5.1 will be available soon!
+StackState v5.1 is available now!
+
+Check out the [release notes](/setup/upgrade-stackstate/sts-release-notes.md) to find out what's new.
 
 {% endhint %}
 
@@ -38,7 +40,6 @@ The supported versions of StackState are listed below:
 * **StackState v5.1** - You are currently reading the documentation for StackState version 5.1.
 * **StackState v5.0** - [Switch to the v5.0 docs](https://docs.stackstate.com/v/5.0/).
 * **StackState v4.6** - [Switch to the v4.6 docs](https://docs.stackstate.com/v/4.6/).
-* **StackState v4.5** - [Switch to the v4.5 docs](https://docs.stackstate.com/v/4.5/).
 
 For details on changes in each release and how to upgrade StackState, check the [StackState release notes and upgrade instructions](setup/upgrade-stackstate/).
 
