@@ -84,14 +84,14 @@ You can list the available monitor functions using the CLI command:
 sts settings list --type MonitorFunction
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.[](http://not.a.link "StackState Self-Hosted only")
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.[](http://not.a.link "StackState Self-Hosted only")
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="CLI: stac (deprecated)" %}[](http://not.a.link "StackState Self-Hosted only")
 `stac graph list MonitorFunction`[](http://not.a.link "StackState Self-Hosted only")
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`. [](http://not.a.link "StackState Self-Hosted only")
+⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.** [](http://not.a.link "StackState Self-Hosted only")
 
 The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
 
@@ -179,7 +179,7 @@ The declaration of a numeric value in a monitor function STJ definition can look
 
 #### Topology Query
 
-Monitor functions that utilize Topology often times take a Topology Query as a parameter. An external tool can be used to allow you to easily [work with queries in YAML format and add these to a monitor file in STJ format](#add-scripts-and-queries-in-stj).
+Monitor functions that utilize Topology often times take a Topology Query as a parameter. An external tool can be used to allow you to easily [work with queries in YAML format and add these to a monitor file in STJ format](#add-scripts-and-queries-to-stj).
 
 {% tabs %}
 {% tab title="Monitor STJ definition" %}
@@ -322,7 +322,7 @@ When a monitor is disabled, all health states associated with the monitor will b
 
 The monitor run interval determines how often a monitor logic will be executed. This is configured in the monitor STJ file as a number of seconds using the `intervalSeconds` field. For example, an `intervalSeconds: 60` configuration means that StackState will attempt to execute the monitor function associated with the monitor every 60 seconds. If the monitor function execution takes significant time, the next scheduled run will occur 60 seconds after the previous run finishes.
 
-## Add scripts and queries in STJ
+## Add scripts and queries to STJ
 
 A monitor STJ file and an STJ monitor function definition contain the following script and queries:
 

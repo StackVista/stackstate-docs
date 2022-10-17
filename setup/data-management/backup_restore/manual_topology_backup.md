@@ -36,7 +36,7 @@ Breakdown of the export command used in the example above:
 * `stac graph export --ids` exports all graph nodes by ids.
 * `> manual_topo.stj` dumps the results in the file `manual_topo.stj`.
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
+⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 

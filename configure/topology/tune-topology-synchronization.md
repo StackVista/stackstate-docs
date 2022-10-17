@@ -48,7 +48,7 @@ To understand how a topology synchronization is performing, use the [`stac` CLI]
     latency (Seconds)                                   35.754                                    38.120                                    31.274
     ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
+⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
