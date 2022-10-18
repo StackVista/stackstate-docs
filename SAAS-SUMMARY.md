@@ -62,7 +62,7 @@
 
 ## 🔔 Events
 
-* [About events](/use/events/about_events.md)
+* [About events](use/events/about_events.md)
 * [Event notifications](use/events/event-notifications.md)
 * [Manage event handlers](use/events/manage-event-handlers.md)
 
@@ -82,6 +82,7 @@
     * [Agent V2 on Windows](setup/agent/windows.md)
     * [Use an HTTP/HTTPS proxy](setup/agent/agent-proxy.md)
     * [Advanced Agent configuration](setup/agent/advanced-agent-configuration.md)
+    * [Install from a custom image registry](setup/install-stackstate/kubernetes_install/install-from-custom-image-registry.md)
   * [AWS](stackpacks/integrations/aws/README.md)
     * [AWS](stackpacks/integrations/aws/aws.md)
     * [StackState/Agent IAM role: EC2](stackpacks/integrations/aws/aws-sts-ec2.md)

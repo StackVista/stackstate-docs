@@ -17,11 +17,11 @@ The new StackState `sts` CLI provides easy access to the functionality provided 
 
 ## Install the new `sts` CLI
 
-{% hint style="warning" %}
-**The new `sts` CLI works with StackState version 5.0 and above.**
+{% hint style="warning" %}[](http://not.a.link "StackState Self-Hosted only")
+**The new `sts` CLI works with StackState version 5.0 and above.**[](http://not.a.link "StackState Self-Hosted only")
 
 If you are running an older version of StackState, use the [`stac` CLI](cli-stac.md  "StackState Self-Hosted only").
-{% endhint %}
+{% endhint %}[](http://not.a.link "StackState Self-Hosted only")
 
 1. If it is installed, upgrade the old `sts` CLI to `stac`:[](http://not.a.link "StackState Self-Hosted only")
    * [Check if the old `sts` CLI is installed](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only").
