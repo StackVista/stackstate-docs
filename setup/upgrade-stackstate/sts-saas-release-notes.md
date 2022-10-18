@@ -8,6 +8,78 @@ description: StackState SaaS
 Note that the release notes may include details of functionality that is currently only available in the StackState Self-Hosted product. 
 {% endhint %}
 
+## StackState v5.1.0 (2022-10-14)
+
+The StackState v5.1 release delivers brand-new features and enhancements that help your team troubleshoot faster. Details of the included features, improvements, bug fixes and updated StackPacks can be found below.
+
+The StackState v5.1 release is the last release containing the `stac` CLI. The new `sts` CLI replaces the `stac` CLI in all upcoming versions of StackState. For details see [Comparison between the CLIs](/setup/cli/cli-comparison.md).
+
+**Improvements**
+
+- The Minio pod in the StackState Helm chart has default CPU requests and limits set. STAC-17882
+- Added rootCause getter to ProblemResolved and ProblemSubsumed type events. STAC-17869
+- The kube-state-metrics Helm chart dependency of the stackstate-agent Helm chart has been upgraded to version 3.2.2. STAC-17830
+- Introduced a new `ReadTelemetryStreams` permission to allow more fine-grained access control to telemetry streams. STAC-17744
+- Improved problem analysis: better causing events discovery algorithm and more event types can be discovered including the user defined types. STAC-17620
+- The total number of stored topology components and total number of stored topology relations are now exposed as metrics. STAC-17607
+- The total amount of login attempts is now exposed as a metric. STAC-17517
+- The right panel in the topology explorer now shows when health checks have warnings. STAC-17591
+- The "+" button displayed on the visualizer (to show a component's hidden connections) now shows the number of hidden connections on hover. STAC-17430
+- The StackState Kubernetes Service Account authenticator now only accepts RoleBindings that have been defined in the current namespace. STAC-17400
+- Add support to OpenAPI for the Kubernetes Service Account authentication method. STAC-16951
+- Include a time context on Component Actions accessible by default via the `telemetryTimeStart`, `telemetryTimeEnd` and `topologyTime` variables. STAC-16936
+- The way in which [Top metrics](/use/metrics/top-metrics.md) values are displayed in the Component Context Menu] has been improved to bypass polling delays. STAC-16771
+- In the StackState UI right panel, the previous "Selection" tab shown when an element was selected has been renamed to dynamically reflect the specific type of element selected. STAC-16595
+- The header of the StackState UI right panel will now stick to the top when scrolling. STAC-16588
+- The "Probable causes" section on the Problem details tab in the right panel now groups together consecutive events of the same type, happening on the same component. STAC-15832
+- Health checks have more informative preview items in the right-hand side panel. STAC-14845
+- In the StackState UI, Event handlers have been redesigned and relocated from the left panel to the "View summary" tab on the right panel. STAC-14815
+- Added the ability to enable and disable monitors. This is helpful while you are developing your monitor, so as to not having it immediately running on its configured schedule. Monitors can be enabled on-demand via the CLI command `sts monitor run -i`. STAC-14719
+- The relations section in the "Component details" tab indicates which side of the relation the selected component is. STAC-17371
+- All the "tag" looking properties (for example,, identifiers, labels and sources), active or disabled, now have a direct "copy-to-clipboard" option added on hover. STAC-16967
+- The right panel Component details tab now features a "Relations" section to showcase all the direct relations that particular component has, inside or outside the current view. STAC-16682
+- The "Component details" and "Direct relation details" tabs in the right panel now feature a "Problems" section to highlight the problems that are caused by or affect the selected component or direct relation. STAC-11526
+- The "Component details" and "Direct relation details" tabs in the right panel now feature an "Events" section to highlight the latest events happening on the selected component or direct relation. Events are listed based on the telemetry interval selected on the timeline and event filters set on the view. STAC-11522
+
+**Bug fixes**
+
+- Fixed an issue where the guest user got logged out when hovering a component. STAC-17953
+- Fixed an issue where deleting a view would redirect the user to an empty page. STAC-17855
+- Fixed an issue that prevented StackState from using MS Edge as a browser. STAC-17848
+- Fixed an issue that prevented expanding a view to include a relation. STAC-17842
+- Fixed issue that prevented the context menu from being displayed for subviews. STAC-17835
+- Fixed an issue where a user would get logged out if they did not have permissions for a certain part of the StackState UI. STAC-17745
+- Fixed a bug where, by default, internal ES indexes were also attempted to be restored during a backup/ restore. (affects Kubernetes deployment only). STAC-17742
+- Fixed issue that caused problems to display without contributing components in some cases. STAC-17731
+- Fixed an issue where a broken telemetry stream would break all other telemetry streams. STAC-17709
+- Fixed issue that caused an incorrect timestamp to be displayed in the Problem Contributors view. STAC-17487
+- Fixed issue that caused improperly encoded URLs to display a blank screen. STAC-17477
+- Fixed issue that caused the Problem producer to crash in certain circumstances. STAC-17361
+- The StackState Helm chart now has a configurable replicaCount for all resources. STAC-17313
+- Fixed race-condition in updating the OIDC refresh_token. STAC-17261
+- Fixed multi-level tags not working correctly when used for telemetry grouping. STAC-17201
+- Fix memory leak due to excessive storing of sessions when using token based authentication. STAC-17136
+- Fixed an issue causing the problem producer to crash in a loop. STAC-17028
+- Pagination has been removed from all "Settings" pages in the StackState UI. STAC-16982
+- Fixed an issue that caused an invalid relation type to be displayed in the "Direct relation details" tab in the right panel. STAC-16969
+- Fixed performance degradation that was experienced when repeatedly expanding using the '+' show neighbors functionality. STAC-16863
+- Fixed issue that caused groups with big names to be displayed outside of the visualizer canvas. STAC-16844
+- Ensure that HBase is respecting the STACKSTATE_TMP_DIR environment variable. STAC-16785
+- Long view queries and view descriptions are now properly truncated in the "Properties" section of the View summary tab in the right panel. STAC-15928
+- StackState now correctly reads the Kubernetes RoleBinding(s) when using a Kubernetes ServiceAccount token to authenticate. STAC-15814
+- Fixed STQL query generation for relation-based problems. STAC-13333
+
+**Security**
+
+- Removed curl executable from UI Docker container resolving CVE-2022-32207. STAC-17319
+- Upgraded libssl/libcrypto to 1.1.1q-r0, patching the CVE-2022-2097 vulnerability. STAC-17145
+- Upgraded ncurses-terminfo and ncurses-libs to 6.2_p20210612-r1, patching the CVE-2022-29458 vulnerability. STAC-17144
+- Upgraded tmpl to 1.0.5, patching the CVE-2021-3777 vulnerability. STAC-17085
+- Upgraded shelljs to 0.8.5, patching the CVE-2022-0144 vulnerability. STAC-17079
+- Upgraded shell-quote to 1.7.3, patching the CVE-2021-42470 vulnerability. STAC-17078
+- Upgraded ini to 1.3.6 patching the CVE-2020-7780 vulnerability. STAC-17070
+- Upgraded jmx-exporter to v0.17, patching the CVE-2017-18640 vulnerability. STAC-17027
+
 ## StackState v5.0.x
 
 ### v5.0.6 (2022-09-30)

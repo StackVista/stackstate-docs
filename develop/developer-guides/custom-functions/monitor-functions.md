@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-Monitor functions, much like any other type of function in StackState, are represented using the STJ file format. 
+Monitor functions, much like any other type of function in StackState, are represented using the STJ file format.
 
 ## Monitor function definition
 
@@ -36,7 +36,7 @@ The following snippet represents an example monitor function definition:
 }
 ```
 
-Much like the monitor definition, the file contains the requisite STJ paramateres and defines a single node instance. For brevity, the specific parameter definitions and the function body have been ommited. These parts will be elaborated upon in the following sections.
+Much like the monitor definition, the file contains the requisite STJ parameters and defines a single node instance. For brevity, the specific parameter definitions and the function body have been omitted. These parts will be elaborated upon in the following sections.
 
 The supported fields are:
 
@@ -83,7 +83,7 @@ Telemetry
   .aggregation('mean', '15s')
 ```
 
-A specialized telemetry query parameter type is useful as it ensures well-formedness of the above query - in case of any syntactic or type errors a suitable error will be reported and the system will prevent execution of the monitor function with potentially bogus values.
+A specialized telemetry query parameter type is useful, as it ensures that the above query is well-formed - in case of any syntactic or type errors a suitable error will be reported and the system will prevent execution of the monitor function with potentially bogus values.
 
 ### Computing results
 
@@ -125,9 +125,9 @@ The `displayTimeSeries` field can optionally be used to instrument StackState to
 The meaning of different `DisplayTimeSeries` fields:
 - **name** - a short name for the chart, it is displayed as the chart title on the StackState interface,
 - **query** - a Telemetry query used to fetch the metrics data to display on the interface,
-- **timeSeriesId** - an identifier of the concrete time series to use if the `query` produces multiple lines; when defined, the displayed chart will be limitted to just one line.
+- **timeSeriesId** - an identifier of the concrete time series to use if the `query` produces multiple lines; when defined, the displayed chart will be limited to just one line.
 
-The computation performed by a monitor function is restricted in numerous ways, including by restricting its access to certain classes (sandboxing) and by resource utilization (both in execution time and memory, compute usage). Some of these limits can be lifted by changing the default StackState configuration.
+The computation performed by a monitor function is restricted in numerous ways, including by restricting its access to certain classes (sand-boxing) and by resource utilization (both in execution time and memory, compute usage). Some of these limits can be lifted by changing the default StackState configuration.
 
 ### Available APIs
 Monitor functions can leverage existing StackState Script APIs, including:
@@ -154,13 +154,14 @@ To use the above, experimental APIs they must be explicitly named in your StackS
 
 ## Create a custom monitor function
 
-The following example describes a step-by-step process of creating a monitor function. In this case, a metric thereshold rule is introduced parameterized with the exact metrics query to use and the threshold itself.
+The following example describes a step-by-step process of creating a monitor function. In this case, a metric threshold rule is introduced parameterized with the exact metrics query to use and the threshold itself.
 
 1. [Create an STJ file.](#create-an-stj-file)
 2. [Populate the monitor function node.](#populate-the-monitor-function-node)
 3. [Populate the monitor function body.](#populate-the-monitor-function-body)
 4. [Formalize the function parameters.](#formalize-the-function-parameters)
-5. [Upload to StackState.](#upload-to-stackstate)
+5. [Populate the monitor function script](#populate-the-monitor-function-script)
+6. [Upload to StackState.](#upload-to-stackstate)
 
 ### Create an STJ file
 
@@ -207,7 +208,7 @@ The `prefix` is described in more detail in [topology identifiers](../../../conf
 
 ### Populate the monitor function body
 
-The most important fields of the monitor function node are its `scriptBody` and `parameters`. In this step, we will focus on the body of the function and we'll determine the required parameters next.
+The most important fields of the monitor function node are its `scriptBody` and `parameters`. In this step, we will focus on the body of the function, and we'll determine the required parameters next.
 
 As described above, the function we're creating will check a given metric against a given threshold and based on that produce health states for the affected topology. To make things concrete, let's start with a simple CPU usage metric:
 
@@ -243,7 +244,7 @@ metrics.map { result ->
 ```
 
 For each hostname, we check the resulting values to see if any of them are above the threshold of 90%, and if so we indicate a `CRITICAL` health state, otherwise a `CLEAR` one is reported.
-To make these results conform to the required format, we need to include a few more mandatory fields. The most important one is the `topologyIdentifier` which determines to which topology element a given monitor result belongs. We also give each monitor result a uniqe `id` (derived from the metrics that were used to create it), so that the system can match and replace successively supplied results accross time:
+To make these results conform to the required format, we need to include a few more mandatory fields. The most important one is the `topologyIdentifier` which determines to which topology element a given monitor result belongs. We also give each monitor result a unique `id` (derived from the metrics that were used to create it), so that the system can match and replace successively supplied results across time:
 
 ```groovy
 def metrics = /* Same as above. */
@@ -268,7 +269,7 @@ metrics.map { result ->
 }
 ```
 
-With the above change, each timeseries is now validated against the threshold and reported as a monitor health state. Each such result is uniquely identified by the metrics that were used to compute it, so any future changes based on the same metrics will result in health state updates instead of new states being created. Furthermore, we used the same metrics to extract the `tags.host` grouping from it and turned it into a specific topology identifier of a hostname represented in StackState. This topology identifier reconstruction, called topology mapping, is performed for all the groupped metric timeseries meaning it automatically applies to all the hosts in the topology that have CPU metrics associated with them.
+With the above change, each timeseries is now validated against the threshold and reported as a monitor health state. Each such result is uniquely identified by the metrics that were used to compute it, so any future changes based on the same metrics will result in health state updates instead of new states being created. Furthermore, we used the same metrics to extract the `tags.host` grouping from it and turned it into a specific topology identifier of a hostname represented in StackState. This topology identifier reconstruction, called topology mapping, is performed for all the grouped metric timeseries meaning it automatically applies to all the hosts in the topology that have CPU metrics associated with them.
 An improvement to the above definition can be made by introducing a result chart with each result. This is done by populating the optional `displayTimeseries` property of the monitor health state:
 
 ```groovy
@@ -356,7 +357,7 @@ To parameterize this function and make it reusable for different metrics and thr
 
 In the previous steps, we created a monitor function and implemented the validation rule for CPU usage metrics, we determined that in order to make the function reusable, we need to extract three parameters - `metrics`, `threshold` and the `topologyIdentifierPattern`.
 
-The `threshold` and `topologyIdentifierPattern` are simple basic types, a floating point value and a string respectively. For the `metrics` parameter, we can utilize the aforementioned `SCRIPT_METRIC_QUERY` parameter type, which ensures well-formedness of the metrics query supplied as the value of this parameter:
+The `threshold` and `topologyIdentifierPattern` are simple basic types, a floating point value and a string respectively. For the `metrics` parameter, we can utilize the aforementioned `SCRIPT_METRIC_QUERY` parameter type, which ensures that the metrics query supplied as the value of this parameter is well-formed:
 
 ```json
 {
@@ -383,6 +384,10 @@ The `threshold` and `topologyIdentifierPattern` are simple basic types, a floati
 ```
 
 The above specification ensures that each function invocation is passed all the requisite parameters (all marked as `required`) and that their types will be safe to use in the context of the body of the function. Any type mismatches will be reported during the importing of this function definition.
+
+### Populate the monitor function script
+
+The script for the monitor functions should be provided as a groovy script in STJ format in the property `script` of type `ScriptFunctionBody`. This can be challenging to work with. An external tool can be used to allow you to more easily [work with scripts in YAML format and add these to a monitor file in STJ format](/develop/developer-guides/monitors/monitor-stj-file-format.md#add-scripts-and-queries-to-stj).
 
 ### Upload to StackState
 
@@ -437,24 +442,24 @@ The function can be uploaded to StackState in one of three ways:
 - Use the [StackState CLI](../../../setup/cli/README.md):
 
 {% tabs %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 ```
 sts settings import < path/to/file.stj
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 
 {% endtab %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 ```
 stac graph import < path/to/file.stj
 ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
+⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")

@@ -334,6 +334,14 @@ See the Kubernetes Agent documentation for instructions on [how to uninstall the
 
 ## Release notes
 
+**Kubernetes StackPack v3.10.2 (2022-09-28)**
+
+- Improvement: Updated documentation.
+
+**Kubernetes StackPack v3.10.1 (2022-09-15)**
+ 
+- Improvement: Added validation for cluster name
+
 **Kubernetes StackPack v3.9.13 (2022-06-21)**
 
 - Bug Fix: Fixed description for services/ingresses view.

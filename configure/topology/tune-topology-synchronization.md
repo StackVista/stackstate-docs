@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Self-hosted v5.1.x
 ---
 
 # Tune topology synchronization performance
@@ -14,20 +14,20 @@ To tune the topology synchronization performance, follow these steps:
 2. [Investigate StackState platform as the bottleneck](#investigate-stackstate-platform-as-the-bottleneck)
 3. [Change the topology synchronization CPU budget](#change-the-topology-synchronization-cpu-budget)
 
-This process can be repeated until the desired performance is achieved. 
+This process can be repeated until the desired performance is achieved.
 
 ## Observe topology synchronization performance
 
 To understand how a topology synchronization is performing, use the [`stac` CLI](/setup/cli/README.md) to take a look at the synchronization's status page. The status page shows the latency of a topology synchronization. This is the amount of time that it took from data being collected at the source, to the moment that the data is stored by the topology synchronization framework. Typically, a lower latency is preferred, however, a higher latency might be acceptable when synchronizing topology from bigger data lakes.
 
 {% tabs %}
-{% tab title="CLI: stac" %}
+{% tab title="CLI: stac (deprecated)" %}
 
 1. Get the urn of a synchronization using the `stac topology list` command.
     ```javascript
     # List streams
     stac topology list
-    
+
             Node Id  Identifier                                                                               Status      Created Components    Deleted Components    Created Relations    Deleted Relations    Errors
     ---------------  ---------------------------------------------------------------------------------------  --------  --------------------  --------------------  -------------------  -------------------  --------
     245676427469735                                                                                           Running                      0                     0                    0                    0         0
@@ -38,26 +38,26 @@ To understand how a topology synchronization is performing, use the [`stac` CLI]
 2. Get the status page for the synchronization using the `urn`.
     ```javascript
     > stac topology show urn:stackpack:stackstate:instance:44a9ce1e-413c-4c4c-819d-2095c1229dda:sync:stackstate
-    
+
             Node Id  Identifier                                                                               Status      Created Components    Deleted Components    Created Relations    Deleted Relations    Errors
     ---------------  ---------------------------------------------------------------------------------------  --------  --------------------  -------------------- -------------------  -------------------  --------
     144667609743389  urn:stackpack:stackstate:instance:44a9ce1e-413c-4c4c-819d-2095c1229dda:sync:stackstate   Running                  13599                  5496                    0                    0       329
-    
+
     metric               value between now and 500 seconds ago  value between 500 and 1000 seconds ago    value between 1000 and 1500 seconds ago
     -----------------  ---------------------------------------  ----------------------------------------  -----------------------------------------
-    latency (Seconds)                                   35.754                                    38.120                                    31.274 
+    latency (Seconds)                                   35.754                                    38.120                                    31.274
     ```
 
-⚠️ **PLEASE NOTE -** from StackState v5.0, the old `sts` CLI is called `stac`.
+⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
 
 {% endtab %}
-{% tab title="CLI: sts (new)" %}
+{% tab title="CLI: sts" %}
 
 Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 {% endtab %}
@@ -77,7 +77,7 @@ To understand whether the StackState platform is a bottleneck when processing to
     ```
     > kubectl top pod -l app.kubernetes.io/component=sync
     NAME                               CPU(cores)   MEMORY(bytes)
-    stackstate-sync-665f988dc4-sh4fp   1970m         3234Mi  
+    stackstate-sync-665f988dc4-sh4fp   1970m         3234Mi
     ```
 
 In the above example, we observe that 1.970 cores are used by the synchronization pod, where 2 are requested. This means that the pod is very close to its CPU budget and is likely throttled. To remedy this, follow the procedure below to change the topology synchronization CPU budget.
@@ -104,4 +104,4 @@ After making this modification, [observe the synchronization performance](#obser
 ## See also
 
 * [Debug topology synchronization](/configure/topology/debug-topology-synchronization.md)
-* [Customize values.yaml](/setup/install-stackstate/kubernetes_install/customize_config.md)  
+* [Customize values.yaml](/setup/install-stackstate/kubernetes_install/customize_config.md)
