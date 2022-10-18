@@ -12,7 +12,7 @@ Note that the release notes may include details of functionality that is current
 
 The StackState v5.1 release delivers brand-new features and enhancements that help your team troubleshoot faster. Details of the included features, improvements, bug fixes and updated StackPacks can be found below.
 
-The StackState v5.1 release is the last release containing the `stac` CLI. The new `sts` CLI replaces the `stac` CLI in all upcoming versions of StackState. For details see [Comparison between the CLIs](/setup/cli/cli-comparison.md).
+The StackState v5.1 release is the last release containing the `stac` CLI. The new `sts` CLI replaces the `stac` CLI in all upcoming versions of StackState. For details see [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only").
 
 **Improvements**
 
@@ -34,7 +34,7 @@ The StackState v5.1 release is the last release containing the `stac` CLI. The n
 - The "Probable causes" section on the Problem details tab in the right panel now groups together consecutive events of the same type, happening on the same component. STAC-15832
 - Health checks have more informative preview items in the right-hand side panel. STAC-14845
 - In the StackState UI, Event handlers have been redesigned and relocated from the left panel to the "View summary" tab on the right panel. STAC-14815
-- Added the ability to enable and disable monitors. This is helpful while you are developing your monitor, so as to not having it immediately running on its configured schedule. Monitors can be enabled on-demand via the CLI command `sts monitor run -i`. STAC-14719
+- Added the ability to enable and disable monitors. This is helpful while you are developing your monitor, so as to not having it immediately running on its configured schedule. Monitors can be enabled on-demand via the CLI command `sts monitor enable -i`. STAC-14719
 - The relations section in the "Component details" tab indicates which side of the relation the selected component is. STAC-17371
 - All the "tag" looking properties (for example,, identifiers, labels and sources), active or disabled, now have a direct "copy-to-clipboard" option added on hover. STAC-16967
 - The right panel Component details tab now features a "Relations" section to showcase all the direct relations that particular component has, inside or outside the current view. STAC-16682
