@@ -13,7 +13,10 @@ This page includes release notes for the StackState self-hosted product.
 
 ## StackState v5.1.0
 
-The StackState v5.1 release delivers brand-new features and enhancements that help your team troubleshoot faster. Details of the included features, improvements, bug fixes and updated StackPacks can be found below.
+The StackState v5.1 release delivers brand-new features and enhancements that help your team troubleshoot faster.
+
+* Improvements to our probable cause calculation
+* Many additions to the right panel to always have information in the context of where you are looking.
 
 The StackState v5.1 release is the last release containing the `stac` CLI. The new `sts` CLI replaces the `stac` CLI in all upcoming versions of StackState. For details see [Comparison between the CLIs](/setup/cli/cli-comparison.md).
 

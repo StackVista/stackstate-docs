@@ -573,3 +573,4 @@ helm uninstall stackstate-agent --namespace stackstate
 * [Advanced Agent configuration](advanced-agent-configuration.md)
 * [Kubernetes StackPack](../../stackpacks/integrations/kubernetes.md)
 * [OpenShift StackPack](../../stackpacks/integrations/openshift.md)
+

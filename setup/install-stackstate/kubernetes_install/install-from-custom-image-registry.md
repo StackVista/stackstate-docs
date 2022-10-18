@@ -2,7 +2,7 @@
 description: StackState Self-hosted v5.1.x 
 ---
 
-# Custom install with helm
+# Install from custom image registry
 
 ## Overview
 
