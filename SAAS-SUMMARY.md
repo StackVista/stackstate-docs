@@ -62,7 +62,7 @@
 
 ## 🔔 Events
 
-* [About events](/use/events/about_events.md)
+* [About events](use/events/about_events.md)
 * [Event notifications](use/events/event-notifications.md)
 * [Manage event handlers](use/events/manage-event-handlers.md)
 

@@ -327,7 +327,9 @@ The monitor run interval determines how often a monitor logic will be executed. 
 A monitor STJ file and an STJ monitor function definition contain the following script and queries:
 
 * [Arguments of type `ArgumentScriptMetricQueryVal`](#arguments) in the monitor STJ file define a telemetry query to be used by the monitor function.
-* [The property `script` of type `ScriptFunctionBody`](/develop/developer-guides/custom-functions/monitor-functions.md#monitor-function-definition) in the monitor function definition provides a groovy script that is run by the monitor function.
+* The property `script` of type `ScriptFunctionBody` in the monitor function definition provides a groovy script that is run by the monitor function.
+
+For details of the `script` property, see the page [monitor functions](/develop/developer-guides/custom-functions/monitor-functions.md#monitor-function-definition "StackState Self-Hosted only").
 
 It can be challenging to add scripts and queries to the STJ format. An external tool, such as [yq \(github.com\)](https://github.com/mikefarah/yq), can be used to get a more friendly formatting of the script or query to work with and update as required.
 
@@ -384,7 +386,11 @@ yq -o=json '.' monitor.yaml
 {% endtab %}
 {% tab title="Add a script to `ScriptFunctionBody`" %}
 
-Update the monitor function example shown on the page [monitor functions](/develop/developer-guides/custom-functions/monitor-functions.md#upload-to-stackstate) using the external tool [yq \(github.com\)](https://github.com/mikefarah/yq) to get a more friendly formatting:
+**StackState self-hosted only**
+
+Update a monitor function using the external tool [yq \(github.com\)](https://github.com/mikefarah/yq) to get a more friendly formatting:
+
+This uses the example monitor function shown on the page [monitor functions](/develop/developer-guides/custom-functions/monitor-functions.md#upload-to-stackstate "StackState Self-Hosted only")
 
 ```text
 yq -P ./monitorFunction.stj > monitorFunction.yaml

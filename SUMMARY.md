@@ -106,7 +106,7 @@
   * [Browse telemetry](use/metrics/browse-telemetry.md)
   * [Set telemetry stream priority](use/metrics/set-telemetry-stream-priority.md)
 * [Events](use/events/README.md)
-  * [About events](/use/events/about_events.md)
+  * [About events](use/events/about_events.md)
   * [Event notifications](use/events/event-notifications.md)
   * [Manage event handlers](use/events/manage-event-handlers.md)
 * [Glossary](use/glossary.md)

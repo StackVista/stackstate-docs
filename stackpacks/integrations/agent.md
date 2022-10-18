@@ -38,7 +38,7 @@ The integrations included in the StackState Agent V2 StackPack are listed below.
 
 ### Status
 
-To find the status of an installed Agent, use the status commands provided in the [StackState Agent documentation](../../setup/agent/).
+To find the status of an installed Agent, use the status commands provided in the [StackState Agent documentation](/setup/agent/).
 
 ### Upgrade
 
@@ -49,7 +49,7 @@ When a new version of the StackState Agent V2 StackPack is available in your ins
 For an overview of recent StackPack updates, check the [StackPack versions](/setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release.
 {% endhint %}
 
-To upgrade StackState Agent V2, see the [StackState Agent documentation](../../setup/agent/).
+To upgrade StackState Agent V2, see the [StackState Agent documentation](/setup/agent/).
 
 ## Integration details
 
@@ -80,7 +80,7 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 Uninstall the StackState Agent V2 StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen.
 
-To uninstall StackState Agent V2, see the [StackState Agent documentation](../../setup/agent/).
+To uninstall StackState Agent V2, see the [StackState Agent documentation](/setup/agent/).
 
 ## Release notes
 
@@ -119,5 +119,5 @@ To uninstall StackState Agent V2, see the [StackState Agent documentation](../..
 
 ## See also [](http://not.a.link "StackState Self-Hosted only")
 
-* [StackState Agent documentation](../../setup/agent/ "StackState Self-Hosted only")
+* [StackState Agent documentation](/setup/agent/ "StackState Self-Hosted only")
 
