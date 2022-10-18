@@ -18,7 +18,7 @@ To address this issue, you can copy all the images to a single registry close to
    * For Amazon Elastic Kubernetes Service (EKS), use [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/).
    * For Azure Kubernetes Service (AKS), use [Azure Container Registry (ACR) \(azure.microsoft.com\)](https://azure.microsoft.com/en-us/products/container-registry/).
 2. Use the relevant script to copy all the images used by the Helm chart to the new registry:
-   * **StackState:** [stackstate/installation/copy_images.sh \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation) to copy all the images used by the Helm chart to the new registry
+   * **StackState:** [stackstate/installation/copy_images.sh \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation "StackState Self-Hosted only") to copy all the images used by the Helm chart to the new registry
    * **StackState Agent:** [cluster-agent/installation/copy_images.sh \(github.com\)](https://github.com/StackVista/helm-charts/blob/master/stable/cluster-agent/installation/copy_images.sh)
    * For example:
 
@@ -71,7 +71,9 @@ To address this issue, you can copy all the images to a single registry close to
 
 ### StackState
 
-The images listed below are used in StackState v5.0.0:
+{% hint style="success" "self-hosted info" %}
+
+The images listed below are used in StackState v5.1.0:
 
 * quay.io/stackstate/container-tools:1.1.4
 * quay.io/stackstate/elasticsearch-exporter:v1.2.1-2738680411
@@ -95,6 +97,8 @@ The images listed below are used in StackState v5.0.0:
 * quay.io/stackstate/tephra-server:4.9.1
 * quay.io/stackstate/wait:1.0.7-2755960650
 * quay.io/stackstate/zookeeper:3.6.3-2738717608
+
+{% endhint %}
 
 ### StackState Agent, Cluster Agent and kube-state-metrics
 
