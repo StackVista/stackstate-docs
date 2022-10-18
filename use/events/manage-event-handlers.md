@@ -48,7 +48,7 @@ Event handlers listen to events generated within a view. When the configured eve
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    * You can create your own custom event handler functions.
+* You can create your own custom event handler functions.
 * A full list of the event handler functions available in your StackState instance can be found in the StackState UI. Go to **Settings** &gt; **Functions** &gt; **Event Handler Functions**.
 {% endhint %}
 
