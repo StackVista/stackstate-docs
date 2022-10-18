@@ -63,7 +63,7 @@ To enable improvement of the AAD, users can add feedback to reported anomalies. 
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    
+
 Use the StackState CLI to export anomaly feedback ready to send to StackState.
 
 {% endhint %}
@@ -109,7 +109,7 @@ You cannot directly control the stream selected, but you can steer the metric st
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    
+
 Know what the AAD is working on. The status UI of the AAD provides various metrics and indicators, including details of what the AAD is currently doing.
 {% endhint %}
 

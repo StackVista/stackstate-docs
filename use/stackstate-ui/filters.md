@@ -35,7 +35,7 @@ The main way to filter topology is using the available basic filters. When you s
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    
+
 You can define custom labels to make searching for information easier.
 {% endhint %}
 
@@ -115,7 +115,7 @@ layer = "applications"
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    
+
 If required, you can manually configure the topology filtering limit. 
 {% endhint %}
 

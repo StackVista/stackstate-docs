@@ -29,7 +29,7 @@ In the **Save view as** dialog, the following options can be set:
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    
+
 * You can build your own view state configuration functions to customize how the view health state is calculated.
 * Views can be given an optional identifier. Identifiers make the view uniquely referencable from exported configuration, like the exported configuration in a StackPack.
 * Views can be secured by a StackState administrator.

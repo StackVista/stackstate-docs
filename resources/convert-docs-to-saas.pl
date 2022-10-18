@@ -62,7 +62,7 @@ sub de_link_and_edit_geek_boxes {
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    ';
+';
       $selfhosted_box = 1;
     } elsif($line =~ /{% endhint %}/) {
       print "<<< Found box end \n" unless ($selfhosted_box == 1);

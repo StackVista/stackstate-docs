@@ -82,7 +82,7 @@ Can be triggered by **Health state change events** only.
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    The email event handler function will send details of a health state change event using a configured SMTP server.
+The email event handler function will send details of a health state change event using a configured SMTP server.
 
 Can be triggered by **Health state change events** only.
 {% endhint %}
@@ -95,7 +95,7 @@ Can be triggered by **Health state change events** only.
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    You can create your own custom event handler functions.
+You can create your own custom event handler functions.
 {% endhint %}
 
 ## See also

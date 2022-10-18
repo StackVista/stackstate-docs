@@ -16,7 +16,7 @@ An STQL query consists of [component filters](stql_reference.md#component-filter
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    
+
 STQL queries can be combined with scripts in the Analytics environment.
 
 {% endhint %}

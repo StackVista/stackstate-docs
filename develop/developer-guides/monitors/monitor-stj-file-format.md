@@ -93,7 +93,7 @@ sts settings list --type MonitorFunction
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    
+
 You can create custom monitor function to customize how StackState processes 4T data.
 
 {% endhint %}

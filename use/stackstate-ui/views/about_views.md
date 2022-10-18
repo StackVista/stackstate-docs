@@ -75,7 +75,7 @@ A `ViewStateChangedEvent` event is triggered whenever a view changes its health 
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    
+
 Through a combination of configuration of permissions and scope, it is possible control access for a specific user. This can be done in the following ways:
 
 * Grant the user access to a subset of the topology \(a so-called scope\) and allow them to create their own views from the topology that is available to them.

@@ -19,7 +19,7 @@ There are two types of StackPack - Add-ons and Integrations. The available Stack
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    
+
 A full list of the StackPacks shipped with each supported version of StackState is available on the StackPack versions page.
 {% endhint %}
 
@@ -56,7 +56,7 @@ If a new StackPack version is available, an alert will be displayed on the Stack
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    
+
 A full list of the StackPacks shipped with each supported version of StackState is available on the StackPack versions page.
 {% endhint %}
 
@@ -80,7 +80,7 @@ To upgrade to a new major version of a StackPack, [uninstall and reinstall](abou
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    
+
 Continue using changes made to customized StackPack configuration items after upgrade:
 
 1. Before you upgrade, export each customized item:
@@ -108,6 +108,6 @@ To prevent a user from making changes to configuration items installed by a Stac
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    
+
 You can make a back-up of configuration items. Note that the lock status of configuration items will not be exported as part of a configuration backup.
 {% endhint %}

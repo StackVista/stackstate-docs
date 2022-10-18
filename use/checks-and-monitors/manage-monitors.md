@@ -192,7 +192,7 @@ $ stac monitor delete --identifier <identifier-of-the-monitor>
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    
+
 The monitor runner subsystem can be disabled in the StackState configuration by appending the following line at the end of the file `etc/application_stackstate.conf`:
 
 `stackstate.featureSwitches.monitorRunner = false`

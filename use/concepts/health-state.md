@@ -49,7 +49,7 @@ Existing StackPacks will provide health synchronization out of the box.
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    
+
 You can set up a custom health synchronization to integrate with external monitoring systems that are not supported out of the box.
 {% endhint %}
 
@@ -145,7 +145,7 @@ The propagated health state of an element is calculated using a propagation func
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    
+
 You can configure custom propagation functions to customize how health state affects the overall health of your systems.
 {% endhint %}
 

@@ -22,7 +22,7 @@ To send a notification when problem events are generated:
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    
+
 You can create a custom event handler function to trigger actions or send notifications to systems other than Slack in response to problem events.
 {% endhint %}
 

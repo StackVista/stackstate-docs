@@ -28,7 +28,7 @@ When anomaly detection is enabled for a metric stream, users can give feedback o
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    In a self-hosted installation, feedback must be exported and sent to StackState for the StackState team to be able to access it.
+In a self-hosted installation, feedback must be exported and sent to StackState for the StackState team to be able to access it.
 {% endhint %}
 
 Note that feedback is not used to train the local instance of AAD.

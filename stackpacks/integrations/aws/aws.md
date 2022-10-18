@@ -522,7 +522,7 @@ The following labels will be added to imported AWS topology in StackState:
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    
+
 
 {% endhint %}
 

@@ -76,7 +76,7 @@ To address this issue, you can copy all the images to a single registry close to
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    
+
 The images listed below are used in StackState v5.1.0:
 
 * quay.io/stackstate/container-tools:1.1.4

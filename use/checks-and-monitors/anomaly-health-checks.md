@@ -39,7 +39,7 @@ Follow the instructions below to add an anomaly health check to a component.
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    
+
 You can automate the creation of such checks, like any other checks, using the component templates.
 {% endhint %}
 
@@ -59,7 +59,7 @@ When enabled, the autonomous metric stream anomaly detection check function will
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    
+
 Advanced users of StackState can create custom anomaly check functions.
 {% endhint %}
 

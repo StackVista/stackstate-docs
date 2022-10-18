@@ -40,7 +40,7 @@ When a new version of the StackState Agent V2 StackPack is available in your ins
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    
+
 For an overview of recent StackPack updates, check the StackPack versions shipped with each StackState release.
 {% endhint %}
 

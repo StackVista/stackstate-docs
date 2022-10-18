@@ -22,7 +22,7 @@ StackState generates events internally and also receives events from integration
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    
+
 You can also use the StackState CLI or an HTTP POST to send events to StackState.
 {% endhint %}
 

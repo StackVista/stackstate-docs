@@ -61,7 +61,7 @@ Check functions are scripts that take streaming telemetry as an input, check the
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    
+
 * You can create a custom check function to customize how StackState assigns a health state to a metric stream.
 * Details of the available check functions can be found in the StackState UI, go to **Settings** &gt; **Check functions**.
 {% endhint %}
@@ -80,7 +80,7 @@ The `Autonomous metric stream anomaly detection` health check reacts to anomaly 
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    
+
 You can synchronize existing health checks from an external monitoring system and add them to StackState topology elements.
 
 {% endhint %}

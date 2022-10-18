@@ -51,7 +51,7 @@ The telemetry interval can be set in the following ways:
 
 Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
 
-    
+
 You can configure the default telemetry interval.
 
 {% endhint %}
