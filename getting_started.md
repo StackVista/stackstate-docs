@@ -1,16 +1,12 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState SaaS
 ---
 
 # Getting Started
 
-Hi! So, you've just installed StackState and you are ready to get started.[](http://not.a.link "StackState Self-Hosted only")
 
-## StackPacks[](http://not.a.link "StackState Self-Hosted only")
 
-The first step to take is integrating StackState with your IT systems. This can be done by installing one or more [StackPacks](/stackpacks/about-stackpacks.md "StackState Self-Hosted only").
 
-![StackPacks overview](/.gitbook/assets/v51_stackpacks.png "StackState Self-Hosted only")
 
 ## Explore topology
 

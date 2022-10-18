@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState SaaS
 ---
 
 # StackState Query Language \(STQL\)
@@ -12,7 +12,12 @@ An STQL query consists of [component filters](stql_reference.md#component-filter
 
 {% hint style="success" "self-hosted info" %}
 
-STQL queries can be combined with scripts in the [Analytics](../../use/stackstate-ui/analytics.md) environment.
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
+STQL queries can be combined with scripts in the Analytics environment.
 
 {% endhint %}
 

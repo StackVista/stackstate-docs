@@ -1,29 +1,40 @@
----
-cover: .gitbook/assets/gitbook-cover.jpg
-coverY: 0
-layout: landing
----
+# StackState SaaS docs
 
-# Welcome to the StackState docs!
+{% hint style="info" %}
 
-Select your version of StackState to jump to the associated documentation.
+🔒 **StackState is SOC2/3 compliant**
 
-### StackState Self-hosted
+[Learn more about compliance at StackState](https://www.stackstate.com/compliance) \(stackstate.com\)
 
-Use StackState Self-hosted to observe an extensive set of technologies that originate either in your own data centers or in the cloud.
-
-🚀 **[StackState Self-hosted v5.1 docs](latest.md) - latest release!**
-
-↗️ [StackState Self-hosted v5.0 docs](https://docs.stackstate.com/v/5.0/)
-
-↗️ [StackState Self-hosted v4.6 docs](https://docs.stackstate.com/v/4.6/)
-
-### StackState SaaS
-
-Use StackState SaaS to observe cloud technologies, such as Kubernetes and AWS services. 
-
-↗️ [StackState SaaS docs](https://docs.stackstate.com/v/stackstate-saas/)
-
-{% hint style="success" %}
-🔒 StackState is SOC2/3 certified. [Learn more](https://www.stackstate.com/compliance)
 {% endhint %}
+
+**These documentation pages cover all functionality available in the StackState SaaS product**. 
+
+StackState SaaS can be used to observe cloud technologies, such as Kubernetes and AWS services. If you want to observe a wider set of technologies, with data sources that reside in either your own data centers or in the cloud, take a look at our hybrid StackState Self-Hosted offering.
+
+➡️ Switch to the [documentation for StackState Self-Hosted](https://docs.stackstate.com/)
+
+### Get started
+
+{% content-ref url="saas-quick-start-guide.md" %}
+[Quick start guide](saas-quick-start-guide.md)
+{% endcontent-ref %}
+
+### Using StackState
+
+{% content-ref url="getting_started.md" %}
+[getting_started.md](getting_started.md)
+{% endcontent-ref %}
+
+{% content-ref url="stackpacks/integrations/" %}
+[integrations](stackpacks/integrations/)
+{% endcontent-ref %}
+
+## Can't find something?
+
+**Search for it!** Use the search bar on the top right.\
+If you believe any documentation is missing, please let us know on the [StackState support site](http://support.stackstate.com).
+
+## Troubleshooting and support
+
+Any questions? We love to help! Find our support team on the [StackState support site](http://support.stackstate.com).

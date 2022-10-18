@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState SaaS
 ---
 
 # Browse telemetry
@@ -23,7 +23,12 @@ Within the telemetry inspector you can adjust the selected metric as well as the
 When anomaly detection is enabled for a metric stream, users can give feedback on reported anomalies in the form of a thumbs-up (*"well spotted!"*) or thumbs-down (*"false positive"*). For more elaborate feedback, it is also possible to add comments. Feedback added to anomalies will be used by the StackState team to further develop and improve the AAD.
 
 {% hint style="success" "self-hosted info" %}
-In a self-hosted installation, feedback must be [exported and sent to StackState](/configure/anomaly-detection/export-anomaly-feedback.md) for the StackState team to be able to access it.
+
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    In a self-hosted installation, feedback must be exported and sent to StackState for the StackState team to be able to access it.
 {% endhint %}
 
 Note that feedback is not used to train the local instance of AAD.
@@ -36,4 +41,3 @@ Comments added to an anomaly will be included in the data exported and sent to S
 
 * [Add a single telemetry stream to a component](add-telemetry-to-element.md)
 * [Monitor a telemetry stream with a health check](../checks-and-monitors/add-a-health-check.md)
-* [Use templates to add telemetry streams to your own integrations](../../configure/telemetry/telemetry_synchronized_topology.md "StackState Self-Hosted only")

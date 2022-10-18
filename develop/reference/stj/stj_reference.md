@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState SaaS
 ---
 
 # Template functions
@@ -149,7 +149,6 @@ include "<filename>" "<encoding>"
    * `identity` - Included file will be not be interpreted, but simply will be included as text.
    * `base64` - Included file will be loaded using a BASE64 encoding. This is possible for the image types: `png`, `jpg`, `gif` and `svg`.
 
-For details on the filename, see [StackPack packaging](../../developer-guides/stackpack/prepare_package.md "StackState Self-Hosted only")
 
 #### Examples
 

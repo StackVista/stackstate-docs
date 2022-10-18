@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x
+description: StackState SaaS
 ---
 
 # Monitor STJ file format
@@ -67,7 +67,6 @@ An important field of the monitor node is the `identifier` - it is a unique valu
 
 `urn : <prefix> : monitor : <unique-monitor-identification>`
 
-* The `<prefix>` is described in more detail in [topology identifiers](../../../configure/topology/identifiers.md "StackState Self-Hosted only").
 * The `<unique-monitor-identification>` is user-definable and free-form.
 
 ### function
@@ -78,33 +77,24 @@ Monitor functions are scripts that accept 4T data as input, check the data based
 
 You can list the available monitor functions using the CLI command:
 
-{% tabs %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: sts" %}[](http://not.a.link "StackState Self-Hosted only")
 ```
 sts settings list --type MonitorFunction
 ```
 
-From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.[](http://not.a.link "StackState Self-Hosted only")
 
-➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: stac (deprecated)" %}[](http://not.a.link "StackState Self-Hosted only")
-`stac graph list MonitorFunction`[](http://not.a.link "StackState Self-Hosted only")
 
-⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.** [](http://not.a.link "StackState Self-Hosted only")
 
-The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
 
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
 
-{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 
 {% hint style="success" "self-hosted info" %}
 
-You can [create custom monitor function](../custom-functions/monitor-functions.md) to customize how StackState processes 4T data.
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
+You can create custom monitor function to customize how StackState processes 4T data.
 
 {% endhint %}
 
@@ -219,7 +209,6 @@ Monitor functions that utilize telemetry tend to be parameterized with the exact
 * `groupBy(fields)` - when a monitor will produce a health state for multiple components, use the `groupBy` field to produce multiple time series as a set of unique values for the defined `fields`.
 * `aggregation(type, interval)` - aggregates each time series by the defined `type`. Each aggregated value is constructed out of a data span the size of the defined `interval`.
 
-➡️ [Learn more about the Telemetry script API](/develop/reference/scripting/script-apis/telemetry.md "StackState Self-Hosted only")
 
 {% tabs %}
 {% tab title="Monitor STJ definition" %}
@@ -329,7 +318,6 @@ A monitor STJ file and an STJ monitor function definition contain the following 
 * [Arguments of type `ArgumentScriptMetricQueryVal`](#arguments) in the monitor STJ file define a telemetry query to be used by the monitor function.
 * The property `script` of type `ScriptFunctionBody` in the monitor function definition provides a groovy script that is run by the monitor function.
 
-For details of the `script` property, see the page [monitor functions](/develop/developer-guides/custom-functions/monitor-functions.md#monitor-function-definition "StackState Self-Hosted only").
 
 It can be challenging to add scripts and queries to the STJ format. An external tool, such as [yq \(github.com\)](https://github.com/mikefarah/yq), can be used to get a more friendly formatting of the script or query to work with and update as required.
 
@@ -390,7 +378,6 @@ yq -o=json '.' monitor.yaml
 
 Update a monitor function using the external tool [yq \(github.com\)](https://github.com/mikefarah/yq) to get a more friendly formatting:
 
-This uses the example monitor function shown on the page [monitor functions](/develop/developer-guides/custom-functions/monitor-functions.md#upload-to-stackstate "StackState Self-Hosted only")
 
 ```text
 yq -P ./monitorFunction.stj > monitorFunction.yaml
@@ -468,6 +455,5 @@ This can then be added back to the property `script` of type `ScriptFunctionBody
 ## See also
 
 * [Create a custom monitor](create-custom-monitors.md)
-* [Monitor functions](/develop/developer-guides/custom-functions/monitor-functions.md "StackState Self-Hosted only")
 * [Manage monitors](/use/checks-and-monitors/manage-monitors.md)
 * [STJ reference](/develop/reference/stj/using_stj.md)

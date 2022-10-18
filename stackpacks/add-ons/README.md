@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState SaaS
 ---
 
 # Add-ons

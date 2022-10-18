@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState SaaS
 ---
 
 # Manage event handlers
@@ -43,7 +43,12 @@ Event handlers can only be added to a saved [view](/use/stackstate-ui/views/abou
 Event handlers listen to events generated within a view. When the configured event type is generated, an event handler function is run to send an event notification or trigger an action in a system outside of StackState. For example, an event handler function could send a message to a Slack channel or make a POST to a webhook URL. A number of default event handler functions are included out of the box with StackState, these are described below.
 
 {% hint style="success" "self-hosted info" %}
-* You can [create your own custom event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md).
+
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    * You can create your own custom event handler functions.
 * A full list of the event handler functions available in your StackState instance can be found in the StackState UI. Go to **Settings** &gt; **Functions** &gt; **Event Handler Functions**.
 {% endhint %}
 
@@ -72,7 +77,12 @@ Can be triggered by **Health state change events** only.
 ### Email
 
 {% hint style="success" "self-hosted info" %}
-The email event handler function will send details of a health state change event using a [configured SMTP server](/configure/topology/configure-email-event-notifications.md).
+
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    The email event handler function will send details of a health state change event using a configured SMTP server.
 
 Can be triggered by **Health state change events** only.
 {% endhint %}
@@ -80,13 +90,16 @@ Can be triggered by **Health state change events** only.
 ### Custom functions
 
 {% hint style="success" "self-hosted info" %}
-You can [create your own custom event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md).
+
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    You can create your own custom event handler functions.
 {% endhint %}
 
 ## See also
 
 * [Event types for event notifications](/use/events/event-notifications.md#event-types-for-notifications)
 * [Add a health check](/use/checks-and-monitors/add-a-health-check.md)
-* [Configure an SMTP server to send email event notifications](/configure/topology/configure-email-event-notifications.md "StackState Self-Hosted only")
-* [Create a custom event handler function](/develop/developer-guides/custom-functions/event-handler-functions.md "StackState Self-Hosted only")
 * [Create a Slack Webhook \(slack.com\)](https://api.slack.com/messaging/webhooks)
