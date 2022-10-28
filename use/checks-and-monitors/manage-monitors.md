@@ -19,7 +19,7 @@ Most Monitors in StackState are created as part of a StackPack installed by the 
 
 It might be beneficial to modify an existing monitor definition to change its parameters, run interval or to disable it. All of these actions are done by utilizing the StackState CLI and are described in greater detail in the following sections.
 
-## Make and apply changes to a monitor
+## Edit a monitor
 
 Monitor configuration can be changed by modifying the monitor definition.
 
@@ -40,7 +40,7 @@ Once applied, the updated monitor definition will be in effect. Changes will be 
 
 The monitor runner schedules monitor execution using an interval parameter that is configured on a per-monitor basis - the `intervalSeconds`. The runner will attempt to schedule a monitor execution every `intervalSeconds`, counting from the end of the previous execution cycle, in parallel to the other existing monitors (subject to resource limits). For example, setting `intervalSeconds` of a monitor definition to the value `600` will cause the monitor runner to attempt to schedule the execution of this monitor every ten minutes, assuming that the execution time itself is negligible.
 
-To set a new run interval for a monitor, adjust the `intervalSeconds` parameter in the monitor STJ definition as described in the instructions to [make and apply changes to the monitor](#make-and-apply-changes-to-a-monitor).
+To set a new run interval for a monitor, adjust the `intervalSeconds` parameter in the monitor STJ definition as described in the instructions to [edit the monitor](#edit-a-monitor).
 
 For example, to run the monitor every 5 minutes, set the `intervalSeconds` to `300`:
 
