@@ -107,7 +107,7 @@ In the StackState UI, the view health state is reported as a one of four colors:
 
 ![Health states](../../.gitbook/assets/v51_view_health_states.svg)
 
-* [How to configure view health state reporting](/use/stackstate-ui/views/configure-view-health.md)
+➡️ [Learn how to configure view health state reporting](/use/stackstate-ui/views/configure-view-health.md)
 
 You can check the view health state in the following places in the StackState UI:
 

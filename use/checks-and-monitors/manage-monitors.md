@@ -162,6 +162,12 @@ Individual monitors can be disabled using the StackState CLI. To disable/enable 
 
 {% tabs %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="CLI: sts" %}[](http://not.a.link "StackState Self-Hosted only")
+{% hint style="info" %}[](http://not.a.link "StackState Self-Hosted only")
+From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.[](http://not.a.link "StackState Self-Hosted only")
+
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+{% endhint %}
+
 ```
 # Disable By ID
 sts monitor disable --id <id-of-the-monitor>
@@ -178,11 +184,18 @@ sts monitor enable --identifier <identifier-of-the-monitor>
 
 ```
 
-From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.[](http://not.a.link "StackState Self-Hosted only")
-
-➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="CLI: stac (deprecated)" %}[](http://not.a.link "StackState Self-Hosted only")
+{% hint style="warning" %}[](http://not.a.link "StackState Self-Hosted only")
+**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**[](http://not.a.link "StackState Self-Hosted only")
+
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
+
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+{% endhint %}
+
 ```
 # Disable a monitor
 stac monitor disable <id-or-identifier-of-the-monitor>
@@ -190,14 +203,6 @@ stac monitor disable <id-or-identifier-of-the-monitor>
 # Enable a monitor
 stac monitor enable <id-or-identifier-of-the-monitor>
 ```
-
-⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.** [](http://not.a.link "StackState Self-Hosted only")
-
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
-
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
 
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
