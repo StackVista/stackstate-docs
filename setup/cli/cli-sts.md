@@ -255,6 +255,12 @@ If multiple types of configuration are presented to the CLI the order of process
 
 Next to overriding specific parts of the config file, it is also possible to override the default config file location. This is done through the `--config <PATH>` flag.
 
+## Upgrade
+
+To upgrade to the latest version of the new `sts` CLI, [run the install command again](#install-the-new-sts-cli).
+
+You can check the version of the `sts` CLI that you are currently running with the command `sts version`.
+
 ## Uninstall
 
 Follow the instructions below to uninstall the StackState CLI.
