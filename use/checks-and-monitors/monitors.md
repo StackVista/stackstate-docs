@@ -58,6 +58,5 @@ You can [create a custom monitor function](../../develop/developer-guides/custom
 * [Health Synchronization](/configure/health/health-synchronization.md "StackState Self-Hosted only")
 * [StackState Template JSON \(STJ\)](../../develop/reference/stj/)
 * [StackState `sts` CLI](../../setup/cli/cli-sts.md)
-* [StackPacks](../../stackpacks/about-stackpacks.md)
 * [Identifiers](../../configure/topology/identifiers.md "StackState Self-Hosted only")
 * [Checks](checks.md)
