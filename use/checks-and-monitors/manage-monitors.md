@@ -44,7 +44,7 @@ The monitor runner schedules monitor execution using an interval parameter that 
 
 To set a new run interval for a monitor, adjust the `intervalSeconds` parameter in the monitor STJ definition as described in the instructions to [edit the monitor](#edit).
 
-For example, to run the monitor every 5 minutes, set the `intervalSeconds` to `300`:
+For example, to run the monitor every 5 minutes, set the `intervalSeconds` to `300`.
 
 {% tabs %}
 {% tab title="Monitor STJ definition" %}
@@ -214,7 +214,7 @@ stac monitor enable <id-or-identifier-of-the-monitor>
 {% hint style="info" %}
 A deleted monitor will be entirely removed from StackState. When a monitor is deleted, all health states associated with the monitor will also be removed, and they will no longer be visible in the StackState UI.
 
-You can also [disable a monitor](#enable-disable-a-single-monitor) to stop it running and producing health states without the need to completely delete it.
+You can also [disable a monitor](#enable-disable) to stop it running and producing health states without the need to completely delete it.
 {% endhint %}
 
 To delete a monitor and remove it from StackState, use the StackState CLI:
