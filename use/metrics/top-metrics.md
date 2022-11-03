@@ -8,7 +8,7 @@ When you hover the mouse pointer over a component in the Topology Perspective, t
 
 ## Change the displayed metrics
 
-The metrics displayed are taken from the three metric streams displayed at the top of the **Telemetry** list. The order of the **Telemetry** list is defined by the **Priority** assigned to each telemetry stream and then by the name of the telemetry stream. To change the top metrics displayed in the component context menu, [set the telemetry stream priority](/use/metrics/set-telemetry-stream-priority.md) to place the required telemetry streams at the top of the **Telemetry** list.
+The metrics displayed are taken from the three metric streams displayed at the top of the **Telemetry** list. The order of the **Telemetry** list is defined by the **Priority** assigned to each telemetry stream and then by the name of the telemetry stream. To change the top metrics displayed in the component context menu, [set the telemetry stream priority](/use/metrics/set-telemetry-stream-priority.md) to fit the desired order of the **Telemetry** list.
 
 ![Top metrics and telemetry streams](/.gitbook/assets/v51_top_metrics_streams.png)
 

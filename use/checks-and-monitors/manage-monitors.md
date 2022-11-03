@@ -113,7 +113,7 @@ The output of this command indicates the specific errors that occurred along wit
 
 ### Preview
 
-You can use the CLI run a monitor and preview its output without persisting its results.
+You can use the CLI to run a monitor and preview its output without persisting its results.
 
 {% tabs %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="CLI: sts" %}[](http://not.a.link "StackState Self-Hosted only")
