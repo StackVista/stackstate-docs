@@ -5,7 +5,7 @@ description: StackState Self-hosted v5.1.x
 # Configure Ingress
 
 {% hint style="warning" %}
-**For [Kubernetes installations of StackState](kubernetes_install.md) only.**
+Only for [Kubernetes installations of StackState](kubernetes_install.md)
 {% endhint %}
 
 The StackState Helm chart exposes an `ingress` section in its values. By default, ingress is disabled.
