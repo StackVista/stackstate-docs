@@ -4,6 +4,10 @@ description: StackState Self-hosted v5.1.x
 
 # Install StackState
 
+{% hint style="warning" %}
+TODO - To update!!!
+{% endhint %}
+
 ## Before you start
 
 {% hint style="info" %}

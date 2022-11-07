@@ -4,6 +4,10 @@ description: StackState Self-hosted v5.1.x
 
 # OpenShift install
 
+{% hint style="warning" %}
+TODO - To update!!!
+{% endhint %}
+
 ## Before you start
 
 Before you start the installation of StackState:
