@@ -4,17 +4,13 @@ description: StackState Self-hosted v5.1.x
 
 # Install StackState
 
-{% hint style="warning" %}
-TODO - To update!!!
-{% endhint %}
-
 ## Before you start
 
 {% hint style="info" %}
 Extra notes for installing on:
 
 * **Kubernetes clusters with limited permissions**: Read the [required permissions](required_permissions.md).
-* **OpenShift**: Refer to the [OpenShift installation instructions](../openshift_install.md).
+* **OpenShift**: Refer to the [OpenShift installation instructions](openshift_install.md).
 {% endhint %}
 
 Before you start the installation of StackState:
@@ -31,10 +27,10 @@ helm repo update
 
 ## Install StackState
 
-1. [Create the namespace where StackState will be installed](install_stackstate.md#create-namespace)
-2. [Generate the `values.yaml` file](install_stackstate.md#generate-values.yaml)
-3. [Deploy StackState with Helm](install_stackstate.md#deploy-stackstate-with-helm)
-4. [Access the StackState UI](install_stackstate.md#access-the-stackstate-ui)
+1. [Create the namespace where StackState will be installed](kubernetes_install.md#create-namespace)
+2. [Generate the `values.yaml` file](kubernetes_install.md#generate-values.yaml)
+3. [Deploy StackState with Helm](kubernetes_install.md#deploy-stackstate-with-helm)
+4. [Access the StackState UI](kubernetes_install.md#access-the-stackstate-ui)
 
 ### Create namespace
 
@@ -75,7 +71,7 @@ The script requires the following configuration items:
 | License key | `-l` | The StackState license key.                                                                                                                                                                                                                                                                                                                                                                |
 | Admin API password | `-a` | The password for the admin API. Note that this API contains system maintenance functionality and should only be accessible by the maintainers of the StackState installation. This can be omitted from the command line, the script will prompt for it.                                                                                                                                    |
 | Default password | `-d` | The password for the default user \(`admin`\) to access StackState's UI. This can be omitted from the command line, the script will prompt for it.                                                                                                                                                                                                                                         |
-| Kubernetes cluster name | `-k` | StackState will use this name to identify the cluster. In non-interactive mode, specifying `-k` will both enable [automatic Kubernetes support](install_stackstate.md#automatic-kubernetes-support) and set the cluster name. In interactive mode, you will first be asked if you want to automatically install the [Kubernetes StackPack](../../../stackpacks/integrations/kubernetes.md). |
+| Kubernetes cluster name | `-k` | StackState will use this name to identify the cluster. In non-interactive mode, specifying `-k` will both enable [automatic Kubernetes support](kubernetes_install.md#automatic-kubernetes-support) and set the cluster name. In interactive mode, you will first be asked if you want to automatically install the [Kubernetes StackPack](../../../stackpacks/integrations/kubernetes.md). |
 
 {% hint style="info" %}
 Store the generated `values.yaml` file somewhere safe. You can reuse this file for upgrades, which will save time and \(more importantly\) will ensure that StackState continues to use the same API key. This is desirable as it means Agents and other data providers for StackState will not need to be updated.
@@ -95,7 +91,7 @@ The non-high availability setup is only suitable for situations that do not requ
 To deploy StackState in a high availability setup on Kubernetes:
 
 1. Before you deploy:
-   * [Create the namespace where StackState will be installed](install_stackstate.md#create-namespace)
+   * [Create the namespace where StackState will be installed](kubernetes_install.md#create-namespace)
    * [Generate `values.yaml`](#generate-values.yaml)
 2. Deploy the latest StackState version to the `stackstate` namespace with the following command:
 
@@ -113,7 +109,7 @@ stackstate/stackstate
 To deploy StackState in a non-high availability setup on Kubernetes:
 
 1. Before you deploy:
-   * [Create the namespace where StackState will be installed](install_stackstate.md#create-namespace)
+   * [Create the namespace where StackState will be installed](kubernetes_install.md#create-namespace)
    * [Generate `values.yaml`](#generate-values.yaml)
    * [Create `nonha_values.yaml`](non_high_availability_setup.md)
 3. Deploy the latest StackState version to the `stackstate` namespace with the following command:

@@ -55,6 +55,6 @@ To deploy StackState in a non-high availability setup, you will need a `nonha_va
    ```
 
 2. Continue with the instructions to deploy StackState with Helm:
-   * [Deploy on Kubernetes](/setup/install-stackstate/kubernetes_install/install_stackstate.md#deploy-stackstate-with-helm).
-   * [Deploy on OpenShift](/setup/install-stackstate/openshift_install.md#deploy-stackstate-with-helm).
+   * [Deploy on Kubernetes](/setup/install-stackstate/kubernetes_openshift/kubernetes_install.md#deploy-stackstate-with-helm).
+   * [Deploy on OpenShift](/setup/install-stackstate/kubernetes_openshift/openshift_install.md#deploy-stackstate-with-helm).
 

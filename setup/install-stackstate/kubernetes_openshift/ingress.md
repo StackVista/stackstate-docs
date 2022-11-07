@@ -4,6 +4,10 @@ description: StackState Self-hosted v5.1.x
 
 # Configure Ingress
 
+{% hint style="warning" %}
+**For [Kubernetes installations of StackState](kubernetes_install.md) only.**
+{% endhint %}
+
 The StackState Helm chart exposes an `ingress` section in its values. By default, ingress is disabled.
 
 We give an example here for how to configure an nginx-ingress controller with TLS encryption enabled. Setting up the controller itself and the certificates is beyond the scope of this document.

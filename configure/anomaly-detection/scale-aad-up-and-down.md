@@ -33,7 +33,7 @@ cpu:
 {% endtab %}
 {% endtabs %}
 
-For most cases, this snippet should be added to the `values.yaml` file used to deploy [StackState](/setup/install-stackstate/kubernetes_install/install_stackstate.md). If you are running the [AAD as a standalone service](/setup/install-stackstate/kubernetes_install/aad_standalone.md) (not recommended for most users), add the snippet to the `values.yaml` file used to deploy the AAD Kubernetes Service.
+For most cases, this snippet should be added to the `values.yaml` file used to deploy [StackState](/setup/install-stackstate/kubernetes_openshift/kubernetes_install.md). If you are running the [AAD as a standalone service](/setup/install-stackstate/kubernetes_openshift/aad_standalone.md) (not recommended for most users), add the snippet to the `values.yaml` file used to deploy the AAD Kubernetes Service.
 
 ## Evaluate use of resources
 

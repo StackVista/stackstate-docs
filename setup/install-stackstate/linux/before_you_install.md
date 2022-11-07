@@ -6,10 +6,10 @@ description: StackState Self-hosted v5.1.x
 
 {% hint style="info" %}
 StackState prefers Kubernetes!  
-In the future we will move away from Linux support. Read how to [migrate from the Linux install of StackState to the Kubernetes install](../kubernetes_install/migrate_from_linux.md).
+In the future we will move away from Linux support. Read how to [migrate from the Linux install of StackState to the Kubernetes install](../kubernetes_openshift/migrate_from_linux.md).
 {% endhint %}
 
-StackState can be installed either with Linux packages on one or two Linux machines or with Helm on a [Kubernetes cluster](../kubernetes_install/).
+StackState can be installed either with Linux packages on one or two Linux machines or with Helm on a [Kubernetes cluster](../kubernetes_openshift/).
 
 ## Choosing your installation type
 

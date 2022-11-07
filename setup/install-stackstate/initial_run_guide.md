@@ -12,15 +12,15 @@ This page provides all the information you need to install and run StackState.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-Install StackState on [Kubernetes](kubernetes_install/).
+Install StackState on [Kubernetes](kubernetes_openshift/).
 {% endtab %}
 
 {% tab title="Linux" %}
-Install StackState on [Linux](linux_install/).
+Install StackState on [Linux](linux/).
 {% endtab %}
 
 {% tab title="OpenShift" %}
-Install StackState on [OpenShift](openshift_install.md).
+Install StackState on [OpenShift](kubernetes_openshift/openshift_install.md).
 {% endtab %}
 {% endtabs %}
 
@@ -30,7 +30,7 @@ Install StackState on [OpenShift](openshift_install.md).
 {% tab title="Kubernetes" %}
 To access the StackState UI:
 
-1. [Enable a port-forward](kubernetes_install/install_stackstate.md#access-the-stackstate-ui).
+1. [Enable a port-forward](kubernetes_openshift/kubernetes_install.md#access-the-stackstate-ui).
 2. Access the StackState UI at: [https://localhost:8080](https://localhost:8080)
 {% endtab %}
 
@@ -43,7 +43,7 @@ The StackState UI can be accessed using the `<STACKSTATE_BASE_URL>` specified du
 {% tab title="OpenShift" %}
 To access the StackState UI:
 
-1. [Enable a port-forward](openshift_install.md#access-the-stackstate-ui).
+1. [Enable a port-forward](kubernetes_openshift/openshift_install.md#access-the-stackstate-ui).
 2. Access the StackState UI at: [https://localhost:8080](https://localhost:8080)
 {% endtab %}
 {% endtabs %}

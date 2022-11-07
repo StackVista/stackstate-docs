@@ -10,7 +10,7 @@ All of StackState's own components can run without any extra permissions. Howeve
 
 ## Autonomous Anomaly Detector \(AAD\)
 
-In order to run the [Autonomous Anomaly Detector](../../../stackpacks/add-ons/aad.md), or prepare your Kubernetes cluster to run it, StackState needs to create a `ClusterRole` and two `ClusterRoleBinding` resources. Creating these cluster-wide resources is often prohibited for users that are not a Kubernetes administrator.
+In order to run the [Autonomous Anomaly Detector](../../../stackpacks/add-ons/aad.md), or prepare your Kubernetes/OpenShift cluster to run it, StackState needs to create a `ClusterRole` and two `ClusterRoleBinding` resources. Creating these cluster-wide resources is often prohibited for users that are not a Kubernetes/OpenShift administrator.
 
 ### Disable automatic creation of cluster-wide resources
 
@@ -34,7 +34,7 @@ Note that if automatic creation of cluster-wide resources is disabled the Autono
 
 ### Manually create cluster-wide resources
 
-If you need to manually create the cluster-wide resources, ask your Kubernetes administrator to create the 3 resources below in the Kubernetes cluster.
+If you need to manually create the cluster-wide resources, ask your Kubernetes/OpenShift administrator to create the 3 resources below in the Kubernetes/OpenShift cluster.
 
 {% hint style="info" %}
 Ensure that you specify the correct namespace for the bound `ServiceAccount` for both of the `ClusterRoleBinding` resources.
@@ -107,7 +107,7 @@ As the `vm.max_map_count` Linux system setting is usually lower than required fo
 
 ### Disable the privileged Elasticsearch init container
 
-In case you and/or your Kubernetes administrators do not want the privileged Elasticsearch init container to be enabled by default, you can disable this behavior in the file `values.yaml` used to install StackState:
+In case you and/or your Kubernetes/OpenShift administrators do not want the privileged Elasticsearch init container to be enabled by default, you can disable this behavior in the file `values.yaml` used to install StackState:
 
 {% tabs %}
 {% tab title="values.yaml" %}
@@ -138,7 +138,7 @@ max virtual memory areas vm.max_map_count [65530] is too low, increase to at lea
 
 ### Increase Linux system settings for Elasticsearch
 
-Depending on what your Kubernetes administrators prefer, the `vm.max_map_count` can be set to a higher default on all nodes by either changing the default node configuration \(for example via init scripts\) or by having a DaemonSet do this right after node startup. The former is very dependent on your Kubernetes cluster setup, so there are no general solutions there.
+Depending on what your Kubernetes/OpenShift administrators prefer, the `vm.max_map_count` can be set to a higher default on all nodes by either changing the default node configuration \(for example via init scripts\) or by having a DaemonSet do this right after node startup. The former is very dependent on your Kubernetes/OpenShift cluster setup, so there are no general solutions there.
 
 Below is an example that can be used as a starting point for a DaemonSet to change the `vm.max_map_count` setting:
 
@@ -165,7 +165,7 @@ spec:
       - effect: NoExecute
         key: node.kubernetes.io/not-ready
         operator: Exists
-      # Optional node selector (assumes nodes for Elasticsearch are labeled `elastichsearch:yes`
+      # Optional node selector (assumes nodes for Elasticsearch are labeled `elasticsearch:yes`
       # nodeSelector:
       #  elasticsearch: yes
       initContainers:
@@ -209,5 +209,6 @@ elasticsearch:
 ## See also
 
 * [Autonomous Anomaly Detector](../../../stackpacks/add-ons/aad.md)
-* [Install StackState on Kubernetes](install_stackstate.md)
+* [Install StackState on Kubernetes](kubernetes_install.md)
+* [Install StackState on OpenShift](openshift_install.md)
 

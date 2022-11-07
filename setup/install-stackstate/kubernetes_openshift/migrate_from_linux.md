@@ -6,19 +6,15 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-This document describes how to migrate data from the Linux install of StackState to the Kubernetes install.
-
-{% hint style="info" %}
-The Kubernetes installation of StackState should be v4.2.5 or higher to execute this procedure.
-{% endhint %}
+This document describes how to migrate data from the Linux install of StackState to the Kubernetes or OpenShift install.
 
 ## High level steps
 
-To migrate from the Linux install to the Kubernetes install of StackState, the following high level steps need to be performed:
+To migrate from the Linux install to the Kubernetes or OpenShift install of StackState, the following high level steps need to be performed:
 
-1. [Install StackState](install_stackstate.md) on Kubernetes.
-2. [Migrate StackState configuration and topology data \(StackGraph\)](migrate_from_linux.md#step-2-migrate-stackstate-configuration-and-topology-data-stackgraph) from the Linux install to the Kubernetes install.
-3. [Migrate telemetry data \(Elasticsearch\)](migrate_from_linux.md#step-3-migrate-telemetry-data-elasticsearch) from the Linux install to the Kubernetes install.
+1. [Install StackState](kubernetes_install.md) on Kubernetes.
+2. [Migrate StackState configuration and topology data \(StackGraph\)](migrate_from_linux.md#step-2-migrate-stackstate-configuration-and-topology-data-stackgraph) from the Linux install to the Kubernetes or OpenShift install.
+3. [Migrate telemetry data \(Elasticsearch\)](migrate_from_linux.md#step-3-migrate-telemetry-data-elasticsearch) from the Linux install to the Kubernetes or OpenShift install.
 
 Incoming data from agents \(Kafka\) and node synchronisation data \(Zookeeper\) will not be copied.
 
@@ -36,8 +32,8 @@ Before you start the migration procedure, make sure you have the following infor
 
 * Access to:
   * The Linux machines running your old StackState installation.
-  * The Kubernetes cluster running your new StackState installation.
-  * The `values.yaml` file used to install your StackState installation on Kubernetes.
+  * The Kubernetes/OpenShift cluster running your new StackState installation.
+  * The `values.yaml` file used to install your StackState installation on Kubernetes/OpenShift.
   * The restore scripts that are part of the [StackState Helm chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/restore).
 * Tools:
   * [helm \(helm.sh\)](https://helm.sh/)
@@ -77,7 +73,7 @@ To export the StackGraph data, execute the regular StackState Linux backup proce
 
 ### Import StackGraph data
 
-To import the StackGraph data into the Kubernetes installation, the same [MinIO \(min.io\)](https://min.io/) component that is used for the backup/restore functionality will be used.
+To import the StackGraph data into the Kubernetes/OpenShift installation, the same [MinIO \(min.io\)](https://min.io/) component that is used for the backup/restore functionality will be used.
 
 {% hint style="info" %}
 Note that the [StackState automatic Kubernetes backup functionality](../../data-management/backup_restore/kubernetes_backup.md) should not be enabled until after the migration procedure has completed.
@@ -207,11 +203,11 @@ The Helm values `backup.stackGraph.scheduled.enabled`, `backup.elasticsearch.res
 
 ## Step 3 - Migrate telemetry data \(Elasticsearch\)
 
-To migrate Elasticsearch data from the Linux install to the Kubernetes install, use the functionality [reindex from remote \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/reindex-upgrade-remote.html).
+To migrate Elasticsearch data from the Linux install to the Kubernetes or OpenShift install, use the functionality [reindex from remote \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/reindex-upgrade-remote.html).
 
 Notes:
 
-* To access the Elasticsearch instance that runs as part of the Kubernetes installation for StackState, execute the following command:
+* To access the Elasticsearch instance that runs as part of the Kubernetes or OpenShift installation for StackState, execute the following command:
 
   ```bash
     kubectl port-forward service/stackstate-elasticsearch-master 9200:9200
@@ -233,7 +229,8 @@ Notes:
 
 ## See also
 
-* [Install StackState on Kubernetes](install_stackstate.md)
+* [Install StackState on Kubernetes](kubernetes_install.md)
+* [Install StackState on OpenShift](openshift_install.md)
 * [StackState Helm chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/restore)
 * [StackState Linux backup](../../data-management/backup_restore/linux_backup.md)
 
