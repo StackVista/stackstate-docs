@@ -16,20 +16,24 @@ Click on any of the telemetry stream charts, or select **Inspect stream** from i
 
 ![Telemetry inspector](../../.gitbook/assets/v51_telemetry-inspector.png)
 
-Within the telemetry inspector you can adjust the selected metric as well as the filters, time window and aggregation applied to the data source. Changes made here will not be saved to the telemetry stream attached to the element.
+Within the telemetry inspector you can adjust the selected metric as well as the filters, time window and aggregation applied to the data source. 
+
+{% hint style="info" %}
+Changes made here will not be saved to the telemetry stream attached to the element.
+{% endhint %}
 
 ### Anomaly feedback
 
-When anomaly detection is enabled for a metric stream, users can give feedback on reported anomalies in the form of a thumbs-up (*"well spotted!"*) or thumbs-down (*"false positive"*). For more elaborate feedback, it is also possible to add comments. Feedback added to anomalies will be used by the StackState team to further develop and improve the AAD.
+When anomaly detection is enabled for a metric stream, users can give feedback on reported anomalies in the form of a thumbs-up (meaning "well spotted!") or thumbs-down (meaning "false positive"). For more elaborate feedback, it is also possible to add comments. Feedback added to anomalies will be used by the StackState team to further develop and improve the AAD. **It is not used to train the local instance of the AAD.**
 
 {% hint style="success" "self-hosted info" %}
 In a self-hosted installation, feedback must be [exported and sent to StackState](/configure/anomaly-detection/export-anomaly-feedback.md) for the StackState team to be able to access it.
 {% endhint %}
 
-Note that feedback is not used to train the local instance of AAD.
-
 {% hint style="warning" %} 
-Comments added to an anomaly will be included in the data exported and sent to StackState. Take care not to include sensitive data in comments.
+**Take care not to include sensitive data in comments.** 
+
+Comments added to an anomaly will be included in any anomaly feedback data that is sent to StackState.
 {% endhint %}
 
 ## See also
