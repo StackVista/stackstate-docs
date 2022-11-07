@@ -13,6 +13,8 @@ This page includes release notes for the StackState self-hosted product.
 
 ## StackState v5.1.0
 
+### v5.1.0
+
 The StackState v5.1 release delivers brand-new features and enhancements that help your team troubleshoot faster.
 
 * Improvements to our probable cause calculation
@@ -171,7 +173,7 @@ Upgraded:
 
 ### v5.0.1
 
-[See v5.0.2](#v5-0-2).
+[See v5.0.2](#v5.0.2).
 
 ### v5.0.0
 
