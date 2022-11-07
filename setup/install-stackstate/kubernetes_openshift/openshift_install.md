@@ -301,6 +301,10 @@ If you cannot use an administrator account to install StackState on OpenShift, a
 If you want to monitor the OpenShift cluster using the [OpenShift StackPack](../../../stackpacks/integrations/openshift.md) and Cluster Agent, the below `SecurityContextConfiguration` needs to be applied:
 
 ```yaml
+apiVersion: security.openshift.io/v1
+kind: SecurityContextConstraints
+metadata:
+  name: stackstate-agent-scc
 allowHostDirVolumePlugin: true
 allowHostIPC: true
 allowHostNetwork: true
@@ -311,14 +315,10 @@ allowPrivilegedContainer: true
 allowedCapabilities: []
 allowedUnsafeSysctls:
 - '*'
-apiVersion: security.openshift.io/v1
 defaultAddCapabilities: null
 fsGroup:
   type: MustRunAs
 groups: []
-kind: SecurityContextConstraints
-metadata:
-  name: stackstate-agent-scc
 priority: null
 readOnlyRootFilesystem: false
 requiredDropCapabilities: null
