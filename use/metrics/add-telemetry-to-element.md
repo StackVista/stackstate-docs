@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-Elements in StackState can have a telemetry \(metrics or log\) stream assigned. This provides additional insight into your topology and is required, for example, to [monitor the health of an element](../checks-and-monitors/add-a-health-check.md). If a telemetry stream was not automatically been assigned to an element, or you want to add a custom telemetry stream, you can do this manually from the StackState UI.
+Elements in StackState can have a telemetry \(metrics or log\) stream assigned. This provides additional insight into your topology and is required, for example, to [monitor the health of an element](../checks-and-monitors/add-a-health-check.md). If a telemetry stream was not automatically assigned to an element, or you want to add a custom telemetry stream, you can do this manually from the StackState UI.
 
 ## Add a telemetry stream to an element
 
@@ -27,9 +27,9 @@ Telemetry streams can be added to any component or direct relation in the StackS
 6. Provide the following details:
    * **Time window** - The selection of time to be shown in the StackState UI. The time window is used for display purposes only and does not affect handling in any way.
    * **Filters** - Select the data relevant to the element. For example, if the data source contains data about all services on a host, select the specific host and service to attach data for.
-   * **Select** - select the metric you want to retrieve and the function to apply to it.
+   * **Select** - for metric streams only, select the metric that you want to retrieve and the function to apply to it.
    * **Priority** - Optional, you can [set a priority for the telemetry stream](set-telemetry-stream-priority.md). This will influence the order in which the stream is displayed in the StackState UI and the way the stream is handled by other services, such as the [Autonomous Anomaly Detector](../../stackpacks/add-ons/aad.md).
-7. The stream preview on the right will update to show the incoming metric values based on the details you provide.
+7. The stream preview on the right will update to show the incoming log or metric values based on the details you provide.
 8. Click **SAVE** to add the stream to the element.
    * You will receive a notification that the stream has been successfully completed.
 9. A graph of the selected telemetry stream data will be visible under **Telemetry** in the right panel details tab. You can inspect data in the stream using the [telemetry inspector](browse-telemetry.md).
@@ -39,19 +39,19 @@ Telemetry streams can be added to any component or direct relation in the StackS
 The following aggregation methods are available:
 
 * `MEAN` - mean
-* `PERCENTILE_25` - 25 percentile
-* `PERCENTILE_50` - 50 percentile
-* `PERCENTILE_75` - 75 percentile
-* `PERCENTILE_90` - 90 percentile
-* `PERCENTILE_95` - 95 percentile
-* `PERCENTILE_98` - 98 percentile
-* `PERCENTILE_99` - 99 percentile
-* `MAX` - maximum
-* `MIN` - minimum
-* `SUM` - sum
-* `EVENT_COUNT` - the number of occurrences during bucket interval
+* `PERCENTILE_25` - 25th percentile
+* `PERCENTILE_50` - 50th percentile
+* `PERCENTILE_75` - 75th percentile
+* `PERCENTILE_90` - 90th percentile
+* `PERCENTILE_95` - 95th percentile
+* `PERCENTILE_98` - 98th percentile
+* `PERCENTILE_99` - 99th percentile
+* `MAX` - maximum value
+* `MIN` - minimum value
+* `SUM` - sum of the values
+* `EVENT_COUNT` - the number of occurrences during the bucket interval
 * `SUM_NO_ZEROS` - sum of the values \(missing values from a data source won't be filled with zeros\)
-* `EVENT_COUNT_NO_ZEROS` - the number of occurrences during bucket interval \(missing values from a data source won't be filled with zeros\)
+* `EVENT_COUNT_NO_ZEROS` - the number of occurrences during the bucket interval \(missing values from a data source won't be filled with zeros\)
 
 ## See also
 

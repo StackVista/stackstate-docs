@@ -98,6 +98,12 @@ The StackState v5.1 release is the last release containing the `stac` CLI. The n
 
 Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
 
+### v5.0.7
+
+**Bug fixes**
+
+- Fixed an issue that stopped the Topology Sync from making progress when using a non default cache store. STAC-18085
+
 ### v5.0.6
 
 **Improvements**
