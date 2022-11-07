@@ -101,10 +101,8 @@ If you are not running the new `sts` CLI yet, we recommend that you:
 
 ## CLI command overview
 
-The new `sts` CLI replaces the old `stac` CLI. Not all commands have been moved to the new CLI yet and some commands are not available in the old CLI. The following table gives an overview of the commands available in each CLI and the current `port` status.
+The new `sts` CLI replaces the old `stac` CLI. Not all commands are available in the new CLI yet. An overview of the commands available in each CLI can be found in the table below.
 
- - 🚧 - Work in progress.
- - ❌ - Command will not be available in this CLI.
 
 | stac CLI                   | sts CLI                           | Description                                                                                                                                                                                                                                                                                                             |
 |:---------------------------|:----------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
