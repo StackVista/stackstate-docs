@@ -47,6 +47,7 @@ The script checks if the data payload already contains a key named `labels`, as 
 
 Line 5 appends the label `label-added-by-mapper-function` to the list of labels. The updated `element` variable is returned by the mapping function on line 7. 
 
+{% code lineNumbers="true" %}
 ```commandline
 if (!element.data.containsKey("labels")) {
    element.data.labels = []
@@ -56,6 +57,7 @@ element.data.labels << "label-added-by-mapper-function"
 
 return element
 ```
+{% endcode %}
 
 #### Topology synchronization
 
