@@ -61,7 +61,7 @@ Mergable fields in the component are set fields \(like streams and checks\) and 
 
 Mapping functions are defined by a groovy script and the input parameters that groovy script requires. The goal of a mapper function is to process topology data from an external system and prepare parameters for a template function. A mapper function is thus likely to be plugin specific.
 
-➡️ [Learn more about mapper functions](/develop/developer-guides/custom-functions/mapper-functions.md)
+➡️ [Learn more about mapper functions](/develop/developer-guides/custom-functions/mapping-functions.md)
 
 ## Template functions
 

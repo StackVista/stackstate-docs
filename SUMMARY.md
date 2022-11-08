@@ -258,7 +258,7 @@
     * [View health state configuration functions](develop/developer-guides/custom-functions/view-health-state-configuration-functions.md)
     * [Event handler functions](develop/developer-guides/custom-functions/event-handler-functions.md)
     * [ID extractor functions](develop/developer-guides/custom-functions/id-extractor-functions.md)
-    * [Mapper functions](develop/developer-guides/custom-functions/mapper-functions.md)
+    * [Mapping functions](develop/developer-guides/custom-functions/mapping-functions.md)
     * [Template functions](develop/developer-guides/custom-functions/template-functions.md)
   * [Custom Synchronization StackPack](develop/developer-guides/custom_synchronization_stackpack/README.md)
     * [About the Custom Synchronization StackPack](develop/developer-guides/custom_synchronization_stackpack/custom_synchronization_stackpack.md)
