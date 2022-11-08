@@ -74,7 +74,7 @@ To troubleshoot processing errors, refer to the relevant StackState log files. T
   - If there is an issue with the ID extractor, an exception will be logged here on each received topology element. No topology will be synchronized, however, the synchronization’s error counter will **not** increase.
 
 - Check the synchronization’s specific log file or, for Kubernetes, the `stackstate-sync` pod for log messages that include the synchronization’s name.
-  - Issues with a mapper function defined for a synchronization mapping will be reported here. The type is also logged to help determine which mapping to look at. The synchronization’s error counter will increase.
+  - Issues with a mapping function defined for a synchronization mapping will be reported here. The type is also logged to help determine which mapping to look at. The synchronization’s error counter will increase.
   - Issues with templates are also logged here. The synchronization’s error counter will increase.
 
 ### Relations
