@@ -186,7 +186,9 @@ The template shows the streams block starting on line 53 in the screenshot above
 {% endcode %}
 
 After processing, the resulting component contains quite some metric stream definitions - one metric stream definition for each entry in the streams list. 
-The list and the join helper shows that definitions can be created dynamically. 
+
+The `list` and the `join` helper show that definitions can be created dynamically. 
+
 Alternatively, it would have been possible to add each metric stream definition inside the streams block, however, this would make the streams block somewhat large and repetitive. 
 
 
