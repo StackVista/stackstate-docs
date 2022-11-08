@@ -65,6 +65,8 @@ Mapping functions are specified in step 3/5 of a topology synchronization. The *
 
 #### Component
 
+![Component with label](/.gitbook/assets/v51_simple_mapping_result.png)
+
 The result is shown here.
 
 * **Component JSON** - The component JSON object that was sent to the StackState receiver as part of a larger JSON payload is shown on the left. The JSON defines a component with name **Application1**. The JSON payload is processed by the topology synchronization on which the mapper function was configured.
@@ -75,7 +77,7 @@ The **Application1** component shows that it has two labels:
   * The `demo:demo` label that was added by the component template. 
   * The `label-added-by-mapper-function` that was added by the mapping function .
 
-![Component with label](/.gitbook/assets/v51_simple_mapping_result.png)
+
 
 
 
