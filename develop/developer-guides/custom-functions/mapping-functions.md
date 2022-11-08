@@ -74,10 +74,9 @@ The process and resulting component is shown here.
 1. **Component JSON** - The component JSON object that was sent to the StackState receiver as part of a larger JSON payload is shown on the left. The JSON defines a component with name **Application1**. The JSON payload is processed by the topology synchronization on which the mapper function was configured.
 2. **Mapping function script** - A part of the mapping function is shown at the bottom to show the value of the label.
 3. **Component template** - A part of the component template is shown in the center. In the component template, the `labels` payload is processed using the `join` helper, as shown on line 30. This iterates through each string in the label list and outputs the JSON block on lines 31 until 34. The `this` variable inside the `join` helper on line 33 is used access the current value in the iteration. In this example, there is only one label to be processed. This is because there is no `labels` key in the original JSON and the mapping function adds the only one. Lines 37 until 40 also define a fixed label. The label defined there will have the value `demo:demo`. This shows that, in this example, the mapping function could also be replaced by adding the appropriate label block directly in the component template.
-4. **Component details** - On the right is the Component Details tab of the **Application1** component after the JSON payload has been  processed by topology synchronization. 
-The **Application1** component has two labels:
-  * The `demo:demo` label that was added by the component template. 
-  * The `label-added-by-mapper-function` that was added by the mapping function .
+4. **Component details** - On the right is the Component Details tab of the **Application1** component after the JSON payload has been  processed by topology synchronization.  The **Application1** component has two labels:
+   * The `demo:demo` label that was added by the component template. 
+   * The `label-added-by-mapper-function` that was added by the mapping function .
 
 ## See also
 
