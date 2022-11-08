@@ -77,7 +77,6 @@ The **Application1** component has two labels:
   * The `demo:demo` label that was added by the component template. 
   * The `label-added-by-mapper-function` that was added by the mapping function .
 
-
 ## See also
 
 * [Topology synchronization](/configure/topology/sync.md)
