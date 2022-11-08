@@ -38,7 +38,7 @@ To add a custom component or relation mapping function:
 This example shows a simple component mapping function - the **Fixed label mapping function** - that adds a fixed label to the component’s data payload. This mapping function could also be replaced by adding the appropriate label block directly in the component template that is used.
 
 1. [The mapping function script](#script)
-2. [Add the mappnig function to topology synchronization](#topology-synchronization)
+2. [Add the mapping function to topology synchronization](#topology-synchronization)
 3. [The resulting component](#component)
 
 #### Script 
@@ -77,6 +77,118 @@ The process and resulting component is shown here.
 4. **Component properties** - On the right is the Component Details tab of the **Application1** component after the JSON payload has been  processed by topology synchronization.  The **Application1** component has two labels:
    * The `demo:demo` label that was added by the component template. 
    * The `label-added-by-mapper-function` that was added by the mapping function .
+
+### Dynamic - add metric streams
+
+This example is used for hosts reported by StackState Agent. The mapping function adds the information needed to create a metric stream to the data payload, the template can then convert the information to actual metric streams. 
+
+1. [The mapping function script](#script-2)
+2. [Metric stream](#metric-stream)
+
+#### Script
+
+Line 1 of the script sets the value of the key streams to be a list. 
+
+The entries of that list are also added, as shown on lines 2 through to 14. Each entry will be a map of `key:value` pairs with enough information about the metric stream for the template to create the stream definition. Each entry contains the keys `name`, `metric`, `id`, and `priority`.
+
+Line 17 contains an `if` statement checking whether the operating system is Linux by checking the `os.linux` data payload. If the `if` statement resolves to `True`, then two more metric streams are added to the streams list. This illustrates that the mapping function can be used to make  decisions based on the received data to change the resulting topology element.
+
+{% code overflow="wrap" lineNumbers="true" %}
+```commandline
+element.data.put("streams", [
+   [name: "CPU time - User (percentage, normalized for number of cores)", metric: "system.cpu.user", id: "-102", priority: "MEDIUM"],
+   [name: "CPU time - Idle (percentage, normalized for number of cores)", metric: "system.cpu.idle", id: "-103", priority: "MEDIUM"],
+   [name: "CPU time - IOWait (percentage, normalized for number of cores)", metric: "system.cpu.iowait", id: "-104", priority: "MEDIUM"],
+   [name: "CPU time - System (percentage, normalized for number of cores)", metric: "system.cpu.system", id: "-105", priority: "MEDIUM"],
+
+   [name: "File handles in use (fraction)", metric: "system.fs.file_handles.in_use", id: "-106", priority: "MEDIUM"],
+
+   [name: "Memory - Usable (fraction)", metric: "system.mem.pct_usable", id: "-109", priority: "MEDIUM"],
+   [name: "Memory - Usable (MB)", metric: "system.mem.usable", id: "-110", priority: "LOW"],
+   [name: "Memory - Total (MB)", metric: "system.mem.total", id: "-111", priority: "LOW"],
+
+   [name: "Swap - Free (fraction)", metric: "system.swap.pct_free", id: "-112", priority: "MEDIUM"],
+   [name: "Swap - Total (MB)", metric: "system.swap.total", id: "-113", priority: "LOW"]
+])
+
+if (element.data["os.linux"] == "linux") {
+   element.data.put("streams", element.data["streams"] << [name: "File handles max (value)", metric: "system.fs.file_handles.max", id: "-107", priority: "LOW"])
+   element.data.put("streams", element.data["streams"] << [name: "System load (1 minute, normalized for number of cores)", metric: "system.load.norm.1", id: "-108", priority: "MEDIUM"])
+}
+
+// Streams whose ids will be referenced form the template
+element.data.put("streamIds", [usable_memory: "-110"])
+
+element
+
+```
+{% endcode %}
+
+#### Metric stream
+
+From the mapping function, one entry from the **streams** list is shown at the top to illustrate how the component template handles the data. 
+The **streams** section of the component template is shown on the left. On the right, the resulting metric stream is shown.
+
+The template shows the streams block starting on line 53 in the screenshot above. For easy reference, the full streams block is shown below.
+
+Line 54 shows the join helper being used to iterate over each entry in the streams list. 
+Inside the join helper’s code block, a definition of a metric stream is placed. Each entry in the streams list adds a new stream definition to the resulting template JSON. 
+Variables are used to create stream blocks dynamically. These variables are available on each entry of the streams list. Each entry contains the following variables: name, metric, id, and priority.
+
+The name key is referenced on line 57 to add the value as the name of the stream. The resulting name of the stream is shown on the right.
+
+The conditions block on line 59 adds two conditions for each metric stream. 
+Lines 60 through to 63 define a filter for the host. 
+The value for that condition is obtained from element.data.host and not from the streams list.
+The condition on lines 64 through to 67 references the metric key provided by the streams list entry. 
+The name condition is shown on the right, in the Select drop down. 
+
+{% code title="Template streams block from line 53 in screenshot" overflow="wrap" lineNumbers="true" %}
+```commandline
+  "streams": [
+    {{# join element.data.streams "," }}
+      {
+        "_type": "MetricStream",
+        "name": "{{ name }}",
+        "query": {
+          "conditions": [
+            {
+              "key": "host",
+              "value": "{{ element.data.host }}"
+            },
+            {
+              "key": "name",
+              "value": "{{ metric }}"
+            }
+            {{# if conditions }}
+            {{# join conditions "," "," }}
+            {
+              "key": "{{ key }}",
+              "value": "{{ value }}"
+            }
+            {{/ join }}
+            {{/if }}
+          ],
+          "_type": " MetricTelemetryQuery",
+          "metricField": "value",
+          "aggregation": "MEAN"
+        },
+        "dataSource": {{ get "urn:stackpack:common:data-source:stackstate-metrics" }},
+        "dataType": "METRICS",
+        "id": {{ id }}
+        {{#if priority }},
+        "priority": "{{ priority }}"
+        {{/if }}
+      }
+    {{/ join }}
+  ], 
+```
+{% endcode %}
+
+After processing, the resulting component contains quite some metric stream definitions - one metric stream definition for each entry in the streams list. 
+The list and the join helper shows that definitions can be created dynamically. 
+Alternatively, it would have been possible to add each metric stream definition inside the streams block, however, this would make the streams block somewhat large and repetitive. 
+
 
 ## See also
 
