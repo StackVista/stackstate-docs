@@ -28,7 +28,7 @@ Below you can find a short dictionary that can help you get a better grasp on th
 * **layer** - Represents a hierarchy that determines the relations and dependencies in your stack - typically top to bottom.
 * **log stream** - A telemetry stream with log or event data that is coming from an external system.
 * **mapping** - In the synchronization process it specifies the transformation of external system topological data into StackState based on component/relation type.
-* **mapper function** - Allows the user to transform data before applying a template during the synchronization process.
+* **mapping function** - Allows the user to transform data before applying a template during the synchronization process.
 * **metric stream** - A telemetry stream with metric data that is coming from an external system; Allows for baseline checks.
 * **monitor** - A declarative definition of a validation rule that uses available 4T data to compute health states and attach them to the StackState Topology.
 * **monitor function** - Defines the underlying algorithm used to compute the health states produced by a monitor.

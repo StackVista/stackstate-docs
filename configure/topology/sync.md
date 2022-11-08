@@ -59,15 +59,15 @@ Mergable fields in the component are set fields \(like streams and checks\) and 
 
 ## Mapping Functions
 
-Mapping functions are defined by a groovy script and the input parameters that groovy script requires. The goal of a mapper function is to process topology data from an external system and prepare parameters for a template function. A mapper function is thus likely to be plugin specific.
+Mapping functions are defined by a groovy script and the input parameters that groovy script requires. The goal of a mapping function is to process topology data from an external system and prepare parameters for a template function. A mapping function is thus likely to be plugin specific.
 
-➡️ [Learn more about mapper functions](/develop/developer-guides/custom-functions/mapper-functions.md)
+➡️ [Learn more about mapping functions](/develop/developer-guides/custom-functions/mapping-functions.md)
 
 ## Template functions
 
 Template functions are defined by a JSON template and input parameters required by the template to render elements of StackState topology - mainly components or relations. When executed template functions substitutes all handlebar parameter references with values of input parameters. Template functions must define all parameters that template body refers to.
 
-Template functions are used in cooperation with Mapping functions to create StackState topology elements. Mapper function parse topological data of external system and prepares input parameters for Template function.
+Template functions are used in cooperation with Mapping functions to create StackState topology elements. Mapping function parse topological data of external system and prepares input parameters for Template function.
 
 ➡️ [Learn more about template functions](/develop/developer-guides/custom-functions/template-functions.md)
 
