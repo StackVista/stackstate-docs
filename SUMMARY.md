@@ -18,7 +18,6 @@
     * [Configure Ingress](setup/install-stackstate/kubernetes_openshift/ingress.md)
     * [Install from custom image registry](setup/install-stackstate/kubernetes_openshift/install-from-custom-image-registry.md)
     * [Migrate from Linux install](setup/install-stackstate/kubernetes_openshift/migrate_from_linux.md)
-    * [AAD Standalone Deployment](setup/install-stackstate/kubernetes_openshift/aad_standalone.md)
   * [Linux](setup/install-stackstate/linux/README.md)
     * [Before you install](setup/install-stackstate/linux/before_you_install.md)
     * [Download](setup/install-stackstate/linux/download.md)
