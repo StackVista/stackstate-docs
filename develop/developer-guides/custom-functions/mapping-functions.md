@@ -33,9 +33,7 @@ To add a custom component or relation mapping function:
 
 ## Examples
 
-### Simple component mapping function
-
-![Simple component mapping function](/.gitbook/assets/v51_simple_mapping_function_example.png)
+### Simple - add a fixed label
 
 This example shows a simple component mapping function - the **Fixed label mapping function** - that adds a fixed label to the component’s data payload. This mapping function could also be replaced by adding the appropriate label block directly in the component template that is used.
 
