@@ -82,18 +82,18 @@ The process and resulting component is shown here.
 
 This example is used for hosts reported by StackState Agent. The mapping function adds the information needed to create a metric stream to the data payload, the template can then convert the information to actual metric streams. 
 
-1. [The mapping function script](#script-2)
+1. [The mapping function script](#script-1)
 2. [Metric stream](#metric-stream)
 
 #### Script
 
-Line 1 of the script sets the value of the key streams to be a list. 
+The mapping function script is shown below.
 
-The entries of that list are also added, as shown on lines 2 through to 14. Each entry will be a map of `key:value` pairs with enough information about the metric stream for the template to create the stream definition. Each entry contains the keys `name`, `metric`, `id`, and `priority`.
+* Line 1 of the script sets the value of the key streams to be a list. 
+* The entries of that list are also added, as shown on lines 2 through to 14. Each entry will be a map of `key:value` pairs with enough information about the metric stream for the template to create the stream definition. Each entry contains the keys `name`, `metric`, `id`, and `priority`. 
+* Line 17 contains an `if` statement checking whether the operating system is Linux by checking the `os.linux` data payload. If the `if` statement resolves to `True`, then two more metric streams are added to the streams list. This illustrates that the mapping function can be used to make  decisions based on the received data to change the resulting topology element.
 
-Line 17 contains an `if` statement checking whether the operating system is Linux by checking the `os.linux` data payload. If the `if` statement resolves to `True`, then two more metric streams are added to the streams list. This illustrates that the mapping function can be used to make  decisions based on the received data to change the resulting topology element.
-
-{% code overflow="wrap" lineNumbers="true" %}
+{% code lineNumbers="true" %}
 ```commandline
 element.data.put("streams", [
   [name: "CPU time - User (percentage, normalized for number of cores)", metric: "system.cpu.user", id: "-102", priority: "MEDIUM"],
@@ -143,7 +143,7 @@ The template shows the streams block starting on line 53 in the screenshot above
 * The condition on lines 12 through to 15 references the metric key provided by the streams list entry. 
 * In the screenshot above, the `name` condition is shown on the right, in the **Select** drop-down. 
 
-{% code title="Template streams block from line 53 in screenshot" overflow="wrap" lineNumbers="true" %}
+{% code title="Template streams block from line 53 in screenshot" lineNumbers="true" %}
 ```commandline
   "streams": [
     {{# join element.data.streams "," }}
