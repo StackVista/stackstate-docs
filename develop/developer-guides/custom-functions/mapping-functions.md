@@ -96,24 +96,24 @@ Line 17 contains an `if` statement checking whether the operating system is Linu
 {% code overflow="wrap" lineNumbers="true" %}
 ```commandline
 element.data.put("streams", [
-   [name: "CPU time - User (percentage, normalized for number of cores)", metric: "system.cpu.user", id: "-102", priority: "MEDIUM"],
-   [name: "CPU time - Idle (percentage, normalized for number of cores)", metric: "system.cpu.idle", id: "-103", priority: "MEDIUM"],
-   [name: "CPU time - IOWait (percentage, normalized for number of cores)", metric: "system.cpu.iowait", id: "-104", priority: "MEDIUM"],
-   [name: "CPU time - System (percentage, normalized for number of cores)", metric: "system.cpu.system", id: "-105", priority: "MEDIUM"],
+  [name: "CPU time - User (percentage, normalized for number of cores)", metric: "system.cpu.user", id: "-102", priority: "MEDIUM"],
+  [name: "CPU time - Idle (percentage, normalized for number of cores)", metric: "system.cpu.idle", id: "-103", priority: "MEDIUM"],
+  [name: "CPU time - IOWait (percentage, normalized for number of cores)", metric: "system.cpu.iowait", id: "-104", priority: "MEDIUM"],
+  [name: "CPU time - System (percentage, normalized for number of cores)", metric: "system.cpu.system", id: "-105", priority: "MEDIUM"],
 
-   [name: "File handles in use (fraction)", metric: "system.fs.file_handles.in_use", id: "-106", priority: "MEDIUM"],
+  [name: "File handles in use (fraction)", metric: "system.fs.file_handles.in_use", id: "-106", priority: "MEDIUM"],
 
-   [name: "Memory - Usable (fraction)", metric: "system.mem.pct_usable", id: "-109", priority: "MEDIUM"],
-   [name: "Memory - Usable (MB)", metric: "system.mem.usable", id: "-110", priority: "LOW"],
-   [name: "Memory - Total (MB)", metric: "system.mem.total", id: "-111", priority: "LOW"],
+  [name: "Memory - Usable (fraction)", metric: "system.mem.pct_usable", id: "-109", priority: "MEDIUM"],
+  [name: "Memory - Usable (MB)", metric: "system.mem.usable", id: "-110", priority: "LOW"],
+  [name: "Memory - Total (MB)", metric: "system.mem.total", id: "-111", priority: "LOW"],
 
-   [name: "Swap - Free (fraction)", metric: "system.swap.pct_free", id: "-112", priority: "MEDIUM"],
-   [name: "Swap - Total (MB)", metric: "system.swap.total", id: "-113", priority: "LOW"]
+  [name: "Swap - Free (fraction)", metric: "system.swap.pct_free", id: "-112", priority: "MEDIUM"],
+  [name: "Swap - Total (MB)", metric: "system.swap.total", id: "-113", priority: "LOW"]
 ])
 
 if (element.data["os.linux"] == "linux") {
-   element.data.put("streams", element.data["streams"] << [name: "File handles max (value)", metric: "system.fs.file_handles.max", id: "-107", priority: "LOW"])
-   element.data.put("streams", element.data["streams"] << [name: "System load (1 minute, normalized for number of cores)", metric: "system.load.norm.1", id: "-108", priority: "MEDIUM"])
+  element.data.put("streams", element.data["streams"] << [name: "File handles max (value)", metric: "system.fs.file_handles.max", id: "-107", priority: "LOW"])
+  element.data.put("streams", element.data["streams"] << [name: "System load (1 minute, normalized for number of cores)", metric: "system.load.norm.1", id: "-108", priority: "MEDIUM"])
 }
 
 // Streams whose ids will be referenced form the template
@@ -126,22 +126,22 @@ element
 
 #### Metric stream
 
+The template and a resulting stream are shown here.
+
+![Metric stream from mapping function](/.gitbook/assets/v51_dynamic_mapping_metric.png)
+
 From the mapping function, one entry from the **streams** list is shown at the top to illustrate how the component template handles the data. 
 The **streams** section of the component template is shown on the left. On the right, the resulting metric stream is shown.
 
 The template shows the streams block starting on line 53 in the screenshot above. For easy reference, the full streams block is shown below.
 
-Line 54 shows the join helper being used to iterate over each entry in the streams list. 
-Inside the join helper’s code block, a definition of a metric stream is placed. Each entry in the streams list adds a new stream definition to the resulting template JSON. 
-Variables are used to create stream blocks dynamically. These variables are available on each entry of the streams list. Each entry contains the following variables: name, metric, id, and priority.
-
-The name key is referenced on line 57 to add the value as the name of the stream. The resulting name of the stream is shown on the right.
-
-The conditions block on line 59 adds two conditions for each metric stream. 
-Lines 60 through to 63 define a filter for the host. 
-The value for that condition is obtained from element.data.host and not from the streams list.
-The condition on lines 64 through to 67 references the metric key provided by the streams list entry. 
-The name condition is shown on the right, in the Select drop down. 
+* Line 2 in the streams block below shows the `join` helper being used to iterate over each entry in the streams list. 
+* Inside the `join` helper’s code block, a definition of a metric stream is placed. Each entry in the streams list adds a new stream definition to the resulting template JSON.  Variables are used to create stream blocks dynamically. These variables are available on each entry of the streams list. Each entry contains the following variables: `name`, `metric`, `id`, and `priority`. 
+* The `name` key is referenced on line 5 to add the value as the name of the stream. In the screenshot above, the resulting name of the stream is shown on the right. 
+* The `conditions` block on line 7 adds two conditions for each metric stream. 
+* Lines 8 through to 11 define a filter for the host. The value for that condition is obtained from `element.data.host` and not from the streams list. 
+* The condition on lines 12 through to 15 references the metric key provided by the streams list entry. 
+* In the screenshot above, the `name` condition is shown on the right, in the **Select** drop-down. 
 
 {% code title="Template streams block from line 53 in screenshot" overflow="wrap" lineNumbers="true" %}
 ```commandline
