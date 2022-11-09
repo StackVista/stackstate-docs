@@ -74,7 +74,7 @@ When creating a StackPack, it is important to have a `component` and `relation` 
 
 Component Mapping Functions are used by StackState to do some translation of incoming component data. They are applied in the Synchronization for a given source/component type.
 
-Mapping functions are an optional step in the Synchronization flow. [Find out more about Mapping Functions](custom-functions/mapper-functions.md).
+Mapping functions are an optional step in the Synchronization flow. [Find out more about Mapping Functions](custom-functions/mapping-functions.md).
 
 ### 7. Configure Component and Relation Templates
 

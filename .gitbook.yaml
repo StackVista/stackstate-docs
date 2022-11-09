@@ -205,7 +205,7 @@ redirects:
   stackpacks/integrations/splunk/splunk_event: ./stackpacks/integrations/splunk/splunk_events.md
   stackpacks/integrations/splunk/splunk_metric: ./stackpacks/integrations/splunk/splunk_metrics.md
   use/introduction-to-stackstate/id_extraction: ./develop/developer-guides/custom-functions/id-extractor-functions.md
-  use/introduction-to-stackstate/mapping_functions: ./develop/developer-guides/custom-functions/mapper-functions.md
+  use/introduction-to-stackstate/mapping_functions: ./develop/developer-guides/custom-functions/mapping-functions.md
   use/views: ./use/stackstate-ui/views/about_views.md
   use/views/: ./use/stackstate-ui/views/about_views.md
   use/views/browse-telemetry: ./use/metrics/browse-telemetry.md
@@ -347,6 +347,7 @@ redirects:
 # 5.1 docs
 
   configure/telemetry/send_telemetry: ./configure/telemetry/send_metrics.md
+  develop/developer-guides/custom-functions/mapper-functions: ./develop/developer-guides/custom-functions/mapping-functions.md
   develop/developer-guides/agent_check/agent-check-state: ./develop/developer-guides/agent_check/agent-check-state.md
   stackpacks/integrations/splunk/splunk_topology_upgrade_v1_to_v2: ./setup/agent/migrate-agent-v1-to-v2.md
   stackpacks/integrations/splunk/splunk_topology_v2: ./stackpacks/integrations/splunk/splunk_topology.md
@@ -362,3 +363,4 @@ redirects:
   use/metrics-and-events/top-metrics: ./use/metrics/top-metrics.md
   use/stackstate-ui/views/manage-event-handlers: ./use/events/manage-event-handlers.md
   use/stackstate-ui/views/manage-event-handlers#add-event-handler: ./use/events/manage-event-handlers.md#add-event-handler
+
