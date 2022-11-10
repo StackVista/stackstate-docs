@@ -33,7 +33,7 @@ This page provides specific instructions and details of any required manual step
 
 #### v5.1.0
 
-* The required version of JDK has been updated - StackState now requires OpenJDK 11. This must be the only version of JDK present on the installation machine before upgrading StackState. In case of having a mismatching JDK, or multiple installed versions, StackState will fail to start.
+* The required version of JDK has been updated - StackState now requires OpenJDK 11. This must be the only version of JDK present on the installation machine before upgrading StackState. If a mismatching JDK version is installed, or there are multiple installed versions, StackState will fail to start.
 * All Splunk checks can now run on Agent V2. If you have any Splunk checks running on Agent V1 (legacy) (Splunk Metrics, Splunk Events or Splunk Topology V1), you should [upgrade to Agent V2 and migrate any checks configured to run on Agent V1 \(legacy\)](/setup/agent/migrate-agent-v1-to-v2/). Agent V1 (legacy) and will be deprecated in a future release of StackState.
 
 {% endtab %}

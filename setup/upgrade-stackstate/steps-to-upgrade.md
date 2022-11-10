@@ -112,7 +112,6 @@ Instructions to upgrade a StackState Kubernetes or Linux setup can be found belo
 
 {% tab title="Kubernetes" %}
 
-1. Check the [version specific upgrade notes](version-specific-upgrade-instructions.md) for specific changes that need to be made for the new StackState version you will upgrade to.
 2. Get the latest helm chart by running `helm repo update`.
 3. Check the [version specific upgrade notes](version-specific-upgrade-instructions.md) for all changes between your current version and the version that you will upgrade to. If there have been changes made to configuration items specified in your `values.yaml` file, the file should be updated accordingly.
 4. To upgrade, use the same helm command as for the [first time Kubernetes installation](../install-stackstate/kubernetes_openshift/kubernetes_install.md#deploy-stackstate-with-helm). The new helm chart will pull newer versions of Docker images and handle the upgrade.
@@ -120,7 +119,6 @@ Instructions to upgrade a StackState Kubernetes or Linux setup can be found belo
 
 {% tab title="OpenShift" %}
 
-1. Check the [version specific upgrade notes](version-specific-upgrade-instructions.md) for specific changes that need to be made for the new StackState version you will upgrade to.
 2. Get the latest helm chart by running `helm repo update`.
 3. Check the [version specific upgrade notes](version-specific-upgrade-instructions.md) for all changes between your current version and the version that you will upgrade to. If there have been changes made to configuration items specified in your `values.yaml` file, the file should be updated accordingly.
 4. [Update the `openshift-values.yaml`](/setup/install-stackstate/kubernetes_openshift/openshift_install.md#additional-openshift-values-file) file.
