@@ -22,27 +22,36 @@ Prepare a TLS keypair in [PKCS12](https://en.wikipedia.org/wiki/PKCS_12) format.
 **a.** Enable TLS for Web UI/API by configuring section `stackstate.api.tls` in `etc/application_stackstate.conf`:
 
 ```text
-tls {
-  enabled = true
-  keystore {
-    path = "/path/to/keystore.pfx"
-    password = "password"
-    storeType = "PKCS12"
-  }
-}
+
+stackstate {
+   ...
+   api {
+     tls {
+       enabled = true
+       keystore {
+          path = "/path/to/keystore.pfx"
+          password = "password"
+          storeType = "PKCS12"
+       }
+     }
+   ...
+    
 ```
 
 **b.** Enable TLS for topology/telemetry receiver by configuring a section `stackstate.receiver.tls` in `etc/stackstate-receiver/application.conf`:
 
 ```text
-tls {
-  enabled = true
-  keystore {
-    path = "/path/to/keystore.pfx"
-    password = "password"
-    storeType = "PKCS12"
+stackstate.receiver {
+...
+  tls {
+    enabled = true
+    keystore {
+      path = "/path/to/keystore.pfx"
+      password = "password"
+      storeType = "PKCS12"
+    }
   }
-}
+  
 ```
 
 ### Step 2. Configure the process manager
