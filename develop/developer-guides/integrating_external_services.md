@@ -16,6 +16,7 @@ Whenever you call your HTTP server with `/propagation?componentName=SOMENAME` it
 
 You could then integrate your service by making a propagation function with the following script:
 
+{% code lineNumbers="true" %}
 ```text
 Component.withId(componentId).get().then { component ->  
     Http.get("http://mydomain/propagation").param("componentName", component.name).jsonBody() 
@@ -24,6 +25,7 @@ Component.withId(componentId).get().then { component ->
     else return CLEAR
 }
 ```
+{% endcode %}
 
 This function first gets the name of the component, then calls out via HTTP to the external service and then uses its response to decide how StackState should propagate the state of the given component.
 
