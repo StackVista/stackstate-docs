@@ -20,6 +20,7 @@ The code sample below shows a component with both types of identifiers.
 * Integration scope identifier - `this-host-unique-identifier`
 * Global scope identifier - `urn:host:/this-host-fqdn`
 
+{% code lineNumbers="true" %}
 ```text
 self.component("this-host-unique-identifier", "Host", {
     "name": "this-host",
@@ -30,6 +31,7 @@ self.component("this-host-unique-identifier", "Host", {
     "environment": "Production"
 })
 ```
+{% endcode %}
 
 ## StackState Agent identifiers
 

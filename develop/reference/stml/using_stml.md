@@ -41,6 +41,7 @@ Attribute values can be set directly with literal values, but oftentimes, it may
 
 Here is an example of a script passing some metric data to the `data` attribute of the `auto-widget` tag. This script uses the `UI.showReport` function which uses STML to format a report.
 
+{% code lineNumbers="true" %}
 ```text
 Telemetry
   .query("StackState Metrics", "name='system.load.norm' and host='host1'")
@@ -65,6 +66,7 @@ Telemetry
     )
   }
 ```
+{% endcode %}
 
 Notice that the third parameter of the `showReport` function is a map that is defined by `[ metrics: host1Load ]`. This map defines which variables are available to STML. In this case the variable `metrics` references the data `host1Load`.
 

@@ -8,6 +8,7 @@ To obtain the `.stj` Templated file for your StackPack you need to perform a few
 
 Every .stj template is filled with information about the hosts and environments that StackState collects data from. Example of this information looks like this:
 
+{% code lineNumbers="true" %}
 ```text
 {
   "nodes": [
@@ -32,6 +33,7 @@ Every .stj template is filled with information about the hosts and environments 
   "version": "0.1"
 }
 ```
+{% endcode %}
 
 ## How to get a templated file for your StackPack
 

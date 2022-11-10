@@ -20,6 +20,7 @@ Secrets are always strings, which means that it is not possible to set them to i
 
 Example:
 
+{% code lineNumbers="true" %}
 ```text
 instances:
   - server: db_prod
@@ -31,6 +32,7 @@ instances:
     # the following is NOT detected as a secret handle:
     password2: "db-ENC[prod_password]"
 ```
+{% endcode %}
 
 The above example presents two secrets: `db_prod_user`, and `db_prod_password` - these are the secrets' handles, and each of them uniquely identifies a secret within your secrets management backend.
 
