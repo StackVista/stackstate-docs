@@ -10,7 +10,7 @@ All of StackState's own components can run without any extra permissions. Howeve
 
 ## Autonomous Anomaly Detector \(AAD\)
 
-In order to run the [Autonomous Anomaly Detector](../../../stackpacks/add-ons/aad.md), or prepare your Kubernetes/OpenShift cluster to run it, StackState needs to create a `ClusterRole` and two `ClusterRoleBinding` resources. Creating these cluster-wide resources is often prohibited for users that are not a Kubernetes/OpenShift administrator.
+In order to run the [Autonomous Anomaly Detector](../../../stackpacks/add-ons/aad.md), or prepare your clsuter to run it, StackState needs to create a `ClusterRole` and two `ClusterRoleBinding` resources. Creating these cluster-wide resources is often prohibited for users that are not a Kubernetes/OpenShift administrator.
 
 ### Disable automatic creation of cluster-wide resources
 
@@ -34,7 +34,7 @@ Note that if automatic creation of cluster-wide resources is disabled the Autono
 
 ### Manually create cluster-wide resources
 
-If you need to manually create the cluster-wide resources, ask your Kubernetes/OpenShift administrator to create the 3 resources below in the Kubernetes/OpenShift cluster.
+If you need to manually create the cluster-wide resources, ask your Kubernetes/OpenShift administrator to create the 3 resources below in the clsuter.
 
 {% hint style="info" %}
 Ensure that you specify the correct namespace for the bound `ServiceAccount` for both of the `ClusterRoleBinding` resources.
@@ -138,7 +138,7 @@ max virtual memory areas vm.max_map_count [65530] is too low, increase to at lea
 
 ### Increase Linux system settings for Elasticsearch
 
-Depending on what your Kubernetes/OpenShift administrators prefer, the `vm.max_map_count` can be set to a higher default on all nodes by either changing the default node configuration \(for example via init scripts\) or by having a DaemonSet do this right after node startup. The former is very dependent on your Kubernetes/OpenShift cluster setup, so there are no general solutions there.
+Depending on what your Kubernetes/OpenShift administrators prefer, the `vm.max_map_count` can be set to a higher default on all nodes by either changing the default node configuration \(for example via init scripts\) or by having a DaemonSet do this right after node startup. The former is very dependent on your clsuter setup, so there are no general solutions there.
 
 Below is an example that can be used as a starting point for a DaemonSet to change the `vm.max_map_count` setting:
 

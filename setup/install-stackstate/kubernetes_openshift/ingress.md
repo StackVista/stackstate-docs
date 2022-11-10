@@ -4,13 +4,13 @@ description: StackState Self-hosted v5.1.x
 
 # Configure Ingress
 
-{% hint style="warning" %}
-Only for [Kubernetes installations of StackState](kubernetes_install.md)
-{% endhint %}
+## Overview
 
-The StackState Helm chart exposes an `ingress` section in its values. By default, ingress is disabled.
+You can expose Stackstate with Ingress resources. The example on this page shows how to configure an nginx-ingress controller using Helm for StackState running on Kubernetes.
 
-We give an example here for how to configure an nginx-ingress controller with TLS encryption enabled. Setting up the controller itself and the certificates is beyond the scope of this document.
+## Kubernetes: Configure ingress with Helm
+
+The StackState Helm chart exposes an `ingress` section in its values. This is disabled by default. The example below shows how to use the Helm chart to configure an nginx-ingress controller with TLS encryption enabled. Note that setting up the controller itself and the certificates is beyond the scope of this document.
 
 To configure the ingress for StackState create a file `ingress_values.yaml` with contents like below, however replace MY\_DOMAIN with your own domain \(that is linked with your ingress controller\) and set the correct name for the `tls-secret`. Consult the documentation of your ingress controller and ensure the correct annotations are set. All of the fields below are optional, for example if no TLS is going to be used that section can be omitted.
 
@@ -40,6 +40,8 @@ helm upgrade \
 stackstate \
 stackstate/stackstate
 ```
+
+## See also
 
 * [AKS \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/azure/aks/ingress-tls?tabs=azure-cli)
 * [EKS Official docs](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html) \(not using nginx\)

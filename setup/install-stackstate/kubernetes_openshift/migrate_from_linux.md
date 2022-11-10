@@ -32,7 +32,7 @@ Before you start the migration procedure, make sure you have the following infor
 
 * Access to:
   * The Linux machines running your old StackState installation.
-  * The Kubernetes/OpenShift cluster running your new StackState installation.
+  * The clsuter running your new StackState installation.
   * The `values.yaml` file used to install your StackState installation on Kubernetes/OpenShift.
   * The restore scripts that are part of the [StackState Helm chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/restore).
 * Tools:
