@@ -6,13 +6,13 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-You can expose Stackstate with Ingress resources. The example on this page shows how to configure an nginx-ingress controller using Helm for StackState running on Kubernetes.
+StackState can be exposed with Ingress resources. The example on this page shows how to configure an nginx-ingress controller using Helm for StackState running on Kubernetes.
 
 ## Kubernetes: Configure ingress with Helm
 
 The StackState Helm chart exposes an `ingress` section in its values. This is disabled by default. The example below shows how to use the Helm chart to configure an nginx-ingress controller with TLS encryption enabled. Note that setting up the controller itself and the certificates is beyond the scope of this document.
 
-To configure the ingress for StackState create a file `ingress_values.yaml` with contents like below, however replace MY\_DOMAIN with your own domain \(that is linked with your ingress controller\) and set the correct name for the `tls-secret`. Consult the documentation of your ingress controller and ensure the correct annotations are set. All of the fields below are optional, for example if no TLS is going to be used that section can be omitted.
+To configure the ingress for StackState, create a file `ingress_values.yaml` with contents like below. Replace `MY_DOMAIN` with your own domain \(that is linked with your ingress controller\) and set the correct name for the `tls-secret`. Consult the documentation of your ingress controller to ensure that the correct annotations are set. All fields below are optional, for example, if no TLS will be used, that section can be omitted.
 
 ```text
 ingress:
@@ -27,9 +27,9 @@ ingress:
       secretName: tls-secret
 ```
 
-The one thing standing out in this file is the nginx annotation to increase the allowed `proxy-body-size` to `50m` \(larger than any expected request\). By default, Nginx allows only body sizes of maximum `1m`. StackState agents and other data providers can sometimes send much larger requests. Therefore, regardless if you're using Nginx or another ingress controller, you want to make sure that the allowed body size is large enough.
+The thing that stands out in this file is the nginx annotation to increase the allowed `proxy-body-size` to `50m` \(larger than any expected request\). By default, nginx allows body sizes of maximum `1m`. StackState Agents and other data providers can sometimes send much larger requests. For this reason, you should make sure that the allowed body size is large enough, regardless of whether you are using nginx or another ingress controller.
 
-Now include this `ingress_values.yaml` file when running the helm command to deploy StackState:
+Include the `ingress_values.yaml` file when you run the `helm upgrade` command to deploy StackState:
 
 ```text
 helm upgrade \
