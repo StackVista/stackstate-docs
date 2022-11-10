@@ -84,7 +84,7 @@ In the above example, we observe that 1.970 cores are used by the synchronizatio
 
 ## Change the topology synchronization CPU budget
 
-To modify the CPU budget for the topology synchronization, add/change the following configuration items in the [values.yaml](/setup/install-stackstate/kubernetes_install/customize_config.md) of your Kubernetes StackState deployment and deploy the change.
+To modify the CPU budget for the topology synchronization, add/change the following configuration items in the [values.yaml](/setup/install-stackstate/kubernetes_openshift/customize_config.md) of your Kubernetes StackState deployment and deploy the change.
 
 ```javascript
 stackstate:
@@ -104,4 +104,4 @@ After making this modification, [observe the synchronization performance](#obser
 ## See also
 
 * [Debug topology synchronization](/configure/topology/debug-topology-synchronization.md)
-* [Customize values.yaml](/setup/install-stackstate/kubernetes_install/customize_config.md)
+* [Customize values.yaml](/setup/install-stackstate/kubernetes_openshift/customize_config.md)

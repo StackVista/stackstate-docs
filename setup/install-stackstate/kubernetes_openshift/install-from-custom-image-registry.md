@@ -12,9 +12,9 @@ This page describes how to use a custom image registry to install StackState, th
 
 Pulling the images from the different image registries can take some time when pods are started, either when the application starts for the first time or when it is being scaled to a new node. If one of those registries is not accessible for some reason, the pods won't start.
 
-To address this issue, you can copy all the images to a single registry close to your Kubernetes cluster, and configure the Helm chart to pull the images from that registry:
+To address this issue, you can copy all the images to a single registry close to your clsuter, and configure the Helm chart to pull the images from that registry:
 
-1. Set up a registry close to your Kubernetes cluster.
+1. Set up a registry close to your clsuter.
    * For Amazon Elastic Kubernetes Service (EKS), use [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/).
    * For Azure Kubernetes Service (AKS), use [Azure Container Registry (ACR) \(azure.microsoft.com\)](https://azure.microsoft.com/en-us/products/container-registry/).
 2. Use the relevant script to copy all the images used by the Helm chart to the new registry:
