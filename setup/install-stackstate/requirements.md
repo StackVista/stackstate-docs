@@ -54,7 +54,7 @@ Requirements for the minimal high availability setup with backups enabled:
 {% endtab %}
 
 {% tab title="Non-high availability setup" %}
-Optionally, a [non-high availability setup](/setup/install-stackstate/kubernetes_install/non_high_availability_setup.md) can be configured which has the requirements listed below.
+Optionally, a [non-high availability setup](/setup/install-stackstate/kubernetes_openshift/non_high_availability_setup.md) can be configured which has the requirements listed below.
 
 **Recommended setup** 
 
@@ -79,13 +79,13 @@ Requirements for the minimal non-high availability setup:
 
 ### Docker images
 
-For a list of all Docker images used, see the [image overview](/setup/install-stackstate/kubernetes_install/install-from-custom-image-registry.md).
+For a list of all Docker images used, see the [image overview](/setup/install-stackstate/kubernetes_openshift/install-from-custom-image-registry.md).
 
 ### Storage
 
 StackState uses persistent volume claims for the services that need to store data. The default storage class for the cluster will be used for all services unless this is overridden by values specified on the command line or in a `values.yaml` file. All services come with a pre-configured volume size that should be good to get you started, but can be customized later using variables as required.
 
-For more details on the defaults used, see the page [Configure storage](/setup/install-stackstate/kubernetes_install/storage.md).
+For more details on the defaults used, see the page [Configure storage](/setup/install-stackstate/kubernetes_openshift/storage.md).
 
 ### Ingress
 
@@ -97,7 +97,7 @@ kubectl port-forward service/<helm-release-name>-distributed-router 8080:8080
 
 When configuring Ingress, make sure to allow for large request body sizes \(50MB\) that may be sent occasionally by data sources like the StackState Agent or the AWS integration.
 
-For more details on configuring Ingress, have a look at the page [Configure Ingress docs](/setup/install-stackstate/kubernetes_install/ingress.md).
+For more details on configuring Ingress, have a look at the page [Configure Ingress docs](/setup/install-stackstate/kubernetes_openshift/ingress.md).
 
 ### Namespace resource limits
 

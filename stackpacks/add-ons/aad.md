@@ -75,8 +75,7 @@ The feedback sent to StackState consists of:
     
 ### Prerequisites[](http://not.a.link "StackState Self-Hosted only")
 
-* The AAD StackPack can only be installed within a [Kubernetes setup](../../setup/install-stackstate/kubernetes_install/ "StackState Self-Hosted only"). Please make sure that this is supported by your StackState installation.
-* It is also possible to [install the AAD standalone](../../setup/install-stackstate/kubernetes_install/aad_standalone.md "StackState Self-Hosted only") within Kubernetes.
+* The AAD StackPack can only be installed within a [Kubernetes setup](../../setup/install-stackstate/kubernetes_openshift/ "StackState Self-Hosted only"). Please make sure that this is supported by your StackState installation.
 * If you are not sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://support.stackstate.com/hc/en-us "StackState Self-Hosted only").
 
 ### Install the AAD StackPack
@@ -104,7 +103,7 @@ You cannot directly control the stream selected, but you can steer the metric st
 
 {% hint style="success" "self-hosted info" %}
 
-Know what the AAD is working on. [The status UI of the AAD](/setup/install-stackstate/kubernetes_install/aad_standalone.md#troubleshooting) provides various metrics and indicators, including details of what the AAD is currently doing.
+Know what the AAD is working on. [The status UI of the AAD](/configure/anomaly-detection/aad-status-ui.md) provides various metrics and indicators, including details of what the AAD is currently doing.
 {% endhint %}
 
 ### How fast are anomalies detected?

@@ -6,9 +6,16 @@ description: StackState Self-hosted v5.1.x
 
 ## Before you start
 
+{% hint style="info" %}
+Extra notes for installing on:
+
+* **OpenShift clusters with limited permissions**: Read the [required permissions](required_permissions.md).
+* **Kubernetes**: Refer to the [Kubernetes installation instructions](kubernetes_install.md).
+{% endhint %}
+
 Before you start the installation of StackState:
 
-* Check that your OpenShift environment meets the [requirements](requirements.md)
+* Check that your OpenShift environment meets the [requirements](../requirements.md)
 * Request access credentials to pull the StackState Docker images from [StackState support](https://support.stackstate.com/).
 * Ensure you have the OpenShift command line tools installed \(`oc`\)
 * Add the StackState helm repository to the local helm client:
@@ -153,9 +160,9 @@ zookeeper:
 
 ### Automatically install the Cluster Agent for OpenShift
 
-StackState has built-in support for OpenShift by means of the [OpenShift StackPack](../../stackpacks/integrations/openshift.md). To get started quickly, the StackState installation can automate installation of this StackPack and the required Agent for the cluster that StackState itself will be installed on. This is not required and can always be done later from the StackPacks page of the StackState UI for StackState's cluster or any other OpenShift cluster.
+StackState has built-in support for OpenShift by means of the [OpenShift StackPack](../../../stackpacks/integrations/openshift.md). To get started quickly, the StackState installation can automate installation of this StackPack and the required Agent for the cluster that StackState itself will be installed on. This is not required and can always be done later from the StackPacks page of the StackState UI for StackState's cluster or any other OpenShift cluster.
 
-The only required information is a name for the OpenShift cluster that will distinguish it from the other OpenShift clusters monitored by StackState. A good choice usually is the same name that is used in the kube context configuration. This will then automatically install the StackPack and install a Daemonset for the agent and a deployment for the so-called cluster agent. For the full details, read the [OpenShift StackPack](../../stackpacks/integrations/openshift.md) page.
+The only required information is a name for the OpenShift cluster that will distinguish it from the other OpenShift clusters monitored by StackState. A good choice usually is the same name that is used in the kube context configuration. This will then automatically install the StackPack and install a Daemonset for the agent and a deployment for the so-called cluster agent. For the full details, read the [OpenShift StackPack](../../../stackpacks/integrations/openshift.md) page.
 
 To automate this installation, the below values file can be added to the `helm install` command. The agent chart needs to add specific OpenShift `SecurityContextConfiguration` objects to the OpenShift installation.
 
@@ -235,7 +242,7 @@ To deploy StackState in a non-high availability setup on OpenShift:
    * [Create the project where StackState will be installed](openshift_install.md#create-project)
    * [Generate `values.yaml`](#generate-values.yaml)
    * [Create `openshift-values.yaml`](#create-openshift-values.yaml)
-   * [Create `nonha_values.yaml`](/setup/install-stackstate/kubernetes_install/non_high_availability_setup.md)
+   * [Create `nonha_values.yaml`](/setup/install-stackstate/kubernetes_openshift/non_high_availability_setup.md)
    * If you want to automatically install the Cluster Agent for OpenShift, [create `agent-values.yaml`](#automatically-install-the-cluster-agent-for-openshift)
 5. Deploy the latest StackState version to the `stackstate` namespace with the following command:
 
@@ -281,8 +288,8 @@ StackState will now be available in your browser at `https://localhost:8080`. Lo
 
 Next steps are
 
-* Configure [ingress](kubernetes_install/ingress.md)
-* Install a [StackPack](../../stackpacks/about-stackpacks.md) or two
+* Configure [ingress](ingress.md)
+* Install a [StackPack](../../../stackpacks/about-stackpacks.md) or two
 * Give your [co-workers access](../../configure/security/authentication/).
 
 ## Manually create `SecurityContextConfiguration` objects
@@ -291,9 +298,13 @@ If you cannot use an administrator account to install StackState on OpenShift, a
 
 ### Cluster Agent
 
-If you want to monitor the OpenShift cluster using the [OpenShift StackPack](../../stackpacks/integrations/openshift.md) and Cluster Agent, the below `SecurityContextConfiguration` needs to be applied:
+If you want to monitor the OpenShift cluster using the [OpenShift StackPack](../../../stackpacks/integrations/openshift.md) and Cluster Agent, the below `SecurityContextConfiguration` needs to be applied:
 
 ```yaml
+apiVersion: security.openshift.io/v1
+kind: SecurityContextConstraints
+metadata:
+  name: stackstate-agent-scc
 allowHostDirVolumePlugin: true
 allowHostIPC: true
 allowHostNetwork: true
@@ -304,14 +315,10 @@ allowPrivilegedContainer: true
 allowedCapabilities: []
 allowedUnsafeSysctls:
 - '*'
-apiVersion: security.openshift.io/v1
 defaultAddCapabilities: null
 fsGroup:
   type: MustRunAs
 groups: []
-kind: SecurityContextConstraints
-metadata:
-  name: stackstate-agent-scc
 priority: null
 readOnlyRootFilesystem: false
 requiredDropCapabilities: null
@@ -350,6 +357,6 @@ After this file is applied, execute the following command as administrator to gr
 
 ## See also
 
-* [Create a `nonha_values.yaml` file](/setup/install-stackstate/kubernetes_install/non_high_availability_setup.md)
+* [Create a `nonha_values.yaml` file](/setup/install-stackstate/kubernetes_openshift/non_high_availability_setup.md)
 * For other configuration and management options, refer to the Kubernetes documentation - [manage a StackState Kubernetes installation](kubernetes_install/)
 

@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 {% hint style="info" %}
 StackState prefers Kubernetes!  
-In the future we will move away from Linux support. Read how to [migrate from the Linux install of StackState to the Kubernetes install](/setup/install-stackstate/kubernetes_install/migrate_from_linux.md).
+In the future we will move away from Linux support. Read how to [migrate from the Linux install of StackState to the Kubernetes install](/setup/install-stackstate/kubernetes_openshift/migrate_from_linux.md).
 {% endhint %}
 
 ## Overview
@@ -17,7 +17,7 @@ To back up and restore StackState configuration and topology information we can 
 
 ### Backup
 
-StackState topology and configuration data are stored in StackGraph. To create a backup of StackGraph data on a [production setup](../../install-stackstate/linux_install/production-installation.md):
+StackState topology and configuration data are stored in StackGraph. To create a backup of StackGraph data on a [production setup](../../install-stackstate/linux/production-installation.md):
 
 1. Make sure that StackGraph is up and running.
 2. Stop the StackState node using `sudo systemctl stop stackstate.service`.

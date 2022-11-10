@@ -60,7 +60,7 @@ Clearing the data in StackState will **remove any configured permissions from th
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-To clear stored data in StackState running on Kubernetes, it is recommended to run a [clean install](../install-stackstate/kubernetes_install/install_stackstate.md).
+To clear stored data in StackState running on Kubernetes, it is recommended to run a [clean install](../install-stackstate/kubernetes_openshift/kubernetes_install.md).
 {% endtab %}
 
 {% tab title="Linux" %}

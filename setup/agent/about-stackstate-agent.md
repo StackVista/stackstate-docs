@@ -86,7 +86,7 @@ For StackState running on Kubernetes or OpenShift, the `<STACKSTATE_RECEIVER_API
 
 `https://<STACKSTATE_BASE_URL>/receiver/stsAgent`[](http://not.a.link "StackState Self-Hosted only")
 
-The `<STACKSTATE_BASE_URL>` is set during StackState installation. For details see [Kubernetes install - configuration parameters](../../setup/install-stackstate/kubernetes_install/install_stackstate.md#generate-values.yaml "StackState Self-Hosted only").
+The `<STACKSTATE_BASE_URL>` is set during StackState installation. For details see [Kubernetes install - configuration parameters](../install-stackstate/kubernetes_openshift/kubernetes_install.md#generate-values.yaml "StackState Self-Hosted only").
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 
 {% tab title="Linux" %}[](http://not.a.link "StackState Self-Hosted only")
@@ -94,7 +94,7 @@ For StackState running on Linux, the `<STACKSTATE_RECEIVER_API_ADDRESS>` is by d
 
 `https://<STACKSTATE_RECEIVER_BASE_URL>/stsAgent`[](http://not.a.link "StackState Self-Hosted only")
 
-The `<STACKSTATE_RECEIVER_BASE_URL>` is set during StackState installation. For details see [Linux install - configuration parameters](../../setup/install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install "StackState Self-Hosted only").
+The `<STACKSTATE_RECEIVER_BASE_URL>` is set during StackState installation. For details see [Linux install - configuration parameters](../install-stackstate/linux/install_stackstate.md#configuration-options-required-during-install "StackState Self-Hosted only").
 
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="StackState SaaS" %}[](http://not.a.link "StackState Self-Hosted only")
@@ -110,12 +110,12 @@ StackState Agent requires the StackState Receiver API key to communicate with th
 
 {% tabs %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="Kubernetes" %}[](http://not.a.link "StackState Self-Hosted only")
-For StackState running on Kubernetes, the Receiver API Key is set during installation. For details see [StackState Kubernetes install - configuration parameters](../install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml "StackState Self-Hosted only")
+For StackState running on Kubernetes, the Receiver API Key is set during installation. For details see [StackState Kubernetes install - configuration parameters](../install-stackstate/kubernetes_openshift/kubernetes_install.md#generate-values-yaml "StackState Self-Hosted only")
 
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 
 {% tab title="Linux" %}[](http://not.a.link "StackState Self-Hosted only")
-For StackState running on Linux, the Receiver API Key is set during installation. For details see [StackState Linux install - configuration parameters](../install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install "StackState Self-Hosted only") 
+For StackState running on Linux, the Receiver API Key is set during installation. For details see [StackState Linux install - configuration parameters](../install-stackstate/linux/install_stackstate.md#configuration-options-required-during-install "StackState Self-Hosted only") 
 
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="StackState SaaS" %}[](http://not.a.link "StackState Self-Hosted only")

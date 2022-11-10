@@ -226,7 +226,7 @@ No manual action required.
 * The CPU and memory [requirements to run StackState 4.4 on Kubernetes](/setup/install-stackstate/requirements.md#node-sizing) have been reassessed:
   * The requirements for the recommended highly available setup have grown \(from 5\) to 6 nodes with 32 GB of memory and 8 vCPUS.
   * The requirements for a minimal highly available setup have grown \(from 4\) to 5 nodes with 32 GB of memory and 8 vCPUS.
-  * A [non-high availability setup](../install-stackstate/kubernetes_install/non_high_availability_setup.md) has been added, the requirements for which are 3 nodes with 32 GB of memory and 8 vCPUS.
+  * A [non-high availability setup](../install-stackstate/kubernetes_openshift/non_high_availability_setup.md) has been added, the requirements for which are 3 nodes with 32 GB of memory and 8 vCPUS.
 * Baselines have been disabled in v4.4. The `BaselineFunction` and `Baseline` objects are still available, but they do not serve any purpose other than smooth transition to the Autonomous Anomaly Detector \(AAD\) framework. If you have custom StackPacks that auto-create baselines, this is the last opportunity to remove baselines from templates and make transition to the AAD. In release v4.5 baselines will be removed completely and templates using them will break.
 * Transparent propagation has been renamed to **Auto propagation**. The behavior remains the same.
 * The ElasticSearch Helm subchart `elasticsearch-exporter` has been renamed to `prometheus-elasticsearch-exporter`. This means that any configuration for that subchart needs to use the new subchart key `elasticsearch.prometheus-elasticsearch-exporter.*`
