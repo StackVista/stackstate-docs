@@ -22,27 +22,36 @@ Prepare a TLS keypair in [PKCS12](https://en.wikipedia.org/wiki/PKCS_12) format.
 **a.** Enable TLS for Web UI/API by configuring section `stackstate.api.tls` in `etc/application_stackstate.conf`:
 
 ```text
-tls {
-  enabled = true
-  keystore {
-    path = "/path/to/keystore.pfx"
-    password = "password"
-    storeType = "PKCS12"
-  }
-}
+
+stackstate {
+   ...
+   api {
+     tls {
+       enabled = true
+       keystore {
+          path = "/path/to/keystore.pfx"
+          password = "password"
+          storeType = "PKCS12"
+       }
+     }
+   ...
+    
 ```
 
 **b.** Enable TLS for topology/telemetry receiver by configuring a section `stackstate.receiver.tls` in `etc/stackstate-receiver/application.conf`:
 
 ```text
-tls {
-  enabled = true
-  keystore {
-    path = "/path/to/keystore.pfx"
-    password = "password"
-    storeType = "PKCS12"
+stackstate.receiver {
+  ...
+  tls {
+    enabled = true
+    keystore {
+      path = "/path/to/keystore.pfx"
+      password = "password"
+      storeType = "PKCS12"
+    }
   }
-}
+  
 ```
 
 ### Step 2. Configure the process manager
@@ -56,13 +65,17 @@ tls {
 **b.** \(optional, if a self-signed certificate is used\) Make process manager trust self-signed certificate by adding the following settings under `server.akka` section in `etc/processmanager/processmanager-properties.conf`:
 
 ```text
-ssl-config {
-  trustManager = {
-    stores = [
-      {type: "PEM", path: "/path/to/certificate-authority.pem"},
-    ]
-  }
-}
+server {
+  akka {  
+    ...
+    ssl-config {
+      trustManager = {
+        stores = [
+          {type: "PEM", path: "/path/to/certificate-authority.pem"},
+        ]
+      }
+    }
+  ...
 ```
 
 ### Step 3. Configure StackPacks configuration defaults
