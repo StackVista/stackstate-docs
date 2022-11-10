@@ -42,7 +42,7 @@ stackstate {
 
 ```text
 stackstate.receiver {
-...
+  ...
   tls {
     enabled = true
     keystore {
@@ -65,13 +65,17 @@ stackstate.receiver {
 **b.** \(optional, if a self-signed certificate is used\) Make process manager trust self-signed certificate by adding the following settings under `server.akka` section in `etc/processmanager/processmanager-properties.conf`:
 
 ```text
-ssl-config {
-  trustManager = {
-    stores = [
-      {type: "PEM", path: "/path/to/certificate-authority.pem"},
-    ]
-  }
-}
+server {
+  akka {  
+    ...
+    ssl-config {
+      trustManager = {
+        stores = [
+          {type: "PEM", path: "/path/to/certificate-authority.pem"},
+        ]
+      }
+    }
+  ...
 ```
 
 ### Step 3. Configure StackPacks configuration defaults
