@@ -19,7 +19,7 @@ StackState Self-hosted can be used to observe an extensive set of technologies t
 
 ### Setup and configuration
 
-{% page-ref page="setup/install-stackstate/kubernetes_install/" %}
+{% page-ref page="setup/install-stackstate/kubernetes_openshift/" %}
 
 {% page-ref page="stackpacks/integrations/" %}
 
