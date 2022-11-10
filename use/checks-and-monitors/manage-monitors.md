@@ -48,6 +48,7 @@ For example, to run the monitor every 5 minutes, set the `intervalSeconds` to `3
 
 {% tabs %}
 {% tab title="Monitor STJ definition" %}
+{% code lineNumbers="true" %}
 ```sh
 {
   "_version": "1.0.39",
@@ -68,7 +69,7 @@ For example, to run the monitor every 5 minutes, set the `intervalSeconds` to `3
   ]
 }
 ```
-
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
