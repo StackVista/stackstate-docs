@@ -6,9 +6,9 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-If StackState or StackState Agent V2 are running within an AWS environment in an EKS cluster instance, an IAM role can be attached to the node-group where the pods `stackstate-api`, `stackstate-server` and/or `stackstate-cluster-agent` are running. 
+If StackState or StackState Agent V2 are running within an AWS environment in an EKS cluster instance, an IAM role can be attached to the node-group where the pods `stackstate-api` and/or `stackstate-cluster-agent` are running. 
 
-* `stackstate-api` and `stackstate-server` pods - the attached role can be used for authentication by StackState running in these pods.
+* `stackstate-api` pod - the attached role can be used for authentication by StackState running in these pods.
 * `stackstate-cluster-agent` pod - the attached role can be used for authentication by StackState Cluster Agent running in this pod.
 
 {% hint style="info" %}
@@ -21,7 +21,7 @@ To set up an IAM role for StackState or StackState Agent to use, follow the inst
 
 1. If you did not do so already, [create a policy](/stackpacks/integrations/aws/aws.md#aws-policy) that allows the `AssumeRole` action for the resource `arn:aws:iam::*:role/StackStateAwsIntegrationRole`. Take note of the policy name.
 2. Find the node-group that contains nodes running the relevant pod or pods and create a node group role:
-   * **StackState on EKS**: `stackstate-api` and `stackstate-server`.
+   * **StackState on EKS**: `stackstate-api`.
    * **StackState Agent on EKS**: `stackstate-cluster-agent`.
 3. Attach the policy from the first step to the node-group role from the previous step.
 
