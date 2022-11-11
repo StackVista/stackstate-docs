@@ -55,6 +55,7 @@ Topology.query('environment in ("Production")').components()
 
 The combination of STSL and STQL allows you to chain together multiple queries. The following example gets all metrics of all databases in the production environment for the last day:
 
+{% code lineNumbers="true" %}
 ```text
 Topology
     .query('environment in ("Production") AND type = "Database"')
@@ -66,6 +67,7 @@ Topology
             .start("-1d")
     }
 ```
+{% endcode %}
 
 This analytical query first gets all metric streams of components from the `Production` environment that are of the type `Database`. The result of that query is then used to build up telemetry queries against these metric streams.
 
@@ -101,6 +103,7 @@ Topology.query('name IN ("Alice", "Bob")')
 
 {% tabs %}
 {% tab title="Query" %}
+{% code lineNumbers="true" %}
 ```text
 Topology.query('environment = "Staging"')
     .diff(Topology.query('environment = "Production"'))
@@ -112,9 +115,11 @@ Topology.query('environment = "Staging"')
             .collect { comp -> comp.name }
     }
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="Example result" %}
+{% code lineNumbers="true" %}
 ```text
 [
   "customer E_appl02",
@@ -124,6 +129,7 @@ Topology.query('environment = "Staging"')
   "customer B_appl02"
 ]
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 
@@ -131,6 +137,7 @@ Topology.query('environment = "Staging"')
 
 {% tabs %}
 {% tab title="Query" %}
+{% code lineNumbers="true" %}
 ```text
 Prediction.predictMetrics("linear", "7d",
     Telemetry.query("StackState metrics", 'host="lnx01" AND name="diskspace" AND mount="/dev/disk1s1"')
@@ -140,9 +147,11 @@ Prediction.predictMetrics("linear", "7d",
         .compileQuery()
 ).predictionPoints(7).then { result -> resut.prediction  }
 ```
+{% endcode %}
 {% endtab %}
 
 {% tab title="Example result" %}
+{% code lineNumbers="true" %}
 ```text
 {
     "_type":"MetricTelemetryData",
@@ -183,6 +192,7 @@ Prediction.predictMetrics("linear", "7d",
     "isPartial":false
 }
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 

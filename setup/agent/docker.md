@@ -29,6 +29,7 @@ To start a single Docker container with StackState Agent V2, run the command bel
 
 For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
 
+{% code lineNumbers="true" %}
 ```text
 docker run -d \
     --name stackstate-agent \
@@ -52,6 +53,7 @@ docker run -d \
     -e HOST_SYS="/host/sys" \
     docker.io/stackstate/stackstate-agent-2:2.18.0
 ```
+{% endcode %}
 
 ### Docker compose
 
@@ -62,6 +64,7 @@ To run StackState Agent V2 with Docker compose:
    * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
    For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
 
+   {% code lineNumbers="true" %}
    ```bash
    stackstate-agent:
     image: docker.io/stackstate/stackstate-agent-2:2.18.0
@@ -86,6 +89,7 @@ To run StackState Agent V2 with Docker compose:
       HOST_PROC: "/host/proc"
       HOST_SYS: "/host/sys"
    ```
+   {% endcode %}
 
 3. Run the command:
 
@@ -105,6 +109,7 @@ To run StackState Cluster Agent in Docker Swarm mode:
    For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
    * `<CLUSTER_NAME>` is the name you would like to give this cluster
 
+   {% code lineNumbers="true" %}
    ```bash
    stackstate-agent:
        image: docker.io/stackstate/stackstate-cluster-agent:2.18.0
@@ -124,6 +129,7 @@ To run StackState Cluster Agent in Docker Swarm mode:
          DOCKER_SWARM: "true"
          STS_CLUSTER_NAME: <CLUSTER_NAME>
    ```
+   {% endcode %}
 
 2. Run the command:
 
@@ -164,6 +170,7 @@ StackState Agent V2 can be configured to run checks that integrate with external
 
 For example, the Agent Docker configuration below includes a volume with a check configuration file for the ServiceNow integration:
 
+{% code lineNumbers="true" %}
 ```bash
 stackstate-agent:
     image: docker.io/stackstate/stackstate-agent-2:2.18.0
@@ -183,6 +190,7 @@ stackstate-agent:
       HOST_PROC: "/host/proc"
       HOST_SYS: "/host/sys"
 ```
+{% endcode %}
 
 Documentation for the available StackState integrations, including how to configure the associated Agent checks, can be found on the [StackPacks &gt; Integrations pages](../../stackpacks/integrations/).
 
@@ -275,6 +283,7 @@ For example:
 
 {% tabs %}
 {% tab title="Docker compose" %}
+{% code lineNumbers="true" %}
 ```bash
 stackstate-agent:
   image: docker.io/stackstate/stackstate-agent-2:2.18.0
@@ -302,6 +311,7 @@ stackstate-agent:
     STS_LOG_TO_CONSOLE: "true"
     STS_LOG_PAYLOADS: "true"
 ```
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 

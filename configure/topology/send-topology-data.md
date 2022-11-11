@@ -43,6 +43,7 @@ The `<STACKSTATE_BASE_URL>` and <STACKSTATE_RECEIVER_API_KEY>` are set during St
 
 Topology, telemetry and health data are sent to the receiver API via HTTP POST. There is a common JSON object used for all messages.
 
+{% code lineNumbers="true" %}
 ```javascript
 {
   "collection_timestamp": 1548855554, // the epoch timestamp for the collection
@@ -54,11 +55,13 @@ Topology, telemetry and health data are sent to the receiver API via HTTP POST. 
   "health" // used for sending health data
 }
 ```
+{% endcode %}
 
 ## JSON property: "topologies" 
 
 StackState accepts topology information in the following JSON format:
 
+{% code lineNumbers="true" %}
 ```text
 {
    "apiKey":"your api key",
@@ -125,6 +128,7 @@ StackState accepts topology information in the following JSON format:
    ]
 }
 ```
+{% endcode %}
 
 The JSON contains the following fields:
 

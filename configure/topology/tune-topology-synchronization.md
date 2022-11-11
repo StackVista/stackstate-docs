@@ -86,6 +86,7 @@ In the above example, we observe that 1.970 cores are used by the synchronizatio
 
 To modify the CPU budget for the topology synchronization, add/change the following configuration items in the [values.yaml](/setup/install-stackstate/kubernetes_openshift/customize_config.md) of your Kubernetes StackState deployment and deploy the change.
 
+{% code lineNumbers="true" %}
 ```javascript
 stackstate:
     components:
@@ -96,6 +97,7 @@ stackstate:
                 limits:
                     cpu: 4
 ```
+{% endcode %}
 
 To guarantee performance, `requests` should ideally be set equal to `limits`. `Limits` can never be lower than `requests`.
 

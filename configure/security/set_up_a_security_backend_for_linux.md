@@ -36,6 +36,7 @@ The executable receives a JSON payload from the standard input, containing the l
 
 The executable is expected to output to the standard output a JSON payload containing the:
 
+{% code lineNumbers="true" %}
 ```json
 {
   "secret1": {
@@ -48,6 +49,7 @@ The executable is expected to output to the standard output a JSON payload conta
   }
 }
 ```
+{% endcode %}
 
 The expected payload is a JSON object, where each key is one of the handles requested in the input payload. The value for each handle is a JSON object with two fields:
 
@@ -58,6 +60,7 @@ The expected payload is a JSON object, where each key is one of the handles requ
 
 The following is a dummy implementation of the secret reader that is prefixing every secret with `decrypted_`:
 
+{% code lineNumbers="true" %}
 ```golang
 package main
 
@@ -98,6 +101,7 @@ func main() {
   fmt.Printf(string(output))
 }
 ```
+{% endcode %}
 
 Above example updates the following configuration \(from the check file\):
 
@@ -125,6 +129,7 @@ The `secret` command in the Agent CLI shows any errors related to your setup. Fo
 
 On Linux, the command outputs file mode, owner and group for the executable. Example:
 
+{% code lineNumbers="true" %}
 ```sh
 $> stackstate-agent secret
 === Checking executable rights ===
@@ -143,11 +148,13 @@ Secrets handle decrypted:
 - db_prod_user: from postgres.yaml
 - db_prod_password: from postgres.yaml
 ```
+{% endcode %}
 
 ### Checking configurations after secrets were injected
 
 To quickly see how the check’s configurations are resolved, you can use the `configcheck` command:
 
+{% code lineNumbers="true" %}
 ```sh
 $ sudo -u stackstate-agent -- stackstate-agent configcheck
 
@@ -169,6 +176,7 @@ password: <decrypted_password2>
 ~
 ===
 ```
+{% endcode %}
 
 **Note:** The Agent needs to be restarted to pick up changes on configuration files.
 

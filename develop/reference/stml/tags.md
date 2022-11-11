@@ -18,6 +18,7 @@ It looks at the shape of the `data`, and if it is of some recognizable type \(de
 
 This is an example of a script that uses the `auto-widget` to render a telemetry chart:
 
+{% code lineNumbers="true" %}
 ```text
 Telemetry
   .query("StackState Metrics", "name='system.load.norm' and host='host1'")
@@ -42,6 +43,7 @@ Telemetry
     )
   }
 ```
+{% endcode %}
 
 ## Tag: `heatmap`
 
