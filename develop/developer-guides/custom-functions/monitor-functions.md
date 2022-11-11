@@ -69,20 +69,19 @@ A monitor function with a user parameter named `latest_metrics` and of type **Te
 
 Monitor functions can leverage existing StackState Script APIs, including:
 
-- **Telemetry** - used to fetch Metric and Log data,
-- **Async** - allowing for combining multiple asynchronous results in one computation,
-- **View** - StackState View related operations,
-- **Component** - StackState Component related operations.
+- [**Telemetry**](/develop/reference/scripting/script-apis/telemetry.md) - used to fetch Metric and Log data,
+- [**Async**](/develop/reference/scripting/script-apis/async.md) - allowing for combining multiple asynchronous results in one computation,
+- [**View**](/develop/reference/scripting/script-apis/view.md) - StackState View related operations,
+- [**Component**](/develop/reference/scripting/script-apis/component.md) - StackState Component related operations.
 
 Additionally, the following Script APIs are optionally available. They are considered to be experimental:
 
-- **Topology** - used to fetch Topology data,
-- **Http** - used to fetch external data via the HTTP protocol,
-- **Graph** - a generic way to query the StackGraph database.
+- [**Topology**](/develop/reference/scripting/script-apis/topology.md) - used to fetch Topology data,
+- [**Http**](/develop/reference/scripting/script-apis/http.md) - used to fetch external data via the HTTP protocol,
 
 {% hint style="success" "self-hosted info" %}
 
-To use the above, experimental APIs they must be explicitly named in your StackState configuration file by appending the following line at the end of the `etc/application_stackstate.conf` file.
+To use the above, experimental APIs,  they must be explicitly named in your StackState configuration file by appending the following line at the end of the `etc/application_stackstate.conf` file.
 
 `stackstate.featureSwitches.monitorEnableExperimentalAPIs = true`
 
