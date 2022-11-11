@@ -253,6 +253,7 @@
     * [Component actions](develop/developer-guides/custom-functions/component-actions.md)
     * [Check functions](develop/developer-guides/custom-functions/check-functions.md)
     * [Monitor functions](develop/developer-guides/custom-functions/monitor-functions.md)
+    * [OLD Monitor functions](develop/developer-guides/custom-functions/old-monitor-functions.md)
     * [Propagation functions](develop/developer-guides/custom-functions/propagation-functions.md)
     * [View health state configuration functions](develop/developer-guides/custom-functions/view-health-state-configuration-functions.md)
     * [Event handler functions](develop/developer-guides/custom-functions/event-handler-functions.md)
