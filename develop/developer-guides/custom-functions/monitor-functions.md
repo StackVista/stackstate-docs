@@ -57,12 +57,25 @@ For example:
 
 A monitor function with one user parameter named `latest_metrics` that is of type **Telemetry query** would require the following to be included in the  `arguments` block of the monitor definition that invokes it. The `value` defines the telemetry query that will be run to provide telemetry to the monitor function:
 
+![`latest_metrics` user parameter in a monitor function](/.gitbook/assets/v51_latest_metrics_user_parameter.png)
+
 ```json
-"arguments": [{
-  "_type": "ArgumentScriptMetricQueryVal",
-  "parameter": {{ get "<identifier-of-the-function>" "Type=Parameter;Name=latest_metrics" }},
-  "value": "Telemetry.query('StackState Metrics', '').groupBy('tags.pid', 'tags.createTime', 'host').metricField('cpu_systemPct').start('-1m').aggregation('mean', '15s')"
-}]
+{
+  "_version": "1.0.39",
+  "timestamp": "2022-05-23T13:16:27.369269Z[GMT]",
+  "nodes": [
+    {
+      ...
+      "arguments": [{
+        "_type": "ArgumentScriptMetricQueryVal",
+        "parameter": {{ get "<identifier-of-the-function>" "Type=Parameter;Name=latest_metrics" }},
+        "value": "Telemetry.query('StackState Metrics', '').groupBy('tags.pid', 'tags.createTime', 'host').metricField('cpu_systemPct').start('-1m').aggregation('mean', '15s')"
+      }],
+      ...
+    }
+  ]
+}
+  
 ```
 
 ➡️ [Learn more about parameter values in a monitor definition file](/develop/developer-guides/monitors/monitor-stj-file-format.md#arguments)
