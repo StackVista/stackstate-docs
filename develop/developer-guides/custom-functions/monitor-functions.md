@@ -49,7 +49,7 @@ The telemetry query parameter type will ensure that the provided query is well-f
 
 ➡️ [Learn how to specify a telemetry query in a monitor definition file](/develop/developer-guides/monitors/monitor-stj-file-format.md#telemetry-query)
 
-### Parameter values
+### Values
 
 Values for the defined user parameters are passed to the monitor function from the monitor. `arguments` for each specific parameter in the monitor function must be defined in the monitor definition.
 
