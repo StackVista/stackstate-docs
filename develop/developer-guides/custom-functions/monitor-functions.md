@@ -82,7 +82,9 @@ To successfully invoke this function, a monitor must provide a value to the requ
 ```
 {% endcode %}
 
-## Available APIs
+## Script
+
+### Available APIs
 
 Monitor functions can leverage existing StackState Script APIs, including:
 
