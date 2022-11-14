@@ -65,7 +65,7 @@ Open a **Powershell** terminal (version 5.1 or later) and run the steps below. T
     ```
 
 3. Register the CLI path to the current user's PATH. This will make the `sts` command available everywhere:
-    ```powershell
+   ```powershell
     $PATH = (Get-ItemProperty -Path "Registry::HKEY_CURRENT_USER\Environment" -Name PATH).Path
     if ( $PATH -notlike "*$CLI_PATH*" ) {
       $PATH = "$PATH;$CLI_PATH"
@@ -75,7 +75,7 @@ Open a **Powershell** terminal (version 5.1 or later) and run the steps below. T
     }
    ```
 
-4. Verify that the CLI works:
+5. Verify that the CLI works:
     ```powershell
     sts version
     ```

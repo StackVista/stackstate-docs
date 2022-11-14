@@ -60,6 +60,7 @@ The field `connectionDetails` is mandatory and must be present in each request. 
 
 Example:
 
+{% code lineNumbers="true" %}
 ```text
   ...
   "connectionDetails" : {
@@ -70,6 +71,7 @@ Example:
   }
   ...
 ```
+{% endcode %}
 
 #### Query Equality Conditions
 
@@ -77,6 +79,7 @@ Query Conditions are used to select a subset of the telemetry from the target te
 
 Please see the example below:
 
+{% code lineNumbers="true" %}
 ```text
     ...
    "conditions": [
@@ -86,6 +89,7 @@ Please see the example below:
     ],
     ...
 ```
+{% endcode %}
 
 The equality condition consists of the key and value. The `key` is of type string, and it contains the name of the variable/field/label in the remote monitoring system. The `value` is a JSON object that contains the actual value of one of three types: string, double or boolean.
 

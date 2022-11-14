@@ -14,6 +14,7 @@ The templating is based on [handlebars \(handlebarsjs.com\)](https://handlebarsj
 
 StackState template files use handlebars. Content that is placed between double curly brackets `{{ some content }}` is included in the output. The example below shows handlebars used in a component template:
 
+{% code lineNumbers="true" %}
 ```text
 [{
   "_type": "Component",
@@ -28,6 +29,7 @@ StackState template files use handlebars. Content that is placed between double 
   "environments": [{{ environmentId }}]
 }]
 ```
+{% endcode %}
 
 ### Conditionals: \#if / else
 

@@ -137,6 +137,7 @@ Returns a list of all current topology synchronization streams.
 {% tabs %}
 {% tab title="CLI: stac (deprecated)" %}
 
+{% code lineNumbers="true" %}
 ```javascript
 # List streams
 stac topology list
@@ -147,6 +148,7 @@ stac topology list
 154190823099122  urn:stackpack:stackstate-agent-v2:shared:sync:agent                                      Running                 761818                763870              1517959              1519490         0
 144667609743389  urn:stackpack:stackstate:instance:44a9ce1e-413c-4c4c-819d-2095c1229dda:sync:stackstate   Running                  13599                  5496                    0                    0       329
 ```
+{% endcode %}
 
 ⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
@@ -170,6 +172,7 @@ Shows the data of a specific topology synchronization stream, including detailed
 {% tabs %}
 {% tab title="CLI: stac (deprecated)" %}
 
+{% code lineNumbers="true" %}
 ```javascript
 # Show a topology synchronization status
 stac topology show urn:stackpack:stackstate:instance:44a9ce1e-413c-4c4c-819d-2095c1229dda:sync:stackstate
@@ -182,6 +185,7 @@ metric               value between now and 500 seconds ago  value between 500 an
 -----------------  ---------------------------------------  ----------------------------------------  -----------------------------------------
 latency (Seconds)                                   35.754  ---                                       ---
 ```
+{% endcode %}
 
 ⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 

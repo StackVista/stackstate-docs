@@ -97,7 +97,7 @@ You can [create custom monitor function](../custom-functions/monitor-functions.m
 
 ### arguments
 
-The arguments defined in the monitor STY definition should match the parameters defined in the monitor function STY definition.
+The arguments defined in the monitor STY definition should match the parameters defined in the monitor function STY definition. See below for examples of [how to set commonly used parameters](#common-parameters).
 
 The parameter binding syntax is common for all parameter types, and utilizes the following format:
 
@@ -117,7 +117,7 @@ During an invocation of a monitor function, the argument value is interpreted an
 * Parameters marked as `multiple` in the monitor function STY definition can be supplied more than once, meaning that they represent a set of values.
 {% endhint %}
 
-**Common parameters**
+#### Common parameters
 
 Descriptions of parameters that are commonly used by monitor functions can be found below:
 

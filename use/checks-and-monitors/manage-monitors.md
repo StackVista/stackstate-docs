@@ -48,6 +48,7 @@ For example, to run the monitor every 5 minutes, set the `intervalSeconds` to `3
 
 {% tabs %}
 {% tab title="Monitor STY definition" %}
+{% code lineNumbers="true" %}
 ```yaml
 _version: "1.0.39"
 timestamp: "2022-05-23T13:16:27.369269Z[GMT]"
@@ -63,7 +64,7 @@ nodes:
       ...
     intervalSeconds": 300
 ```
-
+{% endcode %}
 {% endtab %}
 {% endtabs %}
 

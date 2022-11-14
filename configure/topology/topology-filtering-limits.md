@@ -21,6 +21,7 @@ If required, the default filtering limit can be manually configured.
 {% tabs %}
 {% tab title="Kubernetes" %}
 To set a custom filtering limit, add the following to the `values.yaml` file used to deploy StackState:
+{% code lineNumbers="true" %}
 ```yaml
 stackstate:
   components:
@@ -34,6 +35,7 @@ stackstate:
       config: |
          stackstate.webUIConfig.maxStackElementCount = <newvalue>
 ```
+{% endcode %}
 {% endtab %}
 {% tab title="Linux" %}
 Set a custom filtering limit in `etc/application_stackstate.conf` using the parameters `stackstate.webUIConfig.maxStackElementCount` and `stackstate.topologyQueryService.maxStackElementsPerQuery`.

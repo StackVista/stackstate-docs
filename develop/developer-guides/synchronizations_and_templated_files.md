@@ -8,6 +8,7 @@ To obtain the `.sty` Templated file for your StackPack you need to perform a few
 
 Every .sty template is filled with information about the hosts and environments that StackState collects data from. Example of this information looks like this:
 
+{% code lineNumbers="true" %}
 ```yaml
 nodes:
   - _type: "Layer"
@@ -25,6 +26,7 @@ nodes:
 timestamp: "2019-05-31T18:36:35Z"
 version: "0.1"
 ```
+{% endcode %}
 
 ## How to get a templated file for your StackPack
 
