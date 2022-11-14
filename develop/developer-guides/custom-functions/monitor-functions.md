@@ -108,4 +108,6 @@ To use the above, experimental APIs,  they must be explicitly named in your Stac
 
 ## See also 
 
-TODO
+* [About monitors](/use/checks-and-monitors/monitors.md)
+* [Manage monitors](/use/checks-and-monitors/manage-monitors.md)
+* [Create monitors](/develop/developer-guides/monitors/create-custom-monitors.md)
