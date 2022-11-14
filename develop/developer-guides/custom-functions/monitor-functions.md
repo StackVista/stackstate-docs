@@ -59,6 +59,7 @@ A monitor function with one user parameter named `latest_metrics` that is of typ
 
 ![`latest_metrics` user parameter in a monitor function](/.gitbook/assets/v51_latest_metrics_user_parameter.png)
 
+{% code title="Monitor definition JSON" lineNumbers="true" %}
 ```json
 {
   "_version": "1.0.39",
@@ -77,6 +78,7 @@ A monitor function with one user parameter named `latest_metrics` that is of typ
 }
   
 ```
+{% endcode %}
 
 ➡️ [Learn more about parameter values in a monitor definition file](/develop/developer-guides/monitors/monitor-stj-file-format.md#arguments)
 
