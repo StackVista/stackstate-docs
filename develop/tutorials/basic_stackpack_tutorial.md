@@ -172,7 +172,7 @@ Open the exported file in an editor and make the following changes:
 
 After your edits, the exported file should look like this:
 
-```text
+```javascript
 {
     "_type": "Component",
     "checks": [],
@@ -235,7 +235,7 @@ Now replace the file in your StackPack with the above JSON.
 {% hint style="info" %}
 If you want to change the Groovy scripts, beware that the Groovy script files contain only the Groovy code and no JSON wrappers.
 
-The `tutorial-template.stj` contains a `DataSource` and `Synchronization` and includes the contents of the separate templates and Groovy script files into a single JSON
+The `tutorial-template.sty` contains a `DataSource` and `Synchronization` and includes the contents of the separate templates and Groovy script files into a single JSON
 {% endhint %}
 
 ## Building a new version of the StackPack

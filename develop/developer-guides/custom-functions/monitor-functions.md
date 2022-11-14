@@ -387,7 +387,7 @@ The above specification ensures that each function invocation is passed all the 
 
 ### Populate the monitor function script
 
-The script for the monitor functions should be provided as a groovy script in STJ format in the property `script` of type `ScriptFunctionBody`. This can be challenging to work with. An external tool can be used to allow you to more easily [work with scripts in YAML format and add these to a monitor file in STJ format](/develop/developer-guides/monitors/monitor-stj-file-format.md#add-scripts-and-queries-to-stj).
+The script for the monitor functions should be provided as a groovy script in STJ format in the property `script` of type `ScriptFunctionBody`. This can be challenging to work with. An external tool can be used to allow you to more easily [work with scripts in YAML format and add these to a monitor file in STJ format](/develop/developer-guides/monitors/monitor-sty-file-format.md#add-scripts-and-queries-to-stj).
 
 ### Upload to StackState
 
@@ -444,7 +444,7 @@ The function can be uploaded to StackState in one of three ways:
 {% tabs %}
 {% tab title="CLI: sts" %}
 ```
-sts settings import < path/to/file.stj
+sts settings import < path/to/file.sty
 ```
 
 From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
@@ -454,7 +454,7 @@ From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is 
 {% endtab %}
 {% tab title="CLI: stac (deprecated)" %}
 ```
-stac graph import < path/to/file.stj
+stac graph import < path/to/file.sty
 ```
 
 ⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
@@ -474,8 +474,8 @@ After the function has been uploaded, it will be generally available for any mon
 
 ## See also
 
-* [Monitor STJ format](/develop/developer-guides/monitors/monitor-stj-file-format.md)
+* [Monitor STJ format](/develop/developer-guides/monitors/monitor-sty-file-format.md)
 * [StackState CLI](../../../setup/cli/README.md)
-* [StackState Template JSON \(STJ\)](../../reference/stj/README.md)
+* [StackState Template JSON \(STJ\)](../../reference/st/README.md)
 * [Develop your own StackPacks](../../../stackpacks/sdk.md)
 * [Integrations](../../../stackpacks/integrations/README.md)

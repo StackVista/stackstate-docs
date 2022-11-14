@@ -12,7 +12,7 @@ You can get a complete dump of all configuration using the StackState CLI:
 {% tab title="CLI: sts" %}
 
 ```sh
-sts settings describe --file <PATH_TO_FILE.stj>
+sts settings describe --file <PATH_TO_FILE.sty>
 ```
 
 From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.[](http://not.a.link "StackState Self-Hosted only")
@@ -21,7 +21,7 @@ From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is 
 {% endtab %}
 {% tab title="CLI: stac (deprecated)" %}
 ```text
-stac graph export > <PATH_TO_FILE.stj>
+stac graph export > <PATH_TO_FILE.sty>
 ```
 
 ⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
@@ -35,7 +35,7 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 {% endtab %}
 {% endtabs %}
 
-Follow the preparation steps below to prepare the `.stj` file, such that it contains only configuration nodes pertaining to your StackPack.
+Follow the preparation steps below to prepare the `.sty` file, such that it contains only configuration nodes pertaining to your StackPack.
 
 If all of your configuration nodes already have been assigned to the right namespace you can get all the nodes of your StackPack using the command:
 
@@ -43,7 +43,7 @@ If all of your configuration nodes already have been assigned to the right names
 {% tab title="CLI: sts" %}
 
 ```sh
-sts settings describe --namespace <NAMESPACE> --file <PATH_TO_FILE.stj>
+sts settings describe --namespace <NAMESPACE> --file <PATH_TO_FILE.sty>
 ```
 
 From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.[](http://not.a.link "StackState Self-Hosted only")
@@ -53,7 +53,7 @@ From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is 
 {% tab title="CLI: stac (deprecated)" %}
 
 ```text
-stac graph export --namespace <namespace> > <PATH_TO_FILE.stj>
+stac graph export --namespace <namespace> > <PATH_TO_FILE.sty>
 ```
 
 ⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
@@ -71,7 +71,7 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 
 ## Prepare the template file
 
-A `.stj` file contains a number of configuration nodes. Each of the configuration nodes represents a configuration item in StackState, for example Layer, Domain and Environment. This file contains all of the configuration of your StackState instance, which means you have to take out configuration nodes that are unnecessary for your StackPack. Take the steps below to prepare your template file:
+A `.sty` file contains a number of configuration nodes. Each of the configuration nodes represents a configuration item in StackState, for example Layer, Domain and Environment. This file contains all of the configuration of your StackState instance, which means you have to take out configuration nodes that are unnecessary for your StackPack. Take the steps below to prepare your template file:
 
 * Remove all configuration nodes that are owned by another StackPack. They all have a field called `ownedBy`.
 * Items that are extended from the `Custom Synchronization` StackPack, will have their urn `identifier` field with the following structure: `urn:stackpack:autosync:{type_name}:{object_name}`.

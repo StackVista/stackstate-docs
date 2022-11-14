@@ -2,13 +2,13 @@
 description: StackState Self-hosted v5.1.x 
 ---
 
-# Using STJ
+# Using Templated STJ and STY
 
 ## Overview
 
-StackState's graph is entirely configured using JSON. To make it easy to work with large quantities of \(often repetitive\) JSON, StackState comes with the StackState Template JSON format \(STJ\).
+StackState's [synchronization framework](/configure/topology/sync.md#template-functions "StackState Self-Hosted only") is configured using JSON. [stackpacks](/develop/developer-guides/stackpack/develop_stackpacks.md "StackState Self-Hosted only"), [monitors](/develop/developer-guides/monitors/create-custom-monitors.md "StackState Self-Hosted only") and [backup/restore](/setup/data-management/backup_restore/ "StackState Self-Hosted only") use YAML. To make it easy to work with large quantities of \(often repetitive\) JSON or YAML, StackState comes with the StackState Template JSON and YAML format (STJ/STY).
 
-STJ is based on [handlebars \(handlebarsjs.com\)](https://handlebarsjs.com/) and comes with a number of [StackState functions](stj_reference.md).
+The templating is based on [handlebars \(handlebarsjs.com\)](https://handlebarsjs.com/) and comes with a number of [StackState functions](st_reference.md).
 
 ## Handlebars syntax
 
@@ -94,15 +94,22 @@ Loop over an array or map of data.
 
 StackState adds a number of function to the handlebars syntax. You can use these to create complex JSON results.
 
-➡️ [Learn more about the available handlebars functions](stj_reference.md).
+➡️ [Learn more about the available handlebars functions](st_reference.md).
 
 ## Component and relation templates
 
-Templates are used to create topology. 
+STJ Templates are used to create topology. 
 
 ➡️ [Learn more about component and relation templates](/configure/topology/sync.md#template-functions "StackState Self-Hosted only")
 
+## StackPacks and import/export
+
+STJ Templates are used to create topology.
+
+➡️ [Learn more about creating stackpacks](/configure/topology/sync.md#template-functions "StackState Self-Hosted only")
+
+
 ## See also
 
-* [StackState Template Language Functions](stj_reference.md)
+* [StackState Template Language Functions](st_reference.md)
 

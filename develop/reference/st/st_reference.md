@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-StackState Template JSON \(STJ\) incorporates several custom handlebars functions that can be used, for example, to get existing nodes from the graph, create new nodes or join texts together. The available StackState functions are described below.
+StackState Template JSON (STJ) and YAML (STY) incorporates several custom handlebars functions that can be used, for example, to get existing nodes from the graph, create new nodes or join texts together. The available StackState functions are described below.
 
 ## StackState handlebars functions
 
@@ -328,5 +328,5 @@ Joins array or map data as a text usign a separator, prefix and suffix. This is 
 
 ## See also
 
-* [Using StackState Template JSON \(STJ\)](using_stj.md)
+* [Using StackState Template JSON \(STJ\)](using_st.md)
 

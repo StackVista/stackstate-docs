@@ -22,7 +22,7 @@ To export configuration using the StackState CLI or curl:
 sts settings describe
 
 # Export to file
-sts settings describe --file <PATH_TO_FILE.stj>
+sts settings describe --file <PATH_TO_FILE.sty>
 ```
 
 From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
@@ -35,7 +35,7 @@ From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is 
 stac graph export
 
 # Export to file
-stac graph export > export.stj
+stac graph export > export.sty
 ```
 
 ⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
@@ -51,7 +51,7 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 ```text
 curl -X POST -H 'Content-Type: application/json;charset=UTF-8' \
   -d '{}' \
-  "http://<host>:7070/api/export?timeoutSeconds=300" > export.stj
+  "http://<host>:7070/api/export?timeoutSeconds=300" > export.sty
 ```
 {% endtab %}
 {% endtabs %}
@@ -86,7 +86,7 @@ export SESSION="<MY_SESSION>"; export TOKEN="<MY_TOKEN>"; \
   -d '{}' \
   -H Cookie:AkkaHttpPac4jSession=$SESSION \
   -H X-Sts-Token:$TOKEN \
-  "http://<HOST>:7070/api/export?timeoutSeconds=300" > export.stj
+  "http://<HOST>:7070/api/export?timeoutSeconds=300" > export.sty
 ```
 {% endtab %}
 {% endtabs %}
@@ -101,7 +101,7 @@ To clear the StackState configuration and import from a file using the StackStat
 {% tab title="CLI: sts" %}
 
 ```text
-sts settings apply --file <PATH_TO_FILE.stj>
+sts settings apply --file <PATH_TO_FILE.sty>
 ```
 
 From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
@@ -110,7 +110,7 @@ From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is 
 {% endtab %}
 {% tab title="CLI: stac (deprecated)" %}
 ```text
-stac graph import < <PATH_TO_FILE.stj>
+stac graph import < <PATH_TO_FILE.sty>
 ```
 
 ⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
@@ -130,7 +130,7 @@ curl -X POST -f "http://<HOST>:7071/clear"
 
 
 ## Import without authentication
-curl -X POST -d @./export.stj \
+curl -X POST -d @./export.sty \
   -H 'Content-Type: application/json;charset=UTF-8' \
   "http://<host>:7070/api/import?timeoutSeconds=15"
 
@@ -145,7 +145,7 @@ curl --fail -v \
 
 # Do actual request
 export SESSION="<MY_SESSION>"; export TOKEN="<MY_TOKEN>"; \
-  curl -X POST -d @export.stj \
+  curl -X POST -d @export.sty \
   -H 'Content-Type: application/json;charset=UTF-8' \
   -H Cookie:AkkaHttpPac4jSession=$SESSION \
   -H X-Sts-Token:$TOKEN "http://<HOST>:7070/api/import?timeoutSeconds=15"
@@ -156,7 +156,7 @@ export SESSION="<MY_SESSION>"; export TOKEN="<MY_TOKEN>"; \
 Alternatively, in the StackState UI:
 
 1. Go to **Settings** &gt; **Import/Export** &gt; **Import Settings**.
-2. Choose the `*.stj` file that you want to import configuration from.
+2. Choose the `*.sty` file that you want to import configuration from.
 3. Click the button **START IMPORT**.
 
 ![Import configuration from the StackState UI](../../../.gitbook/assets/v51_import_configuration.png)
@@ -210,43 +210,32 @@ For import currently we have a curl way: `curl -XPOST http://yourInstance/api/im
 
 As StackState evolves versioning of the exported Node elements is necessary. The export conf contains metadata stating the Node version \(`_version`\) which is useful in order to allow an autoupgrade to a more recent version of StackState and ensure compatibility.
 
-```text
-{
-  "_version": "1.0.0",
-  "timestamp": "2018-12-06T12:30:44.148Z[Etc/UTC]",
-  "nodes": [
-    {
-      "_type": "CheckFunction",
-      "name": "Metric fixed run state",
-      "returnTypes": [
-        "RUN_STATE"
-      ],
-      "description": "This check will always return the run state that is provided when a metric has been received.",
-      "id": -196,
-      "script": "return metricFixedRunState;",
-      "parameters": [
-        {
-          "_type": "Parameter",
-          "name": "metrics",
-          "system": false,
-          "id": -194,
-          "multiple": false,
-          "type": "METRIC_STREAM",
-          "required": true
-        },
-        {
-          "_type": "Parameter",
-          "name": "metricFixedRunState",
-          "system": false,
-          "id": -195,
-          "multiple": false,
-          "type": "RUN_STATE_VALUE",
-          "required": true
-        }
-      ]
-    }
-  ]
-}
+```yaml
+_version: 1.0.0
+timestamp: 2018-12-06T12:30:44.148Z[Etc/UTC]
+nodes:
+  - _type: CheckFunction
+    name: Metric fixed run state
+    returnTypes:
+      - RUN_STATE
+    description: This check will always return the run state that is provided when a metric has been received.
+    id: -196
+    script: return metricFixedRunState;
+    parameters:
+      - _type: Parameter
+        name: metrics
+        system: false
+        id: -194
+        multiple: false
+        type: METRIC_STREAM
+        required: true
+      - _type: Parameter
+        name: metricFixedRunState
+        system: false
+        id: -195
+        multiple: false
+        type: RUN_STATE_VALUE
+        required: true
 ```
 
 ## Supported Configuration Export version
