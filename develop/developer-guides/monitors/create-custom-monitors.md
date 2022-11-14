@@ -74,17 +74,11 @@ nodes:
     description: A simple CPU-usage monitor. If the metric is above a given threshold, the state is set to CRITICAL.
     identifier: urn:system:default:monitor:cpu-usage
     remediationHint: Turn it off and on again.
-    function:? get "urn:system:default:monitor-function:metric-above-threshold"::
+    function: {{ get "urn:system:default:monitor-function:metric-above-threshold" }}
     arguments:
-      - _type: ArgumentDoubleVal
-        parameter:? get "urn:system:default:monitor-function:metric-above-threshold" "Type=Parameter;Name=threshold"::
-        value: 90.0
-      - _type: ArgumentStringVal
-        parameter:? get "urn:system:default:monitor-function:metric-above-threshold" "Type=Parameter;Name=topologyIdentifierPattern"::
-        value: urn:host:/${tags.host}
-      - _type: ArgumentScriptMetricQueryVal
-        parameter:? get "urn:system:default:monitor-function:metric-above-threshold" "Type=Parameter;Name=metrics"::
-        script: |-
+      threshold: 90.0
+      topolopgyIdentifierPattern: "urn:host:/${tags.host}"
+      metrics: |-
           Telemetry
           .query("StackState Metrics", "")
           .metricField("system.cpu.system")
