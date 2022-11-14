@@ -110,7 +110,7 @@ You can [create custom monitor function](../custom-functions/monitor-functions.m
 
 ### arguments
 
-The arguments defined in the monitor STJ definition should match the parameters defined in the monitor function STJ definition. See below for examples of [how to define commonly used parameters](#common-parameters).
+The arguments defined in the monitor STJ definition should match the parameters defined in the monitor function STJ definition. See below for examples of [how to set commonly used parameters](#common-parameters).
 
 The parameter binding syntax is common for all parameter types, and utilizes the following format:
 
