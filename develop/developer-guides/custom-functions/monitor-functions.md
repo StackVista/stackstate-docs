@@ -55,7 +55,7 @@ Values for the defined user parameters are passed to the monitor function from t
 
 ➡️ [Learn more about parameter values in a monitor definition file](/develop/developer-guides/monitors/monitor-stj-file-format.md#arguments)
 
-Below is an example monitor function with one user parameter defined. It is named `latest_metrics` and is of type **Telemetry query**. The **required** switch is set to **on**, meaning that the parameter must have a value set when the function is invoked. 
+Below is an example monitor function with one user parameter defined. The parameter is named `latest_metrics` and is of type **Telemetry query**. The **required** switch is set to **on**, meaning that the parameter must have a value set when the function is invoked. 
 
 ![`latest_metrics` user parameter in a monitor function](/.gitbook/assets/v51_latest_metrics_user_parameter.png)
 
