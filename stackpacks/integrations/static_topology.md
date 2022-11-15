@@ -38,22 +38,23 @@ Example Agent configuration file for Static Topology: [conf.yaml.example \(githu
 
 1. Copy the example Agent configuration file `mv /etc/stackstate-agent/conf.d/static_topology.d/conf.yaml.example /etc/stackstate-agent/conf.d/static_topology.d/conf.yaml`.
 2. Edit the copied Agent configuration file `/etc/stackstate-agent/conf.d/static_topology.d/conf.yaml` to add details of the CSV files:
+    * **type** - Set to `csv` for parsing CSV files.
     * **components_file** - Path to the [component CSV file](#component-csv-file) to read component data from. The same as entered when the StackPack was installed.
     * **relations_file** - Path to the [relation CSV file](#relation-csv-file) to read relation data from. The same as entered when the StackPack was installed.
     * **delimiter** - The delimiter used in the CSV files.
-```yaml
-init_config:
-
-instances:
-  - type: csv
-    components_file: /path/to/components.csv
-    relations_file: /path/to/relations.csv
-    delimiter: ','
- 
-    #tags:
-    #  - optional_tag1
-    #  - optional_tag2
-```    
+    ```yaml
+    init_config:
+    
+    instances:
+      - type: csv
+        components_file: /path/to/components.csv
+        relations_file: /path/to/relations.csv
+        delimiter: ','
+     
+        #tags:
+        #  - optional_tag1
+        #  - optional_tag2
+    ```    
 
 3. You can also add optional configuration:
     * **tags** - Tags to add to the imported topology elements.
@@ -131,56 +132,6 @@ sourceid,targetid,type
 ```
 {% endtab %}
 {% endtabs %}
-
-
-
-
-
-
-
-
-
-### Setup
-
-#### Configuration
-
-1. Configure the Agent to read CSV topology files. Edit `conf.d/static_topology.d/conf.yaml`:
-
-   **Static topology from file**
-
-   init\_config:
-
-instances:
-
-* type: csv components\_file: /path/to/components.csv relations\_file: /path/to/relations.csv delimiter: ';'
-
-  **tags:**
-
-  **- optional\_tag1**
-
-  **- optional\_tag2**
-
-* Restart the Agent
-
-#### Configuration Options
-
-* `type` - Set to `csv` for parsing CSV typed files
-* `components_file` - Absolute path to CSV file containing topology components
-* `relations_file` - Absolute path to CSV file containing topology relations
-* `delimiter` - CSV field delimiter
-* `tags` \(Optional\) - StackState labels to add to each component and relation read from the CSV files.
-
-#### Validation
-
-Execute the info command and verify that the integration check has passed. The output of the command should contain a section similar to the following:
-
-## Checks
-
-\[...\]
-
-### static\_topology
-
-* instance \#0 \[OK\]
 
 ## Release notes
 
