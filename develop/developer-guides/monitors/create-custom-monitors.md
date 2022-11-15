@@ -38,9 +38,7 @@ You can place multiple monitors on the same STY file. You can also add other nod
 
 ### Populate the monitor node
 
-A monitor node of type `Monitor` needs to be added to the import file. This type of node is supported in API version 1.0.39 and above. The required fields are the `name`, `identifier` and `description`. The `identifier` should be a value that uniquely identifies this specific monitor definition. `intervalSeconds`, `function` and [`arguments`](/develop/developer-guides/monitors/monitor-sty-file-format.md#arguments) determine what validation rule and how often it is run. An optional parameter of `remediationHint` can be specified - it is a Markdown-encoded instruction of what to do if this monitor produces an unhealthy health state. It is displayed on the interface together with the monitor result panel.
-
-Configuring the monitor function is best done by utilizing the [`get` helper function](/develop/reference/stackstate-templating/template_functions.md#get) paired with the `identifier` of the function itself. In this example the function is named `Metric above threshold` and its identifier is `urn:system:default:monitor-function:metric-above-threshold`.
+A node of type `Monitor` needs to be added to the STY import file. This type of node is supported in API version 1.0.39 and above. In the example below, the invocation of the [`get` helper function](/develop/reference/stackstate-templating/template_functions.md#get) will automatically resolve to the ID of the desired monitor function during import time.
 
 ```yaml
 _version: "1.0.39"
@@ -57,7 +55,13 @@ nodes:
     intervalSeconds: 60
 ```
 
-The invocation of the `get` helper function will automatically resolve to the ID of the desired function during import time.
+* **name** - A name to identify the monitor.
+* **description** -  A description of the monitor.
+* **identifier** - A value that uniquely identifies this specific monitor definition.
+* **remediationHint** - Optional. A Markdown-encoded instruction of what to do if this monitor produces an unhealthy health state. It is displayed on the interface together with the monitor result panel.
+* **function** - The [monitor function](/develop/developer-guides/custom-functions/monitor-functions.md) that the monitor should run. This is best configured using the [`get` helper function](/develop/reference/stackstate-templating/template_functions.md#get) and the `identifier` of the monitor function itself. In this example, the function has the identifier `urn:system:default:monitor-function:metric-above-threshold`.
+* **arguments** - Values for any [`arguments`](/develop/developer-guides/monitors/monitor-sty-file-format.md#arguments) required by the monitor function.
+* **intervalSeconds** - How often the monitor will run.
 
 ➡️ [Learn more about the STY file format used for monitor definitions](monitor-sty-file-format.md)
 
