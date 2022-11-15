@@ -190,8 +190,8 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 
 ## See also
 
-* [Custom monitor functions](/develop/developer-guides/custom-functions/monitor-functions.md "StackState Self-Hosted only")
+* [Monitor functions](/develop/developer-guides/custom-functions/monitor-functions.md "StackState Self-Hosted only")
 * [StackState `sts` CLI](/setup/cli/cli-sts.md)
-* [StackState Template JSON \(STY\)](/develop/reference/stackstate-templating/README.md)
+* [StackState templating \(STY\)](/develop/reference/stackstate-templating/README.md)
 * [Develop your own StackPacks](/stackpacks/sdk.md "StackState Self-Hosted only")
 * [Integrations](/stackpacks/integrations/README.md)
