@@ -148,8 +148,8 @@ StackState adds a number of function to the handlebars syntax. You can use these
 
 ## See also
 
-* [StackState Template Language Functions](template_functions.md)
-* [Synchronization Framework](/configure/topology/sync.md#template-functions "StackState Self-Hosted only")
+* [StackState template functions](template_functions.md)
+* [Synchronization framework](/configure/topology/sync.md#template-functions "StackState Self-Hosted only")
 * [StackPacks](/develop/developer-guides/stackpack/develop_stackpacks.md "StackState Self-Hosted only")
-* [Monitors](/develop/developer-guides/monitors/create-custom-monitors.md)
+* [Create custom monitors](/develop/developer-guides/monitors/create-custom-monitors.md)
 * [Backup/Restore](/setup/data-management/backup_restore/ "StackState Self-Hosted only")

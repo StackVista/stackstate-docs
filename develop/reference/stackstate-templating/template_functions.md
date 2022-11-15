@@ -316,5 +316,5 @@ Joins array or map data as a text usign a separator, prefix and suffix. This is 
 
 ## See also
 
-* [Using StackState Template JSON \(STJ\)](using_stackstate_templating.md)
+* [Using StackState templating](using_stackstate_templating.md)
 
