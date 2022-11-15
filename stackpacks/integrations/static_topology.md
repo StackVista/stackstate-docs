@@ -38,6 +38,7 @@ Example Agent configuration file for Static Topology: [conf.yaml.example \(githu
 
 1. Copy the example Agent configuration file `mv /etc/stackstate-agent/conf.d/static_topology.d/conf.yaml.example /etc/stackstate-agent/conf.d/static_topology.d/conf.yaml`.
 2. Edit the copied Agent configuration file `/etc/stackstate-agent/conf.d/static_topology.d/conf.yaml` to add details of the CSV files:
+    * **type** - Set to `csv` for parsing CSV files.
     * **components_file** - Path to the [component CSV file](#component-csv-file) to read component data from. The same as entered when the StackPack was installed.
     * **relations_file** - Path to the [relation CSV file](#relation-csv-file) to read relation data from. The same as entered when the StackPack was installed.
     * **delimiter** - The delimiter used in the CSV files.
