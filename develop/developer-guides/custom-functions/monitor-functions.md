@@ -16,7 +16,7 @@ To add a custom monitor function:
 2. Click **ADD MONITOR FUNCTION**.
 3. Enter the required settings:
    * **Name** - A name to identify the monitor function.
-   * **Description** - Optional. A description of the check function.
+   * **Description** - Optional. A description of the monitor function.
    * **User parameters** - These are parameters that must be specified in the monitor definition that runs the monitor function. For more details see the section [parameters](#parameters).
    * **Script** - The groovy script run by the function. Currently, monitors only support scripts of type `ScriptFunctionBody`.
    * **Identifier** - a StackState-URN-formatted value that uniquely identifies the monitor function. The identifier is used by the monitor definition during the invocation of this function.
