@@ -174,17 +174,15 @@ arguments:
 {% endtab %}
 {% tab title="Monitor function STY definition" %}
 The declaration of a topology query in a monitor function STY definition can look something like the following:
-```json
+```yaml
 ...
-parameters: [{
-  "_type": "Parameter",
-  "type": "STRING",
-  "name": "topologyQuery",
-  "required": true,
-  "multiple": false
-  },
+parameters:
+  - _type: "Parameter"
+    type: "STRING"
+    name: "topologyQuery"
+    required: true
+    multiple: false
   ...
-]
 ...
 ```
 {% endtab %}
@@ -200,16 +198,13 @@ Monitor functions that utilize telemetry tend to be parameterized with the exact
 
 {% tabs %}
 {% tab title="Monitor STY definition" %}
-To supply a value to the `telemetryQuery` parameter defined in the monitor function, the monitor STY definition would look something like the following. Note that the provided `value` must utilize the StackState Telemetry Script API and evaluate to a telemetry query, otherwise it will not pass the argument validation that is performed before the function execution begins.
+To supply a value to the `telemetryQuery` parameter defined in the monitor function, the monitor STY definition would look something like the following. Note that the provided value must utilize the StackState Telemetry Script API and evaluate to a telemetry query, otherwise it will not pass the argument validation that is performed before the function execution begins.
 
-```json
+```yaml
 ...
-{
-  "_type": "ArgumentScriptMetricQueryVal",
-  "parameter": {{ get "<identifier-of-the-function>" "Type=Parameter;Name=telemetryQuery" }},
-  "value": "Telemetry.query('StackState Metrics', '').metricField('system.cpu.iowait').groupBy('tags.host').start('-10m').aggregation('mean', '1m')"
-}
-...
+arguments:
+  telemetryQuery: "Telemetry.query('StackState Metrics', '').metricField('system.cpu.iowait').groupBy('tags.host').start('-10m').aggregation('mean', '1m')"
+  ...
 ```
 {% endtab %}
 {% tab title="Monitor function STY definition" %}
