@@ -384,10 +384,10 @@ redirects:
   use/stackstate-ui/views/manage-event-handlers: ./use/events/manage-event-handlers.md
   use/stackstate-ui/views/manage-event-handlers#add-event-handler: ./use/events/manage-event-handlers.md#add-event-handler
 
-# 5.2
+# 5.2 docs
 
   develop/developer-guides/monitors/monitor-stj-file-format: ./develop/developer-guides/monitors/monitor-sty-file-format.md
-  develop/reference/stj/stj_reference: ./develop/reference/st/st_reference.md
-  develop/reference/stj/using_stj: ./develop/reference/st/using_st.md
-  develop/reference/stj: ./develop/reference/st/README.md
+  develop/reference/stj/stj_reference: ./develop/reference/stackstate-templating/template_functions.md
+  develop/reference/stj/using_stj: ./develop/reference/stackstate-templating/using_stackstate_templating.md
+  develop/reference/stj: ./develop/reference/stackstate-templating/README.md
   setup/data-management/backup_restore/manual_topology_backup: ./setup/data-management/backup_restore/README.md

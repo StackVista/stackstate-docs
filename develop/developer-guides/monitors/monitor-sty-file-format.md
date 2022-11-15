@@ -10,7 +10,7 @@ Monitors can be attached to any number of elements in the StackState topology to
 
 ## STY file format
 
-Monitors in StackState are represented textually using the [STY file format](/develop/reference/st/using_st.md). The following snippet presents an example monitor file:
+Monitors in StackState are represented textually using the [STY file format](/develop/reference/stackstate-templating/using_stackstate_templating.md). The following snippet presents an example monitor file:
 
 ```yaml
 _version: "1.0.39",
@@ -301,5 +301,5 @@ For details of the `script` property, see the page [monitor functions](/develop/
 * [Create a custom monitor](create-custom-monitors.md)
 * [Monitor functions](/develop/developer-guides/custom-functions/monitor-functions.md "StackState Self-Hosted only")
 * [Manage monitors](/use/checks-and-monitors/manage-monitors.md)
-* [Using STY](/develop/reference/st/using_st.md)
-  [STY Reference](/develop/reference/st/st_reference.md)
+* [Using STY](/develop/reference/stackstate-templating/using_stackstate_templating.md)
+  [STY Reference](/develop/reference/stackstate-templating/template_functions.md)

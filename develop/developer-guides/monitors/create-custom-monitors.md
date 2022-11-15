@@ -40,7 +40,7 @@ You can place multiple monitors on the same STY file. You can also add other nod
 
 A monitor node of type `Monitor` needs to be added to the import file. This type of node is supported in API version 1.0.39 and above. The required fields are the `name`, `identifier` and `description`. The `identifier` should be a value that uniquely identifies this specific monitor definition. `intervalSeconds`, `function` and [`arguments`](/develop/developer-guides/monitors/monitor-sty-file-format.md#arguments) determine what validation rule and how often it is run. An optional parameter of `remediationHint` can be specified - it is a Markdown-encoded instruction of what to do if this monitor produces an unhealthy health state. It is displayed on the interface together with the monitor result panel.
 
-Configuring the monitor function is best done by utilizing the [`get` helper function](/develop/reference/st/st_reference.md#get) paired with the `identifier` of the function itself. In this example the function is named `Metric above threshold` and its identifier is `urn:system:default:monitor-function:metric-above-threshold`.
+Configuring the monitor function is best done by utilizing the [`get` helper function](/develop/reference/stackstate-templating/template_functions.md#get) paired with the `identifier` of the function itself. In this example the function is named `Metric above threshold` and its identifier is `urn:system:default:monitor-function:metric-above-threshold`.
 
 ```yaml
 _version: "1.0.39"
@@ -188,6 +188,6 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 
 * [Custom monitor functions](/develop/developer-guides/custom-functions/monitor-functions.md "StackState Self-Hosted only")
 * [StackState `sts` CLI](/setup/cli/cli-sts.md)
-* [StackState Template JSON \(STY\)](/develop/reference/st/README.md)
+* [StackState Template JSON \(STY\)](/develop/reference/stackstate-templating/README.md)
 * [Develop your own StackPacks](/stackpacks/sdk.md "StackState Self-Hosted only")
 * [Integrations](/stackpacks/integrations/README.md)

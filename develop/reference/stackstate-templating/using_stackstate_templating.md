@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.1.x
 
 StackState makes use of StackState Templated JSON (STJ) and StackState Templated YAML (STY) for configuration.
 
-The templating is based on [handlebars \(handlebarsjs.com\)](https://handlebarsjs.com/) and comes with a number of [StackState functions](st_reference.md).
+The templating is based on [handlebars \(handlebarsjs.com\)](https://handlebarsjs.com/) and comes with a number of [StackState functions](template_functions.md).
 
 This table described which variant is used where:
 
@@ -144,11 +144,11 @@ Loop over an array or map of data.
 
 StackState adds a number of function to the handlebars syntax. You can use these to create complex JSON results.
 
-➡️ [Learn more about the available handlebars functions](st_reference.md).
+➡️ [Learn more about the available handlebars functions](template_functions.md).
 
 ## See also
 
-* [StackState Template Language Functions](st_reference.md)
+* [StackState Template Language Functions](template_functions.md)
 * [Synchronization Framework](/configure/topology/sync.md#template-functions "StackState Self-Hosted only")
 * [StackPacks](/develop/developer-guides/stackpack/develop_stackpacks.md "StackState Self-Hosted only")
 * [Monitors](/develop/developer-guides/monitors/create-custom-monitors.md)

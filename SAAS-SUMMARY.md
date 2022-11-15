@@ -107,9 +107,9 @@
 ## 📖 Reference
 
 * [StackState Query Language \(STQL\)](develop/reference/stql_reference.md)
-* [StackState Template JSON and YAML \(STJ/STY\)](develop/reference/st/README.md)
-  * [Using ST](develop/reference/st/using_st.md)
-  * [Template functions](develop/reference/st/st_reference.md)
+* [StackState Template JSON and YAML \(STJ/STY\)](develop/reference/stackstate-templating/README.md)
+  * [Using ST](develop/reference/stackstate-templating/using_stackstate_templating.md)
+  * [Template functions](develop/reference/stackstate-templating/template_functions.md)
 * [StackState CLI](setup/cli/cli-sts.md)
 * [StackState SaaS release notes](setup/upgrade-stackstate/sts-saas-release-notes.md)
 
