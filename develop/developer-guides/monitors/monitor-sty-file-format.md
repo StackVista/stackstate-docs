@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-Monitors can be attached to any number of elements in the StackState topology to calculate a health state based on 4T data. Each monitor consists of a monitor definition and a monitor function. Monitors are created and managed by StackPacks, you can also create custom monitors and monitor functions outside of a StackPack without having to modify any configuration.
+Monitors can be attached to any number of elements in the StackState topology to calculate a health state based on 4T data. Each monitor consists of a monitor definition and a monitor function. Monitors are created and managed by StackPacks. You can also create custom monitors and monitor functions outside of a StackPack without having to modify any configuration.
 
 ## STY file format
 
@@ -224,6 +224,7 @@ parameters:
 {% endtabs %}
 
 #### Topology identifier pattern
+
 Monitor functions that don't process any topology directly still have to produce results that attach to topology elements by way of matching the topology identifier that can be found on those elements. In those cases, one can expect a function declaration to include a special parameter that represents the pattern of a topology identifier.
 
 {% tabs %}
@@ -277,10 +278,17 @@ parameters:
 
 ### status
 
-A monitor with an `ENABLED` status will be automatically executed and its results will be persisted. A `DISABLED` monitor is still available for a `dry-run` in order to inspect its results and execution (helpful for debugging a monitor). When a monitor is initially created it will start with a `DISABLED` status, unless the `status` field is present in the payload. When a monitor is updated, it will keep its own `status`, unless the `status` is specified. If the `status` field is included in the payload, the monitor will assume the specified `status`.
+The monitor status can be either `ENABLED` or `DISABLED`. 
+
+* **ENABLED** - The monitor will be automatically executed and its results will be persisted.
+* **DISABLED** - Default. The monitor will not be automatically executed. A disabled monitor is still available to run as a `dry-run`. This allows you to inspect the monitor's results and execution, which is useful to debug and fix execution errors without having the monitor produce health states or errors.
+
+A newly created monitor will start with a `DISABLED` status, unless the `status` field is present in the payload and set to `ENABLED`. 
+
+An updated monitor will by default keep its own `status`. If the `status` field is included in the payload used to update the monitor, the specified `status` will be assumed.
 
 {% hint style="info" %}
-When a monitor is disabled, all health states associated with the monitor will be removed, and they will no longer be visible in the StackState UI. Disabling a monitor is quite useful to debug and fix execution errors without having the monitor produce health states or errors. A disabled monitor can still be used to do a `dry-run`.
+Note that when a monitor is disabled, all health states associated with the monitor will be removed, and they will no longer be visible in the StackState UI.
 {% endhint %}
 
 ### intervalSeconds
