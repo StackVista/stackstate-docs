@@ -6,9 +6,18 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-StackState's [synchronization framework](/configure/topology/sync.md#template-functions "StackState Self-Hosted only") is configured using JSON. [StackPacks](/develop/developer-guides/stackpack/develop_stackpacks.md "StackState Self-Hosted only"), [monitors](/develop/developer-guides/monitors/create-custom-monitors.md "StackState Self-Hosted only") and [backup/restore](/setup/data-management/backup_restore/ "StackState Self-Hosted only") use YAML. To make it easy to work with large quantities of \(often repetitive\) JSON or YAML, StackState comes with the StackState Template JSON and YAML format (STJ/STY).
+StackState makes use of StackState Templated JSON (STJ) and StackState Templated YAML (STY) for configuration.
 
 The templating is based on [handlebars \(handlebarsjs.com\)](https://handlebarsjs.com/) and comes with a number of [StackState functions](st_reference.md).
+
+This table described which variant is used where:
+
+| Functionality                                                           | STJ | STY |
+|:------------------------------------------------------------------------|:---:|:---:|
+| [Synchronization framework](/configure/topology/sync.md#template-functions "StackState Self-Hosted only") |  ✅  |  -  |
+| [StackPacks](/develop/developer-guides/stackpack/develop_stackpacks.md "StackState Self-Hosted only")     |  -  |  ✅  |
+| [Monitors](/develop/developer-guides/monitors/create-custom-monitors.md "StackState Self-Hosted only")    |  -  |  ✅  |
+| [Backup/restore](/setup/data-management/backup_restore/ "StackState Self-Hosted only")                    |  -  |  ✅  |
 
 ## Handlebars syntax
 
