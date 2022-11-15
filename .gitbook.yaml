@@ -3,7 +3,7 @@ redirects:
   basic_concepts/: ./use/concepts/components_and_relations.md
   basic_concepts/#components: ./use/concepts/components_and_relations.md#components
   concepts/4t_data_model: ./use/concepts/4t_data_model.md
-  concepts/component_and_relation_templates: ./develop/reference/st/using_st.md
+  concepts/component_and_relation_templates: ./develop/reference/stackstate-templating/using_stackstate_templating.md .md
   concepts/components_and_relations: ./use/concepts/components_and_relations.md
   concepts/glossary: ./use/glossary.md
   concepts/id_extraction: ./use/concepts/id_extraction.md
@@ -82,8 +82,8 @@ redirects:
   develop/scripting/script-apis/view: ./develop/reference/scripting/script-apis/view.md
   develop/stml: ./develop/reference/stml/README.md
   develop/stml/tags: ./develop/reference/stml/tags.md
-  develop/sts_template_language_intro: ./develop/reference/st/README.md
-  develop/sts_template_language_intro/sts_template_language_reference: ./develop/reference/st/st_reference.md
+  develop/sts_template_language_intro: ./develop/reference/stackstate-templating/README.md
+  develop/sts_template_language_intro/sts_template_language_reference: ./develop/reference/stackstate-templating/template_functions.md
   develop/synchronizations_and_templated_files: ./develop/developer-guides/synchronizations_and_templated_files.md
   getting_started: ./use/concepts/getting_started.md
   integrations: ./stackpacks/README.md
@@ -198,8 +198,8 @@ redirects:
   develop/developer-guides/anomaly-check-functions: ./develop/developer-guides/custom-functions/check-functions.md
   develop/developer-guides/agent_check/checks_in_agent_v2: ./develop/developer-guides/agent_check/agent-check-api.md
   develop/developer-guides/custom_synchronization_stackpack/how_to_connect_agent_check_with_stackstate_instance: ./develop/developer-guides/agent_check/connect_agent_check_with_stackstate.md
-  develop/reference/stj/templates: ./develop/reference/st/st_reference.md
-  develop/reference/stj/using-stj: ./develop/reference/st/using_st.md
+  develop/reference/stj/templates: ./develop/reference/stackstate-templating/template_functions.md
+  develop/reference/stj/using-stj: ./develop/reference/stackstate-templating/using_stackstate_templating.md .md
   integrations/agent/: ./stackpacks/integrations/agent.md
   setup/authentication: ./configure/security/authentication/authentication_options.md
   stackpacks/integrations/splunk/splunk_event: ./stackpacks/integrations/splunk/splunk_events.md
