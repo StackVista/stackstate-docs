@@ -92,8 +92,6 @@ nodes:
     intervalSeconds: 60
 ```
 
-Similar to the `function`, parameters can be referred to by utilizing the `get` helper function.
-
 For further details of defining arguments in the monitor definition and how to work with commonly used parameters such as a metrics query or topology identifier, see [monitor sty file format > Arguments](/develop/developer-guides/monitors/monitor-sty-file-format.md#arguments).
 
 ### Apply the newly created monitor in StackState

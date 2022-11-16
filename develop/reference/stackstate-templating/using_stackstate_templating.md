@@ -12,12 +12,12 @@ The templating is based on [handlebars \(handlebarsjs.com\)](https://handlebarsj
 
 This table described which variant is used where:
 
-| Functionality                                                           | STJ | STY |
-|:------------------------------------------------------------------------|:---:|:---:|
+| Functionality                                                                                             | STJ | STY |
+|:----------------------------------------------------------------------------------------------------------|:---:|:---:|
 | [Synchronization framework](/configure/topology/sync.md#template-functions "StackState Self-Hosted only") |  ✅  |  -  |
 | [StackPacks](/develop/developer-guides/stackpack/develop_stackpacks.md "StackState Self-Hosted only")     |  -  |  ✅  |
-| [Monitors](/develop/developer-guides/monitors/create-custom-monitors.md "StackState Self-Hosted only")    |  -  |  ✅  |
-| [Backup/restore](/setup/data-management/backup_restore/ "StackState Self-Hosted only")                    |  -  |  ✅  |
+| [Monitors](/develop/developer-guides/monitors/create-custom-monitors.md)                                  |  -  |  ✅  |
+| [Backup/restore](/setup/data-management/backup_restore/ "StackState Self-Hosted only")                    |  -  |  ✅  |       
 
 ## Handlebars syntax
 
