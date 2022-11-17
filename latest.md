@@ -71,7 +71,7 @@ StackState Self-hosted can be used to observe an extensive set of technologies t
             <td>Walkthroughs to help you get started developing on StackState.</td>
             <td></td>
             <td><a href="develop/tutorials/">tutorials</a></td>
-            <td><a href=".gitbook/assets/gitbook-card-image_tutorial.jpg">gitbook-card-image_tutorials.jpg</a></td>
+            <td><a href=".gitbook/assets/gitbook-card-image_tutorials.jpg">gitbook-card-image_tutorials.jpg</a></td>
         </tr>
         <tr>
             <td><strong>Developer guides</strong></td>
