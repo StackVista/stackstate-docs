@@ -59,7 +59,7 @@ description: StackState Self-hosted v5.1.x
         </tr>
         <tr>
             <td><strong>Splunk</strong></td>
-            <td><a href="/stackpacks/integrations/splunk.md">splunk</a></td>
+            <td><a href="/stackpacks/integrations/splunk/">splunk</a></td>
             <td><a href="/.gitbook/assets/splunk-logo.png">splunk-logo.png</a></td>
         </tr>
         <tr>
