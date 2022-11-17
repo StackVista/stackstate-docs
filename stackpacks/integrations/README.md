@@ -23,71 +23,71 @@ description: StackState Self-hosted v5.1.x
             <td><strong>StackState Agent V2</strong></td>
             <td></td>
             <td></td>
-            <td><a href="stackpacks/integrations/agent.md">agent</a></td>
-            <td><a href=".gitbook/assets/agent-v2-logo.png">agent-v2-logo.png</a></td>
+            <td><a href="/stackpacks/integrations/agent.md">agent</a></td>
+            <td><a href="/.gitbook/assets/agent-v2-logo.png">agent-v2-logo.png</a></td>
         </tr>
         <tr>
             <td><strong>AWS</strong></td>
             <td></td>
             <td></td>
-            <td><a href="stackpacks/integrations/aws/">aws</a></td>
-            <td><a href=".gitbook/assets/aws-logo.png">aws-logo.png</a></td>
+            <td><a href="/stackpacks/integrations/aws/">aws</a></td>
+            <td><a href="/.gitbook/assets/aws-logo.png">aws-logo.png</a></td>
         </tr>
         <tr>
             <td><strong>Dynatrace</strong></td>
             <td></td>
             <td></td>
-            <td><a href="stackpacks/integrations/dynatrace.md">dynatrace</a></td>
-            <td><a href=".gitbook/assets/dynatrace-logo.png">dynatrace-logo.png</a></td>
+            <td><a href="/stackpacks/integrations/dynatrace.md">dynatrace</a></td>
+            <td><a href="/.gitbook/assets/dynatrace-logo.png">dynatrace-logo.png</a></td>
         </tr>
         <tr>
             <td><strong>Kubernetes</strong></td>
             <td></td>
             <td></td>
-            <td><a href="stackpacks/integrations/kubernetes.md">kubernetes</a></td>
-            <td><a href=".gitbook/assets/kubernetes-logo.png">kubernetes-logo.png</a></td>
+            <td><a href="/stackpacks/integrations/kubernetes.md">kubernetes</a></td>
+            <td><a href="/.gitbook/assets/kubernetes-logo.png">kubernetes-logo.png</a></td>
         </tr>
         <tr>
             <td><strong>OpenShift</strong></td>
             <td></td>
             <td></td>
-            <td><a href="stackpacks/integrations/openshift.md">openshift</a></td>
-            <td><a href=".gitbook/assets/openshift-logo.png">openshift-logo.png</a></td>
+            <td><a href="/stackpacks/integrations/openshift.md">openshift</a></td>
+            <td><a href="/.gitbook/assets/openshift-logo.png">openshift-logo.png</a></td>
         </tr>
         <tr>
             <td><strong>OpenTelemetry</strong></td>
             <td></td>
             <td></td>
-            <td><a href="stackpacks/integrations/opentelemetry">opentelemetry</a></td>
-            <td><a href=".gitbook/assets/opentelemetry-logo.png">opentelemetry-logo.png</a></td>
+            <td><a href="/stackpacks/integrations/opentelemetry">opentelemetry</a></td>
+            <td><a href="/.gitbook/assets/opentelemetry-logo.png">opentelemetry-logo.png</a></td>
         </tr>
         <tr>
             <td><strong>ServiceNow</strong></td>
             <td></td>
             <td></td>
-            <td><a href="stackpacks/integrations/servicenow.md">servicenow</a></td>
-            <td><a href=".gitbook/assets/servicenow-logo.png">servicenow-logo.png</a></td>
+            <td><a href="/stackpacks/integrations/servicenow.md">servicenow</a></td>
+            <td><a href="/.gitbook/assets/servicenow-logo.png">servicenow-logo.png</a></td>
         </tr>
         <tr>
             <td><strong>Slack</strong></td>
             <td></td>
             <td></td>
-            <td><a href="stackpacks/integrations/slack.md">slack</a></td>
-            <td><a href=".gitbook/assets/slack-logo.png">slack-logo.png</a></td>
+            <td><a href="/stackpacks/integrations/slack.md">slack</a></td>
+            <td><a href="/.gitbook/assets/slack-logo.png">slack-logo.png</a></td>
         </tr>
         <tr>
             <td><strong>Splunk</strong></td>
             <td></td>
             <td></td>
-            <td><a href="stackpacks/integrations/splunk.md">splunk</a></td>
-            <td><a href=".gitbook/assets/splunk-logo.png">splunk-logo.png</a></td>
+            <td><a href="/stackpacks/integrations/splunk.md">splunk</a></td>
+            <td><a href="/.gitbook/assets/splunk-logo.png">splunk-logo.png</a></td>
         </tr>
         <tr>
             <td><strong>VMWare vSphere</strong></td>
             <td></td>
             <td></td>
-            <td><a href="stackpacks/integrations/vsphere.md">vsphere</a></td>
-            <td><a href=".gitbook/assets/vsphere-logo.png">vsphere-logo.png</a></td>
+            <td><a href="/stackpacks/integrations/vsphere.md">vsphere</a></td>
+            <td><a href="/.gitbook/assets/vsphere-logo.png">vsphere-logo.png</a></td>
         </tr>
     </tbody>
 </table>
