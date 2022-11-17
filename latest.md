@@ -19,19 +19,76 @@ StackState Self-hosted can be used to observe an extensive set of technologies t
 
 ### Setup and configuration
 
-{% page-ref page="setup/install-stackstate/kubernetes_openshift/" %}
-
-{% page-ref page="stackpacks/integrations/" %}
-
-{% page-ref page="setup/agent/" %}
+<table data-view="cards">
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th data-hidden data-card-target data-type="content-ref"></th>
+            <th data-hidden data-card-cover data-type="files"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Kubernetes / OpenShift</strong></td><td>Install StackState on Kubernetes or OpenShift.</td>
+            <td></td>
+            <td><a href="setup/install-stackstate/kubernetes_openshift/">kubernetes_openshift</a></td>
+            <td><a href=".gitbook/assets/gitbook-card-image_kubernetes-openshift_blue.jpg">gitbook-card-image_kubernetes-openshift_blue.jpg</a></td>
+        </tr>
+        <tr>
+            <td><strong>Integrations</strong></td>
+            <td>Integrate with your IT systems.</td>
+            <td></td>
+            <td><a href="stackpacks/integrations/">integrations</a></td>
+            <td><a href=".gitbook/assets/gitbook-card-image_integrations.jpg">gitbook-card-image_integrations.jpg</a></td>
+        </tr>
+        <tr>
+            <td><strong>StackState Agent</strong></td>
+            <td>Deploy and run StackState Agent V2.</td>
+            <td></td>
+            <td><a href="setup/agent/">agent</a></td>
+            <td><a href=".gitbook/assets/gitbook-card-image_stackstate-agent.jpg">gitbook-card-image_stackstate-agent.jpg</a></td>
+        </tr>
+    </tbody>
+</table>
 
 ### StackState developer
 
-{% page-ref page="develop/tutorials/" %}
-
-{% page-ref page="develop/developer-guides/" %}
-
-{% page-ref page="develop/reference/" %}
+<table data-view="cards">
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th data-hidden data-card-target data-type="content-ref"></th>
+            <th data-hidden data-card-cover data-type="files"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Tutorials</strong></td>
+            <td>Walkthroughs to help you get started developing on StackState.</td>
+            <td></td>
+            <td><a href="develop/tutorials/">tutorials</a></td>
+            <td><a href=".gitbook/assets/gitbook-card-image_tutorial.jpg">gitbook-card-image_tutorials.jpg</a></td>
+        </tr>
+        <tr>
+            <td><strong>Developer guides</strong></td>
+            <td>Create your own scripts, monitors and templates, and add these to a custom StackPack.</td>
+            <td></td>
+            <td><a href="develop/developer-guides/">integrations</a></td>
+            <td><a href=".gitbook/assets/gitbook-card-image_developer-guides.jpg">gitbook-card-image_developer-guides.jpg</a></td>
+        </tr>
+        <tr>
+            <td><strong>Reference</strong></td>
+            <td>StackState templating, APIs markup and query language.</td>
+            <td></td>
+            <td><a href="develop/reference/">reference</a></td>
+            <td><a href=".gitbook/assets/gitbook-card-image_reference.jpg">gitbook-card-image_reference.jpg</a></td>
+        </tr>
+    </tbody>
+</table>
 
 ## Supported StackState versions
 
