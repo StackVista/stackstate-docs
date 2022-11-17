@@ -15,10 +15,6 @@ This page includes release notes for the StackState self-hosted product.
 
 ### v5.1.1
 
-**Features**
-
-- Support for Unit of Measurements in the metrics streams. STAC-18002
-
 **Bug fixes**
 
 - Fixed bug that caused markdown emitted by component actions to appear unstyled. STAC-18222

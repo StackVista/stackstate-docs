@@ -10,10 +10,6 @@ Note that the release notes may include details of functionality that is current
 
 ### StackState v5.1.1 (2022-11-16)
 
-**Features**
-
-- Support for Unit of Measurements in the metrics streams. STAC-18002
-
 **Bug fixes**
 
 - Fixed bug that caused markdown emitted by component actions to appear unstyled. STAC-18222
