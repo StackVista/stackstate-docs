@@ -73,30 +73,30 @@ To address this issue, you can copy all the images to a single registry close to
 
 {% hint style="success" "self-hosted info" %}
 
-The images listed below are used in StackState v5.1.0:
+The images listed below are used in StackState v5.1.1:
 
-* quay.io/stackstate/container-tools:1.1.4
-* quay.io/stackstate/elasticsearch-exporter:v1.2.1-2738680411
-* quay.io/stackstate/elasticsearch:7.17.2-2738749846
-* quay.io/stackstate/envoy:v1.19.1-2738711656
-* quay.io/stackstate/hadoop:2.10.1-java11-6-2738734712
-* quay.io/stackstate/hbase-master:4.9.1
-* quay.io/stackstate/hbase-regionserver:4.9.1
-* quay.io/stackstate/jmx-exporter:0.17.0-2738680727
-* quay.io/stackstate/kafka:2.8.1-2738720666
-* quay.io/stackstate/kafkaup-operator:0.0.2
-* quay.io/stackstate/minio:RELEASE.2021-02-14T04-01-33Z-3118065624
-* quay.io/stackstate/nginx-prometheus-exporter:0.9.0-2738682730
-* quay.io/stackstate/spotlight:5.1.0
-* quay.io/stackstate/stackgraph-console:4.9.1
-* quay.io/stackstate/stackstate-correlate-stable:5.1.0
-* quay.io/stackstate/stackstate-kafka-to-es-stable:5.1.0
-* quay.io/stackstate/stackstate-receiver-stable:5.1.0
-* quay.io/stackstate/stackstate-server-stable:5.1.0
-* quay.io/stackstate/stackstate-ui-stable:5.1.0
-* quay.io/stackstate/tephra-server:4.9.1
-* quay.io/stackstate/wait:1.0.7-2755960650
-* quay.io/stackstate/zookeeper:3.6.3-2738717608
+- quay.io/stackstate/container-tools:1.1.4
+- quay.io/stackstate/elasticsearch-exporter:v1.2.1-2738680411
+- quay.io/stackstate/elasticsearch:7.17.2-2738749846
+- quay.io/stackstate/envoy:v1.19.1-2738711656
+- quay.io/stackstate/hadoop:2.10.1-java11-6-2738734712
+- quay.io/stackstate/hbase-master:4.9.2
+- quay.io/stackstate/hbase-regionserver:4.9.2
+- quay.io/stackstate/jmx-exporter:0.17.0-2738680727
+- quay.io/stackstate/kafka:2.8.1-2738720666
+- quay.io/stackstate/kafkaup-operator:0.0.2
+- quay.io/stackstate/minio:RELEASE.2021-02-14T04-01-33Z-3118065624
+- quay.io/stackstate/nginx-prometheus-exporter:0.9.0-2738682730
+- quay.io/stackstate/spotlight:5.1.1
+- quay.io/stackstate/stackgraph-console:4.9.2
+- quay.io/stackstate/stackstate-correlate-stable:5.1.1
+- quay.io/stackstate/stackstate-kafka-to-es-stable:5.1.1
+- quay.io/stackstate/stackstate-receiver-stable:5.1.1
+- quay.io/stackstate/stackstate-server-stable:5.1.1
+- quay.io/stackstate/stackstate-ui-stable:5.1.1
+- quay.io/stackstate/tephra-server:4.9.2
+- quay.io/stackstate/wait:1.0.7-2755960650
+- quay.io/stackstate/zookeeper:3.6.3-2738717608
 
 {% endhint %}
 

@@ -8,6 +8,18 @@ description: StackState SaaS
 Note that the release notes may include details of functionality that is currently only available in the StackState Self-Hosted product. 
 {% endhint %}
 
+### StackState v5.1.1 (2022-11-16)
+
+**Features**
+
+- Support for Unit of Measurements in the metrics streams. STAC-18002
+
+**Bug fixes**
+
+- Fixed bug that caused markdown emitted by component actions to appear unstyled. STAC-18222
+- Fixed issue that stops the Topology Sync from making progress when using a non default cache store. STAC-18085
+- Fixed a bug in the autocomplete to first show all label keys and only after the ':' autocomplete on the values. STAC-17914
+- 
 ## StackState v5.1.0 (2022-10-14)
 
 The StackState v5.1 release delivers brand-new features and enhancements that help your team troubleshoot faster.
