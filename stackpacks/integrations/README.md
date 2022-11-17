@@ -13,7 +13,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Curated and Community integrations
 
-{% page-ref page="apache_tomcat.md" %}
+{% page-ref page="apache-tomcat.md" %}
 
 {% page-ref page="azure.md" %}
 
