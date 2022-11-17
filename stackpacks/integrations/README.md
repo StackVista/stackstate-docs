@@ -39,8 +39,6 @@ description: StackState Self-hosted v5.1.x
 
 {% page-ref page="openmetrics.md" %}
 
-{% page-ref page="getting_started.md" %}
-
 {% page-ref page="postgresql.md" %}
 
 {% page-ref page="prometheus.md" %}
@@ -55,7 +53,7 @@ description: StackState Self-hosted v5.1.x
 
 {% page-ref page="static_topology.md" %}
 
-{% page-ref page="traefic.md" %}
+{% page-ref page="traefik.md" %}
 
 {% page-ref page="wmi.md" %}
 
