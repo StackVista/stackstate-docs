@@ -112,7 +112,7 @@ To run StackState Swarm Agent in Docker Swarm mode:
    {% code lineNumbers="true" %}
    ```bash
    stackstate-agent:
-       image: docker.io/stackstate/stackstate-swarm-agent:2.19.0
+       image: docker.io/stackstate/stackstate-swarm-agent:2.19.1
        deploy:
          placement:
            constraints: [ node.role == manager ]
