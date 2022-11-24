@@ -95,7 +95,9 @@ export SESSION="<MY_SESSION>"; export TOKEN="<MY_TOKEN>"; \
 
 Import is intended to be a one-off action - importing multiple times might result in duplicate configuration entries. This behavior applies to importing nodes without any identifier. It is possible to clear StackState's configuration before an import. Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack will not be included in configuration export files - all configuration items will be unlocked after import.
 
-To clear the StackState configuration and import from a file using the StackState CLI or curl. The `<token>` used for authorization with curl is available on the **CLI** page in the StackState UI main menu:
+To clear the StackState configuration first, follow the instructions at [clear stored data](/setup/data-management/clear_stored_data.md). 
+
+Import from a file can be done using the StackState CLI or curl. The `<token>` used for authorization with curl is available on the **CLI** page in the StackState UI main menu:
 
 {% tabs %}
 {% tab title="CLI: sts" %}
@@ -125,9 +127,6 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 
 {% tab title="curl" %}
 ```text
-## Clear StackState configuration
-curl -X POST -f "http://<HOST>:7071/clear"
-
 
 ## Import without authentication
 curl -X POST -d @./export.stj \
