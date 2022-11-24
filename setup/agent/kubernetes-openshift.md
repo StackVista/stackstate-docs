@@ -31,7 +31,7 @@ The Kubernetes and OpenShift integrations collect topology data from Kubernetes 
 To integrate with other services, a separate instance of the StackState Agent should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on a Kubernetes or OpenShift cluster with checks that integrate with other services.
 {% endhint %}
 
-![StackState Agents on Kubernetes](/.gitbook/assets/agent-kubernetes.svg)
+![StackState Agents on Kubernetes](/.gitbook/assets/agent-kubernetes-openshift.svg)
 
 ## Agent
 
