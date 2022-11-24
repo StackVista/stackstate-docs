@@ -71,8 +71,8 @@ Cluster checks configured here are run by the deployed [StackState Checks Agent]
 StackState Agent v2.18.x is supported to monitor the following versions of Kubernetes or OpenShift:
 
 * Kubernetes:
-  * Kubernetes 1.16 - 1.21
-  * EKS (with Kubernetes 1.16 - 1.21)
+  * Kubernetes 1.16 - 1.24
+  * EKS (with Kubernetes 1.16 - 1.24)
 * OpenShift:
   * OpenShift 4.3 - 4.11
 * Default networking
