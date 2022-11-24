@@ -21,15 +21,18 @@ nodes:
     description: "A simple CPU-usage monitor. If the metric is above a given threshold, the state is set to CRITICAL."
     identifier: "urn:system:default:monitor:cpu-usage"
     remediationHint: "Turn it off and on again."
-    function: {{ get "urn:system:default:monitor-function:metric-above-threshold" }}
-    arguments": 
-      threshold: 90.0
-      topologyMapping: "urn:host:/${tags.host}"
-      metrics": "Telemetry\n.query('StackState Metrics', '')\n.metricField('system.cpu.system')\n.groupBy('tags.host')\n.start('-1m')\n.aggregation('mean', '15s')"
-      status: "ENABLED"
-      tags:
-        - "demo"
-      intervalSeconds: 60
+    arguments:
+      critical: 0.9
+      deviating: 0.8
+      metrics: |
+        Telemetry
+              .query("StackState Metrics", "")
+              .metricField("stackstate.java_lang_operatingsystem_systemcpuload")
+              .groupBy("host")
+              .window("-10m", "-1m")
+              .aggregation("mean", "1m")
+      topologyMapping: '${host}'
+    function: {{ get "urn:stackpack:stackstate-self-health:shared:monitor-function:higher-than-threshold"  }}
 ```
 
 In addition to the usual elements of an STY file, the protocol version and timestamp, the snippet defines a single node of type `Monitor`.
