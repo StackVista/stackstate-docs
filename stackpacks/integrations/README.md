@@ -93,6 +93,11 @@ description: StackState Self-hosted v5.1.x
             <td><a href="/.gitbook/assets/gitbook-card-image_azure.jpg">gitbook-card-image_azure.jpg</a></td>
         </tr>
         <tr>
+            <td><strong>Cloudera</strong></td>
+            <td><a href="/stackpacks/integrations/cloudera.md">cloudera</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_cloudera.jpg">gitbook-card-image_cloudera.jpg</a></td>
+        </tr>
+        <tr>
             <td><strong>Custom synchronization</strong></td>
             <td><a href="/stackpacks/integrations/customsync.md">customsync</a></td>
             <td><a href="/.gitbook/assets/gitbook-card-image_customsync.jpg">gitbook-card-image_customsync.jpg</a></td>
