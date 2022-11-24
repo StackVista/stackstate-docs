@@ -12,21 +12,21 @@ The templating is based on [handlebars \(handlebarsjs.com\)](https://handlebarsj
 
 This table described which variant is used where:
 
-| Functionality                                                                                             | STJ | STY |
-|:----------------------------------------------------------------------------------------------------------|:---:|:---:|
-| [Synchronization framework](/configure/topology/sync.md#template-functions "StackState Self-Hosted only") |  ✅  |  -  |
-| [StackPacks](/develop/developer-guides/stackpack/develop_stackpacks.md "StackState Self-Hosted only")     |  -  |  ✅  |
-| [Monitors](/develop/developer-guides/monitors/create-custom-monitors.md)                                  |  -  |  ✅  |
-| [Backup/restore](/setup/data-management/backup_restore/ "StackState Self-Hosted only")                    |  -  |  ✅  |       
+| Functionality                                                                                                      | STJ | STY |
+|:-------------------------------------------------------------------------------------------------------------------|:---:|:---:|
+| [Topology synchronization templates](/configure/topology/sync.md#template-functions "StackState Self-Hosted only") |  ✅  |  -  |
+| [StackPack settings](/develop/developer-guides/stackpack/develop_stackpacks.md "StackState Self-Hosted only")      |  -  |  ✅  |
+| [Monitor definitions](/develop/developer-guides/monitors/create-custom-monitors.md)                                |  -  |  ✅  |
+| [Backup/restore for settings](/setup/data-management/backup_restore/ "StackState Self-Hosted only")                |  -  |  ✅  |       
 
 ## Handlebars syntax
 
-StackState template files use handlebars. Content that is placed between double curly brackets `{{ some content }}` is included in the output. The example below shows handlebars used in a component template:
+In handlebars, content that is placed between double curly brackets `{{ some content }}` will be replaced in the output. The example below shows handlebars used in an STJ component template and an STY monitor definition:
 
 {% tabs %}
 {% tab title="STJ" %}
 
-This is a component described in JSON
+This is a component described in STJ
 
 {% code lineNumbers="true" %}
 ```json
@@ -48,7 +48,7 @@ This is a component described in JSON
 {% endtab %}
 {% tab title="STY" %}
 
-This is a monitor described in YAML
+This is a monitor described in STY
 
 {% code lineNumbers="true" %}
 ```yaml
@@ -62,15 +62,15 @@ nodes:
   remediationHint: Turn it off and on again.
   function: {{ get "urn:system:default:monitor-function:metric-above-threshold" }}
   arguments:
-  threshold: 90.0
-  topolopgyIdentifierPattern: "urn:host:/${tags.host}"
-  metrics: |-
-  Telemetry
-  .query("StackState Metrics", "")
-  .metricField("system.cpu.system")
-  .groupBy("tags.host")
-  .start("-1m")
-  .aggregation("mean", "15s")
+    threshold: 90.0
+    topolopgyIdentifierPattern: "urn:host:/${tags.host}"
+    metrics: |-
+      Telemetry
+        .query("StackState Metrics", "")
+        .metricField("system.cpu.system")
+        .groupBy("tags.host")
+        .start("-1m")
+        .aggregation("mean", "15s")
   intervalSeconds: 60
 ```
 {% endcode %}

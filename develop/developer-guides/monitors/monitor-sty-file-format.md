@@ -298,15 +298,6 @@ Note that when a monitor is disabled, all health states associated with the moni
 
 The monitor run interval determines how often a monitor logic will be executed. This is configured in the monitor STY file as a number of seconds using the `intervalSeconds` field. For example, an `intervalSeconds: 60` configuration means that StackState will attempt to execute the monitor function associated with the monitor every 60 seconds. If the monitor function execution takes significant time, the next scheduled run will occur 60 seconds after the previous run finishes.
 
-## Add scripts and queries to STY
-
-A monitor STY file and an STY monitor function definition contain the following script and queries:
-
-* [Parameters of type `SCRIPT_METRIC_QUERY`](#arguments) in the monitor STY file define a telemetry query to be used by the monitor function.
-* The property `script` of type `ScriptFunctionBody` in the monitor function definition provides a groovy script that is run by the monitor function.
-
-For details of the `script` property, see the page [monitor functions](/develop/developer-guides/custom-functions/monitor-functions.md#monitor-function-definition "StackState Self-Hosted only").
-
 ## See also
 
 * [Create a custom monitor](create-custom-monitors.md)
