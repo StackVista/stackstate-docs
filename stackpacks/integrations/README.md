@@ -93,24 +93,23 @@ description: StackState Self-hosted v5.1.x
             <td><a href="/.gitbook/assets/gitbook-card-image_azure.jpg">gitbook-card-image_azure.jpg</a></td>
         </tr>
         <tr>
-            <td><strong>Cloudera</strong></td>
-            <td><a href="/stackpacks/integrations/cloudera.md">cloudera</a></td>
-            <td><a href="/.gitbook/assets/gitbook-card-image_cloudera.jpg">gitbook-card-image_cloudera.jpg</a></td>
+            <td><strong>Custom synchronization</strong></td>
+            <td><a href="/stackpacks/integrations/customsync.md">customsync</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_customsync.jpg">gitbook-card-image_customsync.jpg</a></td>
+        </tr>
+        <tr>
+            <td><strong>DotNet APM</strong></td>
+            <td><a href="/stackpacks/integrations/dotnet-apm.md">dotnet-apm</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_dotnet.jpg">gitbook-card-image_dotnet.jpg</a></td>
+        </tr>
+        <tr>
+            <td><strong>Elasticsearch</strong></td>
+            <td><a href="/stackpacks/integrations/elasticsearch.md">elasticsearch</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_elasticsearch.jpg">gitbook-card-image_elasticsearch.jpg</a></td>
         </tr>
     </tbody>
 </table>
 
-{% page-ref page="apache-tomcat.md" %}
-
-{% page-ref page="azure.md" %}
-
-{% page-ref page="cloudera.md" %}
-
-{% page-ref page="customsync.md" %}
-
-{% page-ref page="dotnet-apm.md" %}
-
-{% page-ref page="elasticsearch.md" %}
 
 {% page-ref page="humio.md" %}
 
