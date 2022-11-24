@@ -40,7 +40,7 @@ description: StackState Self-hosted v5.1.x
         <tr>
             <td><strong>OpenShift</strong></td>
             <td><a href="/stackpacks/integrations/openshift.md">openshift</a></td>
-            <td><a href="/.gitbook/assets/gitbook-card-image_tomcat.jpg">gitbook-card-image_openshift.jpg</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_openshift.jpg">gitbook-card-image_openshift.jpg</a></td>
         </tr>
         <tr>
             <td><strong>OpenTelemetry</strong></td>
@@ -72,6 +72,33 @@ description: StackState Self-hosted v5.1.x
 
 
 ## Curated and Community integrations
+
+<table data-view="cards">
+    <thead>
+        <tr>
+            <th></th>
+            <th data-hidden data-card-target data-type="content-ref"></th>
+            <th data-hidden data-card-cover data-type="files"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Apache Tomcat</strong></td>
+            <td><a href="/stackpacks/integrations/apache-tomcat.md">apache tomcat</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_tomcat.jpg">gitbook-card-image_tomcat.jpg</a></td>
+        </tr>
+        <tr>
+            <td><strong>Azure</strong></td>
+            <td><a href="/stackpacks/integrations/azure.md">azure</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_azure.jpg">gitbook-card-image_azure.jpg</a></td>
+        </tr>
+        <tr>
+            <td><strong>Cloudera</strong></td>
+            <td><a href="/stackpacks/integrations/cloudera.md">cloudera</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_cloudera.jpg">gitbook-card-image_cloudera.jpg</a></td>
+        </tr>
+    </tbody>
+</table>
 
 {% page-ref page="apache-tomcat.md" %}
 
