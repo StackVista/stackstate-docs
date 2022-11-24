@@ -102,9 +102,9 @@ The images listed below are used in StackState v5.1.1:
 
 ### StackState Agent, Cluster Agent and kube-state-metrics
 
-The images listed below are used in StackState Agent v2.18.0:
+The images listed below are used in StackState Agent v2.19.1:
 
 * quay.io/stackstate/kube-state-metrics:2.3.0-focal-20220316-r61.20220418.2032
-* quay.io/stackstate/stackstate-agent-2:2.18.0
-* quay.io/stackstate/stackstate-cluster-agent:2.18.0
-* quay.io/stackstate/stackstate-process-agent:4.0.7
+* quay.io/stackstate/stackstate-agent-2:2.19.1
+* quay.io/stackstate/stackstate-cluster-agent:2.19.1
+* quay.io/stackstate/stackstate-process-agent:4.0.10

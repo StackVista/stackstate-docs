@@ -51,7 +51,7 @@ docker run -d \
     -e STS_APM_ENABLED="true" \
     -e HOST_PROC="/host/proc" \
     -e HOST_SYS="/host/sys" \
-    docker.io/stackstate/stackstate-agent-2:2.18.0
+    docker.io/stackstate/stackstate-agent-2:2.19.1
 ```
 {% endcode %}
 
@@ -67,7 +67,7 @@ To run StackState Agent V2 with Docker compose:
    {% code lineNumbers="true" %}
    ```bash
    stackstate-agent:
-    image: docker.io/stackstate/stackstate-agent-2:2.18.0
+    image: docker.io/stackstate/stackstate-agent-2:2.19.1
     network_mode: "host"
     pid: "host"
     privileged: true
@@ -112,7 +112,7 @@ To run StackState Cluster Agent in Docker Swarm mode:
    {% code lineNumbers="true" %}
    ```bash
    stackstate-agent:
-       image: docker.io/stackstate/stackstate-cluster-agent:2.18.0
+       image: docker.io/stackstate/stackstate-cluster-agent:2.19.1
        deploy:
          placement:
            constraints: [ node.role == manager ]
@@ -173,7 +173,7 @@ For example, the Agent Docker configuration below includes a volume with a check
 {% code lineNumbers="true" %}
 ```bash
 stackstate-agent:
-    image: docker.io/stackstate/stackstate-agent-2:2.18.0
+    image: docker.io/stackstate/stackstate-agent-2:2.19.1
     network_mode: "host"
     pid: "host"
     privileged: true
@@ -286,7 +286,7 @@ For example:
 {% code lineNumbers="true" %}
 ```bash
 stackstate-agent:
-  image: docker.io/stackstate/stackstate-agent-2:2.18.0
+  image: docker.io/stackstate/stackstate-agent-2:2.19.1
   network_mode: "host"
   pid: "host"
   privileged: true
