@@ -37,7 +37,7 @@
 * [StackState Agent](setup/agent/README.md)
   * [About StackState Agent V2](setup/agent/about-stackstate-agent.md)
   * [Docker](setup/agent/docker.md)
-  * [Kubernetes](setup/agent/kubernetes.md)
+  * [Kubernetes / OpenShift](setup/agent/kubernetes-openshift.md)
   * [Linux](setup/agent/linux.md)
   * [Windows](setup/agent/windows.md)
   * [Advanced Agent configuration](setup/agent/advanced-agent-configuration.md)

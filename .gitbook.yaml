@@ -383,6 +383,7 @@ redirects:
   use/metrics-and-events/top-metrics: ./use/metrics/top-metrics.md
   use/stackstate-ui/views/manage-event-handlers: ./use/events/manage-event-handlers.md
   use/stackstate-ui/views/manage-event-handlers#add-event-handler: ./use/events/manage-event-handlers.md#add-event-handler
+  setup/agent/kubernetes: ./setup/agent/kubernetes-openshift.md
 
 # 5.2 docs
 

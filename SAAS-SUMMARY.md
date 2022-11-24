@@ -77,7 +77,7 @@
     * [About StackState Agent V2](setup/agent/about-stackstate-agent.md)
     * [Agent V2 StackPack](stackpacks/integrations/agent.md)
     * [Agent V2 on Docker](setup/agent/docker.md)
-    * [Agent V2 on Kubernetes](setup/agent/kubernetes.md)
+    * [Agent V2 on Kubernetes / OpenShift](setup/agent/kubernetes-openshift.md)
     * [Agent V2 on Linux](setup/agent/linux.md)
     * [Agent V2 on Windows](setup/agent/windows.md)
     * [Use an HTTP/HTTPS proxy](setup/agent/agent-proxy.md)
