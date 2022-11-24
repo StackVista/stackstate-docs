@@ -20,52 +20,52 @@ description: StackState Self-hosted v5.1.x
         <tr>
             <td><strong>StackState Agent V2</strong></td>
             <td><a href="/stackpacks/integrations/agent.md">agent</a></td>
-            <td><a href="/.gitbook/assets/ruben/gitbook-card-image_agent-v2.jpg">gitbook-card-image_agent-v2.jpg</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_agent-v2.jpg">gitbook-card-image_agent-v2.jpg</a></td>
         </tr>
         <tr>
             <td><strong>AWS</strong></td>
             <td><a href="/stackpacks/integrations/aws/">aws</a></td>
-            <td><a href="/.gitbook/assets/ruben/gitbook-card-image_aws.jpg">gitbook-card-image_aws.jpg</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_aws.jpg">gitbook-card-image_aws.jpg</a></td>
         </tr>
         <tr>
             <td><strong>Dynatrace</strong></td>
             <td><a href="/stackpacks/integrations/dynatrace.md">dynatrace</a></td>
-            <td><a href="/.gitbook/assets/ruben/gitbook-card-image_dynatrace.jpg">gitbook-card-image_dynatrace.jpg</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_dynatrace.jpg">gitbook-card-image_dynatrace.jpg</a></td>
         </tr>
         <tr>
             <td><strong>Kubernetes</strong></td>
             <td><a href="/stackpacks/integrations/kubernetes.md">kubernetes</a></td>
-            <td><a href="/.gitbook/assets/ruben/gitbook-card-image_kubernetes.jpg">gitbook-card-image_kubernetes.jpg</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_kubernetes.jpg">gitbook-card-image_kubernetes.jpg</a></td>
         </tr>
         <tr>
             <td><strong>OpenShift</strong></td>
             <td><a href="/stackpacks/integrations/openshift.md">openshift</a></td>
-            <td><a href="/.gitbook/assets/ruben/gitbook-card-image_openshift.jpg">gitbook-card-image_openshift.jpg</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_openshift.jpg">gitbook-card-image_openshift.jpg</a></td>
         </tr>
         <tr>
             <td><strong>OpenTelemetry</strong></td>
             <td><a href="/stackpacks/integrations/opentelemetry">opentelemetry</a></td>
-            <td><a href="/.gitbook/assets/ruben/gitbook-card-image_opentelemetry.jpg">gitbook-card-image_opentelemetry.jpg</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_opentelemetry.jpg">gitbook-card-image_opentelemetry.jpg</a></td>
         </tr>
         <tr>
             <td><strong>ServiceNow</strong></td>
             <td><a href="/stackpacks/integrations/servicenow.md">servicenow</a></td>
-            <td><a href="/.gitbook/assets/ruben/gitbook-card-image_servicenow.jpg">gitbook-card-image_servicenow.jpg</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_servicenow.jpg">gitbook-card-image_servicenow.jpg</a></td>
         </tr>
         <tr>
             <td><strong>Slack</strong></td>
             <td><a href="/stackpacks/integrations/slack.md">slack</a></td>
-            <td><a href="/.gitbook/assets/ruben/gitbook-card-image_slack.jpg">gitbook-card-image_slack.jpg</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_slack.jpg">gitbook-card-image_slack.jpg</a></td>
         </tr>
         <tr>
             <td><strong>Splunk</strong></td>
             <td><a href="/stackpacks/integrations/splunk/">splunk</a></td>
-            <td><a href="/.gitbook/assets/ruben/gitbook-card-image_splunk.jpg">gitbook-card-image_splunk.jpg</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_splunk.jpg">gitbook-card-image_splunk.jpg</a></td>
         </tr>
         <tr>
             <td><strong>VMWare vSphere</strong></td>
             <td><a href="/stackpacks/integrations/vsphere.md">vsphere</a></td>
-            <td><a href="/.gitbook/assets/ruben/gitbook-card-image_vsphere.jpg">gitbook-card-image_vsphere.jpg</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_vsphere.jpg">gitbook-card-image_vsphere.jpg</a></td>
         </tr>
     </tbody>
 </table>
