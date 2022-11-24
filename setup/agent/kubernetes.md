@@ -211,7 +211,7 @@ Images have been imported up to localhost
 
 ### Install from a custom image registry
 
-If required, the images required to install the StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics can be served from a custom image registry. To do this, follow the instructions to [install from a custom image registry](/setup/install-stackstate/kubernetes_install/install-from-custom-image-registry.md).
+If required, the images required to install the StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics can be served from a custom image registry. To do this, follow the instructions to [install from a custom image registry](/setup/install-stackstate/kubernetes_openshift/install-from-custom-image-registry.md).
 
 ## Helm chart values
 

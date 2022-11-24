@@ -13,6 +13,14 @@ This page includes release notes for the StackState self-hosted product.
 
 ## StackState v5.1.0
 
+### v5.1.1
+
+**Bug fixes**
+
+- Fixed bug that caused markdown emitted by component actions to appear unstyled. STAC-18222
+- Fixed issue that stops the Topology Sync from making progress when using a non default cache store. STAC-18085
+- Fixed a bug in the autocomplete to first show all label keys and only after the ':' autocomplete on the values. STAC-17914
+
 ### v5.1.0
 
 The StackState v5.1 release delivers brand-new features and enhancements that help your team troubleshoot faster.
@@ -267,7 +275,7 @@ Details of the included improvements, bug fixes and StackPack updates can be fou
 **Improvements**
 
 - Topology synchronization progress counters have been moved from individual synchronizations to the `stackstate.log` file for Linux-based distributions. Errors for topology mapping and templates remain in the synchronization-specific logs. STAC-15529
-- The MinIO chart now allows the registry to be configured separately from the repository. Also, the chart will now use any [globally configured pull secrets](/setup/install-stackstate/kubernetes_install/install-from-custom-image-registry.md) to fetch Docker images. STAC-15180
+- The MinIO chart now allows the registry to be configured separately from the repository. Also, the chart will now use any [globally configured pull secrets](/setup/install-stackstate/kubernetes_openshift/install-from-custom-image-registry.md) to fetch Docker images. STAC-15180
 - The component context menu now displays the preview of the [three top priority metrics](/use/metrics/top-metrics.md). STAC-15076
 - `PodDisruptionBudget` and `PodSecurityPolicy` now use the updated apiVersion (policy/v1) for newer Kubernetes versions. STAC-14968
 - The MinIO Helm chart has been updated to specify both a requests and limits for the memory resource. STAC-14771
@@ -605,7 +613,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 
 * Introduced [check functions that alert on anomalies](../../use/checks-and-monitors/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. Previous anomaly detection functions and baseline streams and functions are deprecated and will be removed in StackState v4.4. STAC-12256
 * The [Autonomous Anomaly Detector \(AAD\)](../../stackpacks/add-ons/aad.md) is now enabled by default in the Kubernetes distribution. STAC-12024
-* It is now possible to [configure whether ClusterRoles and ClusterRoleBindings need to be installed](../install-stackstate/kubernetes_install/required_permissions.md#disable-automatic-creation-of-cluster-wide-resources) by the StackState Helm chart using the flag `cluster-role.enabled`. STAC-11749
+* It is now possible to [configure whether ClusterRoles and ClusterRoleBindings need to be installed](../install-stackstate/kubernetes_openshift/required_permissions.md#disable-automatic-creation-of-cluster-wide-resources) by the StackState Helm chart using the flag `cluster-role.enabled`. STAC-11749
 * StackState HDFS pods now run without privileges in Kubernetes. STAC-11741
 * Added support for interacting with external systems using [self-signed certificates](/configure/security/self-signed-certificates.md). STAC-11738
 * The field specifying the [role to use for Keycloak authentication](../../configure/security/authentication/keycloak.md) \(default field name: `roles`\) is now configurable using the `groupsField` configuration parameter. STAC-11609

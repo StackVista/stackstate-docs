@@ -24,7 +24,7 @@ The `<STACKSTATE_RECEIVER_API_ADDRESS>` for StackState deployed on Kubernetes or
 https://<STACKSTATE_BASE_URL>/receiver/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>
 ```
 
-The `<STACKSTATE_BASE_URL>` and `<STACKSTATE_RECEIVER_API_KEY>` are set during StackState installation, for details see [Kubernetes install - configuration parameters](/setup/install-stackstate/kubernetes_install/install_stackstate.md#generate-values-yaml).
+The `<STACKSTATE_BASE_URL>` and `<STACKSTATE_RECEIVER_API_KEY>` are set during StackState installation, for details see [Kubernetes install - configuration parameters](/setup/install-stackstate/kubernetes_openshift/kubernetes_install.md#generate-values-yaml).
 {% endtab %}
 
 {% tab title="Linux" %}
@@ -35,7 +35,7 @@ The `<STACKSTATE_RECEIVER_API_ADDRESS>` for StackState deployed on Linux is:
 https://<STACKSTATE_BASE_URL>:<STACKSTATE_RECEIVER_PORT>/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>
 ```
 
-The `<STACKSTATE_BASE_URL>` and <STACKSTATE_RECEIVER_API_KEY>` are set during StackState installation, for details see [Linux install - configuration parameters](/setup/install-stackstate/linux_install/install_stackstate.md#configuration-options-required-during-install).
+The `<STACKSTATE_BASE_URL>` and <STACKSTATE_RECEIVER_API_KEY>` are set during StackState installation, for details see [Linux install - configuration parameters](/setup/install-stackstate/linux/install_stackstate.md#configuration-options-required-during-install).
 {% endtab %}
 {% endtabs %}
 
@@ -43,6 +43,7 @@ The `<STACKSTATE_BASE_URL>` and <STACKSTATE_RECEIVER_API_KEY>` are set during St
 
 Topology, telemetry and health data are sent to the receiver API via HTTP POST. There is a common JSON object used for all messages.
 
+{% code lineNumbers="true" %}
 ```javascript
 {
   "collection_timestamp": 1548855554, // the epoch timestamp for the collection
@@ -54,11 +55,13 @@ Topology, telemetry and health data are sent to the receiver API via HTTP POST. 
   "health" // used for sending health data
 }
 ```
+{% endcode %}
 
 ## JSON property: "topologies" 
 
 StackState accepts topology information in the following JSON format:
 
+{% code lineNumbers="true" %}
 ```text
 {
    "apiKey":"your api key",
@@ -125,6 +128,7 @@ StackState accepts topology information in the following JSON format:
    ]
 }
 ```
+{% endcode %}
 
 The JSON contains the following fields:
 

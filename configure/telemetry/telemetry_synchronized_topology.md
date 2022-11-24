@@ -26,7 +26,7 @@ Note that you are editing the template for the synchronization that imported the
 2. Click **...** and select **Edit template**.
 3. The template editor will open for the template that was used to create the selected element. Three sets of information are displayed:
    * **input parameters** - the raw data imported for a specific element.
-   * **template function** - the template function used by the synchronization that imported the element. When an element is imported, the synchronization will run the template function with input parameters. This outputs a [structured JSON string](../../develop/reference/stj/using_stj.md), which is used to build the component properties that you see in the StackState UI right panel details tab - **Component details**.
+   * **template function** - the template function used by the synchronization that imported the element. When an element is imported, the synchronization will run the template function with input parameters. This outputs a [structured JSON string](../../develop/reference/stackstate-templating/using_stackstate_templating.md), which is used to build the component properties that you see in the StackState UI right panel details tab - **Component details**.
    * **Result** - Click **PREVIEW** to see the output of the template function when it runs with the specified input parameters. You can choose to view the result either in JSON format or as it will appear in the StackState UI component **Properties**.
 4. You can edit the template function to change how the topology element is built in StackState, for example to [add a telemetry stream to every element imported with this template](telemetry_synchronized_topology.md#add-a-telemetry-stream-to-a-template-function).
 
@@ -84,7 +84,7 @@ For example, a CloudWatch metric stream:
 ## See also
 
 * [Add a single telemetry stream to a single component](../../use/metrics/add-telemetry-to-element.md)
-* [Reference guide: StackState template JSON](../../develop/reference/stj/)
+* [Reference guide: StackState templating \(STJ\)](../../develop/reference/stackstate-templating/)
 * [Browse telemetry streams](../../use/metrics/browse-telemetry.md)
 * [Create a StackPack with a custom template](../../develop/developer-guides/stackpack/)
 

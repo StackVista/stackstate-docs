@@ -16,6 +16,7 @@ The StackState Agent V2 collection interval can be configured. This will reduce 
 {% tab title="Kubernetes, OpenShift" %}
 To configure the collection interval of the Kubernetes and system level integrations, create a `values.yaml` file with the below contents and specify this when you install/upgrade StackState Agent V2. In this `values.yaml` example, the `min_collection_interval` has been set to double the default setting. This should result in a noticeable drop in the amount of data produced. If required, you can increase the interval further, however, the aim should be to find a balance between the frequency of data collection and the amount of data received by StackState: 
 
+{% code lineNumbers="true" %}
 ```yaml
 nodeAgent:
   config:
@@ -113,6 +114,7 @@ clusterAgent:
           - kube_state_url: http://YOUR_KUBE_STATE_METRICS_SERVICE_NAME:8080/metrics
             min_collection_interval: 60
 ```
+{% endcode %}
 
 Specify the `values.yaml` file during installation / upgrade of the StackState Agent with the `--values` argument:
 

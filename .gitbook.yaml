@@ -3,7 +3,7 @@ redirects:
   basic_concepts/: ./use/concepts/components_and_relations.md
   basic_concepts/#components: ./use/concepts/components_and_relations.md#components
   concepts/4t_data_model: ./use/concepts/4t_data_model.md
-  concepts/component_and_relation_templates: ./develop/reference/stj/using_stj.md
+  concepts/component_and_relation_templates: ./develop/reference/stackstate-templating/using_stackstate_templating.md .md
   concepts/components_and_relations: ./use/concepts/components_and_relations.md
   concepts/glossary: ./use/glossary.md
   concepts/id_extraction: ./use/concepts/id_extraction.md
@@ -82,8 +82,8 @@ redirects:
   develop/scripting/script-apis/view: ./develop/reference/scripting/script-apis/view.md
   develop/stml: ./develop/reference/stml/README.md
   develop/stml/tags: ./develop/reference/stml/tags.md
-  develop/sts_template_language_intro: ./develop/reference/stj/README.md
-  develop/sts_template_language_intro/sts_template_language_reference: ./develop/reference/stj/stj_reference.md
+  develop/sts_template_language_intro: ./develop/reference/stackstate-templating/README.md
+  develop/sts_template_language_intro/sts_template_language_reference: ./develop/reference/stackstate-templating/template_functions.md
   develop/synchronizations_and_templated_files: ./develop/developer-guides/synchronizations_and_templated_files.md
   getting_started: ./use/concepts/getting_started.md
   integrations: ./stackpacks/README.md
@@ -120,45 +120,45 @@ redirects:
   setup/backup_restore/configuration: ./setup/data-management/backup_restore/configuration_backup.md
   setup/backup_restore/kubernetes_backup: ./setup/data-management/backup_restore/kubernetes_backup.md
   setup/backup_restore/file: ./setup/data-management/backup_restore/linux_backup.md
-  setup/backup_restore/manual_topology: ./setup/data-management/backup_restore/manual_topology_backup.md
+  setup/backup_restore/manual_topology: ./setup/data-management/backup_restore/README.md
   setup/clear_data: ./setup/data-management/clear_stored_data.md
-  setup/retention: ./setup/data-management/data_retention.md
   setup/cli: ./setup/cli/README.md
-  setup/kubernetes/image_configuration: ./setup/install-stackstate/kubernetes_install/image_configuration.md
-  setup/kubernetes_install: ./setup/install-stackstate/kubernetes_install/README.md
-  setup/kubernetes_install/customize_config: ./setup/install-stackstate/kubernetes_install/customize_config.md
-  setup/kubernetes_install/image_configuration: ./setup/install-stackstate/kubernetes_install/image_configuration.md
-  setup/kubernetes_install/ingress: ./setup/install-stackstate/kubernetes_install/ingress.md
-  setup/kubernetes_install/install_stackstate: ./setup/install-stackstate/kubernetes_install/install_stackstate.md
-  setup/kubernetes_install/storage: ./setup/install-stackstate/kubernetes_install/storage.md
-  setup/linux_install: ./setup/install-stackstate/linux_install/README.md
-  setup/linux_install/development-installation: ./setup/install-stackstate/linux_install/development-installation.md
-  setup/linux_install/download: ./setup/install-stackstate/linux_install/download.md
-  setup/linux_install/how_to_setup_tls_without_reverse_proxy: ./setup/install-stackstate/linux_install/how_to_setup_tls_without_reverse_proxy.md
-  setup/linux_install/install_stackstate: ./setup/install-stackstate/linux_install/install_stackstate.md
-  setup/linux_install/poc-installation: ./setup/install-stackstate/linux_install/poc-installation.md
-  setup/linux_install/production-installation: ./setup/install-stackstate/linux_install/production-installation.md
-  setup/linux_install/reverse_proxy: ./setup/install-stackstate/linux_install/reverse_proxy.md
-  setup/troubleshooting: ./setup/install-stackstate/troubleshooting.md
-  setup/download: ./setup/install-stackstate/linux_install/download.md
-  setup/installation/development-installation: ./setup/install-stackstate/linux_install/development-installation.md
+  setup/download: ./setup/install-stackstate/linux/download.md
+  setup/installation/development-installation: ./setup/install-stackstate/linux/development-installation.md
   setup/installation/development-installation_pre1_15: ./setup/upgrading
-  setup/installation/how_to_setup_tls_without_reverse_proxy: ./setup/install-stackstate/linux_install/how_to_setup_tls_without_reverse_proxy.md
-  setup/installation/index: ./setup/install-stackstate/linux_install/README.md
-  setup/installation/install_stackstate: ./setup/instal-stackstate/linux_install/install_stackstate.md
+  setup/installation/how_to_setup_tls_without_reverse_proxy: ./setup/install-stackstate/linux/how_to_setup_tls_without_reverse_proxy.md
+  setup/installation/index: ./setup/install-stackstate/linux/README.md
+  setup/installation/install_stackstate: ./setup/instal-stackstate/linux/install_stackstate.md
   setup/installation/installing_pre1_14_5: ./setup/upgrading.md
   setup/installation/installing_pre1_15: ./setup/upgrading.md
-  setup/installation/kubernetes/image_configuration: ./setup/kubernetes_install/image_configuration.md
-  setup/installation/kubernetes/ingress: ./setup/install-stackstate/kubernetes_install/ingress.md
-  setup/installation/kubernetes: ./setup/install-stackstate/kubernetes_install/README.md
-  setup/installation/kubernetes/storage: ./setup/install-stackstate/kubernetes_install/storage.md
-  setup/installation/poc-installation: ./setup/install-stackstate/linux_install/poc-installation.md
-  setup/installation/production-installation: ./setup/install-stackstate/linux_install/production-installation.md
+  setup/installation/kubernetes/image_configuration: ./setup/kubernetes_openshift/image_configuration.md
+  setup/installation/kubernetes/ingress: ./setup/install-stackstate/kubernetes_openshift/ingress.md
+  setup/installation/kubernetes: ./setup/install-stackstate/kubernetes_openshift/README.md
+  setup/installation/kubernetes/storage: ./setup/install-stackstate/kubernetes_openshift/storage.md
+  setup/installation/poc-installation: ./setup/install-stackstate/linux/poc-installation.md
+  setup/installation/production-installation: ./setup/install-stackstate/linux/production-installation.md
   setup/installation/production-installation_pre1_15: ./setup/upgrading.md
   setup/installation/reindex: ./setup/install-stackstate/troubleshooting.md
   setup/installation/requirements: ./setup/install-stackstate/requirements.md
-  setup/installation/reverse_proxy: ./setup/install-stackstate/linux_install/reverse_proxy.md
+  setup/installation/reverse_proxy: ./setup/install-stackstate/linux/reverse_proxy.md
   setup/installation/troubleshooting: ./setup/install-stackstate/troubleshooting.md
+  setup/kubernetes/image_configuration: ./setup/install-stackstate/kubernetes_openshift/image_configuration.md
+  setup/kubernetes_install: ./setup/install-stackstate/kubernetes_openshift/README.md
+  setup/kubernetes_install/customize_config: ./setup/install-stackstate/kubernetes_openshift/customize_config.md
+  setup/kubernetes_install/image_configuration: ./setup/install-stackstate/kubernetes_openshift/image_configuration.md
+  setup/kubernetes_install/ingress: ./setup/install-stackstate/kubernetes_openshift/ingress.md
+  setup/kubernetes_install/install_stackstate: ./setup/install-stackstate/kubernetes_openshift/install_stackstate.md
+  setup/kubernetes_install/storage: ./setup/install-stackstate/kubernetes_openshift/storage.md
+  setup/linux: ./setup/install-stackstate/linux/README.md
+  setup/linux_install/development-installation: ./setup/install-stackstate/linux/development-installation.md
+  setup/linux_install/download: ./setup/install-stackstate/linux/download.md
+  setup/linux_install/how_to_setup_tls_without_reverse_proxy: ./setup/install-stackstate/linux/how_to_setup_tls_without_reverse_proxy.md
+  setup/linux_install/install_stackstate: ./setup/install-stackstate/linux/install_stackstate.md
+  setup/linux_install/poc-installation: ./setup/install-stackstate/linux/poc-installation.md
+  setup/linux_install/production-installation: ./setup/install-stackstate/linux/production-installation.md
+  setup/linux_install/reverse_proxy: ./setup/install-stackstate/linux/reverse_proxy.md
+  setup/retention: ./setup/data-management/data_retention.md
+  setup/troubleshooting: ./setup/install-stackstate/troubleshooting.md
   use/queries: ./use/stackstate-ui/analytics.md
   use/perspectives/event-perspective: ./use/stackstate-ui/perspectives/events_perspective.md
   use/perspectives/filters: ./use/stackstate-ui/filters.md
@@ -198,14 +198,14 @@ redirects:
   develop/developer-guides/anomaly-check-functions: ./develop/developer-guides/custom-functions/check-functions.md
   develop/developer-guides/agent_check/checks_in_agent_v2: ./develop/developer-guides/agent_check/agent-check-api.md
   develop/developer-guides/custom_synchronization_stackpack/how_to_connect_agent_check_with_stackstate_instance: ./develop/developer-guides/agent_check/connect_agent_check_with_stackstate.md
-  develop/reference/stj/templates: ./develop/reference/stj/stj_reference.md
-  develop/reference/stj/using-stj: ./develop/reference/stj/using_stj.md
+  develop/reference/stj/templates: ./develop/reference/stackstate-templating/template_functions.md
+  develop/reference/stj/using-stj: ./develop/reference/stackstate-templating/using_stackstate_templating.md .md
   integrations/agent/: ./stackpacks/integrations/agent.md
   setup/authentication: ./configure/security/authentication/authentication_options.md
   stackpacks/integrations/splunk/splunk_event: ./stackpacks/integrations/splunk/splunk_events.md
   stackpacks/integrations/splunk/splunk_metric: ./stackpacks/integrations/splunk/splunk_metrics.md
   use/introduction-to-stackstate/id_extraction: ./develop/developer-guides/custom-functions/id-extractor-functions.md
-  use/introduction-to-stackstate/mapping_functions: ./develop/developer-guides/custom-functions/mapper-functions.md
+  use/introduction-to-stackstate/mapping_functions: ./develop/developer-guides/custom-functions/mapping-functions.md
   use/views: ./use/stackstate-ui/views/about_views.md
   use/views/: ./use/stackstate-ui/views/about_views.md
   use/views/browse-telemetry: ./use/metrics/browse-telemetry.md
@@ -222,13 +222,13 @@ redirects:
   configuring/creating_stackpacks: ./develop/developer-guides/stackpack/develop_stackpacks.md
   develop/developer-guides/custom-functions/asynchronous-synchronous: ./develop/developer-guides/custom-functions/functions.md
   develop/developer-guides/custom-functions/baseline-functions: ./develop/developer-guides/custom-functions/README.md
+  setup/installation/cli-install: ./setup/cli/README.md
+  setup/installation/kubernetes_install/development_setup: ./setup/install-stackstate/kubernetes_openshift/non_high_availability_setup.md
+  setup/kubernetes_install/development_setup: ./setup/install-stackstate/kubernetes_openshift/nonha_setup.md
   stackpacks/integrations/api-integration: ./setup/agent/agent-v1.md
   stackpacks/integrations/available_integrations: ./stackpacks/integrations/about_integrations.md
   stackpacks/integrations/aws-x-ray: ./stackpacks/integrations/aws/aws-x-ray.md
   stackpacks/integrations/google-analytics: ./stackpacks/integrations/README.md
-  setup/installation/cli-install: ./setup/cli/README.md
-  setup/installation/kubernetes_install/development_setup: ./setup/install-stackstate/kubernetes_install/non_high_availability_setup.md
-  setup/kubernetes_install/development_setup: ./setup/install-stackstate/kubernetes_install/nonha_setup.md
   use/analytics: ./use/stackstate-ui/analytics.md
   use/explore_mode: ./use/stackstate-ui/explore_mode.md
   use/health-state-and-event-notifications/add-a-health-check: ./use/health-state/add-a-health-check.md
@@ -257,28 +257,28 @@ redirects:
   setup/installation: ./setup/install-stackstate/README.md
   setup/installation/README: ./setup/install-stackstate/README.md
   setup/installation/initial_run_guide: ./setup/install-stackstate/initial_run_guide.md
-  setup/installation/kubernetes_install/: ./setup/install-stackstate/kubernetes_install/README.md
-  setup/installation/kubernetes_install/aad_standalone: ./setup/install-stackstate/kubernetes_install/aad_standalone.md
-  setup/installation/kubernetes_install/customize_config: ./setup/install-stackstate/kubernetes_install/customize_config.md
-  setup/installation/kubernetes_install/image_configuration: ./setup/install-stackstate/kubernetes_install/image_configuration.md
-  setup/installation/kubernetes_install/ingress: ./setup/install-stackstate/kubernetes_install/ingress.md
-  setup/installation/kubernetes_install/install_stackstate: ./setup/install-stackstate/kubernetes_install/install_stackstate.md
-  setup/installation/kubernetes_install/migrate_from_linux: ./setup/install-stackstate/kubernetes_install/migrate_from_linux.md
-  setup/installation/kubernetes_install/non_high_availability_setup: ./setup/install-stackstate/kubernetes_install/non_high_availability_setup.md
-  setup/installation/kubernetes_install/required_permissions: ./setup/install-stackstate/kubernetes_install/required_permissions.md
-  setup/installation/kubernetes_install/storage: ./setup/install-stackstate/kubernetes_install/storage.md
-  setup/installation/linux_install/: ./setup/install-stackstate/linux_install/README.md
-  setup/installation/linux_install/before_you_install: ./setup/install-stackstate/linux_install/before_you_install.md
-  setup/installation/linux_install/development-installation: ./setup/install-stackstate/linux_install/development-installation.md
-  setup/installation/linux_install/download: ./setup/install-stackstate/linux_install/download.md
-  setup/installation/linux_install/how_to_setup_tls_without_reverse_proxy: ./setup/install-stackstate/linux_install/how_to_setup_tls_without_reverse_proxy.md
-  setup/installation/linux_install/install_stackstate: ./setup/install-stackstate/linux_install/install_stackstate.md
-  setup/installation/linux_install/poc-installation: ./setup/install-stackstate/linux_install/poc-installation.md
-  setup/installation/linux_install/production-installation: ./setup/install-stackstate/linux_install/production-installation.md
-  setup/installation/linux_install/reverse_proxy: ./setup/install-stackstate/linux_install/reverse_proxy.md
-  setup/installation/openshift_install: ./setup/install-stackstate/openshift_install.md
-  stackpacks/integrations/manualtopo: ./stackpacks/integrations/static_topology.md
+  setup/installation/kubernetes_install/: ./setup/install-stackstate/kubernetes_openshift/README.md
+  setup/installation/kubernetes_install/aad_standalone: ./stackpacks/add-ons/aad.md
+  setup/installation/kubernetes_install/customize_config: ./setup/install-stackstate/kubernetes_openshift/customize_config.md
+  setup/installation/kubernetes_install/image_configuration: ./setup/install-stackstate/kubernetes_openshift/image_configuration.md
+  setup/installation/kubernetes_install/ingress: ./setup/install-stackstate/kubernetes_openshift/ingress.md
+  setup/installation/kubernetes_install/install_stackstate: ./setup/install-stackstate/kubernetes_openshift/install_stackstate.md
+  setup/installation/kubernetes_install/migrate_from_linux: ./setup/install-stackstate/kubernetes_openshift/migrate_from_linux.md
+  setup/installation/kubernetes_install/non_high_availability_setup: ./setup/install-stackstate/kubernetes_openshift/non_high_availability_setup.md
+  setup/installation/kubernetes_install/required_permissions: ./setup/install-stackstate/kubernetes_openshift/required_permissions.md
+  setup/installation/kubernetes_install/storage: ./setup/install-stackstate/kubernetes_openshift/storage.md
+  setup/installation/linux_install/: ./setup/install-stackstate/linux/README.md
+  setup/installation/linux_install/before_you_install: ./setup/install-stackstate/linux/before_you_install.md
+  setup/installation/linux_install/development-installation: ./setup/install-stackstate/linux/development-installation.md
+  setup/installation/linux_install/download: ./setup/install-stackstate/linux/download.md
+  setup/installation/linux_install/how_to_setup_tls_without_reverse_proxy: ./setup/install-stackstate/linux/how_to_setup_tls_without_reverse_proxy.md
+  setup/installation/linux_install/install_stackstate: ./setup/install-stackstate/linux/install_stackstate.md
+  setup/installation/linux_install/poc-installation: ./setup/install-stackstate/linux/poc-installation.md
+  setup/installation/linux_install/production-installation: ./setup/install-stackstate/linux/production-installation.md
+  setup/installation/linux_install/reverse_proxy: ./setup/install-stackstate/linux/reverse_proxy.md
+  setup/installation/openshift_install: ./setup/install-stackstate/kubernetes_openshift/openshift_install.md
   setup/requirements: ./setup/install-stackstate/requirements.md
+  stackpacks/integrations/manualtopo: ./stackpacks/integrations/static_topology.md
   stackpacks/integrations/centos: ./setup/agent/linux.md
   stackpacks/integrations/debian: ./setup/agent/linux.md
   stackpacks/integrations/fedora: ./setup/agent/linux.md
@@ -333,21 +333,42 @@ redirects:
   configure/opentelemetry/manual-instrumentation/instrumentation-examples: ./stackpacks/integrations/opentelemetry/manual-instrumentation/code-examples.md
   develop/reference/scripting/async_script_result: ./develop/reference/scripting/async-script-result.md
   develop/reference/cli_reference: ./setup/cli/README.md
+  README-v50: ./latest.md
+  setup/agent/openshift: ./setup/agent/kubernetes.md
   setup/cli-install: ./setup/cli/README.md
+  setup/install-stackstate/kubernetes_install/image_configuration: ./setup/install-stackstate/kubernetes_openshift/install-from-custom-image-registry.md
   stackpacks/integrations/aws/opentelemetry-nodejs: ./stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md
   use/health-state/anomaly-health-checks: ./use/checks-and-monitors/anomaly-health-checks.md
   use/health-state/configure-view-health: ./use/stackstate-ui/views/configure-view-health.md
   use/health-state/about-health-state: ./use/concepts/health-state.md
   use/health-state/add-a-health-check: ./use/checks-and-monitors/add-a-health-check.md
   use/health-state: ./use/checks-and-monitors/README.md
-  setup/agent/openshift: ./setup/agent/kubernetes.md
-  setup/install-stackstate/kubernetes_install/image_configuration: ./setup/install-stackstate/kubernetes_install/install-from-custom-image-registry.md
-  README-v50: ./latest.md
 
 # 5.1 docs
 
   configure/telemetry/send_telemetry: ./configure/telemetry/send_metrics.md
+  develop/developer-guides/custom-functions/mapper-functions: ./develop/developer-guides/custom-functions/mapping-functions.md
   develop/developer-guides/agent_check/agent-check-state: ./develop/developer-guides/agent_check/agent-check-state.md
+  setup/install-stackstate/kubernetes_install: ./setup/install-stackstate/kubernetes_openshift/
+  setup/install-stackstate/kubernetes_install/aad_standalone: ./stackpacks/add-ons/aad.md
+  setup/install-stackstate/kubernetes_install/customize_config: ./setup/install-stackstate/kubernetes_openshift/customize_config.md
+  setup/install-stackstate/kubernetes_install/ingress: ./setup/install-stackstate/kubernetes_openshift/ingress.md
+  setup/install-stackstate/kubernetes_install/install-from-custom-image-registry: ./setup/install-stackstate/kubernetes_openshift/install-from-custom-image-registry.md
+  setup/install-stackstate/kubernetes_install/install_stackstate: ./setup/install-stackstate/kubernetes_openshift/kubernetes_install.md
+  setup/install-stackstate/kubernetes_install/migrate_from_linux: ./setup/install-stackstate/kubernetes_openshift/migrate_from_linux.md
+  setup/install-stackstate/kubernetes_install/non_high_availability_setup: ./setup/install-stackstate/kubernetes_openshift/non_high_availability_setup.md
+  setup/install-stackstate/openshift_install: ./setup/install-stackstate/kubernetes_openshift/openshift_install.md
+  setup/install-stackstate/kubernetes_install/required_permissions: ./setup/install-stackstate/kubernetes_openshift/required_permissions.md
+  setup/install-stackstate/kubernetes_install/storage: ./setup/install-stackstate/kubernetes_openshift/storage.md
+  setup/install-stackstate/linux_install: ./setup/install-stackstate/linux/README.md
+  setup/install-stackstate/linux_install/before_you_install: ./setup/install-stackstate/linux/before_you_install.md
+  setup/install-stackstate/linux_install/development-installation: ./setup/install-stackstate/linux/development-installation.md
+  setup/install-stackstate/linux_install/download: ./setup/install-stackstate/linux/download.md
+  setup/install-stackstate/linux_install/how_to_setup_tls_without_reverse_proxy: ./setup/install-stackstate/linux/how_to_setup_tls_without_reverse_proxy.md
+  setup/install-stackstate/linux_install/install_stackstate: ./setup/install-stackstate/linux/install_stackstate.md
+  setup/install-stackstate/linux_install/poc-installation: ./setup/install-stackstate/linux/poc-installation.md
+  setup/install-stackstate/linux_install/production-installation: ./setup/install-stackstate/linux/production-installation.md
+  setup/install-stackstate/linux_install/reverse_proxy: ./setup/install-stackstate/linux/reverse_proxy.md
   stackpacks/integrations/splunk/splunk_topology_upgrade_v1_to_v2: ./setup/agent/migrate-agent-v1-to-v2.md
   stackpacks/integrations/splunk/splunk_topology_v2: ./stackpacks/integrations/splunk/splunk_topology.md
   use/metrics-and-events/add-telemetry-to-element: ./use/metrics/add-telemetry-to-element.md
@@ -362,3 +383,11 @@ redirects:
   use/metrics-and-events/top-metrics: ./use/metrics/top-metrics.md
   use/stackstate-ui/views/manage-event-handlers: ./use/events/manage-event-handlers.md
   use/stackstate-ui/views/manage-event-handlers#add-event-handler: ./use/events/manage-event-handlers.md#add-event-handler
+
+# 5.2 docs
+
+  develop/developer-guides/monitors/monitor-stj-file-format: ./develop/developer-guides/monitors/monitor-sty-file-format.md
+  develop/reference/stj/stj_reference: ./develop/reference/stackstate-templating/template_functions.md
+  develop/reference/stj/using_stj: ./develop/reference/stackstate-templating/using_stackstate_templating.md
+  develop/reference/stj: ./develop/reference/stackstate-templating/README.md
+  setup/data-management/backup_restore/manual_topology_backup: ./setup/data-management/backup_restore/README.md

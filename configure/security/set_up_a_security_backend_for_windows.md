@@ -40,6 +40,7 @@ The executable receives a JSON payload from the standard input, containing the l
 
 The executable is expected to output to the standard output a JSON payload containing the:
 
+{% code lineNumbers="true" %}
 ```json
 {
   "secret1": {
@@ -52,6 +53,7 @@ The executable is expected to output to the standard output a JSON payload conta
   }
 }
 ```
+{% endcode %}
 
 The expected payload is a JSON object, where each key is one of the handles requested in the input payload. The value for each handle is a JSON object with two fields:
 
@@ -62,6 +64,7 @@ The expected payload is a JSON object, where each key is one of the handles requ
 
 The following is a dummy implementation of the secret reader that is prefixing every secret with `decrypted_`:
 
+{% code lineNumbers="true" %}
 ```golang
 package main
 
@@ -102,6 +105,7 @@ func main() {
   fmt.Printf(string(output))
 }
 ```
+{% endcode %}
 
 Above example updates the following configuration \(from the check file\):
 
@@ -129,6 +133,7 @@ The `secret` command in the Agent CLI shows any errors related to your setup. Fo
 
 The command outputs ACL rights for the executable, as in the example from an Administrator PowerShell below:
 
+{% code lineNumbers="true" %}
 ```sh
 PS C:\> & '%PROGRAMFILES%\StackState\StackState Agent\embedded\agent.exe' secret
 === Checking executable rights ===
@@ -157,6 +162,7 @@ Secrets handle decrypted:
 - db_prod_user: from sqlserver.yaml
 - db_prod_password: from sqlserver.yaml
 ```
+{% endcode %}
 
 ### Debugging `secret_backend_command`
 
