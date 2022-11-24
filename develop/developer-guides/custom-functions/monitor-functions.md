@@ -18,7 +18,7 @@ To add a custom monitor function:
    * **Name** - A name to identify the monitor function.
    * **Description** - Optional. A description of the monitor function.
    * **User parameters** - These are parameters that must be specified in the monitor definition that runs the monitor function. For more details see the section [parameters](#parameters).
-   * **Script** - The groovy script run by the function. Currently, monitors only support scripts of type `ScriptFunctionBody`.
+   * **Script** - The groovy script run by the function. For more details see the section [script](#script).
    * **Identifier** - a StackState-URN-formatted value that uniquely identifies the monitor function. The identifier is used by the monitor definition during the invocation of this function.
 4. Click **CREATE** to save the monitor function.
    * The monitor function will be listed in the StackState UI page **Settings** >  **Functions** > **Monitor Functions**. It can be exported from here to use in a monitor or add to a template that is included in a custom StackPack.
@@ -84,27 +84,40 @@ To successfully invoke this function, a monitor must set a `value` for the requi
 
 ## Script
 
-### Available APIs
+The monitor function script is a Groovy script that will be run whenever the monitor function is invoked by a monitor. The script has access to all defined user parameters and can use the StackState [Telemetry script API](/develop/reference/scripting/script-apis/telemetry.md) to fetch Metric and Log data.
 
-Monitor functions can leverage existing StackState Script APIs, including:
+The script should return a result of type `MonitorHealthState` with the following details:
 
-- [**Telemetry**](/develop/reference/scripting/script-apis/telemetry.md) - used to fetch Metric and Log data,
-- [**Async**](/develop/reference/scripting/script-apis/async.md) - allowing for combining multiple asynchronous results in one computation,
-- [**View**](/develop/reference/scripting/script-apis/view.md) - StackState View related operations,
-- [**Component**](/develop/reference/scripting/script-apis/component.md) - StackState Component related operations.
+* `id` - An identifier for the monitor health state. This uniquely identifies a monitor health state between monitor runs.
+* `state` - A `HealthStateValue`. This will be the new health state of the monitor (`CLEAR`, `DEVIATING`, `CRITICAL`, `DISABLED` or `UNKNOWN`).
+* `topologyIdentifier` - The identifier of a component or relation that the monitor health state will bind to.
+* `displayTimeSeries` - Description of a timeseries that will be shown as a chart in the StackState UI.
 
-Additionally, the following Script APIs are optionally available. They are considered to be experimental:
+Example script:
 
-- [**Topology**](/develop/reference/scripting/script-apis/topology.md) - used to fetch Topology data,
-- [**Http**](/develop/reference/scripting/script-apis/http.md) - used to fetch external data via the HTTP protocol,
+```commandline
+def checkThreshold(points, threshold) {
+   points.any { point -> point.last() >= threshold }
+}
 
-{% hint style="success" "self-hosted info" %}
+metrics.then { result ->
+  def timeSeries = result.timeSeries
+  def state;
+  def topologyIdentifier = StringTemplate.runForTimeSeriesId(topologyMapping, timeSeries.id)
+  def displayTimeSeries = [[ _type: "DisplayTimeSeries", name: "Metric Chart", timeSeriesId: timeSeries.id, query: result.query]]
 
-To use the above, experimental APIs,  they must be explicitly named in your StackState configuration file by appending the following line at the end of the `etc/application_stackstate.conf` file.
+  if (checkThreshold(timeSeries.points, criticalValue)) {
+    state = "CRITICAL";
+  } else if (checkThreshold(timeSeries.points, deviatingValue)) {
+    state = "DEVIATING";
+  } else {
+    state = "CLEAR"
+  }
 
-`stackstate.featureSwitches.monitorEnableExperimentalAPIs = true`
+  return [ _type: "MonitorHealthState", id: timeSeries.id.toIdentifierString(), state: state, topologyIdentifier: topologyIdentifier, displayTimeSeries: displayTimeSeries ]
+}
+```
 
-{% endhint %}
 
 ## See also 
 
