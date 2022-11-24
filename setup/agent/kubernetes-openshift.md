@@ -62,7 +62,7 @@ StackState Cluster Agent is deployed as a Deployment. There is one instance for 
 * Topology and events data for all resources in the cluster are retrieved from the Kubernetes API
 * Control plane metrics are retrieved from the Kubernetes or OpenShift API
 
-Cluster checks configured here are run by the deployed [StackState Checks Agent](kubernetes.md#checks-agent) pod.
+Cluster checks configured here are run by the deployed [StackState Checks Agent](kubernetes-openshift.md#checks-agent) pod.
 
 # Setup
 
@@ -74,7 +74,7 @@ StackState Agent v2.18.x is supported to monitor the following versions of Kuber
   * Kubernetes 1.16 - 1.21
   * EKS (with Kubernetes 1.16 - 1.21)
 * OpenShift:
-  * OpenShift 4.3 - 4.8
+  * OpenShift 4.3 - 4.11
 * Default networking
 * Container runtime:
   * Docker

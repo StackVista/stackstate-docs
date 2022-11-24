@@ -18,7 +18,7 @@ Kubernetes is a [StackState core integration](/stackpacks/integrations/about_int
 
 The Kubernetes integration collects topology data in a Kubernetes cluster as well as metrics and events.
 
-* Data is retrieved by the deployed [StackState Agents](../../setup/agent/kubernetes.md#agent-types) and then pushed to StackState via the Agent StackPack and the Kubernetes StackPack.
+* Data is retrieved by the deployed [StackState Agents](../../setup/agent/kubernetes-openshift.md#agent-types) and then pushed to StackState via the Agent StackPack and the Kubernetes StackPack.
 * In StackState:
   * [Topology data](kubernetes.md#topology) is translated into components and relations.
   * [Tags](kubernetes.md#tags) defined in Kubernetes are added to components and relations in StackState.
@@ -65,7 +65,7 @@ For the Kubernetes integration to retrieve topology, events and metrics data, yo
 * StackState Checks Agent on one node
 * kube-state-metrics
 
-➡️ [Deploy StackState Agents and kube-state-metrics](../../setup/agent/kubernetes.md).
+➡️ [Deploy StackState Agents and kube-state-metrics](../../setup/agent/kubernetes-openshift.md).
 
 {% hint style="info" %}
 To integrate with other services, a separate instance of the [StackState Agent](../../setup/agent/about-stackstate-agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on a Kubernetes cluster with checks that integrate with other services.
@@ -73,7 +73,7 @@ To integrate with other services, a separate instance of the [StackState Agent](
 
 ### Configure kube-state-metrics
 
-The kubernetes\_state check is responsible for gathering metrics from kube-state-metrics and sending them to StackState. The kubernetes\_state check runs in the [StackState Checks Agent](../../setup/agent/kubernetes.md#checks-agent) by default and is configured in the [StackState Cluster Agent](../../setup/agent/kubernetes.md#cluster-agent).
+The kubernetes\_state check is responsible for gathering metrics from kube-state-metrics and sending them to StackState. The kubernetes\_state check runs in the [StackState Checks Agent](../../setup/agent/kubernetes-openshift.md#checks-agent) by default and is configured in the [StackState Cluster Agent](../../setup/agent/kubernetes-openshift.md#cluster-agent).
 
 The default URL that the kubernetes\_state check uses is:
 ```
@@ -330,7 +330,7 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 To uninstall the Kubernetes StackPack, go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **Kubernetes** screen and click **UNINSTALL**. All Kubernetes StackPack specific configuration will be removed from StackState.
 
-See the Kubernetes Agent documentation for instructions on [how to uninstall the StackState Cluster Agent and the StackState Agent](/setup/agent/kubernetes.md#uninstall) from your Kubernetes cluster.
+See the Kubernetes Agent documentation for instructions on [how to uninstall the StackState Cluster Agent and the StackState Agent](/setup/agent/kubernetes-openshift.md#uninstall) from your Kubernetes cluster.
 
 ## Release notes
 
@@ -369,7 +369,7 @@ See the Kubernetes Agent documentation for instructions on [how to uninstall the
 
 ## See also
 
-* [Deploy StackState Agent V2, the Cluster Agent and kube-state-metrics](../../setup/agent/kubernetes.md)
+* [Deploy StackState Agent V2, the Cluster Agent and kube-state-metrics](../../setup/agent/kubernetes-openshift.md)
 * [StackState Agent V2 StackPack](agent.md)
 * [StackState Agent Kubernetes check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/kubernetes)
 * [StackState Cluster Agent Helm Chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-agent)

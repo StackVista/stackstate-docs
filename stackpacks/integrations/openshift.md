@@ -18,7 +18,7 @@ OpenShift is a [StackState core integration](/stackpacks/integrations/about_inte
 
 The OpenShift integration collects topology data in an OpenShift cluster as well as metrics and events.
 
-* Data is retrieved by the deployed [StackState Agents](../../setup/agent/kubernetes.md#stackstate-agent-types) and then pushed to StackState via the Agent StackPack and the OpenShift StackPack.
+* Data is retrieved by the deployed [StackState Agents](../../setup/agent/kubernetes-openshift.md#stackstate-agent-types) and then pushed to StackState via the Agent StackPack and the OpenShift StackPack.
 * In StackState:
   * [Topology data](openshift.md#topology) is translated into components and relations.
   * [Tags](openshift.md#tags) defined in OpenShift are added to components and relations in StackState.
@@ -65,7 +65,7 @@ For the OpenShift integration to retrieve topology, events and metrics data, you
 * StackState Checks Agent on one node
 * kube-state-metrics
 
-➡️ [Deploy StackState Agents and kube-state-metrics](../../setup/agent/kubernetes.md).
+➡️ [Deploy StackState Agents and kube-state-metrics](../../setup/agent/kubernetes-openshift.md).
 
 {% hint style="info" %}
 To integrate with other services, a separate instance of the [StackState Agent](../../setup/agent/about-stackstate-agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on an OpenShift cluster with checks that integrate with other services.
@@ -73,7 +73,7 @@ To integrate with other services, a separate instance of the [StackState Agent](
 
 ### Configure kube-state-metrics
 
-The kubernetes\_state check is responsible for gathering metrics from kube-state-metrics and sending them to StackState. The kubernetes\_state check runs in the [StackState Checks Agent](../../setup/agent/kubernetes.md#checks-agent) by default and is configured in the [StackState Cluster Agent](../../setup/agent/kubernetes.md#cluster-agent).
+The kubernetes\_state check is responsible for gathering metrics from kube-state-metrics and sending them to StackState. The kubernetes\_state check runs in the [StackState Checks Agent](../../setup/agent/kubernetes-openshift.md#checks-agent) by default and is configured in the [StackState Cluster Agent](../../setup/agent/kubernetes-openshift.md#cluster-agent).
 
 The default URL that the kubernetes\_state check uses is:
 ```
@@ -333,7 +333,7 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 To uninstall the OpenShift StackPack, go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **OpenShift** screen and click **UNINSTALL**. All OpenShift StackPack specific configuration will be removed from StackState.
 
-See the Kubernetes Agent documentation for instructions on [how to uninstall the StackState Cluster Agent and the StackState Agent](/setup/agent/kubernetes.md#uninstall) from your Openshift cluster.
+See the Kubernetes Agent documentation for instructions on [how to uninstall the StackState Cluster Agent and the StackState Agent](/setup/agent/kubernetes-openshift.md#uninstall) from your Openshift cluster.
 
 ## Release notes
 

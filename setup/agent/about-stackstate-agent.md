@@ -17,7 +17,7 @@ StackState Agent V2 can be run on Linux or Windows systems or inside a Docker co
 ![StackState Agent architecture](../../.gitbook/assets/stackstate-agent.svg)
 
 * In [Docker Swarm mode](docker.md#docker-swarm-mode), the Cluster Agent is deployed on the manager node and one Agent on each node.
-* On [Kubernetes or OpenShift](kubernetes.md) clusters, a single Cluster Agent is deployed per cluster and one Agent on each node. The Checks Agent runs checks that are configured on the Cluster Agent.
+* On [Kubernetes or OpenShift](kubernetes-openshift.md) clusters, a single Cluster Agent is deployed per cluster and one Agent on each node. The Checks Agent runs checks that are configured on the Cluster Agent.
 
 ### Integrations
 
@@ -70,7 +70,7 @@ On Kubernetes, limits are placed on CPU and memory usage of the Agent, Cluster A
 Deployment instructions, commands to work with StackState Agent V2 and other platform-specific details can be found on the pages listed below:
 
 * [StackState Agent V2 on Docker](docker.md)
-* [StackState Agent V2 on Kubernetes](kubernetes.md)
+* [StackState Agent V2 on Kubernetes](kubernetes-openshift.md)
 * [StackState Agent V2 on Linux](linux.md)
 * [StackState Agent V2 on Windows](windows.md)
 
@@ -132,7 +132,7 @@ For the StackState SaaS product, the StackState Receiver API key will be provide
 For details of how to set the Agent log level to debug and access the Agent logs, see the platform-specific Agent pages:
 
 * [StackState Agent V2 on Docker](docker.md#troubleshooting)
-* [StackState Agent V2 on Kubernetes](kubernetes.md#troubleshooting)
+* [StackState Agent V2 on Kubernetes](kubernetes-openshift.md#troubleshooting)
 * [StackState Agent V2 on Linux](linux.md#troubleshooting)
 * [StackState Agent V2 on Windows](windows.md#troubleshooting)
 
