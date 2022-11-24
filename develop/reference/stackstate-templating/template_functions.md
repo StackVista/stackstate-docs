@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-StackState Template JSON \(STJ\) incorporates several custom handlebars functions that can be used, for example, to get existing nodes from the graph, create new nodes or join texts together. The available StackState functions are described below.
+StackState Template JSON (STJ) and StackState Template YAML (STY) incorporate several custom handlebars functions that can be used, for example, to get existing nodes from the graph, create new nodes or join texts together. The available StackState functions are described below.
 
 ## StackState handlebars functions
 
@@ -153,29 +153,25 @@ For details on the filename, see [StackPack packaging](../../developer-guides/st
 
 #### Examples
 
-* Include a script:
+* Include a script in a StackPack:
 
 {% tabs %}
 {% tab title="Template" %}
-```text
-{
-  "_type": "CheckFunction",
-  "description": "Converts AWS state to StackState run state",
-  "identifier": "urn:stackpack:aws:shared:check-function:aws-event-run-state",
-  "name": "AWS event run state",
-  "parameters": [
-    {
-      "_type": "Parameter",
-      "multiple": false,
-      "name": "events",
-      "required": true,
-      "system": false,
-      "type": "EVENT_STREAM"
-    }
-  ],
-  "returnTypes": [ "RUN_STATE" ],
-  "script": "{{ include "./scripts/AWS event run state.groovy" }}"
-}
+```yaml
+_type: CheckFunction
+description: Converts AWS state to StackState run state
+identifier: urn:stackpack:aws:shared:check-function:aws-event-run-state
+name: AWS event run state
+parameters:
+  - _type: Parameter
+    multiple: false
+    name: events
+    required: true
+    system: false
+    type: EVENT_STREAM
+returnTypes:
+  - RUN_STATE
+script: "{{ include "./scripts/AWS event run state.groovy" }}"
 ```
 {% endtab %}
 
@@ -184,25 +180,21 @@ The file `/provisioning/script/AWS event run state.groovy` in the AWS StackPack 
 {% endtab %}
 
 {% tab title="Result" %}
-```text
-{
-  "_type": "CheckFunction",
-  "description": "Converts AWS state to StackState run state",
-  "identifier": "urn:stackpack:aws:shared:check-function:aws-event-run-state",
-  "name": "AWS event run state",
-  "parameters": [
-    {
-      "_type": "Parameter",
-      "multiple": false,
-      "name": "events",
-      "required": true,
-      "system": false,
-      "type": "EVENT_STREAM"
-    }
-  ],
-  "returnTypes": [ "RUN_STATE" ],
-  "script": "return RUNNING"
-}
+```yaml
+_type: CheckFunction
+description: Converts AWS state to StackState run state
+identifier: urn:stackpack:aws:shared:check-function:aws-event-run-state
+name: AWS event run state
+parameters:
+  - _type: Parameter
+    multiple: false
+    name: events
+    required: true
+    system: false
+    type: EVENT_STREAM
+returnTypes:
+  - RUN_STATE
+script: "return RUNNING"
 ```
 {% endtab %}
 {% endtabs %}
@@ -211,13 +203,11 @@ The file `/provisioning/script/AWS event run state.groovy` in the AWS StackPack 
 
 {% tabs %}
 {% tab title="Template" %}
-```text
-{
-  "_type": "ComponentType",
-  "identifier": "urn:stackpack:aws:shared:component-type:aws.cloudformation",
-  "name": "aws.cloudformation",
-  "iconbase64": "{{ include "./icons/aws.cloudformation.png" "base64" }}"
-}
+```yaml
+_type: ComponentType
+identifier: urn:stackpack:aws:shared:component-type:aws.cloudformation
+name: aws.cloudformation
+iconbase64: "{{ include "./icons/aws.cloudformation.png" "base64" }}"
 ```
 {% endtab %}
 
@@ -226,13 +216,11 @@ The file `/provisioning/icons/aws.cloudformation.png` contains an image of the A
 {% endtab %}
 
 {% tab title="Result" %}
-```text
-{
-  "_type": "ComponentType",
-  "identifier": "urn:stackpack:aws:shared:component-type:aws.cloudformation",
-  "name": "aws.cloudformation",
-  "iconbase64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAfkYAhBBGAIQQCgAhhAJACKEAEEIoAIQQCgAhhAJACKEAEEIoAIQQCgAhhAJACKEAEEIoAIQQCgAhhAJACKEAEEL65P8BEaL9HlGPnesAAAAASUVORK5CYII"
-}
+```yaml
+_type: ComponentType
+identifier: urn:stackpack:aws:shared:component-type:aws.cloudformation
+name: aws.cloudformation
+iconbase64: data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAfkYAhBBGAIQQCgAhhAJACKEAEEIoAIQQCgAhhAJACKEAEEIoAIQQCgAhhAJACKEAEEIoAIQQCgAhhAJACKEAEEL65P8BEaL9HlGPnesAAAAASUVORK5CYII
 ```
 {% endtab %}
 {% endtabs %}
@@ -328,5 +316,5 @@ Joins array or map data as a text usign a separator, prefix and suffix. This is 
 
 ## See also
 
-* [Using StackState Template JSON \(STJ\)](using_stj.md)
+* [Using StackState templating](using_stackstate_templating.md)
 

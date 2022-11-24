@@ -47,37 +47,28 @@ A user parameter of type **Telemetry query** can be added to a monitor function.
 
 The telemetry query parameter type will ensure that the provided query is well-formed - in case of any syntactic or type errors, a suitable error will be reported. This will prevent execution of the monitor function with potentially bogus values.
 
-➡️ [Learn how to specify a telemetry query in a monitor definition file](/develop/developer-guides/monitors/monitor-stj-file-format.md#telemetry-query)
+➡️ [Learn how to specify a telemetry query in a monitor definition file](/develop/developer-guides/monitors/monitor-sty-file-format.md#telemetry-query)
 
 ### Values
 
-Values for the defined user parameters are passed to the monitor function from the monitor. The monitor definition that invokes a monitor function must include `arguments` that set a `value` for each user parameter in the monitor function.
+Values for the defined user parameters are passed to the monitor function from the monitor. The monitor definition that invokes a monitor function must include `arguments` that set a value for each user parameter in the monitor function.
 
-➡️ [Learn more about parameter values in a monitor definition file](/develop/developer-guides/monitors/monitor-stj-file-format.md#arguments)
+➡️ [Learn more about parameter values in a monitor definition file](/develop/developer-guides/monitors/monitor-sty-file-format.md#arguments)
 
 Below is an example monitor function with one user parameter defined. The parameter is named `latest_metrics` and is of type **Telemetry query**. The **required** switch is set to **on**, meaning that the parameter must have a value set when the function is invoked. 
 
 ![`latest_metrics` user parameter in a monitor function](/.gitbook/assets/v51_latest_metrics_user_parameter.png)
 
-To successfully invoke this function, a monitor must set a `value` for the required `latest_metrics` parameter. This is done by adding an `arguments` block similar to the one shown below to the monitor definition file. The `value` shown here includes an example telemetry query, this would be run to provide telemetry to the monitor function.
+To successfully invoke this function, a monitor must set a value for the required `latest_metrics` parameter. This is done by adding an `arguments` block similar to the one shown below to the monitor definition file. The value shown here includes an example telemetry query, this would be run to provide telemetry to the monitor function.
 
 {% code title="Monitor definition JSON" lineNumbers="true" %}
-```json
-{
-  "_version": "1.0.39",
-  "timestamp": "2022-05-23T13:16:27.369269Z[GMT]",
-  "nodes": [
-    {
-      ...
-      "arguments": [{
-        "_type": "ArgumentScriptMetricQueryVal",
-        "parameter": {{ get "<identifier-of-the-function>" "Type=Parameter;Name=latest_metrics" }},
-        "value": "Telemetry.query('StackState Metrics', '').groupBy('tags.pid', 'tags.createTime', 'host').metricField('cpu_systemPct').start('-1m').aggregation('mean', '15s')"
-      }],
-      ...
-    }
-  ]
-}
+```yaml
+_version: "1.0.39"
+timestamp: "2022-05-23T13:16:27.369269Z[GMT]"
+nodes:
+  - ...
+    arguments:
+      latest_metrics: "Telemetry.query('StackState Metrics', '').groupBy('tags.pid', 'tags.createTime', 'host').metricField('cpu_systemPct').start('-1m').aggregation('mean', '15s')"
   
 ```
 {% endcode %}

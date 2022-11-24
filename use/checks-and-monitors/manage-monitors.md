@@ -28,13 +28,13 @@ Monitor configuration can be changed by modifying the monitor definition.
 1. Find the ID or the identifier of the monitor to be modified. For example:
    * **In the StackState UI:** Inspect the monitor definition using the context menu (...) of the [monitor result panel](/use/checks-and-monitors/monitors.md#monitor-results).
    * **In the StackState CLI:** List the monitors using `sts monitor list` or `stac monitor list`.
-2. Export the monitor definition into a file named `path/to/export.stj`:
-   * **new `sts` CLI**: `sts settings describe --ids <id-of-a-monitor> -f path/to/export.stj`
-   * **`stac` CLI**: `stac monitor describe <id-or-identifier-of-a-monitor> > path/to/export.stj`[](http://not.a.link "StackState Self-Hosted only")
+2. Export the monitor definition into a file named `path/to/export.sty`:
+   * **new `sts` CLI**: `sts settings describe --ids <id-of-a-monitor> -f path/to/export.sty`
+   * **`stac` CLI**: `stac monitor describe <id-or-identifier-of-a-monitor> > path/to/export.sty`[](http://not.a.link "StackState Self-Hosted only")
 3. Modify the exported file to change the monitor `parameters` or `intervalSeconds`.
 4. Apply the changes to the monitor:
-   * **new `sts` CLI**: `sts monitor apply -f path/to/export.stj`
-   * **`stac` CLI**: `stac monitor apply < path/to/export.stj`[](http://not.a.link "StackState Self-Hosted only")
+   * **new `sts` CLI**: `sts monitor apply -f path/to/export.sty`
+   * **`stac` CLI**: `stac monitor apply < path/to/export.sty`[](http://not.a.link "StackState Self-Hosted only")
 
 Once applied, the updated monitor definition will be in effect. Changes will be reflected with the next execution cycle.
 
@@ -42,32 +42,27 @@ Once applied, the updated monitor definition will be in effect. Changes will be 
 
 The monitor runner schedules monitor execution using an interval parameter that is configured on a per-monitor basis - the `intervalSeconds`. The runner will attempt to schedule a monitor execution every `intervalSeconds`, counting from the end of the previous execution cycle, in parallel to the other existing monitors (subject to resource limits). For example, setting `intervalSeconds` of a monitor definition to the value `600` will cause the monitor runner to attempt to schedule the execution of this monitor every ten minutes, assuming that the execution time itself is negligible.
 
-To set a new run interval for a monitor, adjust the `intervalSeconds` parameter in the monitor STJ definition as described in the instructions to [edit the monitor](#edit).
+To set a new run interval for a monitor, adjust the `intervalSeconds` parameter in the monitor STY definition as described in the instructions to [edit the monitor](#edit).
 
 For example, to run the monitor every 5 minutes, set the `intervalSeconds` to `300`.
 
 {% tabs %}
-{% tab title="Monitor STJ definition" %}
+{% tab title="Monitor STY definition" %}
 {% code lineNumbers="true" %}
-```sh
-{
-  "_version": "1.0.39",
-  "timestamp": "2022-05-23T13:16:27.369269Z[GMT]",
-  "nodes": [
-    {
-      "_type": "Monitor",
-      "name": "CPU Usage",
-      "description": "A simple CPU-usage monitor. If the metric is above a given threshold, the state is set to CRITICAL.",
-      "identifier": "urn:system:default:monitor:cpu-usage",
-      "remediationHint": "Turn it off and on again.",
-      "function": {{ get "urn:system:default:monitor-function:metric-above-threshold" }},
-      "arguments": [
-        ...
-      ],
-      "intervalSeconds": 300
-    }
-  ]
-}
+```yaml
+_version: "1.0.39"
+timestamp: "2022-05-23T13:16:27.369269Z[GMT]"
+nodes:
+  - _type: "Monitor"
+    name: "CPU Usage"
+    description: "A simple CPU-usage monitor. If the metric is above a given threshold, the state is set to CRITICAL."
+    identifier: "urn:system:default:monitor:cpu-usage"
+    remediationHint: "Turn it off and on again."
+    function: {{ get "urn:system:default:monitor-function:metric-above-threshold" }}
+    arguments:
+      -
+      ...
+    intervalSeconds": 300
 ```
 {% endcode %}
 {% endtab %}

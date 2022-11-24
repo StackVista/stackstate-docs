@@ -41,7 +41,7 @@
 * [Monitors](use/checks-and-monitors/monitors.md)
 * [Add a custom monitor](develop/developer-guides/monitors/create-custom-monitors.md)
 * [Manage monitors](use/checks-and-monitors/manage-monitors.md)
-* [Monitor STJ format](develop/developer-guides/monitors/monitor-stj-file-format.md)
+* [Monitor STY format](develop/developer-guides/monitors/monitor-sty-file-format.md)
 
 ## 🛑 Problem analysis
 
@@ -107,9 +107,9 @@
 ## 📖 Reference
 
 * [StackState Query Language \(STQL\)](develop/reference/stql_reference.md)
-* [StackState Template JSON \(STJ\)](develop/reference/stj/README.md)
-  * [Using STJ](develop/reference/stj/using_stj.md)
-  * [Template functions](develop/reference/stj/stj_reference.md)
+* [StackState Template JSON and YAML \(STJ/STY\)](develop/reference/stackstate-templating/README.md)
+  * [Using StackState templating](develop/reference/stackstate-templating/using_stackstate_templating.md)
+  * [Template functions](develop/reference/stackstate-templating/template_functions.md)
 * [StackState CLI](setup/cli/cli-sts.md)
 * [StackState SaaS release notes](setup/upgrade-stackstate/sts-saas-release-notes.md)
 

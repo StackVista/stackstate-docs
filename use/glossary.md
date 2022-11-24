@@ -49,6 +49,7 @@ Below you can find a short dictionary that can help you get a better grasp on th
 * **state** - See Health State.
 * **STQL \(StackState Query Language\)** - A built-in query language used to create advanced filters. It is a typed language, which means that each supported type of data is predefined as a part of STQL.
 * **STJ \(StackState Templated JSON\)** - A JSON file with StackState specific template placeholders.
+* **STY \(StackState Templated YAML\)** - A YAML file with StackState specific template placeholders.
 * **subject** - A user or a group with a scope.
 * **synchronization** - Consolidation of topology information from a data source.
 * **sync** - See synchronization.
