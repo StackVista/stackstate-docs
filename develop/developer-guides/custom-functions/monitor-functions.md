@@ -93,8 +93,9 @@ The script should return a result of type `MonitorHealthState` with the followin
 * `topologyIdentifier` - The identifier of a component or relation that the monitor health state will bind to.
 * `displayTimeSeries` - Description of a timeseries that will be shown as a chart in the StackState UI.
 
-Example script:
+Example monitor function script:
 
+{% code overflow="wrap" lineNumbers="true" %}
 ```commandline
 def checkThreshold(points, threshold) {
    points.any { point -> point.last() >= threshold }
@@ -117,7 +118,7 @@ metrics.then { result ->
   return [ _type: "MonitorHealthState", id: timeSeries.id.toIdentifierString(), state: state, topologyIdentifier: topologyIdentifier, displayTimeSeries: displayTimeSeries ]
 }
 ```
-
+{% endcode %}
 
 ## See also 
 
