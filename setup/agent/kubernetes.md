@@ -155,11 +155,11 @@ If StackState Agent will run in an environment that does not have a direct conne
       * Add the `-t` (dry-run) parameter to the script to give a predictive output of what work will be performed, for example:
          ```text
          ./backup.sh -t
-         Backing up quay.io/stackstate/stackstate-agent-2:2.18.0 to stackstate/stackstate-agent-2__2.18.0.tar (dry-run)
-         Backing up quay.io/stackstate/stackstate-process-agent:4.0.7 to stackstate/stackstate-process-agent__4.0.7.tar (dry-run)
+         Backing up quay.io/stackstate/stackstate-agent-2:2.19.1 to stackstate/stackstate-agent-2__2.19.1.tar (dry-run)
+         Backing up quay.io/stackstate/stackstate-process-agent:4.0.10 to stackstate/stackstate-process-agent__4.0.7.tar (dry-run)
          Backing up quay.io/stackstate/kube-state-metrics:2.3.0-focal-20220316-r61.20220418.2032 to stackstate/kube-state-metrics__2.3.0-focal-20220316-r61.20220418.2032.tar (dry-run)
-         Backing up quay.io/stackstate/stackstate-agent-cluster-agent:2.18.0 to stackstate/stackstate-agent-cluster-agent__2.18.0.tar (dry-run)
-         Backing up quay.io/stackstate/stackstate-agent-2:2.18.0 to stackstate/stackstate-agent-2__2.18.0.tar (dry-run)
+         Backing up quay.io/stackstate/stackstate-agent-cluster-agent:2.19.1 to stackstate/stackstate-agent-cluster-agent__2.19.1.tar (dry-run)
+         Backing up quay.io/stackstate/stackstate-agent-2:2.19.1 to stackstate/stackstate-agent-2__2.19.1.tar (dry-run)
          Images have been backed up to stackstate.tar.gz
          ```
 
@@ -187,25 +187,25 @@ In the example below, the StackState Agent images will be extracted from the arc
 Unzipping archive stackstate.tar.gz
 x stackstate/
 x stackstate/stackstate-process-agent__4.0.7.tar
-x stackstate/stackstate-agent-2__2.18.0.tar
+x stackstate/stackstate-agent-2__2.19.1.tar
 x stackstate/kube-state-metrics__2.3.0-focal-20220316-r61.20220418.2032.tar
-x stackstate/stackstate-agent-cluster-agent__2.18.0.tar
+x stackstate/stackstate-agent-cluster-agent__2.19.1.tar
 Restoring stackstate/kube-state-metrics:2.3.0-focal-20220316-r61.20220418.2032 from kube-state-metrics__2.3.0-focal-20220316-r61.20220418.2032.tar (dry-run)
 Imported quay.io/stackstate/kube-state-metrics:2.3.0-focal-20220316-r61.20220418.2032
 Tagged quay.io/stackstate/kube-state-metrics:2.3.0-focal-20220316-r61.20220418.2032 as localhost/stackstate/kube-state-metrics:2.3.0-focal-20220316-r61.20220418.2032
 Untagged: quay.io/stackstate/kube-state-metrics:2.3.0-focal-20220316-r61.20220418.2032
-Restoring stackstate/stackstate-agent-2:2.18.0 from stackstate-agent-2__2.18.0.tar (dry-run)
-Imported quay.io/stackstate/stackstate-agent-2:2.18.0
-Tagged quay.io/stackstate/stackstate-agent-2:2.18.0 as localhost/stackstate/stackstate-agent-2:2.18.0
-Untagged: quay.io/stackstate/stackstate-agent-2:2.18.0
-Restoring stackstate/stackstate-agent-cluster-agent:2.18.0 from stackstate-cluster-agent__2.18.0.tar (dry-run)
-Imported quay.io/stackstate/stackstate-agent-cluster-agent:2.18.0
-Tagged quay.io/stackstate/stackstate-agent-cluster-agent:2.18.0 as localhost/stackstate/stackstate-cluster-agent:2.18.0
-Untagged: quay.io/stackstate/stackstate-agent-cluster-agent:2.18.0
-Restoring stackstate/stackstate-process-agent:4.0.7 from stackstate-process-agent__4.0.7.tar (dry-run)
-Imported quay.io/stackstate/stackstate-process-agent:4.0.7
-Tagged quay.io/stackstate/stackstate-process-agent:4.0.7 as localhost/stackstate/stackstate-process-agent:4.0.7
-Untagged: quay.io/stackstate/stackstate-process-agent:4.0.7
+Restoring stackstate/stackstate-agent-2:2.19.1 from stackstate-agent-2__2.19.1.tar (dry-run)
+Imported quay.io/stackstate/stackstate-agent-2:2.19.1
+Tagged quay.io/stackstate/stackstate-agent-2:2.19.1 as localhost/stackstate/stackstate-agent-2:2.19.1
+Untagged: quay.io/stackstate/stackstate-agent-2:2.19.1
+Restoring stackstate/stackstate-agent-cluster-agent:2.19.1 from stackstate-cluster-agent__2.19.1.tar (dry-run)
+Imported quay.io/stackstate/stackstate-agent-cluster-agent:2.19.1
+Tagged quay.io/stackstate/stackstate-agent-cluster-agent:2.19.1 as localhost/stackstate/stackstate-cluster-agent:2.19.1
+Untagged: quay.io/stackstate/stackstate-agent-cluster-agent:2.19.1
+Restoring stackstate/stackstate-process-agent:4.0.10 from stackstate-process-agent__4.0.7.tar (dry-run)
+Imported quay.io/stackstate/stackstate-process-agent:4.0.10
+Tagged quay.io/stackstate/stackstate-process-agent:4.0.10 as localhost/stackstate/stackstate-process-agent:4.0.10
+Untagged: quay.io/stackstate/stackstate-process-agent:4.0.10
 Images have been imported up to localhost
 ```
 
