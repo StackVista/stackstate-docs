@@ -40,7 +40,7 @@ description: StackState Self-hosted v5.1.x
         <tr>
             <td><strong>OpenShift</strong></td>
             <td><a href="/stackpacks/integrations/openshift.md">openshift</a></td>
-            <td><a href="/.gitbook/assets/gitbook-card-image_openshift.jpg">gitbook-card-image_openshift.jpg</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_tomcat.jpg">gitbook-card-image_openshift.jpg</a></td>
         </tr>
         <tr>
             <td><strong>OpenTelemetry</strong></td>
