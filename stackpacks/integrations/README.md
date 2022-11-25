@@ -172,15 +172,30 @@ description: StackState Self-hosted v5.1.x
             <td><a href="/stackpacks/integrations/solarwinds.md">solarwinds</a></td>
             <td><a href="/.gitbook/assets/gitbook-card-image_solarwinds.jpg">gitbook-card-image_solarwinds.jpg</a></td>
         </tr>
+        <tr>
+            <td><strong>Static Health</strong></td>
+            <td><a href="/stackpacks/integrations/static-health.md">static-health</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_static-health.jpg">gitbook-card-image_static-health.jpg</a></td>
+        </tr>
+        <tr>
+            <td><strong>Static Topology</strong></td>
+            <td><a href="/stackpacks/integrations/static-topology.md">static-topology</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_static-topology.jpg">gitbook-card-image_static-topology.jpg</a></td>
+        </tr>
+        <tr>
+            <td><strong>Traefik</strong></td>
+            <td><a href="/stackpacks/integrations/traefik.md">traefik</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_traefik.jpg">gitbook-card-image_traefik.jpg</a></td>
+        </tr>
+        <tr>
+            <td><strong>WMI</strong></td>
+            <td><a href="/stackpacks/integrations/wmi.md">wmi</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_wmi.jpg">gitbook-card-image_wmi.jpg</a></td>
+        </tr>
+        <tr>
+            <td><strong>Zabbix</strong></td>
+            <td><a href="/stackpacks/integrations/zabbix.md">zabbix</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_zabbix.jpg">gitbook-card-image_zabbix.jpg</a></td>
+        </tr>
     </tbody>
 </table>
-
-{% page-ref page="static_health.md" %}
-
-{% page-ref page="static_topology.md" %}
-
-{% page-ref page="traefik.md" %}
-
-{% page-ref page="wmi.md" %}
-
-{% page-ref page="zabbix.md" %}
