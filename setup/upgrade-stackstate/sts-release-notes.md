@@ -108,6 +108,12 @@ The StackState v5.1 release is the last release containing the `stac` CLI. The n
 
 Before you upgrade, [check the version specific upgrade instructions](/setup/upgrade-stackstate/version-specific-upgrade-instructions.md).
 
+### v5.0.8
+
+**Bug fixes**
+
+- Fixed issue that prevented the retrieval of CloudWatch metrics for global AWS resources. STAC-18460
+
 ### v5.0.7
 
 **Bug fixes**
