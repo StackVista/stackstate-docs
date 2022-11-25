@@ -157,14 +157,23 @@ description: StackState Self-hosted v5.1.x
             <td><a href="/stackpacks/integrations/prometheus.md">prometheus</a></td>
             <td><a href="/.gitbook/assets/gitbook-card-image_prometheus.jpg">gitbook-card-image_prometheus.jpg</a></td>
         </tr>
+        <tr>
+            <td><strong>SAP</strong></td>
+            <td><a href="/stackpacks/integrations/sap.md">sap</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_sap.jpg">gitbook-card-image_sap.jpg</a></td>
+        </tr>
+        <tr>
+            <td><strong>SCOM</strong></td>
+            <td><a href="/stackpacks/integrations/scom.md">scom</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_scom.jpg">gitbook-card-image_scom.jpg</a></td>
+        </tr>
+        <tr>
+            <td><strong>SolarWinds</strong></td>
+            <td><a href="/stackpacks/integrations/solarwinds.md">solarwinds</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_solarwinds.jpg">gitbook-card-image_solarwinds.jpg</a></td>
+        </tr>
     </tbody>
 </table>
-
-{% page-ref page="sap.md" %}
-
-{% page-ref page="scom.md" %}
-
-{% page-ref page="solarwinds.md" %}
 
 {% page-ref page="static_health.md" %}
 
