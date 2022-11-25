@@ -142,15 +142,23 @@ description: StackState Self-hosted v5.1.x
             <td><a href="/stackpacks/integrations/nagios.md">nagios</a></td>
             <td><a href="/.gitbook/assets/gitbook-card-image_nagios.jpg">gitbook-card-image_nagios.jpg</a></td>
         </tr>
+        <tr>
+            <td><strong>OpenMetrics</strong></td>
+            <td><a href="/stackpacks/integrations/openmetrics.md">openmetrics</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_openmetrics.jpg">gitbook-card-image_openmetrics.jpg</a></td>
+        </tr>
+        <tr>
+            <td><strong>Postgres</strong></td>
+            <td><a href="/stackpacks/integrations/postgres.md">postgres</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_postgres.jpg">gitbook-card-image_postgres.jpg</a></td>
+        </tr>
+        <tr>
+            <td><strong>Prometheus</strong></td>
+            <td><a href="/stackpacks/integrations/prometheus.md">prometheus</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_prometheus.jpg">gitbook-card-image_prometheus.jpg</a></td>
+        </tr>
     </tbody>
 </table>
-
-
-{% page-ref page="openmetrics.md" %}
-
-{% page-ref page="postgresql.md" %}
-
-{% page-ref page="prometheus.md" %}
 
 {% page-ref page="sap.md" %}
 
