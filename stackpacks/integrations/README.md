@@ -112,6 +112,21 @@ description: StackState Self-hosted v5.1.x
             <td><a href="/stackpacks/integrations/elasticsearch.md">elasticsearch</a></td>
             <td><a href="/.gitbook/assets/gitbook-card-image_elasticsearch.jpg">gitbook-card-image_elasticsearch.jpg</a></td>
         </tr>
+        <tr>
+            <td><strong>Humio</strong></td>
+            <td><a href="/stackpacks/integrations/humio.md">humio</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_humio.jpg">gitbook-card-image_humio.jpg</a></td>
+        </tr>
+        <tr>
+            <td><strong>Java APM</strong></td>
+            <td><a href="/stackpacks/integrations/java-apm.md">java-apm</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_java-apm.jpg">gitbook-card-image_java-apm.jpg</a></td>
+        </tr>
+        <tr>
+            <td><strong>JMX</strong></td>
+            <td><a href="/stackpacks/integrations/jmx.md">jmx</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_jmx.jpg">gitbook-card-image_jmx.jpg</a></td>
+        </tr>
     </tbody>
 </table>
 
