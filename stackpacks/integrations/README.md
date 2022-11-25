@@ -127,21 +127,24 @@ description: StackState Self-hosted v5.1.x
             <td><a href="/stackpacks/integrations/jmx.md">jmx</a></td>
             <td><a href="/.gitbook/assets/gitbook-card-image_jmx.jpg">gitbook-card-image_jmx.jpg</a></td>
         </tr>
+        <tr>
+            <td><strong>Logz.io</strong></td>
+            <td><a href="/stackpacks/integrations/logz.md">logz</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_logz.jpg">gitbook-card-image_logz.jpg</a></td>
+        </tr>
+        <tr>
+            <td><strong>MySQL</strong></td>
+            <td><a href="/stackpacks/integrations/mysql.md">mysql</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_mysql.jpg">gitbook-card-image_mysql.jpg</a></td>
+        </tr>
+        <tr>
+            <td><strong>Nagios</strong></td>
+            <td><a href="/stackpacks/integrations/nagios.md">nagios</a></td>
+            <td><a href="/.gitbook/assets/gitbook-card-image_nagios.jpg">gitbook-card-image_nagios.jpg</a></td>
+        </tr>
     </tbody>
 </table>
 
-
-{% page-ref page="humio.md" %}
-
-{% page-ref page="java-apm.md" %}
-
-{% page-ref page="jmx.md" %}
-
-{% page-ref page="logz.md" %}
-
-{% page-ref page="mysql.md" %}
-
-{% page-ref page="nagios.md" %}
 
 {% page-ref page="openmetrics.md" %}
 
