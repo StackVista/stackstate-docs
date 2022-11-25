@@ -149,7 +149,7 @@ description: StackState Self-hosted v5.1.x
         </tr>
         <tr>
             <td><strong>Postgres</strong></td>
-            <td><a href="/stackpacks/integrations/postgres.md">postgres</a></td>
+            <td><a href="/stackpacks/integrations/postgresql.md">postgresql</a></td>
             <td><a href="/.gitbook/assets/gitbook-card-image_postgres.jpg">gitbook-card-image_postgres.jpg</a></td>
         </tr>
         <tr>
@@ -174,12 +174,12 @@ description: StackState Self-hosted v5.1.x
         </tr>
         <tr>
             <td><strong>Static Health</strong></td>
-            <td><a href="/stackpacks/integrations/static-health.md">static-health</a></td>
+            <td><a href="/stackpacks/integrations/static_health.md">static_health</a></td>
             <td><a href="/.gitbook/assets/gitbook-card-image_static-health.jpg">gitbook-card-image_static-health.jpg</a></td>
         </tr>
         <tr>
             <td><strong>Static Topology</strong></td>
-            <td><a href="/stackpacks/integrations/static-topology.md">static-topology</a></td>
+            <td><a href="/stackpacks/integrations/static_topology.md">static_topology</a></td>
             <td><a href="/.gitbook/assets/gitbook-card-image_static-topology.jpg">gitbook-card-image_static-topology.jpg</a></td>
         </tr>
         <tr>
