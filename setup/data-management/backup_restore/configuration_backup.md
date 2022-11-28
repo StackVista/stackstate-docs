@@ -265,7 +265,9 @@ For import currently we have a curl way: `curl -XPOST http://yourInstance/api/im
 
 ## Configuration Export Versioning
 
-As StackState evolves versioning of the exported Node elements is necessary. The export conf contains metadata stating the Node version \(`_version`\) which is useful in order to allow an autoupgrade to a more recent version of StackState and ensure compatibility.
+### Why versioning?
+
+As StackState evolves, versioning of the exported Node elements is necessary. The export conf contains metadata stating the Node version \(`_version`\) which is useful in order to allow an autoupgrade to a more recent version of StackState and ensure compatibility.
 
 ```text
 {
@@ -306,11 +308,11 @@ As StackState evolves versioning of the exported Node elements is necessary. The
 }
 ```
 
-## Supported Configuration Export version
+## Supported versions
 
 A configuration export is supported by versions of StackState that are equal or higher than the export's version and with the same major version \(see [semver](https://semver.org)\). The first configuration export version is _1.0.0_, and effectively any Node payload with a version below or missing the version field \(`_version`\) will be interpreted and auto-upgraded to version _1.0.0_.
 
-### For example:
+**For example:**
 
 Configuration export version _1.0.0_ was introduced in StackState version _1.14.0_
 Later configuration export version _1.1.0_ was introduced in StackState version _1.14.1_
@@ -318,7 +320,7 @@ Later configuration export version _2.0.0_ was introduced in StackState version 
 
 This means that Nodes with Configuration version _1.0.0_ will work on both StackState _1.14.0_ and _1.14.1_ but not in _1.15.0_ as a major configuration export version \(_2.0.0_\) was introduced. It also means that configuration export version _1.1.0_ can only be used from StackState version _1.14.1_ but not before as in _1.14.0_
 
-### Configuration export versions
+### Available versions
 
 The table below displays configuration export versions and on which StackState versions they were introduced.
 
