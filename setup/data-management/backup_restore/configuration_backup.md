@@ -18,10 +18,10 @@ An export of the StackState configuration can be obtained from the StackState UI
 Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack configuration will not be included in the export.
 {% endhint %}
 
-To export configuration using the StackState CLI:
-
 {% tabs %}
 {% tab title="CLI: sts" %}
+
+To export configuration using the `sts` CLI, run the command:
 
 ```text
 # Output in terminal window
@@ -36,6 +36,9 @@ From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
 {% tab title="CLI: stac (deprecated)" %}
+
+To export configuration using the `stac` CLI (deprecated), run the command:
+
 ```text
 # Output in terminal window
 stac graph export
@@ -53,13 +56,6 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
 
 {% endtab %}
-{% tab title="curl" %}
-```text
-curl -X POST -H 'Content-Type: application/json;charset=UTF-8' \
-  -d '{}' \
-  "http://<host>:7070/api/export?timeoutSeconds=300" > export.stj
-```
-{% endtab %}
 {% endtabs %}
 
 ### curl
@@ -67,6 +63,8 @@ curl -X POST -H 'Content-Type: application/json;charset=UTF-8' \
 {% hint style="info" %}
 Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack configuration will not be included in the export.
 {% endhint %}
+
+To export configuration using curl, follow the steps below (with or without authentication):
 
 {% tabs %}
 {% tab title="curl with authentication" %}
@@ -124,12 +122,12 @@ To export configuration from the StackState UI:
 * Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack will not be included in configuration export files - **all configuration items will be unlocked after import**.
 {% endhint %}
 
-Before import, clear the StackState configuration by following the instructions at [clear stored data](/setup/data-management/clear_stored_data.md). 
-
-To import StackState configuration using the StackState CLI:
-
 {% tabs %}
 {% tab title="CLI: sts" %}
+
+To import StackState configuration using the `sts` CLI, follow the steps below.
+
+Before import, clear the StackState configuration by following the instructions at [clear stored data](/setup/data-management/clear_stored_data.md). 
 
 ```text
 sts settings apply --file <PATH_TO_FILE.stj>
@@ -140,6 +138,11 @@ From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}
 {% tab title="CLI: stac (deprecated)" %}
+
+To import StackState configuration using the `stac` CLI (deprecated), follow the steps below.
+
+Before import, clear the StackState configuration by following the instructions at [clear stored data](/setup/data-management/clear_stored_data.md). 
+
 ```text
 stac graph import < <PATH_TO_FILE.stj>
 ```
@@ -162,12 +165,12 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 * Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack will not be included in configuration export files - **all configuration items will be unlocked after import**.
 {% endhint %}
 
-Before import, clear the StackState configuration by following the instructions at [clear stored data](/setup/data-management/clear_stored_data.md). 
-
-To import StackState configuration using curl:
-
 {% tabs %}
 {% tab title="curl with authentication" %}
+
+To import StackState configuration using curl with authentication, follow the steps below.
+
+Before import, clear the StackState configuration by following the instructions at [clear stored data](/setup/data-management/clear_stored_data.md). 
 
 The `<api-token>` can be found on the **CLI** page in the StackState UI main menu.
 
@@ -189,6 +192,11 @@ export SESSION="<MY_SESSION>"; export CSRF_TOKEN="<MY_CSRF_TOKEN>"; \
 ```
 {% endtab %}
 {% tab title="curl without authentication" %}
+
+To import StackState configuration using curl without authentication, follow the steps below.
+
+Before import, clear the StackState configuration by following the instructions at [clear stored data](/setup/data-management/clear_stored_data.md). 
+
 ```text
 
 ## Import without authentication
@@ -308,7 +316,7 @@ As StackState evolves, versioning of the exported Node elements is necessary. Th
 }
 ```
 
-## Supported versions
+### Supported versions
 
 A configuration export is supported by versions of StackState that are equal or higher than the export's version and with the same major version \(see [semver](https://semver.org)\). The first configuration export version is _1.0.0_, and effectively any Node payload with a version below or missing the version field \(`_version`\) will be interpreted and auto-upgraded to version _1.0.0_.
 
