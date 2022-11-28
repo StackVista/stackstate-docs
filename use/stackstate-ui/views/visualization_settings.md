@@ -32,7 +32,7 @@ For example, if you have a business service visualization of a stack that comes 
 
 Topology visualizations of large numbers of components can become hard to read. StackState can group together components within the same view. Grouping brings the number of components and relations down to something visually more manageable.
 
-Grouping is enabled by default and respects the selected [grid options](visualization_settings.md#grid-options) - components must be in the same grid row/column to be grouped together.
+Grouping is enabled by default and respects the selected [grid options](visualization_settings.md#grid-options) - all components in a component group must be in the same grid row/column.
 
 Three types of grouping are available, or you can choose not to group components together:
 
