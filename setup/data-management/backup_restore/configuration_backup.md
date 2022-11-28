@@ -226,7 +226,9 @@ To import StackState configuration in the StackState UI:
 
 ![Import configuration from the StackState UI](../../../.gitbook/assets/v51_import_configuration.png)
 
-## Import/export individual configuration items
+## Advanced import/export
+
+### Individual configuration items
 
 It is possible to export and import individual configuration items through the StackState user interface. For example, to export or export a component type:
 
@@ -234,13 +236,13 @@ It is possible to export and import individual configuration items through the S
 2. To export an individual component type, click **Export as config**.
 3. To import a configuration item, click **Import Model**.
 
-## Idempotent import/export
+### Idempotent import/export
 
 There is a way to use identifiers and namespaces that come with them to perform a configuration update of the specific sets of nodes idempotently. This approach does not lead to duplicates, but checks for the changes within a specified namespace and applies them to existing nodes, including removing nodes, as well as allow for creating the new ones.
 
 Node identifiers are specified in a following pattern: `urn:stackpack:{stackpack_name}:{type_name}:{object_name}`. The namespace effectively used by this process is `urn:stackpack:{stackpack_name}:`. If every configuration node has an identifier and they are all in the same namespace, then you can perform an idempotent update using following STS CLI commands:
 
-For export:
+#### export
 
 {% tabs %}
 {% tab title="CLI: sts" %}
@@ -269,7 +271,15 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 {% endtab %}
 {% endtabs %}
 
-For import currently we have a curl way: `curl -XPOST http://yourInstance/api/import?namespace=urn:stackpack:{stackpack_name} --data @./filename -H 'Content-Type: application/json'`
+#### import
+
+{% tabs %}
+{% tab title="CLI: sts" %}
+```
+curl -XPOST http://yourInstance/api/import?namespace=urn:stackpack:{stackpack_name} --data @./filename -H 'Content-Type: application/json'
+```
+{% endtab %}
+{% endtabs %}
 
 ## Configuration Export Versioning
 
