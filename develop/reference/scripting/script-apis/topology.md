@@ -37,38 +37,38 @@ Query the topology at any point in time. Builder methods available for extractin
 * Get the test environment:
 
   ```text
-  Topology.query('environments in ("test")')
+  Topology.query('environment in ("test")')
   ```
 
 * Get the test environment yesterday:
 
   ```text
-  Topology.query('environments in ("test")').at('-1d')
+  Topology.query('environment in ("test")').at('-1d')
   ```
 
 * Get test environment one hour ago, two hours ago and three hours ago.
 
   ```text
-  Topology.query('environments in ("test")').at('-1h').repeatAt('-2h').repeatAt('-3h')
+  Topology.query('environment in ("test")').at('-1h').repeatAt('-2h').repeatAt('-3h')
   ```
 
 * Get the component that differ between the test and production environment:
 
   ```text
-  Topology.query('environments in ("test")').diff(Topology.query('environments in ("production")')).components()
+  Topology.query('environment in ("test")').diff(Topology.query('environment in ("production")')).components()
   ```
 
 * Get the difference between the test environment one week ago and now:
 
   ```text
-  def q = 'environments in ("test")'
+  def q = 'environment in ("test")'
   Topology.query(q).at('-1w').diff(Topology.query(q))
   ```
 
 * Get all the names of components from the test environment using [`thenCollect`](../async-script-result.md#transforming-a-list-using-thencollect):
 
   ```text
-  Topology.query('environments in ("test")')
+  Topology.query('environment in ("test")')
     .components()
     .thenCollect { it.name }
   ```
@@ -77,7 +77,7 @@ Query the topology at any point in time. Builder methods available for extractin
 
   ```text
     Topology
-    .query('environments in ("test")')
+    .query('environment in ("test")')
     .problems()
     .then{ problems -> 
         problems.isEmpty()? null : problems[0].failingCheckNames[0] 
