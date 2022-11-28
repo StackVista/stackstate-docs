@@ -226,7 +226,7 @@ To import StackState configuration in the StackState UI:
 
 ![Import configuration from the StackState UI](../../../.gitbook/assets/v51_import_configuration.png)
 
-## Export/import individual configuration items
+## Import/export individual configuration items
 
 It is possible to export and import individual configuration items through the StackState user interface. For example, to export or export a component type:
 
