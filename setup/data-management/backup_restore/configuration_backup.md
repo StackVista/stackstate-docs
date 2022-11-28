@@ -134,7 +134,7 @@ The `<api-token>` can be found on the **CLI** page in the StackState UI main men
 # Obtain session from cookie AkkaHttpPac4jSession
 # Obtain CSRF token from cookie pac4jCsrfToken
 curl --fail -v \
-  -H "Authorization: ApiToken <api-token>" <stackstate-api-endpoint> \
+  -H "Authorization: ApiToken <api-token>" \
   -H "Content-Type: application/x-www-form-urlencoded" \
   "http://<host>:7070/loginCallback"
 
