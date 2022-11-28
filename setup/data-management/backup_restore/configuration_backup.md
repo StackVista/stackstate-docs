@@ -67,25 +67,25 @@ To export configuration from the StackState UI:
 
 StackState server can be configured to authenticate users when they access the application. In this case, an export curl script is required to first obtain a token before making the export request. This is not necessary when using the StackState CLI as authentication details are configured during installation.
 
-Here is a sample sequence of curl commands to achieve this. The `<token>` used for authorization is available on the **CLI** page in the StackState UI main menu:
+Here is a sample sequence of curl commands to achieve this. The `<api-token>` used for authorization is available on the **CLI** page in the StackState UI main menu:
 
 {% tabs %}
 {% tab title="curl" %}
 ```text
 # Obtain session from cookie AkkaHttpPac4jSession
-# Obtain token from cookie pac4jCsrfToken
+# Obtain CSRF token from cookie pac4jCsrfToken
 curl --fail -v \
-  -H "Authorization: ApiToken <token>" <stackstate-api-endpoint> \
+  -H "Authorization: ApiToken <api-token>" \
   -H "Content-Type: application/x-www-form-urlencoded" \
   "http://<HOST>:7070/loginCallback"
 
 # Do actual request
-export SESSION="<MY_SESSION>"; export TOKEN="<MY_TOKEN>"; \
+export SESSION="<MY_SESSION>"; export CSRF_TOKEN="<MY_CSRF_TOKEN>"; \
   curl -v -X POST \
   -H 'Content-Type: application/json;charset=UTF-8' \
   -d '{}' \
   -H Cookie:AkkaHttpPac4jSession=$SESSION \
-  -H X-Sts-Token:$TOKEN \
+  -H X-Sts-Token:$CSRF_TOKEN \
   "http://<HOST>:7070/api/export?timeoutSeconds=300" > export.stj
 ```
 {% endtab %}
