@@ -72,7 +72,7 @@ When you log into your StackState instance, go to the **Explore Mode**. Using th
 
 ![](../../.gitbook/assets/v51_example-topology.png)
 
-Note that the components you see are hardcoded in the `example` agent check. The components appear in the **Example** domain and **Applications** and **Hosts** layers. The check produces two application components that StackState has grouped together. This is shown as a circle icon. Select the group to display the individual components that make up the group in the right panel details tab - **Group details**.
+Note that the components you see are hardcoded in the `example` Agent check. The components appear in the **Example** domain and **Applications** and **Hosts** layers. The check produces two application components that StackState has grouped together - you can see this in the badge on the component group icon. Select the component group to display the individual components that make up the group in the right panel details tab - **Group details**.
 
 Select a component to display detailed information about it in the right panel details tab - **Component details**. You'll see the component's labels and other metadata that the check sent.
 

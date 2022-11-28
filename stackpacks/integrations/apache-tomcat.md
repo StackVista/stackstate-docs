@@ -140,7 +140,7 @@ mydomain:attr0=val0,attr1=val1
 
 Your metric is mydomain \(or some variation depending on the attribute inside the bean\) and has the tags `attr0:val0, attr1:val1, domain:mydomain`.
 
-If you specify an alias in an `include` key that is formatted as _camel case_, it is converted to _snake case_. For example, `MyMetricName` is shown in StackState as `my_metric_name`.
+If you specify an alias in an `include` key that is formatted as _camel case_, it is converted to _snake case_. For example, StackState will show `MyMetricName` as `my_metric_name`.
 
 See the sample `tomcat.yaml` for all available configuration options.
 

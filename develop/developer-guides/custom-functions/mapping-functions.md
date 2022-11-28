@@ -20,7 +20,7 @@ To add a custom component or relation mapping function:
    * For relation mapping functions, go to: **Settings** > **Topology Synchronization** > **Relation Mapping Functions**
 2. Click **ADD COMPONENT MAPPING FUNCTION** or **ADD RELATION MAPPING FUNCTION**.
 3. Enter the required settings:
-   * **Name** - The name of the mapping function is shown on the settings page and in the topology synchronization that uses it. 
+   * **Name** - The mapping function name. Shown on the settings page and in the topology synchronization that uses it. 
    * **Description** - Optional. Describes the mapping function in further detail. Will be shown on the mapping function settings page.
    * **Parameters** - Mapping functions work with one system parameter `element`. This is used to process the component or relation JSON payload. It is not possible to add additional user parameters.
    * **Script** - Defines the logic of the mapping function using the Groovy scripting language.
@@ -67,13 +67,13 @@ Mapping functions are specified in step 3/5 of a topology synchronization. Here,
 
 #### Component
 
-The process and resulting component is shown here.
+Below you can see the process and resulting component.
 
 ![Component with label](/.gitbook/assets/v51_simple_mapping_result.png)
 
-1. **Component JSON** - The component JSON object that was sent to the StackState receiver as part of a larger JSON payload is shown on the left. The JSON defines a component with name **Application1**. The JSON payload is processed by the topology synchronization on which the mapping function was configured.
-2. **Mapping function script** - A part of the mapping function is shown at the bottom to show the value of the label.
-3. **Component template** - A part of the component template is shown in the center. In the component template, the `labels` payload is processed using the `join` helper, as shown on line 30. This iterates through each string in the label list and outputs the JSON block on lines 31 until 34. The `this` variable inside the `join` helper on line 33 is used access the current value in the iteration. In this example, there is only one label to be processed. This is because there is no `labels` key in the original JSON and the mapping function adds the only one. Lines 37 until 40 also define a fixed label. The label defined there will have the value `demo:demo`. This shows that, in this example, the mapping function could also be replaced by adding the appropriate label block directly in the component template.
+1. **Component JSON** - On the left you can see the component JSON object that was sent to the StackState receiver as part of a larger JSON payload. The JSON defines a component with name **Application1**. The JSON payload is processed by the topology synchronization on which the mapping function was configured.
+2. **Mapping function script** - At the bottom you can see a part of the mapping function. This demonstrates the value of the label.
+3. **Component template** - In the center you can see part of the component template. In the component template, the `labels` payload is processed using the `join` helper, as shown on line 30. This iterates through each string in the label list and outputs the JSON block on lines 31 until 34. The `this` variable inside the `join` helper on line 33 is used access the current value in the iteration. In this example, there is only one label to be processed. This is because there is no `labels` key in the original JSON and the mapping function adds the only one. Lines 37 until 40 also define a fixed label. The label defined there will have the value `demo:demo`. This shows that, in this example, the mapping function could also be replaced by adding the appropriate label block directly in the component template.
 4. **Component properties** - On the right is the Component Details tab of the **Application1** component after the JSON payload has been  processed by topology synchronization.  The **Application1** component has two labels:
    * The `demo:demo` label that was added by the component template. 
    * The `label-added-by-mapper-function` that was added by the mapping function .
@@ -87,7 +87,7 @@ This example is used for hosts reported by StackState Agent. The mapping functio
 
 #### Script
 
-The mapping function script is shown below.
+Below is the mapping function script.
 
 * Line 1 of the script sets the value of the key streams to be a list. 
 * The entries of that list are also added, as shown on lines 2 through to 14. Each entry will be a map of `key:value` pairs with enough information about the metric stream for the template to create the stream definition. Each entry contains the keys `name`, `metric`, `id`, and `priority`. 
@@ -130,18 +130,18 @@ The template and a resulting stream are shown here.
 
 ![Metric stream from mapping function](/.gitbook/assets/v51_dynamic_mapping_metric.png)
 
-From the mapping function, one entry from the **streams** list is shown at the top to illustrate how the component template handles the data. 
-The **streams** section of the component template is shown on the left. On the right, the resulting metric stream is shown.
+At the top you can see one entry from the mapping function **streams** list. This illustrates how the component template handles the data. 
+On the left you can see the **streams** section of the component template. The resulting metric stream is on the right.
 
-The template shows the streams block starting on line 53 in the screenshot above. For easy reference, the full streams block is shown below.
+The template shows the streams block starting on line 53 in the screenshot above. You can see the full streams block below for easy reference.
 
 * Line 2 in the streams block below shows the `join` helper being used to iterate over each entry in the streams list. 
 * Inside the `join` helper’s code block, a definition of a metric stream is placed. Each entry in the streams list adds a new stream definition to the resulting template JSON.  Variables are used to create stream blocks dynamically. These variables are available on each entry of the streams list. Each entry contains the following variables: `name`, `metric`, `id`, and `priority`. 
-* The `name` key is referenced on line 5 to add the value as the name of the stream. In the screenshot above, the resulting name of the stream is shown on the right. 
+* The `name` key is referenced on line 5 to add the value as the name of the stream. In the screenshot above, you can see the resulting name of the stream on the right. 
 * The `conditions` block on line 7 adds two conditions for each metric stream. 
 * Lines 8 through to 11 define a filter for the host. The value for that condition is obtained from `element.data.host` and not from the streams list. 
 * The condition on lines 12 through to 15 references the metric key provided by the streams list entry. 
-* In the screenshot above, the `name` condition is shown on the right, in the **Select** drop-down. 
+* In the screenshot above, you can see the `name` condition on the right, in the **Select** drop-down. 
 
 {% code title="Template streams block from line 53 in screenshot" lineNumbers="true" %}
 ```commandline

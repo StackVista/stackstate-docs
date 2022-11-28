@@ -21,7 +21,7 @@ A component consists of:
 
 ![Component details](/.gitbook/assets/v51_component_details.png)
 
-When a component is selected by clicking on it, detailed information about the component is shown in the right panel details tab - **Component details**. This includes:
+Click on a component to select it and show detailed information about it in the right panel details tab - **Component details**. This includes:
 
 * **Properties** - metadata, such as the component name, type and any labels. Click SHOW ALL PROPERTIES to open a pop-up with all details of the component, including the YAML definition.
 * **Relations** - the number of other components that the component is connected to, note that this will also include any connections the component has with components that sit outside the current view. Expand to see details of each [relation](/use/concepts/relations.md).

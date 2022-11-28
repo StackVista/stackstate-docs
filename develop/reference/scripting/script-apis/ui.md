@@ -144,7 +144,7 @@ If the user is currently in an unsaved view, the user receives a prompt dialog a
 
 ### Args
 
-* `query` - [STQL query](../../stql_reference.md) that selects what part of the topology is shown.
+* `query` - [STQL query](../../stql_reference.md) that selects the subset of the topology to be shown.
 
 ### Return type
 

@@ -11,7 +11,7 @@ StackState provides an out-of-the-box OpenTelemetry solution for serverless AWS 
 OpenTelemetry has the following benefits:
 
 - Lambda functions can include the OpenTelemetry Lambda Layer solution to collect trace data without the need to change any code.
-- The specific AWS Service that a Lambda communicates with is shown in StackState. 
+- StackState shows the specific AWS Service that a Lambda communicates with. 
 
 The StackState OpenTelemetry Lambda Layer can be used with AWS Lambda scripts running NodeJS 14.x (or later) and will transform the Topology in StackState as follows: 
 

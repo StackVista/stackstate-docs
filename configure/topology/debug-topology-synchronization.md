@@ -85,7 +85,7 @@ It's possible that a relation references a source or target component that does 
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-When StackState is deployed on Kubernetes, logs about synchronization can be found in the `stackstate-sync` pod and the `stackstate-api` pod. The name of the synchronization is shown in the log entries.
+When StackState is deployed on Kubernetes, logs about synchronization can be found in the `stackstate-sync` pod and the `stackstate-api` pod. The log entries include the name of the synchronization.
 
 * The `stackstate-sync` pod contains details of:
   * Template/mapping function errors.
