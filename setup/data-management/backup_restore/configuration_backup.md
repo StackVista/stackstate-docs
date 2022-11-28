@@ -97,7 +97,7 @@ Import is intended to be a one-off action - importing multiple times might resul
 
 To clear the StackState configuration first, follow the instructions at [clear stored data](/setup/data-management/clear_stored_data.md). 
 
-Import from a file can be done using the StackState CLI or curl. The `<token>` used for authorization with curl is available on the **CLI** page in the StackState UI main menu:
+Import from a file can be done using the StackState CLI or curl.
 
 {% tabs %}
 {% tab title="CLI: sts" %}
@@ -125,31 +125,38 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 
 {% endtab %}
 
-{% tab title="curl" %}
+{% tab title="curl with authentication" %}
+
+The `<api-token>` can be found on the **CLI** page in the StackState UI main menu.
+
+```text
+
+# Obtain session from cookie AkkaHttpPac4jSession
+# Obtain CSRF token from cookie pac4jCsrfToken
+curl --fail -v \
+  -H "Authorization: ApiToken <api-token>" <stackstate-api-endpoint> \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  "http://<host>:7070/loginCallback"
+
+# Do actual request
+export SESSION="<MY_SESSION>"; export CSRF_TOKEN="<MY_CSRF_TOKEN>"; \
+  curl -X POST -d @export.stj \
+  -H 'Content-Type: application/json;charset=UTF-8' \
+  -H Cookie:AkkaHttpPac4jSession=$SESSION \
+  -H X-Sts-Token:$CSRF_TOKEN "http://<HOST>:7070/api/import?timeoutSeconds=15"
+```
+{% endtab %}
+{% tab title="curl without authentication" %}
 ```text
 
 ## Import without authentication
 curl -X POST -d @./export.stj \
   -H 'Content-Type: application/json;charset=UTF-8' \
   "http://<host>:7070/api/import?timeoutSeconds=15"
-
-
-## Import with authentication
-# Obtain session from cookie AkkaHttpPac4jSession
-# Obtain token from cookie pac4jCsrfToken
-curl --fail -v \
-  -H "Authorization: ApiToken <token>" <stackstate-api-endpoint> \
-  -H "Content-Type: application/x-www-form-urlencoded" \
-  "http://<host>:7070/loginCallback"
-
-# Do actual request
-export SESSION="<MY_SESSION>"; export TOKEN="<MY_TOKEN>"; \
-  curl -X POST -d @export.stj \
-  -H 'Content-Type: application/json;charset=UTF-8' \
-  -H Cookie:AkkaHttpPac4jSession=$SESSION \
-  -H X-Sts-Token:$TOKEN "http://<HOST>:7070/api/import?timeoutSeconds=15"
+  
 ```
 {% endtab %}
+
 {% endtabs %}
 
 Alternatively, in the StackState UI:
