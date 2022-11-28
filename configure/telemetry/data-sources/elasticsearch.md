@@ -29,7 +29,7 @@ To add an Elasticsearch data source:
 3. Enter the required settings:
    * **Name** - the name to identify the Elasticsearch data source in StackState.
    * **Base URL** - the URL of the REST API of your Elasticsearch instance \(default port 9200\). Note that this must be reachable by StackState.
-   * **Index pattern** - the Elasticsearch index to retrieve. It is possible to specify a pattern if the index is sliced by time. See [how to find the Elasticsearch index pattern](elasticsearch.md#find-the-elasticsearch-index-pattern).
+   * **Index pattern** - the Elasticsearch index to retrieve. It's possible to specify a pattern if the index is sliced by time. See [how to find the Elasticsearch index pattern](elasticsearch.md#find-the-elasticsearch-index-pattern).
    * **Time zone** - the timezone of the timestamps stored in the Elasticsearch documents. This is required to ensure data is correctly processed by StackState.
    * **Time field** - the field in the Elasticsearch documents that contains the timestamp of the event/metric.
    * **Time field format** - the format of the value in the specified **Time field**. See [how to find the Elasticsearch time field format](elasticsearch.md#find-the-elasticsearch-time-field-format).
@@ -121,7 +121,7 @@ The timeout settings can be tweaked when dealing with exceptionally large result
 
 Wildcards can be slow in Elasticsearch. By default, StackState will escape wildcards used in telemetry query values. If required, this behavior can be disabled.
 
-* **Support wildcards in values** - when enabled, StackState will include wildcards \(`*`\) in telemetry query values. Note that wildcards can be used to filter for partial matches, it is not possible to use a full wildcard. At least one other character must be specified in the filter value.
+* **Support wildcards in values** - when enabled, StackState will include wildcards \(`*`\) in telemetry query values. Note that wildcards can be used to filter for partial matches, it's not possible to use a full wildcard. At least one other character must be specified in the filter value.
 
 ## See also
 

@@ -17,7 +17,7 @@ Mirroring has some major _advantages_:
 There are however also some _disadvantages_:
 
 * Availability and retention of the data depends on the availability and retention of the data source.
-* If StackState requires streaming data it is forced to start polling data from the data source. When dealing with lots of streaming data, the limits that made mirroring a good idea in the first place now cause the same problems.
+* If StackState requires streaming data it's forced to start polling data from the data source. When dealing with lots of streaming data, the limits that made mirroring a good idea in the first place now cause the same problems.
 * StackState has to make an outgoing connection to the mirror, which means that you will have to allow StackState to access your mirror. In order to secure these connections, firewalls rules may need to be configured. Especially in large enterprise this may cause installation delays.
 
 If you wish to use mirroring, but need a solution to any of the above disadvantages we recommend that you [contact us](http://support.stackstate.com).
@@ -56,7 +56,7 @@ Each request JSON contains a number of fields. The following fields are common:
 
 #### Connection Details
 
-The field `connectionDetails` is mandatory and must be present in each request. The field contains arbitrary JSON configuration for connecting to the target system. This is a flexible configuration, and it is up to the Mirror implementor to decide what configuration elements are required. For example, a target telemetry source URL, timeouts, API key, and many others.
+The field `connectionDetails` is mandatory and must be present in each request. The field contains arbitrary JSON configuration for connecting to the target system. This is a flexible configuration, and it's up to the Mirror implementor to decide what configuration elements are required. For example, a target telemetry source URL, timeouts, API key, and many others.
 
 Example:
 

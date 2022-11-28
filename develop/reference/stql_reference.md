@@ -36,7 +36,7 @@ The filters described below can be combined using the available [operators](#ope
 | `layer` | "all" | Components in the named layer. |
 | `name` | "all" | Components with the specified name. |
 | `type` | "all" | Components of the specified type. |
-| `identifier` | "all" | Components with the specified URN identifier. The identifier filter is only compatible with basic filtering when it is specified using `identifier IN (...)` and combined with other filters using an `OR` operator. When the set filter is compatible with basic filtering, the number of component identifiers queried will be reported in the [**Other filters** box](/use/stackstate-ui/filters.md#other-filters). |
+| `identifier` | "all" | Components with the specified URN identifier. The identifier filter is only compatible with basic filtering when it's specified using `identifier IN (...)` and combined with other filters using an `OR` operator. When the set filter is compatible with basic filtering, the number of component identifiers queried will be reported in the [**Other filters** box](/use/stackstate-ui/filters.md#other-filters). |
 
 ### Operators
 
@@ -64,7 +64,7 @@ For example:
 
 ### Wildcard
 
-You can use `*` as a full wildcard in a component filter. It is not possible to filter for partial matches using a wildcard character.
+You can use `*` as a full wildcard in a component filter. It's not possible to filter for partial matches using a wildcard character.
 
 ### Examples
 
@@ -121,7 +121,7 @@ The `withCauseOf` function has been deprecated. This functionality has been repl
 
 You can switch between basic and advanced filtering by selecting **Basic** or **Advanced** under **Filter Topology** in the **View Filters** panel.
 
-It is always possible to switch from Basic to Advanced filtering. The selected basic filters will be converted directly to an STQL query. For simple queries it is also possible to switch from Advanced to Basic filtering, however, some advanced queries are not compatible with basic filters. 
+It's always possible to switch from Basic to Advanced filtering. The selected basic filters will be converted directly to an STQL query. For simple queries it's also possible to switch from Advanced to Basic filtering, however, some advanced queries are not compatible with basic filters. 
 
 * Basic filters cannot contain an inequality.
 * Basic filters do not use `=`, rather they are formatted using the `IN` operator. For example `name IN ("DLL_DB”)` and not `name = "DLL_DB”`.

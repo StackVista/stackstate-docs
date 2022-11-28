@@ -75,7 +75,7 @@ tags:
     - <KEY_3>:<VALUE_3>
 ```
 
-It is recommended you assign tags as `<KEY>:<VALUE>` pairs, but simple tags are also accepted.
+It's recommended you assign tags as `<KEY>:<VALUE>` pairs, but simple tags are also accepted.
 
 ## StackPack Inheritance
 

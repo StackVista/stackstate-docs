@@ -36,7 +36,7 @@ zip -r ./tutorial-stackpack-0.0.1.sts stackpack.conf provisioning resources
 
 ## Importing the StackPack
 
-The StackPack must be imported into StackState before it can be installed. This can be done using the [StackState CLI](/setup/cli/README.md). Please make sure it is installed and configured to connect with your StackState instance.
+The StackPack must be imported into StackState before it can be installed. This can be done using the [StackState CLI](/setup/cli/README.md). Please make sure it's installed and configured to connect with your StackState instance.
 
 The following command installs our new tutorial StackPack in StackState:
 
@@ -58,7 +58,7 @@ stac stackpack upload tutorial-stackpack-0.0.1.sts
 
 ⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
@@ -68,7 +68,7 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 {% endtabs %}
 
 {% hint style="info" %}
-The StackState CLI requires a `conf.d` configuration folder in the directory it is running from. This may require you to run the CLI from a different location. If so, remember to use an absolute path to refer to the StackPack binary.
+The StackState CLI requires a `conf.d` configuration folder in the directory it's running from. This may require you to run the CLI from a different location. If so, remember to use an absolute path to refer to the StackPack binary.
 {% endhint %}
 
 We are now ready to install our tutorial StackPack.
@@ -267,7 +267,7 @@ Push the **Overwrite** button to overwrite your local modifications with those i
 Pass the **Waiting for data** stage again with the `curl` command we used earlier and your upgrade is complete.
 
 {% hint style="info" %}
-It is also possible to install and upgrade a StackPack using the CLI, see the [CLI documentation](../../setup/cli/README.md) for more information.
+It's also possible to install and upgrade a StackPack using the CLI, see the [CLI documentation](../../setup/cli/README.md) for more information.
 {% endhint %}
 
 If you navigate to your **myDummyApp** component, you should now see the stream you added to the template:

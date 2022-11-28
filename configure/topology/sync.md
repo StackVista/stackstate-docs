@@ -23,7 +23,7 @@ A synchronization pipeline takes data through these two models using configurabl
 
 ### Data source
 
-The data source configures the plugin to connect to a specific instance of an external system. The Plugins section of the documentation contains more details on configurations of specific plugins. It is possible to define several synchronizations for the same data source.
+The data source configures the plugin to connect to a specific instance of an external system. The Plugins section of the documentation contains more details on configurations of specific plugins. It's possible to define several synchronizations for the same data source.
 
 ### ID Extraction
 

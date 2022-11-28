@@ -20,7 +20,7 @@ Code examples for the open source StackState Agent checks can be found on GitHub
 
 ## When to use Agent checks
 
-Agent checks are typically the easiest way to create an integration with StackState, but it is not the only way to integrate with StackState and may not necessarily be the best way. An integration via an Agent check means:
+Agent checks are typically the easiest way to create an integration with StackState, but it's not the only way to integrate with StackState and may not necessarily be the best way. An integration via an Agent check means:
 
 * At least one Agent must run in the environment and have access to the system to integrate with 
 * Data will be polled periodically instead of streamed directly.

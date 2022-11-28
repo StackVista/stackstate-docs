@@ -37,7 +37,7 @@ You can find more information about writing advanced topology queries in StackSt
 
 ### Script
 
-The script determines behavior of the component action when it is executed by a user. YOu can use the [StackState Scripting Language](../../reference/scripting/scripting-in-stackstate.md) to script almost any action you need, such as redirecting a user to another view with a specific context, restarting remote components, or calling predictions for components. Some [example scripts](component-actions.md#example-scripts) are available below to help you get started.
+The script determines behavior of the component action when it's executed by a user. YOu can use the [StackState Scripting Language](../../reference/scripting/scripting-in-stackstate.md) to script almost any action you need, such as redirecting a user to another view with a specific context, restarting remote components, or calling predictions for components. Some [example scripts](component-actions.md#example-scripts) are available below to help you get started.
 
 Component action scripts always have access to a `component` variable, this represents the component for which the component action was invoked.
 

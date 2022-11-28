@@ -12,7 +12,7 @@ To install this StackPack navigate to StackState’s StackPacks page using left 
 
 ## Directory Structure
 
-Before starting your first check it is worth understanding the checks directory structure. There are two places that you will need to add files for your check. The first is the `checks.d` folder, which lives in your Agent root.
+Before starting your first check it's worth understanding the checks directory structure. There are two places that you will need to add files for your check. The first is the `checks.d` folder, which lives in your Agent root.
 
 For all Linux systems, you should find it at:
 

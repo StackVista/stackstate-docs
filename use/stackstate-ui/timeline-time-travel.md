@@ -57,7 +57,7 @@ The topology and all telemetry displayed in StackState are based on a snapshot o
 
 ![Topology time](../../.gitbook/assets/v51_topology_time.png)
 
-On the timeline, the selected topology time is indicated by the playhead - a black line with the current topology time at the top. It is also specified in the **Topology time** box at the top of the timeline.
+On the timeline, the selected topology time is indicated by the playhead - a black line with the current topology time at the top. It's also specified in the **Topology time** box at the top of the timeline.
 
 #### Set the topology time
 

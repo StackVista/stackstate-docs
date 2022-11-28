@@ -18,7 +18,7 @@ Users need to log out and authenticate again to StackState whenever any changes 
 
 Scopes are introduced as a security feature that is mandatory for every subject within StackState. The predefined StackState users Administrator, Power User and Guest roles have no scope defined.
 
-It is possible to provide a scope as a query wildcard, however, this will result in access to everything and is not recommended. If there is a need for access without a scope, it is recommended to use one of the [predefined roles](rbac_permissions.md#predefined-roles) instead.
+It's possible to provide a scope as a query wildcard, however, this will result in access to everything and is not recommended. If there is a need for access without a scope, it's recommended to use one of the [predefined roles](rbac_permissions.md#predefined-roles) instead.
 
 ## Examples
 
@@ -66,7 +66,7 @@ Query with the prefix for this view is:
 
 ### User with multiple prefixes
 
-It is possible to assign a subject to more than just one group. In this example, you can see an Infrastructure Manager who can see the whole view presented above. This user has to be in both groups that have configured subjects as X and Y. In this case, the prefix for the user query will look like the following:
+It's possible to assign a subject to more than just one group. In this example, you can see an Infrastructure Manager who can see the whole view presented above. This user has to be in both groups that have configured subjects as X and Y. In this case, the prefix for the user query will look like the following:
 
 ```text
 '(domain = "Customer1" OR domain = "Customer2")'

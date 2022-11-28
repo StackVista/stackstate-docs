@@ -24,7 +24,7 @@ Changes made here will not be saved to the telemetry stream attached to the elem
 
 ### Anomaly feedback
 
-When anomaly detection is enabled for a metric stream, users can give feedback on reported anomalies in the form of a thumbs-up (meaning "well spotted!") or thumbs-down (meaning "false positive"). For more elaborate feedback, it is also possible to add comments. Feedback added to anomalies will be used by the StackState team to further develop and improve the AAD. **It is not used to train the local instance of the AAD.**
+When anomaly detection is enabled for a metric stream, users can give feedback on reported anomalies in the form of a thumbs-up (meaning "well spotted!") or thumbs-down (meaning "false positive"). For more elaborate feedback, it's also possible to add comments. Feedback added to anomalies will be used by the StackState team to further develop and improve the AAD. **It's not used to train the local instance of the AAD.**
 
 {% hint style="success" "self-hosted info" %}
 In a self-hosted installation, feedback must be [exported and sent to StackState](/configure/anomaly-detection/export-anomaly-feedback.md) for the StackState team to be able to access it.

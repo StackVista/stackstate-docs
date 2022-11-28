@@ -21,7 +21,7 @@ The badge on the right next to the **Event handlers** section heading shows the 
 You can add an event handler to a view from the StackState UI right panel **View summary** tab. 
 
 {% hint style="info" %}
-Event handlers can only be added to a saved [view](/use/stackstate-ui/views/about_views.md). It is not possible to add event handlers to [subviews](/use/stackstate-ui/views/about_views.md#subview) or while in [explore mode](/use/stackstate-ui/explore_mode.md).
+Event handlers can only be added to a saved [view](/use/stackstate-ui/views/about_views.md). It's not possible to add event handlers to [subviews](/use/stackstate-ui/views/about_views.md#subview) or while in [explore mode](/use/stackstate-ui/explore_mode.md).
 {% endhint %}
 
 ![Add event handler](/.gitbook/assets/v51_add_event_handler.png)

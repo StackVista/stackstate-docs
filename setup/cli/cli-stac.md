@@ -102,7 +102,7 @@ The StackState CLI can be run inside a Docker container on Linux, Windows or mac
 
 ## Configure the `stac` CLI
 
-After a new installation, the `stac` CLI must be configured with the API connection details for your StackState instance. If you upgraded from a previous version of the CLI, it is not necessary to configure the CLI again, the existing CLI configuration will be used.
+After a new installation, the `stac` CLI must be configured with the API connection details for your StackState instance. If you upgraded from a previous version of the CLI, it's not necessary to configure the CLI again, the existing CLI configuration will be used.
 
 The standalone executable StackState CLI on Linux or Windows includes a wizard to guide you through configuration. If you installed the Docker version of the `stac` CLI on macOS, Linux or Windows, the configuration file must be manually created.
 
@@ -267,7 +267,7 @@ curl -H "Authorization: ApiToken <token>" <stackstate-api-endpoint>
 
 ## Upgrade
 
-Follow the steps below to upgrade an installed version of the CLI. Note that it is not necessary to configure the CLI again after the upgraded version is installed, the existing CLI configuration will be used.
+Follow the steps below to upgrade an installed version of the CLI. Note that it's not necessary to configure the CLI again after the upgraded version is installed, the existing CLI configuration will be used.
 
 1. Delete the existing CLI files:
    * **Windows and Linux:**
@@ -324,5 +324,5 @@ stac subscription update new-license-key
 ```
 
 {% hint style="info" %}
-Note that it is not necessary to do this using the CLI. StackState will also offer this option in the UI when a license is about to expire or has expired.
+Note that it's not necessary to do this using the CLI. StackState will also offer this option in the UI when a license is about to expire or has expired.
 {% endhint %}

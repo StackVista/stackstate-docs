@@ -59,7 +59,7 @@ A major upgrade consists of the following steps:
 
 ### Create a backup
 
-Before upgrading StackState it is recommended to back up your configuration and topology data.
+Before upgrading StackState it's recommended to back up your configuration and topology data.
 
 {% tabs %}
 {% tab title="Kubernetes" %}

@@ -42,7 +42,7 @@ The context menu of each monitor result (...) allows for inspecting of the monit
 
 Each monitor configured in StackState uses a monitor function to compute the health state results attached to the elements.
 
-Monitor functions are scripts that accept 4T data as input, check the data based on some internal logic and output health state mappings for the affected topology elements. The function is run periodically by the monitor runner and it is responsible for detecting any changes in the data that can be considered to change an element's health state.
+Monitor functions are scripts that accept 4T data as input, check the data based on some internal logic and output health state mappings for the affected topology elements. The function is run periodically by the monitor runner and it's responsible for detecting any changes in the data that can be considered to change an element's health state.
 
 Details of the monitor functions provided by StackPacks can be found in [the StackPack documentation](../../stackpacks/integrations/README.md). 
 

@@ -74,7 +74,7 @@ will return an array of both the result of `asyncFn2` and `asyncFn3`.
 
 ### Transforming a list using `thenCollect`
 
-Often it is desirable to transform a list of element coming from an `AsyncScriptResult`.
+Often it's desirable to transform a list of element coming from an `AsyncScriptResult`.
 
 Assuming `ScriptApi.asyncFn1()` return an `AsyncScriptResult` that contains the list `[1,2,3]`, this can be transformed to `[2,3,4]` in the following way:
 
@@ -113,7 +113,7 @@ ScriptApi.asyncFn1().thenInject([])  { accumulator, element ->
 
 ### Handling Exceptions
 
-It is sometimes necessary to handle exceptions raised during execution of `AsyncScriptResult`. This can be achieved using `catchError` function. For example:
+It's sometimes necessary to handle exceptions raised during execution of `AsyncScriptResult`. This can be achieved using `catchError` function. For example:
 
 ```text
 ScriptApi.asyncFn1().catchError { ex ->

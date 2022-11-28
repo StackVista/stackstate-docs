@@ -8,8 +8,8 @@ Below you can find a short dictionary that can help you get a better grasp on th
 
 * **4T data model -** Stands for Topology, Telemetry, Traces and Time. These four dimensions are the key concepts of the StackSate data model.
 * **agent** - Software that runs on hosts. Collects events and metrics from hosts and sends them to StackState.
-* **baseline** - Information that is used as a starting point by which to compare other information. In StackState it is used for comparison with the metric stream. It learns from the historical data and calculates the baseline on the current data.
-* **check** - Defines the status of the component/relation and therefore represents the graphic presentation of the health status in the StackState view. It is responsible for determining the health status of the component based on the telemetry streams.
+* **baseline** - Information that is used as a starting point by which to compare other information. In StackState it's used for comparison with the metric stream. It learns from the historical data and calculates the baseline on the current data.
+* **check** - Defines the status of the component/relation and therefore represents the graphic presentation of the health status in the StackState view. It's responsible for determining the health status of the component based on the telemetry streams.
 * **check function** - Logic to determine health and/or run state based on the input \(e.g., metric stream\).
 * **component** - The smallest unit of a topology; represents a real-life component in the IT landscape like a server, a service or an application. Each component belongs to one layer and one domain only.
 * **component action** - Performs an action based on a component when the user triggers the action on the quick action menu of the component.
@@ -34,7 +34,7 @@ Below you can find a short dictionary that can help you get a better grasp on th
 * **monitor function** - Defines the underlying algorithm used to compute the health states produced by a monitor.
 * **monitor runner** - A subsystem of StackState responsible for execution of the logic of a monitor in a timely manner.
 * **permission** - Defines access to specific actions for users.
-* **prefix** - STQL query that is specific to a role. It is added as a query prefix to every query executed by users in that role.
+* **prefix** - STQL query that is specific to a role. It's added as a query prefix to every query executed by users in that role.
 * **propagation** - Defines how a component affects its health state based on dependencies and relations. Health state propagates in the opposite direction of the dependency, e.g., a virtual machine crash will influence applications running on it.
 * **propagation function** - Allows users to alter the propagation logic for a specific component.
 * **relation** - Models a dependency between components.
@@ -47,7 +47,7 @@ Below you can find a short dictionary that can help you get a better grasp on th
 * **StackPack** - A package that is prepared for integration with an external data source.
 * **StackPack instance** - Single StackPack integration to one instance of the specific type of data source.
 * **state** - See Health State.
-* **STQL \(StackState Query Language\)** - A built-in query language used to create advanced filters. It is a typed language, which means that each supported type of data is predefined as a part of STQL.
+* **STQL \(StackState Query Language\)** - A built-in query language used to create advanced filters. It's a typed language, which means that each supported type of data is predefined as a part of STQL.
 * **STJ \(StackState Templated JSON\)** - A JSON file with StackState specific template placeholders.
 * **subject** - A user or a group with a scope.
 * **synchronization** - Consolidation of topology information from a data source.

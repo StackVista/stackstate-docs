@@ -80,7 +80,7 @@ If you do not have JVM installed on your computer, you can use a JVM Docker imag
 
 ### Kubernetes
 
-For Kubernetes installations, the trust store and the password can be specified as values. The trust store can only be specified from the helm command line as it is a file. We specify the password value in the same way, but it could also be provided via a `values.yaml` file.
+For Kubernetes installations, the trust store and the password can be specified as values. The trust store can only be specified from the helm command line as it's a file. We specify the password value in the same way, but it could also be provided via a `values.yaml` file.
 
 ```bash
 helm upgrade \

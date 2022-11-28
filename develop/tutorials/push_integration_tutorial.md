@@ -60,7 +60,7 @@ That's it, you are now ready to run the Agent.
 
 The sample project contains a `run.sh` shell script that runs StackState Agent V2 in a docker container. It reads the configuration from this sample project and executes the `example` check.
 
-When you run the Agent, it writes logging to its standard output. The agent has debugging turned on by default \(check the `stackstate.yaml` file\) so it is fairly verbose.
+When you run the Agent, it writes logging to its standard output. The agent has debugging turned on by default \(check the `stackstate.yaml` file\) so it's fairly verbose.
 
 Once the check has run successfully, the topology data produced by the `example` check will be sent to StackState.
 
@@ -175,7 +175,7 @@ If you go back to the topology, you'll see that both application components \(an
 
 ## Set a component's health state from an external source
 
-StackState calculates the health state of a component using a metric stream and one of the many check functions it ships with. It is also possible to create your own check function that interprets log data from an external source, such as another monitoring tool, and uses it to set the component's health state. Let's try that out on our **a-host** component.
+StackState calculates the health state of a component using a metric stream and one of the many check functions it ships with. It's also possible to create your own check function that interprets log data from an external source, such as another monitoring tool, and uses it to set the component's health state. Let's try that out on our **a-host** component.
 
 Let's start by creating the check function that takes the incoming data and translates it to a health state. Go to the **Settings** area and find the **Check functions** page. Click the **Add Check function** button to create a new check function. Name the function **External monitor state**.
 

@@ -34,7 +34,7 @@ First, boot the virtual machine using Vagrant:
 vagrant up
 ```
 
-Vagrant will download a virtual machine image and provision a virtual machine. When it is finished, you can log into the machine using the command:
+Vagrant will download a virtual machine image and provision a virtual machine. When it's finished, you can log into the machine using the command:
 
 ```text
 vagrant ssh
@@ -61,7 +61,7 @@ The sample project is shipped with a single `run.sh` script that does the follow
 
 1. Check for the presence of the `STS_STS_URL` and `STS_API_KEY` environment variables.
 2. Place the environment variables in the correct configuration files.
-3. Install StackState Agent V2 if it isn't already installed.
+3. Install StackState Agent V2 if it's not already installed.
 4. Start StackState Agent V2 if it isn't already started.
 5. Invoke Puppet to make some configuration changes to the virtual machine.
 

@@ -189,7 +189,7 @@ Components with the same service identifiers will merge into one component. This
 1) Click on your component in the StackState Topology Perspective
 2) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
 3) The row with the key `identifiers` will contain the value you defined, as seen below in the image.
-4) ***NB. It is recommended to go and read the [merging with pre-existing components](/stackpacks/integrations/opentelemetry/manual-instrumentation/merging.md) page to know how this value can be leverage to create relations***
+4) ***NB. It's recommended to go and read the [merging with pre-existing components](/stackpacks/integrations/opentelemetry/manual-instrumentation/merging.md) page to know how this value can be leverage to create relations***
 
 ![Topology Perspective - service.identifier](../../../../.gitbook/assets/v51_otel_traces_service_identifier.png)
 {% endtab %}

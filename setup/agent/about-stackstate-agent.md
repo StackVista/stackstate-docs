@@ -12,7 +12,7 @@ StackState Agent V2 functions as a collector and gateway. It connects to externa
 
 ### Architecture
 
-StackState Agent V2 can be run on Linux or Windows systems or inside a Docker container. It is not necessary to deploy StackState Agent V2 on every machine to retrieve data. Each deployed StackState Agent can run multiple checks to collect data from different external systems.
+StackState Agent V2 can be run on Linux or Windows systems or inside a Docker container. It's not necessary to deploy StackState Agent V2 on every machine to retrieve data. Each deployed StackState Agent can run multiple checks to collect data from different external systems.
 
 ![StackState Agent architecture](../../.gitbook/assets/stackstate-agent.svg)
 

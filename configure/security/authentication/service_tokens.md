@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-Using Service tokens it is possible to authenticate to StackState without having configured a user account. This is useful for situations where you want to use StackState from headless services like a CI server. In such a scenario you typically do not want to provision a user account in your identity provider.
+Using Service tokens, it's possible to authenticate to StackState without having configured a user account. This is useful for situations where you want to use StackState from headless services like a CI server. In such a scenario you typically do not want to provision a user account in your identity provider.
 
 ## Manage service tokens
 
@@ -27,7 +27,7 @@ Available Commands:
 Use "sts service-token [command] --help" for more information about a command.
 ```
 
-It is also possible to [set up a bootstrap service token](#set-up-a-bootstrap-service-token) when installing StackState.
+It's also possible to [set up a bootstrap service token](#set-up-a-bootstrap-service-token) when installing StackState.
 
 ### Create service tokens
 
@@ -49,7 +49,7 @@ sts service-token create
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
@@ -63,7 +63,7 @@ Command not available in the `stac` CLI, use the new `sts` CLI.
 
 
 {% hint style="info" %}
-Note that the service token will only be displayed once. It is not possible to see the token again.
+Note that the service token will only be displayed once. It's not possible to see the token again.
 {% endhint %}
 
 This command takes the following command line arguments:
@@ -93,7 +93,7 @@ From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is 
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
@@ -106,7 +106,7 @@ Command not available in the `stac` CLI, use the new `sts` CLI.
 
 ### Set up a bootstrap service token
 
-When installing StackState, it is possible to bootstrap it with a (temporary) service token. This allows for using the CLI without first interacting with StackState and obtaining an API token from the UI. In order to set this up, you can add the following snippet to the StackState configuration file:
+When installing StackState, it's possible to bootstrap it with a (temporary) service token. This allows for using the CLI without first interacting with StackState and obtaining an API token from the UI. In order to set this up, you can add the following snippet to the StackState configuration file:
 
 {% tabs %}
 {% tab title="Kubernetes" %}
@@ -206,7 +206,7 @@ ID              | NAME             | EXPIRATION | ROLES
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")

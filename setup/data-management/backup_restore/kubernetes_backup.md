@@ -133,11 +133,11 @@ The StackGraph and Elasticsearch backups are stored in BLOB containers called `s
 {% hint style="warning" %}
 If MinIO is configured to store its data in Kubernetes storage, a PersistentVolumeClaim (PVC) is used to request storage from the Kubernetes cluster. The kind of storage that is allocated depends on the configuration of the cluster.
 
-It is advised to use AWS S3 for clusters running on Amazon AWS and Azure Blob Storage for clusters running on Azure for the following reasons:
+It's advised to use AWS S3 for clusters running on Amazon AWS and Azure Blob Storage for clusters running on Azure for the following reasons:
 
 1. Kubernetes clusters running in a cloud provider usually map PVCs to block storage, such as Elastic Block Storage for AWS or Azure Block Storage. Block storage is expensive, especially for large data volumes.
 2. Persistent Volumes are destroyed when the cluster that created them is destroyed. That means an (accidental) deletion of your cluster will also destroy all backups stored in Persistent Volumes.
-3. Persistent Volumes cannot be accessed from another cluster. That means that it is not possible to restore StackState from a backup taken on another cluster.
+3. Persistent Volumes cannot be accessed from another cluster. That means that it's not possible to restore StackState from a backup taken on another cluster.
 {% endhint %}
 
 To enable backups to cluster-local storage, enable MinIO by adding the following YAML fragment to the Helm `values.yaml` file used to install StackState:
