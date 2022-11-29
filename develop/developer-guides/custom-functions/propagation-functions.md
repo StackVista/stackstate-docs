@@ -57,7 +57,7 @@ The simplest possible function that can be written is given below. This function
     return DEVIATING
 ```
 
-You can also use a propagation function to implement more complicated logic. For example, the script below will return a `DEVIATING` state in case a component is not running:
+You can also use a propagation function to implement more complicated logic. For example, the script below will return a `DEVIATING` state in case a component isn't running:
 
 ```text
 Component
@@ -113,7 +113,7 @@ The script APIs provide super-human levels of flexibility and even allow queryin
 
 #### Synchronous execution
 
-Running a propagation function with synchronous execution places limitations on both the capability of what it can achieve, and the number of functions that can be run in parallel. Synchronous propagation functions do, however, have access to `stateChangesRepository` information that is not available if the function runs with asynchronous execution.
+Running a propagation function with synchronous execution places limitations on both the capability of what it can achieve, and the number of functions that can be run in parallel. Synchronous propagation functions do, however, have access to `stateChangesRepository` information that isn't available if the function runs with asynchronous execution.
 
 `stateChangesRepository` can be used to return:
 

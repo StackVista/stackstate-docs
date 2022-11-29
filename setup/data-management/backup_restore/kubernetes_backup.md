@@ -42,7 +42,7 @@ The built-in MinIO instance can be configured to store the backups in three loca
 
 Amazon S3-managed keys (SSE-S3) should be used when encrypting S3 buckets that store the backups. 
 
-⚠️ Encryption with AWS KMS keys stored in AWS Key Management Service (SSE-KMS) is not supported. This will result in errors such as this one in the Elasticsearch logs:
+⚠️ Encryption with AWS KMS keys stored in AWS Key Management Service (SSE-KMS) isn't supported. This will result in errors such as this one in the Elasticsearch logs:
 
 `Caused by: org.elasticsearch.common.io.stream.NotSerializableExceptionWrapper: sdk_client_exception: Unable to verify integrity of data upload. Client calculated content hash (contentMD5: ZX4D/ZDUzZWRhNDUyZTI1MTc= in base 64) didn't match hash (etag: c75faa31280154027542f6530c9e543e in hex) calculated by Amazon S3. You may need to delete the data stored in Amazon S3. (metadata.contentMD5: null, md5DigestStream: com.amazonaws.services.s3.internal.MD5DigestCalculatingInputStream@5481a656, bucketName: stackstate-elasticsearch-backup, key: tests-UG34QIV9s32tTzQWdPsZL/master.dat)",`
 {% endhint %}
@@ -232,8 +232,8 @@ Scripts to list and restore backups and snapshots can be found in the [restore d
     2. The namespace within that cluster where StackState has been installed.
 * The following Helm values have been correctly set:
     1. `backup.enabled` is set to `true`.
-    2. `backup.stackGraph.restore.enabled` is not set to `false` \(to access StackGraph backups\).
-    3. `backup.elasticsearch.restore.enabled` is not set to `false` \(to access Elasticsearch snapshots\).
+    2. `backup.stackGraph.restore.enabled` isn't set to `false` \(to access StackGraph backups\).
+    3. `backup.elasticsearch.restore.enabled` isn't set to `false` \(to access Elasticsearch snapshots\).
 {% endhint %}
 
 ### List StackGraph backups
@@ -313,7 +313,7 @@ job.batch "stackgraph-restore-20210222t112142" deleted
 In case you are running a restore command missing the `-force` flag on a non-empty database the output will contain an error like this:
 
 ```bash
-ERROR com.stackvista.graph.migration.Restore - Restore is not possible in a non empty.
+ERROR com.stackvista.graph.migration.Restore - Restore isn't possible in a non empty.
 ```
 
 {% hint style="info" %}

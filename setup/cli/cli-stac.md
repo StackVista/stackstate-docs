@@ -113,7 +113,7 @@ The standalone executable StackState CLI on Linux or Windows includes a wizard t
 
 If the `stac` CLI was installed on Linux or Windows using a standalone executable file, the first time you run any `stac` command, a configuration wizard will request the required configuration items. The wizard will then create a configuration file with the entered details and store it under the user's home directory. If a valid configuration file already exists, the `stac` CLI will use this and the configuration wizard will not run.
 
-The configuration wizard is not available when the `stac` CLI is run inside a Docker container on macOS, Linux or Windows.
+The configuration wizard isn't available when the `stac` CLI is run inside a Docker container on macOS, Linux or Windows.
 
 {% hint style="info" %}
 To configure the `stac` CLI, you will need your [authentication credentials](#authentication).
@@ -281,7 +281,7 @@ Follow the steps below to upgrade an installed version of the CLI. Note that it'
    * [Windows install](#windows-install)
    * [Docker install \(macOS, Linux, Windows\)](#docker-install-macos-linux-windows)
 
-3. It is not necessary to configure the CLI again, the existing CLI configuration will be used.
+3. It isn't necessary to configure the CLI again, the existing CLI configuration will be used.
 
 ## Uninstall
 

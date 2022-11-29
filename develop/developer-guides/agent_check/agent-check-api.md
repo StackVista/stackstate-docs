@@ -135,7 +135,7 @@ The `AgentCheck`, `AgentCheckV2`, `StatefulAgentCheck`, `TransactionalAgentCheck
 
 ## Scheduling
 
-Multiple instances of the same check can run concurrently. If a check is already running, it is not necessary to schedule another one.
+Multiple instances of the same check can run concurrently. If a check is already running, it isn't necessary to schedule another one.
 
 ## Send data
 

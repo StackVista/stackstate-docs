@@ -30,7 +30,7 @@ Before mirroring StackState used to work with a plugin system to allow it to wor
 
 Mirroring is performed using two components: the `Mirror Plugin` and a remote telemetry system called the `Mirror`. The Mirror Plugin is a StackState plugin configured to talk to the Mirror. The plugin requires the Mirror to implement the Mirror REST API. In its turn, the Mirror acts as a gateway to the target telemetry system and is implemented as a webserver.
 
-The StackState instance has to be able to open a connection to the mirror. There is some work planned to use the agent to reverse the connection, but this is not available as of yet.
+The StackState instance has to be able to open a connection to the mirror. There is some work planned to use the agent to reverse the connection, but this isn't available as of yet.
 
 The Mirror is intended to be stateless and to proxy StackState requests to the target telemetry system. The Mirror can be implemented in any technology or programming language. The only requirement is that it implements the Mirror REST API described below.
 
@@ -151,7 +151,7 @@ In case there was an error while connecting to the remote telemetry system, the 
 ```text
 {
   "status": "FAILURE",
-  "error": {"_type": "MetricStoreConnectionError", "details": "Prometheus is not healthy."},
+  "error": {"_type": "MetricStoreConnectionError", "details": "Prometheus isn't healthy."},
   "_type": "TestConnectionResponse"
 }
 ```
@@ -341,7 +341,7 @@ Sample aggregated metric request:
  }
 ```
 
-The request is the same as for raw query with one exception, The `aggregation` field is not empty and holds the aggregation `method` and aggregation bucket size `bucketSizeMillis`. The aggregation is done using the batching windowing method. See the [available aggregation methods](/use/metrics/add-telemetry-to-element.md#aggregation-methods).
+The request is the same as for raw query with one exception, The `aggregation` field isn't empty and holds the aggregation `method` and aggregation bucket size `bucketSizeMillis`. The aggregation is done using the batching windowing method. See the [available aggregation methods](/use/metrics/add-telemetry-to-element.md#aggregation-methods).
 
 An example response of an aggregated query request is given below:
 

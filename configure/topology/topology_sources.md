@@ -21,7 +21,7 @@ The screen contains the following fields:
 | **Name** | The name of the data source. |
 | **Description** | Optional. A description of the data source. |
 | **Use StackState's default Kafka** | Select to use either the default Kafka bus on the StackState server or a separate Kafka instance. |
-| **Kafka host\(s\)** | Required if StackState's default Kafka is not used. |
+| **Kafka host\(s\)** | Required if StackState's default Kafka isn't used. |
 | **Instance type** | The integration type. Select from the dropdown list. This list is populated with the `type` passed in the `instance` field in the [source JSON data](send-topology-data.md#topology-json-format). |
 | **Topic** | The Kafka topic to retrieve data from. Select from the dropdown list. This list is populated based on the `type` and `url` passed in the `instance` field in the [source topology JSON](send-topology-data.md#topology-json-format). |
 | **Maximum batch size** | The maximum number of components from a JSON file that are processed in a single batch. Used for rate limiting. |

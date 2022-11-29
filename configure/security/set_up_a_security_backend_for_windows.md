@@ -183,7 +183,7 @@ Secrets handle decrypted:
 3. Your executable needs to be a valid Win32 application. If not, the following error is logged:
 
    ```text
-      error while running 'C:\decrypt.py': fork/exec C:\decrypt.py: %1 is not a valid Win32 application.
+      error while running 'C:\decrypt.py': fork/exec C:\decrypt.py: %1 isn't a valid Win32 application.
    ```
 
 #### Testing your executable
@@ -197,7 +197,7 @@ To test your executable in the same conditions as the Agent V2, update the passw
 To do so, follow steps below:
 
 1. Remove `stsagentuser` from the `Local Policies/User Rights Assignement/Deny Log on locally` list in the `Local Security Policy`.
-2. Set a new password for `stsagenuser` \(as the one generated during install is not saved anywhere\). In Powershell, run:
+2. Set a new password for `stsagenuser` \(as the one generated during install isn't saved anywhere\). In Powershell, run:
 
    ```text
       $user = [ADSI]"WinNT://./stsagentuser";

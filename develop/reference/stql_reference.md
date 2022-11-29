@@ -131,7 +131,7 @@ It's always possible to switch from Basic to Advanced filtering. The selected ba
     - The **Include components** basic filter box (name) is the exception - this is chained to the other filter boxes with an OR: `layer IN ("business service") AND domain IN ("online banking") OR name IN ("DLL_DB”)`
     - The advanced filtering options **withNeighborsOf** function and **identifier** are only compatible with basic filtering if they are joined to other filters with an **OR**: `layer in ("Processes") OR identifier IN ("urn:test:component")`
   
-If you try to switch from an Advanced filter to a Basic filter and the query is not compatible, StackState will let you know and ask for confirmation to continue as you will lose some of the set filters. Alternatively, you can choose to stay in advanced filtering.
+If you try to switch from an Advanced filter to a Basic filter and the query isn't compatible, StackState will let you know and ask for confirmation to continue as you will lose some of the set filters. Alternatively, you can choose to stay in advanced filtering.
 
 
 ## See also

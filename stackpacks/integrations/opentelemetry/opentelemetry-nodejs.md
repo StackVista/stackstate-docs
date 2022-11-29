@@ -77,7 +77,7 @@ Change the region in the top-right corner to the region where the [AWS StackPack
 Verify that there is a Lambda Layer called `stackstate-otel-nodejs`.
 
 {% hint style="info" %}
-**If the Lambda Layer is not present:**
+**If the Lambda Layer isn't present:**
 
   - The AWS StackPack CloudFormation Template installed may not be the latest one containing the Lambda Layer. Follow the [AWS StackPack](/stackpacks/integrations/aws/aws.md) documentation to verify the installation of this StackPack.
   - Lambda Layers are **AWS REGION** based. This means that the AWS StackPack CloudFormation template should also be deployed inside the same region as the targeted Lambda. If the CloudFormation template is currently deployed in another region other than where the targeted Lambda lives.

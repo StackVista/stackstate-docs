@@ -118,7 +118,7 @@ To configure the Splunk Metrics Agent check:
 
 To prevent sending duplicate metrics over multiple check runs, received saved search records must be uniquely identified for comparison. By default, a record is identified by the Splunk default fields `_bkt` and `_cd`. Specify `unique_key_fields` in the Splunk Metrics Agent check configuration to customize the behavior for each saved search. Note that the specified `unique_key_fields` fields are mandatory fields for each record returned by the Splunk saved search.
 
-If it is not possible to uniquely identify a record by a combination of specific fields, the whole record can be used by setting `unique_key_fields: []` \(an empty list\).
+If it isn't possible to uniquely identify a record by a combination of specific fields, the whole record can be used by setting `unique_key_fields: []` \(an empty list\).
 
 ### Disable the Agent check
 

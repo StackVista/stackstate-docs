@@ -32,5 +32,5 @@ Functions in StackState run with either synchronous or asynchronous execution. F
 
 ## Native functions
 
-To improve performance, some default StackState functions have been implemented as native functions. It's not possible to view or edit the script body of a native function in the StackState UI. It is not possible to create a custom native function.
+To improve performance, some default StackState functions have been implemented as native functions. It's not possible to view or edit the script body of a native function in the StackState UI. It isn't possible to create a custom native function.
 

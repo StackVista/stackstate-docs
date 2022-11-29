@@ -256,7 +256,7 @@ Once created, a service token can be used to authenticate to StackState from a h
 
 ### StackState `sts` CLI
 
-A service token can be used for authentication with the new `sts` CLI. It is not possible to authenticate with service tokens using the `stac` CLI. For details, see the CLI documentation:
+A service token can be used for authentication with the new `sts` CLI. It isn't possible to authenticate with service tokens using the `stac` CLI. For details, see the CLI documentation:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 * New `sts` CLI: [Authentication](/setup/cli/cli-sts.md#authentication)

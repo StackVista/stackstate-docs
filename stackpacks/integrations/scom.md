@@ -120,7 +120,7 @@ criteria : “(FullName LIKE ‘Microsoft.Windows.Computer:%’)”
 Errors in the configured criteria query will be reported in the [StackState Agent log file](../../setup/agent/about-stackstate-agent.md).
 
 ```text
-2020-11-05 09:19:31 GMT | ERROR | ... | (scom2.py:114) | Invalid criteria :The property FullNsame is not valid for the given criteria.
+2020-11-05 09:19:31 GMT | ERROR | ... | (scom2.py:114) | Invalid criteria :The property FullNsame isn't valid for the given criteria.
 ```
 
 #### Determine the required number of API requests

@@ -4,7 +4,7 @@ description: StackState Self-hosted v5.1.x
 
 # Authentication options
 
-Out of the box, StackState is configured with [file-based authentication](file.md) with a [default username and password](../../../setup/install-stackstate/initial_run_guide.md#default-username-and-password). This authenticates users against a file on the server. However, this is not a production-ready setup.
+Out of the box, StackState is configured with [file-based authentication](file.md) with a [default username and password](../../../setup/install-stackstate/initial_run_guide.md#default-username-and-password). This authenticates users against a file on the server. However, this isn't a production-ready setup.
 
 For better security StackState can be configured to use exactly one of the following authentication mechanisms \(replacing the standard admin user\):
 

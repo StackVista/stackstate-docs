@@ -106,7 +106,7 @@ Health state information is available when [health state is enabled](views/confi
 If the topology filters have been edited and not saved, no health state information will be available.
 {% endhint %}
 
-When health state information is not available, a gray line is displayed.
+When health state information isn't available, a gray line is displayed.
 
 ![Health state not available](../../.gitbook/assets/v51_timeline_no_health_state.png)
 
@@ -131,7 +131,7 @@ In each of the StackState perspectives, you can either be in live mode or in the
 
 Let's imagine a concrete scenario:
 
-* You received an event notification saying that your payment processing application is not able to process any payments right now, and your customers aren't being served.
+* You received an event notification saying that your payment processing application isn't able to process any payments right now, and your customers aren't being served.
 * In StackState, you can go to the moment in time when the components that make up the CRITICAL path of payment processing turned to a CRITICAL state. That moment corresponds to the point in time for which you will fetch the snapshot of your IT infrastructure - the topology time.
 * You can then select to see the hours that preceded that moment in order to fetch the telemetry that will hopefully point you to the root cause of your problem - the telemetry interval.
 

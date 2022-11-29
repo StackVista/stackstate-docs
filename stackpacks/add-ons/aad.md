@@ -50,7 +50,7 @@ When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream An
 ### Anomaly feedback
 
 {% hint style="info" %}
-Note that feedback is not used to train the running instance of the AAD.
+Note that feedback isn't used to train the running instance of the AAD.
 {% endhint %}
 
 Models are selected by the AAD and optimized for each metric stream. The quality of the anomalies reported is determined to a large extent by how well the selected model describes the stream that it runs on. The StackState team works with representative datasets to develop new models and optimize the hyperparameters used for model selection and training the AAD. 

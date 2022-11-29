@@ -35,8 +35,8 @@ A topology synchronized using StackState Agent follows the process described bel
 1. Confirm that a custom synchronization is running:
    - Use the `stac` CLI to [list all topology synchronization streams](debug-topology-synchronization.md#list-all-topology-synchronization-streams).
    - The synchronization should be included in the list and have created components/relations.
-   - If a custom synchronization is not listed, you will need to [recreate the synchronization](/configure/topology/sync.md).
-2. If no components appear after making changes to a synchronization, or the data is not as expected, follow the steps described in the sections below to check each step in the [topology synchronization process](#topology-synchronization-process).
+   - If a custom synchronization isn't listed, you will need to [recreate the synchronization](/configure/topology/sync.md).
+2. If no components appear after making changes to a synchronization, or the data isn't as expected, follow the steps described in the sections below to check each step in the [topology synchronization process](#topology-synchronization-process).
 3. If relations are missing from the topology, read the note on [troubleshooting synchronization of relations](#relations).
 
 ### StackState Agent
@@ -57,7 +57,7 @@ Topology and telemetry are stored on Kafka on separate topics. The StackState to
 
 Use the `stac` CLI to list the topics on Kafka and check the messages on a topic:
 - List all topics present on Kafka: `stac topology list-topics`. A topic should be present where the name has the format `sts_topo_<instance_type>_<instance url>` where `<instance_type>` is the recognizable name of an integration and `<instance_url>` corresponds to the StackState Agent integration YAML (usually the URL of the data source).
-- Check messages on a Kafka topic: `stac topic show <topic_name>`. If there are recent messages on the Kafka bus, then the issue is not in the data collection.
+- Check messages on a Kafka topic: `stac topic show <topic_name>`. If there are recent messages on the Kafka bus, then the issue isn't in the data collection.
 
 ### Synchronization
 
@@ -79,7 +79,7 @@ To troubleshoot processing errors, refer to the relevant StackState log files. T
 
 ### Relations
 
-It's possible that a relation references a source or target component that does not exist. Components are always processed before relations. If a component referenced by a relation is not present in the synchronization’s topology, the relation will not be created. When this happens, a warning is logged to the synchronization’s specific log file or the `stackstate-sync` pod. The component external ID and relation external ID are logged to help.
+It's possible that a relation references a source or target component that does not exist. Components are always processed before relations. If a component referenced by a relation isn't present in the synchronization’s topology, the relation will not be created. When this happens, a warning is logged to the synchronization’s specific log file or the `stackstate-sync` pod. The component external ID and relation external ID are logged to help.
 
 ## Synchronization logs
 

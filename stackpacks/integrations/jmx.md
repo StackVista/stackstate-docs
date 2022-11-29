@@ -294,7 +294,7 @@ java_bin_path: /path/to/java
 
 ### Monitoring JBoss/WildFly applications
 
-JBoss/WildFly applications expose JMX over a specific protocol \(Remoting JMX\) that is not bundled by default with JMXFetch. To allow JMXFetch to connect to these applications, configure it as follows:
+JBoss/WildFly applications expose JMX over a specific protocol \(Remoting JMX\) that isn't bundled by default with JMXFetch. To allow JMXFetch to connect to these applications, configure it as follows:
 
 1. Locate the `jboss-cli-client.jar` file on your JBoss/WildFly server \(by default, its path should be `$JBOSS_HOME/bin/client/jboss-cli-client.jar`\).
 2. If JMXFetch is running on a different host than the JBoss/WildFly application, copy `jboss-cli-client.jar` to a location on the host JMXFetch is running on.
