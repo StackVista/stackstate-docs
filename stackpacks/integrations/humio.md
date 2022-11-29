@@ -4,7 +4,7 @@ description: StackState Self-hosted v5.1.x
 
 # Humio
 
-## What is the Humio StackPack?
+## Overview
 
 The Humio StackPack allows you to access your logs stored in Humio.
 

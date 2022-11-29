@@ -4,7 +4,7 @@ description: StackState Self-hosted v5.1.x
 
 # Cloudera
 
-## What is the Cloudera StackPack?
+## Overview
 
 The Cloudera StackPack is used to create a near real time synchronization with your Cloudera instance.
 

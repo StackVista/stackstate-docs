@@ -4,7 +4,7 @@ description: StackState Self-hosted v5.1.x
 
 # Nagios
 
-## What is the Nagios StackPack?
+## Overview
 
 The Nagios StackPack allows StackState to connect to Nagios. We support the Nagios version 5.x onwards.
 

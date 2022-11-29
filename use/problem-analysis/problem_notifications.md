@@ -23,7 +23,7 @@ You can create a [custom event handler function](../../develop/developer-guides/
 
 ## See also
 
-* [What is a problem?](about-problems.md)
+* [About problems](about-problems.md)
 * [Problem navigation](problem_investigation.md)
 * [Problem lifecycle](problem-lifecycle.md)
 * [Manage Event Handlers](/use/events/manage-event-handlers.md)

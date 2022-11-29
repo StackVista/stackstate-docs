@@ -4,7 +4,7 @@ description: StackState Self-hosted v5.1.x
 
 # Logz.io
 
-## What is the Logz.io StackPack?
+## Overview
 
 The Logz.io StackPack allows StackState to connect to Logz.io.
 

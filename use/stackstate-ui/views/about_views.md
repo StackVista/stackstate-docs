@@ -80,7 +80,7 @@ Through a combination of configuration of permissions and scope, it's possible [
 
 ## Subview
 
-### What is a subview?
+### What's a subview?
 
 A subview is a temporary StackState view that can be used to aid investigation. While views use stored filters to select a specific set of topology, subviews are generated on demand and can't be saved. Within a subview, you can investigate the element, group or problem across all perspectives and at any point in time. 
 

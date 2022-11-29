@@ -16,7 +16,7 @@ Here are some examples of what you can do with RBAC:
 * Allow a group of users to access Analytics in StackState.
 * Create a group for users with access to specific elements of the topology.
 
-## What is a role in StackState?
+## What's a role in StackState?
 
 A role in StackState is a combination of a [configured subject](rbac_subjects.md) and a set of [permissions](rbac_permissions.md). Process of setting up a role in StackState is described in [How to set up roles](rbac_roles.md).
 

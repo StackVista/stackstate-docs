@@ -4,7 +4,7 @@ description: StackState Self-hosted v5.1.x
 
 # Packaging
 
-## What is a StackPack package?
+## What's a StackPack package?
 
 StackPacks are essentially `.zip` archives that contain a file structure allowing for StackPack presentation in StackState, installation, provisioning and configuration of StackState. The `.zip` extension must be changed to `.sts` to make the archive visible as a StackPack in StackState. A StackPack archive has the following structure:
 
@@ -24,7 +24,7 @@ StackPacks are essentially `.zip` archives that contain a file structure allowin
     └── stackpack.conf
 ```
 
-## What is inside the StackPack package?
+## What's inside the StackPack package?
 
 Inside the `.sts` archive you can find the provisioning directory, resources directory and a configuration file. Provisioning directory is prepared for provision groovy scripts, and Templates.
 
@@ -77,7 +77,7 @@ releaseNotes = "releaseNotes.md"
 upgradeInstructions = "upgrading.md"
 ```
 
-* `name` - Name of the StackPack. This is what is used to uniquely identify the StackPack. \(Required\)
+* `name` - Name of the StackPack. This is what's used to uniquely identify the StackPack. \(Required\)
 * `displayName` - Name that's displayed on both the StackPack listing page and on the title of the StackPack page. \(Required\)
 * `version` - [Semantic version](https://semver.org/) of the StackPack. StackPacks with the same major version are considered compatible. \(Required\)
 * `isNew` - This specifies whether the StackPack is new, as in the StackPack version is the first publicly available version. The values can be `yes`/`no`/`true`/`false`. By default, it's considered `false`.

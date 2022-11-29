@@ -10,7 +10,7 @@ Component Actions in StackState can act based on various events and inputs provi
 
 Component Actions can be configured within StackState Settings or can be predefined in a StackPack.
 
-## What is a Component Action?
+## What's a Component Action?
 
 A Component Action is a script that can be executed for components bound to that script with an [STQL query](../../develop/reference/stql_reference.md). A Component Action consists of a unique name that's case-sensitive, an STQL bind that selects components, and a script that determines the action's behavior. There are also optional fields for providing a description and an Identifier.
 

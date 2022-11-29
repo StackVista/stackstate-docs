@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## StackPack configuration file
 
-The StackPack configuration file is responsible for how StackState interprets the StackPack. The configuration file holds information like the StackPack version, or its category, but also defines what is presented to the user during installation and what input user is asked for. Find more details on fields in [The StackPack Configuration file](prepare_package.md) or follow the instructions below.
+The StackPack configuration file is responsible for how StackState interprets the StackPack. The configuration file holds information like the StackPack version, or its category, but also defines what's presented to the user during installation and what input user is asked for. Find more details on fields in [The StackPack Configuration file](prepare_package.md) or follow the instructions below.
 
 StackPack configuration file structure is as follows:
 

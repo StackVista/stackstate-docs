@@ -66,7 +66,7 @@ If elements from the problem change back to an unhealthy state in the future, th
 
 ## See also
 
-* [What is a problem?](about-problems.md)
+* [About problems](about-problems.md)
 * [How to navigate through a problem in the StackState UI](problem_investigation.md)
 * [Anomaly detection](../concepts/anomaly-detection.md)
 * [Problem notifications](problem_notifications.md)

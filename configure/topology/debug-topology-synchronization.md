@@ -63,7 +63,7 @@ Use the `stac` CLI to list the topics on Kafka and check the messages on a topic
 
 The StackState topology synchronization reads messages from a topic on the Kafka data bus. The Kafka topic used by a synchronization is defined in the Sts data source.
 
-- Check if the topic name defined in the Sts data source matches what is returned by the `stackstate-agent check` command. Note that topic names are case-sensitive.
+- Check if the topic name defined in the Sts data source matches what's returned by the `stackstate-agent check` command. Note that topic names are case-sensitive.
 - Check the error counter for the synchronization on the StackState UI page **Settings** > **Topology Synchronization** > **Synchronizations**. Increasing numbers tell you that there was an error while processing received data.
 
 ![Synchronization errors](/.gitbook/assets/settings_synchronizations.png)

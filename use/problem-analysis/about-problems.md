@@ -2,7 +2,7 @@
 description: StackState Self-hosted v5.1.x 
 ---
 
-# What is a problem?
+# What's a problem?
 
 ## Overview
 

@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.1.x
 
 To understand what OpenTelemetry instrumentation is, we first need to understand the concept of distributed tracing,
 how a trace looks and what the content of a trace contains. 
-As a side note, If you are unfamiliar with OpenTelemetry you can visit their docs page [What is OpenTelemetry? \(opentelemetry.io\)](https://opentelemetry.io/docs/concepts/what-is-opentelemetry/) to get more information about OpenTelemetry and what it's.
+As a side note, If you are unfamiliar with OpenTelemetry you can visit [The OpenTelemetry docs page \(opentelemetry.io\)](https://opentelemetry.io/docs/concepts/what-is-opentelemetry/) to get more information about OpenTelemetry and what it's.
 
 ## Distributed traces
 
