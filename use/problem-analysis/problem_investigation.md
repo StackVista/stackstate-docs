@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-Unhealthy components in a view are grouped into [problems](about-problems.md) based on how they are connected in the topology. When StackState identifies a problem, this will be reported in the right panel under **Problems**.
+Unhealthy components in a view are grouped into [problems](about-problems.md) based on how they're connected in the topology. When StackState identifies a problem, this will be reported in the right panel under **Problems**.
 
 * The **View summary** and **Subview summary** tabs give an overview of problems based on the components impacted in the current view or subview. 
 * The **Component details** tab lists all problems that involve the selected component. 

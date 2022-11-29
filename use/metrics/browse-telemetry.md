@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.1.x
 
 The StackState UI displays a visualization of filtered data for each configured telemetry stream.
 
-Telemetry streams are added to elements automatically when they are imported to StackState or you can manually [add a single telemetry stream](add-telemetry-to-element.md) to a single component.
+Telemetry streams are added to elements automatically when they're imported to StackState or you can manually [add a single telemetry stream](add-telemetry-to-element.md) to a single component.
 
 ## Telemetry inspector
 

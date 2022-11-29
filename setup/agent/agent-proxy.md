@@ -49,7 +49,7 @@ To configure a proxy for an Agent running on Linux, add the required environment
    sudo systemctl edit stackstate-agent.service
    ```
 
-3. Add the environment variables below to use a proxy for Agent checks and communication with StackState - note that this setting will be overridden by the environment variables `STS_PROXY_HTTPS` / `STS_PROXY_HTTP` if they are also set:
+3. Add the environment variables below to use a proxy for Agent checks and communication with StackState - note that this setting will be overridden by the environment variables `STS_PROXY_HTTPS` / `STS_PROXY_HTTP` if they're also set:
      ```yaml
      [Service]
      Environment="HTTP_PROXY=http://example.com:1234"

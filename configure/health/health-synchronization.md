@@ -43,7 +43,7 @@ The `REPEAT_SNAPSHOTS` consistency model works with periodic, full snapshots of 
 {% tab title="Repeat States model" %}
 The `REPEAT_STATES` consistency model works with periodic checks received from an external monitoring system. StackState keeps track of the checks and decides if associated external checks need to be created or updated in StackState. A configurable expiry mechanism is used to delete external checks that are not observed anymore. This model offers less control over data than the `REPEAT_SNAPSHOTS` model. As an expiry configuration is used to delete external checks, it might happen that elements are deleted due to barely missing the expiry timeout. This would reflect as external checks disappearing and reappearing in StackState.
 
-**Use this model when:** The external monitoring system isn't capable of collecting all checks in a determined time window, and the best effort is just to send the external checks as they are obtained.
+**Use this model when:** The external monitoring system isn't capable of collecting all checks in a determined time window, and the best effort is just to send the external checks as they're obtained.
 
 **JSON payload:** The [Repeat States health payload](/configure/health/send-health-data/repeat_states.md) accepts specific properties to specify the expiry configuration.
 {% endtab %}

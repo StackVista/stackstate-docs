@@ -140,7 +140,7 @@ Note the `.stripMargin()` call. This is a Groovy function for strings that strip
 
 Sets the user-interface to the Topology Perspective and changes the SQTL query.
 
-If the user is currently in an unsaved view, the user receives a prompt dialog asking whether they are okay in navigating to another part of the topology. If the user continues the action they will lose their current view.
+If the user is currently in an unsaved view, the user receives a prompt dialog asking whether they're okay in navigating to another part of the topology. If the user continues the action they will lose their current view.
 
 ### Args
 

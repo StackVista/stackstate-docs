@@ -23,7 +23,7 @@ Are easiest to use when they resemble the layers of your infrastructure. In sett
 
 ## Component types
 
-Components should be generic enough to group similar components but specific enough to clearly identify what they are. The following are examples of component types used in StackPacks.
+Components should be generic enough to group similar components but specific enough to clearly identify what they're. The following are examples of component types used in StackPacks.
 
 * application
 * database
@@ -47,7 +47,7 @@ Components should be generic enough to group similar components but specific eno
 
 ## Relations
 
-Relation names depend heavily on how much is known about the relation. Do we only know these nodes are connected or de we know why they are connected? Make sure the name reflects what you know for a fact about the relation. The following are examples of relations used in StackPacks.
+Relation names depend heavily on how much is known about the relation. Do we only know these nodes are connected or de we know why they're connected? Make sure the name reflects what you know for a fact about the relation. The following are examples of relations used in StackPacks.
 
 * connection
 * depends on

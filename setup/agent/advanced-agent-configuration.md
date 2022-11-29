@@ -272,7 +272,7 @@ To enable tracing on StackState Agent running on Windows, edit the configuration
 
 ## Disable Agent features
 
-Certain features of the Agent can optionally be turned off if they are not needed.
+Certain features of the Agent can optionally be turned off if they're not needed.
 
 {% tabs %}
 {% tab title="Docker, Kubernetes, OpenShift" %}
