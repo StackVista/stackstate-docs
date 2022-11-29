@@ -55,7 +55,7 @@ The merge strategy is applied when multiple components get synchronized which ha
 * _Merge, prefer mine_ - Merge fields that are mergable, if not take the data from this mapping
 * _Merge, prefer theirs_ - Merge fields that are mergable, if not take the data from the other components
 
-Mergable fields in the component are set fields \(like streams and checks\) and optional fields \(like version, description\). Mandatory fields \(like name, layer\) cannot be merged, for these always one has to be picked based on Mine/Theirs configuration.
+Mergable fields in the component are set fields \(like streams and checks\) and optional fields \(like version, description\). Mandatory fields \(like name, layer\) can't be merged, for these always one has to be picked based on Mine/Theirs configuration.
 
 ## Mapping Functions
 

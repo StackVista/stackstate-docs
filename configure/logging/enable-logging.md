@@ -10,7 +10,7 @@ description: StackState Self-hosted v5.1.x
 Only available for Linux installations of StackState.
 {% endhint %}
 
-For debugging purposes, it may be helpful to enable logging for a StackState function. You can add logging statements to functions and then use the StackState `stac` CLI to set the logging level for an individual function instance. Log messages will be added to the StackState log file `stackstate.log`. Note that logging cannot be enabled for all types of function.
+For debugging purposes, it may be helpful to enable logging for a StackState function. You can add logging statements to functions and then use the StackState `stac` CLI to set the logging level for an individual function instance. Log messages will be added to the StackState log file `stackstate.log`. Note that logging can't be enabled for all types of function.
 
 ## Set the logging level for a function instance
 
@@ -19,7 +19,7 @@ To enable logging for an instance of a function, use its ID to set a logging lev
 {% hint style="info" %}
 * It's only possible to enable logging for functions running on a Linux installation of StackState.
 * The logging level should be set using the ID for an instance of a function, not the ID of the function itself.
-* The [`stac` CLI](/setup/cli/cli-stac.md) is required to set the logging level. The logging level of a function instance cannot be set using the new `sts` CLI.
+* The [`stac` CLI](/setup/cli/cli-stac.md) is required to set the logging level. The logging level of a function instance can't be set using the new `sts` CLI.
 {% endhint %}
 
 1. Find the ID for the instance of the function that you want to enable logging for:

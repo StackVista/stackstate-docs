@@ -641,7 +641,7 @@ Example taken from the [StackState MySQL Agent check \(github.com\)](https://git
 
 ## Error handling
 
-A check should raise a significant exception when it cannot work correctly, for example due to a wrong configuration or runtime error. Exceptions are logged and shown in the Agent status page. The `warning` method can be used to log a warning message and display it on the Agent status page.
+A check should raise a significant exception when it can't work correctly, for example due to a wrong configuration or runtime error. Exceptions are logged and shown in the Agent status page. The `warning` method can be used to log a warning message and display it on the Agent status page.
 
 ```text
 self.warning("This will be visible in the status page")

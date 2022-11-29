@@ -194,7 +194,7 @@ The most secure way to use your API token is through an environment variable. Yo
 
 #### Docker
 
-The Docker version of the CLI cannot be configured with a config file. Specify the configuration of your StackState instance using environment variables and pass these to Docker:
+The Docker version of the CLI can't be configured with a config file. Specify the configuration of your StackState instance using environment variables and pass these to Docker:
 
 * `STS_CLI_URL` - the URL to your StackState instance.
 * `STS_CLI_API_TOKEN` - the API token taken from the StackState UI **Main menu** &gt; **CLI** page.

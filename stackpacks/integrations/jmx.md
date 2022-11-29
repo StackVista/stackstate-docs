@@ -92,7 +92,7 @@ instances:
 * `jmx_url` - \(Optional\) - If the agent needs to connect to a non-default JMX URL, specify it here instead of a host and a port. If you use this you need to specify a 'name' for the instance.
 * `is_jmx` \(Optional\) - Allows creating different configuration files for each application rather than using a single long jmx file. Include the option in each configuration file.
 * `name` - \(Optional\) - Used in conjunction with `jmx_url`.
-* `java_bin_path` - \(Optional\) - Should be set if the agent cannot find your java executable.
+* `java_bin_path` - \(Optional\) - Should be set if the agent can't find your java executable.
 * `java_options` - \(Optional\) - Java JVM options
 * `trust_store_path` and `trust_store_password` - \(Optional\) - Should be set if ssl is enabled.
 * `process_name_regex` - \(Optional\) - Instead of specifying a host and port or jmx\_url, the agent can connect using the attach api. This requires the JDK to be installed and the path to tools.jar to be set.

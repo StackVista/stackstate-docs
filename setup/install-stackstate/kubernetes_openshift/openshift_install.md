@@ -294,7 +294,7 @@ Next steps are
 
 ## Manually create `SecurityContextConfiguration` objects
 
-If you cannot use an administrator account to install StackState on OpenShift, ask your administrator to apply the below `SecurityContextConfiguration` objects.
+If you can't use an administrator account to install StackState on OpenShift, ask your administrator to apply the below `SecurityContextConfiguration` objects.
 
 ### Cluster Agent
 

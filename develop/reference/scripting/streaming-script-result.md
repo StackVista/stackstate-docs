@@ -4,7 +4,7 @@ description: StackState Self-hosted v5.1.x
 
 # Streaming script result
 
-Most API functions execute asynchronously. That means they won't directly return results. Some functions are dependent on the network or other resources in order to complete, therefore they cannot immediately return results. Such asynchronous functions return an `AsyncScriptResult`. On top of that, some APIs can deal with large amounts of data, in which case we don't want to process all the data at once. Such APIs return a `StreamingScriptResult`, which allows for the result to be processed one element at a time. 
+Most API functions execute asynchronously. That means they won't directly return results. Some functions are dependent on the network or other resources in order to complete, therefore they can't immediately return results. Such asynchronous functions return an `AsyncScriptResult`. On top of that, some APIs can deal with large amounts of data, in which case we don't want to process all the data at once. Such APIs return a `StreamingScriptResult`, which allows for the result to be processed one element at a time. 
 
 ## Working with `StreamingScriptResult.then`
 
@@ -29,7 +29,7 @@ The `it` keyword is a default Groovy keyword that means you don't need to define
 
 ## Chaining
 
-To avoid computations becoming too heavy, the `StreamingScriptResult` cannot be chained with either `AsyncScriptResult` or `StreamingScriptResult` itself. 
+To avoid computations becoming too heavy, the `StreamingScriptResult` can't be chained with either `AsyncScriptResult` or `StreamingScriptResult` itself. 
 
 ## Collecting results
 

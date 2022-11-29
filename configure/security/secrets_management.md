@@ -14,7 +14,7 @@ The Agent V2 can leverage the `secrets` package to call a user-provided executab
 
 Use the `ENC[]` notation to denote a secret as the value of any YAML field in your configuration. Secrets are supported in any configuration backend \(for example, file, etcd, consul\) and environment variables.
 
-Secrets are also supported in `stackstate.yaml` - agent check configuration file. The Agent V2 first loads the main configuration and reloads it after decrypting the secrets. This means that secrets cannot be used in the `secret_*` settings.
+Secrets are also supported in `stackstate.yaml` - agent check configuration file. The Agent V2 first loads the main configuration and reloads it after decrypting the secrets. This means that secrets can't be used in the `secret_*` settings.
 
 Secrets are always strings, which means that it's impossible to set them to integer or Boolean type.
 

@@ -22,7 +22,7 @@ Below are StackState's tagging restrictions, requirements, and suggestions:
 
      Other special characters are converted to underscores.
 
-     **Note**: A tag cannot end with a colon, for example `tag:`
+     **Note**: A tag can't end with a colon, for example `tag:`
 2. Tags can be **up to 200 characters** long and support Unicode.
 3. Tags are converted to lowercase. Therefore, `CamelCase` tags aren't recommended.
 4. A tag can be in the format `value` or `<KEY>:<VALUE>`. For optimal functionality, **we recommend constructing tags in the `<KEY>:<VALUE>` format.** Commonly used tag keys are `env`, `instance`, and `name`. The key always precedes the first colon of the global tag definition, for example:
