@@ -54,7 +54,7 @@ No manual action required.
 
 #### v5.0.0
 
-* With the release of the new `sts` CLI, the CLI released with previous versions of StackState has been renamed to `stac`:
+* With the release of the new `sts` CLI, the CLI released with earlier versions of StackState has been renamed to `stac`:
   * If you install the new `sts` CLI, you should [upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
   * The commands for the new `sts` CLI have changed. Check that any automation is using the correct CLI command (`sts` or `stac`). [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 * Version 5.0.0 of StackState includes a breaking change to the output of the [Telemetry Script API](/develop/reference/scripting/script-apis/telemetry.md). The output uses the new [StreamingScriptApi](/develop/reference/scripting/streaming-script-result.md) and the data format changed. Any script making use of that API needs to be adapted to deal with the new output format. 
@@ -81,7 +81,7 @@ No manual action required.
 
 #### v5.0.0
 
-* With the release of the new `sts` CLI, the CLI released with previous versions of StackState has been renamed to `stac`:
+* With the release of the new `sts` CLI, the CLI released with earlier versions of StackState has been renamed to `stac`:
   * If you install the new `sts` CLI, you should [upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade).
   * The commands for the new `sts` CLI have changed. Check that any automation is using the correct CLI command (`sts` or `stac`). [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 * This version of StackState includes a breaking change to the output of the [Telemetry Script API](/develop/reference/scripting/script-apis/telemetry.md). The output uses the new [StreamingScriptApi](/develop/reference/scripting/streaming-script-result.md) and the data format changed. Any script making use of that API needs to be adapted to deal with the new output format.

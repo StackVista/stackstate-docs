@@ -519,7 +519,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 * [Timeline improvements](../../use/stackstate-ui/timeline-time-travel.md):
   * It is now possible to zoom out of a time range. STAC-12533
   * Added support for navigating to the next and previous time range. STAC-12531
-* Indirect relations for "Show root cause only" are now always shown when there is at least one invisible dependency that leads to the root cause. In previous versions of StackState an indirect relation for a root cause was only shown if there was no visible path to the root cause. STAC-11621
+* Indirect relations for "Show root cause only" are now always shown when there is at least one invisible dependency that leads to the root cause. In earlier versions of StackState an indirect relation for a root cause was only shown if there was no visible path to the root cause. STAC-11621
 * [Relations to component groups are shown as solid lines](/use/concepts/relations.md). In StackState v4.3 a grouped relation was displayed as a dashed line when the group of relations was not complete in the sense that each component in the group received that relation \(this is also called surjective\). STAC-11621
 * Improve how component names are displayed in the Topology Perspective. STAC-13063
 * The component finder modal can now be invoked using the [keyboard shortcut](../../use/stackstate-ui/keyboard-shortcuts.md) `CTRL`+`SHIFT`+`F`. STAC-12957

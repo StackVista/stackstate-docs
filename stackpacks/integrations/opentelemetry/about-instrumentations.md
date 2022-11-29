@@ -80,7 +80,7 @@ The above will look as follows:
 A parent span will contain an ID, for example, `span-id: id-001`. When a child span's created, it can contain a key-value pair that states the following, `parent-span: id-001` and its own unique
 span ID, for example, `span-id: id-002`.
 
-One thing that makes the structure unique is that this can be a chain of infinite children; for example, the next child can have a parent-ID of a previous child, making it nested even deeper.
+One thing that makes the structure unique is that this can be a chain of infinite children; for example, the next child can have a parent-ID of an earlier child, making it nested even deeper.
 
 For example, below, we have a root parent that has a child, that child has a child, and then that child will have a final child:
 

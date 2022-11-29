@@ -53,7 +53,7 @@ You can [configure the default telemetry interval](/configure/telemetry/custom_t
 
 ### Topology time
 
-The topology and all telemetry displayed in StackState are based on a snapshot of the IT infrastructure. The moment from which this snapshot is taken is specified by the topology time. By default, StackState is in live mode with the topology time set to the current time. You can [time travel](timeline-time-travel.md#time-travel) to a previous state of the topology by selecting a custom topology time.
+The topology and all telemetry displayed in StackState are based on a snapshot of the IT infrastructure. The moment from which this snapshot is taken is specified by the topology time. By default, StackState is in live mode with the topology time set to the current time. You can [time travel](timeline-time-travel.md#time-travel) to an earlier state of the topology by selecting a custom topology time.
 
 ![Topology time](../../.gitbook/assets/v51_topology_time.png)
 

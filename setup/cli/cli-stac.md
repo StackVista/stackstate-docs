@@ -102,7 +102,7 @@ The StackState CLI can be run inside a Docker container on Linux, Windows or mac
 
 ## Configure the `stac` CLI
 
-After a new installation, the `stac` CLI must be configured with the API connection details for your StackState instance. If you upgraded from a previous version of the CLI, it's not necessary to configure the CLI again, the existing CLI configuration will be used.
+After a new installation, the `stac` CLI must be configured with the API connection details for your StackState instance. If you upgraded from an earlier version of the CLI, it's not necessary to configure the CLI again, the existing CLI configuration will be used.
 
 The standalone executable StackState CLI on Linux or Windows includes a wizard to guide you through configuration. If you installed the Docker version of the `stac` CLI on macOS, Linux or Windows, the configuration file must be manually created.
 

@@ -92,7 +92,7 @@ The currently supported versions of StackState:
 
 For details on changes in each release and how to upgrade StackState, check the [StackState release notes and upgrade instructions](setup/upgrade-stackstate/).
 
-To find documentation for previous StackState versions, use the drop-down menu at the top left of this page.
+To find documentation for earlier StackState versions, use the drop-down menu at the top left of this page.
 
 ## Can't find something?
 
