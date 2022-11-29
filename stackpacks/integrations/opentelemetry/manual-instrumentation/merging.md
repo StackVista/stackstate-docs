@@ -66,7 +66,7 @@ It will open a dialog; within this dialog, you can see the identifiers. If you r
 
 ## Example: Merging a component
 
-Let's take the following example; we have three components that we create, all having the previous one as their parent span.
+Let's take the following example; we create three components, all having the previous one as their parent span.
 
 ```text
 Service Name: Parent Component

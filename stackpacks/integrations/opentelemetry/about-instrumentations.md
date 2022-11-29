@@ -82,7 +82,7 @@ span ID, for example, `span-id: id-002`.
 
 One thing that makes the structure unique is that this can be a chain of infinite children; for example, the next child can have a parent-ID of an earlier child, making it nested even deeper.
 
-For example, below, we have a root parent that has a child, that child has a child, and then that child will have a final child:
+For example, below, we've a root parent that has a child, that child has a child, and then that child will have a final child:
 
 ```sass
 Span =>

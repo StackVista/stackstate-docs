@@ -208,7 +208,7 @@ Now, let's create some test events for the component. Provided you have set the 
 TS=`date +%s`; cat custom-event.json | sed -e "s/##TIMESTAMP##/$TS/" | curl -H "Content-Type: application/json" -X POST -d @- ${STS_STS_URL}/intake/\?api_key\=${STS_API_KEY}
 ```
 
-Just execute a few of these so we have a few datapoints to work with.
+Just execute a few of these so we've a few datapoints to work with.
 
 Next, let's create a _log stream_ for the component. Find the **a-host** component and select it to display detailed information about the component in the right panel details tab - **Component details**. In the **Telemetry** section, click **ADD NEW STREAM**. This opens the Stream Wizard to add a new stream. Enter **External monitor** as the name for the stream and select the **StackState Generic Events** datasource.
 

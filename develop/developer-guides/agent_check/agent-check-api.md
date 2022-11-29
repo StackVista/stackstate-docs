@@ -12,7 +12,7 @@ Code examples for the open source StackState Agent checks can be found on GitHub
 
 ## Agent checks
 
-From **Agent 2.18**, we have introduced [AgentChecksV2](https://github.com/StackVista/stackstate-agent-integrations/blob/master/stackstate_checks_base/stackstate_checks/base/checks/v2/base.py#L124) which has some key difference to historic Agent Checks. The key differences being:
+From **Agent 2.18**, we've introduced [AgentChecksV2](https://github.com/StackVista/stackstate-agent-integrations/blob/master/stackstate_checks_base/stackstate_checks/base/checks/v2/base.py#L124) which has some key difference to historic Agent Checks. The key differences being:
 - V2 Agent Check checks requires a return value in the form of a [CheckResponse](https://github.com/StackVista/stackstate-agent-integrations/blob/master/stackstate_checks_base/stackstate_checks/base/checks/v2/types.py#L8)
 - V2 Agent Check includes two new check base classes:
   - [StatefulAgentCheck](https://github.com/StackVista/stackstate-agent-integrations/blob/master/stackstate_checks_base/stackstate_checks/base/checks/v2/stateful_agent_check.py#L8)
