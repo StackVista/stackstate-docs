@@ -13,7 +13,7 @@ The full topology available in StackState is likely much larger than you need to
 * [View health state configuration](about_views.md#view-health-state) – reports the health state of the view.
 * [Event handlers](/use/events/event-notifications.md) - respond to events generated in the view and send event notifications.
 
-Generally speaking, views serve two major purposes:
+Views serve two major purposes:
 
 1. Views are a type of bookmark. They help you find your way back to a part of your topology that's of particular interest to you or your team. They may also serve as a starting point for defining new views.
 2. Views can be used for [event notifications and automation](/use/events/manage-event-handlers.md). Whenever a change within the view requires your attention, an event handler can send out a notification, create an incident in an ITSM system or trigger automation.

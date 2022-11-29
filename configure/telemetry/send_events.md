@@ -111,7 +111,7 @@ Events have the following details:
   * **data** - Optional. A list of key/value details about the event, for example a configuration version.
   * **source\_identifier** - Optional. The original identifier of the event in the source system.
   * **source\_links** - Optional. A list of links related to the event, for example a dashboard or the event in the source system.
-* **event\_type** - Describes the event being sent. This should generally end with the suffix `Event`, for example `ConfigurationChangedEvent`, `VersionChangedEvent`.
+* **event\_type** - Describes the event being sent. This should end with the suffix `Event`, for example `ConfigurationChangedEvent`, `VersionChangedEvent`.
 * **msg\_text** - Required. The text body of the event.
 * **msg\_title** - Required. The title of the event.
 * **source\_type\_name** - Optional. The source event type name.

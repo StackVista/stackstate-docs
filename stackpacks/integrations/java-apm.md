@@ -23,7 +23,7 @@ Java APM is a [StackState curated integration](/stackpacks/integrations/about_in
 
 Automatic instrumentation for Java uses the `java-agent` instrumentation capabilities provided by the JVM. When the `java-agent` is registered, it has the ability to modify class files at the load time. The `java-agent` uses the Byte Buddy framework to find the classes defined for instrumentation and modify those class bytes accordingly.
 
-Instrumentation may come from an auto-instrumentation, the OpenTracing api, or a mixture of both. Instrumentation generally captures the following info:
+Instrumentation may come from an auto-instrumentation, the OpenTracing api, or a mixture of both. Instrumentation captures the following info:
 
 * Timing duration is captured using the JVM's nanotime clock unless a timestamp is provided from the OpenTracing api
 * Key/value tag pairs
