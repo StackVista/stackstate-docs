@@ -67,7 +67,7 @@ Follow the steps below to configure StackState to authenticate using LDAP:
    * **sslType** - Optional. The type of LDAP secure connection `ssl` or `startTls`. Omit if plain LDAP connection is used.
    * **trustCertificates** - Optional, certificate file for SSL. Formats PEM, DER and PKCS7 are supported.
    * **trustStore** - Optional, Java trust store file for SSL. If both `trustCertificates` and `trustStore` are specified, `trustCertificatesPath` takes precedence.
-   * **bind** - Optional, used to authenticate StackState to LDAP server if the LDAP server does not support anonymous LDAP searches.
+   * **bind** - Optional, used to authenticate StackState to LDAP server if the LDAP server doesn't support anonymous LDAP searches.
    * **userQuery parameters and groupQuery parameters** - The set of parameters inside correspond to the base dn of your LDAP where users and groups can be found. The first one is used for authenticating users in StackState, while the second is used for retrieving the group of that user to determine if the user is an Administrator, Power User or a Guest.
    * **usernameKey** - The name of the attribute that stores the username, value is matched against the username provided on the login screen.
    * **emailKey** - The name of the attribute that's used as the email address in StackState.
@@ -201,7 +201,7 @@ Follow the steps below to configure StackState to authenticate using LDAP:
    * **sslType** - Optional. Omit if plain LDAP connection is used. The type of LDAP secure connection `ssl` \| `startTls`.
    * **trustCertificatesPath** - optional, path to the trust store on the StackState server. Formats PEM, DER and PKCS7 are supported.
    * **trustStorePath** - optional, path to a Java trust store on the StackState server. If both `trustCertificatesPath` and `trustStorePath` are specified, `trustCertificatesPath` takes precedence.
-   * **bindCredentials** - optional, used to authenticate StackState on the LDAP server if the LDAP server does not support anonymous LDAP searches.
+   * **bindCredentials** - optional, used to authenticate StackState on the LDAP server if the LDAP server doesn't support anonymous LDAP searches.
    * **userQuery and groupQuery parameters** - The set of parameters inside correspond to the base dn of your LDAP where users and groups can be found. The first one is used for authenticating users in StackState, while the second is used for retrieving the group of that user to determine if the user is an Administrator, Power User or a Guest.
    * **usernameKey** - The name of the attribute that stores the username, value is matched against the username provided on the login screen.
    * **emailKey** - The name of the attribute that's used as the email address in StackState.

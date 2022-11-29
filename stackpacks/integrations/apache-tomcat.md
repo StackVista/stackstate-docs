@@ -302,7 +302,7 @@ See `metadata.csv` for a list of metrics provided by this check.
 
 ### Events
 
-The Tomcat check does not include any events.
+The Tomcat check doesn't include any events.
 
 ### Service Checks
 

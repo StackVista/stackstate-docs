@@ -149,7 +149,7 @@ The events described below are retrieved by the SAP integration.
 
 #### Traces
 
-The SAP integration does not retrieve any traces.
+The SAP integration doesn't retrieve any traces.
 
 ### API endpoints
 

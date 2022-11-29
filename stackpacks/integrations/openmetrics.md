@@ -63,7 +63,7 @@ To enable the OpenMetrics integration and begin collecting metrics data from an 
    - **exclude_labels** - list of labels to be excluded.
    - **prometheus_timeout** - set a timeout for the OpenMetrics query.
    - **ssl_cert** - If your OpenMetrics endpoint is secured, enter the path to the certificate and specify the private key in the `ssl_private_key` parameter, or provide the path to a file containing both the certificate and the private key.
-   - **ssl_private_key** - required if the certificate linked in `ssl_cert` does not include the private key. Note that the private key to your local certificate must be unencrypted.
+   - **ssl_private_key** - required if the certificate linked in `ssl_cert` doesn't include the private key. Note that the private key to your local certificate must be unencrypted.
    - **ssl_ca_cert** - the path to the trusted CA used for generating custom certificates.
    - **extra_headers** - a list of additional HTTP headers to send in queries to the OpenMetrics endpoint. Can be combined with autodiscovery template variables. For example, `"Authorization: Bearer %%env_TOKEN%%"`.
 4. Wait for the Agent to collect data from the OpenMetrics endpoint and send it to StackState.
@@ -130,7 +130,7 @@ Example OpenMetrics Agent check configuration file:
    - **exclude_labels** - list of labels to be excluded.
    - **prometheus_timeout** - set a timeout for the OpenMetrics query.
    - **ssl_cert** - If your OpenMetrics endpoint is secured, enter the path to the certificate and specify the private key in the `ssl_private_key` parameter, or provide the path to a file containing both the certificate and the private key.
-   - **ssl_private_key** - required if the certificate linked in `ssl_cert` does not include the private key. Note that the private key to your local certificate must be unencrypted.
+   - **ssl_private_key** - required if the certificate linked in `ssl_cert` doesn't include the private key. Note that the private key to your local certificate must be unencrypted.
    - **ssl_ca_cert** - the path to the trusted CA used for generating custom certificates.
    - **extra_headers** - a list of additional HTTP headers to send in queries to the OpenMetrics endpoint. Can be combined with autodiscovery template variables. For example, `"Authorization: Bearer %%env_TOKEN%%"`.
 3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
@@ -162,11 +162,11 @@ Retrieved metrics won't automatically be mapped to topology elements. They can b
 
 ### Events
 
-The OpenMetrics integration does not retrieve any events data.
+The OpenMetrics integration doesn't retrieve any events data.
 
 ### Traces
 
-The OpenMetrics integration does not retrieve trace data.
+The OpenMetrics integration doesn't retrieve trace data.
 
 ## See also
 

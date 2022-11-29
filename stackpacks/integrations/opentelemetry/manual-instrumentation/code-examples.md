@@ -107,7 +107,7 @@ const tracer = openTelemetry.trace.getTracer(
 ---
 
 ### 4 - Root span / parent span
-Now let's create the root span, For the root span we are creating a custom RDS Database entry (This database does not have to exist you control the span values).
+Now let's create the root span, For the root span we are creating a custom RDS Database entry (This database doesn't have to exist you control the span values).
 
 Example Database
 - Database Name: Hello World
@@ -115,7 +115,7 @@ Example Database
 
 ```javascript
 // Creating a parent span. You need a identifier for this span inside the code
-// we will use the value 'RDS Database' but this does not matter.
+// we will use the value 'RDS Database' but this doesn't matter.
 const rdsDatabase = tracer.startSpan('RDS Database', {
     root: true,
 });
@@ -147,7 +147,7 @@ Example Table
 
 ```javascript
 // Creating a child span. You need a identifier for this span inside the code
-// we will use the value 'RDS Table' but this does not matter.
+// we will use the value 'RDS Table' but this doesn't matter.
 const rdsDatabaseTable = tracer.startSpan(
     'RDS Table',
     undefined,
@@ -242,7 +242,7 @@ const tracer = openTelemetry.trace.getTracer(
 );
 
 // Creating a parent span. You need an identifier for this span inside the code
-// we will use the value 'RDS Database' but this does not matter.
+// we will use the value 'RDS Database' but this doesn't matter.
 const rdsDatabase = tracer.startSpan('RDS Database', {
     root: true,
 });
@@ -256,7 +256,7 @@ rdsDatabase.setAttribute('resource.name', 'AWS RDS');
 
 
 // Creating a child span. You need a identifier for this span inside the code
-// we will use the value 'RDS Table' but this does not matter.
+// we will use the value 'RDS Table' but this doesn't matter.
 const rdsDatabaseTable = tracer.startSpan(
     'RDS Table',
     undefined,

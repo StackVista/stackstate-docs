@@ -25,7 +25,7 @@ Telemetry streams can be added to any component or direct relation in the StackS
    * **Metric stream** \(default\) - use for metrics. Allows for various [aggregation methods](#aggregation-methods) and will be visualized as a timeseries line chart.
    * **Log stream** - use for streams that contain logs and events. Will be visualized as a bar chart.
 6. Provide the following details:
-   * **Time window** - The selection of time to be shown in the StackState UI. The time window is used for display purposes only and does not affect handling in any way.
+   * **Time window** - The selection of time to be shown in the StackState UI. The time window is used for display purposes only and doesn't affect handling in any way.
    * **Filters** - Select the data relevant to the element. For example, if the data source contains data about all services on a host, select the specific host and service to attach data for.
    * **Select** - for metric streams only, select the metric that you want to retrieve and the function to apply to it.
    * **Priority** - Optional, you can [set a priority for the telemetry stream](set-telemetry-stream-priority.md). This will influence the order in which the stream is displayed in the StackState UI and the way the stream is handled by other services, such as the [Autonomous Anomaly Detector](../../stackpacks/add-ons/aad.md).

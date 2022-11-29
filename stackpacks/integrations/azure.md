@@ -132,7 +132,7 @@ To upgrade to a new major release of the Azure StackPack:
 
 #### Events
 
-The Azure integration does not retrieve any Events data.
+The Azure integration doesn't retrieve any Events data.
 
 #### Metrics
 
@@ -149,7 +149,7 @@ Each Azure integration retrieves topology data for resources associated with the
 
 #### Traces
 
-The Azure integration does not retrieve any Traces data.
+The Azure integration doesn't retrieve any Traces data.
 
 ### REST API endpoints
 

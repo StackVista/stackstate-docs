@@ -209,7 +209,7 @@ The [Dynatrace health check](#dynatrace-health-check) retrieves all events and t
 
 #### Metrics
 
-The Dynatrace integration does not retrieve any metrics data.
+The Dynatrace integration doesn't retrieve any metrics data.
 
 #### Tags
 
@@ -232,7 +232,7 @@ The Dynatrace integration understands StackState [common tags](../../configure/t
 
 #### Traces
 
-The Dynatrace integration does not retrieve any traces data.
+The Dynatrace integration doesn't retrieve any traces data.
 
 ### Dynatrace filters for StackState views
 

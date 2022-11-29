@@ -171,7 +171,7 @@ For details on how to configure the health retrieved, see the [Splunk Health che
 
 #### Traces
 
-The StackState Splunk integration does not retrieve any trace data.
+The StackState Splunk integration doesn't retrieve any trace data.
 
 ### REST API endpoints
 

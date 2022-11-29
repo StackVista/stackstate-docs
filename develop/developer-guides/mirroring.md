@@ -4,7 +4,7 @@ description: StackState Self-hosted v5.1.x
 
 # Mirroring Telemetry
 
-Mirroring is a way to connect StackState to third-party telemetry data sources. In the case of mirroring StackState does not require the telemetry to be present within StackState's telemetry data source, but will retrieve the telemetry whenever it needs it. This means you can work with existing telemetry as if it were just a part of the 4T data model.
+Mirroring is a way to connect StackState to third-party telemetry data sources. In the case of mirroring StackState doesn't require the telemetry to be present within StackState's telemetry data source, but will retrieve the telemetry whenever it needs it. This means you can work with existing telemetry as if it were just a part of the 4T data model.
 
 ### When to use mirroring
 
@@ -386,7 +386,7 @@ In case of a Mirror request failure the Mirror may reply with the following erro
   }
   ```
 
-* Mirror or remote metric system does not support metric type
+* Mirror or remote metric system doesn't support metric type
 
   ```text
   {
@@ -395,7 +395,7 @@ In case of a Mirror request failure the Mirror may reply with the following erro
   }
   ```
 
-* If the failure does not fall into any previous category then mirror can return generic `RemoteMirrorError`.
+* If the failure doesn't fall into any previous category then mirror can return generic `RemoteMirrorError`.
 
   ```text
   {

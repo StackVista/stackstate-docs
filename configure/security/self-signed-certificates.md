@@ -145,7 +145,7 @@ stackstate/stackstate
 For a Linux installation, the trust store and password need to be added to the JVM command line used to start the StackState server process.
 
 1. Copy the new trust store into `/opt/stackstate/etc`. 
-2. Edit \(or create if it does not yet exist\) the file `/opt/stackstate/etc/processmanager/processmanager-properties-overrides.conf` and add this line:
+2. Edit \(or create if it doesn't yet exist\) the file `/opt/stackstate/etc/processmanager/processmanager-properties-overrides.conf` and add this line:
 
    ```javascript
     properties.sts-jvm-args = "-Djavax.net.ssl.trustStore=/opt/stackstate/etc/custom_cacerts -Djavax.net.ssl.trustStoreType=jks -Djavax.net.ssl.trustStorePassword=changeit"

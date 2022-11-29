@@ -22,7 +22,7 @@ StackState requires the following name and version to be set:
 - **Version:** `1.0.0`
 
 {% hint style="info" %}
-If the tracer name passed to StackState Agent does not exactly match the value specified above, received data won't be displayed in StackState.
+If the tracer name passed to StackState Agent doesn't exactly match the value specified above, received data won't be displayed in StackState.
 {% endhint %}
 
 ➡️ [See how this is implemented in code examples](code-examples.md#2-core-definitions)

@@ -198,7 +198,7 @@ Alerts and Health state from SCOM are available in StackState as events.
 
 #### Metrics
 
-The SCOM check does not retrieve any metrics data.
+The SCOM check doesn't retrieve any metrics data.
 
 #### Topology
 
@@ -209,7 +209,7 @@ Retrieved topology data is visible in the StackState UI SCOM view, named **SCOM.
 
 #### Traces
 
-The SCOM check does not retrieve any traces data.
+The SCOM check doesn't retrieve any traces data.
 
 ### Open source
 

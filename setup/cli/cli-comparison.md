@@ -52,7 +52,7 @@ The `stac` CLI is:
 
 * The old CLI.
 * Works with StackState v5.1 or earlier.
-* ⚠️ Does not include the newest commands - see the [CLI command overview](#cli-command-overview).
+* ⚠️ Doesn't include the newest commands - see the [CLI command overview](#cli-command-overview).
 * Deprecated since StackState v5.1 and will no longer be actively maintained.
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**

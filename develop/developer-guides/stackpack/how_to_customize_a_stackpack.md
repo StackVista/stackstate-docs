@@ -89,7 +89,7 @@ The `password` input field is described like the `text` input field except that 
 }
 ```
 
-If the user does not provide any value to any of the input fields defined in the `steps`, StackState will raise a validation error and prompt the user to enter the values. The input values of the entered fields are provided as an un-modifiable map to the `provision` function of the `ProvisioningScript` which can be used for further provisioning. The map is indexed by the names of the fields provided for each field.
+If the user doesn't provide any value to any of the input fields defined in the `steps`, StackState will raise a validation error and prompt the user to enter the values. The input values of the entered fields are provided as an un-modifiable map to the `provision` function of the `ProvisioningScript` which can be used for further provisioning. The map is indexed by the names of the fields provided for each field.
 
 ## Customize Components and Relations
 

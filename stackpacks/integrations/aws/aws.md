@@ -174,7 +174,7 @@ If StackState Agent is running on Kubernetes, the AWS check should be configured
       config:
         override:
     #clusterAgent.config.override -- Defines kubernetes_state check for checksAgent agents. Auto-discovery
-    #with ad_identifiers does not work here. Use a specific URL instead.
+    #with ad_identifiers doesn't work here. Use a specific URL instead.
         - name: conf.yaml
           path: /etc/stackstate-agent/conf.d/aws_topology.d
           data: |
@@ -402,7 +402,7 @@ Hourly and event-based updates collect data:
 * Hourly full topology updates - collected by the StackState Agent using an IAM role with access to the AWS services.
 * Event-based updates for single components and relations - captured using AWS services and placed into an S3 bucket for the StackState Agent to read.
 
-If the StackState Agent does not have permission to access a certain component, it will skip it.
+If the StackState Agent doesn't have permission to access a certain component, it will skip it.
 
 #### StackState Agent IAM Role
 
@@ -419,7 +419,7 @@ IAM is a global service. Only one IAM role is necessary per account.
 #### S3 Bucket
 
 {% hint style="warning" %}
-Once the Agent has finished reading a file in this bucket, the file will be **deleted**. Don't use an existing bucket for this, the Agent should have its own bucket to read from. The S3 bucket won't be read from if it does not have bucket versioning enabled, to protect data.
+Once the Agent has finished reading a file in this bucket, the file will be **deleted**. Don't use an existing bucket for this, the Agent should have its own bucket to read from. The S3 bucket won't be read from if it doesn't have bucket versioning enabled, to protect data.
 {% endhint %}
 
 The S3 bucket is used to store all incoming events from EventBridge and other event-based sources. The Agent then reads objects from this bucket. These events are used to provide features such as real-time topology updates, and creating relations between components based on event data such as VPC FlowLogs. If the S3 bucket isn't available to the Agent it will fall back to reading CloudTrail directly, which introduces a 15-minute delay in real-time updates. EventBridge events and VPC FlowLogs are only available via the S3 bucket.

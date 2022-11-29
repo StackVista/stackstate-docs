@@ -151,7 +151,7 @@ The VMWare vSphere integration understands StackState [common tags](../../config
 
 #### Traces
 
-The VMWare vSphere integration does not retrieve any traces data.
+The VMWare vSphere integration doesn't retrieve any traces data.
 
 ### REST API endpoints
 

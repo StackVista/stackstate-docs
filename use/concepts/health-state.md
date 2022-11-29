@@ -132,7 +132,7 @@ The propagated health state of an element is calculated using a propagation func
 | ![](../../.gitbook/assets/v51_propagation_b_to_a.png)  | Component A depends on component B. Health state will propagate from B to A. |
 | ![](../../.gitbook/assets/v51_propagation_a_to_b.png)  | Component B depends on component A. Health state will propagate from A to B. |
 | ![](../../.gitbook/assets/v51_propagation_a_and_b.png) | Dependency in both directions. Health state will propagate from A to B and from B to A. In other words, it's a circular dependency. |
-| ![](../../.gitbook/assets/v51_no_propagation.png)      | No dependency. Health state does not propagate. |
+| ![](../../.gitbook/assets/v51_no_propagation.png)      | No dependency. Health state doesn't propagate. |
 
 {% hint style="success" "self-hosted info" %}
 

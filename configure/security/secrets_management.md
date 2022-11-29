@@ -52,7 +52,7 @@ The Agent V2 caches secrets internally in memory to reduce the number of calls \
 
 Relying on a user-provided executable has many benefits:
 
-* Guaranteeing that the Agent does not attempt to load in memory parameters for which there isn’t a secret handle.
+* Guaranteeing that the Agent doesn't attempt to load in memory parameters for which there isn’t a secret handle.
 * The ability for the user to limit the visibility of the Agent to secrets that it needs. For example, by restraining the accessible list of secrets in the critical management backend.
 * Freedom and flexibility in allowing users to use any secrets management backend without having to rebuild the Agent.
 * It's enabling each user to solve the initial trust problem from the Agent to their secrets management backend. The problem occurs in a way that leverages each user’s preferred authentication method and fits into their continuous integration workflow.

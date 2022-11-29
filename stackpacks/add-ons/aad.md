@@ -112,7 +112,7 @@ After an initial [training period](aad.md#training-period), the AAD ensures that
 
 ### Can anomalies trigger alerts?
 
-Yes. The AAD itself does not alert on anomalies found, but [anomaly health checks](../../use/checks-and-monitors/anomaly-health-checks.md) can be added to components to automatically change the health status of the component to `DEVIATING`. This health state change event can then trigger notifications by [adding an event handler](../../use/events/manage-event-handlers.md) to a view.
+Yes. The AAD itself doesn't alert on anomalies found, but [anomaly health checks](../../use/checks-and-monitors/anomaly-health-checks.md) can be added to components to automatically change the health status of the component to `DEVIATING`. This health state change event can then trigger notifications by [adding an event handler](../../use/events/manage-event-handlers.md) to a view.
 
 ## Uninstall
 

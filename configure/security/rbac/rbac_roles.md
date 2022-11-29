@@ -252,7 +252,7 @@ If your StackState instance is configured with a file-based authentication, then
 
       basicAuth = false
 
-      # Amount of time to keep a session when a user does not log in
+      # Amount of time to keep a session when a user doesn't log in
       sessionLifetime = 7d
 
       authServer {

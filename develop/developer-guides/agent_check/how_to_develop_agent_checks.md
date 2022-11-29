@@ -305,7 +305,7 @@ self.health.check_state(
 )
 ```
 
-If after following the previous steps your health data does not show in StackState, there is a [troubleshooting guide](../../../configure/health/debug-health-sync.md) for the health synchronization.
+If after following the previous steps your health data doesn't show in StackState, there is a [troubleshooting guide](../../../configure/health/debug-health-sync.md) for the health synchronization.
 
 ### Send in Stream Definitions and Health Checks
 
