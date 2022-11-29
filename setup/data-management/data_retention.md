@@ -43,7 +43,7 @@ $ stac graph retention get-window
 {% endtab %}
 {% endtabs %}
 
-In some cases, it may be useful to keep historical data for more than eight days.
+Sometimes, it may be useful to keep historical data for more than eight days.
 
 {% tabs %}
 {% tab title="CLI: sts" %}

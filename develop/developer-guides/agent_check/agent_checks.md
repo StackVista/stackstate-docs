@@ -36,7 +36,7 @@ Agent checks are deployed and configured alongside the Agent using a provisionin
 
 When building an Agent check you have to consider how you want your Agent check to be deployed based on concerns like performance, cost, latency, security, reliability etc.
 
-In some cases you may even want to build two Agent checks, one for each types of deployment. The StackState Kubernetes integration is a good example of this; it gathers low-level telemetry, process information and network connections through an Agent check built for deployment model No. 1 and gathers high-level telemetry and service-level topology information via an Agent check built for deployment model No. 2.
+Sometimes, you may even want to build two Agent checks, one for each types of deployment. The StackState Kubernetes integration is a good example of this; it gathers low-level telemetry, process information and network connections through an Agent check built for deployment model No. 1 and gathers high-level telemetry and service-level topology information via an Agent check built for deployment model No. 2.
 
 ## See also
 
