@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-The Humio StackPack allows you to access your logs stored in Humio.
+You can use the Humio StackPack to access logs stored in Humio.
 
 Using this StackPack, you can:
 

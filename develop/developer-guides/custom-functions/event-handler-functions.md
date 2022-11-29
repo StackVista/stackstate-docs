@@ -68,9 +68,9 @@ Only available for Linux installations of StackState.
 
 When execution is set to **Asynchronous**, the event handler function will run as an asynchronous function.
 
-An asynchronous event handler function has access to the [StackState script APIs](../../reference/scripting/script-apis/). This allows the function to make an HTTP request with a custom header using the [HTTP script API](../../reference/scripting/script-apis/http.md) and gives access to the whole topology/telemetry.
+An asynchronous event handler function has access to the [StackState script APIs](../../reference/scripting/script-apis/). These can be used by the function to make an HTTP request with a custom header using the [HTTP script API](../../reference/scripting/script-apis/http.md) and access the whole topology/telemetry.
 
-The **Slack** event handler function shipped with StackState will run as an asynchronous function. This allows the event notifications sent to Slack to include extensive details about the event that triggered it, such as links to relevant data and a possible root cause. You could also use the HTTP script API to send an SMS or webhook post.
+The **Slack** event handler function shipped with StackState will run as an asynchronous function. Event notifications sent to Slack using this event handler can include extensive details about the event that triggered it. For example, links to relevant data and a possible root cause. You could also use the HTTP script API to send an SMS or webhook post.
 
 ### Properties for asynchronous functions
 

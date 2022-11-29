@@ -28,15 +28,15 @@ Below you can find a short dictionary that can help you get a better grasp on th
 * **layer** - Represents a hierarchy that determines the relations and dependencies in your stack - typically top to bottom.
 * **log stream** - A telemetry stream with log or event data that's coming from an external system.
 * **mapping** - In the synchronization process it specifies the transformation of external system topological data into StackState based on component/relation type.
-* **mapping function** - Allows the user to transform data before applying a template during the synchronization process.
-* **metric stream** - A telemetry stream with metric data that's coming from an external system; Allows for baseline checks.
+* **mapping function** - Transforms data before applying a template during the synchronization process.
+* **metric stream** - A telemetry stream with metric data that's coming from an external system.
 * **monitor** - A declarative definition of a validation rule that uses available 4T data to compute health states and attach them to the StackState Topology.
 * **monitor function** - Defines the underlying algorithm used to compute the health states produced by a monitor.
 * **monitor runner** - A subsystem of StackState responsible for timely execution of a monitor's logic.
 * **permission** - Defines access to specific actions for users.
 * **prefix** - STQL query that's specific to a role. It's added as a query prefix to every query executed by users in that role.
 * **propagation** - Defines how a component affects its health state based on dependencies and relations. Health state propagates in the opposite direction of the dependency. For example, a virtual machine crash will influence applications running on it.
-* **propagation function** - Allows users to alter the propagation logic for a specific component.
+* **propagation function** - The propagation logic for a specific component.
 * **relation** - Models a dependency between components.
 * **relation health state** - Determined by all checks defined on the relation. The most severe one always determines the state of the relation.
 * **role** - Combination of a configured subject and a set of permissions.
@@ -61,4 +61,4 @@ Below you can find a short dictionary that can help you get a better grasp on th
 * **traces** - A single request that follows a certain path through the 4T data model.
 * **view** - A partial visualization of the 4T data model that can be tailored to show only the cut of an IT landscape that's needed.
 * **view health state** - Shows the health state of the entire view.
-* **view state function** - Allows users to modify the behavior of the view health state.
+* **view state function** - The logic behind the behavior of the view health state.

@@ -55,7 +55,7 @@ A list of the available **Actions** is included in the right panel details tab w
 Shortcuts give you direct access to detailed information about the specific component:
 
 * **Show properties** - Opens the properties popup for the component. This is the same as clicking **SHOW ALL PROPERTIES** in the right panel details tab when detailed information about a component is displayed - **Component details**.
-* **Investigate in subview** - Opens a subview containing only this component. The subview allows you to investigate a single component in all perspectives without needing to adjust the view filters. This is the same as clicking INVESTIGATE IN SUBVIEW in the right panel details tab when detailed information about a component is displayed - **Component details**.
+* **Investigate in subview** - Opens a subview containing only this component. The subview can be used to investigate a single component in all perspectives without needing to adjust the view filters. This is the same as clicking INVESTIGATE IN SUBVIEW in the right panel details tab when detailed information about a component is displayed - **Component details**.
 
 ## Relations
 
@@ -116,7 +116,7 @@ If there are components with [telemetry streams](../../metrics/telemetry_streams
 You can configure or develop your own [propagation functions](../../../develop/developer-guides/custom-functions/propagation-functions.md).
 {% endhint %}
 
-It's possible that a view can contain components that have a `DEVIATING` propagated health state caused by a component that's itself not included in the view. The Topology Perspective allows you to configure whether the view should be expanded to automatically show root cause components that are outside the currently displayed view:
+It's possible that a view can contain components that have a `DEVIATING` propagated health state caused by a component that's itself not included in the view. The Topology Perspective can be configured to expand automatically to show root cause components if they are outside the currently displayed view:
 
 * **Don't show root cause** - Don't show the root causes of components shown by the current topology filters.
 * **Show root cause only** - Only show the root causes of components shown by the current topology filters that have a `CRITICAL` or `DEVIATING` propagated health. Indirect relations are visualized if a component directly depends on at least one invisible component that leads to the root cause.

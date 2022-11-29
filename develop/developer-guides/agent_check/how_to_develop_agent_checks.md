@@ -78,7 +78,7 @@ YAML files must use spaces instead of tabs.
 
 ### init\_config
 
-The _init\_config_ section allows you to have an arbitrary number of global configuration options that will be available on every run of the check in `self.init_config`.
+The _init\_config_ section cano have an arbitrary number of global configuration options that will be available on every run of the check in `self.init_config`.
 
 ### instances
 
@@ -275,7 +275,7 @@ This function specifies what health synchronization stream this agent check will
 
 ### Health Synchronization Snapshots
 
-Like with topology, health data is presented to StackState using snapshots. This allows for removal of health information \(check states\) when they no longer exist in the source monitoring system. Snapshots are created by two functions:
+Like with topology, health data is presented to StackState using snapshots. Health information \(check states\) can be removed when it no longer exists in the source monitoring system. Snapshots are created by two functions:
 
 * `self.health.start_snapshot()` - used to start a health snapshot.
 * `self.health.stop_snapshot()` - used to stop the snapshot, signaling that all submitted data is complete. This should be done at the end of the check, after all data has been submitted. If exceptions occur in the check, or for some other reason not all data can be produced, this function should not be called.
@@ -309,7 +309,7 @@ If after following the previous steps your health data doesn't show in StackStat
 
 ### Send in Stream Definitions and Health Checks
 
-Stream Definitions and Health Checks for StackState can be sent in with Topology. This allows you to map telemetry streams with health checks onto components in your integration, leaving no work to be done in StackState. This example below sets up a metric stream called `Host CPU Usage` with a `Maximum Average` check in StackState on the `this-host` component.
+Stream Definitions and Health Checks for StackState can be sent together with Topology. Telemetry streams can then be mapped with health checks onto components in your integration, leaving no work to be done in StackState. This example below sets up a metric stream called `Host CPU Usage` with a `Maximum Average` check in StackState on the `this-host` component.
 
 ```text
 # import

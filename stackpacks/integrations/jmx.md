@@ -88,9 +88,9 @@ instances:
 
 #### Configuration Options
 
-* `custom_jar_paths` \(Optional\) - Allows specifying custom jars that will be added to the classpath of the agent's JVM.
+* `custom_jar_paths` \(Optional\) - Specify custom jars that will be added to the classpath of the agent's JVM.
 * `jmx_url` - \(Optional\) - If the agent needs to connect to a non-default JMX URL, specify it here instead of a host and a port. If you use this you need to specify a 'name' for the instance.
-* `is_jmx` \(Optional\) - Allows creating different configuration files for each application rather than using a single long jmx file. Include the option in each configuration file.
+* `is_jmx` \(Optional\) - Create different configuration files for each application rather than using a single long jmx file. Include the option in each configuration file.
 * `name` - \(Optional\) - Used in conjunction with `jmx_url`.
 * `java_bin_path` - \(Optional\) - Should be set if the agent can't find your java executable.
 * `java_options` - \(Optional\) - Java JVM options

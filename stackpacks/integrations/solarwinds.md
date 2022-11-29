@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-The SolarWinds StackPack allows near real time synchronization between SolarWinds Orion \(SolarWinds\) and StackState. When the integration is enabled, SolarWinds nodes, interfaces and connections will be added to the StackState topology as components and relations. In addition, health status is applied to the components in StackState.
+The SolarWinds StackPack enables near real time synchronization between SolarWinds Orion \(SolarWinds\) and StackState. When the integration is enabled, SolarWinds nodes, interfaces and connections will be added to the StackState topology as components and relations. In addition, health status is applied to the components in StackState.
 
 SolarWinds is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
@@ -155,7 +155,7 @@ When the SolarWinds integration is enabled, the following SolarWinds specific vi
 To support component actions from StackState, the SolarWinds server needs to be accessible from the user's browser.
 {% endhint %}
 
-Links to SolarWinds detail dashboards are created as [component actions](../../use/stackstate-ui/perspectives/topology-perspective.md#actions) attached to SolarWinds components. This allows users to easily access more information from SolarWinds when needed.
+Links to SolarWinds detail dashboards are created as [component actions](../../use/stackstate-ui/perspectives/topology-perspective.md#actions) attached to SolarWinds components providing easy access more information from SolarWinds when needed.
 
 ### Open source
 

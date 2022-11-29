@@ -17,7 +17,7 @@ AWS X-ray is a [StackState core integration](/stackpacks/integrations/about_inte
 The StackState AWS X-Ray integration provides the following functionality:
 
 * Enriches AWS components with X-Ray trace service data.
-* Allows mapping the relations between X-Ray services, and ultimately AWS resources.
+* Mapping the relations between X-Ray services, and ultimately AWS resources.
 * Provides performance metrics on relations between X-Ray services, as well as local anomaly detection on all performance metrics.
 
 ## Setup

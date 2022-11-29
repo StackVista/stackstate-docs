@@ -28,7 +28,7 @@ Running Agent V1 (legacy) and Agent V2 at the same time on a single machine will
 
 ### Performance
 
-Switching from Agent V1 (legacy) to Agent V2 can either increase or decrease the number of resources used. Unlike Agent V1 (legacy), Agent V2 allows for synchronous execution of checks. This provides a better StackState experience, but may result in increased resource requirements.
+Switching from Agent V1 (legacy) to Agent V2 can either increase or decrease the number of resources used. Unlike Agent V1 (legacy), Agent V2 can synchronously execute of checks. This provides a better StackState experience, but may result in increased resource requirements.
 
 
 ## Migration process - Docker-Compose

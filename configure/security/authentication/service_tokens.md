@@ -106,7 +106,7 @@ Command not available in the `stac` CLI, use the new `sts` CLI.
 
 ### Set up a bootstrap service token
 
-When installing StackState, it's possible to bootstrap it with a (temporary) service token. This allows for using the CLI without first interacting with StackState and obtaining an API token from the UI. In order to set this up, you can add the following snippet to the StackState configuration file:
+When installing StackState, it's possible to bootstrap it with a (temporary) service token. The StackState CLI can then be used without first interacting with StackState and obtaining an API token from the UI. In order to set this up, you can add the following snippet to the StackState configuration file:
 
 {% tabs %}
 {% tab title="Kubernetes" %}

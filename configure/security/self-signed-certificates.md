@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.1.x
 
 StackState has several points of interaction with external systems, for example event handlers can call out to webhooks in other systems while plugins can retrieve data from external systems like Splunk or Elasticsearch. With the default configuration, StackState won't be able to communicate with these systems when they're secured with TLS using a self-signed certificate or a certificate that isn't by default trusted by the JVM.
 
-To mitigate this, StackState allows configuration of a custom trust store.
+To mitigate this, StackState can be configured with a custom trust store.
 
 {% hint style="info" %}
 Note that self-signed certificates aren't compatible with the [StackState Azure integration](/stackpacks/integrations/azure.md).

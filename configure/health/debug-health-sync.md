@@ -316,7 +316,7 @@ check state id    topology element identifier    number of matched topology elem
 
 ### Delete a health stream
 
-The `delete` stream functionality is helpful while setting up a health synchronization in StackState. It allows you to experiment, delete the data and start over again clean. You can also delete a stream and drop its data when you are sure that you don't want to keep using it.
+The `delete` stream functionality is helpful while setting up a health synchronization in StackState. You can experiment, delete the data and start over again clean. You can also delete a stream and drop its data when you are sure that you don't want to keep using it.
 
 {% tabs %}
 {% tab title="CLI: sts" %}

@@ -69,10 +69,10 @@ Every health Transactional Increments data payload has the following details:
   * **checkpoint** - Object providing the checkpoint that belongs the `check_states` present in the message, it contains two fields:
     * **offset** - The offset asigned to the messages by the streaming pipeline. For example, Kafka offset.
     * **batch_index** - Optional. When using a single message to accumulate several `check_states` the batch index represents the latest index that's present in the message, allowing to send big batches in separate api calls.
-  * **previous_checkpoint** - Optional. Represents the previously communicated checkpoint, can be empty on the first transmission on the substream. It allows StackState to keep track if there could be any data missing from upstream.
+  * **previous_checkpoint** - Optional. Represents the previously communicated checkpoint, can be empty on the first transmission on the substream. StackState uses this to keep track if there could be any data missing from upstream.
 * **stream** - Object providing identification regarding which snapshots and `check_states` belong together. It contains the following fields:
   * **urn** - Data source and stream ID encoded as a StackState [URN](/configure/topology/identifiers.md) that matches the following convention: `urn:health:<sourceId>:<streamId>` where `<sourceId>` is the name if the external data source and `<streamId>` is a unique identifier for the health data stream.
-  * **sub_stream_id** - Optional. Identifier for a sub set of the stream health data. When the stream data is distributed and reported by several agents, this allows snapshot lifecycles per `sub_stream_id`
+  * **sub_stream_id** - Optional. Identifier for a subset of the stream health data. When the stream data is distributed and reported by several agents, this allows snapshot lifecycles per `sub_stream_id`
 * **check_states** - A list of check states. Each check state can have the following fields:
   * **checkStateId** - Identifier for the check state in the external system
   * **message** - Optional. Message to display in StackState UI. Data will be interpreted as markdown allowing to have links to the external system check that generated the external check state.

@@ -139,7 +139,7 @@ Example of how the parent component will look like if you create the with the ab
 ### 5 - Child span
 Now let's create a span that will have a relation with the parent span. Thus meaning if anything is wrong with the child span then the error will propagate up into the parent.
 
-Let's use a Table from the non exist Database as a child, this allows us to add a CRITICAL health state on the child if a write operation to this table failed.
+Let's use a Table from the non exist Database as a child, we can add a CRITICAL health state on the child if a write operation to this table failed.
 
 Example Table
 - Table Name: Users

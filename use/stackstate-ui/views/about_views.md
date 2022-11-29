@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-The full topology available in StackState is likely much larger than you need to be concerned with at any given point in time. StackState allows you to create a filter to select a specific set of components from your topology and save it as a view. Each stored view includes:
+The full topology available in StackState is likely much larger than you need to be concerned with at any given point in time. You can create filters in StackState to select a specific set of components from your topology and save it as a view. Each stored view includes:
 
 * [Filters](../filters.md) - Topology filters add elements \(components and relations\) to the view. Events and Traces filters refine the traces and events displayed for the filtered topology.
 * [Visualization settings](visualization_settings.md) – customize how elements \(components and relations\) are displayed within the view.

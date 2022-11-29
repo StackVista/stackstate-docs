@@ -8,7 +8,7 @@ This document presents the concept of how secrets are managed in StackState usin
 
 ## About secrets in StackState
 
-The Agent V2 can leverage the `secrets` package to call a user-provided executable to handle retrieval and decryption of secrets, which are then loaded in memory by the Agent V2. This approach allows users to rely on any secrets management backend \(such as HashiCorp Vault or AWS Secrets Manager\), and select their preferred authentication method to establish initial trust with it.
+The Agent V2 can leverage the `secrets` package to call a user-provided executable to handle retrieval and decryption of secrets, which are then loaded in memory by the Agent V2. This approach allows users to rely on any secrets management back end \(such as HashiCorp Vault or AWS Secrets Manager\), and select their preferred authentication method to establish initial trust with it.
 
 ### Define secrets in StackState configuration
 

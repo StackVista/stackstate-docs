@@ -58,12 +58,15 @@ So remember to create your parent and children spans in the correct order as it 
 
 ## Relations when merging
 
-Relations are retained when merging components; this allows you to create a parent component, create a child component for this parent
-and then merge that child component with an existing component. This will then create a relationship between the pre-existing component that the child component merged with and the parent component. For example, here we have the three components as described above:
+Relations are retained when merging components.
+
+For example, if you create a parent component and a child component for parent, when the child component is merged with an existing component:
+
+* a relationship will be created between the pre-existing component that the child component merged with and the parent component.
 
 ![Topology Perspective - OTEL Components and Pre-Existing Components](../../../../.gitbook/assets/v51_otel_scenario_pre-existing_components.png)
 
-If we then merge our middle component `Service Name: Child Component` with the existing healthy Lambda component `otel-example-custom-instrumentation-dev-create-custom-component` in the bottom right corner:
+If the middle component `Service Name: Child Component` is then merged with the existing healthy Lambda component `otel-example-custom-instrumentation-dev-create-custom-component` in the bottom right corner:
 
 * The middle component will disappear (merged with the Lambda component)
 * The Lambda component will have relations to the first and third components (inherited relation mappings from the middle component).
@@ -72,7 +75,7 @@ If we then merge our middle component `Service Name: Child Component` with the e
 
 ## Multiple children
 
-It's also good to know that a single parent can have multiple children. This allows you to build a tree with branches of relations, for example:
+A single parent can have multiple children. This means that you can build a tree with branches of relations, for example:
 
 ```text
 Service Name: Parent Component

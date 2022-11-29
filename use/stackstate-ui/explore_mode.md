@@ -33,7 +33,7 @@ You can zoom in on a specific area of your IT landscape using basic filters by w
 
 ![Save view as](../../.gitbook/assets/v51_save_view_as.png)
 
-When you change the displayed components using a filter, the **Save view** button will appear at the top of the screen. This allows you to save the applied filters and access them directly from the [Views](views/about_views.md) menu.
+When you change the displayed components using a filter, the **Save view** button will appear at the top of the screen. You can save the applied filters and access them directly from the [Views](views/about_views.md) menu.
 
 ## See also
 

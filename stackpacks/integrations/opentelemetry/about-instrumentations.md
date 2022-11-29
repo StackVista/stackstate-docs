@@ -158,7 +158,7 @@ Trace [
 
 As you can see, the different types of spans have been grouped under what the library is called that was responsible for extracting the data.
 
-This allows us to capture unique data for a specific type of instrumentation and look for it specifically under that instrumentation name.
+Unique data can be captured for a specific type of instrumentation and look for it specifically under that instrumentation name.
 
 
 ### Support in StackState

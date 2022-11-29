@@ -34,7 +34,7 @@ The result panel displays among other information:
 - **Optional metric charts** of the data that resulted in this health state being generated,
 - The name of the monitor associated with this result.
 
-The context menu of each monitor result (...) allows for inspecting of the monitor definition:
+The context menu of each monitor result **(...)** can be used to inspect the monitor definition:
 
 - **Show monitor definition** - opens a modal window containing the full monitor definition associated with this result.
 

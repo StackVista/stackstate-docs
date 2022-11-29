@@ -169,7 +169,7 @@ The `service.type` is used to identify the type of service in the span in the St
 
 The service identifier is used for merging components. The provided value will be added to the identifier list on the component in StackState. 
 
-Components with the same service identifiers will merge into one component. This allows multiple components to be merged to create relations. COmponents can also bo merged with existing StackState components.
+Components with the same service identifiers will merge into one component and any new relations will be created. Components can also bo merged with existing StackState components.
 
 ➡️ [Learn more about merging components](/stackpacks/integrations/opentelemetry/manual-instrumentation/merging.md)
 
@@ -224,7 +224,7 @@ The resource name is displayed in the Traces Perspective for a specific trace, a
 
 ### HTTP status code 
 
-The HTTP status code controls the health state for the component in StackState. A `400` or higher will put the component into a CRITICAL state, while a `200` will result in a healthy component. This allows you to control the health state of the component in StackState.
+The HTTP status code controls the health state for the component in StackState. A `400` or higher will put the component into a CRITICAL state, while a `200` will result in a healthy component. You can use this to control the health state of the component in StackState.
 
 ➡️ [Learn how the span health state works](/stackpacks/integrations/opentelemetry/manual-instrumentation/span-health.md)
 

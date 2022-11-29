@@ -96,7 +96,7 @@ The sample check we are running also sends telemetry \(metrics\) to StackState, 
 
 Find the sample check's components in StackState and select the **some-application-1** component. Detailed information about the component, including the metadata of this component, is displayed in the right panel details tab - **Component details**.
 
-In the **Telemetry** section, click **ADD NEW STREAM**. This opens the Stream Wizard and allows you to add a new stream. Enter **Gauge** as the name for the stream and select the **StackState Metrics** datasource.
+In the **Telemetry** section, click **ADD NEW STREAM**. This opens the Stream Wizard to add a new stream. Enter **Gauge** as the name for the stream and select the **StackState Metrics** datasource.
 
 In the Stream Creation screen, fill in the following parameters:
 
@@ -210,7 +210,7 @@ TS=`date +%s`; cat custom-event.json | sed -e "s/##TIMESTAMP##/$TS/" | curl -H "
 
 Just execute a few of these so we have a few datapoints to work with.
 
-Next, let's create a _log stream_ for the component. Find the **a-host** component and select it to display detailed information about the component in the right panel details tab - **Component details**. In the **Telemetry** section, click **ADD NEW STREAM**. This opens the Stream Wizard and allows you to add a new stream. Enter **External monitor** as the name for the stream and select the **StackState Generic Events** datasource.
+Next, let's create a _log stream_ for the component. Find the **a-host** component and select it to display detailed information about the component in the right panel details tab - **Component details**. In the **Telemetry** section, click **ADD NEW STREAM**. This opens the Stream Wizard to add a new stream. Enter **External monitor** as the name for the stream and select the **StackState Generic Events** datasource.
 
 In the Stream Creation screen, select to output as a **Log stream** at the top. Then fill in the following parameters:
 
@@ -223,7 +223,7 @@ Here is what that looks like:
 
 You should already see the test events you sent in the log stream. Go ahead and save the stream.
 
-The last thing to do is to add a StackState health check to the **a-host** component. In the **Health** section, click **ADD NEW HEALTH CHECK**. This opens the Check Wizard and allows you to add a new check. Enter **External monitor** as the name for the check and, under the **Check function**, select our **External monitoring state** check. StackState should automatically select the **External Monitoring** log stream. Save the check by clicking the **Create** button.
+The last thing to do is to add a StackState health check to the **a-host** component. In the **Health** section, click **ADD NEW HEALTH CHECK**. This opens the Check Wizard to add a new check. Enter **External monitor** as the name for the check and, under the **Check function**, select our **External monitoring state** check. StackState should automatically select the **External Monitoring** log stream. Save the check by clicking the **Create** button.
 
 Now, sending in the events using the command below should set the health state to `CRITICAL`:
 

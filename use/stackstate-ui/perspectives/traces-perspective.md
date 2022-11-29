@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-The Traces Perspective shows a list of traces and their spans for the components in your view. This allows you to monitor the performance of the applications in your IT infrastructure directly in StackState.
+The Traces Perspective shows a list of traces and their spans for the components in your view. You can use this to monitor the performance of the applications in your IT infrastructure directly in StackState.
 
 ![The Traces Perspective](../../../.gitbook/assets/v51_traces-perspective.png)
 
@@ -65,7 +65,7 @@ By installing our Agent and its integrations to gather traces from these technol
 
 The two images above illustrate these concepts by showing a library application whose main responsibility is to fetch a list of books. You can see an example of a trace and its spans for a request to fetch the list of books and the resulting topology that's created out of it.
 
-When ingesting traces, StackState attaches service identifiers to the components that are created. These identifiers are also included as part of the **service** property of the spans in a trace. All topology created out of a trace will have a tag **has\_traces**, this allows you to easily identify components for which you have traces.
+When ingesting traces, StackState attaches service identifiers to the components that are created. These identifiers are also included as part of the **service** property of the spans in a trace. All topology created out of a trace will have a tag **has\_traces**, so you can easily identify components for which traces are available.
 
 ## Sorting and limits
 
@@ -79,7 +79,7 @@ When using the Traces Perspective, just like in other perspectives, you can eith
 
 When using the Traces Perspective in live mode, you are constantly polling for the slowest traces in your time range selection. However, in a large IT infrastructure with constant requests being traced, your slowest traces right now might not be your slowest traces in a matter of seconds, changing their position the list. These constant updates to the order of the list could become frustrating, for example, if you are inspecting a trace/span, or scrolling through the list to look for a specific trace or pattern.
 
-To avoid this, time will effectively be paused when you inspect a trace/span or scroll through the list of traces in live mode. This allows you to browse through a stable snapshot of your data. Note that pausing time means that you are now in the past, click **Go live** or **BACK TO LIVE** to stop time travelling and return to live mode.:
+To avoid this, time will effectively be paused when you inspect a trace/span or scroll through the list of traces in live mode. You can then browse through a stable snapshot of your data. Note that pausing time means that you are now in the past, click **Go live** or **BACK TO LIVE** to stop time travelling and return to live mode.:
 
 ![Pausing time when inspecting a trace](../../../.gitbook/assets/v51_trace-inspection.png)
 

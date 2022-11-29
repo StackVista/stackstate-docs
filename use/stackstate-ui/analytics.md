@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-The analytics environment allows you to directly query the [4T data model](../concepts/4t_data_model.md). The analytics environment uses the StackState Scripting Language \(STSL\) as the basis for querying StackState, so you can build and test your StackState scripts here.
+The analytics environment can be used to directly query the [4T data model](../concepts/4t_data_model.md). The analytics environment uses the StackState Scripting Language \(STSL\) as the basis for querying StackState, so you can build and test your StackState scripts here.
 
 Queries created in the analytics environment can be used to investigate issues, automate processes and build reports. Here are some examples of queries that you could execute:
 
@@ -53,7 +53,7 @@ Topology.query('environment in ("Production")').components()
 
 [Topology.query](../../develop/reference/scripting/script-apis/topology.md) is a regular script function that takes ab STQL query \(`environment in ("Production")` in the above example\) as an argument. The `.components()` at the end, is a so-called builder method. This ensures that only the components, and not the relations between these components, are retrieved from the topology.
 
-The combination of STSL and STQL allows you to chain together multiple queries. The following example gets all metrics of all databases in the production environment for the last day:
+The STSL and STQL can be combined to chain together multiple queries. The following example gets all metrics of all databases in the production environment for the last day:
 
 {% code lineNumbers="true" %}
 ```text

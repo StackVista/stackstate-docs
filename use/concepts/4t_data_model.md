@@ -36,5 +36,5 @@ StackState Tracing capability supports all major languages and has full support 
 
 Issues within IT stacks can usually be traced back to changes. Having a change log of everything that happens in your IT landscape is vital. To record these changes, we have built StackGraph, the world's only versioned graph database. StackGraph allows StackState to go back to any particular point on the timescale and to see exactly what your landscape looked like at that moment.
 
-The web-based user interface of StackState is equipped with a WebGL based rendering engine. Hardware accelerated graphics allow for visualizing massive topologies. The 3D visualization allows you to visualize not only the present topology, but also the past and the future - all in one view.
+The web-based user interface of StackState is equipped with a WebGL based rendering engine. Hardware accelerated graphics allow for visualizing massive topologies. The 3D visualization enables you to visualize not only the present topology, but also the past and the future - all in one view.
 

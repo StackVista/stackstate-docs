@@ -6,7 +6,8 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-Components from a custom instrumentation can be merged with pre-existing components in StackState. This allows you to:
+Components from a custom instrumentation can be merged with pre-existing components in StackState to:
+
 - Add extra attributes into pre-existing components.
 - Create custom relations for pre-existing components. 
 - Influence the propagation of health state. For details, see the page [Span health state](span-health.md).

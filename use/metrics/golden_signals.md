@@ -60,7 +60,7 @@ By default, the following request rate streams are set for processes and service
 
 ### Errors
 
-StackState allows you to monitor on any specific HTTP error code or one of the 4xx or 5xx error groups, as explained above. If your SLO specifies a limit for the rate of errors in your system, you can [add a check](#checks).
+StackState can monitor on any specific HTTP error code or one of the 4xx or 5xx error groups, as explained above. If your SLO specifies a limit for the rate of errors in your system, you can [add a check](#checks).
 
 ![HTTP 5xx error rate](../../.gitbook/assets/v51_http-error-rate.png)
 
