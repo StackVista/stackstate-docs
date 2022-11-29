@@ -116,7 +116,7 @@ If there are components with [telemetry streams](../../metrics/telemetry_streams
 You can configure or develop your own [propagation functions](../../../develop/developer-guides/custom-functions/propagation-functions.md).
 {% endhint %}
 
-It's possible that a view can contain components that have a `DEVIATING` propagated health state caused by a component that's itself not included in the view. The Topology Perspective can be configured to expand automatically to show root cause components if they are outside the currently displayed view:
+It's possible that a view can contain components that have a `DEVIATING` propagated health state caused by a component that's itself not included in the view. The Topology Perspective can be configured to expand automatically to show root cause components if they're outside the currently displayed view:
 
 * **Don't show root cause** - Don't show the root causes of components shown by the current topology filters.
 * **Show root cause only** - Only show the root causes of components shown by the current topology filters that have a `CRITICAL` or `DEVIATING` propagated health. Indirect relations are visualized if a component directly depends on at least one invisible component that leads to the root cause.

@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-The **View Filters** panel on the left of the StackState UIcan be used to filter the components \(topology\), events and traces displayed in each perspective. Applied filters can be [saved as a view](filters.md#save-filters-as-a-view) to open directly in the future.
+The **View Filters** panel on the left of the StackState UI can be used to filter the components \(topology\), events and traces displayed in each perspective. Applied filters can be [saved as a view](filters.md#save-filters-as-a-view) to open directly in the future.
 
 ![View filters](/.gitbook/assets/v51_view_filters_button.png)
 

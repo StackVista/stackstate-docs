@@ -2,9 +2,9 @@
 description: StackState Self-hosted v5.1.x
 ---
 
-# Set up a security backend for Linux
+# Set up a security back end for Linux
 
-This document explains the process of setting up a security backend on a Linux system. You can find more information in the [Secrets Management section](secrets_management.md).
+This document explains the process of setting up a security back end on a Linux system. You can find more information in the [Secrets Management section](secrets_management.md).
 
 ## Security agent requirements
 

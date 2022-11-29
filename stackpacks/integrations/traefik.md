@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 The StackState Agent V2 Traefik integration provides the following functionality:
 
-* Reporting Traefik frontends and backends as topology elements.  
+* Reporting Traefik front- and back-ends as topology elements.  
 * Reporting all network connections between services, including network traffic telemetry.
 
 Traefik is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
@@ -15,7 +15,7 @@ Traefik is a [StackState curated integration](/stackpacks/integrations/about_int
 
 ### Installation
 
-The StackState Traefik integration is included in the [Agent V2 StackPack](agent.md). Currently, this integration supports tracing of Traefik requests using the Datadog tracing backend supported by Traefik.
+The StackState Traefik integration is included in the [Agent V2 StackPack](agent.md). Currently, this integration supports tracing of Traefik requests using the Datadog tracing back end supported by Traefik.
 
 ### Configuration
 
@@ -30,7 +30,7 @@ Configure your Traefik instance to report [Datadog tracing data](https://doc.tra
   # Component name used for your Traefik instance in StackState
   serviceName = "traefik"
 
-  # Span name limit will truncate in case of long Frontend/Backend names
+  # Span name limit will truncate in case of long fron- back-end names
   # This can prevent certain tracing providers to drop traces that exceed their length limits
   spanNameLimit = 100
 

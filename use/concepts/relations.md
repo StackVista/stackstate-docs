@@ -62,7 +62,7 @@ Select a grouped relation in the topology visualizer to open the **Grouped relat
 
 ![Relation details](/.gitbook/assets/v51_direct_relation_details.png)
 
-Click on a relation to select it and open detailed information about it in in the right panel details tab - **Direct relation details**, **Indirect relation details** or **Grouped relation details**, depending on the type of relation that has been selected. For details of the tab content, see the relation types [direct relations](#direct-relations), [indirect relations](#indirect-relations) and [grouped relations](#grouped-relations).
+Click on a relation to select it and open detailed information about it in the right panel details tab - **Direct relation details**, **Indirect relation details** or **Grouped relation details**, depending on the type of relation that has been selected. For details of the tab content, see the relation types [direct relations](#direct-relations), [indirect relations](#indirect-relations) and [grouped relations](#grouped-relations).
 
 ## Dependencies and propagation
 
