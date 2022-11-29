@@ -14,7 +14,7 @@ Mirror integrations can be built in any language and run as a separate process. 
 
 ## Mirror architecture
 
-To integrate StackState with an external telemetry source using mirroring, the mirror integration sits in between StackState and the telemetry source. The mirror offers a standard interface \(the mirror API\) to StackState so that StackState can use multiple different mirror data sources out of the box. The mirror integration translates calls to the mirror API to calls to a telemetry datasource, allowing StackState to access telemetry data in a standard way.
+To integrate StackState with an external telemetry source using mirroring, the mirror integration sits between StackState and the telemetry source. The mirror offers a standard interface \(the mirror API\) to StackState so that StackState can use multiple different mirror data sources out of the box. The mirror integration translates calls to the mirror API to calls to a telemetry datasource, allowing StackState to access telemetry data in a standard way.
 
 ## Setup
 

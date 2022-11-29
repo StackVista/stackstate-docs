@@ -99,7 +99,7 @@ If one or more components in a view have a CRITICAL state, StackState will show 
 
 ### Zoom in and out
 
-There are zoom buttons located in the bottom right corner of the topology visualizer. The **plus** button zooms in on the topology, the **minus** button zooms out. In between both buttons is the **fit to screen** button which zooms out so the complete topology becomes visible.
+There are zoom buttons located in the bottom right corner of the topology visualizer. The **plus** button zooms in on the topology, the **minus** button zooms out. Between both buttons is the **fit to screen** button which zooms out so the complete topology becomes visible.
 
 ### Find component
 

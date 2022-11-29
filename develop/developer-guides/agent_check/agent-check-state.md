@@ -10,7 +10,7 @@ Starting with the release of **Agent 2.18**, the Agent Check API exposes two new
 
 ## When to use Agent State
 
-Agent State is intended for Agent Checks that need to persist state in between check runs. The type of persistence model to use depends on the use case. `Stateful Agent Checks` are able to persist state to disk after each check run, **regardless of whether the check completely successfully or data was successfully sent to StackState**. `Transactional Agent Checks` have two states; Persistent state which behaves the same as state in a `Stateful Agent Check` and transactional state. Transactional state is persisted when the check **completes successfully and the data was delivered to StackState.**
+Agent State is intended for Agent Checks that need to persist state between check runs. The type of persistence model to use depends on the use case. `Stateful Agent Checks` are able to persist state to disk after each check run, **regardless of whether the check completely successfully or data was successfully sent to StackState**. `Transactional Agent Checks` have two states; Persistent state which behaves the same as state in a `Stateful Agent Check` and transactional state. Transactional state is persisted when the check **completes successfully and the data was delivered to StackState.**
 
 State(s) are parameters to the `stateful_check` and `transactional_check` methods and the values in the return type are eventually persisted.
 
