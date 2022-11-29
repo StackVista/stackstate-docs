@@ -66,7 +66,7 @@ The `trace.perspective.name` is used to find your span within a trace in the Sta
 **Example of where the trace.perspective.name is displayed within the Traces Perspective**
 
 1) In the navigation bar, click **Traces Perspective**
-2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your span).
+2) Find the trace in the list of traces and click on it to expand the trace. There might be multiple traces, make sure you select one that contains your span.
 3) You will notice that a horizontal graph line will contain the name of your component as seen below.
 
 ![Traces Perspective - trace.perspective.name key](/.gitbook/assets/v51_otel_trace_perspective_name.png)
@@ -129,7 +129,7 @@ The value from `service.name` is used as a primary means to identify a component
 **Example of where the service.name is displayed within the Traces Perspective**
 
 1) In your top navigation bar click on the `trace perspective` menu item.
-2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your trace).
+2) Find the trace in the list of traces and click on it to expand the trace. There might be multiple traces, make sure you select one that contains your trace.
 3) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
 4) A row with the key `span.serviceName` will contain the value you defined, as seen below in the image.
 
@@ -157,7 +157,7 @@ The `service.type` is used to identify the type of service in the span in the St
 **Example of where the `service.type` is displayed within the Traces Perspective Span properties view**
 
 1) In the navigation bar, click **Traces Perspective**
-2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your trace).
+2) Find the trace in the list of traces and click on it to expand the trace. There might be multiple traces, make sure you select one that contains your trace.
 3) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
 4) A row with the key `service` will contain the value you defined, as seen below in the image.
 
@@ -214,7 +214,7 @@ The resource name is displayed in the Traces Perspective for a specific trace, a
 **Example of where the resource.name is displayed within the Traces Perspective**
 
 1) In your top navigation bar click on the `trace perspective` menu item.
-2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your trace).
+2) Find the trace in the list of traces and click on it to expand the trace. There might be multiple traces, make sure you select one that contains your trace.
 3) The section on your right side will contain a row with the key `Resource`, the value displayed next to the key will be the one you defined.
 
 ![Traces Perspective - resource.name](../../../../.gitbook/assets/v51_otel_traces_trace_resource.png)
@@ -258,7 +258,7 @@ This means that your component is in a CRITICAL state.
 **The HTTP status can be found in the following location regardless of what the HTTP status actually is**
 
 1) In your top navigation bar click on the `trace perspective` menu item.
-2) Find the trace in the list of traces and click on it to expand the trace (There might be multiple traces, make sure you select one that contains your trace).
+2) Find the trace in the list of traces and click on it to expand the trace. There might be multiple traces, make sure you select one that contains your trace.
 3) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
 4) The row with the value `http.status_code` will contain the value you defined, as seen below in the image.
 

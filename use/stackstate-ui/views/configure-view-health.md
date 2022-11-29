@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-Reacting to each event in an environment can cause a lot of noise. This may be both undesirable and unnecessary. For example, if one or multiple components have an impact on a service, it can be sufficient to report on changes to the problem itself and not each related state change.
+Reacting to each event in an environment can cause a lot of noise. This may be both undesirable and unnecessary. For example, if one or more components have an impact on a service, it can be sufficient to report on changes to the problem itself and not each related state change.
 
 StackState can reduce this noise by looking at the overall [health state of a view](/use/concepts/health-state.md#view-health-state) rather than that of individual elements. The view health state is determined by the combined health of its elements. When a view changes its health state, a view state change event is triggered and that can in turn trigger an [event notification](/use/events/event-notifications.md) or automated action.
 

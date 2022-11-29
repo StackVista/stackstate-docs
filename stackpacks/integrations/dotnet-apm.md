@@ -40,7 +40,7 @@ In your code, you can access the global tracer through the `Datadog.Trace.Tracer
 
 ### Configuration
 
-There are multiple ways to configure the .NET Tracer:
+There are many ways to configure the .NET Tracer:
 
 * in .NET code
 * setting environment variables

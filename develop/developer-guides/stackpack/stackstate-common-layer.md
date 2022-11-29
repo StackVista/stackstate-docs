@@ -4,7 +4,7 @@ description: StackState Self-hosted v5.1.x
 
 # StackState Common Layer
 
-A Layer is a specific term in the StackState where all the Components from different integrations lie within. It is used for the horizontal ordering of the topology. Since StackState supports multiple integrations, there are some common layers defined in the product. Layers are ordered in terms of proximity to the end-user. Merging preference is given to the component in the layer which is closer to the end-user. Below is the list of common layers used in the StackState and their identifiers that can be referenced in a StackPack.
+A Layer is a specific term in the StackState where all the Components from different integrations lie within. It is used for the horizontal ordering of the topology. Since StackState supports many integrations, there are some common layers defined in the product. Layers are ordered in terms of proximity to the end-user. Merging preference is given to the component in the layer which is closer to the end-user. Below is the list of common layers used in the StackState and their identifiers that can be referenced in a StackPack.
 
 | Layer Name | Identifier |
 | :--- | :--- |

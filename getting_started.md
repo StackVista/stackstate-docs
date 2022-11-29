@@ -55,7 +55,7 @@ Select a component or a relation to display detailed information about it in the
 
 ## Telemetry inspector
 
-Both components and relations can have one or multiple telemetry streams. The most common type is a metric stream also known as time series. If you click on a metric stream, you can see the metric stream in a popup.
+Both components and relations can have one or many telemetry streams. The most common type is a metric stream also known as time series. If you click on a metric stream, you can see the metric stream in a popup.
 
 ![Telemetry inspector](/.gitbook/assets/v51_component_details_inspect_metric_stream.png)
 

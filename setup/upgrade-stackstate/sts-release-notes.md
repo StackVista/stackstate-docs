@@ -193,7 +193,7 @@ Upgraded:
 
 The StackState v5.0 release delivers brand-new features and enhancements that help your team troubleshoot faster. Here are some highlights:
 
-* **[New 4T® Monitors](/use/checks-and-monitors/monitors.md)** – adds a new, first-in-the-industry dimension to observability monitoring – the ability to now monitor topology and to set validation rules that span topology and multiple other parameters
+* **[New 4T® Monitors](/use/checks-and-monitors/monitors.md)** – adds a new, first-in-the-industry dimension to observability monitoring – the ability to now monitor topology and to set validation rules that span topology and many other parameters
 * **Improved Topology Visualizer and Right Panel** – substantially enhances user experience and increases productivity with a more modern, focused, easy-to-learn UI and more in-depth troubleshooting capabilities.
 * **[New StackState CLI](/setup/cli/cli-comparison.md)** – lets you instantly configure StackState, run queries, create monitors and more, directly from your command line, while sending output directly to other systems for GitOps integration.
 * **[Accuracy Feedback for Anomalies](/stackpacks/add-ons/aad.md#anomaly-feedback)** – gives users the ability to provide feedback about the usefulness of the anomalies reported by StackState, so we can continuously improve the accuracy of our algorithms.
@@ -204,7 +204,7 @@ Details of the included features, improvements, bug fixes and updated StackPacks
 
 - Introduced a new monitoring feature - 4T Monitors. STAC-14693
 - Part of the API of StackState 5.0.0 has been released with an OpenAPI specification to allow for easier consumption by API clients of StackState. The OpenAPI specification can be browsed at [https://dl.stackstate.com/stackstate-openapi/v5.0/openapi-v5.0.0.html](https://dl.stackstate.com/stackstate-openapi/v5.0/openapi-v5.0.0.html) STAC-16693
-- The topology visualizer has been revamped. It now features much cleaner user experience and multiple helpful navigation improvements including a [legend](/use/stackstate-ui/perspectives/topology-perspective.md#legend) that describes the components and relations displayed. STAC-16191
+- The topology visualizer has been revamped. It now features much cleaner user experience and many helpful navigation improvements including a [legend](/use/stackstate-ui/perspectives/topology-perspective.md#legend) that describes the components and relations displayed. STAC-16191
 - First release of a [completely new, easier to install CLI](/setup/cli/cli-sts.md), supporting the new features of StackState such as 4T Monitors and Service Tokens. STAC-15281
 - Anomalies can now be marked with a [thumbs-up or thumbs-down](/stackpacks/add-ons/aad.md#anomaly-feedback). This feedback can be exported via the CLI and sent to StackState to help further develop test sets and algorithms for the AAD. STAC-15270
 - The right panel in the StackState UI has been revamped. It now supports multiple tabs and chaining of selected elements. STAC-14808

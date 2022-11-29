@@ -10,7 +10,7 @@ The scope is an [STQL query](../../../develop/reference/stql_reference.md) that'
 
 Note: Please note that function calls like `withCauseOf` and `withNeighborsOf` are not supported as they would not be performant in this context.
 
-If a user belongs to multiple groups, then this user can have multiple scopes, which translates to multiple prefixes. In this situation, the prefix is executed as an OR of all scopes that this user has.
+If a user belongs to more than one group, then this user can have multiple scopes, which translates to multiple prefixes. In this situation, the prefix is executed as an OR of all scopes that this user has.
 
 Users need to log out and authenticate again to StackState whenever any changes to roles or permissions are made.
 
