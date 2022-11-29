@@ -108,7 +108,7 @@ Functions that run with asynchronous execution can make an HTTP request and use 
 
 {% hint style="danger" %}
 **Keep performance aspects in mind when developing functions with asynchronous execution**  
-The script APIs provide super-human levels of flexibility and even allow querying standalone services. Consider extreme cases where the function is executed on all components and properly assess system impact. StackState comes with a number of StackPacks that include tuned propagating functions. Changes to those functions are possible, but may impact the stability of the system.
+The script APIs offer super-human levels of flexibility and even allow querying standalone services. Consider extreme cases where the function is executed on all components and properly assess system impact. StackState comes with a number of StackPacks that include tuned propagating functions. Changes to those functions are possible, but may impact the stability of the system.
 {% endhint %}
 
 #### Synchronous execution
