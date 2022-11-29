@@ -520,7 +520,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
   * It is now possible to zoom out of a time range. STAC-12533
   * Added support for navigating to the next and previous time range. STAC-12531
 * Indirect relations for "Show root cause only" are now always shown when there is at least one invisible dependency that leads to the root cause. In earlier versions of StackState an indirect relation for a root cause was only shown if there was no visible path to the root cause. STAC-11621
-* [Relations to component groups are shown as solid lines](/use/concepts/relations.md). In StackState v4.3 a grouped relation was displayed as a dashed line when the group of relations was not complete in the sense that each component in the group received that relation \(this is also called surjective\). STAC-11621
+* [Relations to component groups are shown as solid lines](/use/concepts/relations.md). In StackState v4.3 a grouped relation was displayed as a dashed line when the group of relations wasn't complete in the sense that each component in the group received that relation \(this is also called surjective\). STAC-11621
 * Improve how component names are displayed in the Topology Perspective. STAC-13063
 * The component finder modal can now be invoked using the [keyboard shortcut](../../use/stackstate-ui/keyboard-shortcuts.md) `CTRL`+`SHIFT`+`F`. STAC-12957
 
@@ -785,7 +785,7 @@ With the release of StackState v4.4, StackState v4.1 reached End of Life \(EOL\)
 * Fixed issue with Kubernetes deployment that redirects users to the webuiconfig instead of StackState application. STAC-9811
 * Fixed issue where check updating would retry indefinitely when an element is already gone. STAC-9323
 * Fixed issue that redirected users to a stream URL instead of the StackState application. STAC-9186
-* Fixed issue where component version information was not properly merged during synchronization. STAC-8624
+* Fixed issue where component version information wasn't properly merged during synchronization. STAC-8624
 * Fixed issue where state service could not find some elements due to querying with an incomplete time slice. STAC-8195
 * Propagation function will be re evaluated for all related components when the body of the function changes. STAC-4114
 
@@ -846,6 +846,6 @@ StackState v4.0 is End of Life \(EOL\) and is no longer supported.
 * Proper handling for trailing slash in a receiver URL configuration. STAC-7817
 * Upgrade the requirement and documentation of Static Topology to use AgentV2. STAC-8640
 * `processmanager-properties.conf` was merged into `processmanager.conf` for both StackState and StackGraph. If you have changes to either one of those configuration files, your changes will need to be reaplied after upgrade. STAC-8473
-* The authentication for the admin API \(port 7071 by default\) is now configured separately from the normal authentication and, for new installations, it is enabled by default. If authentication was enabled for this api \(by default not\) this requires a change in the StackState configuration file. If it was not enabled it is strongly advised to enable it now and change the password. See the `application_stackstate.conf.example` file for an explanation on how to do both. STAC-7993
+* The authentication for the admin API \(port 7071 by default\) is now configured separately from the normal authentication and, for new installations, it is enabled by default. If authentication was enabled for this api \(by default not\) this requires a change in the StackState configuration file. If it wasn't enabled it is strongly advised to enable it now and change the password. See the `application_stackstate.conf.example` file for an explanation on how to do both. STAC-7993
 * It is now possible to configure a proxy for event handlers, see [how to set this up](../../configure/topology/proxy-for-event-handlers.md). STAC-7784
 * Allow STS process manager to perform HTTPS health check. STAC-7718

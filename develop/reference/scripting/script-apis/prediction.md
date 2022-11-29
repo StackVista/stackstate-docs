@@ -31,7 +31,7 @@ A `PredictionResponse`, which contains the following fields:
 Fields:
 
 * `PredictionResponse.request` - the request made to the prediction API of type `PredictionRequest`.
-* `PredictionResponse.history` - optional, the history used for prediction of type `MetricTelemetry`. Empty if `.includeHistory()` was not used.
+* `PredictionResponse.history` - optional, the history used for prediction of type `MetricTelemetry`. Empty if `.includeHistory()` wasn't used.
 * `PredictionResponse.prediction` - the predicted metrics.
 
 The `PredictionRequest` type has the following fields:
