@@ -10,7 +10,7 @@ Event handlers attached to a StackState view listen to events that are generated
 
 ## Configured event handlers
 
-All event handlers configured for the view are listed in the StackState UI right panel **View summary** tab under **Event handlers**. You can add, edit and remove event handlers from here. Expand an event handler to see its configured settings. 
+The StackState UI right panel **View summary** tab **Event handlers** section lists all event handlers configured for a view. You can add, edit and remove event handlers from here. Expand an event handler to see the configured settings. 
 
 The badge on the right next to the **Event handlers** section heading shows the number of event handlers configured for the view. 
 
@@ -28,7 +28,7 @@ Event handlers can only be added to a saved [view](/use/stackstate-ui/views/abou
 
 1. Open a [view](/use/stackstate-ui/views/about_views.md).
 2. Select the **View summary** tab in the right panel.
-3. Expand the **Event handlers** section. All currently configured event handlers are listed.
+3. Expand the **Event handlers** section to list all currently configured event handlers.
 4. To add a new event handler, click **ADD NEW EVENT HANDLER**. The **Add Event Handler** popup opens.
 5. Give the event handler a **Name**. 
 6. You can optionally add a **Description**. This will be displayed in the tooltip whenever a user hovers the mouse pointer over the event handler name in the right panel Event handlers list.

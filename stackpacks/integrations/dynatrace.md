@@ -178,7 +178,7 @@ For considerations and instructions on upgrading a StackPack, see [how to upgrad
 
 ### REST API endpoints
 
-The API endpoints used in the StackState integration are listed below:
+The API endpoints used in the StackState integration:
 
 * `/api/v1/entity/applications`
 * `/api/v1/entity/infrastructure/hosts`

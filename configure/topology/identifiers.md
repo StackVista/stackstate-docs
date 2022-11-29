@@ -35,7 +35,7 @@ self.component("this-host-unique-identifier", "Host", {
 
 ## StackState Agent identifiers
 
-The global scope identifiers used by the StackState Agent to identify synchronized topology elements are listed in the table below.
+The table below lists the global scope identifiers used by the StackState Agent to identify synchronized topology elements.
 
 | Resource type | URN identifier format |
 | :--- | :--- |

@@ -81,7 +81,7 @@ The StackState Receiver receives JSON data from StackState Agent V2.
 
 Telemetry data from push-based integrations is stored in an Elasticsearch index. The naming of the fields within the index is entirely based on the data retrieved from the external source system.
 
-- Use the [telemetry inspector](/use/metrics/browse-telemetry.md) to check which data is available in Elasticsearch by selecting the data source `StackState Multi Metrics`. All metrics available in the selected data source are listed under **Select**. Note that if no data is available for a telemetry stream, the telemetry inspector can still be opened by selecting **inspect** from the context menu (the triple dots menu in the top-right corner of the telemetry stream). 
+- Use the [telemetry inspector](/use/metrics/browse-telemetry.md) to check which data is available in Elasticsearch by selecting the data source `StackState Multi Metrics`. CLick in the **Select** box to list all metrics available in the selected data source. Note that if no data is available for a telemetry stream, the telemetry inspector can still be opened by selecting **inspect** from the context menu (the triple dots menu in the top-right corner of the telemetry stream). 
 - If the expected data isn't in Elasticsearch, check the [KafkaToES log](#stackstate) for errors.
 
 ### Telemetry stream configuration

@@ -24,7 +24,7 @@ The permissions assigned to each predefined StackState role can be found below. 
 
 The Administrator role \(`stackstate-admin`\): has all permissions assigned, except for `access-admin-api`, which is assigned only to the Platform Administrator predefined role.
 
-Permissions assigned to the predefined Administrator role (`stackstate-admin`) are listed below, these were retrieved using the `sts` CLI. For details of the different permissions and how to manage them using the `sts` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md).
+See below for the list of permissions assigned to the predefined Administrator role (`stackstate-admin`), these were retrieved using the `sts` CLI. For details of the different permissions and how to manage them using the `sts` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md).
 
 ```text
 $ ./sts rbac describe-permissions --subject stackstate-admin
@@ -69,7 +69,7 @@ upload-stackpacks           | system
 
 Platform Administrator \(`stackstate-platform-admin`\) is the only predefined role that's assigned the permission `access-admin-api`.
 
-Permissions assigned to the predefined Platform Administrator role (`stackstate-platform-admin`) are listed below, these were retrieved using the `sts` CLI. For details of the different permissions and how to manage them using the `sts` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md).
+See below for a list of the permissions assigned to the predefined Platform Administrator role (`stackstate-platform-admin`), these were retrieved using the `sts` CLI. For details of the different permissions and how to manage them using the `sts` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md).
 
 ```text
 ❯ ./sts rbac describe-permissions --subject stackstate-platform-admin
@@ -88,7 +88,7 @@ The Power User role \(`stackstate-power-user`\) has all Administrator permission
 * `update-permissions`
 * `upload-stackpacks`
 
-Permissions assigned to the predefined Power User role (`stackstate-power-user`) are listed below, these were retrieved using the `sts` CLI. For details of the different permissions and how to manage them using the `sts` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md).
+See below for a list of the permissions assigned to the predefined Power User role (`stackstate-power-user`), these were retrieved using the `sts` CLI. For details of the different permissions and how to manage them using the `sts` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md).
 
 ```text
 ❯ ./sts rbac describe-permissions --subject stackstate-power-user
@@ -129,7 +129,7 @@ update-visualization        | system
 
 The Guest role \(`stackstate-guest`\) has read-only access to StackState.
 
-Permissions assigned to the predefined Guest role are listed below, these were retrieved using the `sts` CLI. For details of the different permissions and how to manage them using the `sts` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md).
+See below for a list of the permissions assigned to the predefined Guest role, these were retrieved using the `sts` CLI. For details of the different permissions and how to manage them using the `sts` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md).
 
 ```text
 ❯ ./sts rbac describe-permissions --subject stackstate-guest

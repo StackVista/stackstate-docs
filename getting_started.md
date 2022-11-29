@@ -71,10 +71,10 @@ To find the cause of any DEVIATING component, head to the right panel in the Sta
 * The **Component details** lists all problems that involve the selected component. 
 * The **Direct relation details** tab lists all problems that involve the selected direct relation, its source component or its target component. 
 
-Problems and issues are displayed in the following order:
+Problems and issues are displayed in order of creation date/time as follows:
 
-* Problems are listed in order of creation date/time, with the oldest problem at the top of the list and the most recently created at the bottom.
-* The component-specific issues grouped inside each problem are displayed from the most recent ones at the top to the oldest at the bottom of the list.
+* Problems: The oldest problem is at the top of the list and the most recently created is at the bottom.
+* Issues within each problem: The most recent issues are at the top of the list and the oldest are at the bottom.
 
 Not all components displayed in the problem panel are necessarily also visible in the current topology view. You can open o dedicated problem subview to focus on the topology elements involved in a problem.
 

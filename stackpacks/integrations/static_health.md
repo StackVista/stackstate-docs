@@ -46,7 +46,7 @@ The configured `collection_interval` will be used as the [`repeat_interval` for 
 
 ### Fields
 
-Static health is read from a CSV file with a header row, that specifies the fields that are included in the file. The available fields are listed in the table below.
+Static health is read from a CSV file with a header row, that specifies the fields that are included in the file. The table below lists the available fields:
 
 | Field name | Mandatory | Description                                                                     |
 | :--- | :--- |:--------------------------------------------------------------------------------|

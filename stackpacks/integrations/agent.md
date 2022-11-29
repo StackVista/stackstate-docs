@@ -22,7 +22,7 @@ Install the StackState Agent V2 StackPack from the StackState UI **StackPacks** 
 
 ### Configure
 
-The integrations included in the StackState Agent V2 StackPack are listed below. Refer to the integration pages to find configuration details for each integration:
+Below is a list of all integrations included in the StackState Agent V2 StackPack. Refer to the integration pages to find configuration details for each integration:
 
 * [Apache TomCat](apache-tomcat.md "StackState Self-Hosted only")
 * [AWS ECS](aws/aws-ecs.md)

@@ -22,7 +22,7 @@ Not all views are manually created. Many [StackPacks](../../../stackpacks/about-
 
 ## Access a view
 
-Every view that a user has permission to access is listed on the **all views** screen in the StackState UI. To open this screen, click **all views** from the main menu or **Views** in the top bar breadcrumbs. Views marked with a star are listed directly in the main menu for easy access.
+Every view that a user has permission to access is listed on the **all views** screen in the StackState UI. To open this screen, click **all views** from the main menu or **Views** in the top bar breadcrumbs. The main menu lists views marked with a star for easy access.
 
 Click a view name to open the topology perspective for that view.
 

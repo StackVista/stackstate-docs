@@ -442,7 +442,7 @@ Waiting for job to start...
 job.batch "elasticsearch-restore-20210229t152530" deleted
 ```
 
-The indices restored are listed in the output, as well as the number of failed and successful restore actions.
+The output lists the indices restored, as well as the number of failed and successful restore actions.
 
 After the indices have been restored, scale up all `*2es` deployments:
 
