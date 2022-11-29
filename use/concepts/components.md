@@ -43,7 +43,7 @@ The size of the circle icon reflects the number of components that are included 
 * 100 to 150 components = medium circle
 * More than 150 components = large circle
 
-The way in which components are grouped can be customized in the [view visualization settings](/use/stackstate-ui/views/visualization_settings.md#components-grouping).
+You can customize the way in which components are grouped in the [view visualization settings](/use/stackstate-ui/views/visualization_settings.md#components-grouping).
 
 ## See also
 

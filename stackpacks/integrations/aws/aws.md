@@ -566,7 +566,7 @@ To delete the StackState AWS Cloudformation stack from an AWS account using the 
    3. Select **Empty** and follow the steps to delete all objects in the bucket.
 5. Delete the CloudFormation template:
    1. Go to the CloudFormation service. 
-   2. Select the StackState CloudFormation template. This will be named `stackstate-resources` if created via the quick deploy method, otherwise the name was user-defined.
+   2. Select the StackState CloudFormation template. If created via the quick deploy method, this has the name `stackstate-resources`. Otherwise, the name was user-defined.
    3. In the top right of the console, select **Delete**.
 
 #### AWS CLI

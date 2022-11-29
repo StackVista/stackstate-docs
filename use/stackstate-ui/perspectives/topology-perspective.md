@@ -69,7 +69,7 @@ Select a relation to open detailed information about it in the right panel detai
 
 ## Filters
 
-The components and events displayed in the topology visualization can be customized by adding filters.
+You can add filters to customize the components and events that are displayed in the topology visualization.
 
 Click the **View Filters** icon in the left menu to open the view filters. Here you can edit the filters applied to the displayed topology and events:
 
@@ -82,7 +82,7 @@ The view filters are saved together with the View. For details, see the page [fi
 
 ## Visualization settings
 
-The visualization of components and relations in the topology perspective can be customized in the visualization settings. Click the **Visualization Settings** icon in the left menu to open the visualization settings menu. Here you can edit:
+You can customize the visualization of components and relations in the topology perspective using the visualization settings. Click the **Visualization Settings** icon in the left menu to open the visualization settings menu. Here you can edit:
 
 * Root cause display - to what extent the view should be expanded when an element in the view reports a `DEVIATING` or `CRITICAL` health state or propagated health state.
 * Grouping - display all components individually or combine like components in a component group. For details, see [component grouping](topology-perspective.md#grouping).

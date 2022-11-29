@@ -49,7 +49,7 @@ The [timeline](/use/stackstate-ui/timeline-time-travel.md) at the bottom of the 
 
 ## Detailed information about components and relations
 
-Select a component or a relation to display detailed information about it in the right panel details tab - the tab will be named according to the element type that you selected. For example, **Component details** when you select a component or **Direct relation details** when you select a relation that links two components with no hidden components in between. Click **SHOW ALL PROPERTIES** to open a popup with all details of a component or direct relation.
+Select a component or a relation to display detailed information about it in the right panel details tab - the name of the tab matches the element type that you selected. For example, **Component details** when you select a component or **Direct relation details** when you select a relation that links two components with no hidden components in between. Click **SHOW ALL PROPERTIES** to open a popup with all details of a component or direct relation.
 
 ![Detailed component information](/.gitbook/assets/v51_component_details.png)
 

@@ -31,7 +31,7 @@ Note that custom configuration set here will be overridden by [environment varia
 
 ## Environment variables
 
-The configuration for all of the StackState services \(`receiver`, `k2es-*`, `correlation` and `api`\) can be customized using environment variables. Environment variables are specified in the `values.yaml` file and can be either `secret` \(such as passwords\) or `open` \(for normal values\). To convert a configuration item to an environment variable name, replace `.` with `_` and add the prefix `CONFIG_FORCE_`.
+You can customize the configuration for all StackState services \(`receiver`, `k2es-*`, `correlation` and `api`\) using environment variables. Environment variables are specified in the `values.yaml` file and can be either `secret` \(such as passwords\) or `open` \(for normal values\). To convert a configuration item to an environment variable name, replace `.` with `_` and add the prefix `CONFIG_FORCE_`.
 
 ```text
 # configuration item
