@@ -65,7 +65,7 @@ If you click on a log stream, you can see the log stream in a popup. Again, ther
 
 ## Problems
 
-To quickly find the cause of any DEVIATING component, head to the right panel in the StackState UI where you can find the **Problems** section. It provides an immediate understanding of ongoing problems in your IT environment clustered by their root cause and will show you the probable cause of current problems.
+To find the cause of any DEVIATING component, head to the right panel in the StackState UI where you can find the **Problems** section. It provides an immediate understanding of ongoing problems in your IT environment clustered by their root cause and will show you the probable cause of current problems.
 
 * The **View summary** and **Subview summary** tabs give an overview of problems based on the components impacted in the current view or subview. 
 * The **Component details** lists all problems that involve the selected component. 

@@ -161,7 +161,7 @@ Next steps are
 
 ## Automatic Kubernetes support
 
-StackState has built-in support for Kubernetes by means of the [Kubernetes StackPack](../../../stackpacks/integrations/kubernetes.md). To get started quickly, the StackState installation can automate installation of this StackPack and the required agent for the cluster that StackState itself will be installed on. This isn't required and can always be done later from the StackPacks page of the StackState UI for StackState's cluster or any other Kuberenetes cluster.
+StackState has built-in support for Kubernetes by means of the [Kubernetes StackPack](../../../stackpacks/integrations/kubernetes.md). The StackState installation can automate installation of this StackPack and the required agent for the cluster that StackState itself will be installed on. This isn't required and can always be done later from the StackPacks page of the StackState UI for StackState's cluster or any other Kubernetes cluster.
 
 The only required information is a name for the Kubernetes cluster that will distinguish it from the other Kubernetes clusters monitored by StackState. A good choice usually is the same name that is used in the kube context configuration. This will then automatically install the StackPack and install a Daemonset for the agent and a deployment for the so-called cluster agent. For the full details, read the [Kubernetes StackPack](../../../stackpacks/integrations/kubernetes.md) page.
 

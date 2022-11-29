@@ -41,7 +41,7 @@ The StackState SCOM PowerShell integration runs PowerShell scripts on the SCOM b
 
 #### When to choose PowerShell integration
 
-The PowerShell integration retrieves all SCOM topology data quickly without placing strain on your SCOM system. As a result, there is no limit on the size of topology that can be retrieved.
+The PowerShell integration retrieves all SCOM topology data without placing strain on your SCOM system. As a result, there is no limit on the size of topology that can be retrieved.
 
 The PowerShell integration scripts must be run by an instance of StackState Agent V2 installed on the same box as SCOM and will always retrieve all topology data. This might be undesirable or confusing when viewed in StackState. If you would like to specify a criteria for the data to be retrieved or need to run the integration from a StackState Agent installed elsewhere, you should use the SCOM API integration.
 {% endtab %}

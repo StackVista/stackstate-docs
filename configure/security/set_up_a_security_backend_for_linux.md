@@ -152,7 +152,7 @@ Secrets handle decrypted:
 
 ### Checking configurations after secrets were injected
 
-To quickly see how the check’s configurations are resolved, you can use the `configcheck` command:
+To see how the check’s configurations are resolved, you can use the `configcheck` command:
 
 {% code lineNumbers="true" %}
 ```sh

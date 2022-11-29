@@ -198,7 +198,7 @@ Components with the same service identifiers will merge into one component. This
 
 ### Resource name
 
-The resource name is displayed in the Traces Perspective for a specific trace, allowing you to quickly identify what resource each trace is a part of. Best practise would be to use this value to group similar resources, thus allowing you to easily identify a span.
+The resource name is displayed in the Traces Perspective for a specific trace, allowing you to identify what resource each trace is a part of. Best practise would be to use this value to group similar resources, thus allowing you to easily identify a span.
 
 | |                |
 |:---|:---------------|

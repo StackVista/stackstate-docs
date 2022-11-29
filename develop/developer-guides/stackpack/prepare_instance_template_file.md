@@ -57,7 +57,7 @@ Also, in this file you need to provide mapping functions called `componentAction
 },
 ```
 
-After getting Synchronizations and Mappings from the shared-template into your instance-specific file, you can start looking for instance-specific blocks in the STJ export and copy them to your instance-specific template. You can quickly identify instance specific blocks, as their Identifier contains `instance:{{instanceId}}` segment.
+After getting Synchronizations and Mappings from the shared-template into your instance-specific file, you can start looking for instance-specific blocks in the STJ export and copy them to your instance-specific template. You can identify instance specific blocks, as their Identifier contains `instance:{{instanceId}}` segment.
 
 ### DataSources
 
