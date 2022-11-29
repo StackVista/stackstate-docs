@@ -17,7 +17,7 @@ Before starting the installation, you need to make a choice which make sure you 
 
 ### Install using the RPM distribution
 
-**NOTE**: StackState requires **JDK 11** to run. This version of Java must already be present on the installation machine and will not automatically be installed by the `rpm` command. This must be the only version of JDK present on the installation machine before installing StackState. If a mismatching JDK version is installed, or there are multiple versions installed, StackState will fail to start.
+**NOTE**: StackState requires **JDK 11** to run. This version of Java must already be present on the installation machine and won't automatically be installed by the `rpm` command. This must be the only version of JDK present on the installation machine before installing StackState. If a mismatching JDK version is installed, or there are multiple versions installed, StackState will fail to start.
 
 * `rpm -i <stackstate>.rpm`
 * /opt/stackstate/bin/setup.sh
@@ -25,7 +25,7 @@ Before starting the installation, you need to make a choice which make sure you 
 
 ### Install using the DEB distribution
 
-**NOTE**: StackState requires **JDK 11** to run. This version of Java must already be present on the installation machine and will not automatically be installed by the `dpkg` command. This must be the only version of JDK present on the installation machine before installing StackState. If a mismatching JDK version is installed, or there are multiple versions installed, StackState will fail to start.
+**NOTE**: StackState requires **JDK 11** to run. This version of Java must already be present on the installation machine and won't automatically be installed by the `dpkg` command. This must be the only version of JDK present on the installation machine before installing StackState. If a mismatching JDK version is installed, or there are multiple versions installed, StackState will fail to start.
 
 * `dpkg -i <stackstate>.deb`
 * During setup various configuration options will be requested, which are described below

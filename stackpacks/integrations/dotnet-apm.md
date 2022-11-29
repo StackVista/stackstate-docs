@@ -149,7 +149,7 @@ If host has datadog so-called automatic instrumentation installed, following set
 
 | Setting Name | Description |
 | :--- | :--- |
-| `DD_TRACE_ENABLED` `TraceEnabled` | Enables or disables all automatic instrumentation. Setting the environment variable to `false` completely disables the CLR profiler. For other configuration methods, the CLR profiler is still loaded, but traces will not be generated. Valid values are: `true` \(default\) or `false`. |
+| `DD_TRACE_ENABLED` `TraceEnabled` | Enables or disables all automatic instrumentation. Setting the environment variable to `false` completely disables the CLR profiler. For other configuration methods, the CLR profiler is still loaded, but traces won't be generated. Valid values are: `true` \(default\) or `false`. |
 | `DD_TRACE_DEBUG` | Enables or disables debug logs in the Tracer. Valid values are: `true` or `false` \(default\). Setting this as an environment variable also enabled debug logs in the CLR Profiler. |
 | `DD_TRACE_LOG_PATH` | Sets the path for the CLR profiler’s log file. Default: `%ProgramData%\Datadog .NET Tracer\logs\dotnet-profiler.log` |
 | `DD_DISABLED_INTEGRATIONS` `DisabledIntegrationNames` | Sets a list of integrations to disable. All other integrations remain enabled. If not set, all integrations are enabled. Supports multiple values separated with semicolons. |

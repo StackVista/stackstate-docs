@@ -15,7 +15,7 @@ An export of the StackState configuration can be obtained from the StackState UI
 ### StackState CLI
 
 {% hint style="info" %}
-Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack configuration will not be included in the export.
+Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack configuration won't be included in the export.
 {% endhint %}
 
 {% tabs %}
@@ -61,7 +61,7 @@ The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts`
 ### curl
 
 {% hint style="info" %}
-Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack configuration will not be included in the export.
+Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack configuration won't be included in the export.
 {% endhint %}
 
 To export configuration using curl, follow the steps below (with or without authentication):
@@ -103,7 +103,7 @@ curl -X POST -H 'Content-Type: application/json;charset=UTF-8' \
 ### StackState UI
 
 {% hint style="info" %}
-Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack configuration will not be included in the export.
+Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack configuration won't be included in the export.
 {% endhint %}
 
 To export configuration from the StackState UI:
@@ -119,7 +119,7 @@ To export configuration from the StackState UI:
 
 {% hint style="info" %}
 * Import is intended to be a one-off action - importing multiple times might result in duplicate configuration entries. This behavior applies to importing nodes without any identifier. 
-* Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack will not be included in configuration export files - **all configuration items will be unlocked after import**.
+* Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack won't be included in configuration export files - **all configuration items will be unlocked after import**.
 {% endhint %}
 
 {% tabs %}
@@ -162,7 +162,7 @@ The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts`
 
 {% hint style="info" %}
 * Import is intended to be a one-off action - importing multiple times might result in duplicate configuration entries. This behavior applies to importing nodes without any identifier. 
-* Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack will not be included in configuration export files - **all configuration items will be unlocked after import**.
+* Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack won't be included in configuration export files - **all configuration items will be unlocked after import**.
 {% endhint %}
 
 {% tabs %}
@@ -213,7 +213,7 @@ curl -X POST -d @./export.stj \
 
 {% hint style="info" %}
 * Import is intended to be a one-off action - importing multiple times might result in duplicate configuration entries. This behavior applies to importing nodes without any identifier. 
-* Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack will not be included in configuration export files - **all configuration items will be unlocked after import**.
+* Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack won't be included in configuration export files - **all configuration items will be unlocked after import**.
 {% endhint %}
 
 Before import, clear the StackState configuration by following the instructions at [clear stored data](/setup/data-management/clear_stored_data.md).

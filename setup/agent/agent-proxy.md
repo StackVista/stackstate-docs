@@ -313,7 +313,7 @@ Note that proxy settings configured using an environment variable will override 
 
 {% endhint %}
 
-A proxy set in the Agent configuration file will be used for communication with StackState only. Checks configured on the Agent will not use this proxy for communication with external systems. To use a proxy for Agent checks and communication with StackState, see how to use a [proxy for all Agent communication](#proxy-for-all-agent-communication).
+A proxy set in the Agent configuration file will be used for communication with StackState only. Checks configured on the Agent won't use this proxy for communication with external systems. To use a proxy for Agent checks and communication with StackState, see how to use a [proxy for all Agent communication](#proxy-for-all-agent-communication).
 
 To use a proxy for communication with StackState add the following items to the Agent configuration file:
 

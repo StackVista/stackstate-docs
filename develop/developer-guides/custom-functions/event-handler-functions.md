@@ -47,7 +47,7 @@ For details of the properties that can be retrieved from the default **view** an
 
 ## Supported event types
 
-One or more supported event types can be added for each event handler function. The supported event types determine which event handler functions can be selected for each trigger event type when you [add an event handler](/use/events/manage-event-handlers.md#add-event-handler) to a view. For example, an event handler function with no supported event types will not be included in the **Run event handler** list of the **Add event handler** dialogue for any trigger event type.
+One or more supported event types can be added for each event handler function. The supported event types determine which event handler functions can be selected for each trigger event type when you [add an event handler](/use/events/manage-event-handlers.md#add-event-handler) to a view. For example, an event handler function with no supported event types won't be included in the **Run event handler** list of the **Add event handler** dialogue for any trigger event type.
 
 One or more of the following events can be selected:
 

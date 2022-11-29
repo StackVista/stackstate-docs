@@ -89,5 +89,5 @@ To prevent a user from making changes to configuration items installed by a Stac
 
 {% hint style="success" "self-hosted info" %}
 
-You can [make a back-up of configuration items](../setup/data-management/backup_restore/configuration_backup.md). Note that the lock status of configuration items will not be exported as part of a configuration backup.
+You can [make a back-up of configuration items](../setup/data-management/backup_restore/configuration_backup.md). Note that the lock status of configuration items won't be exported as part of a configuration backup.
 {% endhint %}

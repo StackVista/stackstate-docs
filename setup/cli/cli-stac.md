@@ -111,7 +111,7 @@ The standalone executable StackState CLI on Linux or Windows includes a wizard t
 
 ### Configuration wizard \(Linux and Windows install\)
 
-If the `stac` CLI was installed on Linux or Windows using a standalone executable file, the first time you run any `stac` command, a configuration wizard will request the required configuration items. The wizard will then create a configuration file with the entered details and store it under the user's home directory. If a valid configuration file already exists, the `stac` CLI will use this and the configuration wizard will not run.
+If the `stac` CLI was installed on Linux or Windows using a standalone executable file, the first time you run any `stac` command, a configuration wizard will request the required configuration items. The wizard will then create a configuration file with the entered details and store it under the user's home directory. If a valid configuration file already exists, the `stac` CLI will use this and the configuration wizard won't run.
 
 The configuration wizard isn't available when the `stac` CLI is run inside a Docker container on macOS, Linux or Windows.
 

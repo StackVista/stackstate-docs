@@ -191,7 +191,7 @@ If StackState Agent is running on Kubernetes, the AWS check should be configured
                 regions:
                 - global
                 - eu-west-1
-                collection_interval: 60 # The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
+                collection_interval: 60 # The amount of time in seconds between each scan. Decreasing this value won't appreciably increase topology update speed.
                 # apis_to_run:
                 #   - ec2
                 # log_bucket_name: '' 
@@ -257,7 +257,7 @@ If StackState Agent is running on a Linux VM:
          - global # a special "region" used for global resources
          - eu-west-1
        # min_collection_interval: 60 # use in place of collection_interval for Agent V2.14.x or earlier 
-       collection_interval: 60 # The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
+       collection_interval: 60 # The amount of time in seconds between each scan. Decreasing this value won't appreciably increase topology update speed.
        # apis_to_run:
        #   - ec2
        # log_bucket_name: '' 
@@ -267,7 +267,7 @@ If StackState Agent is running on a Linux VM:
 
 2. You can also add optional configuration and filters: 
     - **full_run_interval** - Optional. The time in seconds between a full AWS topology scan. Intermediate runs only fetch events.
-    - **collection_interval** - The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
+    - **collection_interval** - The amount of time in seconds between each scan. Decreasing this value won't appreciably increase topology update speed.
     - **apis_to_run** - Optionally whitelist specific AWS services. It's not recommended to set this; instead rely on IAM permissions.
     - **log_bucket_name** - The S3 bucket that the agent should read events from. This value should only be set in custom implementations.
     - **tags** - Optional. Can be used to apply specific tags to all reported data in StackState.
@@ -419,7 +419,7 @@ IAM is a global service. Only one IAM role is necessary per account.
 #### S3 Bucket
 
 {% hint style="warning" %}
-Once the Agent has finished reading a file in this bucket, the file will be **deleted**. Don't use an existing bucket for this, the Agent should have its own bucket to read from. The S3 bucket will not be read from if it does not have bucket versioning enabled, to protect data.
+Once the Agent has finished reading a file in this bucket, the file will be **deleted**. Don't use an existing bucket for this, the Agent should have its own bucket to read from. The S3 bucket won't be read from if it does not have bucket versioning enabled, to protect data.
 {% endhint %}
 
 The S3 bucket is used to store all incoming events from EventBridge and other event-based sources. The Agent then reads objects from this bucket. These events are used to provide features such as real-time topology updates, and creating relations between components based on event data such as VPC FlowLogs. If the S3 bucket isn't available to the Agent it will fall back to reading CloudTrail directly, which introduces a 15-minute delay in real-time updates. EventBridge events and VPC FlowLogs are only available via the S3 bucket.
@@ -471,7 +471,7 @@ VPC FlowLogs support is currently experimental.
 
 A VPC configured to send flow logs to the `stackstate-logs-${AccountId}` S3 bucket. The Agent requires the AWS default format for VPC FlowLogs, and expects data to be aggregated every 1 minute. The FlowLogs contain meta information about the network traffic inside VPCs. Only private network traffic is considered, traffic from NAT gateways and application load balancers will be ignored. 
 
-S3 objects that have been processed will be deleted from the bucket to make sure they will not be processed again. On the default S3 bucket, object versioning is enabled, this means objects will not actually be immediately deleted. A lifecycle configuration will expire (delete) both current and non-current object versions after one day. When using a non default bucket, you can set these expiry periods differently.
+S3 objects that have been processed will be deleted from the bucket to make sure they won't be processed again. On the default S3 bucket, object versioning is enabled, this means objects won't actually be immediately deleted. A lifecycle configuration will expire (delete) both current and non-current object versions after one day. When using a non default bucket, you can set these expiry periods differently.
 
 If configuring FlowLogs using CloudFormation, the `stackstate-resources` template exports the ARN of the S3 bucket it creates, so this can be imported into your template.
 

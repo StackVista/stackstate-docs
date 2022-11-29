@@ -223,7 +223,7 @@ Monitor functions that utilize telemetry tend to be parameterized with the exact
 
 {% tabs %}
 {% tab title="Monitor STJ definition" %}
-To supply a value to the `telemetryQuery` parameter defined in the monitor function, the monitor STJ definition would look something like the following. Note that the provided `value` must utilize the StackState Telemetry Script API and evaluate to a telemetry query, otherwise it will not pass the argument validation that is performed before the function execution begins.
+To supply a value to the `telemetryQuery` parameter defined in the monitor function, the monitor STJ definition would look something like the following. Note that the provided `value` must utilize the StackState Telemetry Script API and evaluate to a telemetry query, otherwise it won't pass the argument validation that is performed before the function execution begins.
 
 ```json
 ...

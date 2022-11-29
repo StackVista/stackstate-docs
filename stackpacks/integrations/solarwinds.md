@@ -115,7 +115,7 @@ The SolarWinds check retrieves the following topology data from SolarWinds:
 
 | Data | Description                                                                                                                                                                                                                                    |
 | :--- |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Components | Nodes and interfaces. In some cases, a SolarWinds node will not show any interfaces in the SolarWinds system. If UDT detects such a node connected to a device, a 'ghost' interface will be created in StackState to show the full topology.   |
+| Components | Nodes and interfaces. In some cases, a SolarWinds node won't show any interfaces in the SolarWinds system. If UDT detects such a node connected to a device, a 'ghost' interface will be created in StackState to show the full topology.   |
 | Relations | **NPM**: Layer-2 topology information from network devices. **UDT**: Layer-2 topology information connecting generic nodes to network devices                                                                                                  |
 
 #### Health

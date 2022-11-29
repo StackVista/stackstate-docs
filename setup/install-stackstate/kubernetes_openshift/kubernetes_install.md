@@ -74,7 +74,7 @@ The script requires the following configuration items:
 | Kubernetes cluster name | `-k` | StackState will use this name to identify the cluster. In non-interactive mode, specifying `-k` will both enable [automatic Kubernetes support](kubernetes_install.md#automatic-kubernetes-support) and set the cluster name. In interactive mode, you will first be asked if you want to automatically install the [Kubernetes StackPack](../../../stackpacks/integrations/kubernetes.md). |
 
 {% hint style="info" %}
-Store the generated `values.yaml` file somewhere safe. You can reuse this file for upgrades, which will save time and \(more importantly\) will ensure that StackState continues to use the same API key. This is desirable as it means Agents and other data providers for StackState will not need to be updated.
+Store the generated `values.yaml` file somewhere safe. You can reuse this file for upgrades, which will save time and \(more importantly\) will ensure that StackState continues to use the same API key. This is desirable as it means Agents and other data providers for StackState won't need to be updated.
 {% endhint %}
 
 ### Deploy StackState with Helm

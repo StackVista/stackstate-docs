@@ -125,7 +125,7 @@ For every change in run state, a `Run state changed` event is generated. These e
 
 ## Propagation
 
-The propagated health state of an element is calculated using a propagation function. Health state will propagate from one element to the next, from dependencies to dependent elements. Note that this is the opposite direction to the arrows shown on relations in the topology visualization. A `CLEAR` \(green\) or `UNKNOWN` \(gray\) health state will not propagate.
+The propagated health state of an element is calculated using a propagation function. Health state will propagate from one element to the next, from dependencies to dependent elements. Note that this is the opposite direction to the arrows shown on relations in the topology visualization. A `CLEAR` \(green\) or `UNKNOWN` \(gray\) health state won't propagate.
 
 | Dependency and propagated state                        | Description |
 |:-------------------------------------------------------| :--- |

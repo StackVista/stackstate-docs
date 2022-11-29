@@ -32,7 +32,7 @@ Below you can find a short dictionary that can help you get a better grasp on th
 * **metric stream** - A telemetry stream with metric data that's coming from an external system; Allows for baseline checks.
 * **monitor** - A declarative definition of a validation rule that uses available 4T data to compute health states and attach them to the StackState Topology.
 * **monitor function** - Defines the underlying algorithm used to compute the health states produced by a monitor.
-* **monitor runner** - A subsystem of StackState responsible for execution of the logic of a monitor in a timely manner.
+* **monitor runner** - A subsystem of StackState responsible for timely execution of a monitor's logic.
 * **permission** - Defines access to specific actions for users.
 * **prefix** - STQL query that's specific to a role. It's added as a query prefix to every query executed by users in that role.
 * **propagation** - Defines how a component affects its health state based on dependencies and relations. Health state propagates in the opposite direction of the dependency. For example, a virtual machine crash will influence applications running on it.

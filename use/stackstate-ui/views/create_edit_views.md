@@ -19,7 +19,7 @@ In the **Save view as** dialog, the following options can be set:
 | Field Name | Description |
 | :--- | :--- |
 | View name | The name of the view. |
-| View health state enabled | Whether the view has a health state. If this is disabled, the health state, depicted by the colored circle next to the view name, will always be gray. When disabled, the StackState backend will not need to spend resources calculating a view health state each time the view changes. |
+| View health state enabled | Whether the view has a health state. If this is disabled, the health state, depicted by the colored circle next to the view name, will always be gray. When disabled, the StackState backend won't need to spend resources calculating a view health state each time the view changes. |
 | Configuration function | When view health state is enabled, you can choose a function that's used to calculate the view health state whenever there are changes in the view. The default choice is **minimum health states**. |
 | Arguments | The required arguments will vary depending on the chosen configuration function. |
 
