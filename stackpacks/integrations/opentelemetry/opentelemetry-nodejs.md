@@ -89,7 +89,7 @@ Underneath the **Code** tab, scroll down to the **Layers** section and click **A
 
 ![Edit Lambda Layer](../../../.gitbook/assets/otel_edit_lambda_layers.png)
 
-Select the **Custom Layer** radio box under **Choose a layer**. This will show two dropdowns at the very bottom of the page.
+Select the **Custom Layer** radio box under **Choose a layer**. This will show two dropdowns at the bottom of the page.
 
 * In the first dropdown, select the Lambda Layer `stackstate-otel-nodejs`
 * In the second dropdown, select the latest version number

@@ -138,7 +138,7 @@ max virtual memory areas vm.max_map_count [65530] is too low, increase to at lea
 
 ### Increase Linux system settings for Elasticsearch
 
-Depending on what your Kubernetes/OpenShift administrators prefer, the `vm.max_map_count` can be set to a higher default on all nodes by either changing the default node configuration \(for example via init scripts\) or by having a DaemonSet do this right after node startup. The former is very dependent on your clsuter setup, so there are no general solutions there.
+Depending on what your Kubernetes/OpenShift administrators prefer, the `vm.max_map_count` can be set to a higher default on all nodes by either changing the default node configuration \(for example via init scripts\) or by having a DaemonSet do this right after node startup. The former is dependent on your cluster setup, so there are no general solutions there.
 
 Below is an example that can be used as a starting point for a DaemonSet to change the `vm.max_map_count` setting:
 

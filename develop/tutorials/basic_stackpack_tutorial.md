@@ -8,7 +8,7 @@ This tutorial shows you how to create a basic StackPack to configure StackState.
 
 ## Setup
 
-[This GitHub repository](https://github.com/StackVista/stackpack-tutorial) contains a sample project that containing a very basic StackPack. Clone the repository to your laptop to get started.
+[This GitHub repository](https://github.com/StackVista/stackpack-tutorial) contains a sample project that containing a basic StackPack. Clone the repository to your laptop to get started.
 
 The repository contains a StackPack that configures StackState to receive external data and turn that into topology. The main configuration of the StackPack is in the `src` folder.
 

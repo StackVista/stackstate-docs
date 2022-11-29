@@ -30,7 +30,7 @@ Configure your Traefik instance to report [Datadog tracing data](https://doc.tra
   # Component name used for your Traefik instance in StackState
   serviceName = "traefik"
 
-  # Span name limit allows for name truncation in case of very long Frontend/Backend names
+  # Span name limit allows for name truncation in case of long Frontend/Backend names
   # This can prevent certain tracing providers to drop traces that exceed their length limits
   spanNameLimit = 100
 

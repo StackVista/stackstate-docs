@@ -56,12 +56,12 @@ class SomeProvisioningScript extends ProvisioningScript {
 
 The supported actions are:
 
-* `preInstall` - this action is run when installing the very first instance of a StackPack - it's meant to install all the objects that each of the instances will share.
+* `preInstall` - this action is run when installing the first instance of a StackPack - it's meant to install all the objects that each of the instances will share.
 * `install` - this action is run for every installed instance of a StackPack - it's meant to install instance-specific objects, that will be of use for this instance only.
 * `waitingForData` - this action allows the StackPack creator to check wether any external service that this StackPack communicates with is properly sending data that this StackPack can process. By default, it just transitions to the `INSTALLED` state.
 * `upgrade` - this action is run for every installed instance of a StackPack when the user upgrades their StackPack version.
 * `uninstall` - this action is run for every instance when it's being uninstalled - it's meant to clean up all the instance-specific objects.
-* `postUninstall` - this action is run when uninstalling the very last instance of a StackPack - it's meant to clean up all the StackPack-shared objects.
+* `postUninstall` - this action is run when uninstalling the last instance of a StackPack - it's meant to clean up all the StackPack-shared objects.
 
 ## Provisioning script context
 

@@ -80,7 +80,7 @@ To understand whether the StackState platform is a bottleneck when processing to
     stackstate-sync-665f988dc4-sh4fp   1970m         3234Mi
     ```
 
-In the above example, we observe that 1.970 cores are used by the synchronization pod, where 2 are requested. This means that the pod is very close to its CPU budget and is likely throttled. To remedy this, follow the procedure below to change the topology synchronization CPU budget.
+In the above example, we observe that 1.970 cores are used by the synchronization pod, where 2 are requested. This means that the pod is close to its CPU budget and is likely throttled. To remedy this, follow the procedure below to change the topology synchronization CPU budget.
 
 ## Change the topology synchronization CPU budget
 

@@ -13,7 +13,7 @@ Feedback that has been added to anomalies reported by the Autonomous Anomaly Det
 To export anomaly feedback from StackState, the [StackState CLI](/setup/cli/README.md) is required. When an export is run, all feedback and comments for all anomalies reported in the specified time window will be exported.
 
 {% hint style="warning" %}
-**Note that any user comments will be included in the exported feedback.** These comments are very useful, but should not contain any sensitive information.
+**Note that any user comments will be included in the exported feedback.** These comments are useful, but should not contain any sensitive information.
 {% endhint %}
 
 {% tabs %}
@@ -73,7 +73,7 @@ $ stac anomaly collect-feedback --start-time=-10d --end-time=-2d --history=3d > 
 When requested, feedback exported from StackState can be sent on to the StackState team. Instructions on how to do this using a secure fileshare will be provided to you. All data received will be handled in accordance with the StackState security policy.
 
 {% hint style="warning" %}
-**Note that any user comments will be included in the exported feedback.** These comments are very useful, but should not contain any sensitive information.
+**Note that any user comments will be included in the exported feedback.** These comments are useful, but should not contain any sensitive information.
 {% endhint %}
 
 ## See also
