@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Tag: `auto-widget`
 
-Data queried on the [analytics](../../../use/stackstate-ui/analytics.md) page can often times show a preview. Data that is of some known format, like telemetry or topology, will therefore _automatically_ be shown in a chart of topology visualization. This tag renders data exactly the way the analytics preview of the analytics would render data.
+Data queried on the [analytics](../../../use/stackstate-ui/analytics.md) page can often times show a preview. Data that's of some known format, like telemetry or topology, will therefore _automatically_ be shown in a chart of topology visualization. This tag renders data exactly the way the analytics preview of the analytics would render data.
 
 It looks at the shape of the `data`, and if it's of some recognizable type \(determined by inspecting the `_type`\) it automatically renders the data in an appropriate format.
 

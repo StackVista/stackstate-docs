@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## How do scopes work?
 
-The scope is an [STQL query](../../../develop/reference/stql_reference.md) that is added as a prefix to every query executed in StackState. Whenever a user wants to select a view or pass a query in StackState, this prefix query is executed as a part of the user's query, limiting the results accordingly to the user's role.
+The scope is an [STQL query](../../../develop/reference/stql_reference.md) that's added as a prefix to every query executed in StackState. Whenever a user wants to select a view or pass a query in StackState, this prefix query is executed as a part of the user's query, limiting the results accordingly to the user's role.
 
 Note: Please note that function calls like `withCauseOf` and `withNeighborsOf` are not supported as they would not be performant in this context.
 
@@ -16,7 +16,7 @@ Users need to log out and authenticate again to StackState whenever any changes 
 
 ## Why scopes?
 
-Scopes are introduced as a security feature that is mandatory for every subject within StackState. The predefined StackState users Administrator, Power User and Guest roles have no scope defined.
+Scopes are introduced as a security feature that's mandatory for every subject within StackState. The predefined StackState users Administrator, Power User and Guest roles have no scope defined.
 
 It's possible to provide a scope as a query wildcard, however, this will result in access to everything and isn't recommended. If there is a need for access without a scope, it's recommended to use one of the [predefined roles](rbac_permissions.md#predefined-roles) instead.
 

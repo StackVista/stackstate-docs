@@ -233,7 +233,7 @@ Events can be submitted using the `self.event()` function in the `AgentCheck` in
 
 ![Add telemetry stream](../../../.gitbook/assets/v51_genericevents.png)
 
-The example below submits an event to StackState when a call to the instance that is monitored exceeds some configured timeout:
+The example below submits an event to StackState when a call to the instance that's monitored exceeds some configured timeout:
 
 ```text
 self.event({
@@ -345,7 +345,7 @@ We create a `MetricStream` on the `system.cpu.usage` metric with some conditions
 
 Service Checks are used to submit the state of the agent integration instance. Service checks can be submitted using the `self.service_check` method in the `AgentCheck` interface. Service check data is also stored in the `StackState Generic Events` data source.
 
-The example below submits a service check to StackState when it is verified that the check was configured correctly and it can communicate with the instance that is monitored:
+The example below submits a service check to StackState when it is verified that the check was configured correctly and it can communicate with the instance that's monitored:
 
 ```text
 # some logic here to test our connection and if successful:

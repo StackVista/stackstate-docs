@@ -78,7 +78,7 @@ upgradeInstructions = "upgrading.md"
 ```
 
 * `name` - Name of the StackPack. This is what is used to uniquely identify the StackPack. \(Required\)
-* `displayName` - Name that is displayed on both the StackPack listing page and on the title of the StackPack page. \(Required\)
+* `displayName` - Name that's displayed on both the StackPack listing page and on the title of the StackPack page. \(Required\)
 * `version` - [Semantic version](https://semver.org/) of the StackPack. StackPacks with the same major version are considered compatible. \(Required\)
 * `isNew` - This specifies whether the StackPack is new, as in the StackPack version is the first publicly available version. The values can be `yes`/`no`/`true`/`false`. By default, it's considered `false`.
 * `logoUrl` - Specifies the logo used as a badge for the StackPack. It could be any of the resource URL as defined [here](how_to_customize_a_stackpack.md). \(Required\)

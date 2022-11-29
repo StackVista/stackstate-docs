@@ -54,7 +54,7 @@ When the above information is provided click the "Install" button and if Agent V
 
 ### 3. Configure Layers, Domains, and Environments
 
-Once you have installed Custom Synchronization StackPack, you need to start preparing the configuration that is needed for your integration.
+Once you have installed Custom Synchronization StackPack, you need to start preparing the configuration that's needed for your integration.
 
 There are some default Layers, Domains, and Environments created by StackState. Layers are used for vertical separation between components; Domains are used for horizontal separation between components; Environments are grouping components. You can add custom Layers, Domains, and Environments in the Settings pages to match your StackPack needs.
 

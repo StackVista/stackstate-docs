@@ -93,7 +93,7 @@ The function withNeighborsOf extends STQL query output, adding connected compone
 
 `withNeighborsOf(components=(), levels=, direction=)`
 
-To be compatible with basic filtering, the function can only be combined with other filters using an `OR` operator. When an advanced filter contains a function `withNeighborsOf` that is compatible with basic filtering. In the [**Other filters** box](/use/stackstate-ui/filters.md#other-filters), you can see the number of components whose neighbors are queried for. 
+To be compatible with basic filtering, the function can only be combined with other filters using an `OR` operator. When an advanced filter contains a function `withNeighborsOf` that's compatible with basic filtering. In the [**Other filters** box](/use/stackstate-ui/filters.md#other-filters), you can see the number of components whose neighbors are queried for. 
 
 #### Parameters / fields
 

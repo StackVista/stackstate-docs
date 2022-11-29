@@ -15,7 +15,7 @@ The telemetry interval specifies the time window for which events, metrics and t
 You can configure the default telemetry interval used in StackState with the parameter `defaultTimeRange`. The configured value will then be applied automatically when a view or explore mode is opened.
 
 {% hint style="info" %}
-Note that once a telemetry interval value is specified by a user in the StackState UI, this will override the default telemetry interval and be applied to each subsequent view that is opened.
+Note that once a telemetry interval value is specified by a user in the StackState UI, this will override the default telemetry interval and be applied to each subsequent view that's opened.
 {% endhint %}
 
 The default telemetry interval can be set to any of the following values:

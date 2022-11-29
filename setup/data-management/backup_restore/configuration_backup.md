@@ -298,7 +298,7 @@ As StackState evolves, versioning of the exported Node elements is necessary. Th
       "returnTypes": [
         "RUN_STATE"
       ],
-      "description": "This check will always return the run state that is provided when a metric has been received.",
+      "description": "This check will always return the run state that's provided when a metric has been received.",
       "id": -196,
       "script": "return metricFixedRunState;",
       "parameters": [

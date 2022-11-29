@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-This how-to describes the steps to create a [component action](../../../configure/topology/component_actions.md) that is available for specific components. Component actions can be executed from the component context menu in the StackState UI Topology Perspective or the right panel details tab when detailed information about a component has been selected - **Component details**.
+This how-to describes the steps to create a [component action](../../../configure/topology/component_actions.md) that's available for specific components. Component actions can be executed from the component context menu in the StackState UI Topology Perspective or the right panel details tab when detailed information about a component has been selected - **Component details**.
 
 ## Add or edit a component action
 
@@ -22,7 +22,7 @@ Each component action includes the following details:
 * **Name** - The name displayed to users in the StackState UI when the component action is available for a component. The component action name is case-sensitive.
 * **Description** - The text shown in the tooltip when a user hovers over the component action name in the StackState UI.
 * **STQL Query** - An advanced topology query that returns all components for which this component action should be available. For details, see the [STQL Query](component-actions.md#stql-query) section below.
-* **Script** - A script written in StackState Scripting Language that is run whenever the component action is executed in the StackState UI. For details, see the [script](component-actions.md#script) section and the [example scripts](component-actions.md#example-scripts) below.
+* **Script** - A script written in StackState Scripting Language that's run whenever the component action is executed in the StackState UI. For details, see the [script](component-actions.md#script) section and the [example scripts](component-actions.md#example-scripts) below.
 * **Identifier** - Optional. A unique identifier for the component action. For details, see the [identifier](component-actions.md#identifier) section below.
 
 ### STQL query

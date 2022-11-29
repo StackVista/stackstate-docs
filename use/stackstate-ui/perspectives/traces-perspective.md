@@ -63,7 +63,7 @@ By installing our Agent and its integrations to gather traces from these technol
 
 ![The topology for which you fetch traces](../../../.gitbook/assets/v51_topology-traces.png)
 
-The two images above illustrate these concepts by showing a library application whose main responsibility is to fetch a list of books. You can see an example of a trace and its spans for a request to fetch the list of books and the resulting topology that is created out of it.
+The two images above illustrate these concepts by showing a library application whose main responsibility is to fetch a list of books. You can see an example of a trace and its spans for a request to fetch the list of books and the resulting topology that's created out of it.
 
 When ingesting traces, StackState attaches service identifiers to the components that are created. These identifiers are also included as part of the **service** property of the spans in a trace. All topology created out of a trace will have a tag **has\_traces**, this allows you to easily identify components for which you have traces.
 

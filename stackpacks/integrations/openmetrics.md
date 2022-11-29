@@ -44,7 +44,7 @@ To enable the OpenMetrics integration and begin collecting metrics data from an 
              } 
            ]'
       ...
-      # This already exists in the pod spec, the container name needs to match the container that is exposing the openmetrics endpoint
+      # This already exists in the pod spec, the container name needs to match the container that's exposing the openmetrics endpoint
       spec:
         containers:
          - name: <CONTAINER_NAME>

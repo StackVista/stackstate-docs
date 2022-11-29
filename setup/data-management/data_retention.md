@@ -115,7 +115,7 @@ $ stac graph retention set-window --schedule-removal
 {% endtab %}
 {% endtabs %}
 
-After changing the retention period to a smaller window, you may end up with some data that is already expired and will wait there until the next scheduled cleanup. To schedule an additional removal of expired data, use the following command:
+After changing the retention period to a smaller window, you may end up with some data that's already expired and will wait there until the next scheduled cleanup. To schedule an additional removal of expired data, use the following command:
 
 Note that this may take some time to have an effect.
 

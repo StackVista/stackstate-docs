@@ -16,7 +16,7 @@ The Agent V2 runs the `secret_backend_command` executable as a sub-process. On L
 
 ## How to use the executable API
 
-The executable respects a simple API that reads JSON structures from the standard input, and outputs JSON containing the decrypted secrets to the standard output. If the exit code is anything other than 0, then the integration configuration that is being decrypted is considered faulty and is dropped.
+The executable respects a simple API that reads JSON structures from the standard input, and outputs JSON containing the decrypted secrets to the standard output. If the exit code is anything other than 0, then the integration configuration that's being decrypted is considered faulty and is dropped.
 
 ### Input
 
@@ -53,12 +53,12 @@ The executable is expected to output to the standard output a JSON payload conta
 
 The expected payload is a JSON object, where each key is one of the handles requested in the input payload. The value for each handle is a JSON object with two fields:
 
-* `value`: a string; the actual value that is used in the check configurations
+* `value`: a string; the actual value that's used in the check configurations
 * `error`: a string; the error message, if needed. If error is anything other than null, the integration configuration that uses this handle is considered erroneous and is dropped.
 
 ### Example
 
-The following is a dummy implementation of the secret reader that is prefixing every secret with `decrypted_`:
+The following is a dummy implementation of the secret reader that's prefixing every secret with `decrypted_`:
 
 {% code lineNumbers="true" %}
 ```golang

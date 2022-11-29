@@ -15,7 +15,7 @@ The full topology available in StackState is likely much larger than you need to
 
 Generally speaking, views serve two major purposes:
 
-1. Views are a type of bookmark. They help you find your way back to a part of your topology that is of particular interest to you or your team. They may also serve as a starting point for defining new views.
+1. Views are a type of bookmark. They help you find your way back to a part of your topology that's of particular interest to you or your team. They may also serve as a starting point for defining new views.
 2. Views can be used for [event notifications and automation](/use/events/manage-event-handlers.md). Whenever a change within the view requires your attention, an event handler can send out a notification, create an incident in an ITSM system or trigger automation.
 
 Not all views are manually created. Many [StackPacks](../../../stackpacks/about-stackpacks.md) generate views after installation.
@@ -73,7 +73,7 @@ A `ViewStateChangedEvent` event is triggered whenever a view changes its health 
 
 Through a combination of configuration of permissions and scope, it's possible [control access for a specific user](../../../configure/security/rbac/role_based_access_control.md). This can be done in the following ways:
 
-* Grant the user access to a subset of the topology \(a so-called scope\) and allow them to create their own views from the topology that is available to them.
+* Grant the user access to a subset of the topology \(a so-called scope\) and allow them to create their own views from the topology that's available to them.
 * Grant the user access to specific, existing views only and deny them permission to create, modify or delete views.
 
 {% endhint %}

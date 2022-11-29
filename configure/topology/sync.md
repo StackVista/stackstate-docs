@@ -39,7 +39,7 @@ StackState comes with some default identity extractor functions, which should be
 
 ### Mapping
 
-Next up is mapping. It specifies the transformation of external system topological data into StackState domain. Mapping is defined by model element type name that is coming from external system, mapping functions and mapping functions parameters.
+Next up is mapping. It specifies the transformation of external system topological data into StackState domain. Mapping is defined by model element type name that's coming from external system, mapping functions and mapping functions parameters.
 
 * _Model Element Type Name_ - identifier of external element type, e.g. linux, hypervisor, java
 * _Mapper Function_ - Mapper function that knows how to process the data of _Model Element Type_

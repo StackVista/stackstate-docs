@@ -8,7 +8,7 @@ Below you can find a short dictionary that can help you get a better grasp on th
 
 * **4T data model -** Stands for Topology, Telemetry, Traces and Time. These four dimensions are the key concepts of the StackSate data model.
 * **agent** - Software that runs on hosts. Collects events and metrics from hosts and sends them to StackState.
-* **baseline** - Information that is used as a starting point by which to compare other information. In StackState it's used for comparison with the metric stream. It learns from the historical data and calculates the baseline on the current data.
+* **baseline** - Information that's used as a starting point by which to compare other information. In StackState it's used for comparison with the metric stream. It learns from the historical data and calculates the baseline on the current data.
 * **check** - Defines the status of the component/relation and therefore represents the graphic presentation of the health status in the StackState view. It's responsible for determining the health status of the component based on the telemetry streams.
 * **check function** - Logic to determine health and/or run state based on the input \(e.g., metric stream\).
 * **component** - The smallest unit of a topology; represents a real-life component in the IT landscape like a server, a service or an application. Each component belongs to one layer and one domain only.
@@ -26,15 +26,15 @@ Below you can find a short dictionary that can help you get a better grasp on th
 * **health state** - Representation of the health status of components and relations in the IT landscape.
 * **integration** - A link between an external data source and StackState as defined in a StackPack.
 * **layer** - Represents a hierarchy that determines the relations and dependencies in your stack - typically top to bottom.
-* **log stream** - A telemetry stream with log or event data that is coming from an external system.
+* **log stream** - A telemetry stream with log or event data that's coming from an external system.
 * **mapping** - In the synchronization process it specifies the transformation of external system topological data into StackState based on component/relation type.
 * **mapping function** - Allows the user to transform data before applying a template during the synchronization process.
-* **metric stream** - A telemetry stream with metric data that is coming from an external system; Allows for baseline checks.
+* **metric stream** - A telemetry stream with metric data that's coming from an external system; Allows for baseline checks.
 * **monitor** - A declarative definition of a validation rule that uses available 4T data to compute health states and attach them to the StackState Topology.
 * **monitor function** - Defines the underlying algorithm used to compute the health states produced by a monitor.
 * **monitor runner** - A subsystem of StackState responsible for execution of the logic of a monitor in a timely manner.
 * **permission** - Defines access to specific actions for users.
-* **prefix** - STQL query that is specific to a role. It's added as a query prefix to every query executed by users in that role.
+* **prefix** - STQL query that's specific to a role. It's added as a query prefix to every query executed by users in that role.
 * **propagation** - Defines how a component affects its health state based on dependencies and relations. Health state propagates in the opposite direction of the dependency, e.g., a virtual machine crash will influence applications running on it.
 * **propagation function** - Allows users to alter the propagation logic for a specific component.
 * **relation** - Models a dependency between components.
@@ -44,7 +44,7 @@ Below you can find a short dictionary that can help you get a better grasp on th
 * **scope** - Determines limitations for queries that user can execute. See prefix for more information.
 * **selection** - Filtering down the IT landscape from the full view to a more specific one. Selection can be saved as a view.
 * **stack element** - See element.
-* **StackPack** - A package that is prepared for integration with an external data source.
+* **StackPack** - A package that's prepared for integration with an external data source.
 * **StackPack instance** - Single StackPack integration to one instance of the specific type of data source.
 * **state** - See Health State.
 * **STQL \(StackState Query Language\)** - A built-in query language used to create advanced filters. It's a typed language, which means that each supported type of data is predefined as a part of STQL.
@@ -59,6 +59,6 @@ Below you can find a short dictionary that can help you get a better grasp on th
 * **topology** - The set of relationships and dependencies between discrete components in an environment (for example, business services, microservices, load balancers, containers and databases).
 * **topology data source** - Used to provide data from an external system during the synchronization process.
 * **traces** - A single request that follows a certain path through the 4T data model.
-* **view** - A partial visualization of the 4T data model that can be tailored to show only the cut of an IT landscape that is needed.
+* **view** - A partial visualization of the 4T data model that can be tailored to show only the cut of an IT landscape that's needed.
 * **view health state** - Shows the health state of the entire view.
 * **view state function** - Allows users to modify the behavior of the view health state.

@@ -22,7 +22,7 @@ Clone the repository to your laptop to get started.
 
 ## Preparing StackState
 
-Before you get started, StackState must be configured to handle the data that will be sent from the sample project. The project uses a StackState Agent installed on the virtual machine to send data in a format that is consumed by the StackState **Agent V2 StackPack**.
+Before you get started, StackState must be configured to handle the data that will be sent from the sample project. The project uses a StackState Agent installed on the virtual machine to send data in a format that's consumed by the StackState **Agent V2 StackPack**.
 
 The sample project will handle installation of a StackState Agent on the virtual machine. You will need to install the **Agent V2 StackPack** in StackState to interpret the data it sends. If you're running the tutorial on an existing instance of StackState, we advise you to install a dedicated instance of the Agent V2 StackPack for the tutorial. This will allow you to easily clean up and remove all configuration and topology imported during the tutorial when you're finished.
 

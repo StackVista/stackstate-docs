@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-Monitors process 4T data, such as metrics, events and topology, to produce a health state for elements \(components and relations\). The states are calculated and attached to relevant topology elements by a specific monitor function that is selected by the user.
+Monitors process 4T data, such as metrics, events and topology, to produce a health state for elements \(components and relations\). The states are calculated and attached to relevant topology elements by a specific monitor function that's selected by the user.
 
 Monitors are run by a dedicated subsystem of StackState called the monitor runner. The main task of the monitor runner is to schedule the execution of all existing monitors in such a way as to ensure that all of them produce viable results in a timely manner. The monitor runner is maintenance free - it starts whenever StackState starts and picks up any newly applied monitor definitions automatically whenever they are created, changed or removed. Any changes that have been applied to the monitors are reflected with the next execution cycle.
 
@@ -40,7 +40,7 @@ Once applied, the updated monitor definition will be in effect. Changes will be 
 
 ### Set run interval
 
-The monitor runner schedules monitor execution using an interval parameter that is configured on a per-monitor basis - the `intervalSeconds`. The runner will attempt to schedule a monitor execution every `intervalSeconds`, counting from the end of the previous execution cycle, in parallel to the other existing monitors (subject to resource limits). For example, setting `intervalSeconds` of a monitor definition to the value `600` will cause the monitor runner to attempt to schedule the execution of this monitor every ten minutes, assuming that the execution time itself is negligible.
+The monitor runner schedules monitor execution using an interval parameter that's configured on a per-monitor basis - the `intervalSeconds`. The runner will attempt to schedule a monitor execution every `intervalSeconds`, counting from the end of the previous execution cycle, in parallel to the other existing monitors (subject to resource limits). For example, setting `intervalSeconds` of a monitor definition to the value `600` will cause the monitor runner to attempt to schedule the execution of this monitor every ten minutes, assuming that the execution time itself is negligible.
 
 To set a new run interval for a monitor, adjust the `intervalSeconds` parameter in the monitor STJ definition as described in the instructions to [edit the monitor](#edit).
 

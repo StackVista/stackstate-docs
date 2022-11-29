@@ -28,7 +28,7 @@ The `example` check consists of two files:
 
 ## Prepare StackState
 
-Before you get started, StackState must be configured to handle the data we will be sending from the sample check. The sample check sends data in a format that is consumed by the built-in **Custom Synchronization StackPack**. After installing this StackPack, StackState will know how to interpret the sample check data and turn it into topology.
+Before you get started, StackState must be configured to handle the data we will be sending from the sample check. The sample check sends data in a format that's consumed by the built-in **Custom Synchronization StackPack**. After installing this StackPack, StackState will know how to interpret the sample check data and turn it into topology.
 
 Configure the StackPack with the following values so they match with the data the check sends:
 
@@ -118,7 +118,7 @@ Select the **some-application-1** component again to display detailed informatio
 
 In the Template Editor you can edit the template used to create components based on data coming in from your sample check. It shows the following information:
 
-* **Input parameters** - this is the data sent by our example check that is processed by StackState
+* **Input parameters** - this is the data sent by our example check that's processed by StackState
 * **Template function** - this is the template that uses the input parameters to create a component
 * **Component preview** - this is a preview of the component produced by applying the input parameters to the template function
 

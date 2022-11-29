@@ -21,7 +21,7 @@ To add a custom monitor function:
    * **Script** - The groovy script run by the function. For more details see the section [script](#script).
    * **Identifier** - a StackState-URN-formatted value that uniquely identifies the monitor function. The identifier is used by the monitor definition during the invocation of this function.
 4. Click **CREATE** to save the monitor function.
-   * The monitor function will be listed in the StackState UI page **Settings** >  **Functions** > **Monitor Functions**. It can be exported from here to use in a monitor or add to a template that is included in a custom StackPack.
+   * The monitor function will be listed in the StackState UI page **Settings** >  **Functions** > **Monitor Functions**. It can be exported from here to use in a monitor or add to a template that's included in a custom StackPack.
 
 ![Add a custom monitor function](../../../.gitbook/assets/v51_add-monitor-function.png)
 

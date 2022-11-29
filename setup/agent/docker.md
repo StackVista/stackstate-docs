@@ -166,7 +166,7 @@ StackState Agent V2 can be configured to reduce data production, tune the proces
 
 ### External integration configuration
 
-StackState Agent V2 can be configured to run checks that integrate with external systems. Each integration has its own configuration file that is used by the associated Agent check. Configuration files for integrations that will run through StackState Agent V2 in Docker should be added as a volume to the directory `/etc/stackstate-agent/conf.d/` when the container is started.
+StackState Agent V2 can be configured to run checks that integrate with external systems. Each integration has its own configuration file that's used by the associated Agent check. Configuration files for integrations that will run through StackState Agent V2 in Docker should be added as a volume to the directory `/etc/stackstate-agent/conf.d/` when the container is started.
 
 For example, the Agent Docker configuration below includes a volume with a check configuration file for the ServiceNow integration:
 

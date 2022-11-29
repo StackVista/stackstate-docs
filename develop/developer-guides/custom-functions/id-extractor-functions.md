@@ -14,7 +14,7 @@ A list of all ID extractor functions in your StackState instance is available in
 
 ![ID extractor](../../../.gitbook/assets/v51_idextractor.png)
 
-An ID extractor function has parameters. Only one parameter is required - the system parameter `element` that is of type JSON. This is input to the script for execution. In topology synchronization, the `element` will contain the element payload. The ID Extractor can produce the following information from the external data in the `element` parameter:
+An ID extractor function has parameters. Only one parameter is required - the system parameter `element` that's of type JSON. This is input to the script for execution. In topology synchronization, the `element` will contain the element payload. The ID Extractor can produce the following information from the external data in the `element` parameter:
 
 * A `type` - for the component/relation. Used for differentiation in later steps.
 * An `externalId` - the identifier with which the element can be identified in the external source.

@@ -131,7 +131,7 @@ The StackGraph and Elasticsearch backups are stored in BLOB containers called `s
 ### Kubernetes storage
 
 {% hint style="warning" %}
-If MinIO is configured to store its data in Kubernetes storage, a PersistentVolumeClaim (PVC) is used to request storage from the Kubernetes cluster. The kind of storage that is allocated depends on the configuration of the cluster.
+If MinIO is configured to store its data in Kubernetes storage, a PersistentVolumeClaim (PVC) is used to request storage from the Kubernetes cluster. The kind of storage that's allocated depends on the configuration of the cluster.
 
 It's advised to use AWS S3 for clusters running on Amazon AWS and Azure Blob Storage for clusters running on Azure for the following reasons:
 
