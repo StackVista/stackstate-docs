@@ -264,7 +264,7 @@ Note that increasing the total limit or the `diskSpaceWeight` will increase the 
 {% endhint %}
 
 **Allocate no disk space to an index group**
-Setting `diskSpaceWeight` to 0 will result in no disk space being allocated to an index group. For example, if you are not going to use traces, then you can stop reserving disk space for this index group and make it available to other index groups with the setting:
+Setting `diskSpaceWeight` to 0 will result in no disk space being allocated to an index group. For example, if you aren't going to use traces, then you can stop reserving disk space for this index group and make it available to other index groups with the setting:
 
 ```text
  kafkaTraceToES.elasticsearch.index.diskSpaceWeight = 0

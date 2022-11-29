@@ -256,7 +256,7 @@ JMX Checks have a default configuration that will collect 11 metrics from your J
 
   `sudo /etc/init.d/stackstate-agent jmx list_matching_attributes`
 
-* List attributes that do match one of your instances configuration but that are not being collected because it would exceed the number of metrics that can be collected:
+* List attributes that do match one of your instances configuration but that aren't being collected because it would exceed the number of metrics that can be collected:
 
   `sudo /etc/init.d/stackstate-agent jmx list_limited_attributes`
 
@@ -278,7 +278,7 @@ JMX Checks have a default configuration that will collect 11 metrics from your J
 
 ### The 350 metric limit
 
-Due to the nature of these integrations, it is possible to submit an extremely high number of metrics directly to Stackstate. What we've found in speaking with many customers is that some of these metrics are not needed; thus, we've set the limit at 350 metrics.
+Due to the nature of these integrations, it is possible to submit an extremely high number of metrics directly to Stackstate. What we've found in speaking with many customers is that some of these metrics aren't needed; thus, we've set the limit at 350 metrics.
 
 To see what you're collecting and get below the limit, begin by using the commands seen above to investigate what metrics are available. We then recommend creating filters to refine what metrics are collected. If you believe you need more than 350 metrics, please reach out to [our technical support](https://support.stackstate.com).
 

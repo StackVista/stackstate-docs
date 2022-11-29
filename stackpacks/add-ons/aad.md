@@ -76,7 +76,7 @@ The feedback sent to StackState consists of:
 ### Prerequisites[](http://not.a.link "StackState Self-Hosted only")
 
 * The AAD StackPack can only be installed within a [Kubernetes setup](../../setup/install-stackstate/kubernetes_openshift/ "StackState Self-Hosted only"). Please make sure that this is supported by your StackState installation.
-* If you are not sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://support.stackstate.com/hc/en-us "StackState Self-Hosted only").
+* If you aren't sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://support.stackstate.com/hc/en-us "StackState Self-Hosted only").
 
 ### Install the AAD StackPack
 

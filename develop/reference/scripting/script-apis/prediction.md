@@ -13,7 +13,7 @@ Predict metrics for any metric query coming from any data source.
 * `predictorName` - the prediction preset to use: 
   * **fft** - Fast Fourier Transformation. Used for seasonal metrics with a repeatable pattern that has a cycle.
   * **linear** - Used for metrics that have a linear trend.
-  * **hmn** - Harmonic Mean Normal. Used in difficult cases when metrics are not clearly seasonal or linear.
+  * **hmn** - Harmonic Mean Normal. Used in difficult cases when metrics aren't clearly seasonal or linear.
 * `horizon` - How much future to predict. The horizon is specified in [duration format](../time-in-scripts.md).
 * `query` - The metrics to use for the prediction. A telemetry query that returns metrics, created using the `Telemetry.query()` function followed by `.compileQuery()`.
 

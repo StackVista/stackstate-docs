@@ -11,7 +11,7 @@ StackState has several points of interaction with external systems, for example 
 To mitigate this, StackState allows configuration of a custom trust store.
 
 {% hint style="info" %}
-Note that self-signed certificates are not compatible with the [StackState Azure integration](/stackpacks/integrations/azure.md).
+Note that self-signed certificates aren't compatible with the [StackState Azure integration](/stackpacks/integrations/azure.md).
 {% endhint %}
 
 ## Create a custom trust store

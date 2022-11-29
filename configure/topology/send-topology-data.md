@@ -136,9 +136,9 @@ The JSON contains the following fields:
 * **collection_timestamp**: Collection timestamp in Epoch seconds. Depending on your StackState configuration, topology that's to old may be ignored.
 * **internalHostname**: The hostname of the collector \(which sends your custom topology data\).
 * **topologies**: A list of one or more instance types. Instance types are described by the following fields:
-  * **start_snapshot**: Boolean \(true/false\). When set to "true" this message is handled as the beginning of a snapshot. This enables StackState to diff snapshots with the previous one to delete components / relations which are not in the snapshot anymore.
+  * **start_snapshot**: Boolean \(true/false\). When set to "true" this message is handled as the beginning of a snapshot. This enables StackState to diff snapshots with the previous one to delete components / relations which aren't in the snapshot anymore.
   * **stop_snapshot**: Boolean \(true/false\). When set to "true" this message is handled as the end of a snapshot.
-  * **delete_ids**: List of external ids. List of components or relations that should be deleted. All components and relations that are not repeated in a snapshot will be deleted automatically, thus this field is only necessary when _not_ sending a snapshot.
+  * **delete_ids**: List of external ids. List of components or relations that should be deleted. All components and relations that aren't repeated in a snapshot will be deleted automatically, thus this field is only necessary when _not_ sending a snapshot.
 * **instance**: Describes the type and unique ID \(URL format\) of the topology data.
   * **type**: A type name for the topology data.
   * **URL**: Unique identifier for the source of this topology. This is used to generate a unique Kafka topic name for the topology data.

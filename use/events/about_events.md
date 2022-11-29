@@ -10,7 +10,7 @@ StackState records every change detected in the IT environment as an event. Even
 
 * The [Events perspective](/use/stackstate-ui/perspectives/events_perspective.md) lists events related to the elements in a view. They're also included in the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**.
 * [Event handlers](/use/events/event-notifications.md) can be configured to trigger notifications in response to different event types, such as sending a message to Slack or a notification email.
-* In some cases, events sent to StackState are not bound to an element in the topology. Incoming data of this kind will be treated as a log entry and made available in a [telemetry stream](/use/metrics/telemetry_streams.md) (a log stream). 
+* In some cases, events sent to StackState aren't bound to an element in the topology. Incoming data of this kind will be treated as a log entry and made available in a [telemetry stream](/use/metrics/telemetry_streams.md) (a log stream). 
 
 ## Event source
 

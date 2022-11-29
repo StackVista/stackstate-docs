@@ -28,10 +28,10 @@ The following example implements a solution that crates the above-mentioned comp
 To set up a OpenTelemetry manual instrumentations, you need to have:
 
 * [StackState Agent](/setup/agent/about-stackstate-agent.md) v2.17 (or later)
-* [Traces enabled](/setup/agent/advanced-agent-configuration.md#enable-traces) on StackState Agent. If traces are not enabled on the Agent, OpenTelemetry won't generate any data.
+* [Traces enabled](/setup/agent/advanced-agent-configuration.md#enable-traces) on StackState Agent. If traces aren't enabled on the Agent, OpenTelemetry won't generate any data.
 * The [Agent StackPack](/stackpacks/integrations/agent.md) should be installed in StackState.
 
-For NodeJS and Javascript, we are not explaining the setup to get to this point but rather the code example and libraries that was used.
+For NodeJS and Javascript, we aren't explaining the setup to get to this point but rather the code example and libraries that was used.
 
 You should install the following npm libraries using npm or yarn
 

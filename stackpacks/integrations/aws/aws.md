@@ -332,7 +332,7 @@ The AWS StackPack supports the following event:
 
 * EC2 Instance Run State: when the instance is started, stopped, or terminated. This will appear as the Run State in the EC2 instance component.
 
-AWS events are primarily used to provide real-time updates to topology. These events are not displayed as StackState events.
+AWS events are primarily used to provide real-time updates to topology. These events aren't displayed as StackState events.
 
 #### Metrics
 

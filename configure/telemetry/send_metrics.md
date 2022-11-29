@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-StackState can either pull metrics from a data source or can receive pushed metrics. Pushed metrics are stored by StackState, while pulled metrics Are not. Pushed metrics are stored for the duration of the configured retention period. This page describes how metrics can be pushed.
+StackState can either pull metrics from a data source or can receive pushed metrics. Pushed metrics are stored by StackState, while pulled metrics aren't. Pushed metrics are stored for the duration of the configured retention period. This page describes how metrics can be pushed.
 
 There are several ways to send metrics to StackState. A large number of [integrations](../../stackpacks/integrations/) are provided out of the box that may help you get started. If there is no out of the box integration, you can send metrics to StackState using either HTTP or the [StackState `stac` CLI](/setup/cli/cli-stac.md).
 

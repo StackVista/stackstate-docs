@@ -9,7 +9,7 @@ description: StackState Self-hosted v5.1.x
 If StackState and/or StackState Agent are running within an AWS environment on an EC2 instance, an IAM role can be attached to the EC2 instance for authentication. When this role is available it can be used for authentication by StackState or StackState Agent running on the same EC2 instance.
 
 {% hint style="info" %}
-Note: If the AWS Data Collection Account and the Monitor Account are not a part of the same AWS organization, it's impossible to authenticate using the attached IAM role in this way. For details see the AWS documentation on [AWS organizations \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html). 
+Note: If the AWS Data Collection Account and the Monitor Account aren't a part of the same AWS organization, it's impossible to authenticate using the attached IAM role in this way. For details see the AWS documentation on [AWS organizations \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html). 
 {% endhint %}
 
 ## Set up IAM role for StackState/StackState Agent on EC2

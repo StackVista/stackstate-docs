@@ -263,7 +263,7 @@ A sub stream status will show the metadata related to the consistency model:
 * **Transactional Increments** - Show checkpoint offset and checkpoint batch index
 {% endhint %}
 
-The sub stream status can be expanded to include details of matched and unmatched check states using the `-t` command line argument. This is helpful to identify any health states that are not attached to a topology element.
+The sub stream status can be expanded to include details of matched and unmatched check states using the `-t` command line argument. This is helpful to identify any health states that aren't attached to a topology element.
 In the example below, `checkStateId2` is listed under `Check states with identifier which has no matching topology element`. This means that the check state could not be matched to a topology element with the identifier `server-2`.
 
 {% tabs %}
