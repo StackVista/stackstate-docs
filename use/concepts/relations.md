@@ -29,7 +29,7 @@ Select a direct relation in the topology visualizer to open the **Direct relatio
 * **Properties** - metadata, such as the relation type and any labels. Click SHOW ALL PROPERTIES to open a pop-up with all details of the relation.
 * **Components** - the source component and target component that the relation connects.
 * **Health** - reports the relation [health state](/use/concepts/health-state.md) as calculated by StackState. Expand to see all [health checks](/use/checks-and-monitors/checks.md) and [monitors](/use/checks-and-monitors/monitors.md) attached to the component.
-* **Propagated health** - reports the relation's [propagated health state](/use/concepts/health-state.md#element-propagated-health-state). This is derived from the health state of the components and relations that the relation depends upon.
+* **Propagated health** - reports the relation's [propagated health state](/use/concepts/health-state.md#element-propagated-health-state), derived from the health state of the components and relations that the relation depends upon.
 * **Problems** - lists all [problems](/use/problem-analysis/about-problems.md) that involve the selected relation. 
 * **Events** - the latest 10 [events](/use/events/about_events.md) that relate to the selected relation. Click VIEW ALL to open the Events perspective in a [subview](/use/stackstate-ui/views/about_views.md#subview) containing only the relation component. 
 * **Telemetry** - all [telemetry streams](/use/metrics/telemetry_streams.md) linked to the relation.

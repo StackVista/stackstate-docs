@@ -71,7 +71,7 @@ You can find details of the calculated element own health state and all configur
 
 ### Element propagated health state
 
-In addition to the own health state, StackState calculates a propagated health state for each topology element (components, component groups and relations). The propagated health state is derived from the own health state of components and relations that the element depends upon.
+In addition to the own health state, StackState calculates a propagated health state for each topology element (components, component groups and relations). The own health state of the components and relations that an element depends upon are used to derive its propagated health state.
 
 ➡️ [Learn how health state propagates in StackState](#propagation)
 
