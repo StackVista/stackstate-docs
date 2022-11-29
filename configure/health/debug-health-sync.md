@@ -264,7 +264,7 @@ A sub stream status will show the metadata related to the consistency model:
 {% endhint %}
 
 The sub stream status can be expanded to include details of matched and unmatched check states using the `-t` command line argument. This is helpful to identify any health states that are not attached to a topology element.
-In the example below, `checkStateId2` is listed under `Check states with identifier which has no matching topology element`. This means that it was not possible to match the check state to a topology element with the identifier `server-2`.
+In the example below, `checkStateId2` is listed under `Check states with identifier which has no matching topology element`. This means that the check state could not be matched to a topology element with the identifier `server-2`.
 
 {% tabs %}
 {% tab title="CLI: sts" %}
@@ -316,7 +316,7 @@ check state id    topology element identifier    number of matched topology elem
 
 ### Delete a health stream
 
-The `delete` stream functionality is helpful while setting up a health synchronization in StackState. It allows you to experiment, delete the data and start over again clean. You can also delete a stream and drop its data when you are sure that you do not want to keep using it.
+The `delete` stream functionality is helpful while setting up a health synchronization in StackState. It allows you to experiment, delete the data and start over again clean. You can also delete a stream and drop its data when you are sure that you don't want to keep using it.
 
 {% tabs %}
 {% tab title="CLI: sts" %}

@@ -16,7 +16,7 @@ Use the `ENC[]` notation to denote a secret as the value of any YAML field in yo
 
 Secrets are also supported in `stackstate.yaml` - agent check configuration file. The Agent V2 first loads the main configuration and reloads it after decrypting the secrets. This means that secrets cannot be used in the `secret_*` settings.
 
-Secrets are always strings, which means that it's not possible to set them to integer or Boolean type.
+Secrets are always strings, which means that it's impossible to set them to integer or Boolean type.
 
 Example:
 
@@ -48,7 +48,7 @@ In the above example, the secret’s handle is the string `{"env": "prod", "chec
 
 To retrieve secrets, you need to provide an executable that can authenticate to and fetch secrets from your secrets management backend.
 
-The Agent V2 caches secrets internally in memory to reduce the number of calls \(convenient in a containerized environment\). The Agent calls the executable every time it accesses a check configuration file that contains at least one secret handle for which the secret isn't already loaded in memory. In particular, secrets that have already been loaded in memory do not trigger additional calls to the executable. In practice, this means that the Agent calls the user-provided executable once per file that contains a secret handle at startup, and might make additional calls to the executable later, if the Agent V2 or instance is restarted, or if the Agent dynamically loads a new check containing a secret handle.
+The Agent V2 caches secrets internally in memory to reduce the number of calls \(convenient in a containerized environment\). The Agent calls the executable every time it accesses a check configuration file that contains at least one secret handle for which the secret isn't already loaded in memory. In particular, secrets that have already been loaded in memory don't trigger additional calls to the executable. In practice, this means that the Agent calls the user-provided executable once per file that contains a secret handle at startup, and might make additional calls to the executable later, if the Agent V2 or instance is restarted, or if the Agent dynamically loads a new check containing a secret handle.
 
 Relying on a user-provided executable has many benefits:
 

@@ -28,9 +28,9 @@ In StackState, different function types complete different tasks. Depending on t
 Functions in StackState run with either synchronous or asynchronous execution. For some functions it's possible to choose the execution type.
 
 * **Asynchronous execution** - functions have access to all StackState [Script APIs](../../reference/scripting/). Selecting asynchronous execution also makes it possible for more functions to run in parallel.
-* **Synchronous execution** - functions do not have access to the StackState script APIs. If the function offers the possibility to be run with either asynchronous or synchronous execution, it's recommended to use asynchronous execution.
+* **Synchronous execution** - functions don't have access to the StackState script APIs. If the function offers the possibility to be run with either asynchronous or synchronous execution, it's recommended to use asynchronous execution.
 
 ## Native functions
 
-To improve performance, some default StackState functions have been implemented as native functions. It's not possible to view or edit the script body of a native function in the StackState UI. It isn't possible to create a custom native function.
+To improve performance, some default StackState functions have been implemented as native functions. The script body of a native function cannot be viewed or edited in the StackState UI. It isn't possible to create a custom native function.
 

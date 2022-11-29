@@ -54,7 +54,7 @@ Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 ## Import manually created topology
 
 {% hint style="info" %}
-Manually created relations to synchronized components may fail on import if these synchronized components do not exist anymore.
+Manually created relations to synchronized components may fail on import if these synchronized components don't exist anymore.
 {% endhint %}
 
 To import topology and relation data from a file `manual_topo.stj` using the [StackState CLI](/setup/cli/README.md):

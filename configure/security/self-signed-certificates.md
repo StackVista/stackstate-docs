@@ -48,7 +48,7 @@ With the JVM installed on your computer and the certificate saved as a file `sit
 
 ### Using a Docker JVM
 
-If you do not have JVM installed on your computer, you can use a JVM Docker image. The certificate should be retrieved and saved as a file `site.cert`.
+If you don't have JVM installed on your computer, you can use a JVM Docker image. The certificate should be retrieved and saved as a file `site.cert`.
 
 1. Create a working directory `workdir` and copy the certificate file `site.cert` to this directory.
 2. Start the Java Docker container with the `workdir` mounted as a volume so it can be accessed:

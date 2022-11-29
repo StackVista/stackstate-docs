@@ -104,7 +104,7 @@ You can open a subview in any of the following ways:
 * Double-click on a component, relation or group in the topology visualizer.
 * Use the [Actions](/use/stackstate-ui/perspectives/topology-perspective.md#actions) list in the component context menu or right panel details tab to open a selection subview for a component.
 
-Subviews can be shared with other StackState users as a link, this will include any modifications that you have made to the subview. It's not possible to save a subview.
+Subviews can be shared with other StackState users as a link, this will include any modifications that you have made to the subview. Changes made to a subview cannot be saved.
 
 To exit a subview and return to the previous view or explore mode, click the view name in the top bar of the StackState UI.
 

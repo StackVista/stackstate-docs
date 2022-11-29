@@ -22,7 +22,7 @@ Slack is a [StackState core integration](/stackpacks/integrations/about_integrat
 
 ### Install
 
-Install the Slack StackPack from the StackState UI **StackPacks** > **Integrations** screen. You do not need to provide any parameters.
+Install the Slack StackPack from the StackState UI **StackPacks** > **Integrations** screen. You don't need to provide any parameters.
 
 ### Configure
 

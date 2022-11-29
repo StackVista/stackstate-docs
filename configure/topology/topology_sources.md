@@ -25,7 +25,7 @@ The screen contains the following fields:
 | **Instance type** | The integration type. Select from the dropdown list. This list is populated with the `type` passed in the `instance` field in the [source JSON data](send-topology-data.md#topology-json-format). |
 | **Topic** | The Kafka topic to retrieve data from. Select from the dropdown list. This list is populated based on the `type` and `url` passed in the `instance` field in the [source topology JSON](send-topology-data.md#topology-json-format). |
 | **Maximum batch size** | The maximum number of components from a JSON file that are processed in a single batch. Used for rate limiting. |
-| **Expire elements** | When enabled, topology elements will be set to `expired` if they do not appear in this data source for a configured amount of time. Expired elements will be automatically removed. |
+| **Expire elements** | When enabled, topology elements will be set to `expired` if they don't appear in this data source for a configured amount of time. Expired elements will be automatically removed. |
 | **Expire after \(minutes\)** | When **Expire elements** is enabled, this is the timeout period after which elements should be expired. |
 | **Identifier** | Optional. A valid URN. |
 

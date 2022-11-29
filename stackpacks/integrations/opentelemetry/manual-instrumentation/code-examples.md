@@ -177,7 +177,7 @@ When you are done with a Span for example you have written into the database tab
 You need to close the spans in the opposite order in which you opened them
 For example we started with the database and then the database table, thus we need to close the database table span first then the database span.
 
-***NB: If you do not close your spans in the correct order then Trace will still be sent to StackState but, there might be a missing span, thus showing the incomplete data in StackState.***
+***NB: If you don't close your spans in the correct order then Trace will still be sent to StackState but, there might be a missing span, thus showing the incomplete data in StackState.***
 
 ```javascript
 // First we close the table span
@@ -195,7 +195,7 @@ This step isn't always required, but good to know about. Sometimes a script migh
 A good example of this will be a Lambda execution, StackState will never receive the data as the execution stopped the second the Lambda was done. To get past this
 you can force flush the Trace Provider to definitely makes sure that StackState received the trace.
 
-If you do not use the following code and do not see your value in StackState this might be the issue.
+If you don't use the following code and don't see your value in StackState this might be the issue.
 
 ```javascript
 // NB: Optional Flush
@@ -275,7 +275,7 @@ rdsDatabaseTable.setAttribute('resource.name', 'AWS RDS');
 // For example we started with the parent and then the child, thus we need to close the child first
 // and then the parent span
 
-// NB: If you do not close your spans in the correct order then then Trace will still be sent to StackState but,
+// NB: If you don't close your spans in the correct order then then Trace will still be sent to StackState but,
 // there might be a missing span, thus showing the incomplete data in StackState.
 rdsDatabaseTable.end();
 rdsDatabase.end();

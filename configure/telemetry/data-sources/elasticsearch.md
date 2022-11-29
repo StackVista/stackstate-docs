@@ -121,7 +121,7 @@ The timeout settings can be tweaked when dealing with exceptionally large result
 
 Wildcards can be slow in Elasticsearch. By default, StackState will escape wildcards used in telemetry query values. If required, this behavior can be disabled.
 
-* **Support wildcards in values** - when enabled, StackState will include wildcards \(`*`\) in telemetry query values. Note that wildcards can be used to filter for partial matches, it's not possible to use a full wildcard. At least one other character must be specified in the filter value.
+* **Support wildcards in values** - when enabled, StackState will include wildcards \(`*`\) in telemetry query values. Note that wildcards can be used to filter for partial matches only, it's not possible to use a full wildcard. At least one other character must be specified in the filter value.
 
 ## See also
 

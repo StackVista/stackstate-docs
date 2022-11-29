@@ -136,7 +136,7 @@ When the anomaly detector has checked a time range on a metrics stream and did n
 
 #### Generic topology event data
 
-Other topology event types do not have a structured type associated with them, but can have additional \(unstructured\) data.
+Other topology event types don't have a structured type associated with them, but can have additional \(unstructured\) data.
 
 | Property | Type | Returns |
 | :--- | :--- | :--- |
