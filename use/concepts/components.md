@@ -35,9 +35,9 @@ Click on a component to select it and show detailed information about it in the 
 
 ## Grouping
 
-Components of the same type and/or state can optionally be grouped together into a single element. Grouped components are represented by a circle in the topology visualization. The component group will be named `<COMPONENT_TYPE> group`. For example a group of components with type `pod` will be named `pod group`.
+Components of the same type and/or state can optionally be grouped together into a single element. In the topology visualization, components that have been grouped together have a circle icon with the name `<COMPONENT_TYPE> group`. For example a group of components with type `pod` will be shown in the topology visualization as a circle icon with the name `pod group`.
 
-The size of the component group's circle in the topology visualization represents the number of components in the group:
+The size of the circle icon reflects the number of components that are included in the group:
 
 * Less than 100 components = small circle
 * 100 to 150 components = medium circle

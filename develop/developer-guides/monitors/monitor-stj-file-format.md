@@ -10,7 +10,7 @@ Monitors can be attached to any number of elements in the StackState topology to
 
 ## STJ file format
 
-Monitors in StackState are represented textually using the [STJ file format](/develop/reference/stj/using_stj.md). The following snippet presents an example monitor file:
+Monitors in StackState use the [STJ file format](/develop/reference/stj/using_stj.md). The following snippet presents an example monitor file:
 
 ```json
 {

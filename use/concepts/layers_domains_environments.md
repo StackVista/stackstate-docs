@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Layers
 
-Layers are one of the ways to logically group components. Layers are represented as rows ordered from top to bottom in StackState Views. The order of layers can be configured in the **Settings** page under the **Layers** section by providing numeric values in the `Order` column. Should two layers have the same numeric value, then the alphabetic order of the layer names determines which layer has the higher position.
+Layers are one of the ways to logically group components. Rows represent layers, ordered from top to bottom in StackState Views. The order of layers can be configured in the **Settings** page under the **Layers** section by providing numeric values in the `Order` column. Should two layers have the same numeric value, then the alphabetic order of the layer names determines which layer has the higher position.
 
 ![Layers Settings](../../.gitbook/assets/layers.png)
 
