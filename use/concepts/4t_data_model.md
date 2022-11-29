@@ -12,7 +12,7 @@ StackState’s capabilities are driven by its unique 4T Data Model®. Merging To
 
 For the data to be relevant and actionable, a context must be placed around the data ingested. That context is topology. Topologies in StackState are automatically updated by topology data coming from many various sources. Topology data is sourced from different platforms that provision or deploy networks, virtual machines, containers, and services or can be discovered via discovery agents.
 
-Each of these sources defines one or more subgraphs of the stack’s topology. These topological subgraphs are automatically merged and mapped to StackState’s stack by the script engine.
+Each of these sources defines one or more sub-graphs of the stack’s topology. These topological sub-graphs are automatically merged and mapped to StackState’s stack by the script engine.
 
 ## Telemetry
 
