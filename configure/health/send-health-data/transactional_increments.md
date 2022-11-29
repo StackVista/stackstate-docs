@@ -67,7 +67,7 @@ Every health Transactional Increments data payload has the following details:
 
 * **increment** - An increment objects needs to be present on every message. This enables StackState to track the complete chain of messages and be able to detect when a retransmission of data, or an unexpected gap in the data is occurring. It carries the following fields as increment metadata:
   * **checkpoint** - Object providing the checkpoint that belongs the `check_states` present in the message, it contains two fields:
-    * **offset** - The offset asigned to the messages by the streaming pipeline (e.g. Kafka offset)
+    * **offset** - The offset asigned to the messages by the streaming pipeline. For example, Kafka offset.
     * **batch_index** - Optional. When using a single message to accumulate several `check_states` the batch index represents the latest index that's present in the message, allowing to send big batches in separate api calls.
   * **previous_checkpoint** - Optional. Represents the previously communicated checkpoint, can be empty on the first transmission on the substream. It allows StackState to keep track if there could be any data missing from upstream.
 * **stream** - Object providing identification regarding which snapshots and `check_states` belong together. It contains the following fields:
@@ -79,7 +79,7 @@ Every health Transactional Increments data payload has the following details:
   * **health** - One of the following StackState Health state values: `Clear`, `Deviating`, `Critical`.
   * **topologyElementIdentifier** - Used to bind the check state to a StackState topology element.
   * **name** - Name of the external check state.
-  * **delete** - Flag that's interpreted as a delete request for the related `checkStateId`. Even if the rest of the fields for the create are present, e.g. `name, health, ...` the delete will take precedence.
+  * **delete** - Flag that's interpreted as a delete request for the related `checkStateId`. Even if the rest of the fields required for a `create` are present (for example, `name, health, ...`), the `delete` flag will take precedence.
 
 
 ## Send health to StackState

@@ -100,18 +100,18 @@ Those two steps \(referencing assembly, configuring endpoint\) is enough for sta
 
 ### Configuration Variables
 
-The following tables list the supported configuration variables. Use the first name \(e.g. `DD_TRACE_AGENT_URL`\) when setting environment variables or configuration files. The second name, if present \(e.g. `AgentUri`\), indicates the name the `TracerSettings` property to use when changing settings in the code.
+The following tables list the supported configuration variables. Use the first name \(for example, `DD_TRACE_AGENT_URL`\) when setting environment variables or configuration files. The second name, if present \(for example, `AgentUri`\), indicates the name the `TracerSettings` property to use when changing settings in the code.
 
 The first table below lists configuration variables available.
 
-| Setting Name | Description |
-| :--- | :--- |
-| `DD_TRACE_AGENT_URL`, `AgentUri` | Sets the URL endpoint where traces are sent. Overrides `DD_AGENT_HOST` and  `DD_TRACE_AGENT_PORT` if set. Default value is `http://<DD_AGENT_HOST>:<DD_TRACE_AGENT_PORT>`. |
-| `DD_AGENT_HOST` | Sets the host where traces are sent \(the host running the Agent\). Can be a hostname or an IP address. Ignored if `DD_TRACE_AGENT_URL` is set. Default is value `localhost`. |
-| `DD_TRACE_AGENT_PORT` | Sets the port where traces are sent \(the port where the Agent is listening for  connections\). Ignored if `DD_TRACE_AGENT_URL` is set. Default value is `8126`. |
-| `DD_ENV` `Environment` | If specified, adds the `env` tag with the specified value to all generated spans. |
-| `DD_SERVICE_NAME` `ServiceName` | If specified, sets the default service name. Otherwise, the .NET Tracer tries to determine service name automatically from application name \(e.g. IIS application name,  process entry assembly, or process name\). |
-| `DD_TRACE_GLOBAL_FLAGS` `GlobalTags` | If specified, adds all of the specified tags to all generated spans. |
+| Setting Name | Description                                                                                                                                                                                                               |
+| :--- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `DD_TRACE_AGENT_URL`, `AgentUri` | Sets the URL endpoint where traces are sent. Overrides `DD_AGENT_HOST` and  `DD_TRACE_AGENT_PORT` if set. Default value is `http://<DD_AGENT_HOST>:<DD_TRACE_AGENT_PORT>`.                                                |
+| `DD_AGENT_HOST` | Sets the host where traces are sent \(the host running the Agent\). Can be a hostname or an IP address. Ignored if `DD_TRACE_AGENT_URL` is set. Default is value `localhost`.                                             |
+| `DD_TRACE_AGENT_PORT` | Sets the port where traces are sent \(the port where the Agent is listening for  connections\). Ignored if `DD_TRACE_AGENT_URL` is set. Default value is `8126`.                                                          |
+| `DD_ENV` `Environment` | If specified, adds the `env` tag with the specified value to all generated spans.                                                                                                                                         |
+| `DD_SERVICE_NAME` `ServiceName` | If specified, sets the default service name. Otherwise, the .NET Tracer tries to determine service name automatically from application name. For example, IIS application name,  process entry assembly, or process name. |
+| `DD_TRACE_GLOBAL_FLAGS` `GlobalTags` | If specified, adds all of the specified tags to all generated spans.                                                                                                                                                      |
 
 #### Automatic instrumentation \(experimental\)
 

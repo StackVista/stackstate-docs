@@ -118,11 +118,11 @@ If you specify an alias in an `include` key that is formatted as _camel case_, i
 
 Each `include` or `exclude` dictionary supports the following keys:
 
-* `domain`: a list of domain names \(e.g. `java.lang`\)
-* `domain_regex`: a list of regexes on the domain name \(e.g. `java\.lang.*`\)
-* `bean` or `bean_name`: A list of full bean names \(e.g. `java.lang:type=Compilation`\)
-* `bean_regex`: A list of regexes on the full bean names \(e.g. `java\.lang.*[,:]type=Compilation.*`\)
-* `attribute`: A list or a dictionary of attribute names \(see below for more details\)
+* `domain`: a list of domain names. For example, `java.lang`.
+* `domain_regex`: a list of regexes on the domain name. For example, `java\.lang.*`.
+* `bean` or `bean_name`: A list of full bean names. For example, `java.lang:type=Compilation`.
+* `bean_regex`: A list of regexes on the full bean names. For example, `java\.lang.*[,:]type=Compilation.*`.
+* `attribute`: A list or a dictionary of attribute names - see below for more details.
 
 The regexes defined in `domain_regex` and `bean_regex` must conform to [Java's regular expression format](http://docs.oracle.com/javase/6/docs/api/java/util/regex/Pattern.html).
 

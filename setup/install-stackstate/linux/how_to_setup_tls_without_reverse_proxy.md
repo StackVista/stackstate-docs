@@ -13,7 +13,7 @@ This document provides the steps to set up TLS on StackState application side wi
 
 ## Prerequisites
 
-Prepare a TLS keypair in [PKCS12](https://en.wikipedia.org/wiki/PKCS_12) format. Certificate should include the hostname by which StackState will be accessed, e.g. `stackstate.infra.company.tld`.
+Prepare a TLS keypair in [PKCS12](https://en.wikipedia.org/wiki/PKCS_12) format. Certificate should include the hostname by which StackState will be accessed. For example, `stackstate.infra.company.tld`.
 
 ## Configure StackState
 
