@@ -83,5 +83,5 @@ To avoid this, time will effectively be paused when you inspect a trace/span or 
 
 ![Pausing time when inspecting a trace](../../../.gitbook/assets/v51_trace-inspection.png)
 
-➡️ [Learn more about time travel](../timeline-time-travel.md#time-travel).
+➡️ [Learn more about time travel](../timeline-time-travel.md#time-travel)
 

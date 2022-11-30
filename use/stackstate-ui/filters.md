@@ -135,7 +135,7 @@ For example, if you filter the trace list for all spans of type `database`, this
 
 To update the existing view with the currently applied filters, click **Save view** at the top of the screen. To save the current filters as a new view, click **Save view as**. 
 
-➡️ [Learn more about StackState views](views/about_views.md).
+➡️ [Learn more about StackState views](views/about_views.md)
 
 ## Clear applied filters
 

@@ -97,7 +97,7 @@ When StackState is deployed on Kubernetes, logs about synchronization can be fou
   * ID extractor errors.
   * StackPacks.
 
-➡️ [Learn more about StackState log files on Kubernetes](/configure/logging/kubernetes-logs.md).
+➡️ [Learn more about StackState log files on Kubernetes](/configure/logging/kubernetes-logs.md)
 
 {% endtab %}
 

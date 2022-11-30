@@ -86,7 +86,7 @@ The _instances_ section is a list of instances that this check will be run again
 
 To synchronize multiple instances in StackState you have to create a multi-tenant StackPack.
 
-➡️ [Learn more about developing StackPacks.](../stackpack/).
+➡️ [Learn more about developing StackPacks.](../stackpack/)
 
 ### Setting up your check configuration
 
