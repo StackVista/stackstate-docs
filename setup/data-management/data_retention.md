@@ -27,7 +27,7 @@ $ sts graph retention
 {% endtab %}
 {% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
@@ -61,7 +61,7 @@ $ sts graph retention --set 10d
 {% endtab %}
 {% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
@@ -99,7 +99,7 @@ Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 {% endtab %}
 {% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
@@ -134,7 +134,7 @@ $ sts graph delete-expired-data
 {% endtab %}
 {% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
@@ -169,7 +169,7 @@ $ sts graph delete-expired-data --immediate
 {% endtab %}
 {% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 

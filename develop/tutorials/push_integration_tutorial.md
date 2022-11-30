@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 This tutorial shows you how to create push-based integrations for StackState.
 
-Push-based integrations are built in python and run as part of StackState Agent V2. Each python integration is called a `check` and it can:
+Push-based integrations (checks) are built in Python and run as part of StackState Agent V2. Each check can:
 
 * retrieve information from external systems
 * convert the information into topology

@@ -96,7 +96,7 @@ sts rbac list-permissions
 {% endtab %}
 {% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
@@ -130,7 +130,7 @@ sts rbac describe-permissions --subject [role-name]
 {% endtab %}
 {% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
@@ -165,7 +165,7 @@ sts rbac grant --subject [role-name] --permission access-view --resource [view-n
 {% endtab %}
 {% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
@@ -198,7 +198,7 @@ sts rbac grant --subject [role-name] --permission create-views
 {% endtab %}
 {% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
@@ -231,7 +231,7 @@ sts rbac grant --subject [role-name] --permission read-settings
 {% endtab %}
 {% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
@@ -264,7 +264,7 @@ sts rbac grant --subject [role-name] --permission manage-event-handlers
 {% endtab %}
 {% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
@@ -297,7 +297,7 @@ sts rbac revoke --subject [role-name] --permission access-view --resource [view-
 {% endtab %}
 {% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 

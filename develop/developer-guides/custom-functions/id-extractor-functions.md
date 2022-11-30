@@ -21,7 +21,7 @@ An ID extractor function has parameters. Only one parameter is required - the sy
 * `identifiers` \(multiple\) - A set of identifiers that identify the object internally in StackState.
 
 Most ID extractors are quite straight-forward. The `type` and `external ID` are read from the JSON payload are usually left unchanged. Occasionally, the types might be transformed to lower case to avoid case sensitivity issues in the next step of the Synchronization process. `identifiers` can also be extracted. Usually this is a process of parsing through the data payload and adding the identities to a HashSet. 
-At the end of the ID extractor function a Groovy method is called to pass the collected information to the next step in the synchronization.
+At the end, the ID extractor function calls a Groovy method to pass the collected information to the next step in the synchronization.
 
 Below is an example ID extractor function:
 

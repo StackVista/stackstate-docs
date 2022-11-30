@@ -34,7 +34,7 @@ $ sts topic describe --name sts_health_sync
 {% endtab %}
 {% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
@@ -85,7 +85,7 @@ urn:health:sourceId:streamId                            | REPEAT_SNAPSHOTS      
 {% endtab %}
 {% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
@@ -128,7 +128,7 @@ subStreamId2   | 1
 {% endtab %}
 {% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
@@ -170,7 +170,7 @@ $ sts health status -u urn:health:sourceId:streamId
 {% endtab %}
 {% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
@@ -221,7 +221,7 @@ $ sts health status -u urn:health:sourceId:streamId -sub-stream-urn subStreamId3
 {% endtab %}
 {% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
@@ -281,7 +281,7 @@ $ sts health status -u urn:health:sourceId:streamId -sub-stream-urn subStreamId3
 {% endtab %}
 {% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
@@ -333,7 +333,7 @@ $ sts health delete -u urn:health:sourceId:streamId
 {% endtab %}
 {% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
@@ -369,7 +369,7 @@ $ sts health clear-error -u urn:health:sourceId:streamId
 {% endtab %}
 {% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 

@@ -41,7 +41,7 @@ $ sts anomaly collect-feedback --start-time -10d --end-time -2d --history 3d --f
 {% endtab %}
 {% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`.**
+**With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 

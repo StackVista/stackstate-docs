@@ -50,7 +50,7 @@ Select an indirect relation in the topology visualizer to open the **Indirect re
 
 ![](/.gitbook/assets/v51_relation_group_comp.png) 
 
-Relations between a component group and a component or component group are shown in the topology visualizer as a combination of a solid and a dashed line. This type of relation is called a grouped relation and could contain a combination of direct relations and indirect relations and could connect to one or more components in the component group. Select a grouped relation to display full details of the included relations in the right panel details tab - **Grouped relation details**. 
+Grouped relations connect a component group and a component or component group. They are shown in the topology visualizer as a combination of a solid and a dashed line as they could contain a combination of direct relations and indirect relations. Note that a grouped relation could connect to one or more components in a component group. Select a grouped relation to display full details of all included direct and indirect relations in the right panel details tab - **Grouped relation details**. 
 
 #### Grouped relation details
 
