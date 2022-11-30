@@ -8,19 +8,27 @@ description: StackState Self-hosted v5.1.x
 
 Unhealthy components in a view are grouped into [problems](about-problems.md) based on how they are connected in the topology. When StackState identifies a problem, this will be reported in the right panel under **Problems**.
 
-* The **View summary** and **Subview summary** tabs give an overview of problems based on the components impacted in the current view or subview. 
+* The **View summary** and **Subview summary** tabs list all problems that impact components in the current view or subview. 
 * The **Component details** tab lists all problems that involve the selected component. 
 * The **Direct relation details** tab lists all problems that involve the selected direct relation, its source component or its target component. 
 
-Problems are listed by the timestamp of the health state change for the root cause component - you will find the oldest problem in the view at the bottom of the list. Select a problem to open [detailed information about the problem ](problem_investigation.md#detailed-information-about-a-problem) in the right panel details tab - **Problem details**.
+You will find them most recently updated problem at the top of the list and the problem with the oldest update at the bottom. Whenever a problem is created or updated, it will move to the top of the list. Within each problem, the involved components are displayed in order of the timestamp of their last health state change, from the most recent at the top of the list to the oldest at the bottom.
 
-![View summary](/.gitbook/assets/v51_view_details_problems.png)
+➡️ [Learn more about the problem lifecycle](problem-lifecycle.md)
+
+![Problems in View summary](/.gitbook/assets/v51_problem_summary.png)
 
 ## Detailed information about a problem
 
-Select a problem to display detailed information about it in the right panel details tab - **Problem details**. This gathers together all the information you need to get started investigating a problem in your landscape. All unhealthy components in the problem \(the root cause and contributing causes\) are listed here. Events that may have triggered the unhealthy state changes in the problem are listed in the section [Probable Causes](problem_investigation.md#probable-causes).
+Select a problem to open [detailed information about the problem ](problem_investigation.md#detailed-information-about-a-problem) in the right panel details tab - **Problem details**.
 
-Click the **INVESTIGATE IN SUBVIEW** button to open all components in a problem in a dedicated, temporary [problem subview](problem_investigation.md#problem-subview).
+![View summary](/.gitbook/assets/v51_problem_details_tab.png)
+
+The **Problem details** tab gathers together all the information you need to get started investigating a problem in your landscape:
+
+* All unhealthy components in the problem \(the root cause and contributing causes\) are listed. 
+* Events that may have triggered the unhealthy state changes in the problem are listed under [Probable Causes](problem_investigation.md#probable-causes). 
+* Click **INVESTIGATE IN SUBVIEW** to open all components in a problem in a dedicated, temporary [problem subview](problem_investigation.md#problem-subview).
 
 ## Probable causes
 

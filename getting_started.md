@@ -65,22 +65,19 @@ If you click on a log stream, you can see the log stream in a popup. Again, ther
 
 ## Problems
 
+![Detailed component information](/.gitbook/assets/v51_problem_summary.png)
+
 To quickly find the cause of any DEVIATING component, head to the right panel in the StackState UI where you can find the **Problems** section. It provides an immediate understanding of ongoing problems in your IT environment clustered by their root cause and will show you the probable cause of current problems.
 
 * The **View summary** and **Subview summary** tabs give an overview of problems based on the components impacted in the current view or subview. 
 * The **Component details** lists all problems that involve the selected component. 
 * The **Direct relation details** tab lists all problems that involve the selected direct relation, its source component or its target component. 
 
-Problems and issues are displayed in order of creation date/time:
+Problems and issues are displayed in order of the last problem update with the most recently updated problem at the top of the list and the oldest update at the bottom. Within each problem, component-specific issues are displayed in order of the timestamp of the last health state change, from the most recent at the top of the list to the oldest at the bottom.
 
-* Problems are listed with the newest problem at the top of the list and the most recently created at the bottom.
-* Within each problem, component-specific issues are also displayed from the most recent at the top of the list to the oldest at the bottom.
-
-Not all components displayed in the problem panel are necessarily also visible in the current topology view. You can open o dedicated problem subview to focus on the topology elements involved in a problem.
+Note that some components listed in the problem panel might not be visible in the current topology view. You can open a dedicated problem subview to focus on all of the topology elements involved in a specific problem.
 
 ➡️ [Learn more about problems](/use/problem-analysis/about-problems.md)
-
-![Detailed component information](/.gitbook/assets/v51_problem_summary.png)
 
 ## Events
 

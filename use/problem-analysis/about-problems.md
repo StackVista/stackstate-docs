@@ -24,13 +24,17 @@ The root cause is the unhealthy element at the bottom of the dependency chain. E
 - A previously healthy upstream dependency switches to an unhealthy state. The existing root cause is no longer the unhealthy element at the bottom of the dependency chain. All affected problems will be updated to reflect the new root cause element. This update may result in existing problems being subsumed.
 - The existing root cause switches its state to healthy. As the root cause must have an unhealthy state, the next contributing cause in the dependency chain will become the new root cause. If there is more than one possible new root cause element, new problems will be created - one for each root cause.
 
-When the root cause element changes, a `Problem updated` event is generated. Note that the update might also result in a new problem being [created](#problem-created) or an existing problem being [subsumed](#problem-subsumed).
+When the root cause element changes, a `Problem updated` event is generated. Note that the update might also result in a new problem being created or an existing problem being subsumed.
+
+➡️ [Learn more about the problem lifecycle](problem-lifecycle.md)
 
 ### Contributing causes
 
-A problem can contain any number of contributing causes. These are all of the unhealthy elements that depend on the problem's root cause element. A change in the health state of elements might result in contributing causes being added to or removed from an existing problem. It is possible for a single unhealthy element to be a contributing cause in two separate problems - if there are two potential root cause elements for an element's unhealthy state, StackState will see this as two separate problems. 
+A problem can contain any number of contributing causes. These are all the unhealthy elements that depend on the problem's root cause element. A change in the health state of elements might result in contributing causes being added to or removed from an existing problem. It is possible for a single unhealthy element to be a contributing cause in two separate problems - if there are two potential root cause elements for an element's unhealthy state, StackState will see this as two separate problems. 
 
 When a contributing cause element is added or removed, a `Problem updated` event is generated.
+
+➡️ [Learn more about the problem lifecycle](problem-lifecycle.md)
 
 ## Time window of a problem
 
