@@ -12,15 +12,13 @@ Unhealthy components in a view are grouped into [problems](about-problems.md) ba
 * The **Component details** tab lists all problems that involve the selected component. 
 * The **Direct relation details** tab lists all problems that involve the selected direct relation, its source component or its target component. 
 
-You will find them most recently updated problem at the top of the list and the problem with the oldest update at the bottom. Whenever a problem is created or updated, it will move to the top of the list. Within each problem, the involved components are displayed in order of the timestamp of their last health state change, from the most recent at the top of the list to the oldest at the bottom.
+You will find the most recently updated problem at the top of the list and the problem with the oldest update at the bottom. Whenever a problem is created or updated, it will move to the top of the list. Within each problem, the involved components are listed in order of the timestamp of their last health state change, from the most recent at the top to the oldest at the bottom.
 
 ➡️ [Learn more about the problem lifecycle](problem-lifecycle.md)
 
-![Problems in View summary](/.gitbook/assets/v51_problem_summary.png)
-
 ## Detailed information about a problem
 
-Select a problem to open [detailed information about the problem ](problem_investigation.md#detailed-information-about-a-problem) in the right panel details tab - **Problem details**.
+Select a problem to open detailed information about it in the right panel details tab - **Problem details**.
 
 ![View summary](/.gitbook/assets/v51_problem_details_tab.png)
 
