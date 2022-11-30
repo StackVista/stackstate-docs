@@ -24,9 +24,10 @@ Select a problem to open detailed information about it in the right panel detail
 
 The **Problem details** tab gathers together all the information you need to get started investigating a problem in your landscape:
 
-* All unhealthy components in the problem \(the root cause and contributing causes\) are listed. 
-* Events that may have triggered the unhealthy state changes in the problem are listed under [Probable Causes](problem_investigation.md#probable-causes). 
-* Click **INVESTIGATE IN SUBVIEW** to open all components in a problem in a dedicated, temporary [problem subview](problem_investigation.md#problem-subview).
+* All [unhealthy components](about-problems.md#topology-elements-in-a-problem) in the problem \(the root cause and contributing causes\). 
+* The [Probable Causes](problem_investigation.md#probable-causes) of unhealthy components - events that may have triggered the unhealthy state changes in the problem. 
+
+Click **INVESTIGATE IN SUBVIEW** to open all components in a problem in a dedicated, temporary [problem subview](problem_investigation.md#problem-subview).
 
 ## Probable causes
 
