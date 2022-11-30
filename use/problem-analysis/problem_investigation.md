@@ -62,7 +62,7 @@ Version changed events are generated whenever the `version` property of a compon
 
 ## Problem subview
 
-A problem subview is a temporary StackState view. The filters applied to a problem subview return all components related to the problem root cause and any contributing causes within the [problem time window](about-problems.md#time-window-of-a-problem). This is a larger set of components than would be shown by selecting to show the [full root cause tree](../stackstate-ui/perspectives/topology-perspective.md#root-cause-outside-current-view). The following components will be included:
+A problem subview is a temporary StackState view. The filters applied to a problem subview return all components related to the problem root cause and any contributing causes within the [problem time window](about-problems.md#time-window-of-a-problem). This is a larger set of components than would be shown by selecting to show the [full root cause tree](../stackstate-ui/perspectives/topology-perspective.md#show-root-cause). The following components will be included:
 
 * **Root cause** - Each problem has a single root cause. This is the unhealthy component at the bottom of the dependency chain.
 * **Contributing cause** - A problem can contain any number of contributing causes. These are all of the unhealthy components in the problem, other than the root cause.
