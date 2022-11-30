@@ -84,14 +84,14 @@ You can list the available monitor functions using the CLI command:
 sts settings list --type MonitorFunction
 ```
 
-From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.[](http://not.a.link "StackState Self-Hosted only")
+The StackState v5.0 release renamed the old `sts` CLI to `stac` and introduced new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.[](http://not.a.link "StackState Self-Hosted only")
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="CLI: stac (deprecated)" %}[](http://not.a.link "StackState Self-Hosted only")
 `stac graph list MonitorFunction`[](http://not.a.link "StackState Self-Hosted only")
 
-⚠️ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.** [](http://not.a.link "StackState Self-Hosted only")
+⚠️ **The StackState v5.0 release renamed the old `sts` CLI to `stac`. The old CLI is now deprecated.** [](http://not.a.link "StackState Self-Hosted only")
 
 The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
 
@@ -315,7 +315,7 @@ The declaration of a topology identifier pattern would look something like the f
 A monitor with an `ENABLED` status will be automatically executed and its results will be persisted. A `DISABLED` monitor is still available for a `dry-run` in order to inspect its results and execution (helpful for debugging a monitor). When a monitor is initially created it will start with a `DISABLED` status, unless the `status` field is present in the payload. When a monitor is updated, it will keep its own `status`, unless the `status` is specified. If the `status` field is included in the payload, the monitor will assume the specified `status`.
 
 {% hint style="info" %}
-When a monitor is disabled, all health states associated with the monitor will be removed, and they will no longer be visible in the StackState UI. Disabling a monitor is quite useful to debug and fix execution errors without having the monitor produce health states or errors. A disabled monitor can still be used to do a `dry-run`.
+When a monitor is disabled, StackState will remove all health states associated with the monitor. These health states will no longer be visible in the StackState UI. Disabling a monitor is quite useful to debug and fix execution errors without having the monitor produce health states or errors. A disabled monitor can still be used to do a `dry-run`.
 {% endhint %}
 
 ### intervalSeconds

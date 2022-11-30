@@ -20,7 +20,7 @@ To export anomaly feedback from StackState, the [StackState CLI](/setup/cli/READ
 {% tab title="CLI: sts" %}
 
 {% hint style="info" %}
-From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+The StackState v5.0 release renamed the old `sts` CLI to `stac` and introduced new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 {% endhint %}
@@ -41,7 +41,7 @@ $ sts anomaly collect-feedback --start-time -10d --end-time -2d --history 3d --f
 {% endtab %}
 {% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
-**With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
+**The StackState v5.0 release renamed the old `sts` CLI to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 

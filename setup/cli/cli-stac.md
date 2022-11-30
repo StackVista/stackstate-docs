@@ -274,7 +274,7 @@ Follow the steps below to upgrade an installed version of the CLI. Note that it'
       * Version 4.6 and older: The file was downloaded as `sts-cli-VERSION-linux64` and renamed to `sts`.
       * Version 5.0 and above: The file was downloaded as `sts-cli-VERSION-linux64` and renamed to `stac`.
    * **Docker:**
-     * The zip archive was downloaded as `sts-cli-VERSION.zip` and extracted. All files extracted from the zip archive should be removed.
+     * The zip archive was downloaded as `sts-cli-VERSION.zip` and extracted. Remove all files extracted from the zip archive.
 
 2. Follow the instructions to download and install the upgraded CLI:
    * [Linux install](#linux-install)
@@ -292,7 +292,7 @@ To uninstall an installed version of the `stac` CLI:
       1. Version 4.6 and older: The file was downloaded as `sts-cli-VERSION-linux64` and renamed to `sts`.
       2. Version 5.0 and above: The file was downloaded as `sts-cli-VERSION-linux64` and renamed to `stac`.
    * **Docker:**
-     * The zip archive was downloaded as `sts-cli-VERSION.zip` and extracted. All files extracted from the zip archive should be removed.
+     * The zip archive was downloaded as `sts-cli-VERSION.zip` and extracted. Remove all files extracted from the zip archive.
 
 2. Delete any `stac` CLI configuration files:
    * **Linux or Windows:**

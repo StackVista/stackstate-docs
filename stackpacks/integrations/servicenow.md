@@ -258,9 +258,8 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 To uninstall the ServiceNow StackPack and disable the ServiceNow check:
 
-1. Go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **ServiceNow** screen and click UNINSTALL.
-   * All ServiceNow specific configuration will be removed from StackState.
-2. Remove or rename the Agent integration configuration file, for example:
+1. To remove all ServiceNow specific configuration from StackState, go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **ServiceNow** screen and click UNINSTALL.
+2. To disable the ServiceNow check on the StackState Agent, remove or rename the associated Agent integration configuration file, for example:
 
    ```text
     mv servicenow.d/conf.yaml servicenow.d/conf.yaml.bak

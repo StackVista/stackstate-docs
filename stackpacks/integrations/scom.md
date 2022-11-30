@@ -223,9 +223,8 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 To uninstall the SCOM StackPack and disable the SCOM check:
 
-1. Go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **SCOM** screen and click **UNINSTALL**.
-   * All SCOM specific configuration will be removed from StackState.
-2. Remove or rename the Agent integration configuration file, for example:
+1. To remove all SCOM specific configuration from StackState, go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **SCOM** screen and click **UNINSTALL**.
+2. To disable the SCOM Agent check, remove or rename the StackState Agent integration configuration file, for example:
 
    ```text
     mv scom.d/conf.yaml scom.d/conf.yaml.bak

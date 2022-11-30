@@ -171,9 +171,8 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 To uninstall the VMWare vSphere StackPack and disable the VMWare vSphere check:
 
-1. Go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **VMWare vSphere** screen and click UNINSTALL.
-   * All VMWare vSphere specific configuration will be removed from StackState.
-2. Remove or rename the Agent integration configuration file, for example:
+To remove all VMWare vSphere specific configuration from StackState, go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **VMWare vSphere** screen and click UNINSTALL.
+2. To disable toe VMWare vSphere check on the StackState Agent, remove or rename the associated Agent integration configuration file, for example:
 
    ```text
     mv vsphere.d/conf.yaml vsphere.d/conf.yaml.bak

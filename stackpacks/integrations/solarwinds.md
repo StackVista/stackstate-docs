@@ -172,9 +172,8 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 To uninstall the SolarWinds StackPack and disable the Dynatrace check:
 
-1. Go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **SolarWinds** screen and click **UNINSTALL**.
-   * All SolarWinds specific configuration will be removed from StackState.
-2. Remove or rename the Agent integration configuration file, for example:
+1. To remove all SolarWinds specific configuration from StackState, go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **SolarWinds** screen and click **UNINSTALL**.
+2. To disable toe SolarWinds check on the StackState Agent, remove or rename the associated Agent integration configuration file, for example:
 
    ```text
     mv solarwinds.d/conf.yaml solarwinds.d/conf.yaml.bak

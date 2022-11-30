@@ -275,7 +275,7 @@ This function specifies what health synchronization stream this agent check will
 
 ### Health Synchronization Snapshots
 
-Like with topology, health data is presented to StackState using snapshots. Health information \(check states\) can be removed when it no longer exists in the source monitoring system. Snapshots are created by two functions:
+Like with topology, health data is presented to StackState using snapshots. This removes health information \(check states\) when it no longer exists in the source monitoring system. Snapshots are created by two functions:
 
 * `self.health.start_snapshot()` - used to start a health snapshot.
 * `self.health.stop_snapshot()` - used to stop the snapshot, signaling that all submitted data is complete. This should be done at the end of the check, after all data has been submitted. If exceptions occur in the check, or for some other reason not all data can be produced, this function should not be called.

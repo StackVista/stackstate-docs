@@ -9,7 +9,7 @@ description: StackState Self-hosted v5.1.x
 StackState has a new CLI! The new CLI has many advantages and a few notable differences.
 
 {% hint style="warning" %}
- **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
+ **The StackState v5.0 release renamed the old `sts` CLI to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
@@ -55,7 +55,7 @@ The `stac` CLI is:
 * ⚠️ Doesn't include the newest commands - see the [CLI command overview](#cli-command-overview).
 * Deprecated since StackState v5.1 and will no longer be actively maintained.
 {% hint style="warning" %}
- **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
+ **The StackState v5.0 release renamed the old `sts` CLI to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 

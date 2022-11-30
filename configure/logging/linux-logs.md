@@ -164,7 +164,7 @@ total 1043088
 ```
 
 {% hint style="info" %}
-From StackState v1.15.0, the version of Elasticsearch used by StackState changed. Elasticsearch logs are now saved in `./elasticsearch7`. The old `./elasticsearch` subdirectory can be removed to free some disk space.
+From StackState v1.15.0, the version of Elasticsearch used by StackState changed. Elasticsearch logs are now saved in `./elasticsearch7`. You can remove the old `./elasticsearch` subdirectory to free some disk space.
 {% endhint %}
 
 ## Log files

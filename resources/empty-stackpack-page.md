@@ -109,7 +109,7 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 To uninstall the ??? StackPack and disable the Dynatrace check:
 
 1. Go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **???** screen and click **UNINSTALL**.
-   * All ??? specific configuration will be removed from StackState.
+   * Removes all ??? specific configuration from StackState.
 2. Remove or rename the Agent integration configuration file, for example:
 
    ```text

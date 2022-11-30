@@ -280,7 +280,7 @@ The new `sts` CLI and all associated configuration are now removed for the curre
 {% endtab %}
 
 {% tab title="Manual" %}
-Open a **Powershell** terminal and run each step one-by-one or all at once. The new `sts` CLI and all associated configuration will be removed for the current user.
+To remove the new `sts` CLI and all associated configuration for the current user, open a **Powershell** terminal and run each step one-by-one or all at once:
 
 1. Remove binary:
    ```powershell

@@ -262,9 +262,8 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 To uninstall the Dynatrace StackPack and disable the Dynatrace checks:
 
-1. Go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **Dynatrace** screen and click **UNINSTALL**.
-   * All Dynatrace specific configuration will be removed from StackState.
-2. Remove or rename the Agent integration configuration file, for example:
+1. To remove all Dynatrace specific configuration from StackState, go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **Dynatrace** screen and click **UNINSTALL**.
+2. To disable the Dynatrace Agent check, remove or rename the StackState Agent integration configuration file, for example:
 
    ```text
     mv dynatrace_topology.d/conf.yaml dynatrace_topology.d/conf.yaml.bak
