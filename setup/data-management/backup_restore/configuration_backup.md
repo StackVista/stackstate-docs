@@ -47,7 +47,7 @@ stac graph export
 stac graph export > export.stj
 ```
 
-⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+⚠️ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
@@ -147,7 +147,7 @@ Before import, clear the StackState configuration by following the instructions 
 stac graph import < <PATH_TO_FILE.stj>
 ```
 
-⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+⚠️ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
@@ -260,7 +260,7 @@ From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is 
 stac graph export --namespace urn:stackpack:{stackpack_name}:
 ```
 
-⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+⚠️ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 

@@ -93,7 +93,7 @@ stac graph list EventHandler
 114118706410878  EventHandler  demo_handler                             True      Fri Nov 13 11:32:29 2020
 ```
 
-⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+⚠️ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
@@ -132,7 +132,7 @@ stac monitor list
 
 ```
 
-⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.** 
+⚠️ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.** 
 
 In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
@@ -216,7 +216,7 @@ sts graph show-node 9161801377514
       ...
 ```
 
-⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+⚠️ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 

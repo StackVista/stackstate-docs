@@ -125,7 +125,7 @@ From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is 
 {% tab title="CLI: stac (deprecated)" %}[](http://not.a.link "StackState Self-Hosted only")
 `stac monitor apply < path/to/the/file.stj`[](http://not.a.link "StackState Self-Hosted only")
 
-⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+⚠️ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
 
@@ -159,7 +159,7 @@ From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is 
 `stac monitor status <id-or-identifier-of-a-monitor>`[](http://not.a.link "StackState Self-Hosted only")
 
 
-⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+⚠️ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
 
@@ -189,7 +189,7 @@ From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is 
 `stac monitor preview <id-or-identifier-of-a-monitor>`[](http://not.a.link "StackState Self-Hosted only")
 
 
-⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+⚠️ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
 

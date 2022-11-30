@@ -91,7 +91,7 @@ From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is 
 {% tab title="CLI: stac (deprecated)" %}[](http://not.a.link "StackState Self-Hosted only")
 `stac graph list MonitorFunction`[](http://not.a.link "StackState Self-Hosted only")
 
-⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.** [](http://not.a.link "StackState Self-Hosted only")
+⚠️ **With the release of StackState v5.0, the old `sts` CLI was renamed to `stac`. The old CLI is now deprecated.** [](http://not.a.link "StackState Self-Hosted only")
 
 The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
 
