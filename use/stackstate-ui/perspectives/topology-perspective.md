@@ -63,7 +63,7 @@ Relations show how components in the topology are connected together. They are r
 
 Select a relation to open detailed information about it in the right panel details tab - **Direct relation details**, **Indirect relation details** or **Grouped relation details** depending on the relation type that has been selected.
 
-➡️ [Learn more about relations](/use/concepts/relations.md).
+➡️ [Learn more about relations](/use/concepts/relations.md)
 
 ![Indirect relation path](/.gitbook/assets/v51_indirect_relation_details.png)
 
