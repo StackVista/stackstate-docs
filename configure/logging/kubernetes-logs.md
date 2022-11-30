@@ -74,9 +74,9 @@ $ kubectl logs stackstate-sync-0 | grep "Agent"
 
 ## Log aggregation
 
-For long term storage of StackState log data, it's advised that you set up log aggregation on your Kubernetes cluster. This can be done using a third party system for storage such as Elasticsearch, Splunk or Logz.io and a log shipper such as Logstash or Fluentd.
+For long term storage of StackState log data, it's advised that you set up log aggregation on your Kubernetes cluster. To do this, use a third party system for storage such as Elasticsearch, Splunk or Logz.io and a log shipper such as Logstash or Fluentd.
 
-For more details of how this can be done, check:
+For more details of how to do this, check:
 
 * Shipping logs with [Fluentd \(fluentd.org\)](https://docs.fluentd.org/container-deployment/kubernetes)
 * A complete overview of setting up [log aggregation into Elasticsearch \(bitnami.com\)](https://docs.bitnami.com/tutorials/integrate-logging-kubernetes-kibana-elasticsearch-fluentd/)

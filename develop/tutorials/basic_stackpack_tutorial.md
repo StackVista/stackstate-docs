@@ -36,7 +36,7 @@ zip -r ./tutorial-stackpack-0.0.1.sts stackpack.conf provisioning resources
 
 ## Importing the StackPack
 
-The StackPack must be imported into StackState before it can be installed. This can be done using the [StackState CLI](/setup/cli/README.md). Please make sure it's installed and configured to connect with your StackState instance.
+The StackPack must be imported into StackState before it can be installed using the [StackState CLI](/setup/cli/README.md). Please make sure it's installed and configured to connect with your StackState instance.
 
 The following command installs our new tutorial StackPack in StackState:
 

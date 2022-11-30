@@ -93,7 +93,7 @@ To find the correct time field format to specify in the StackState Elasticsearch
 
 ### Work with Elasticsearch data in StackState
 
-Elasticsearch data sources can be used to add telemetry streams to components and relations in StackState. This can be done manually by [adding a telemetry stream](../../../use/metrics/add-telemetry-to-element.md) directly to an element or as part of an integration or topology synchronization, for details see how to [add telemetry during topology synchronization](../telemetry_synchronized_topology.md).
+Elasticsearch data sources can be used to add telemetry streams to components and relations in StackState. You can either do this manually, by [adding a telemetry stream](../../../use/metrics/add-telemetry-to-element.md) directly to an element, or you can [add telemetry during topology synchronization](../telemetry_synchronized_topology.md).
 
 ## Advanced settings
 

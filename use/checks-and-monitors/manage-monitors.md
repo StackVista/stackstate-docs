@@ -157,7 +157,7 @@ Disabling a monitor removes all health states associated with that monitor from 
 
 Individual monitors can be disabled using the StackState CLI. To disable/enable a monitor:
 
-1. Identify the monitor to enable/disable. This can be done by finding the monitor identifier or ID in the StackState UI or using the StackState CLI:
+1. Identify the monitor to enable/disable. To do this, find the monitor identifier or ID in the StackState UI or using the StackState CLI:
    * Inspect the monitor definition available under the context menu of a monitor result panel in the StackState UI.
    * Use the StackState CLI command `sts monitor list` to retrieve details of all monitors.
 

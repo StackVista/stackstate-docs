@@ -139,7 +139,7 @@ url = instance['url']
 # gets the value of the `default_timeout` global config from the init_config section of conf.yaml or defaults to 5
 default_timeout = self.init_config.get('default_timeout', 5)
 
-# gets the value of the `timeout` property or defaults `default_timeout` and casts it to a float data type. This can be done to override any global configuration on an instance basis.
+# gets the value of the `timeout` property or defaults `default_timeout` and casts it to a float data type. This will override any global configuration on an instance basis.
 timeout = float(instance.get('timeout', default_timeout))
 ```
 
@@ -148,7 +148,7 @@ timeout = float(instance.get('timeout', default_timeout))
 Components and relations can be sent as part of a snapshot. A snapshot represents the total state of some external topology. By putting components and relations in a snapshot, StackState will persist all the topology elements present in the snapshot, and remove everything else for the topology instance. Creating snapshots is facilitated by two functions, these are already in place in the StackState "Skeleton" check:
 
 * `self.start_snapshot()` - used to start a snapshot. Internally, the `AgentCheck` interface uses the `get_instance_key` function to uniquely identify this topology instance.
-* `self.stop_snapshot()` - used to stop a snapshot. This should be done at the end of the check, after all data has been submitted.
+* `self.stop_snapshot()` - used to stop a snapshot. Do this at the end of the check, after all data has been submitted.
 
 #### Disable snapshots
 
@@ -278,7 +278,7 @@ This function specifies what health synchronization stream this agent check will
 Like with topology, health data is presented to StackState using snapshots. This removes health information \(check states\) when it no longer exists in the source monitoring system. Snapshots are created by two functions:
 
 * `self.health.start_snapshot()` - used to start a health snapshot.
-* `self.health.stop_snapshot()` - used to stop the snapshot, signaling that all submitted data is complete. This should be done at the end of the check, after all data has been submitted. If exceptions occur in the check, or for some other reason not all data can be produced, this function should not be called.
+* `self.health.stop_snapshot()` - used to stop the snapshot, signaling that all submitted data is complete. Do this at the end of the check, after all data has been submitted. If exceptions occur in the check, or for some other reason not all data can be produced, this function should not be called.
 
   **Send Check State**
 
@@ -309,7 +309,7 @@ If after following the previous steps your health data doesn't show in StackStat
 
 ### Send in Stream Definitions and Health Checks
 
-Stream Definitions and Health Checks for StackState can be sent together with Topology. Telemetry streams can then be mapped with health checks onto components in your integration, leaving no work to be done in StackState. This example below sets up a metric stream called `Host CPU Usage` with a `Maximum Average` check in StackState on the `this-host` component.
+Stream Definitions and Health Checks for StackState can be sent together with Topology. Telemetry streams can then be mapped with health checks onto components in your integration, removing the need for extra work in StackState. This example below sets up a metric stream called `Host CPU Usage` with a `Maximum Average` check in StackState on the `this-host` component.
 
 ```text
 # import

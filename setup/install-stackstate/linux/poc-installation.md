@@ -33,5 +33,5 @@ StackState can be stopped by `sudo systemctl stop stackstate.service`. StackGrap
 
 ### StackState Status
 
-Checking the service status can be done with `sudo systemctl status stackstate.service` and `sudo systemctl status stackgraph.service`.
+Check the service status using the commands `sudo systemctl status stackstate.service` and `sudo systemctl status stackgraph.service`.
 

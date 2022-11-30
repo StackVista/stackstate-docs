@@ -66,7 +66,7 @@ The installation of Agent V2 will automatically start the StackState Agent.
 
 To prevent Agent state files from being overwritten during the state migration process, let's stop the Agent
 
-This can be done by running one of the following commands:
+To do this, run one of the following commands:
 
 ```shell
 # with systemctl
@@ -88,9 +88,7 @@ sudo service stackstate-agent status
 
 ### 4. Copy Agent V1 (legacy) conf.d checks
 
-Migrate your existing conf.d check YAML files to the Agent V2 directory.
-
-This can be done by following these steps:
+Migrate your existing conf.d check YAML files to the Agent V2 directory:
 
 1. Head over to your Agent V1 (legacy) `conf.d` directory found at the following location `/etc/sts-agent/conf.d/`.
 2. Copy each of the files in the `conf.d` directory to their respective v2 **subdirectories** inside the Agent V2 conf.d directory found at `/etc/stackstate-agent/conf.d/<CHECK-SUBDIRECTORY>.d/`.

@@ -16,7 +16,7 @@ To enable tracing and sending it to Stackstate Trace Agent, you need to follow t
 
 To start instrumentation for your dot net application, add the `Datadog.Trace` [NuGet package](https://www.nuget.org/packages/Datadog.Trace) to your application.
 
-This can be done using in number of ways:
+You can do this in a number of ways:
 
 * Using Package Manager
 

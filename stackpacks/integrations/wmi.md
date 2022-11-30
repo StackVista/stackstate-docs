@@ -22,7 +22,7 @@ After installing StackState Agent V2 for Windows, the integration can be configu
 
 ### Configuration
 
-The WMI integration can be enabled and configured via the StackState Agent Manager. Opening the StackState Agent Manager can be done by, in PowerShell:
+The WMI integration can be enabled and configured via the StackState Agent Manager. To open the StackState Agent Manager in PowerShell:
 
 ```text
 PS> & 'C:\Program Files\StackState\StackState Agent\embedded\agent.exe' launch-gui

@@ -276,7 +276,7 @@ A breakdown of the steps that will happen in the cache migration is as follows:
 
 - Back up the Agent V1 (legacy) cache folder from the following location `/opt/stackstate-agent/run/`.
 - Run the Agent V1 (legacy) cache migration process.
-  - The output of the cache migration process will either be manually moved into the Agent V2 cache directory or automatically, depending on the conversion process used for Agent V2 (Some steps, depending on the installation, can only be done manually).
+  - The output of the cache migration process will either be manually moved into the Agent V2 cache directory or automatically, depending on the conversion process used for Agent V2 (Some manual steps are required, depending on the installation).
 
 
 ### 5. Install and Start Agent V2

@@ -324,7 +324,7 @@ Health information can be sent to StackState with the following methods:
 
 * `self.health.check_state` - send a check state as part of a snapshot.
 * `self.health.start_snapshot()` - start a health snapshot. Stackstate will only process health information if it is sent as part of a snapshot.
-* `self.health.stop_snapshot()` -  stop the snapshot, signaling that all submitted data is complete. This should be done at the end of the check after all data has been submitted. If exceptions occur in the check or not all data can be produced for some other reason, this function should not be called.
+* `self.health.stop_snapshot()` -  stop the snapshot, signaling that all submitted data is complete. Do this at the end of the check after all data has been submitted. If exceptions occur in the check or not all data can be produced for some other reason, this function should not be called.
 
 #### Set up a health stream
 

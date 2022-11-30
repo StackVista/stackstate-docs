@@ -259,7 +259,7 @@ You can find your API token in the StackState UI, go to **Main menu** &gt; **CLI
 
 ### Custom tool authentication
 
-If you are using a custom tool instead of the CLI, you can authenticate with the same [API token](#api-token---base-api-and-admin-api) used by the CLI. For example, this can be done by including the following header in a curl request:
+If you are using a custom tool instead of the CLI, you can authenticate with the same [API token](#api-token---base-api-and-admin-api) used by the CLI. For example, by including the following header in a curl request:
 
 ```
 curl -H "Authorization: ApiToken <token>" <stackstate-api-endpoint>

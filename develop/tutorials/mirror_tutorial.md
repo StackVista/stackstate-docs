@@ -28,7 +28,7 @@ Note that Python 3.8 or higher is required.
 
 ## Running the sample mirror
 
-For this demo, your StackState instance needs to be able to connect with the mirror running on your local laptop. This can be done by running StackState on your laptop as well, or by exposing your laptop to the internet using `ngrok`.
+For this demo, your StackState instance needs to be able to connect with the mirror running on your local laptop. To do this, run StackState on your laptop as well, or expose your laptop to the internet using `ngrok`.
 
 Start by running the sample mirror. This directory contains a Python mirror server:
 

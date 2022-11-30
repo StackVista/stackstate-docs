@@ -45,7 +45,7 @@ Alternatively, go to the **CLI** page in the StackState UI and copy the **Quick 
 {% endtab %}
 {% tab title="Manual install steps" %}
 
-Open a **Powershell** terminal (version 5.1 or later) and run the steps below. This can be done one step at a time, or joined together as a single script. After installation, the `sts` command will be available for the current user on both the Powershell terminal and the command prompt (cmd.exe).
+Open a **Powershell** terminal (version 5.1 or later) and run the steps below. Do this one step at a time, or joined together as a single script. After installation, the `sts` command will be available for the current user on both the Powershell terminal and the command prompt (cmd.exe).
 
 1. Set the source version and target path for the CLI:
     ```powershell
@@ -108,7 +108,7 @@ Alternatively, go to the **CLI** page in the StackState UI and copy the **Quick 
 {% endtab %}
 
 {% tab title="Manual install steps" %}
-Open a terminal and run the steps below. This can be done one step at a time, or all together as a single script. After installation, the `sts` command will be available for the current user.
+Open a terminal and run the steps below. Do this one step at a time, or all together as a single script. After installation, the `sts` command will be available for the current user.
 
 3. Download the latest CLI version for x86_64 (Intel) or arm64 (M1).
    ```bash
@@ -141,7 +141,7 @@ Alternatively, go to the **CLI** page in the StackState UI and copy the **Quick 
 {% endtab %}
 
 {% tab title="Manual install steps" %}
-Open a terminal and run the steps below. This can be done one step at a time, or all together as a single script. After installation, the `sts` command will be available for the current user.
+Open a terminal and run the steps below. Do this one step at a time, or all together as a single script. After installation, the `sts` command will be available for the current user.
 
 1. Download and unpack the latest version for x86_64:
    ```bash

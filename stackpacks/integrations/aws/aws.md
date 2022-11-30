@@ -545,7 +545,7 @@ To uninstall the StackState AWS StackPack, click the _Uninstall_ button from the
 
 ### Remove AWS resources
 
-To clean up the remaining resources inside your AWS account, remove any configured VPC flow logs and delete the StackState AWS Cloudformation stack from the AWS account being monitored. This can be done using the [AWS web console](aws.md#aws-web-console) or the [AWS CLI](aws.md#aws-cli).
+To clean up the remaining resources inside your AWS account, remove any configured VPC flow logs and delete the StackState AWS Cloudformation stack from the AWS account being monitored. Do this using the [AWS web console](aws.md#aws-web-console) or the [AWS CLI](aws.md#aws-cli).
 
 #### AWS Web console
 
