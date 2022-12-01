@@ -54,8 +54,8 @@ The supported fields are:
 - **identifier** - a StackState-URN-formatted value that uniquely identifies this monitor definition. For more details see [identifier](#identifier).
 - **remediationHint** - a short, markdown-enabled hint displayed whenever the validation rule represented by this monitor triggers and results in an unhealthy state.
 - **function** - the specific monitor function to use as the basis of computation for this monitor. For more details see [function](#function).
-- **arguments** - lists concrete values that are to be used for parameters in the monitor function invocation. For more details and descriptions of commonly used parameters, see [arguments](#arguments).
-- **status** - either `ENABLED`|`DISABLED`. Dictates if the monitor will be running and producing health states. Optional. If not specified, the previous status will be used (`DISABLED` for newly created monitors).
+- **arguments** - lists concrete values to use for parameters in the monitor function invocation. For more details and descriptions of commonly used parameters, see [arguments](#arguments).
+- **status** - either `ENABLED`|`DISABLED`. Dictates if the monitor will be running and producing health states. Optional. If not specified, the monitor will continue to use the previous status (`DISABLED` for newly created monitors).
 - **tags** - tags associated to the monitor.
 - **intervalSeconds** - dictates how often to execute this particular monitor; new executions are scheduled after the specified number of seconds, counting from the time that the last execution ended. For more details see [run interval](#intervalseconds).
 
@@ -63,7 +63,7 @@ The supported fields are:
 
 ### identifier
 
-An important field of the monitor node is the `identifier` - it is a unique value of the StackState URN format that can be used together with the monitor-specific StackState CLI commands. The identifier should be formatted as follows:
+An important field of the monitor node is the `identifier`. This is a unique value of the StackState URN format that is used together with the monitor-specific StackState CLI commands. The identifier should be formatted as follows:
 
 `urn : <prefix> : monitor : <unique-monitor-identification>`
 
@@ -179,7 +179,7 @@ The declaration of a numeric value in a monitor function STJ definition can look
 
 #### Topology Query
 
-Monitor functions that utilize Topology often times take a Topology Query as a parameter. An external tool can be used to allow you to easily [work with queries in YAML format and add these to a monitor file in STJ format](#add-scripts-and-queries-to-stj).
+Monitor functions that utilize Topology often times take a Topology Query as a parameter. Use an external tool to easily [work with queries in YAML format and add these to a monitor file in STJ format](#add-scripts-and-queries-to-stj).
 
 {% tabs %}
 {% tab title="Monitor STJ definition" %}
@@ -281,7 +281,7 @@ Telemetry
   .aggregation('mean', '1m')
 ```
 
-The telemetry query above groups its results by two fields: `host` and `region`. Both of these values will be available for value interpolation of an exact topology identifier to use, and each different `host` and `region` pair can be used either individually or together to form a unique topology identifier.
+The telemetry query above groups its results by two fields: `host` and `region`. Both of these values are available for value interpolation of an exact topology identifier to use. You can use each different `host` and `region` pair either individually or together to form a unique topology identifier.
 If the common topology identifier scheme utilized by the topology looks as follows, then the different parts of the identifier can be replaced by references to `host` or `region`:
 
 ```groovy
@@ -315,7 +315,7 @@ The declaration of a topology identifier pattern would look something like the f
 A monitor with an `ENABLED` status will be automatically executed and its results will be persisted. A `DISABLED` monitor is still available for a `dry-run` in order to inspect its results and execution (helpful for debugging a monitor). When a monitor is initially created it will start with a `DISABLED` status, unless the `status` field is present in the payload. When a monitor is updated, it will keep its own `status`, unless the `status` is specified. If the `status` field is included in the payload, the monitor will assume the specified `status`.
 
 {% hint style="info" %}
-When a monitor is disabled, StackState will remove all health states associated with the monitor. These health states will no longer be visible in the StackState UI. Disabling a monitor is quite useful to debug and fix execution errors without having the monitor produce health states or errors. A disabled monitor can still be used to do a `dry-run`.
+When a monitor is disabled, StackState will remove all health states associated with the monitor. These health states will no longer be visible in the StackState UI. Disabling a monitor is quite useful to debug and fix execution errors without having the monitor produce health states or errors. A monitor can run a `dry-run` while it is disabled.
 {% endhint %}
 
 ### intervalSeconds
@@ -326,12 +326,12 @@ The monitor run interval determines how often a monitor logic will be executed. 
 
 A monitor STJ file and an STJ monitor function definition contain the following script and queries:
 
-* [Arguments of type `ArgumentScriptMetricQueryVal`](#arguments) in the monitor STJ file define a telemetry query to be used by the monitor function.
+* [Arguments of type `ArgumentScriptMetricQueryVal`](#arguments) in the monitor STJ file define a telemetry query for the monitor function to use.
 * The property `script` of type `ScriptFunctionBody` in the monitor function definition provides a groovy script that is run by the monitor function.
 
 For details of the `script` property, see the page [monitor functions](/develop/developer-guides/custom-functions/monitor-functions.md#monitor-function-definition "StackState Self-Hosted only").
 
-It can be challenging to add scripts and queries to the STJ format. An external tool, such as [yq \(github.com\)](https://github.com/mikefarah/yq), can be used to get a more friendly formatting of the script or query to work with and update as required.
+It can be challenging to add scripts and queries to the STJ format. You can use an external tool, such as [yq \(github.com\)](https://github.com/mikefarah/yq), to get a more friendly formatting of the script or query to work with and update as required.
 
 For example:
 

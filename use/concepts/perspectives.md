@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.1.x
 
 StackState and its [4T data model](4t_data_model.md) collect real-time data about your IT landscape. **Perspectives** allow you to look at this data from various angles and to relate different types of data to each other.
 
-All data in StackState is organized around [topology](4t_data_model.md#topology), a representation of the components and their relations that make up your IT landscape. A subset of that topology, called a [view](../stackstate-ui/views/about_views.md), can be used to focus on a specific application, layer or set of components that you care about. The components and relations included in the topology provide the context for data displayed in the other perspectives.
+All data in StackState is organized around [topology](4t_data_model.md#topology), a representation of the components and their relations that make up your IT landscape. A [view](../stackstate-ui/views/about_views.md) is a subset of the topology that focuses on a specific application, layer or set of components that you care about. The components and relations included in the topology provide the context for data displayed in the other perspectives.
 
 ![Perspectives](../../.gitbook/assets/v51_perspective_buttons.png)
 

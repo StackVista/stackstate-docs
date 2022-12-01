@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-Problems in StackState generate events that can be used to trigger event notifications.
+Problems in StackState generate events. You can configure event notifications that trigger in response to these problem events.
 
 ## Send notifications for problem events
 

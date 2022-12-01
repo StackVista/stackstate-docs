@@ -145,7 +145,7 @@ To set environment variables for a Windows Service, use the multi-string key
 
 Note: The .NET runtime tries to load a profiler into any .NET process that's started with these environment variables. You should limit instrumentation only to the applications that need to be traced. We don't recommend setting these environment variables globally as this causes all .NET processes on the host to load the profiler.
 
-If host has datadog so-called automatic instrumentation installed, following settings can be used.
+If host has datadog so-called automatic instrumentation installed, the following settings are available:
 
 | Setting Name | Description |
 | :--- | :--- |

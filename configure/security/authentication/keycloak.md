@@ -65,7 +65,7 @@ Follow the steps below to configure StackState to authenticate using KeyCloak:
    * **redirectUri** - Optional: The URI where the login callback endpoint of StackState is reachable. Populated by default using the `stackstate.baseUrl`, but can be overridden \(must be a fully qualified URL that points to the `/loginCallback` path\)
    * **jwsAlgorithm** - Set this to `RS256`, this is currently the only supported value.
    * **jwtClaims** - Optional: The roles or username can be retrieved from a different attribute than the Keycloak default behavior
-     * **usernameField** - Optional: The field in the OIDC user profile that should be used as the username. By default, this will be the `preferred_username`.
+     * **usernameField** - Optional: The field in the OIDC user profile that contains the username. By default, this will be the `preferred_username`.
      * **groupsField** - Optional: StackState will always, and by default only, use the `roles` Keycloak provides. But it can also add roles from the field specified here. This is mainly useful when Keycloak is mapping roles/groups from a third-party system.
 2. In `authentication.yaml` - map user roles from KeyCloak to the correct StackState subjects using the `roles.guest`, `roles.powerUser`, `roles.platformAdmin` or `roles.admin` settings \(see the example above\). For details, see the [default StackState roles](../rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](../rbac/).
 3. Store the file `authentication.yaml` together with the `values.yaml` file from the StackState installation instructions.
@@ -91,7 +91,7 @@ Follow the steps below to configure StackState to authenticate using KeyCloak:
 
 ### Linux
 
-To configure StackState to use a KeyCloak authentication provider on Linux, KeyCloak details and user role mapping needs to be added to the file `application_stackstate.conf`. This should replace the existing `authentication` section that's nested in `stackstate.api`. For example:
+To configure StackState to use a KeyCloak authentication provider on Linux, add KeyCloak details and user role mapping to the configuration file `application_stackstate.conf`. This should replace the existing `authentication` section that's nested in `stackstate.api`. For example:
 
 {% tabs %}
 {% tab title="application\_stackstate.conf" %}
@@ -99,7 +99,7 @@ To configure StackState to use a KeyCloak authentication provider on Linux, KeyC
 authorization {
   // map the roles from Keycloak to the
   // 4 standard subjects in StackState (guest, powerUser, admin and platformAdmin)
-  // Please note! you have to use the syntax
+  // Please note! You have to use the syntax
   // `<group>Groups = ${stackstate.authorization.<group>Groups} ["keycloak-role"]`
   // to extend the list of standard roles (stackstate-admin, stackstate-platform-admin, stackstate-guest, stackstate-power-user)
   // with the ones from Keycloak
@@ -140,7 +140,7 @@ Follow the steps below to configure StackState to authenticate using KeyCloak:
    * **jwsAlgorithm** - Set this to `RS256`, which is the only supported value for now.
    * **jwtClaims** - Optional \(not in example\): The roles or username can be retrieved from a different attribute than the Keycloak default behavior.
 
-     -. **usernameField** - Optional: The field in the OIDC user profile that should be used as the username. By default, this will be the `preferred_username`.
+     -. **usernameField** - Optional: The field in the OIDC user profile that contains the username. By default, this will be the `preferred_username`.
 
      * **groupsField** - Optional: StackState will always, and by default only, use the `roles` Keycloak provides. But it can also add roles from the field specified here. This is mainly useful when Keycloak is mapping roles/groups from a third-party system.
 2. In `application_stackstate.conf` - map user roles from KeyCloak to the correct StackState subjects using the `guestGroups`, `powerUserGroups`, `adminGroups` or `platformAdminGroups` settings \(see the example above\). For details, see the [default StackState roles](../rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](../rbac/).

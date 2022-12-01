@@ -83,7 +83,7 @@ For a list of all Docker images used, see the [image overview](/setup/install-st
 
 ### Storage
 
-StackState uses persistent volume claims for the services that need to store data. The default storage class for the cluster will be used for all services unless this is overridden by values specified on the command line or in a `values.yaml` file. All services come with a pre-configured volume size that should be good to get you started, you can customize this later using variables if required.
+StackState uses persistent volume claims for the services that need to store data. All services use dthe efault storage class for the cluster unless this is overridden by values specified on the command line or in a `values.yaml` file. All services come with a pre-configured volume size that should be good to get you started, you can customize this later using variables if required.
 
 For more details on the defaults used, see the page [Configure storage](/setup/install-stackstate/kubernetes_openshift/storage.md).
 

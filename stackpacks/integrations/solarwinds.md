@@ -67,7 +67,7 @@ To enable the SolarWinds check and begin collecting data from SolarWinds, add th
    ```
 
 2. Set the following filters:
-   * **solarwinds\_domain** - The name of a SolarWinds custom property that will be used to select nodes from SolarWinds to include in the StackState dataset.
+   * **solarwinds\_domain** - The name of a SolarWinds custom property to use to select nodes from SolarWinds to include in the StackState dataset.
    * **solarwinds\_domain\_values** - A list of values used by the SolarWinds custom property specified in `solarwinds_domain`. Used to select the correct nodes for inclusion. Any node in SolarWinds that has one of these values set will be included in the data collection. Each value in this list will be represented as a separate domain in StackState.
 3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 4. Once the Agent has restarted, wait for data to be collected from SolarWinds and sent to StackState.
@@ -135,7 +135,7 @@ The SolarWinds check retrieves the health status from nodes and interfaces and t
 | Critical | `CRITICAL`              |
 
 {% hint style="info" %}
-The configured `collection_interval` will be used as the [`repeat_interval` for the health synchronization](../../../configure/health/health-synchronization.md#repeat-interval). Make sure that the value set for the `collection_interval` matches the time that the check will take to run.
+Make sure that the value set for the `collection_interval` matches the time that the check will take to run. This is the [`repeat_interval` used for the health synchronization](/configure/health/health-synchronization.md#repeat-interval).
 {% endhint %}
 
 #### Traces

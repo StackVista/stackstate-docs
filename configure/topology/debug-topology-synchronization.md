@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-This page explains several tools that can be used to troubleshoot a topology synchronization.
+This page explains several tools for troubleshooting a topology synchronization.
 
 ## Topology synchronization process
 

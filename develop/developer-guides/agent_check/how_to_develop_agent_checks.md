@@ -90,7 +90,7 @@ To synchronize multiple instances in StackState you have to create a multi-tenan
 
 ### Setting up your check configuration
 
-Create a directory named `{your_check_name}.d` inside the `conf.d` directory. The YAML configuration below can be used as a starting point for your check configuration. Save it to a file called `conf.yaml` in the `conf.d/{your_check_name}.d/` directory.
+Create a directory named `{your_check_name}.d` inside the `conf.d` directory. Use the YAML configuration below as a starting point for your check configuration. Save it to a file called `conf.yaml` in the `conf.d/{your_check_name}.d/` directory.
 
 ```text
 instances:
@@ -102,7 +102,7 @@ instances:
 
 ## First Check
 
-Now you can start defining your first check. The following "Skeleton" check can be used as a good starting point:
+Now you can start defining your first check. The following "Skeleton" check is a good starting point:
 
 ```text
 from stackstate_checks.base.checks.v2.base import AgentCheckV2
@@ -181,9 +181,9 @@ self.component("some-application-unique-identifier", "Application", {
 self.relation("some-application-unique-identifier", "this-host-unique-identifier", "IS_HOSTED_ON", {})
 ```
 
-This creates two components in StackState. One for the host named `this-host` and one for an application named `some-application`. The `domain` value is used in the horizontal grouping of the components in StackState and `layer` is used for vertical grouping. The `labels`, `tags` and `environment` add some metadata to the component and can also be used for filtering in StackState. An `IS_HOSTED_ON` relation is created between `some-application` and `this-host`. The `labels` and `tags` fields can also be used on relations to add some metadata. The component types \(`Host`, `Application`\) and relation type \(`IS_HOSTED_ON`\) will be automatically created in StackState and can later be used in the synchronization to create mappings for the different types.
+This creates two components in StackState. One for the host named `this-host` and one for an application named `some-application`. The `domain` value is used in the horizontal grouping of the components in StackState and `layer` is used for vertical grouping. The `labels`, `tags` and `environment` add metadata to the component that you can also use to filter the topology in StackState. An `IS_HOSTED_ON` relation is created between `some-application` and `this-host`. Relations can also have `labels` and `tags`. The component types \(`Host`, `Application`\) and relation type \(`IS_HOSTED_ON`\) are automatically created in StackState and the synchronization can use them later on to create mappings for the different types.
 
-The identifiers and the external identifier, for example `some-application-unique-identifier` will be used as the StackState ID. The `external identifer` should be unique within this integration.
+The identifiers and the external identifier, for example `some-application-unique-identifier`, are used as the StackState ID. The `external identifer` should be unique within this integration.
 
 #### Merge Identifiers
 

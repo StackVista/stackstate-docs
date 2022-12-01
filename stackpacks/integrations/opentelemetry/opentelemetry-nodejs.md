@@ -13,7 +13,7 @@ OpenTelemetry has the following benefits:
 - Lambda functions can include the OpenTelemetry Lambda Layer solution to collect trace data without the need to change any code.
 - StackState shows the specific AWS Service that a Lambda communicates with. 
 
-The StackState OpenTelemetry Lambda Layer can be used with AWS Lambda scripts running NodeJS 14.x (or later) and will transform the Topology in StackState as follows: 
+You can use the StackState OpenTelemetry Lambda Layerwith AWS Lambda scripts running NodeJS 14.x (or later) and will transform the Topology in StackState as follows: 
 
 
 {% tabs %}

@@ -204,7 +204,7 @@ To do so, follow steps below:
       $user.SetPassword("a_new_password")
    ```
 
-3. Update the password to be used by StackStateAgent service in the Service Control Manager. In PowerShell, run:
+3. Update the password used by StackStateAgent service in the Service Control Manager. In PowerShell, run:
 
    ```sh
       $> sc.exe config StackStateAgent password= "a_new_password"

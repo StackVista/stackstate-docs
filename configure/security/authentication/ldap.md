@@ -76,7 +76,7 @@ Follow the steps below to configure StackState to authenticate using LDAP:
 2. In `authentication.yaml` - map user roles from LDAP to the correct StackState subjects \(see the example above\):
    * **roles** - for details, see the [default StackState roles](../rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](../rbac/).
 3. Store the file `authentication.yaml` together with the `values.yaml` from the StackState installation instructions.
-4. Run a Helm upgrade to apply the changes. If you are using SSL with custom certificates, the binary certificate files that should be used when connecting to LDAP should be set from the command line, use the command under **SSL with custom certificates**:
+4. Run a Helm upgrade to apply the changes. If you are using SSL with custom certificates, use the command under **SSL with custom certificates** to set the binary certificate files to use:
 
 {% tabs %}
 {% tab title="Plain LDAP or Secure LDAP" %}

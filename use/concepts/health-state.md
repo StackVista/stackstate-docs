@@ -12,7 +12,7 @@ StackState calculates and reports the health state for elements (components and 
 * [Element propagated health state](#element-propagated-health-state) - highlights potential impact resulting from other unhealthy elements in the topology.
 * [View health state](#view-health-state) - summarizes the health states and/or propagated health states of all elements in a view.
 
-Changes to a health state will generate [events](/use/events/about_events.md) that can be used to trigger [event notifications](/use/events/event-notifications.md).
+Changes to a health state will generate [events](/use/events/about_events.md) that can trigger [event notifications](/use/events/event-notifications.md).
 
 ## Health sources
 

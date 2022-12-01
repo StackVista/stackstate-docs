@@ -152,7 +152,7 @@ $ stac monitor preview <id-or-identifier-of-a-monitor>
 ### Enable/disable
 
 {% hint style="info" %}
-Disabling a monitor removes all health states associated with that monitor from StackState. They will no longer be visible in the StackState UI. It can be useful to disable a monitor to debug and fix execution errors without having the monitor produce health states or errors. A disabled monitor can still be used to do a `dry-run`.
+Disabling a monitor removes all health states associated with that monitor from StackState. They will no longer be visible in the StackState UI. It can be useful to disable a monitor to debug and fix execution errors without having the monitor produce health states or errors. You can use a disabled monitor to do a `dry-run`.
 {% endhint %}
 
 Individual monitors can be disabled using the StackState CLI. To disable/enable a monitor:

@@ -115,7 +115,7 @@ Each span has a context that defines the request it's a part of.
 Request, error, and duration information from Spans can be utilized to troubleshoot performance and availability problems.
 
 To give your actions additional context, you may also include span characteristics.
-Key-value pairs called span attributes can be used to give more context to a span about the particular action it records.
+Key-value pairs called span attributes can give more context to a span about the particular action it records.
 
 
 ## OpenTelemetry instrumentation

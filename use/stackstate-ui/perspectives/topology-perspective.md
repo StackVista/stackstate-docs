@@ -39,7 +39,7 @@ When you hover the mouse pointer over a component, the component context menu is
 
 ### Actions
 
-Actions can be used to expand the topology selection to show all dependencies for the selected component. Other actions may be available for specific components, such as component actions that are installed as part of a StackPack.
+Actions can expand the topology selection to show all dependencies for the selected component. Other actions may be available for specific components, such as component actions that are installed as part of a StackPack.
 
 {% hint style="success" "self-hosted info" %}
 
@@ -55,7 +55,7 @@ A list of the available **Actions** is included in the right panel details tab w
 Shortcuts give you direct access to detailed information about the specific component:
 
 * **Show properties** - Opens the properties popup for the component. This is the same as clicking **SHOW ALL PROPERTIES** in the right panel details tab when detailed information about a component is displayed - **Component details**.
-* **Investigate in subview** - Opens a subview containing only this component. The subview can be used to investigate a single component in all perspectives without needing to adjust the view filters. This is the same as clicking INVESTIGATE IN SUBVIEW in the right panel details tab when detailed information about a component is displayed - **Component details**.
+* **Investigate in subview** - Opens a subview containing only this component. A subview can investigate a single component in all perspectives without needing to adjust the view filters. This is the same as clicking INVESTIGATE IN SUBVIEW in the right panel details tab when detailed information about a component is displayed - **Component details**.
 
 ## Relations
 

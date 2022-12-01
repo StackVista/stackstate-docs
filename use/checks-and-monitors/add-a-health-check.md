@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.1.x
 
 Health checks report a health state for elements \(components and relations\). The health state can either be calculated internally by StackState based on data from telemetry streams or synchronized with an external monitoring system.
 
-The combined check states attached to an element are used to calculate its overall health status. When the status of an element changes, a state change event is generated. These events can be used to [trigger event notifications and actions](../events/event-notifications.md).
+The combined check states attached to an element are used to calculate its overall health status. When the status of an element changes, a state change event is generated. These events can to [trigger event notifications and actions](../events/event-notifications.md).
 
 ## Add a health check
 
@@ -22,7 +22,7 @@ To add a health check calculated in StackState:
 2. Click **ADD NEW HEALTH CHECK** under **Health** in the right panel details tab.
 3. In the **Add check** dialog box, provide the following details:
    * **Name** - The health check name. Will be displayed in the StackState UI right panel details tab **Health** section.
-   * **Description** - Optional, can be used to explain the check in greater detail.
+   * **Description** - Optional, Used to explain the check in greater detail.
    * **Remediation hint** - Optional, will be automatically displayed on the element when this check goes to a non-clear state, for example `critical` or `deviating`.
    * **Check function** - The check function to use to monitor the element's telemetry stream\(s\). See [Check functions](add-a-health-check.md#check-functions) below.
 4. Provide the required check function arguments, these will vary according to the check function selected, but will include:

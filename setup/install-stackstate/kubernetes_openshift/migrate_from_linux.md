@@ -73,7 +73,7 @@ To export the StackGraph data, execute the regular StackState Linux backup proce
 
 ### Import StackGraph data
 
-To import the StackGraph data into the Kubernetes/OpenShift installation, the same [MinIO \(min.io\)](https://min.io/) component that is used for the backup/restore functionality will be used.
+StackGraph data is imported into the Kubernetes/OpenShift installation using the same [MinIO \(min.io\)](https://min.io/) component as is used for the backup/restore functionality.
 
 {% hint style="info" %}
 Note that the [StackState automatic Kubernetes backup functionality](../../data-management/backup_restore/kubernetes_backup.md) should not be enabled until after the migration procedure has completed.

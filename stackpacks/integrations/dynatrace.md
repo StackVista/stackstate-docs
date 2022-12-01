@@ -93,7 +93,7 @@ To enable the Dynatrace topology check and begin collecting topology data from D
    - **timeout** - Timeout for requests.
    - **relative_time** - The relative timeframe for retrieving topology.
    - **custom_device_relative_time** - The relative timeframe for retrieving custom devices.
-   - **custom_device_fields** - The Custom Device property fields that should be used.
+   - **custom_device_fields** - The Custom Device property fields to use.
    - **custom_device_ip** - Use IP address to generate Custom Device identifiers. Set to `False` if there are multiple Custom Devices using the same IP to prevent incorrect merging of Custom Device components. Default `True`. Requires Agent V2.17 or later. 
    - **tags** - custom tags appended to all components, useful for filtering.
 4. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
@@ -236,7 +236,7 @@ The Dynatrace integration doesn't retrieve any traces data.
 
 ### Dynatrace filters for StackState views
 
-When the Dynatrace integration is enabled, the following additional keys can be used to filter views in the StackState UI:
+When the Dynatrace integration is enabled, you can use the following additional keys to filter views in the StackState UI:
 
 * dynatrace-ManagementZones
 * dynatrace-EntityID

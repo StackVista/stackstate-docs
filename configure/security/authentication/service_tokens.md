@@ -106,7 +106,7 @@ Command not available in the `stac` CLI, use the new `sts` CLI.
 
 ### Set up a bootstrap service token
 
-When installing StackState, it's possible to bootstrap it with a (temporary) service token. The StackState CLI can then be used without first interacting with StackState and obtaining an API token from the UI. In order to set this up, you can add the following snippet to the StackState configuration file:
+When installing StackState, it's possible to bootstrap it with a (temporary) service token. You can then use the StackState CLI without first interacting with StackState and obtaining an API token from the UI. In order to set this up, you can add the following snippet to the StackState configuration file:
 
 {% tabs %}
 {% tab title="Kubernetes" %}
@@ -251,12 +251,12 @@ Command not available in the `stac` CLI, use the new `sts` CLI.
 
 ## Use service tokens
 
-Once created, a service token can be used to authenticate to StackState from a headless service. To do this you can either use the CLI or directly talk to the API.
+Once created, you can use a service token to authenticate to StackState from a headless service. To do this you can either use the CLI or directly talk to the API.
 
 
 ### StackState `sts` CLI
 
-A service token can be used for authentication with the new `sts` CLI. It isn't possible to authenticate with service tokens using the `stac` CLI. For details, see the CLI documentation:
+The new `sts` CLI can use a service token can for authentication. It isn't possible to authenticate with service tokens using the `stac` CLI. For details, see the CLI documentation:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 * New `sts` CLI: [Authentication](/setup/cli/cli-sts.md#authentication)

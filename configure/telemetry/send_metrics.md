@@ -90,7 +90,7 @@ Every metric has the following details:
 * **type** - The type of metric. Can be `gauge`, `count`, `rate`, `counter` or `raw`.
 * **tags** - Optional.  A list of key/value tags to associate with the metric.
 
-The `timestamp` and `value` are used to plot the metric as a time series. The `name` and `tags` can be used to define a metric stream in StackState.
+The `timestamp` and `value` are used to plot the metric as a time series. Use the `name` and `tags` to define a metric stream in StackState.
 
 ## Send metrics to StackState
 

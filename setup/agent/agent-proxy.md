@@ -14,7 +14,7 @@ The Agent can be configured to use a proxy for HTTP and HTTPS requests. Proxy se
   * Environment variables `STS_PROXY_HTTPS` / `STS_PROXY_HTTP`
   * Agent configuration file
 
-Configured proxy settings will be used by the Agent in the following sequence:
+The Agent uses configured proxy settings in the following sequence:
 
 1. Environment variables `STS_PROXY_HTTPS` / `STS_PROXY_HTTP`
 2. Environment variables `HTTPS_PROXY` / `HTTP_PROXY`
@@ -165,7 +165,7 @@ To configure a proxy for an Agent running on Windows, add the required environme
 
 ## Proxy for communication with StackState only
 
-A proxy can be configured to be used only for communication between StackState Agent V2 and StackState. This can be set up either by using environment variables or by updating the Agent configuration file.
+A proxy can be configured only for communication between StackState Agent V2 and StackState. This can be set up either by using environment variables or by updating the Agent configuration file.
 
 ### Environment variables
 
@@ -313,7 +313,7 @@ Note that proxy settings configured using an environment variable will override 
 
 {% endhint %}
 
-A proxy set in the Agent configuration file will be used for communication with StackState only. Checks configured on the Agent won't use this proxy for communication with external systems. To use a proxy for Agent checks and communication with StackState, see how to use a [proxy for all Agent communication](#proxy-for-all-agent-communication).
+The Agent configuration file proxy settings are used for communication with StackState only. Checks configured on the Agent won't use this proxy for communication with external systems. To use a proxy for Agent checks and communication with StackState, see how to use a [proxy for all Agent communication](#proxy-for-all-agent-communication).
 
 To use a proxy for communication with StackState add the following items to the Agent configuration file:
 

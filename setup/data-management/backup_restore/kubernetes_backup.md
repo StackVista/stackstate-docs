@@ -40,7 +40,7 @@ The built-in MinIO instance can be configured to store the backups in three loca
 
 **Encryption**
 
-Amazon S3-managed keys (SSE-S3) should be used when encrypting S3 buckets that store the backups. 
+Use Amazon S3-managed keys (SSE-S3) when encrypting S3 buckets that store the backups. 
 
 ⚠️ Encryption with AWS KMS keys stored in AWS Key Management Service (SSE-KMS) isn't supported. This will result in errors such as this one in the Elasticsearch logs:
 
@@ -66,7 +66,7 @@ minio:
 ```
 
 Replace the following values:
-* `YOUR_ACCESS_KEY` and `YOUR_SECRET_KEY` are the credentials that will be used to secure the MinIO system. These credentials are set on the MinIO system and used by the automatic backup jobs and the restore jobs. They're also required if you want to manually access the MinIO system.
+* `YOUR_ACCESS_KEY` and `YOUR_SECRET_KEY` are the credentials used to secure the MinIO system. These credentials are set on the MinIO system and used by the automatic backup jobs and the restore jobs. They're also required if you want to manually access the MinIO system.
   * YOUR_ACCESS_KEY should contain 5 to 20 alphanumerical characters.
   * YOUR_SECRET_KEY should contain 8 to 40 alphanumerical characters.
 * `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` are the AWS credentials for the IAM user that has access to the S3 buckets where the backups will be stored. See below for the permission policy that needs to be attached to that user.
@@ -154,7 +154,7 @@ minio:
 
 Replace the following values:
 
-* `YOUR_ACCESS_KEY` and `YOUR_SECRET_KEY` - the credentials that will be used to secure the MinIO system. The automatic backup jobs and the restore jobs will use them. They're also required to manually access the MinIO storage. `YOUR_ACCESS_KEY` should contain 5 to 20 alphanumerical characters and `YOUR_SECRET_KEY` should contain 8 to 40 alphanumerical characters.
+* `YOUR_ACCESS_KEY` and `YOUR_SECRET_KEY` - the credentials used to secure the MinIO system. The automatic backup jobs and the restore jobs will use them. They're also required to manually access the MinIO storage. `YOUR_ACCESS_KEY` should contain 5 to 20 alphanumerical characters and `YOUR_SECRET_KEY` should contain 8 to 40 alphanumerical characters.
 
 ## Configuration and topology data \(StackGraph\)
 

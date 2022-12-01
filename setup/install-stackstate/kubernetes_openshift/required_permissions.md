@@ -140,7 +140,7 @@ max virtual memory areas vm.max_map_count [65530] is too low, increase to at lea
 
 Depending on what your Kubernetes/OpenShift administrators prefer, the `vm.max_map_count` can be set to a higher default on all nodes by either changing the default node configuration \(for example via init scripts\) or by having a DaemonSet do this right after node startup. The former is dependent on your cluster setup, so there are no general solutions there.
 
-Below is an example that can be used as a starting point for a DaemonSet to change the `vm.max_map_count` setting:
+Below is an example that can serve as a starting point for a DaemonSet to change the `vm.max_map_count` setting:
 
 ```yaml
 apiVersion: apps/v1

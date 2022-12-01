@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 Out of the box, StackState is configured with [file-based authentication](file.md) with a [default username and password](../../../setup/install-stackstate/initial_run_guide.md#default-username-and-password). This authenticates users against a file on the server. However, this isn't a production-ready setup.
 
-For better security StackState can be configured to use exactly one of the following authentication mechanisms \(replacing the standard admin user\):
+For better security, configure StackState with exactly one of the following authentication mechanisms \(replacing the standard admin user\):
 
 * [File based](file.md)
 * [LDAP](ldap.md)
@@ -27,7 +27,7 @@ When a user has been authenticated permissions for that user are usually assigne
 * **Administrator** - able to see and change content of StackState. For example, see all configuration, install StackPacks, grant and revoke user permissions and upload \(new versions of\) StackPacks.
 * **Platform Administrator** - able to perform management of the StackState platform. For example, change data retention, clear the database, view logs and cache management.
 
-When deciding on the roles to assign your users, it's strongly advised to have only a small group of Platform Administrators and Administrators. For example, only the engineers responsible for installing StackState and doing the initial configuration. Administrator users can manage access to StackState and decide which StackPacks can be used. Installing StackPacks and other fine-tuning of the configuration can be delegated to a larger number of users with the Power User role. Platform Administrator users can clear the database, change data retention settings, view logs and perform other platform management tasks.
+When deciding on the roles to assign your users, it's strongly advised to have only a small group of Platform Administrators and Administrators. For example, only the engineers responsible for installing StackState and doing the initial configuration. Administrator users manage access to StackState and decide the StackPacks to use. Installing StackPacks and other fine-tuning of the configuration can be delegated to a larger number of users with the Power User role. Platform Administrator users can clear the database, change data retention settings, view logs and perform other platform management tasks.
 
 It's also possible to add more roles, see the page [Roles \(RBAC\)](../rbac/rbac_roles.md) and the other [RBAC documentation pages](../rbac/)
 

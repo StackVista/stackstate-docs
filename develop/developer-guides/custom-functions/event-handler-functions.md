@@ -68,7 +68,7 @@ Only available for Linux installations of StackState.
 
 When execution is set to **Asynchronous**, the event handler function will run as an asynchronous function.
 
-An asynchronous event handler function has access to the [StackState script APIs](../../reference/scripting/script-apis/). These can be used by the function to make an HTTP request with a custom header using the [HTTP script API](../../reference/scripting/script-apis/http.md) and access the whole topology/telemetry.
+An asynchronous event handler function has access to the [StackState script APIs](../../reference/scripting/script-apis/). The function can use these to make an HTTP request with a custom header using the [HTTP script API](../../reference/scripting/script-apis/http.md) and access the whole topology/telemetry.
 
 The **Slack** event handler function shipped with StackState will run as an asynchronous function. Event notifications sent to Slack using this event handler can include extensive details about the event that triggered it. For example, links to relevant data and a possible root cause. You could also use the HTTP script API to send an SMS or webhook post.
 
@@ -76,7 +76,7 @@ The **Slack** event handler function shipped with StackState will run as an asyn
 
 The properties described below can be retrieved from the default `view` and `event` parameters in an event handler function with asynchronous execution.
 
-**View** properties return details of the view that the event handler is configured for. Note that parameter name `view` or `scope` can be used, or an alias.
+**View** properties return details of the view that the event handler is configured for. Note that you can use the parameter name `view` or `scope`, or an alias.
 
 * `view.name` - returns the view name.
 * `view.description` - returns the view description.
@@ -184,7 +184,7 @@ Synchronous event handler functions use plugins to interact with external system
 
 The properties described below can be retrieved from the default synchronous event handler function parameters.
 
-**View** properties return details of the view the event handler is in. Note that parameter name `view` or `scope` can be used, or an alias.
+**View** properties return details of the view the event handler is in. Note that you can use the parameter name `view` or `scope`, or an alias.
 
 * `view.getName` - returns the name of the view.
 * `view.getDescription` - returns the view description.

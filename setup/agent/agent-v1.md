@@ -51,7 +51,7 @@ Install StackState Agent V1 (legacy) by using the following sequence of steps:
     dd_url: {{config.baseUrl}}/stsAgent/
    ```
 
-4. After this the example configuration can be used as configuration.
+4. After this, you can use the example configuration as the actual configuration.
 
    ```text
     cp /etc/sts-agent/stackstate.conf.example /etc/sts-agent/stackstate.conf
@@ -78,7 +78,7 @@ Install StackState Agent V1 (legacy) by using the following sequence of steps:
     dd_url: {{config.baseUrl}}/stsAgent
    ```
 
-4. After this the example configuration can be used as configuration.
+4. After this, you can use the example configuration as the actual configuration.
 
    ```text
     cp /etc/sts-agent/stackstate.conf.example /etc/sts-agent/stackstate.conf

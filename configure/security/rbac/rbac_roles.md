@@ -219,7 +219,7 @@ The instructions below will take you through the process of setting up a new gro
 
    Also, please note that the subject's name is case-sensitive.
 
-2. Configured subjects need permissions to access parts of the UI and to execute actions in it. StackState Manager role requires access to the specific view of business applications, and there is no need to grant any CRUD, or StackPack permissions - they won't be used in day-to-day work by any Manager. To grant permission to view the `Business Applications` view, follow the below example:
+2. Configured subjects need permissions to access parts of the UI and to execute actions in it. The StackState Manager role requires access to the specific view of business applications. There is no need to grant any CRUD, or StackPack permissions - they aren't required for the day-to-day work of any Manager. To grant permission to view the `Business Applications` view, follow the below example:
 
    ```text
    # `stac` CLI:

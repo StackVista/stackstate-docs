@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-The new StackState `sts` CLI provides easy access to the functionality provided by the StackState APIs. It can be used for automate using StackState data, configure StackState and to develop StackPacks.
+The new StackState `sts` CLI provides easy access to the functionality provided by the StackState APIs. It helps you to automate using StackState data, configure StackState and to develop StackPacks.
 
 {% hint style="success" "self-hosted info" %}
 
@@ -215,7 +215,7 @@ By default, the CLI will authenticate using the API token that you provided when
 
 #### Service tokens
 
-You can optionally use the CLI to create one or more service tokens to authenticate with the StackState Base and Admin APIs. For example, a service token can be used to authenticate in CI (Continuous Integration) scenarios where no real user is doing the operations on the StackState instance.
+You can optionally use the CLI to create one or more service tokens to authenticate with the StackState Base and Admin APIs. For example, you can use a service token to authenticate in CI (Continuous Integration) scenarios where no real user is doing the operations on the StackState instance.
 
 To create a service token, run the command below:
 
@@ -223,7 +223,7 @@ To create a service token, run the command below:
 sts service-token create --name <NAME> --roles <ROLE(s)> [--expiration <yyyy-MM-dd>]
 ```
 
-This will create a new service token and print it. The `--expiration` parameter is optional and can be used to set the expiration date of the service token.
+This will create a new service token and print it. You can optionally set the expiration date of the service token using the `--expiration` parameter.
 
 Once you have this, you can configure the CLI to use it:
 

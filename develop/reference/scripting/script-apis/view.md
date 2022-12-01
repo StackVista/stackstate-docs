@@ -26,7 +26,7 @@ The `QueryView` type has the following fields:
 * `QueryView.name` - the name of the view
 * `QueryView.description` - the description of the view
 * `QueryView.state` - View state object, holding view state
-* `QueryView.query` - STQL query which can be used subsequently in getting topology using [Topology Script Api](topology.md)
+* `QueryView.query` - STQL query for the view. Can be used to retrieve topology using [Topology Script Api](topology.md)
 
 The `ViewInfo` type has the following fields:
 

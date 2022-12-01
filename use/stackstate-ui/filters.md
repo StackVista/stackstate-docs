@@ -6,13 +6,13 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-The **View Filters** panel on the left of the StackState UI can be used to filter the components \(topology\), events and traces displayed in each perspective. Applied filters can be [saved as a view](filters.md#save-filters-as-a-view) to open directly in the future.
+The **View Filters** panel on the left of the StackState UI contains filters to refine the components \(topology\), events and traces displayed in each perspective. Applied filters can be [saved as a view](filters.md#save-filters-as-a-view) to open directly in the future.
 
 ![View filters](/.gitbook/assets/v51_view_filters_button.png)
 
 ## Filter Topology
 
-Topology filters can be used to select a sub-set of topology components to be shown in any one of the available perspectives. You can browse your topology using basic filters or build an advanced topology filter that zooms in on a specific area of your topology using the StackState in-built query language \(STQL\). Read more about:
+Use topology filters to select a sub-set of topology components to be shown in any one of the available perspectives. You can browse your topology using basic filters or build an advanced topology filter that zooms in on a specific area of your topology using the StackState in-built query language \(STQL\). Read more about:
 
 * [Basic topology filters](filters.md#basic-topology-filters)
 * [Advanced topology filters](filters.md#advanced-topology-filters)
@@ -111,7 +111,7 @@ If required, you can [manually configure the topology filtering limit](/configur
 
 ## Filter Events
 
-The **View Filters** panel on the left of the StackState UI can be used to filter the events shown in the [Events Perspective](perspectives/events_perspective.md). They're also included in the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**.
+The **View Filters** panel on the left of the StackState UI contains filters to refine the events shown in the [Events Perspective](perspectives/events_perspective.md). Events are also included in the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**.
 
 The following event filters are available:
 

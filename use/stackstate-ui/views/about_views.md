@@ -15,8 +15,8 @@ The full topology available in StackState is likely much larger than you need to
 
 Views serve two major purposes:
 
-1. Views are a type of bookmark. They help you find your way back to a part of your topology that's of particular interest to you or your team. They may also serve as a starting point for defining new views.
-2. Views can be used for [event notifications and automation](/use/events/manage-event-handlers.md). Whenever a change within the view requires your attention, an event handler can send out a notification, create an incident in an ITSM system or trigger automation.
+1. A type of bookmark. Views help you find your way back to a part of your topology that's of particular interest to you or your team. They may also serve as a starting point for defining new views.
+2. [Event notifications and automation](/use/events/manage-event-handlers.md). Whenever a change within the view requires your attention, an event handler can send out a notification, create an incident in an ITSM system or trigger automation.
 
 Not all views are manually created. Many [StackPacks](../../../stackpacks/about-stackpacks.md) generate views after installation.
 
@@ -65,7 +65,7 @@ To disable a view health state, [edit the view](/use/stackstate-ui/views/create_
 
 ### Event notifications for view health state changes
 
-A `ViewStateChangedEvent` event is triggered whenever a view changes its health state. This event can be used in event handlers to, for example, to send an e-mail or Slack message or to trigger automation. See how to [send event notifications](/use/events/manage-event-handlers.md).
+A `ViewStateChangedEvent` event is triggered whenever a view changes its health state. This event can trigger event handlers, for example, to send an e-mail or Slack message or to trigger automation. See how to [send event notifications](/use/events/manage-event-handlers.md).
 
 ## Secure views with RBAC
 
@@ -82,7 +82,7 @@ Through a combination of configuration of permissions and scope, it's possible [
 
 ### What's a subview?
 
-A subview is a temporary StackState view that can be used to aid investigation. While views use stored filters to select a specific set of topology, subviews are generated on demand and can't be saved. Within a subview, you can investigate the element, group or problem across all perspectives and at any point in time. 
+A subview is a temporary StackState view used to aid investigation. While views use stored filters to select a specific set of topology, subviews are generated on demand and can't be saved. Within a subview, you can investigate the element, group or problem across all perspectives and at any point in time. 
 
 
 Whenever a subview is opened in the StackState UI, topology filters are constructed to focus directly on the chosen area of the StackState topology. You can open a subview by:

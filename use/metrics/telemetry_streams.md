@@ -23,7 +23,7 @@ Telemetry streams in StackState contain log or metrics data that has been retrie
 
 ## Add telemetry streams
 
-In StackState, telemetry streams need to be linked to elements \(components or relations\). Once a telemetry stream has been linked to an element it can be used as an input for the element's health checks. Read how to [add a telemetry stream to an element](add-telemetry-to-element.md).
+In StackState, telemetry streams need to be linked to elements \(components or relations\). Once a telemetry stream has been linked to an element, it is available as an input for the element's health checks. Read how to [add a telemetry stream to an element](add-telemetry-to-element.md).
 
 {% hint style="success" "self-hosted info" %}
 

@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-A view health state configuration function is a user defined script that takes user parameters and has access to a `viewSummary` variable that can be used to get summary information on the \(states of\) the components and relations in the view.
+A view health state configuration function is a user defined script that takes user parameters and has access to a `viewSummary` variable, which includes summary information on the \(states of\) the components and relations in the view.
 
 ## Create a custom view health state configuration function
 
@@ -61,7 +61,7 @@ The states of all components and relations in the view can be accessed as a list
 * `healthState`
 * `propagatedHealthState`
 
-This can be used to query particular elements in the view. In the example below, a CRITICAL state will be returned if any component of type DB reports a `DEVIATING` state. In all other cases a CLEAR state will be returned:
+Use to query particular elements in the view. In the example below, a CRITICAL state will be returned if any component of type DB reports a `DEVIATING` state. In all other cases a CLEAR state will be returned:
 
 ```groovy
 if (viewSummary.getStates().any{elementState -> (elementState.type == "DB") && (elementState.healthState >= healthStates.DEVIATING ) } ) {

@@ -64,7 +64,7 @@ Follow the steps below to complete a minimal install:
     ./install.sh --topo-cron-only {{config.baseUrl}} {{config.apiKey}} {{configurationId}}
     ```
    You can also optionally specify the following:
-    - **--topo-cron-bucket** - a custom S3 bucket to be used during deployment.
+    - **--topo-cron-bucket** - a custom S3 bucket to use during deployment.
     - **--topo-cron-role** - a custom AWS IAM role. Note that the role must have an attached policy like that specified in the file `sts-topo-cron-policy.json` included in the manual install zip file.
 
 If you wish to use a specific AWS profile or an IAM role during installation, run either of these two commands:

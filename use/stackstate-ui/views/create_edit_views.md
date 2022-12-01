@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.1.x
 
 You can create and save views in StackState to bookmark a part of your topology that's of particular interest to your team. By default, saved views will be visible to all users, these can be [secured by a StackState administrator](about_views.md#secure-views-with-rbac) if required. 
 
-Not all views are manually created. Many [StackPacks](../../../stackpacks/about-stackpacks.md) generate views after installation. It's recommended to use these views only as starting points for creating your own views.
+Not all views are manually created. Many [StackPacks](../../../stackpacks/about-stackpacks.md) generate views after installation. You can use these views as a starting point for creating your own views.
 
 ## Create a view
 
@@ -26,7 +26,7 @@ In the **Save view as** dialog, the following options can be set:
 {% hint style="success" "self-hosted info" %}
 
 * You can build your own [view state configuration functions](../../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#view-health-state-configuration-function-minimum-health-states) to customize how the view health state is calculated.
-* Views can be given an optional identifier. [Identifiers](../../../configure/topology/identifiers.md) can be used to uniquely reference the view from exported configuration, like the exported configuration in a StackPack.
+* Views can be given an optional identifier. Use [identifiers](../../../configure/topology/identifiers.md) to uniquely reference the view from exported configuration, like the exported configuration in a StackPack.
 * Views can be [secured by a StackState administrator](about_views.md#secure-views-with-rbac).
 
 {% endhint %}

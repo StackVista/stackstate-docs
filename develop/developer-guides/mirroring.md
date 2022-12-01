@@ -256,7 +256,10 @@ The FieldValuesResponse holds the list of possible values:
 }
 ```
 
-There are two types of values: `CompleteValue`, and `FieldValuePattern`. The `CompleteValue` indicates that the `value` field contains a full value token. The `FieldValuePattern` specifies the partial value that can be used as a `fieldValuePrefix` in subsequent refinement requests.
+There are two types of values: `CompleteValue`, and `FieldValuePattern`. 
+
+* `CompleteValue` indicates that the `value` field contains a full value token. 
+* `FieldValuePattern` specifies a partial value to use as a `fieldValuePrefix` in subsequent refinement requests.
 
 ## Method: Get Metric Values
 

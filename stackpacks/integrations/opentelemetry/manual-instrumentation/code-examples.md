@@ -75,7 +75,7 @@ The first one will be where your StackState Trace Agent lives in the following f
 const stsTraceAgentOpenTelemetryEndpoint = "http://localhost:8126/open-telemetry"
 ```
 
-The second part is OpenTelemetry tracer definitions. StackState uses these to determine what type of interpretation will be used for
+The second part is OpenTelemetry tracer definitions. StackState uses these to determine which type of interpretation to use for
 your trace. You need to specify the following:
 
 ```javascript

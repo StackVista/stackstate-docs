@@ -208,7 +208,7 @@ If StackState Agent V2 will run checks that are configured to use self-signed ce
 
 ### Traces
 
-StackState Agent V2 can be configured to collect traces via a [StackState tracing integration](../../configure/traces/set-up-traces.md#2-configure-tracing-integrations). If the Agent will be used in conjunction with a language specific trace client, make sure to configure your app to use the host’s PID namespace:
+StackState Agent V2 can be configured to collect traces via a [StackState tracing integration](../../configure/traces/set-up-traces.md#2-configure-tracing-integrations). To use the Agent with a language-specific trace client, configure your app to use the host’s PID namespace:
 
 ```text
   service:

@@ -90,7 +90,7 @@ instances:
 To enable token-based authentication, the following parameters should be included in the section `authentcation.token_auth` of each StackState Agent V2 Splunk check configuration file:
 
 * **name** - Name of the user who will use this token.
-* **initial\_token** - An initial, valid token. This token will be used once only and then replaced with a new generated token requested by the integration.
+* **initial\_token** - An initial, valid token. This token is used once only and then replaced with a new generated token requested by the integration.
 * **audience** - The Splunk token audience.
 * **token\_expiration\_days** - Validity of the newly requested token. Default 90 days.
 * **renewal\_days** - Number of days before a new token should be refreshed. Default 10 days.

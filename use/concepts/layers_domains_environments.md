@@ -22,5 +22,5 @@ Environments are meant for grouping components using the DTAP model: Development
 
 ![Environments](../../.gitbook/assets/environments.png)
 
-Environments can also be used within StackState to do modeling work without affecting the rest of the stack - just by creating components and placing them in the temporary environments. Another way of using environments is to create separate spaces for different customers.
+Within StackState, you can use environments to do modeling work without affecting the rest of the stack - just by creating components and placing them in the temporary environments. Another way of using environments is to create separate spaces for different customers.
 

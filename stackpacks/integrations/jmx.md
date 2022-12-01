@@ -315,7 +315,7 @@ JBoss/WildFly applications expose JMX over a specific protocol \(Remoting JMX\) 
    instances:
    + jmx_url: "service:jmx:remoting-jmx://localhost:9999"
     name: jboss-application  # Mandatory, but can be set to any value,
-                             # will be used to tag the metrics pulled from
+                             # used to tag the metrics pulled from
    ```
 
 5. Restart the agent: `sudo /etc/init.d/stackstate-agent`
@@ -341,7 +341,7 @@ init_config:
     instances:
       - jmx_url: "service:jmx:rmi://:10002/jndi/rmi://:10001/jmxrmi"
         name: tomcat-application  # Mandatory, but can be set to any arbitrary value,
-                                  # will be used to tag the metrics pulled from that instance
+                                  # used to tag the metrics pulled from that instance
 ```
 
 1. Restart the agent: `sudo /etc/init.d/stackstate-agent`

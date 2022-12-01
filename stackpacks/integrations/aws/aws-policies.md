@@ -10,11 +10,11 @@ description: StackState Self-hosted v5.1.x
 This page includes examples of all IAM and other policies necessary for a working StackState AWS Agent installation. For the AWS \(legacy\) integration, refer to the policy files provided when the AWS \(legacy\) StackPack is installed.
 {% endhint %}
 
-These policies are taken directly from the CloudFormation template and should be used wherever possible.
+These policies are taken directly from the CloudFormation template - you should use these policies wherever possible.
 
 To use a template, replace the following values:
 
-* **${Region}** - replace with the name of the region that the IAM role will be used for, such as `${Region}` or `us-east-1`. 
+* **${Region}** - replace with the name of the region for the IAM role, such as `${Region}` or `us-east-1`. 
 * **${AccountId}** - replace with the 12-digit AWS account ID of the AWS account that the resources will be deployed in.
 
 ## StackStateAwsIntegrationRole

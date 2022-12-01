@@ -18,7 +18,7 @@ Return the base URL from the StackState configuration.
 
 ## Function: `UI.createUrl()`
 
-Creates a URL builder that can be used to generate URLs that can be linked back in StackState.
+Creates a URL builder to generate URLs that link back in StackState.
 
 ### Args
 

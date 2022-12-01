@@ -8,8 +8,8 @@ description: StackState Self-hosted v5.1.x
 
 If StackState or StackState Agent V2 are running within an AWS environment in an EKS cluster instance, an IAM role can be attached to the node-group where the pods `stackstate-api` and/or `stackstate-cluster-agent` are running. 
 
-* `stackstate-api` pod - the attached role can be used for authentication by StackState running in these pods.
-* `stackstate-cluster-agent` pod - the attached role can be used for authentication by StackState Cluster Agent running in this pod.
+* `stackstate-api` pod - StackState running in these pods can use the attached role for authentication.
+* `stackstate-cluster-agent` pod -  StackState Cluster Agent running in this pod can use the attached role for authentication.
 
 {% hint style="info" %}
 Note: If the AWS Data Collection Account and the Monitor Account aren't a part of the same AWS organization, it's impossible to authenticate using the attached IAM role in this way. For details see the AWS documentation on [AWS organizations \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html). 

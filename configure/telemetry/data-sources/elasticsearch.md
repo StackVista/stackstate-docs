@@ -93,7 +93,7 @@ To find the correct time field format to specify in the StackState Elasticsearch
 
 ### Work with Elasticsearch data in StackState
 
-Elasticsearch data sources can be used to add telemetry streams to components and relations in StackState. You can either do this manually, by [adding a telemetry stream](../../../use/metrics/add-telemetry-to-element.md) directly to an element, or you can [add telemetry during topology synchronization](../telemetry_synchronized_topology.md).
+Elasticsearch data sources can provide telemetry streams to components and relations in StackState. You can manually [add a telemetry stream](../../../use/metrics/add-telemetry-to-element.md) directly to an element, or you can [add telemetry during topology synchronization](../telemetry_synchronized_topology.md).
 
 ## Advanced settings
 
@@ -121,7 +121,7 @@ The timeout settings can be tweaked when dealing with exceptionally large result
 
 Wildcards can be slow in Elasticsearch. By default, StackState will escape wildcards used in telemetry query values. If required, this behavior can be disabled.
 
-* **Support wildcards in values** - when enabled, StackState will include wildcards \(`*`\) in telemetry query values. Note that wildcards can be used to filter for partial matches only, it's not possible to use a full wildcard. At least one other character must be specified in the filter value.
+* **Support wildcards in values** - when enabled, StackState will include wildcards \(`*`\) in telemetry query values. Note that you can only use wildcards to filter for partial matches, it's not possible to use a full wildcard. At least one other character must be specified in the filter value.
 
 ## See also
 

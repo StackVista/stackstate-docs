@@ -38,7 +38,7 @@ The transparent state is precalculated by StackState and used for the default pr
 Propagation functions can be defined and used to calculate the propagated state of a component. Some propagation functions are installed as part of a StackPack. For example, Quorum based cluster propagation, which will propagate a `DEVIATING` state when the cluster quorum agrees on deviating and a `CRITICAL` state when the cluster quorum is in danger. You can also write your own [custom propagation functions](propagation-functions.md#create-a-custom-propagation-function). A full list of the propagation functions available in your StackState instance can be found in the StackState UI, go to **Settings** &gt; **Functions** &gt; **Propagation Functions**
 
 {% hint style="info" %}
-To specify a propagation function that should be used to calculate the propagated state a component, add the [`propagation` block](#edit-template) to the template used in topology synchronization.
+To use a propagation function other than the default auto propagation, add the [`propagation` block](#edit-template) to the template used in topology synchronization.
 {% endhint %}
 
 ## Custom propagation functions
@@ -115,7 +115,7 @@ The script APIs offer super-human levels of flexibility and even allow querying 
 
 Running a propagation function with synchronous execution places limitations on both the capability of what it can achieve, and the number of functions that can be run in parallel. Synchronous propagation functions do, however, have access to `stateChangesRepository` information that isn't available if the function runs with asynchronous execution.
 
-`stateChangesRepository` can be used to return:
+Use `stateChangesRepository` to return:
 
 * The propagating state of an element
 * The number of elements with a particular propagating state
@@ -132,7 +132,7 @@ The properties and methods described below are available for use in a propagatio
 
 #### Element properties and methods
 
-The `element` properties and methods listed below can be used in propagation functions with either **asynchronous or synchronous execution**. Functions with synchronous execution also have access to [stateChangesRepository methods](propagation-functions.md#statechangesrepository-methods).
+You can use the `element` properties and methods listed below in propagation functions with either **asynchronous or synchronous execution**. Functions with synchronous execution also have access to [stateChangesRepository methods](propagation-functions.md#statechangesrepository-methods).
 
 * `element.name` - Returns the name of the current element.
 * `element.type` - Returns type of the current element.
@@ -163,7 +163,7 @@ You can add logging statements to a propagation function script for debug purpos
 
 The default propagation used in StackState is [Auto propagation](#auto-propagation-default). If another type of propagation should be applied to a component, this must be specified in the template and applied during topology synchronization. In most cases this will be handled by the StackPack responsible for synchronization of the component. 
 
-To manually specify a non-default propagation function, a `"propagation"` block should be added to the template used for topology synchronization. If the `"propagation"` block is omitted, the default Auto propagation will be used. 
+To manually specify a non-default propagation function, a `"propagation"` block should be added to the template used for topology synchronization. If the `"propagation"` block is omitted, StackState will use the default [Auto propagation](#auto-propagation-default). 
 
 ```yaml
 "propagation": {

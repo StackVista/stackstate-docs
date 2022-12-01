@@ -147,7 +147,7 @@ The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts`
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
 {% endhint %}
 
-Sending of Transactional increments check_states isn't available in the CLI, but all the debugging and introspection features can still be used.
+Sending of Transactional increments check_states isn't available in the CLI, however, you can still use all the debugging and introspection features.
 
 {% endtab %}
 {% tab title="CLI: sts" %}

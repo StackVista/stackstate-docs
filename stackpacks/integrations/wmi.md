@@ -12,7 +12,7 @@ WMI is a [StackState curated integration](/stackpacks/integrations/about_integra
 
 ## Functionality
 
-StackState Agent for Windows collects telemetry information from Windows by querying WMI. Metrics obtained from the defined WMI queries are collected periodically. Multiple WMI queries can be defined. Collected WMI metrics are sent to StackState and can be used as metric streams.
+StackState Agent for Windows collects telemetry information from Windows by querying WMI. Metrics obtained from the defined WMI queries are collected periodically. Multiple WMI queries can be defined. Collected WMI metrics are sent to StackState as metric streams.
 
 ## Setup
 

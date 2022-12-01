@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-The Slack StackPack enables you to receive event notifications in Slack channels. The StackPack installs a number of event handler functions that can be used when [adding an event handler](/use/events/manage-event-handlers.md#add-event-handler) to a view in StackState.
+The Slack StackPack enables you to receive event notifications in Slack channels. The StackPack installs a number of event handler functions that you can use when [adding an event handler](/use/events/manage-event-handlers.md#add-event-handler) to a view in StackState.
 
 Slack is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
 

@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-After a problem has been identified in the StackState topology, it will be tracked and updated accordingly as the health state of elements change. Whenever there is a change to a problem, an associated event will be generated in StackState. These problem events can be used to [trigger problem notifications](problem_notifications.md), such as a message to a Slack channel.
+After a problem has been identified in the StackState topology, it will be tracked and updated accordingly as the health state of elements change. Whenever there is a change to a problem, an associated event will be generated in StackState. These problem events can [trigger problem notifications](problem_notifications.md), such as a message to a Slack channel.
 
 The stages in the problem lifecycle and associated StackState events are described on this page:
 

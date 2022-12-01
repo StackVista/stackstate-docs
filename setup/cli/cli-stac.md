@@ -13,7 +13,7 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md)
 {% endhint %}
 
-The StackState `stac` CLI provides easy access to the functionality provided by the StackState APIs. It can be used to configure StackState, work with data, automate using StackState data and help with developing StackPacks. You can configure the CLI to work with multiple instances of StackState.
+The StackState `stac` CLI provides easy access to the functionality provided by the StackState APIs. It helps you configure StackState, work with data, automate using StackState data and help with developing StackPacks. You can configure the CLI to work with multiple instances of StackState.
 
 ## Install the `stac` CLI
 
@@ -102,7 +102,7 @@ The StackState CLI can be run inside a Docker container on Linux, Windows or mac
 
 ## Configure the `stac` CLI
 
-After a new installation, the `stac` CLI must be configured with the API connection details for your StackState instance. If you upgraded from an earlier version of the CLI, it's not necessary to configure the CLI again, the existing CLI configuration will be used.
+After a new installation, the `stac` CLI must be configured with the API connection details for your StackState instance. Upgrading to a new version of the CLI will not overwrite the existing configuration. It's not necessary to configure the CLI again after it has been upgraded.
 
 The standalone executable StackState CLI on Linux or Windows includes a wizard to guide you through configuration. If you installed the Docker version of the `stac` CLI on macOS, Linux or Windows, the configuration file must be manually created.
 
@@ -267,7 +267,7 @@ curl -H "Authorization: ApiToken <token>" <stackstate-api-endpoint>
 
 ## Upgrade
 
-Follow the steps below to upgrade an installed version of the CLI. Note that it's not necessary to configure the CLI again after the upgraded version is installed, the existing CLI configuration will be used.
+Follow the steps below to upgrade an installed version of the CLI. Note that you can continue to use the existing configuration after the upgraded version is installed.
 
 1. Delete the existing CLI files:
    * **Windows and Linux:**
@@ -281,7 +281,7 @@ Follow the steps below to upgrade an installed version of the CLI. Note that it'
    * [Windows install](#windows-install)
    * [Docker install \(macOS, Linux, Windows\)](#docker-install-macos-linux-windows)
 
-3. It isn't necessary to configure the CLI again, the existing CLI configuration will be used.
+3. You don't need to configure the CLI again, the upgraded CLI will use the existing CLI configuration.
 
 ## Uninstall
 
@@ -314,7 +314,7 @@ stac --help
 
 ## License
 
-The `stac` CLI can be used to check your license validity and update a license key when needed, for example, in case of expiration.
+You can use the `stac` CLI to check your license validity and update a license key when needed, for example, in case of expiration.
 
 ```text
 # check license key validity

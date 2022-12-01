@@ -27,7 +27,7 @@ The output format of the Telemetry API changed in StackState v5.0. If you are ru
 
 ### Builder methods
 
-* `.groupBy(fieldName: String)` - optional. Used to return grouped results from Elasticsearch. Requires `.aggregation()` to be used. If there is no aggregation, a plain metric stream will be returned.
+* `.groupBy(fieldName: String)` - optional. returns grouped results from Elasticsearch. Requires `.aggregation()`. If there is no aggregation, a plain metric stream will be returned.
 * `aggregation(method: String, bucketSize: String)` - returns aggregated telemetry using `method` and `bucketSize`. See the [available aggregation methods](/use/metrics/add-telemetry-to-element.md#aggregation-methods).
 * `start(time: Instant)` - sets the [start time](time.md) of the query, for example `-3h`.
 * `end(time: Instant)` - sets the [end time](time.md) of the query, for example `-1h`.

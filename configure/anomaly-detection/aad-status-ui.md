@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-The AAD status UI provides details on the technical state of the AAD. It can be used to retrieve information about scheduling progress, possible errors, the ML models selected and job statistics.
+The AAD status UI provides details on the technical state of the AAD. Use the status UI to retrieve information about scheduling progress, possible errors, the ML models selected and job statistics.
 
 ## When to use the AAD status UI
 

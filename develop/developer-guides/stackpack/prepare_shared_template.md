@@ -4,9 +4,9 @@ description: StackState Self-hosted v5.1.x
 
 # Prepare a shared template
 
-Shared template file contains information that's going to be used across instances, like: Component Types, IdExtractor functions for components and relations, Component Template functions, Relation Template functions, or Layers. They can be derived from the exported `.stj` file, by exporting configuration nodes with `shared` in their identifiers, for example `"identifier": "urn:stackpack:{StackPackName}:shared:relation-template-function:test-relation-template",`.
+Shared template file contains information used across instances, such as: Component Types, IdExtractor functions for components and relations, Component Template functions, Relation Template functions, or Layers. They can be derived from the exported `.stj` file, by exporting configuration nodes with `shared` in their identifiers, for example `"identifier": "urn:stackpack:{StackPackName}:shared:relation-template-function:test-relation-template",`.
 
-Shared template file contains information that's going to be used across instances, like:
+The shared template file contains information used across instances, such as:
 
 ## Component Types
 

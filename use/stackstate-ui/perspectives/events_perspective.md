@@ -20,7 +20,7 @@ The [topology filters](../filters.md#filter-topology) set in the **View Filters*
 
 ### Filter by properties
 
-The [event filters](../filters.md#filter-events) set in the **View Filters** panel can be used to refine the events displayed based on event category, type, source system and tags.
+The events displayed can be refined using the [event filters](../filters.md#filter-events) in the **View Filters** panel. You can filter events based on event category, type, source system and tags.
 
 ### Filter by timestamp
 

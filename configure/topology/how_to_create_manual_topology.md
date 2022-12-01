@@ -11,7 +11,7 @@ StackState automatically creates a topology based on real-time data sources. _Th
 
 ## Static Topology StackPack
 
-The [Static Topology StackPack](/stackpacks/integrations/static_topology.md) can be used to import components and relations from external CSV files.
+Use the [Static Topology StackPack](/stackpacks/integrations/static_topology.md) to import components and relations from external CSV files.
 
 ## How to create components and relations
 

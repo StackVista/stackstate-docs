@@ -88,7 +88,7 @@ To configure the Splunk Events Agent check:
 2. Under **instances**, add details of your Splunk instance:
    * **url** - The URL of your Splunk instance.
    * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based \(recommended\) or basic authentication. For details, see [authentication configuration details](splunk_stackpack.md#authentication).
-   * **tags** - Optional. Can be used to apply specific tags to all reported events in StackState.
+   * **tags** - Optional. Used to apply specific tags to all reported events in StackState.
 3. Under **saved\_searches**, add details of each Splunk saved search that the check should execute: 
    * **name** - The name of the [Splunk saved search](splunk_events.md#splunk-saved-search) to execute.
      * **match** - Regex used for selecting Splunk saved search queries. Default `"events.*"`.
@@ -112,7 +112,7 @@ To configure the Splunk Events Agent check:
 
 To prevent sending duplicate events over multiple check runs, received saved search records must be uniquely identified for comparison. By default, a record is identified by the Splunk default fields `_bkt` and `_cd`. Specify `unique_key_fields` in the Splunk Events Agent check configuration to customize the behavior for each saved search. Note that the specified `unique_key_fields` fields are mandatory fields for each record returned by the Splunk saved search.
 
-If it isn't possible to uniquely identify a record by a combination of specific fields, the whole record can be used by setting `unique_key_fields: []` \(an empty list\).
+If it isn't possible to uniquely identify a record by a combination of specific fields, you can use the whole record by setting `unique_key_fields: []` \(an empty list\).
 
 ### Disable the Agent check
 

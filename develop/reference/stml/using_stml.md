@@ -10,7 +10,7 @@ With StackState Markup Language \(STML\), you can create pretty formatted docume
 
 ## Rich text formatting using Markdown
 
-STML is a valid superset of markdown. In other words, it's markdown plus extensions. That means that you can easily format documents with headings, bullet point lists, links and tables as you may be used to with the Markdown format. For example the following valid STML document create a table of elements to buy with links to google:
+STML is a valid superset of markdown. In other words, it's markdown plus extensions. That means that you can easily format documents with headings, bulleted lists, links and tables as with the Markdown format. For example, the below STML creates a table of elements to buy with links to google:
 
 ```text
 | To buy                              | Amount |
@@ -37,7 +37,7 @@ See the [tag reference](tags.md) for an overview of all tags, their purpose and 
 
 ## Passing script data to tags with STML variables
 
-Attribute values can be set directly with literal values, but oftentimes, it may be desirable to use data that was computed in your script. Script data can be used within STML via the use of STML variables.
+You can set attribute values directly with literal values, but often it is desirable to use data computed in your script. To do this, you can use STML variables.
 
 Here is an example of a script passing some metric data to the `data` attribute of the `auto-widget` tag. This script uses the `UI.showReport` function which uses STML to format a report.
 

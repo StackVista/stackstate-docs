@@ -43,7 +43,7 @@ It's recommended to have two different AWS accounts: One that's being monitored 
 
 #### AWS policy
 
-The policy below grants permission to assume the role `StackStateAwsIntegrationRole` that's created in each target AWS Monitor Account when the CloudFormation Stack is deployed. This policy is required by StackState and StackState Agent to collect data from the AWS Monitor Account. The policy should be created and attached to the AWS user(s) or IAM role(s) that will be used by StackState and the StackState Agent:
+The policy below grants permission to assume the role `StackStateAwsIntegrationRole` that's created in each target AWS Monitor Account when the CloudFormation Stack is deployed. This policy is required by StackState and StackState Agent to collect data from the AWS Monitor Account. The policy should be created and attached to the AWS user(s) or IAM role(s) used by StackState and the StackState Agent:
 
 ```javascript
 {
@@ -124,7 +124,7 @@ The table below includes links to deploy the template in popular AWS regions. Fo
 
 #### StackState template deployment
 
-The default StackState CloudFormation template can be used to deploy all necessary resources. It can be deployed to multiple AWS accounts and regions at once by deploying it in a CloudFormation StackSet. It's recommended to use this template as it provides an easy upgrade path for future versions and reduces the maintenance burden compared to creating a custom template.
+Use the default StackState CloudFormation template to deploy all necessary resources. It can be deployed to multiple AWS accounts and regions at once by deploying it in a CloudFormation StackSet. It's recommended to use this template as it provides an easy upgrade path for future versions and reduces the maintenance burden compared to creating a custom template.
 
 * [Download the default StackState CloudFormation template \(stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com\)](https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.3.cfn.yaml)
 
@@ -140,12 +140,12 @@ For more information on how to use StackSets, check the AWS documentation on [wo
 
 ### Install the AWS StackPack
 
-Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters, these will be used by StackState to configure the StackPack instance within StackState and query live telemetry from the AWS account. To create topology in StackState, you will also need to configure the AWS check on StackState Agent V2.
+Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters. StackState uses these to configure the StackPack instance within StackState and query live telemetry from the AWS account. To create topology in StackState, you will also need to configure the AWS check on StackState Agent V2.
 
 * **Role ARN** - the ARN of the IAM Role created by the cloudFormation stack. For example, `arn:aws:iam::<account id>:role/StackStateAwsIntegrationRole` where `<account id>` is the 12-digit AWS account ID that's being monitored. 
 * **External ID** - a shared secret that StackState will present when assuming a role. Use the same value across all AWS accounts. For example, `uniquesecret!1`
-* **AWS Access Key ID** - The Access Key ID of the IAM user that will be used by StackState to collect CloudWatch metrics. This is the same as the IAM user used by the Agent to collect topology data and logs from AWS. If StackState is running within AWS, it may also be possible to [authenticate with an IAM role](#iam-role-on-ec2-or-eks).
-* **AWS Secret Access Key** - The Secret Access Key of the IAM user that will be used by StackState to collect CloudWatch metrics. This is the same as the IAM user used by the Agent to collect topology data and logs from AWS. If StackState is running within AWS, it may also be possible to [authenticate with an IAM role](#iam-role-on-ec2-or-eks).
+* **AWS Access Key ID** - The Access Key ID of the IAM user used by StackState to collect CloudWatch metrics. This is the same as the IAM user used by the Agent to collect topology data and logs from AWS. If StackState is running within AWS, it may also be possible to [authenticate with an IAM role](#iam-role-on-ec2-or-eks).
+* **AWS Secret Access Key** - The Secret Access Key of the IAM user used by StackState to collect CloudWatch metrics. This is the same as the IAM user used by the Agent to collect topology data and logs from AWS. If StackState is running within AWS, it may also be possible to [authenticate with an IAM role](#iam-role-on-ec2-or-eks).
 
 ### Configure the AWS check
 
@@ -244,7 +244,7 @@ If StackState Agent is running on a Linux VM:
 
    ```yaml
    # values in init_config are used globally; 
-   # these credentials will be used for all AWS accounts
+   # these credentials are used for all AWS accounts
    init_config:
      aws_access_key_id: ''
      aws_secret_access_key: ''
@@ -270,7 +270,7 @@ If StackState Agent is running on a Linux VM:
     - **collection_interval** - The amount of time in seconds between each scan. Decreasing this value won't appreciably increase topology update speed.
     - **apis_to_run** - Optionally whitelist specific AWS services. It's not recommended to set this; instead rely on IAM permissions.
     - **log_bucket_name** - The S3 bucket that the agent should read events from. This value should only be set in custom implementations.
-    - **tags** - Optional. Can be used to apply specific tags to all reported data in StackState.
+    - **tags** - Optional. Use to apply specific tags to all reported data in StackState.
 
 3. [Restart the StackState Agent](/setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 4. Once the Agent has restarted, wait for data to be collected from AWS and sent to StackState.
@@ -295,7 +295,7 @@ To configure a VPC FlowLog from the AWS console:
 
 ### Use an HTTP proxy
 
-Access to the internet is required to call the AWS APIs. If StackState or the StackState Agent can't be given direct internet access, an HTTP proxy can be used to proxy the API calls. 
+Access to the internet is required to call the AWS APIs. If StackState or the StackState Agent can't be given direct internet access, you can use an HTTP proxy to proxy the API calls. 
 
 In the StackState AWS integration, CloudWatch metrics are pulled directly by StackState, while events and topology data are collected by the StackState Agent. This means that proxy details must be configured in two places to handle all requests - StackState for CloudWatch metrics and StackState Agent for topology and events data.
 
@@ -304,7 +304,7 @@ In the StackState AWS integration, CloudWatch metrics are pulled directly by Sta
   1. In the StackState UI, go to **Settings** > **Telemetry Sources** > **CloudWatch sources**.
   2. Find the CloudWatch source for which you want to configure a proxy. Open the **...** menu to the right and select **Edit**.
   3. Enter the proxy details in **Proxy URI**.
-  4. Click **TEST CONNECTION** to check that the proxy can be used to successfully connect to CloudWatch.
+  4. Click **TEST CONNECTION** to check that can successfully connect to CloudWatch via the proxy.
   5. Click **UPDATE** to save the proxy settings. Be aware that you may need to [unlock](/stackpacks/about-stackpacks.md#locked-configuration-items) it before this succeeds.
 
 ### Status
@@ -453,7 +453,7 @@ A delivery stream must be created in each region where events are captured, howe
 
 #### KMS Key \(Optional\)
 
-A KMS Customer Managed Key \(CMK\) can be used to secure data at rest in S3. The KMS key is used in the Firehose Delivery Stream. The S3 bucket also uses the KMS key as its default key.
+You can use a KMS Customer Managed Key \(CMK\) to secure data at rest in S3. The KMS key is used in the Firehose Delivery Stream. The S3 bucket also uses the KMS key as its default key.
 
 Use of a KMS is key isn't necessary for the operation of the StackPack, however as encryption at rest is a requirement in most environments, the CloudFormation template includes this by default.
 

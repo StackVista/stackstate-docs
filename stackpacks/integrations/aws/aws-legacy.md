@@ -50,7 +50,7 @@ Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrati
 * **AWS instance name** - the user-defined name of the AWS account shown in configurations such as views.
 * **AWS Access Key id** - the access key for the user for retrieving CloudWatch metrics.
 * **AWS Secret Access Key** - the secret key for the user for retrieving CloudWatch metrics.
-* **AWS Role ARN** - Optional: IAM role ARN - the ARN of the IAM role to be used
+* **AWS Role ARN** - Optional: IAM role ARN - the ARN of the IAM role to use.
 
 ### Deploy AWS Cloudformation stacks
 
@@ -111,7 +111,7 @@ Follow the steps below to complete a minimal install:
 
    You can also optionally specify the following:
 
-   * **--topo-cron-bucket** - a custom S3 bucket to be used during deployment.
+   * **--topo-cron-bucket** - a custom S3 bucket to use during deployment.
    * **--topo-cron-role** - a custom AWS IAM role. Note that the role must have an attached policy like that specified in the file `sts-topo-cron-policy.json` included in the manual install zip file.
 
 If you wish to use a specific AWS profile or an IAM role during installation, run either of these two commands:

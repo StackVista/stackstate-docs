@@ -37,7 +37,7 @@ Every .stj template is filled with information about the hosts and environments 
 
 ## How to get a templated file for your StackPack
 
-Preparing a templated file is a process that requires some configuration of StackState. To get the above file in a structure that can be used to create a StackPack, follow the below route:
+Preparing a templated file is a process that requires some configuration of StackState. To get the above file in the structure required to create a StackPack, follow the below route:
 
 ### 1. Prepare a check in StackState Agent
 

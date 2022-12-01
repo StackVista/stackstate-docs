@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-Agent Checks can be used to monitor a wide variety of technologies. Some examples are:
+Agent Checks can monitor a wide variety of technologies. Some examples are:
 
 * [MySQL](/stackpacks/integrations/mysql.md)
 * [Tomcat](/stackpacks/integrations/apache-tomcat.md)

@@ -6,9 +6,9 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-The analytics environment can be used to directly query the [4T data model](../concepts/4t_data_model.md). The analytics environment uses the StackState Scripting Language \(STSL\) as the basis for querying StackState, so you can build and test your StackState scripts here.
+In the analytics environment, you can directly query the [4T data model](../concepts/4t_data_model.md). The analytics environment uses the StackState Scripting Language \(STSL\) as the basis for querying StackState, so you can build and test your StackState scripts here.
 
-Queries created in the analytics environment can be used to investigate issues, automate processes and build reports. Here are some examples of queries that you could execute:
+You can use the queries created in the analytics environment to investigate issues, automate processes and build reports. Here are some examples of queries that you could execute:
 
 * Get the names of all pods running in a namespace.
 * Determine the maximum latency of a service since yesterday. 

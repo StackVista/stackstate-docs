@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-StackState configuration can be exported and imported. The import/export functionality can be used to automate the installation process and/or for backup purposes. An export and import can be made in the settings page of StackState's user interface by using the buttons 'Export Model' and 'Import Model'.
+StackState configuration can be exported and imported. This is helpful, for example, to automate the installation process or for backup purposes. An export and import can be made in the settings page of StackState's user interface by using the buttons 'Export Model' and 'Import Model'.
 
 ## Export configuration
 
@@ -336,7 +336,7 @@ Configuration export version _1.0.0_ was introduced in StackState version _1.14.
 Later configuration export version _1.1.0_ was introduced in StackState version _1.14.1_
 Later configuration export version _2.0.0_ was introduced in StackState version _1.15.0_
 
-This means that Nodes with Configuration version _1.0.0_ will work on both StackState _1.14.0_ and _1.14.1_ but not in _1.15.0_ as a major configuration export version \(_2.0.0_\) was introduced. It also means that configuration export version _1.1.0_ can only be used from StackState version _1.14.1_ but not before as in _1.14.0_
+This means that Nodes with Configuration version _1.0.0_ will work on both StackState _1.14.0_ and _1.14.1_ but not in _1.15.0_ as a major configuration export version \(_2.0.0_\) was introduced. It also means that you can only use configuration export version _1.1.0_ from StackState version _1.14.1_ but not before as in _1.14.0_
 
 ### Available versions
 

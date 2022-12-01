@@ -61,7 +61,7 @@ Depending on your StackState configuration, received events that are too old wil
 
 Events can be sent to the StackState Receiver API using the `"events"` property of the [common JSON object](send_metrics.md#common-json-object).
 
-All events in StackState relate to a topology element or elements. Any properties of an event can be used to define a log stream in StackState.
+All events in StackState relate to a topology element or elements. Any properties of an event can define a log stream in StackState.
 
 {% tabs %}
 {% tab title="Example event JSON" %}

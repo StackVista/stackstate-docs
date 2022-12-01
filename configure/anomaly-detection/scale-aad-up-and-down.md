@@ -8,7 +8,11 @@ description: StackState Self-hosted v5.1.x
 
 Anomaly detection is a CPU bound process and typically there are many more metric streams than can be handled in (near) real-time. The AAD uses prioritization to most effectively allocate the allotted resources to the most important streams. But how many resources must be given to the AAD is dependent on the number of metric streams that are present and the way anomalies are used to investigate problems.
 
-This page explains how to allocate resources for the AAD and determine if an installation is performing well. In particular, we show how to use metrics on anomaly health checks to do this.
+This page explains how to:
+
+* Allocate resources for the AAD.
+* Determine if an installation is performing well.
+* Use metrics on anomaly health checks to track installation performance.
 
 ## Set the number of workers
 
@@ -37,7 +41,7 @@ For most cases, this snippet should be added to the `values.yaml` file used to d
 
 ## Evaluate use of resources
 
-One of the most important uses of anomalies in the StackState product is in [anomaly health checks](../../use/checks-and-monitors/anomaly-health-checks.md). The following metrics can be used to determine if the AAD is putting the available resources to good use:
+One of the most important uses of anomalies in the StackState product is in [anomaly health checks](../../use/checks-and-monitors/anomaly-health-checks.md). The following metrics can help determine if the AAD is putting the available resources to good use:
 
 * **Checked streams** - the number of metric streams that have their latest data points checked.
 * **Streams with anomaly checks** - the number of metric streams that have an anomaly health check defined on them.

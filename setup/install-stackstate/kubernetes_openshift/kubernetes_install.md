@@ -48,7 +48,7 @@ The `values.yaml` file is required to deploy StackState with Helm. It contains y
 **Before you continue:** Make sure you have the latest version of the Helm chart with `helm repo update`.
 {% endhint %}
 
-The `generate_values.sh` script in the [installation directory](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation) of the Helm chart will guide you through generating a `values.yaml` file that can be used to deploy StackState. You can run the `generate_values.sh` script in two ways:
+The `generate_values.sh` script in the [installation directory](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation) of the Helm chart will guide you through generating a `values.yaml` file to use when StackState is deployed. You can run the `generate_values.sh` script in two ways:
 
 * **Interactive mode:** When the script is run without any arguments, it will guide you through the required configuration items.
 

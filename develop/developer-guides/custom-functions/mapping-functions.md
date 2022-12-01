@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-Mapping functions can optionally be used in topology synchronization to transform data. The goal of a mapping function is to process topology data from an external system and prepare parameters for use by a template function. There are two types of mapping functions:
+Topology synchronization can optionally use mapping functions to transform data. The goal of a mapping function is to process topology data from an external system and prepare parameters for use by a template function. There are two types of mapping functions:
 
 * **Component mapping functions** - used in the synchronization of components.
 * **Relation mapping functions** - used in the synchronization of relations.
@@ -91,7 +91,7 @@ Below is the mapping function script.
 
 * Line 1 of the script sets the value of the key streams to be a list. 
 * The entries of that list are also added, as shown on lines 2 through to 14. Each entry will be a map of `key:value` pairs with enough information about the metric stream for the template to create the stream definition. Each entry contains the keys `name`, `metric`, `id`, and `priority`. 
-* Line 17 contains an `if` statement checking whether the operating system is Linux by checking the `os.linux` data payload. If the `if` statement resolves to `True`, then two more metric streams are added to the streams list. This illustrates that the mapping function can be used to make  decisions based on the received data to change the resulting topology element.
+* Line 17 contains an `if` statement checking whether the operating system is Linux by checking the `os.linux` data payload. If the `if` statement resolves to `True`, then two more metric streams are added to the streams list. This illustrates the use of a mapping function to make decisions that change the resulting topology element based on received data.
 
 {% code lineNumbers="true" %}
 ```commandline

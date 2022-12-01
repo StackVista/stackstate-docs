@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-The [StackState CLI](/setup/cli/README.md) can be used to troubleshoot a health synchronization and fix issues that might prevent health data from being correctly ingested and displayed in StackState. This page describes the general troubleshooting steps to take when debugging a health synchronization, as well as the CLI commands used, and a description of the error messages returned.
+You can use the [StackState CLI](/setup/cli/README.md) to troubleshoot a health synchronization and fix issues that might prevent health data from being correctly ingested and displayed in StackState. This page describes the general troubleshooting steps to take when debugging a health synchronization, as well as the CLI commands used, and a description of the error messages returned.
 
 ## General troubleshooting steps
 
@@ -352,7 +352,7 @@ $ stac health delete urn:health:sourceId:streamId
 
 ### Clear health stream errors
 
-The `clear-errors` option removes all errors from a health stream. This is helpful while setting up a health synchronization in StackState, or, for the case of the `TRANSACTIONAL_INCREMENTS` consistency model, when it is not possible to remove some errors organically. For example, a request to delete a check state might raise an error if the check state isn't known to StackState. The only way to suppress such an error would be to use the `clear-errors` command.
+The `clear-errors` option removes all errors from a health stream. This is helpful while setting up a health synchronization in StackState, or, for the case of the `TRANSACTIONAL_INCREMENTS` consistency model, when it is not possible to remove some errors organically. For example, a request to delete a check state might raise an error if the check state isn't known to StackState. Such an error could be suppressed using the command `clear-errors`.
 
 {% tabs %}
 {% tab title="CLI: sts" %}

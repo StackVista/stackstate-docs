@@ -8,7 +8,7 @@ Most API functions execute asynchronously. That means they won't directly return
 
 ## Working with `StreamingScriptResult.then`
 
-If the result of your script is returned as a `StreamingScriptResult`, StackState will produce an asynchronously executed stream of data. If you want to further process the data in the `StreamingScriptResult`, the `.then` method can be used.
+If the result of your script is returned as a `StreamingScriptResult`, StackState will produce an asynchronously executed stream of data. Use the `.then` method to further process the data in the `StreamingScriptResult`.
 
 The `.then` method expects a [Groovy closure /(groovy-lang.org/)](https://groovy-lang.org/closures.html). The closure will be executed for each element in the `StreamingScriptResult`. This lambda function can work with the element and returns a new list of items or a single new item.
 
