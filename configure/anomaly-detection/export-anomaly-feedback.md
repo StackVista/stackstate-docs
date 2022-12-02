@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-Feedback that has been added to anomalies reported by the Autonomous Anomaly Detector can be exported to file using the StackState CLI. Exported data can be sent on to the StackState team for investigation.
+Feedback that has been added to anomalies reported by the Autonomous Anomaly Detector can be exported to file using the StackState CLI. You can send exported data to the StackState team for investigation.
 
 ## Export feedback
 
@@ -70,7 +70,7 @@ $ stac anomaly collect-feedback --start-time=-10d --end-time=-2d --history=3d > 
 
 ## Send exported feedback
 
-When requested, feedback exported from StackState can be sent on to the StackState team. Instructions on how to do this using a secure fileshare will be provided to you. All data received will be handled in accordance with the StackState security policy.
+When requested, you can export feedback from StackState and send this to the StackState team. Instructions on how to do this using a secure fileshare will be provided to you. All data received will be handled in accordance with the StackState security policy.
 
 {% hint style="warning" %}
 **Note that any user comments will be included in the exported feedback.** These comments are useful, but should not contain any sensitive information.

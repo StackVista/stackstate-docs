@@ -4,11 +4,11 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-This page describes the exact JSON messages that can be sent for the health synchronization Transactional Increments consistency model.
+This page describes the exact JSON messages to send for the health synchronization Transactional Increments consistency model.
 
 ## JSON property: "health"
 
-Health can be sent to the StackState Receiver API using the `"health"` property of the [common JSON object](send-health-data.md#common-json-object).
+You can send health to the StackState Receiver API using the `"health"` property of the [common JSON object](send-health-data.md#common-json-object).
 
 {% tabs %}
 {% tab title="Example health `transactional_increments` JSON" %}
@@ -84,7 +84,7 @@ Every health Transactional Increments data payload has the following details:
 
 ## Send health to StackState
 
-Health can be sent in one JSON message via HTTP POST. In the example below, a snapshot containing two check states is sent to StackState from a single external monitoring system.
+You can send health in one JSON message via HTTP POST. In the example below, a snapshot containing two check states is sent to StackState from a single external monitoring system.
 
 {% tabs %}
 {% tab title="curl" %}

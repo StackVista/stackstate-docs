@@ -55,7 +55,7 @@ Topology, telemetry and health data are sent to the receiver API via HTTP POST. 
 
 ### JSON health payload
 
-StackState accepts health data based on a chosen [consistency model](/configure/health/health-synchronization.md#consistency-models). The message that can be sent for each model are described on the pages below:
+StackState accepts health data based on a chosen [consistency model](/configure/health/health-synchronization.md#consistency-models). The message to send for each model are described on the pages below:
 
 * [Repeat Snapshots JSON](/configure/health/send-health-data/repeat_snapshots.md)
 * [Repeat States JSON](/configure/health/send-health-data/repeat_states.md)

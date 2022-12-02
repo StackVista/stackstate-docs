@@ -59,7 +59,7 @@ Depending on your StackState configuration, received events that are too old wil
 
 ## JSON property: "events"
 
-Events can be sent to the StackState Receiver API using the `"events"` property of the [common JSON object](send_metrics.md#common-json-object).
+You can send events to the StackState Receiver API using the `"events"` property of the [common JSON object](send_metrics.md#common-json-object).
 
 All events in StackState relate to a topology element or elements. Any properties of an event can define a log stream in StackState.
 
@@ -120,7 +120,7 @@ Events have the following details:
 
 ## Send events to StackState
 
-Multiple events can be sent in one JSON message via HTTP POST. You can also send a single event to StackState using the `stac` CLI `event send` command. For example:
+You can send multiple events in one JSON message via HTTP POST. You can also send a single event to StackState using the `stac` CLI `event send` command. For example:
 
 {% tabs %}
 {% tab title="curl" %}

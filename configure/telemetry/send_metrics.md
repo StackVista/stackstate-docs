@@ -59,7 +59,7 @@ Depending on your StackState configuration, received metrics that are too old wi
 
 ## JSON property: "metrics"
 
-Metrics can be sent to the StackState Receiver API using the `"metrics"` property of the [common JSON object](send_metrics.md#common-json-object).
+You can send metrics to the StackState Receiver API using the `"metrics"` property of the [common JSON object](send_metrics.md#common-json-object).
 
 {% tabs %}
 {% tab title="Example metric JSON" %}
@@ -94,7 +94,7 @@ The `timestamp` and `value` are used to plot the metric as a time series. Use th
 
 ## Send metrics to StackState
 
-Multiple metrics can be sent in one JSON message via HTTP POST to the [StackState Receiver API address](#stackstate-receiver-api). For example:
+You can send multiple metrics in one JSON message via HTTP POST to the [StackState Receiver API address](#stackstate-receiver-api). For example:
 
 {% tabs %}
 {% tab title="curl" %}

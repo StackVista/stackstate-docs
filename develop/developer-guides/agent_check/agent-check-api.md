@@ -141,7 +141,7 @@ Multiple instances of the same check can run concurrently. If a check is already
 
 ### Topology
 
-Topology elements can be sent to StackState with the following methods:
+You can send topology elements to StackState with the following methods:
 
 * `self.component` - Create a component in StackState. See [send components](agent-check-api.md#send-components).
 * `self.relation` - Create a relation between two components in StackState. See [send relations](agent-check-api.md#send-relations).
@@ -150,7 +150,7 @@ Topology elements can be sent to StackState with the following methods:
 
 #### Send components
 
-Components can be sent to StackState using the `self.component(id, type, data)` method.
+You can send components to StackState using the `self.component(id, type, data)` method.
 
 {% tabs %}
 {% tab title="Example - send a component" %}
@@ -182,7 +182,7 @@ All submitted topologies are collected by StackState and flushed together with a
 
 #### Send relations
 
-Relations can be sent to StackState using the `self.relation(source_id, target_id, type, data)` method.
+You can send relations to StackState using the `self.relation(source_id, target_id, type, data)` method.
 
 {% tabs %}
 {% tab title="Example - send a relation" %}
@@ -209,7 +209,7 @@ All submitted topologies are collected by StackState and flushed together with a
 
 ### Metrics
 
-Metrics can be sent to StackState with the following methods:
+You can send metrics to StackState with the following methods:
 
 * `self.gauge` - Sample a gauge metric.
 * `self.count` - Sample a raw count metric.
@@ -248,7 +248,7 @@ Check the example to send metrics in the [StackState MySQL check \(github.com\)]
 
 ### Events
 
-Events can be sent to StackState with the `self.event(event_dict)` method.
+You can send events to StackState with the `self.event(event_dict)` method.
 
 {% tabs %}
 {% tab title="Example - send an event" %}
@@ -320,7 +320,7 @@ This will be fully deprecated in Agent Check V2 in favour of the `CheckResponse`
 
 ### Health
 
-Health information can be sent to StackState with the following methods:
+You can send health information to StackState with the following methods:
 
 * `self.health.check_state` - send a check state as part of a snapshot.
 * `self.health.start_snapshot()` - start a health snapshot. Stackstate will only process health information if it is sent as part of a snapshot.
@@ -368,7 +368,7 @@ For more information on urns, health synchronization streams, snapshots and how 
 
 #### Send check states
 
-Components can be sent to StackState using the `self.component(id, type, data)` method.
+You can send components to StackState using the `self.component(id, type, data)` method.
 
 {% tabs %}
 {% tab title="Example - send a check state" %}
@@ -400,7 +400,7 @@ For an example of how to create a component, see the [StackState Static Health c
 
 ### Checks and streams
 
-Streams and health checks can be sent to StackState together with a topology component. These can then be mapped together in StackState by a StackPack to give you telemetry streams and health states on your components.
+You can send dtreams and health checks to StackState together with a topology component. These can then be mapped together in StackState by a StackPack to give you telemetry streams and health states on your components.
 
 All telemetry classes and methods can be imported from `stackstate_checks.base`. The following stream types can be added:
 

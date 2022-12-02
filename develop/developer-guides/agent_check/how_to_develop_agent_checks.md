@@ -145,7 +145,7 @@ timeout = float(instance.get('timeout', default_timeout))
 
 ### StackState Topology Snapshots
 
-Components and relations can be sent as part of a snapshot. A snapshot represents the total state of some external topology. By putting components and relations in a snapshot, StackState will persist all the topology elements present in the snapshot, and remove everything else for the topology instance. Creating snapshots is facilitated by two functions, these are already in place in the StackState "Skeleton" check:
+You can send components and relations as part of a snapshot. A snapshot represents the total state of some external topology. By putting components and relations in a snapshot, StackState will persist all the topology elements present in the snapshot, and remove everything else for the topology instance. Creating snapshots is facilitated by two functions, these are already in place in the StackState "Skeleton" check:
 
 * `self.start_snapshot()` - used to start a snapshot. Internally, the `AgentCheck` interface uses the `get_instance_key` function to uniquely identify this topology instance.
 * `self.stop_snapshot()` - used to stop a snapshot. Do this at the end of the check, after all data has been submitted.
@@ -282,14 +282,14 @@ Like with topology, health data is presented to StackState using snapshots. This
 
   **Send Check State**
 
-Check states can be sent through the health synchronization API using the `self.health.check_state()` functions in the `AgentCheck` interface.
+You can send check states through the health synchronization API using the `self.health.check_state()` functions in the `AgentCheck` interface.
 
 In the example below, a check state is created in StackState with the health value CRITICAL.
 
 * The check is attached to the component or relation matching the `topology_element_identifier`.
 * The `check_state_id` is used to distinguish check states within the current health stream.
 
-Check states can be sent through the health synchronization api, using the `self.health.check_state()` functions in the `AgentCheck` interface. The example below shows how to submit the data:
+You can send check states through the health synchronization api, using the `self.health.check_state()` functions in the `AgentCheck` interface. The example below shows how to submit the data:
 
 ```text
 from stackstate_checks.base import Health
@@ -309,7 +309,7 @@ If after following the previous steps your health data doesn't show in StackStat
 
 ### Send in Stream Definitions and Health Checks
 
-Stream Definitions and Health Checks for StackState can be sent together with Topology. Telemetry streams can then be mapped with health checks onto components in your integration, removing the need for extra work in StackState. This example below sets up a metric stream called `Host CPU Usage` with a `Maximum Average` check in StackState on the `this-host` component.
+You can send stream Definitions and Health Checks for StackState together with Topology. Telemetry streams can then be mapped with health checks onto components in your integration, removing the need for extra work in StackState. This example below sets up a metric stream called `Host CPU Usage` with a `Maximum Average` check in StackState on the `this-host` component.
 
 ```text
 # import

@@ -39,7 +39,7 @@ Existing StackPacks will include StackState monitors out of the box.
 
 ### External monitoring systems
 
-Health data from external monitoring systems can be sent to StackState using health synchronization. In this case, the health state is calculated by an external system based on its own rules. The calculated health state is then sent to StackState as a health stream and bound to the associated topology element. This approach is useful if you have existing health calculations defined externally, or if it's not viable to send telemetry or events data to StackState and translate the health calculation rules.
+External monitoring systems can send health data to StackState using health synchronization. In this case, the health state is calculated by an external system based on its own rules. The calculated health state is then sent to StackState as a health stream and bound to the associated topology element. This approach is useful if you have existing health calculations defined externally, or if it's not viable to send telemetry or events data to StackState and translate the health calculation rules.
 
 Existing StackPacks will include health synchronization out of the box.
 
