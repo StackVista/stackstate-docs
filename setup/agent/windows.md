@@ -46,7 +46,7 @@ For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md
 
 #### Online install
 
-If you have access to the internet on the machine where the Agent will be installed, the `install.ps1` script can be run using `iwr` and the Agent installer package will be downloaded automatically.
+If you have access to the internet on the machine where the Agent will be installed, the `install.ps1` script can be run using `iwr`. This will automatically download the Agent installer package.
 
 ```text
 . { iwr -useb https://stackstate-agent-2.s3.amazonaws.com/install.ps1 } | iex; `

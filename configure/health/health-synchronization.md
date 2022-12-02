@@ -77,7 +77,7 @@ Health synchronization processes the ingested health data per sub-stream. The re
 
 ### Expire Interval
 
-Use the expire interval to configure health synchronization sub-streams to delete data that isn't sent by the external system anymore. This is helpful in case the source for a sub stream could potentially be decommissioned and StackState would not hear from it again. Without an expire interval, the previously synchronized data would be left permanently hanging.
+Use the expire interval to configure health synchronization sub-streams to delete data that isn't sentÏ by the external system anymore. This is helpful in case the source for a sub stream could potentially be decommissioned and StackState would not hear from it again. Without an expire interval, the previously synchronized data would be left permanently hanging.
 
 ### Check State
 

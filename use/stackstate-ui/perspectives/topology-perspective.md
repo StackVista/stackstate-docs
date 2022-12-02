@@ -135,5 +135,4 @@ The components in the topology visualization can also be shown in a list instead
 From list mode, the component list can be exported as a CSV file. The CSV file includes `name`, `state`, `type` and `updated` details for each component in the view.
 
 1. From the topology perspective, click the **List mode** icon on the top right to open the topology in list mode.
-2. Click **Download as CSV** from the top of the page.
-   * The component list will be downloaded as a CSV file named `<view_name>.csv`.
+2. Click **Download as CSV** from the top of the page to download the component list as a CSV file named `<view_name>.csv`.

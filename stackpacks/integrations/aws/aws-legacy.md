@@ -33,7 +33,7 @@ To set up the StackState AWS integration, you need to have:
   * `cloudwatch:GetMetricData`
   * `cloudwatch:ListMetrics`
 
-    A policy file to create a user with the correct rights can be downloaded from the StackState UI screen **StackPacks** &gt; **Integrations** &gt; **AWS**.
+    You can download a policy file that creates a user with the correct rights from the StackState UI screen **StackPacks** &gt; **Integrations** &gt; **AWS**.
 * An AWS user with the required access rights to install StackState monitoring in your account. See [AWS IAM policies](aws-legacy.md#aws-iam-policies), below.
 
 ### Proxy URL
@@ -130,7 +130,7 @@ These environment variables have the same names used by the AWS\_CLI utility and
 
 ### AWS IAM Policies
 
-The following AWS policies can be downloaded during the installation of the AWS StackPack in your StackState instance:
+You can download the following AWS policies during the installation of the AWS StackPack in your StackState instance:
 
 * **Full install** - `StackStateIntegrationPolicyInstall.json`
 * **Minimal install** - `StackStateIntegrationPolicyTopoCronInstall.json` 
