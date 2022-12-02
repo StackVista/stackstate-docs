@@ -175,10 +175,10 @@ To manually specify a non-default propagation function, a `"propagation"` block 
 
 The propagation block requires the following keys:
 - **_type** - specifies that the JSON block defines a Propagation.
-- **function** the node ID of the propagation function to use. This can be obtained using a `get` helper.
+- **function** the node ID of the propagation function to use. To find this, use a `get` helper.
 - **arguments** - a list of arguments to match any user parameters that the propagation function requires. Arguments for system parameters are automatically provided during run time and don't need to be specified here. For further details, see the [examples](#example-templates) of adding a propagation function to a template.
   - **_type** - the type of the argument. This must match the **type** specified for the user parameter in the [propagation function](#create-a-custom-propagation-function).
-  - **parameter** - the node ID of the propagation function’s user parameter. This can be obtained using a `get` helper.
+  - **parameter** - the node ID of the propagation function’s user parameter. To find this, use a `get` helper.
   - Any values required for the specified argument **_type**.
 
 ### Example templates

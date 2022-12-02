@@ -75,7 +75,7 @@ For example, to run the monitor every 5 minutes, set the `intervalSeconds` to `3
 
 ### Status
 
-The status of a monitor can be obtained via the StackState CLI:
+You can find out the status of a monitor via the StackState CLI:
 
 {% tabs %}[](http://not.a.link "StackState Self-Hosted only")
 {% tab title="CLI: sts" %}[](http://not.a.link "StackState Self-Hosted only")

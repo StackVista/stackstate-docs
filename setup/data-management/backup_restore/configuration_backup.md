@@ -10,7 +10,7 @@ StackState configuration can be exported and imported. This is helpful, for exam
 
 ## Export configuration
 
-An export of the StackState configuration can be obtained from the StackState UI, the [StackState CLI](../../cli/README.md) or using curl commands. 
+You can export the StackState configuration from the StackState UI, the [StackState CLI](../../cli/README.md) or using curl commands. 
 
 ### StackState CLI
 
