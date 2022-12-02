@@ -414,7 +414,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 
 **Features**
 
-- The ability to create manual topology from the StackState UI has been removed. Please use the Static Topology StackPack in order to [create components manually](/configure/topology/how_to_create_manual_topology.md). STAC-14377
+- The ability to create manual topology from the StackState UI has been removed. Please use the Static Topology StackPack to [create components manually](/configure/topology/how_to_create_manual_topology.md). STAC-14377
 - Improved feedback from the topology synchronization service by exposing synchronization metrics via the CLI. STAC-13318
 - Improved root cause analysis using subviews: modify your view to include additional components, show indirect relations and paths, [show grouped relations](/use/concepts/relations.md), save changed views even when timetravelling. STAC-13142
 - Start anomaly detection on new streams after two hours. Adapt to changing streams in real-time. STAC-12996
@@ -430,7 +430,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 - Check state changes always invoke auto propagation even if a CRITICAL state has been propagated before. STAC-13656
 - Highlight exact changes when displaying Version Change, Health State Change or Run State Change events. STAC-13117
 - Retain timeline settings when switching views. STAC-12745
-- Component drag&drop functionality has been removed from the topology visualizer. Please use the Static Topology StackPack in order to [create components manually](/configure/topology/how_to_create_manual_topology.md). STAC-12718
+- Component drag&drop functionality has been removed from the topology visualizer. Please use the Static Topology StackPack to [create components manually](/configure/topology/how_to_create_manual_topology.md). STAC-12718
 - Support [querying for problems in the Script API](/develop/reference/scripting/script-apis/view.md). STAC-12506
 - Support [problem notifications](/use/problem-analysis/problem_notifications.md) to Slack. STAC-12496
 - Prevent StackPacks requiring an incompatible version of StackState from being installed. STAC-9311
@@ -527,7 +527,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 **Bug fixes**
 
 * Fixed issue that caused an import via the CLI to fail. STAC-13481
-* The deprecated elasticsearch-exporter Helm chart has been replaced with the prometheus-elasticsearch-exporter Helm chart in order to make it OpenShift compatible. STAC-13473
+* The deprecated elasticsearch-exporter Helm chart has been replaced with the prometheus-elasticsearch-exporter Helm chart to make it OpenShift compatible. STAC-13473
 * Fixed issue that prevented Keycloak authentication from working after expiry of a refresh token. STAC-13268
 * Fixed issue that prevented certain views from opening from the View Overview page. STAC-13244
 * Fixed crash when accessing the logs API. STAC-13149

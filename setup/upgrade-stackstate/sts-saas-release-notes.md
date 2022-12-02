@@ -336,7 +336,7 @@ Details of the included improvements and bug fixes can be found below.
 
 **Features**
 
-- The ability to create manual topology from the StackState UI has been removed. Please use the Static Topology StackPack in order to create components manually. STAC-14377
+- The ability to create manual topology from the StackState UI has been removed. Please use the Static Topology StackPack to create components manually. STAC-14377
 - Improved feedback from the topology synchronization service by exposing synchronization metrics via the CLI. STAC-13318
 - Improved root cause analysis using subviews: modify your view to include additional components, show indirect relations and paths, [show grouped relations](/use/concepts/relations.md), save changed views even when timetravelling. STAC-13142
 - Start anomaly detection on new streams after two hours. Adapt to changing streams in real-time. STAC-12996
@@ -352,7 +352,7 @@ Details of the included improvements and bug fixes can be found below.
 - Check state changes always invoke auto propagation even if a CRITICAL state has been propagated before. STAC-13656
 - Highlight exact changes when displaying Version Change, Health State Change or Run State Change events. STAC-13117
 - Retain timeline settings when switching views. STAC-12745
-- Component drag&drop functionality has been removed from the topology visualizer. Please use the Static Topology StackPack in order to create components manually. STAC-12718
+- Component drag&drop functionality has been removed from the topology visualizer. Please use the Static Topology StackPack to create components manually. STAC-12718
 - Support querying for problems in the Script API. STAC-12506
 - Support [problem notifications](/use/problem-analysis/problem_notifications.md) to Slack. STAC-12496
 - Prevent StackPacks requiring an incompatible version of StackState from being installed. STAC-9311
