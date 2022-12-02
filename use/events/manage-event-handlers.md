@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-Event handlers attached to a StackState view listen to events that are generated in relation to components in the view. Event notifications can then be sent or actions can be triggered in response to health state change events or problem events.
+Event handlers attached to a StackState view listen to events that are generated in relation to components in the view. Event notifications can then be sent or actions triggered in response to health state change events or problem events.
 
 ## Configured event handlers
 
@@ -51,7 +51,7 @@ Event handlers listen to events generated within a view. When the configured eve
 
 The Slack event handler function sends a Slack message with detailed information about the trigger event, including the possible root cause, to the configured Slack webhook URL. See [how to create a Slack Webhook \(slack.com\)](https://api.slack.com/messaging/webhooks). 
 
-Can be triggered by **Health state change events** and **Problem events**.
+Triggered by **Health state change events** or **Problem events**.
 
 {% hint style="info" %}
 Requires the [Slack StackPack](/stackpacks/integrations/slack.md) to be installed on your StackState instance.
@@ -61,20 +61,20 @@ Requires the [Slack StackPack](/stackpacks/integrations/slack.md) to be installe
 
 The HTTP webhook POST event handler function sends a POST request to the specified URL. 
 
-Can be triggered by **Health state change events** only.
+Triggered by **Health state change events** only.
 
 ### SMS
 
 The SMS event handler function sends an SMS with details of a health state change event using MessageBird.
 
-Can be triggered by **Health state change events** only.
+Triggered by **Health state change events** only.
 
 ### Email
 
 {% hint style="success" "self-hosted info" %}
 The email event handler function will send details of a health state change event using a [configured SMTP server](/configure/topology/configure-email-event-notifications.md).
 
-Can be triggered by **Health state change events** only.
+Triggered by **Health state change events** only.
 {% endhint %}
 
 ### Custom functions

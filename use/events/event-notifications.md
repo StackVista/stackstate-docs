@@ -28,7 +28,7 @@ Only events related to components are captured in event handlers, relation-relat
 
 ### State change events
 
-Metrics and events data flow through StackState topology elements in telemetry streams. These telemetry streams are used by [health checks](../checks-and-monitors/add-a-health-check.md) to determine the health state of an element. For every change in health state, at least one state change event is generated. Event notifications or actions can be triggered whenever state changed events are generated for a component in the view.
+Metrics and events data flow through StackState topology elements in telemetry streams. These telemetry streams are used by [health checks](../checks-and-monitors/add-a-health-check.md) to determine the health state of an element. For every change in health state, at least one state change event is generated. These events can trigger event notifications in response to states for a component in the view or the view itself.
 
 The event types generated when an element state changes are described below.
 

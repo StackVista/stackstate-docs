@@ -168,7 +168,7 @@ If StackState Agent is running on Kubernetes, the AWS check should be configured
     - **aws_secret_access_key** - The AWS Secret Access Key. Leave empty quotes to [use an attached IAM role](/stackpacks/integrations/aws/aws-sts-eks.md).
     - **external_id** - The same external ID used to create the CloudFormation stack in every account and region.
     - **role_arn** - In the example `arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole`, substitute 123456789012 with the target AWS account ID to read.
-    - **regions** - The Agent will only attempt to find resources in the specified regions. `global` is a special region for global resources, such as Route53.
+    - **regions** - The Agent will only try to find resources in the specified regions. `global` is a special region for global resources, such as Route53.
     ```yaml
     clusterAgent:
       config:
@@ -240,7 +240,7 @@ If StackState Agent is running on a Linux VM:
     - **aws_secret_access_key** - The AWS Secret Access Key. Leave empty quotes to [use an attached IAM role](/stackpacks/integrations/aws/aws-sts-ec2.md).
     - **external_id** - The same external ID used to create the CloudFormation stack in every account and region.
     - **role_arn** - In the example `arn:aws:iam::123456789012:role/StackStateAwsIntegrationRole`, substitute 123456789012 with the target AWS account ID to read.
-    - **regions** - The Agent will only attempt to find resources in the specified regions. `global` is a special region for global resources, such as Route53.
+    - **regions** - The Agent will only try to find resources in the specified regions. `global` is a special region for global resources, such as Route53.
 
    ```yaml
    # values in init_config are used globally; 
@@ -406,7 +406,7 @@ If the StackState Agent doesn't have permission to access a certain component, i
 
 #### StackState Agent IAM Role
 
-The bare minimum necessary to run the StackState Agent is an IAM role with necessary permissions. The Agent will always attempt to fetch as much data as possible for the supported resources. If a permission is omitted, the Agent will attempt to create a component with the data it has.
+The bare minimum necessary to run the StackState Agent is an IAM role with necessary permissions. The Agent will always try to fetch as much data as possible for the supported resources. If a permission is omitted, the Agent will try to create a component with the data it has.
 
 For example, if the permission `s3:GetBucketTagging` is omitted, the Agent will fetch all S3 buckets and their associated configuration, but the tags section will be empty.
 

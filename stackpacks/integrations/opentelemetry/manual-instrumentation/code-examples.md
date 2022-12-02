@@ -48,8 +48,7 @@ The StackState Agent expects you to send the [following keys in every single spa
 - `service.identifier`
 - `resource.name`
 
-***The most important part to remember is*** that the StackState Agent only accept the data in a [Protobuf Format](https://developers.google.com/protocol-buffers), Our examples below will
-use this format but if you do attempt to write something from scratch remember that this is a requirement.
+***The most important part to remember is*** that the StackState Agent only accepts the data in a [Protobuf Format](https://developers.google.com/protocol-buffers), Our examples below will use this format. If you try to write something yourself from scratch, remember that this is a requirement.
 
 In this NodeJs / Javascript example, The protobuf module responsible for handling Protobuf is the following line:
 
@@ -190,7 +189,7 @@ rdsDatabase.end();
 ---
 
 ### 7 - Flush the data
-This step isn't always required, but good to know about. Sometimes a script might attempt to end before the actual span was sent away.
+This step isn't always required, but good to know about. Sometimes a script might try to end before the actual span was sent away.
 
 A good example of this will be a Lambda execution, StackState will never receive the data as the execution stopped the second the Lambda was done. To get past this
 you can force flush the Trace Provider to definitely makes sure that StackState received the trace.
