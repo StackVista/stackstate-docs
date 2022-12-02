@@ -1,7 +1,8 @@
 
   
 name: reviewdog
-on: [pull_request]
+  push:
+    branches: [ test-vale-merge ]
 
 jobs:
   vale:
