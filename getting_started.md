@@ -26,7 +26,15 @@ To change which part of the landscape you are viewing \(for example, layers and 
 
 ## Topology elements
 
-A topology consists of components and relations combined with their health state. Because topologies can get very large, StackState automatically groups the components.
+### Components and relations
+
+The topology is made up of components and relations combined with their health state. As topologies can get very large, StackState will automatically [group some components together](/use/concepts/components.md#grouping).
+
+➡️ Learn more about [components](/use/concepts/components.md) and [relations](/use/concepts/relations.md)
+
+![Component](/.gitbook/assets/v51_topology_elements.png)
+
+### Health state
 
 The health state of a component is indicated by two colors:
 
@@ -35,9 +43,9 @@ The health state of a component is indicated by two colors:
 
 The direction of a relation's arrow indicates dependency. For example, `app -> db` means: `app` depends on `db`. Health propagates in the opposite direction to the arrows. So if the `db` component turns red, the outer color of the `app` component will turn red too.
 
-➡️ Learn more about [components](/use/concepts/components.md), [relations](/use/concepts/relations.md) and [health state](/use/concepts/health-state.md)
+➡️ [Learn more about health state](/use/concepts/health-state.md)
 
-![Component](/.gitbook/assets/v51_topology_elements.png)
+![Health states](/.gitbook/assets/v51_element-health-states.png)
 
 ## Timeline
 
