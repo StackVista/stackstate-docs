@@ -97,7 +97,7 @@ The properties described below can be retrieved from the default `view` and `eve
 
 #### HealthStateChangedEvent properties \(Asynchronous\)
 
-The properties listed below return details of a `HealthStateChangedEvent` in functions with asynchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a `HealthStateChangedEvent` in functions with asynchronous execution. Note that the default parameter name is `event`, you can modify this if you choose.
 
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the state change occurred. 
 * `event.causeId` - returns the UUID of the event that triggered the health state change. 
@@ -107,7 +107,7 @@ The properties listed below return details of a `HealthStateChangedEvent` in fun
 
 #### ViewHealthStateChangedEvent properties \(Asynchronous\)
 
-The properties listed below return details of a `ViewHealthStateChangedEvent` in functions with asynchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a `ViewHealthStateChangedEvent` in functions with asynchronous execution. Note that the default parameter name is `event`, you can modify this if you choose.
 
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the state change occurred. 
 * `event.causeId` - returns the UUID of the event that triggered the health state change. 
@@ -117,7 +117,7 @@ The properties listed below return details of a `ViewHealthStateChangedEvent` in
 
 #### PropagatedHealthStateChangedEvent properties \(Asynchronous\)
 
-The properties listed below return details of a `PropagatedHealthStateChangedEvent` in functions with asynchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a `PropagatedHealthStateChangedEvent` in functions with asynchronous execution. Note that the default parameter name is `event`, you can modify this if you choose.
 
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the state change occurred. 
 * `event.causeId` - returns the UUID of the event that triggered the health state change. 
@@ -125,7 +125,7 @@ The properties listed below return details of a `PropagatedHealthStateChangedEve
 
 #### ProblemCreatedEvent properties \(Asynchronous\)
 
-The properties listed below return details of a `ProblemCreatedEvent` in functions with asynchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a `ProblemCreatedEvent` in functions with asynchronous execution. Note that the default parameter name is `event`, you can modify this if you choose.
 
 * `event._type` - returns the event type \(`ProblemCreatedEvent`\).
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated. 
@@ -136,7 +136,7 @@ The properties listed below return details of a `ProblemCreatedEvent` in functio
 
 #### ProblemUpdatedEvent properties \(Asynchronous\)
 
-The properties listed below return details of a `ProblemUpdatedEvent` in functions with asynchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a `ProblemUpdatedEvent` in functions with asynchronous execution. Note that the default parameter name is `event`, you can modify this if you choose.
 
 * `event._type` - returns the event type \(`ProblemUpdatedEvent`\).
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
@@ -147,7 +147,7 @@ The properties listed below return details of a `ProblemUpdatedEvent` in functio
 
 #### ProblemSubsumedEvent properties \(Asynchronous\)
 
-The properties listed below return details of a `ProblemSubsumedEvent` in functions with asynchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a `ProblemSubsumedEvent` in functions with asynchronous execution. Note that the default parameter name is `event`, you can modify this if you choose.
 
 * `event._type` - returns the event type \(`ProblemSubsumedEvent`\).
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
@@ -159,7 +159,7 @@ The properties listed below return details of a `ProblemSubsumedEvent` in functi
 
 #### ProblemResolvedEvent properties \(Asynchronous\)
 
-The properties listed below return details of a `ProblemResolvedEvent` in functions with asynchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a `ProblemResolvedEvent` in functions with asynchronous execution. Note that the default parameter name is `event`, you can modify this if you choose.
 
 * `event._type` - returns the event type \(`ProblemResolvedEvent`\).
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
@@ -205,7 +205,7 @@ The properties described below can be retrieved from the default synchronous eve
 
 #### HealthStateChangedEvent properties \(Synchronous\)
 
-The properties listed below return details of a `HealthStateChangedEvent` in functions with synchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a `HealthStateChangedEvent` in functions with synchronous execution. Note that the default parameter name is `event`, you can modify this if you choose.
 
 * `event.getTriggeredTimestamp` - returns the time  \(epoch in ms\) at which the state change occurred. 
 * `event.getCauseId` - returns the UUID of the event that triggered the health state change. 
@@ -214,7 +214,7 @@ The properties listed below return details of a `HealthStateChangedEvent` in fun
 
 #### ViewHealthStateChangedEvent properties \(Synchronous\)
 
-The properties listed below return details of a `ViewHealthStateChangedEvent` in functions with synchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a `ViewHealthStateChangedEvent` in functions with synchronous execution. Note that the default parameter name is `event`, you can modify this if you choose.
 
 * `event.getTriggeredTimestamp` - returns the time  \(epoch in ms\) at which the state change occurred. 
 * `event.getCauseId` - returns the UUID of the event that triggered the health state change. 
@@ -223,7 +223,7 @@ The properties listed below return details of a `ViewHealthStateChangedEvent` in
 
 #### PropagatedHealthStateChangedEvent properties \(Synchronous\)
 
-The properties listed below return details of a `PropagatedHealthStateChangedEvent` in functions with synchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a `PropagatedHealthStateChangedEvent` in functions with synchronous execution. Note that the default parameter name is `event`, you can modify this if you choose.
 
 * `event.getTriggeredTimestamp` - returns the time  \(epoch in ms\) at which the state change occurred. 
 * `event.getCauseId` - returns the UUID of the event that triggered the health state change. 
@@ -231,7 +231,7 @@ The properties listed below return details of a `PropagatedHealthStateChangedEve
 
 #### ProblemCreated properties \(Synchronous\)
 
-The properties listed below return details of a `ProblemCreated` event in functions with synchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a `ProblemCreated` event in functions with synchronous execution. Note that the default parameter name is `event`, you can modify this if you choose.
 
 * `event._type` - returns the event type \(`ProblemCreated`\).
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated. 
@@ -242,7 +242,7 @@ The properties listed below return details of a `ProblemCreated` event in functi
 
 #### ProblemUpdated properties \(Synchronous\)
 
-The properties listed below return details of a `ProblemUpdated` event in functions with synchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a `ProblemUpdated` event in functions with synchronous execution. Note that the default parameter name is `event`, you can modify this if you choose.
 
 * `event._type` - returns the event type \(`ProblemUpdated`\).
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
@@ -253,7 +253,7 @@ The properties listed below return details of a `ProblemUpdated` event in functi
 
 #### ProblemSubsumed properties \(Synchronous\)
 
-The properties listed below return details of a `ProblemSubsumed` event in functions with synchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a `ProblemSubsumed` event in functions with synchronous execution. Note that the default parameter name is `event`, you can modify this if you choose.
 
 * `event._type` - returns the event type \(`ProblemSubsumed`\).
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.
@@ -265,7 +265,7 @@ The properties listed below return details of a `ProblemSubsumed` event in funct
 
 #### ProblemResolved properties \(Synchronous\)
 
-The properties listed below return details of a `ProblemResolved` event in functions with synchronous execution. Note that the default parameter name is`event`, this can be modified if you choose.
+The properties listed below return details of a `ProblemResolved` event in functions with synchronous execution. Note that the default parameter name is `event`, you can modify this if you choose.
 
 * `event._type` - returns the event type \(`ProblemResolved`\).
 * `event.triggeredTimestamp` - returns the time  \(epoch in ms\) at which the event was generated.

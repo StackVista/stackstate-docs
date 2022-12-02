@@ -190,7 +190,7 @@ instances:
     ## is used to send topology and/or telemetry to the receiver API.
     ##
     ## Unless the `--client` argument is passed the CLI will pick the `default` instance as configured below.
-    ## Other clients follow the exact same configuration pattern as the default client. You may simply copy-paste its config and modify whatever is needed.
+    ## Other clients follow the exact same configuration pattern as the default client. You may simply copy-paste its config and change whatever is needed.
     clients:
       default:
         api_key: "<STACKSTATE_RECEIVER_API_KEY>"

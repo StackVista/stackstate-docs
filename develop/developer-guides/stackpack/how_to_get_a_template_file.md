@@ -79,5 +79,5 @@ A `.stj` file contains a number of configuration nodes. Each of the configuratio
   * Typical `identifier` pattern that you can find across our StackPacks configuration is: `urn:stackpack:{stackpack_name}:{type_name}:{object_name}`
   * For StackPacks that can have multiple instances, the identifier has a slightly different pattern: `urn:stackpack:{stackpack_name}:instance:{{instanceId}}:{type_name}:{object_name}` where `{{instanceId}}` is uniquely generated for every instance of the StackPack.
 
-The only way to add/modify the identifiers is the manual edit of the configuration file. This option will be available also through the UI starting from the 1.15 release.
+The only way to add or modify the identifiers is the manual edit of the configuration file. This option will be available also through the UI starting from the 1.15 release.
 

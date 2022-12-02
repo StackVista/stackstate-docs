@@ -36,7 +36,7 @@ The context menu of each check result (...) contains several useful shortcuts:
 - **Edit** - change the configuration of a specific check.
 - **Delete** - remove the Check associated with this result panel.
 
-Note that both of the options above are disabled when in time-travelling mode - topology elements can't be modified in the past.
+Note that both of the options above are disabled when time-travelling - it is not possible to modify topology elements in the past.
 
 ## See also
 

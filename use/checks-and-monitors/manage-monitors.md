@@ -19,13 +19,13 @@ Most Monitors in StackState are created as part of a StackPack installed by the 
 * Details of the monitor functions provided by StackPacks can be found in [the StackPack documentation](../../stackpacks/integrations/README.md).
 * You can [create a custom monitor](../../develop/developer-guides/monitors/create-custom-monitors.md) from scratch using the StackState CLI.
 
-It might be beneficial to modify an existing monitor definition to change its parameters, run interval or to disable it. All of these actions are done by utilizing the StackState CLI and are described in greater detail in the following sections.
+It might be beneficial to modify an existing monitor definition to change its parameters, run interval or to disable it. All of these actions are done with the StackState CLI and are described in greater detail in the following sections.
 
 ### Edit
 
-Monitor configuration can be changed by modifying the monitor definition.
+Monitor configuration can be changed by editing the monitor definition.
 
-1. Find the ID or the identifier of the monitor to be modified. For example:
+1. Find the ID or the identifier of the monitor that you want to edit. For example:
    * **In the StackState UI:** Inspect the monitor definition using the context menu (...) of the [monitor result panel](/use/checks-and-monitors/monitors.md#monitor-results).
    * **In the StackState CLI:** List the monitors using `sts monitor list` or `stac monitor list`.
 2. Export the monitor definition into a file named `path/to/export.stj`:
