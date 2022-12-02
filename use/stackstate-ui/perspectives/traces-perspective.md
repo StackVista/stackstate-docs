@@ -6,17 +6,17 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-The Traces Perspective shows a list of traces and their spans for the components in your view. You can use this to monitor the performance of the applications in your IT infrastructure directly in StackState.
+The Traces Perspective shows a list of traces and their spans for the components in a view. You can use this to monitor the performance of the applications in your IT infrastructure directly in StackState.
 
 ![The Traces Perspective](../../../.gitbook/assets/v51_traces-perspective.png)
 
-To find out more about how you can add traces to StackState, read the [guide to setting up traces](../../../configure/traces/set-up-traces.md).
+➡️ [Learn how to set up traces in StackState](../../../configure/traces/set-up-traces.md).
 
 ## Inspecting Traces
 
 ### Trace Inspection
 
-The Traces Perspective shows a list of the slowest traces for the components in your selected view. Click on any trace in the list to see the spans that belong to it
+The Traces Perspective shows a list of the slowest traces for the components in the selected view. Click on any trace in the list to see the spans that belong to it
 
 ![Inspecting a trace](../../../.gitbook/assets/v51_trace-inspection.png)
 
@@ -46,7 +46,7 @@ The Traces Perspective shows traces matching the **Time Window** selected in the
 
 ## Traces and Topology
 
-In StackState, a [view](../views/about_views.md) shows you a sub-selection of your IT infrastructure in terms of components and relations. A number of our supported integrations send traces to StackState via [our Agent](../../../configure/traces/set-up-traces.md). These traces are used in the Traces Perspective and also in the [Topology Perspective](topology-perspective.md) to create the topology of your view.
+In StackState, a [view](../views/about_views.md) shows you a filtered sub-selection of the entire IT infrastructure (components and relations). A number of our supported integrations send traces to StackState via [our Agent](../../../configure/traces/set-up-traces.md). These traces are used in the Traces Perspective and also in the [Topology Perspective](topology-perspective.md) to create the topology for a view.
 
 For example, let's imagine that among your IT infrastructure the following components exist:
 
@@ -69,17 +69,17 @@ When ingesting traces, StackState attaches service identifiers to the components
 
 ## Sorting and limits
 
-Traces are sorted by latency \(descending\). This is the only sorting criteria available in this version. The trace list isn't limited by size, you can scroll infinitely to see all traces that are available for your component, filter and time selections. Finally, on top of the list of traces, StackState displays an approximation of the total amount of traces that are returned from the filters you have selected.
+Traces are sorted by latency \(descending\). This is the only sorting criteria available in this version. The trace list isn't limited by size, you can scroll infinitely to see all traces that are available for a component, filter and time selections. Finally, on top of the list of traces, StackState displays an approximation of the total amount of traces that are returned from the filters you have selected.
 
 ## Time Travel
 
 When using the Traces Perspective, just like in other perspectives, you can either be in live mode or [time travel to the past](../timeline-time-travel.md#time-travel).
 
-### Inspection, scrolling and its impact on time selection.
+### Auto-pause: Inspection and scrolling
 
-When using the Traces Perspective in live mode, you are constantly polling for the slowest traces in your time range selection. However, in a large IT infrastructure with constant requests being traced, your slowest traces right now might not be your slowest traces in a matter of seconds, changing their position the list. These constant updates to the order of the list could become frustrating, for example, if you are inspecting a trace/span, or scrolling through the list to look for a specific trace or pattern.
+When using the Traces Perspective in live mode, StackState is constantly polling for the slowest traces in the selected time range. In a large IT infrastructure with constant requests being traced, the slowest traces right now might not be the slowest traces in a matter of seconds, changing their position the list. These constant updates to the order of the list could become frustrating, for example, if you want to inspect a trace/span, or scroll through the list to find a specific trace or pattern.
 
-To avoid this, time will effectively be paused when you inspect a trace/span or scroll through the list of traces in live mode. You can then browse through a stable snapshot of your data. Note that pausing time means that you are now in the past, click **Go live** or **BACK TO LIVE** to stop time travelling and return to live mode.:
+To avoid this, StackState will pause time when you open a trace/span to inspect it, or start to scroll through the list of traces. This provides a stable snapshot of your data to browse through. Note that as soon as time is paused, you are effectively time travelling in the past. Click **Go live** in the timeline or **BACK TO LIVE** at the top of the screen to stop time travelling and return to live mode.
 
 ![Pausing time when inspecting a trace](../../../.gitbook/assets/v51_trace-inspection.png)
 

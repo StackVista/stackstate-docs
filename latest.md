@@ -9,7 +9,7 @@ Check out the [release notes](/setup/upgrade-stackstate/sts-release-notes.md) to
 
 **These documentation pages cover all functionality available in the StackState Self-hosted product**. 
 
-You can use StackState Self-hosted to observe an extensive set of technologies that originate either in your own data centers or in the cloud. If you are focussed solely on cloud technologies, such as Kubernetes or AWS, you might consider our SaaS solution. 
+Use StackState Self-hosted to observe an extensive set of technologies that originate either in your own data centers or in the cloud. If you are focussed solely on cloud technologies, such as Kubernetes or AWS, you might consider our SaaS solution. 
 
 ➡️ Switch to the [documentation for StackState SaaS](https://docs.stackstate.com/v/stackstate-saas/)
 
