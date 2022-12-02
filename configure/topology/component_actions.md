@@ -4,23 +4,21 @@ description: StackState Self-hosted v5.1.x
 
 # Component actions
 
-Component Actions in StackState can act based on various events and inputs provided by StackState's monitoring capabilities. This functionality provides users with configurable **Actions** that can be executed from the component context menu or the right panel details tab when a component has been selected - **Component details**.
+## Overview
 
-![Component Actions](../../.gitbook/assets/v51_actions.png)
-
-Component Actions can be configured within StackState Settings or can be predefined in a StackPack.
-
-## What's a Component Action?
-
-A Component Action is a script that can be executed for components bound to that script with an [STQL query](../../develop/reference/stql_reference.md). A Component Action consists of a unique name that's case-sensitive, an STQL bind that selects components, and a script that determines the action's behavior. There are also optional fields for providing a description and an Identifier.
+A Component Action is a script bound to specific components in the topology with an [STQL query](../../develop/reference/stql_reference.md). Each Component Action consists of a unique, case-sensitive name, an STQL query, and a script determining the action's behavior. There are also optional fields to provide a description and an identifier.
 
 ## Component Actions in use
 
-Component Actions allow for a wide range of operations on components, for example:
+Component Actions open the possibility for a wide range of operations on components, for example:
 
 * Repair actions - restart AWS EC2 instance when StackState reports that instance crashed.
 * Navigation actions - Navigate to the AWS Management Console of a component showing erratic behavior.
 * Reporting actions - Show a report that predicts the next 24 hours of CPU usage of a Kubernetes pod.
+
+* The available Component Actions are listed under **Actions** in the component context menu when you hover over a component andin the right panel details tab when a component has been selected - **Component details**. Each Component Action will only be available for execution on components that match its STQL query. 
+
+![Component Actions](../../.gitbook/assets/v51_actions.png)
 
 ## How to get Component Actions
 

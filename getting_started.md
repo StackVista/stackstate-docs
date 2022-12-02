@@ -38,8 +38,8 @@ The topology is made up of components and relations combined with their health s
 
 The health state of a component is indicated by two colors:
 
-* The component color indicates the health state that's calculated for the component itself.
-* The outer color indicates there is potential impact from unhealthy components or relations that this component depends upon.
+* The component color indicates the health state calculated for the component itself.
+* The outer color indicates that there is potential impact from unhealthy components or relations that the component depends upon.
 
 The direction of a relation's arrow indicates dependency. For example, `app -> db` means: `app` depends on `db`. Health propagates in the opposite direction to the arrows. So if the `db` component turns red, the outer color of the `app` component will turn red too.
 
