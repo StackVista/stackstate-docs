@@ -73,11 +73,13 @@ Traces are sorted by latency \(descending\). This is the only sorting criteria a
 
 ## Time Travel
 
-When using the Traces Perspective, just like in other perspectives, you can either be in live mode or [time travel to the past](../timeline-time-travel.md#time-travel).
+### Timeline
+
+Just like in other perspectives, the Traces Perspective can either be in live mode or [time travel to the past](../timeline-time-travel.md#time-travel).
 
 ### Auto-pause: Inspection and scrolling
 
-When using the Traces Perspective in live mode, StackState is constantly polling for the slowest traces in the selected time range. In a large IT infrastructure with constant requests being traced, the slowest traces right now might not be the slowest traces in a matter of seconds, changing their position the list. These constant updates to the order of the list could become frustrating, for example, if you want to inspect a trace/span, or scroll through the list to find a specific trace or pattern.
+In live mode, StackState is constantly polling for the slowest traces in the selected time range. In a large IT infrastructure with constant requests being traced, the slowest traces right now might not be the slowest traces in a matter of seconds, changing their position the list. These constant updates to the order of the list could become frustrating, for example, if you want to inspect a trace/span, or scroll through the list to find a specific trace or pattern.
 
 To avoid this, StackState will pause time when you open a trace/span to inspect it, or start to scroll through the list of traces. This provides a stable snapshot of your data to browse through. Note that as soon as time is paused, you are effectively time travelling in the past. Click **Go live** in the timeline or **BACK TO LIVE** at the top of the screen to stop time travelling and return to live mode.
 
