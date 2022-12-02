@@ -9,7 +9,7 @@ StackState prefers Kubernetes!
 In the future we will move away from Linux support. Read how to [migrate from the Linux install of StackState to the Kubernetes install](../kubernetes_openshift/migrate_from_linux.md).
 {% endhint %}
 
-Development mode is StackState's installation mode for a small installation to do experiments on. It requires only one machine, but it is limited to 1000 components per view, due to the limited setup. This is recommended for small trials. Production mode is what we recommend for bigger proof-of-concept projects or in an actual production environment.
+Development mode is StackState's installation mode for a small installation to do experiments on. It requires only one machine, but it's limited to 1000 components per view, due to the limited setup. This is recommended for small trials. Production mode is what we recommend for bigger proof-of-concept projects or in an actual production environment.
 
 ## Requirements
 

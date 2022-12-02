@@ -64,7 +64,7 @@ For example:
 
 ### Wildcard
 
-You can use `*` as a full wildcard in a component filter. It's not possible to filter for partial matches using a wildcard character.
+You can use `*` as a full wildcard in a component filter. It isn't possible to filter for partial matches using a wildcard character.
 
 ### Examples
 

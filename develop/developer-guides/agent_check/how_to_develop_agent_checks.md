@@ -223,7 +223,7 @@ The example below submits a gauge metric `system.cpu.usage` for our previously s
 self.gauge("system.cpu.usage", 24.5, tags=["hostname:this-host"])
 ```
 
-Note: It is important to have a tag or combination of tags that you can use to uniquely identify this metric and map it to the corresponding component within StackState.
+Note: it's important to have a tag or combination of tags that you can use to uniquely identify this metric and map it to the corresponding component within StackState.
 
 ➡️ [Learn more about the Agent Check Metric API](agent-check-api.md)
 
@@ -345,7 +345,7 @@ We create a `MetricStream` on the `system.cpu.usage` metric with some conditions
 
 Service Checks are used to submit the state of the agent integration instance. Service checks can be submitted using the `self.service_check` method in the `AgentCheck` interface. Service check data is also stored in the `StackState Generic Events` data source.
 
-The example below submits a service check to StackState when it is verified that the check was configured correctly and it can communicate with the instance that's monitored:
+The example below submits a service check to StackState when it's verified that the check was configured correctly and it can communicate with the instance that's monitored:
 
 ```text
 # some logic here to test our connection and if successful:

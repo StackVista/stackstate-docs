@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 {% hint style="info" %}
-The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. it's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the sts CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli)
@@ -102,7 +102,7 @@ The StackState CLI can be run inside a Docker container on Linux, Windows or mac
 
 ## Configure the `stac` CLI
 
-After a new installation, the `stac` CLI must be configured with the API connection details for your StackState instance. Upgrading to a new version of the CLI will not overwrite the existing configuration. It's not necessary to configure the CLI again after it has been upgraded.
+After a new installation, the `stac` CLI must be configured with the API connection details for your StackState instance. Upgrading to a new version of the CLI will not overwrite the existing configuration. It isn't necessary to configure the CLI again after it has been upgraded.
 
 The standalone executable StackState CLI on Linux or Windows includes a wizard to guide you through configuration. If you installed the Docker version of the `stac` CLI on macOS, Linux or Windows, the configuration file must be manually created.
 
@@ -243,7 +243,7 @@ StackState receives topology, telemetry and trace data via the Receiver API. If 
 {% hint style="warning" %}
 **Base API and Admin API authentication using username/password will be deprecated.**
 
-The `stac` CLI will issue a warning when username/password authentication is used for the Base API and the Admin API. It is recommended to switch to token based authentication as described below.
+The `stac` CLI will issue a warning when username/password authentication is used for the Base API and the Admin API. it's recommended to switch to token based authentication as described below.
 {% endhint %}
 
 The `stac` CLI authenticates against the Base API and the Admin API using a unique API token that's auto-generated for your StackState user account. The same API token should be entered in the `stac` CLI configuration file for both the Base API and the Admin API.
@@ -324,5 +324,5 @@ stac subscription update new-license-key
 ```
 
 {% hint style="info" %}
-Note that it's not necessary to do this using the CLI. StackState will also offer this option in the UI when a license is about to expire or has expired.
+Note that it isn't necessary to do this using the CLI. StackState will also offer this option in the UI when a license is about to expire or has expired.
 {% endhint %}

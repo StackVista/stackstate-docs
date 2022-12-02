@@ -517,7 +517,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 * Completed removal of deprecated baseline functions. Baseline functions should be removed from all templates. [See upgrade documentation for more details](version-specific-upgrade-instructions.md#upgrade-to-v-4-4-x). STAC-12602
 * The HDFS OpenShift SecurityContextConfiguration is not necessary and has been removed from the documentation. STAC-12573
 * [Timeline improvements](../../use/stackstate-ui/timeline-time-travel.md):
-  * It is now possible to zoom out of a time range. STAC-12533
+  * it's now possible to zoom out of a time range. STAC-12533
   * Added support for navigating to the next and previous time range. STAC-12531
 * Indirect relations for "Show root cause only" are now always shown when there is at least one invisible dependency that leads to the root cause. In earlier versions of StackState an indirect relation for a root cause was only shown if there was no visible path to the root cause. STAC-11621
 * [Relations to component groups are shown as solid lines](/use/concepts/relations.md). In StackState v4.3 a grouped relation was displayed as a dashed line when the group of relations wasn't complete in the sense that each component in the group received that relation \(this is also called surjective\). STAC-11621
@@ -619,14 +619,14 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 
 * Introduced [check functions that alert on anomalies](../../use/checks-and-monitors/anomaly-health-checks.md) detected by the Autonomous Anomaly Detector. Previous anomaly detection functions and baseline streams and functions are deprecated and will be removed in StackState v4.4. STAC-12256
 * The [Autonomous Anomaly Detector \(AAD\)](../../stackpacks/add-ons/aad.md) is now enabled by default in the Kubernetes distribution. STAC-12024
-* It is now possible to [configure whether ClusterRoles and ClusterRoleBindings need to be installed](../install-stackstate/kubernetes_openshift/required_permissions.md#disable-automatic-creation-of-cluster-wide-resources) by the StackState Helm chart using the flag `cluster-role.enabled`. STAC-11749
+* it's now possible to [configure whether ClusterRoles and ClusterRoleBindings need to be installed](../install-stackstate/kubernetes_openshift/required_permissions.md#disable-automatic-creation-of-cluster-wide-resources) by the StackState Helm chart using the flag `cluster-role.enabled`. STAC-11749
 * StackState HDFS pods now run without privileges in Kubernetes. STAC-11741
 * Added support for interacting with external systems using [self-signed certificates](/configure/security/self-signed-certificates.md). STAC-11738
 * The field specifying the [role to use for Keycloak authentication](../../configure/security/authentication/keycloak.md) \(default field name: `roles`\) is now configurable using the `groupsField` configuration parameter. STAC-11609
 * StackState now supports [API tokens for authentication of the StackState CLI](../cli/README.md). This allows the StackState CLI to work with Keycloak or OIDC as an authentication provider. STAC-11608
 * The CLI will now issue a deprecation warning when not using the new API token based authentication. STAC-12567
 * Added support for [backup and restore procedure for self-hosted Kubernetes](../data-management/backup_restore/kubernetes_backup.md) setup. STAC-11548
-* It is now possible to use component actions when time-traveling. STAC-11462
+* it's now possible to use component actions when time-traveling. STAC-11462
 * Introduced auto-grouping to automatically choose the correct grouping level for views. STAC-11396
 * Authentication settings are now directly configurable on the Helm chart. STAC-11237
 * Added permission `manage-event-handlers` to [protect creation of event handlers](../../configure/security/rbac/rbac_permissions.md#view-management). STAC-11172
@@ -657,7 +657,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 
 **Improvements**
 
-* It is now possible to configure whether ClusterRoles and ClusterRoleBindings need to be installed by the Helm chart using the `cluster-role.enabled` flag. STAC-11749
+* it's now possible to configure whether ClusterRoles and ClusterRoleBindings need to be installed by the Helm chart using the `cluster-role.enabled` flag. STAC-11749
 * Added support for interacting with external systems using self-signed certificates. STAC-11738
 * Added documentation and support for backup and restore for self-hosted Kubernetes setup. STAC-11548
 
@@ -714,7 +714,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 **Bug fixes**
 
 * Fixed issue where duplicate negative IDs in a component template leads to `lastUpdateTimstampField` missing. STAC-11495
-* Fix issue where kafkaToES would not log when it is dropping data. STAC-11434
+* Fix issue where kafkaToES would not log when it's dropping data. STAC-11434
 * Fixed issue where kafkaToES would not adhere to the index size boundaries when historic data is stored. STAC-11433
 * Upload of a new StackPack now returns more details on why an uploaded StackPack is not valid. STAC-11094
 * Fixed issue that caused a baseline stream to disappear if the associated stream's filter was changed. STAC-10872
@@ -724,8 +724,8 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 * Fixed issue that caused checks to ignore a change to a streams filter under certain circumstances. STAC-10733
 * Fixed issue that caused an error when StackState attempted to connect to an LDAP server using LDAPS on certain versions of the JVM. STAC-10606
 * Fixed issue that made it impossible to save changes to functions in the Settings screen. STAC-10180
-* Next to the admin and guest roles StackState now has a standard power user role. It has the same permissions as an admin user except it is not allowed to grant permissions or to upload stackpacks. STAC-10170
-* UPGRADE NOTE: It is strongly advised to review the roles your users have and limit the number of admin users. Users that need to configure StackState can be given the role of power user instead. STAC-10170
+* Next to the admin and guest roles StackState now has a standard power user role. It has the same permissions as an admin user except it isn't allowed to grant permissions or to upload stackpacks. STAC-10170
+* UPGRADE NOTE: it's strongly advised to review the roles your users have and limit the number of admin users. Users that need to configure StackState can be given the role of power user instead. STAC-10170
 * Fixed issue that caused a security exception to occur when using a groovy regex in the Analytics environment. STAC-9947
 * Fixed issue that caused an error when showing the Component Details pane for a component or relation originating from a removed synchronization. STAC-8165
 
@@ -774,7 +774,7 @@ With the release of StackState v4.4, StackState v4.1 reached End of Life \(EOL\)
 * Improved navigation in the StackState UI. STAC-9448
 * Added support for Splunk token-based authentication for Splunk versions 7.3 and later. STAC-9032
 * Added ability to star views for easy access. STAC-8805
-* StackState shows a warning when a license key is about to expire or an error when it is invalid or has expired. This includes the option to update the license key from that screen directly. STAC-7453
+* StackState shows a warning when a license key is about to expire or an error when it's invalid or has expired. This includes the option to update the license key from that screen directly. STAC-7453
 * StackState CLI is now shipped as a standalone binary for Linux and Windows. STAC-5614
 
 **Bug fixes**
@@ -846,6 +846,6 @@ StackState v4.0 is End of Life \(EOL\) and is no longer supported.
 * Proper handling for trailing slash in a receiver URL configuration. STAC-7817
 * Upgrade the requirement and documentation of Static Topology to use AgentV2. STAC-8640
 * `processmanager-properties.conf` was merged into `processmanager.conf` for both StackState and StackGraph. If you have changes to either one of those configuration files, your changes will need to be reaplied after upgrade. STAC-8473
-* The authentication for the admin API \(port 7071 by default\) is now configured separately from the normal authentication and, for new installations, it is enabled by default. If authentication was enabled for this api \(by default not\) this requires a change in the StackState configuration file. If it wasn't enabled it is strongly advised to enable it now and change the password. See the `application_stackstate.conf.example` file for an explanation on how to do both. STAC-7993
-* It is now possible to configure a proxy for event handlers, see [how to set this up](../../configure/topology/proxy-for-event-handlers.md). STAC-7784
+* The authentication for the admin API \(port 7071 by default\) is now configured separately from the normal authentication and, for new installations, it's enabled by default. If authentication was enabled for this api \(by default not\) this requires a change in the StackState configuration file. If it wasn't enabled it's strongly advised to enable it now and change the password. See the `application_stackstate.conf.example` file for an explanation on how to do both. STAC-7993
+* it's now possible to configure a proxy for event handlers, see [how to set this up](../../configure/topology/proxy-for-event-handlers.md). STAC-7784
 * Allow STS process manager to perform HTTPS health check. STAC-7718

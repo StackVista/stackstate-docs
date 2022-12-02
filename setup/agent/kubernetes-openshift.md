@@ -28,7 +28,7 @@ The Kubernetes and OpenShift integrations collect topology data from Kubernetes 
 | [Cluster Agent](#cluster-agent) | `stackstate-agent-cluster-agent` |
 
 {% hint style="info" %}
-To integrate with other services, a separate instance of the StackState Agent should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on a Kubernetes or OpenShift cluster with checks that integrate with other services.
+To integrate with other services, a separate instance of the StackState Agent should be deployed on a standalone VM. it isn't currently possible to configure a StackState Agent deployed on a Kubernetes or OpenShift cluster with checks that integrate with other services.
 {% endhint %}
 
 ![StackState Agents on Kubernetes](/.gitbook/assets/agent-kubernetes-openshift.svg)
@@ -141,7 +141,7 @@ If StackState Agent will run in an environment that doesn't have a direct connec
 
 1. Internet connection required:
    1. Download or clone the StackState Helm charts repo from GitHub: [https://github.com/StackVista/helm-charts](https://github.com/StackVista/helm-charts)
-   2. In the Helm charts repo, go to the directory `stable/stackstate-agent/installation` and use the script `backup.sh` to back up the required images from StackState. The script will pull all images required for the `stackstate-agent` Helm chart to run, back them up to individual tar archives and add all tars to a single `tar.gz` archive. The images will be in a `tar.gz` archive in the same folder as the working directory from where the script was executed. It is advised to run the script from the `stable/stackstate-agent/installation` directory as this will simplify the process of importing images on the destination system.
+   2. In the Helm charts repo, go to the directory `stable/stackstate-agent/installation` and use the script `backup.sh` to back up the required images from StackState. The script will pull all images required for the `stackstate-agent` Helm chart to run, back them up to individual tar archives and add all tars to a single `tar.gz` archive. The images will be in a `tar.gz` archive in the same folder as the working directory from where the script was executed. it's advised to run the script from the `stable/stackstate-agent/installation` directory as this will simplify the process of importing images on the destination system.
       * By default, the backup script will retrieve charts from the StackState chart repository (https://helm.stackstate.io), images are retrieved from the default StackState image registry (quay.io). The script can be executed from the `installation` directory as simply `./backup.sh`.
         ```text
           Back up helm chart images to a tar.gz archive for easy transport via an external storage device.
@@ -216,7 +216,7 @@ If required, the images required to install the StackState Agent, Cluster Agent,
 ## Helm chart values
 
 Additional variables can be added to the standard helm command used to deploy the StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics. For example:
-* It is recommended to [provide a `stackstate.cluster.authToken`](#stackstateclusterauthtoken).
+* it's recommended to [provide a `stackstate.cluster.authToken`](#stackstateclusterauthtoken).
 * If you use a custom socket path, [set the `agent.containerRuntime.customSocketPath`](#agentcontainerruntimecustomsocketpath).
 
 {% hint style="info" %}
@@ -225,7 +225,7 @@ Details of all available helm chart values can be found in the [Cluster Agent He
 
 ### stackstate.cluster.authToken
 
-It is recommended to provide a `stackstate.cluster.authToken` in addition to the standard helm chart variables when the StackState Agent is deployed. This is an optional variable, however, if not provided a new, random value will be generated each time a helm upgrade is performed. This could leave some pods in the cluster with an incorrect configuration.
+it's recommended to provide a `stackstate.cluster.authToken` in addition to the standard helm chart variables when the StackState Agent is deployed. This is an optional variable, however, if not provided a new, random value will be generated each time a helm upgrade is performed. This could leave some pods in the cluster with an incorrect configuration.
 
 For example:
 
@@ -261,7 +261,7 @@ helm upgrade --install \
 
 ### agent.containerRuntime.customSocketPath
 
-It is not necessary to configure this property if your cluster uses one of the default socket paths (`/var/run/docker.sock`, `/var/run/containerd/containerd.sock` or `/var/run/crio/crio.sock`)
+it isn't necessary to configure this property if your cluster uses one of the default socket paths (`/var/run/docker.sock`, `/var/run/containerd/containerd.sock` or `/var/run/crio/crio.sock`)
 
 If your cluster uses a custom socket path, you can provide it using the key `agent.containerRuntime.customSocketPath`. For example:
 
@@ -329,7 +329,7 @@ helm upgrade --install \
 {% hint style="warning" %}
 The `stackstate/cluster-agent` chart is being deprecated and will no longer be supported.
 
-It is recommended that you [upgrade to the new `stackstate/stackstate-agent` chart](#upgrade-helm-chart).
+it's recommended that you [upgrade to the new `stackstate/stackstate-agent` chart](#upgrade-helm-chart).
 {% endhint %}
 
 If you need to redeploy the Agent using the old `stackstate/cluster-agent` chart, refer to the [StackState v5.0 documentation \(docs.stackstate.com/v/5.0/\)](https://docs.stackstate.com/v/5.0/setup/agent/kubernetes#install).
@@ -398,7 +398,7 @@ The old `stackstate/cluster-agent` chart used to be the Agent has been replaced 
 
 | stackstate/cluster-agent | stackstate/stackstate-agent | Changes in NEW chart                                                                   |
 | :--- | :--- |:---------------------------------------------------------------------------------------|
-| OLD chart (being deprecated) | NEW chart | It is advised to use the NEW `stackstate/stackstate-agent` chart.                     |
+| OLD chart (being deprecated) | NEW chart | it's advised to use the NEW `stackstate/stackstate-agent` chart.                     |
 | `clusterChecks` | `checksAgent` | Section renamed and enabled by default. |
 | `agent` | `nodeAgent` | Section renamed.                           |
 
@@ -490,7 +490,7 @@ StackState Agent V2 can be configured to reduce data production, tune the proces
 
 ## External integration configuration
 
-To integrate with other external services, a separate instance of the [StackState Agent](about-stackstate-agent.md) should be deployed on a standalone VM. Other than [kubernetes_state check](/stackpacks/integrations/kubernetes.md) and [AWS check](/stackpacks/integrations/aws/aws.md#configure-the-aws-check), it is not currently possible to configure a StackState Agent deployed on a Kubernetes or OpenShift cluster with checks that integrate with other services.
+To integrate with other external services, a separate instance of the [StackState Agent](about-stackstate-agent.md) should be deployed on a standalone VM. Other than [kubernetes_state check](/stackpacks/integrations/kubernetes.md) and [AWS check](/stackpacks/integrations/aws/aws.md#configure-the-aws-check), it isn't currently possible to configure a StackState Agent deployed on a Kubernetes or OpenShift cluster with checks that integrate with other services.
 
 # Commands
 

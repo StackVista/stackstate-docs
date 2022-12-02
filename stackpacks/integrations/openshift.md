@@ -68,7 +68,7 @@ For the OpenShift integration to retrieve topology, events and metrics data, you
 ➡️ [Deploy StackState Agents and kube-state-metrics](../../setup/agent/kubernetes-openshift.md).
 
 {% hint style="info" %}
-To integrate with other services, a separate instance of the [StackState Agent](../../setup/agent/about-stackstate-agent.md) should be deployed on a standalone VM. It's not currently possible to configure a StackState Agent deployed on an OpenShift cluster with checks that integrate with other services.
+To integrate with other services, a separate instance of the [StackState Agent](../../setup/agent/about-stackstate-agent.md) should be deployed on a standalone VM. It isn't currently possible to configure a StackState Agent deployed on an OpenShift cluster with checks that integrate with other services.
 {% endhint %}
 
 ### Configure kube-state-metrics

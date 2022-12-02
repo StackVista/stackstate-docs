@@ -37,7 +37,7 @@ See the [tag reference](tags.md) for an overview of all tags, their purpose and 
 
 ## Passing script data to tags with STML variables
 
-You can set attribute values directly with literal values, but often it is desirable to use data computed in your script. To do this, you can use STML variables.
+You can set attribute values directly with literal values, but often it's desirable to use data computed in your script. To do this, you can use STML variables.
 
 Here is an example of a script passing some metric data to the `data` attribute of the `auto-widget` tag. This script uses the `UI.showReport` function which uses STML to format a report.
 

@@ -335,7 +335,7 @@ $ sts health delete -u urn:health:sourceId:streamId
 {% hint style="warning" %}
  **The StackState v5.0 release renamed the old `sts` CLI to `stac`. The old CLI is now deprecated.**
 
-The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. it's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
@@ -352,7 +352,7 @@ $ stac health delete urn:health:sourceId:streamId
 
 ### Clear health stream errors
 
-The `clear-errors` option removes all errors from a health stream. This is helpful while setting up a health synchronization in StackState, or, for the case of the `TRANSACTIONAL_INCREMENTS` consistency model, when it is not possible to remove some errors organically. For example, a request to delete a check state might raise an error if the check state isn't known to StackState. Such an error could be suppressed using the command `clear-errors`.
+The `clear-errors` option removes all errors from a health stream. This is helpful while setting up a health synchronization in StackState, or, for the case of the `TRANSACTIONAL_INCREMENTS` consistency model, when it isn't possible to remove some errors organically. For example, a request to delete a check state might raise an error if the check state isn't known to StackState. Such an error could be suppressed using the command `clear-errors`.
 
 {% tabs %}
 {% tab title="CLI: sts" %}
@@ -371,7 +371,7 @@ $ sts health clear-error -u urn:health:sourceId:streamId
 {% hint style="warning" %}
  **The StackState v5.0 release renamed the old `sts` CLI to `stac`. The old CLI is now deprecated.**
 
-The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. it's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")

@@ -88,7 +88,7 @@ grant SELECT ON pg_stat_activity_dd to stackstate;
 
 #### Log Collection
 
-PostgreSQL default logging is to `stderr` and logs don't include detailed information. It is recommended to log into a file with additional details specified in the log line prefix.
+PostgreSQL default logging is to `stderr` and logs don't include detailed information. it's recommended to log into a file with additional details specified in the log line prefix.
 
 * Edit your PostgreSQL configuration file `/etc/postgresql/<version>/main/postgresql.conf` and uncomment the following parameter in the log section:
 

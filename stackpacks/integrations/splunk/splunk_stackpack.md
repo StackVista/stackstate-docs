@@ -61,7 +61,7 @@ Two authentication mechanisms are available:
 
 #### Token-based Authentication
 
-Token-based authentication supports Splunk authentication tokens. An initial Splunk token is provided in the Splunk check configuration. This initial token is used the first time the check starts, it is then exchanged for a new token. For details on using token based authentication with Splunk, see the [Splunk documentation \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/8.1.3/Security/Setupauthenticationwithtokens).
+Token-based authentication supports Splunk authentication tokens. An initial Splunk token is provided in the Splunk check configuration. This initial token is used the first time the check starts, it's then exchanged for a new token. For details on using token based authentication with Splunk, see the [Splunk documentation \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/8.1.3/Security/Setupauthenticationwithtokens).
 
 Token-based authentication is preferred over HTTP basic authentication and will override basic authentication in case both are configured.
 
@@ -100,7 +100,7 @@ The first time the check runs, the configured `initial_token` will be exchanged 
 #### HTTP basic authentication
 
 {% hint style="info" %}
-It is recommended to use [token-based authentication](splunk_stackpack.md#token-based-authentication).
+it's recommended to use [token-based authentication](splunk_stackpack.md#token-based-authentication).
 {% endhint %}
 
 With HTTP basic authentication, the `username` and `password` specified in the StackState Agent V2 check configuration files are used to connect to Splunk. These parameters are specified in the section `authentication.basic_auth` of each StackState Agent V2 Splunk check configuration file.

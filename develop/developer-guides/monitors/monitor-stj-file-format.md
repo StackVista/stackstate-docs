@@ -93,7 +93,7 @@ The StackState v5.0 release renamed the old `sts` CLI to `stac` and introduced n
 
 ⚠️ **The StackState v5.0 release renamed the old `sts` CLI to `stac`. The old CLI is now deprecated.** [](http://not.a.link "StackState Self-Hosted only")
 
-The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
+The new `sts` CLI replaces the `stac` CLI. it's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
@@ -315,7 +315,7 @@ The declaration of a topology identifier pattern would look something like the f
 A monitor with an `ENABLED` status will be automatically executed and its results will be persisted. A `DISABLED` monitor is still available for a `dry-run` in order to inspect its results and execution (helpful for debugging a monitor). When a monitor is initially created it will start with a `DISABLED` status, unless the `status` field is present in the payload. When a monitor is updated, it will keep its own `status`, unless the `status` is specified. If the `status` field is included in the payload, the monitor will assume the specified `status`.
 
 {% hint style="info" %}
-When a monitor is disabled, StackState will remove all health states associated with the monitor. These health states will no longer be visible in the StackState UI. Disabling a monitor is quite useful to debug and fix execution errors without having the monitor produce health states or errors. A monitor can run a `dry-run` while it is disabled.
+When a monitor is disabled, StackState will remove all health states associated with the monitor. These health states will no longer be visible in the StackState UI. Disabling a monitor is quite useful to debug and fix execution errors without having the monitor produce health states or errors. A monitor can run a `dry-run` while it's disabled.
 {% endhint %}
 
 ### intervalSeconds

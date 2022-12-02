@@ -82,7 +82,7 @@ Mapping functions are an optional step in the Synchronization flow. [Find out mo
 
 Once you have installed the `Custom Synchronization` StackPack, it creates a Component Template called `autosync-component-template`. Similarly, `Custom Synchronization` StackPack, creates a Relation Template called `autosync-relation-template`.
 
-You can go ahead and rename it, add a description if needed. It is recommended to change the default value of the `ComponentType` from `Auto-synced Component` to something that represents a generic component in your data source. The same goes for `Layer`, `Domain` and `Environment` which defaults to `Auto-synced Components`, `Auto-synced Domain`,`Auto-synced Environment` respectively. As this template is using the `getOrCreate` functionality, these values are auto-created by StackState if they don't already exist. Find more on Templates [here](../reference/stj/using_stj.md).
+You can go ahead and rename it, add a description if needed. it's recommended to change the default value of the `ComponentType` from `Auto-synced Component` to something that represents a generic component in your data source. The same goes for `Layer`, `Domain` and `Environment` which defaults to `Auto-synced Components`, `Auto-synced Domain`,`Auto-synced Environment` respectively. As this template is using the `getOrCreate` functionality, these values are auto-created by StackState if they don't already exist. Find more on Templates [here](../reference/stj/using_stj.md).
 
 Once you have completed all the changes, you can click **UPDATE** and confirm the popup dialog to unlock this Template from the `Custom Synchronization` StackPack.
 
@@ -172,7 +172,7 @@ private def topicName(Map<String, Object> stackpackConfig) {
 }
 ```
 
-It is possible now to reference any of the above `templateArguments` in your `.stj` template file. In case of the `topicName` you can replace the `topic` value in the `config` section of your StackState DataSource with this parameter:
+it's possible now to reference any of the above `templateArguments` in your `.stj` template file. In case of the `topicName` you can replace the `topic` value in the `config` section of your StackState DataSource with this parameter:
 
 ```text
 {

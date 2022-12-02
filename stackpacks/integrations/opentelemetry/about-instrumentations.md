@@ -54,7 +54,7 @@ This will then determine the duration of your span and, eventually, your trace.
 - For example, if we execute a Lambda script, The script execution will be created as the parent span. All the other
   things monitored and executed inside this Lambda will be captured as children span.
 - The parent span should be the last span you close. This is usually either at the end of your script execution or after you close your last child span
-- A parent span doesn't require a child span; it can be standalone if it's not a part of anything.
+- A parent span doesn't require a child span; it can be standalone if it isn't a part of anything.
 
 ### Child span
 - A child span is started by a parent span and might involve calling a function, the database, another service, etc. In the example mentioned above, a child span may be a function that determines if the item is accessible. Child spans offer insight into every element of a request.

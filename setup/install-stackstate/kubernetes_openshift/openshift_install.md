@@ -166,7 +166,7 @@ The only required information is a name for the OpenShift cluster that will dist
 
 To automate this installation, the below values file can be added to the `helm install` command. The agent chart needs to add specific OpenShift `SecurityContextConfiguration` objects to the OpenShift installation.
 
-If you're installing as an administrator on the OpenShift cluster, it is possible to automatically create this. You can configure this using the following configuration option in the values file:
+If you're installing as an administrator on the OpenShift cluster, it's possible to automatically create this. You can configure this using the following configuration option in the values file:
 
 | Pod\(s\) | Config key | Description |
 | :--- | :--- | :--- |
@@ -206,7 +206,7 @@ Save this as `agent-values.yaml` and add it to the `helm install` command to ena
 
 ### Deploy StackState with Helm
 
-The recommended deployment of StackState is a production ready, high availability setup with many services running redundantly. If required, it is also possible to run StackState in a non-redundant setup, where each service has only a single replica.
+The recommended deployment of StackState is a production ready, high availability setup with many services running redundantly. If required, it's also possible to run StackState in a non-redundant setup, where each service has only a single replica.
 
 {% hint style="info" %}
 The non-high availability setup is only suitable for situations that don't require high availability.

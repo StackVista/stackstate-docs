@@ -44,7 +44,7 @@ Configure your Traefik instance to report [Datadog tracing data](https://doc.tra
 
 ### Integrate with Java traces
 
-When using Traefik in conjunction with one of our language specific trace clients (for example, [StackState Java Trace Client - Java APM](java-apm.md)), it is important to note that you use the `backend` name of your Traefik service as the `service-name` for the trace client. This is required to allow automatic merging of the service components within StackState.
+When using Traefik in conjunction with one of our language specific trace clients (for example, [StackState Java Trace Client - Java APM](java-apm.md)), it's important to note that you use the `backend` name of your Traefik service as the `service-name` for the trace client. This is required to allow automatic merging of the service components within StackState.
 
 For example, the following `Traefik.toml`:
 

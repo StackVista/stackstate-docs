@@ -9,7 +9,7 @@ description: StackState Self-hosted v5.1.x
 {% hint style="info" %}
 This page describes the Splunk Events check running on StackState Agent V2. 
 
-If you are currently running the Splunk Events check on Agent V1 (legacy), it is advised that you migrate to Agent V2.
+If you are currently running the Splunk Events check on Agent V1 (legacy), it's advised that you migrate to Agent V2.
 
 * [Migrate to Agent V2](/setup/agent/migrate-agent-v1-to-v2/)
 * [Documentation for the Splunk Events check running on Agent V1 \(legacy\)](https://docs.stackstate.com/v/5.0/stackpacks/integrations/splunk/splunk_events)
@@ -112,7 +112,7 @@ To configure the Splunk Events Agent check:
 
 To prevent sending duplicate events over multiple check runs, received saved search records must be uniquely identified for comparison. By default, a record is identified by the Splunk default fields `_bkt` and `_cd`. Specify `unique_key_fields` in the Splunk Events Agent check configuration to customize the behavior for each saved search. Note that the specified `unique_key_fields` fields are mandatory fields for each record returned by the Splunk saved search.
 
-If it isn't possible to uniquely identify a record by a combination of specific fields, you can use the whole record by setting `unique_key_fields: []` \(an empty list\).
+If it'sn't possible to uniquely identify a record by a combination of specific fields, you can use the whole record by setting `unique_key_fields: []` \(an empty list\).
 
 ### Disable the Agent check
 

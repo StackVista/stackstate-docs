@@ -34,7 +34,7 @@ In the **Save view as** dialog, the following options can be set:
 ## Delete or edit a view
 
 {% hint style="info" %}
-* It's not recommended to delete or edit views created by StackPacks. When doing so, you will get a warning that the view is locked. If you proceed anyway the issue needs to be resolved when upgrading the StackPack that created the view.
+* It isn't recommended to delete or edit views created by StackPacks. When doing so, you will get a warning that the view is locked. If you proceed anyway the issue needs to be resolved when upgrading the StackPack that created the view.
 * Note that changes made to a view will be applied for all users.
 {% endhint %}
 

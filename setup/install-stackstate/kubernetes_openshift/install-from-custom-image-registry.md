@@ -10,7 +10,7 @@ This page describes how to use a custom image registry to install StackState, th
 
 ## Serve images from a different image registry
 
-Pulling the images from the different image registries can take some time when pods are started, either when the application starts for the first time or when it is being scaled to a new node. If one of those registries isn't accessible for some reason, the pods won't start.
+Pulling the images from the different image registries can take some time when pods are started, either when the application starts for the first time or when it's being scaled to a new node. If one of those registries isn't accessible for some reason, the pods won't start.
 
 To address this issue, you can copy all the images to a single registry close to your clsuter, and configure the Helm chart to pull the images from that registry:
 

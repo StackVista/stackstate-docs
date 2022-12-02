@@ -171,7 +171,7 @@ The properties listed below return details of a `ProblemResolvedEvent` in functi
 ## Synchronous execution
 
 {% hint style="info" %}
-Synchronous functions will be deprecated in a future release of StackState. It is advised to choose the [default asynchronous execution](event-handler-functions.md#asynchronous-execution-default) type when writing a new event handler function.
+Synchronous functions will be deprecated in a future release of StackState. it's advised to choose the [default asynchronous execution](event-handler-functions.md#asynchronous-execution-default) type when writing a new event handler function.
 {% endhint %}
 
 When execution is set to **Synchronous**, the event handler function will run as a synchronous function.

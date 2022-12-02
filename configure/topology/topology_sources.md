@@ -32,7 +32,7 @@ The screen contains the following fields:
 {% hint style="info" %}
 **Snapshot mode**
 
-When topology data is sent in snapshot mode, it's not necessary to expire elements. Each snapshot represents a complete landscape instance and elements missing from the snapshot will be automatically deleted.
+When topology data is sent in snapshot mode, it isn't necessary to expire elements. Each snapshot represents a complete landscape instance and elements missing from the snapshot will be automatically deleted.
 
 See the [Topology JSON format description](send-topology-data.md#topology-json-format) for details.
 {% endhint %}

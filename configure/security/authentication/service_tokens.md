@@ -63,7 +63,7 @@ Command not available in the `stac` CLI, use the new `sts` CLI.
 
 
 {% hint style="info" %}
-Note that the service token will only be displayed once. It's not possible to see the token again.
+Note that the service token will only be displayed once. It isn't possible to see the token again.
 {% endhint %}
 
 This command takes the following command line arguments:
@@ -238,7 +238,7 @@ The StackState v5.0 release renamed the old `sts` CLI to `stac` and introduced n
 {% hint style="warning" %}
  **The StackState v5.0 release renamed the old `sts` CLI to `stac`. The old CLI is now deprecated.**
 
-The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. it's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
