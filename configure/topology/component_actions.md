@@ -16,7 +16,7 @@ Component Actions open the possibility for a wide range of operations on compone
 * Navigation actions - Navigate to the AWS Management Console of a component showing erratic behavior.
 * Reporting actions - Show a report that predicts the next 24 hours of CPU usage of a Kubernetes pod.
 
-* The available Component Actions are listed under **Actions** in the component context menu when you hover over a component andin the right panel details tab when a component has been selected - **Component details**. Each Component Action will only be available for execution on components that match its STQL query. 
+The available Component Actions are listed under **Actions** in the component context menu when you hover over a component andin the right panel details tab when a component has been selected - **Component details**. Each Component Action will only be available for execution on components that match its STQL query. 
 
 ![Component Actions](../../.gitbook/assets/v51_actions.png)
 
