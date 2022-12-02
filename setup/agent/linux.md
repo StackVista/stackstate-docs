@@ -46,7 +46,7 @@ StackState Agent V2 is installed using an install script.
 
 #### Online install
 
-If you have access to the internet on the machine where the Agent will be installed, use one of the commands below to run the `install.sh` script. The Agent installer package will be downloaded automatically.
+If you have access to the internet on the machine where the Agent will be installed, use one of the commands below to run the `install.sh` script. This will automatically download the Agent installer package.
 
 * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
 * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
