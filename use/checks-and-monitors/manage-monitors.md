@@ -36,7 +36,7 @@ Monitor configuration can be changed by modifying the monitor definition.
    * **new `sts` CLI**: `sts monitor apply -f path/to/export.stj`
    * **`stac` CLI**: `stac monitor apply < path/to/export.stj`[](http://not.a.link "StackState Self-Hosted only")
 
-Once applied, the updated monitor definition will be in effect. Changes will be reflected with the next execution cycle.
+Changes will take effect in the next execution cycle.
 
 ### Set run interval
 
