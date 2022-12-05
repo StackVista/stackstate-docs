@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: errata-ai/vale-action@v1.42.2
+    - uses: errata-ai/vale-action@v1.4.2
       with:
         debug: true
         reporter: github-pr-review
