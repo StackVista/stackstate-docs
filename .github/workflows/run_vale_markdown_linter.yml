@@ -1,4 +1,4 @@
-name: vale
+name: vale-markdown-linter
 on: [pull_request]
 
 jobs:
@@ -6,9 +6,10 @@ jobs:
     name: runner / vale
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: errata-ai/vale-action@v2.0.1
-        env:
-          # Required, set by GitHub actions automatically:
-          # https://docs.github.com/en/actions/security-guides/automatic-token-authentication#about-the-github_token-secret
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    - uses: actions/checkout@v3
+    - uses: errata-ai/vale-action@v1.4.2
+      with:
+        debug: true
+        reporter: github-pr-review
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
