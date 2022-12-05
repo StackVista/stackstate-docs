@@ -7,8 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: errata-ai/vale-action@v2.21.2
+    - uses: errata-ai/vale-action@reviewdog
       with:
+        version: 2.17.0
         debug: true
         reporter: github-pr-review
         styles: https://github.com/errata-ai/Microsoft/releases/latest/download/Microsoft.zip
