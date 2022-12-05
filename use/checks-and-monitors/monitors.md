@@ -7,6 +7,7 @@ description: StackState Self-hosted v5.1.x
 ## Overview
 
 I am going. The user clicked the button.
+we do not like that..
 
 StackState reports a health state for elements in the topology based on the health state reported by checks and monitors attached to the element. Checks and monitors have a similar function in StackState, but work differently under the hood.
 
