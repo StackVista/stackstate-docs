@@ -1,6 +1,7 @@
 
   
 name: reviewdog
+on:
   push:
     branches: [ test-vale-merge ]
 
