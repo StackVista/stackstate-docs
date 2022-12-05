@@ -10,6 +10,7 @@ jobs:
       - uses: errata-ai/vale-action@reviewdog
         with:
           fail_on_error: true
+          reporter: github-pr-review
         env:
           # Required, set by GitHub actions automatically:
           # https://docs.github.com/en/actions/security-guides/automatic-token-authentication#about-the-github_token-secret
