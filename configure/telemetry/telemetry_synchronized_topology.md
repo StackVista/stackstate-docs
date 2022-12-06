@@ -42,16 +42,16 @@ Note that you are editing the template for the synchronization that imported the
 
 The telemetry streams attached to topology elements during synchronization are configured in the template function as `streams: []`. To add a telemetry stream to a component the fields described below are required. The most important part of the stream configuration is the `query`, this represents the conditions used to filter the stream:
 
-| Field | Allowed values | Description |
-| :--- | :--- | :--- |
-| `_type` | MetricStream EventStream | The type of Data Stream. |
-| `name` |  | A name for the Data Stream. |
-| `query._type` | MetricTelemetryQuery EventTelemetryQuery | The type of the Query |
+| Field | Allowed values | Description                                                                                                                                                         |
+| :--- | :--- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `_type` | MetricStream EventStream | The type of Data Stream.                                                                                                                                            |
+| `name` |  | A name for the Data Stream. For metric streams, you can also [specify a unit type](/use/metrics/add-telemetry-to-element.md#units-of-measurement) here.             |
+| `query._type` | MetricTelemetryQuery EventTelemetryQuery | The type of the Query                                                                                                                                               |
 | `query.conditions` |  | A collection of `"key", "value"` attributes used to filter the stream. The keys are defined by the data source and the value can be any string, numeric or boolean. |
-| `query.metricField` |  | Metric streams only. The metric to observe in the stream. |
-| `query.aggregation` | MEAN PERCENTILE\_25 PERCENTILE\_50 PERCENTILE\_75 PERCENTILE\_90 PERCENTILE\_95 PERCENTILE\_98 PERCENTILE\_99 MAX MIN SUM SUM\_NO\_ZEROS EVENT\_COUNT\_NO\_ZEROS | Metric streams only. The function to apply to aggregate the data. |
-| `datasource` |  | The data source where to connect to fetch the data. |
-| `datatype` | METRICS EVENTS | The kind of data received on the stream. |
+| `query.metricField` |  | Metric streams only. The metric to observe in the stream.                                                                                                           |
+| `query.aggregation` | MEAN PERCENTILE\_25 PERCENTILE\_50 PERCENTILE\_75 PERCENTILE\_90 PERCENTILE\_95 PERCENTILE\_98 PERCENTILE\_99 MAX MIN SUM SUM\_NO\_ZEROS EVENT\_COUNT\_NO\_ZEROS | Metric streams only. The function to apply to aggregate the data.                                                                                                   |
+| `datasource` |  | The data source where to connect to fetch the data.                                                                                                                 |
+| `datatype` | METRICS EVENTS | The kind of data received on the stream.                                                                                                                            |
 
 For example, a CloudWatch metric stream:
 

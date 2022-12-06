@@ -49,7 +49,7 @@ Topology, metrics, event and health data are sent to the StackState receiver API
   "metrics": [], // see the section on "metrics", below
   "service_checks": [],
   "topologies": [], // used for sending topology data
-  "health" // used for sending health data
+  "health": // used for sending health data
 }
 ```
 

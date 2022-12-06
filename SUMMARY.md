@@ -198,7 +198,6 @@
   * [Send events over HTTP](configure/telemetry/send_events.md)
   * [Send metrics data over HTTP](configure/telemetry/send_metrics.md)
   * [Set the default telemetry interval](configure/telemetry/custom_telemetry_interval.md)
-  * [Set telemetry stream priority](use/metrics/set-telemetry-stream-priority.md)
   * [Debug telemetry synchronization](configure/telemetry/debug-telemetry-synchronization.md)
 * [Traces](configure/traces/README.md)
   * [Set up traces](configure/traces/set-up-traces.md)
