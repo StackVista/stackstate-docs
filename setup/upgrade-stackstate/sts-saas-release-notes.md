@@ -16,7 +16,10 @@ Note that the release notes may include details of functionality that is current
  
 **Bug fixes**
 
-- Fixed an issue that prevented health sync messages from being rendered as markdown. STAC-18490
+- Fixed an issue that prevented the retrieval of CloudWatch metrics for global AWS resources. STAC-18460
+- Fixed an issue that caused header for markdown messages to be missing. STAC-18434
+- Fixed an issue that prevented users with certain permissions from adding checks to a component. STAC-18307
+- Fixed an issue that caused numbers on graph Y-axes to be displayed using scientific notation. STAC-16984
 
 ### StackState v5.1.1 (2022-11-16)
 
