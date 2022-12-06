@@ -18,6 +18,9 @@ This page includes release notes for the StackState self-hosted product.
 **Improvements**
 
 - Charts now support units of measurements defined at the end of a stream name. STAC-18305
+
+**Bug fixes**
+
 - Fixed an issue that prevented health sync messages from being rendered as markdown. STAC-18490
 
 ### v5.1.1
