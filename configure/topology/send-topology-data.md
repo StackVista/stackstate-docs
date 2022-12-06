@@ -52,7 +52,7 @@ Topology, telemetry and health data are sent to the receiver API via HTTP POST. 
   "metrics": [], // used for sending metrics data
   "service_checks": [],
   "topologies": [], // used for sending topology data
-  "health" // used for sending health data
+  "health": // used for sending health data
 }
 ```
 {% endcode %}

@@ -49,7 +49,7 @@ Topology, metrics, events and health data are sent to the receiver API via HTTP 
   "metrics": [], // see the section on "metrics", below
   "service_checks": [],
   "topologies": [], // used for sending topology data
-  "health" // used for sending health data
+  "health": // used for sending health data
 }
 ```
 
