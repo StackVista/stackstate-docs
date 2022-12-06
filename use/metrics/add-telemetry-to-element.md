@@ -18,7 +18,7 @@ Telemetry streams can be added to any component or direct relation in the StackS
    * Detailed information about the element will be displayed in the right panel details tab - **Component details** or **Direct relation details** depending on the element type that you have selected.
 2. Click **ADD NEW STREAM** under **Telemetry** in the right panel details tab.
 3. Provide the following details:
-   * **Name** - A name for the telemetry stream. This will be visible in the StackState UI.
+   * **Name** - A name for the telemetry stream. This will be visible in the StackState UI. For metric streams, you can also [specify a unit type](#units-of-measurement) here. 
    * **Data source** - The data source for the telemetry stream. You can select from the standard data sources or add your own in **Settings** &gt; **Telemetry Sources**.
 4. Click **NEXT**
 5. At the top of the **Add a new stream** popup, select whether to output the telemetry stream as a Metric stream or a Log stream:
@@ -55,7 +55,7 @@ The following aggregation methods are available:
 
 ### Units of measurement
 
-The unit in which a metric stream was measured should be specified at the end of the metric name between parentheses. For example, a metric named `Kubernetes Memory Used (decmbytes)` would display a metric chart where the incoming data was formatted as MegBytes (MB).
+The unit used to measure a metric stream's data can be specified at the end of the metric stream name between parentheses. For example, a metric stream named `Kubernetes Memory Used (decmbytes)` would display a metric chart where the incoming data was formatted as MegBytes (MB).
 
 The sections below list all available units and the associated metric stream names that apply them. Based on the specified metric, standard conversions (up and/or down) will be applied.
 
