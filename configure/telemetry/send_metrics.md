@@ -49,7 +49,7 @@ Topology, metrics, events and health data are sent to the receiver API via HTTP 
   "metrics": [], // see the section on "metrics", below
   "service_checks": [],
   "topologies": [], // used for sending topology data
-  "health" // used for sending health data
+  "health": // used for sending health data
 }
 ```
 
@@ -83,7 +83,7 @@ Metrics can be sent to the StackState Receiver API using the `"metrics"` propert
 
 Every metric has the following details:
 
-* **name** - The metric name. Must not start with any of the following prefixes: `host`, `labels`, `name`, `tags` , `timeReceived`, `timestamp`, `tags` or `values`.
+* **name** - The metric name. You can also [specify a unit type](/use/metrics/add-telemetry-to-element.md#units-of-measurement) here. Note that the name must not start with any of the following prefixes: `host`, `labels`, `name`, `tags` , `timeReceived`, `timestamp`, `tags` or `values`. 
 * **timestamp** - The UTC timestamp of the metric expressed in epoch seconds.
 * **value** - The value of the metric.
 * **hostname** - The host this metric is from.
