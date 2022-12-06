@@ -8,6 +8,13 @@ description: StackState SaaS
 Note that the release notes may include details of functionality that is currently only available in the StackState Self-Hosted product. 
 {% endhint %}
 
+### StackState v5.1.2 (2022-12-06) 
+
+**Improvements**
+
+- Charts now support units of measurements defined at the end of a stream name. STAC-18305
+- Fixed an issue that prevented health sync messages from being rendered as markdown. STAC-18490
+
 ### StackState v5.1.1 (2022-11-16)
 
 **Bug fixes**
