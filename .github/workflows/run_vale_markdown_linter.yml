@@ -2,15 +2,14 @@ name: vale-markdown-linter
 on: [pull_request]
 
 jobs:
-  vale:
-    name: runner / vale
+  vale-linter:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: errata-ai/vale-action@v1.4.2
+    - name: vale
+      uses: errata-ai/vale-action@reviewdog
       with:
         debug: true
         reporter: github-pr-review
-        styles: https://github.com/errata-ai/Microsoft/releases/latest/download/Microsoft.zip
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
