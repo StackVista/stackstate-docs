@@ -11,5 +11,6 @@ jobs:
       with:
         debug: true
         reporter: github-pr-review
+        styles: https://github.com/errata-ai/Microsoft/releases/latest/download/Microsoft.zip
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
