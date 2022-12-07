@@ -61,7 +61,7 @@ StackState Agent V2 consists of up to four different processes - `stackstate-age
 {% endtab %}
 {% endtabs %}
 
-On Kubernetes, limits are placed on CPU and memory usage of the Agent, Cluster Agent and Cluster checks. These can be configured in the [Agent Helm chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/cluster-agent).
+On Kubernetes, limits are placed on CPU and memory usage of the Agent, Cluster Agent and Cluster checks. These can be configured in the [Agent Helm chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-agent).
 
 ## Running the Agent
 
