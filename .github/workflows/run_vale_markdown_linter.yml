@@ -6,9 +6,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - id: files
+      uses: jitterbit/get-changed-files@v1
+      with:
+        format: 'json'
     - name: vale
       uses: errata-ai/vale-action@reviewdog
       with:
+        files: ${{ steps.files.outputs.all }}
         debug: true
         reporter: github-pr-review
       env:
