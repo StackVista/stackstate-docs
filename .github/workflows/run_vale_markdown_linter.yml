@@ -1,0 +1,33 @@
+# Checks committed text based on the Microsoft styleguide and StackState vocab list
+# only files changed in the PR will be checked
+# comments on changes are added as a review on the PR by the github-actionsbot
+
+name: vale-markdown-linter
+on: [pull_request]
+
+jobs:
+  vale-linter:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+# Only changed files are checked - this is quicker and lighter than checking through the full repo
+    - name: Get changed files
+      id: changed-files-specific
+      uses: tj-actions/changed-files@v34
+      with:
+        separator: ","
+    - name: List changed files
+#      if: steps.changed-files-specific.outputs.any_changed == 'true'
+      run: |
+        echo "These files that have changed: ${{ steps.changed-files-specific.outputs.all_changed_files }}"
+    - name: Run vale linter
+      uses: errata-ai/vale-action@reviewdog
+      with:
+        separator: ","
+        files: '${{ steps.changed-files-specific.outputs.all_changed_files }}'
+        debug: true
+        reporter: github-pr-review
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
