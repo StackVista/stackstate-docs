@@ -13,7 +13,6 @@ jobs:
       uses: tj-actions/changed-files@v34
       with:
         files_separator: ","
-        files: "*.md"
     - name: Run step if any markdown file(s) change
 #      if: steps.changed-files-specific.outputs.any_changed == 'true'
       run: |
