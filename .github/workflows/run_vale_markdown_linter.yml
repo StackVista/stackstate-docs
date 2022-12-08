@@ -14,12 +14,11 @@ jobs:
       with:
         files: |
           *.md
-
-      - name: Run step if any markdown file(s) change
-        if: steps.changed-files-specific.outputs.any_changed == 'true'
-        run: |
-          echo "One or more markdown files has changed."
-          echo "List all the files that have changed: ${{ steps.changed-files-specific.outputs.all_changed_files }}"
+    - name: Run step if any markdown file(s) change
+      if: steps.changed-files-specific.outputs.any_changed == 'true'
+      run: |
+        echo "One or more markdown files has changed."
+        echo "List all the files that have changed: ${{ steps.changed-files-specific.outputs.all_changed_files }}"
 #    - name: vale
 #      uses: errata-ai/vale-action@reviewdog
 #      with:
