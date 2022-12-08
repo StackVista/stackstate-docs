@@ -220,7 +220,7 @@ Additional variables can be added to the standard helm command used to deploy th
 * If you use a custom socket path, [set the `agent.containerRuntime.customSocketPath`](#agentcontainerruntimecustomsocketpath).
 
 {% hint style="info" %}
-Details of all available helm chart values can be found in the [Cluster Agent Helm Chart documentation \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-agent).
+Details of all available helm chart values can be found in the [Agent Helm Chart documentation \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-agent).
 {% endhint %}
 
 ### stackstate.cluster.authToken
@@ -568,7 +568,7 @@ helm uninstall stackstate-agent --namespace stackstate
 
 # See also
 
-* [StackState Cluster Agent Helm Chart documentation \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-agent)
+* [StackState Agent Helm Chart documentation \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-agent)
 * [About the StackState Agent](about-stackstate-agent.md)
 * [Advanced Agent configuration](advanced-agent-configuration.md)
 * [Kubernetes StackPack](../../stackpacks/integrations/kubernetes.md)
