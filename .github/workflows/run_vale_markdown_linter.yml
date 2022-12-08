@@ -17,11 +17,11 @@ jobs:
 #      if: steps.changed-files-specific.outputs.any_changed == 'true'
       run: |
         echo "These files that have changed: ${{ steps.changed-files-specific.outputs.all_changed_files }}"
-#    - name: vale
-#      uses: errata-ai/vale-action@reviewdog
-#      with:
-##        files: ${{ steps.files.outputs.all }}
-#        debug: true
-#        reporter: github-pr-review
+    - name: vale
+      uses: errata-ai/vale-action@reviewdog
+      with:
+        files: ${{ steps.changed-files-specific.outputs.all_changed_files }}
+        debug: true
+        reporter: github-pr-review
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
