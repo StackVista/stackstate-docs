@@ -20,7 +20,7 @@ jobs:
     - name: vale
       uses: errata-ai/vale-action@reviewdog
       with:
-        files: ${{ steps.changed-files-specific.outputs.all_changed_files }}
+        files: '${{ steps.changed-files-specific.outputs.all_changed_files }}'
         debug: true
         reporter: github-pr-review
       env:
