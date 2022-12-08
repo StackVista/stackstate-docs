@@ -11,8 +11,8 @@ jobs:
     - name: Get changed files
       id: changed-files-specific
       uses: tj-actions/changed-files@v34
-#      with:
-#        files_separator: ","
+      with:
+        json: true
     - name: List changed files
 #      if: steps.changed-files-specific.outputs.any_changed == 'true'
       run: |
