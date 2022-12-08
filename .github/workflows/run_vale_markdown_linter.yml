@@ -13,7 +13,7 @@ jobs:
     - name: vale
       uses: errata-ai/vale-action@reviewdog
       with:
-        files: ${{ steps.files.outputs.all }}
+#        files: ${{ steps.files.outputs.all }}
         debug: true
         reporter: github-pr-review
       env:
