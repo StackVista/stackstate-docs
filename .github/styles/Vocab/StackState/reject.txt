@@ -1,5 +1,2 @@
 git
 TODO
-MESH
-Stackstate
-Stackpack

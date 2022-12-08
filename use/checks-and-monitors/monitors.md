@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.1.x
 
 StackState StackPack does not allow TODO.
 testprose.
-MESH
+git
 
 StackState reports a health state for elements in the topology based on the health state reported by checks and monitors attached to the element. Checks and monitors have a similar function in StackState, but work very differently under the hood.
 
