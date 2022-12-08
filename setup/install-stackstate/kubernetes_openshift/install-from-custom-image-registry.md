@@ -19,7 +19,7 @@ To address this issue, you can copy all the images to a single registry close to
    * For Azure Kubernetes Service (AKS), use [Azure Container Registry (ACR) \(azure.microsoft.com\)](https://azure.microsoft.com/en-us/products/container-registry/).
 2. Use the relevant script to copy all the images used by the Helm chart to the new registry:
    * **StackState:** [stackstate/installation/copy_images.sh \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation "StackState Self-Hosted only") to copy all the images used by the Helm chart to the new registry
-   * **StackState Agent:** [cluster-agent/installation/copy_images.sh \(github.com\)](https://github.com/StackVista/helm-charts/blob/master/stable/cluster-agent/installation/copy_images.sh)
+   * **StackState Agent:** [stackstate-agent/installation/copy_images.sh \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-agent/installation/copy_images.sh)
    * For example:
 
     ```bash
