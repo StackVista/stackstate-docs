@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.1.x
 
 STJ allows me to be wise.
 {% endhint %}
-monitor this you vale
+monitor this you vale TCP
 
 StackState reports a health state for elements in the topology based on the health state reported by checks and monitors attached to the element. Checks and monitors have a similar function in StackState, but work very differently under the hood.
 
