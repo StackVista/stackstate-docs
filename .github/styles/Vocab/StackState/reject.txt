@@ -1,4 +1,1 @@
 git
-TODO
-Stackstate
-Stackpack
