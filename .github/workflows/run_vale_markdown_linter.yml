@@ -27,7 +27,7 @@ jobs:
       with:
         separator: ","
         files: '${{ steps.changed-files-specific.outputs.all_changed_files }}'
-        debug: true
-        reporter: github-pr-review
+#        debug: true
+#        reporter: github-pr-review
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
