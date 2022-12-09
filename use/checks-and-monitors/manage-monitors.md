@@ -12,7 +12,7 @@ Monitors are run by a dedicated subsystem of StackState called the monitor runne
 
 ## Single monitor
 
-### Add
+### Add a monitor
 
 Most Monitors in StackState are created as part of a StackPack installed by the user. They are added automatically upon installation and start producing health state results immediately afterwards, no further user action is required. Monitors automatically handle newly created topology elements and do not need to be specifically reconfigured after any topology changes occur or otherwise added to the newly created elements.
 
@@ -21,7 +21,7 @@ Most Monitors in StackState are created as part of a StackPack installed by the 
 
 It might be beneficial to modify an existing monitor definition to change its parameters, run interval or to disable it. All of these actions are done by utilizing the StackState CLI and are described in greater detail in the following sections.
 
-### Edit
+### Edit a monitor
 
 Monitor configuration can be changed by modifying the monitor definition.
 
@@ -38,11 +38,11 @@ Monitor configuration can be changed by modifying the monitor definition.
 
 Once applied, the updated monitor definition will be in effect. Changes will be reflected with the next execution cycle.
 
-### Set run interval
+### Set the run interval
 
 The monitor runner schedules monitor execution using an interval parameter that is configured on a per-monitor basis - the `intervalSeconds`. The runner will attempt to schedule a monitor execution every `intervalSeconds`, counting from the end of the previous execution cycle, in parallel to the other existing monitors (subject to resource limits). For example, setting `intervalSeconds` of a monitor definition to the value `600` will cause the monitor runner to attempt to schedule the execution of this monitor every ten minutes, assuming that the execution time itself is negligible.
 
-To set a new run interval for a monitor, adjust the `intervalSeconds` parameter in the monitor STY definition as described in the instructions to [edit the monitor](#edit).
+To set a new run interval for a monitor, adjust the `intervalSeconds` parameter in the monitor STY definition as described in the instructions to [edit the monitor](#edit-a-monitor).
 
 For example, to run the monitor every 5 minutes, set the `intervalSeconds` to `300`.
 
@@ -68,7 +68,7 @@ nodes:
 {% endtab %}
 {% endtabs %}
 
-### Status
+### Monitor status
 
 The status of a monitor can be obtained via the StackState CLI:
 
@@ -107,7 +107,7 @@ $ stac monitor status <id-or-identifier-of-a-monitor>
 
 The output of this command indicates the specific errors that occurred along with the counts of how many times they happened and the health stream statistics associated with this monitor. Any execution issues are also logged in the global StackState log file.
 
-### Preview
+### Preview a monitor
 
 You can use the CLI to run a monitor and preview its output without persisting its results.
 
@@ -144,7 +144,7 @@ $ stac monitor preview <id-or-identifier-of-a-monitor>
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 
-### Enable/disable
+### Enable/disable a monitor
 
 {% hint style="info" %}
 When a monitor is disabled, all health states associated with the monitor will be removed, and they will no longer be visible in the StackState UI. Disabling a monitor is quite useful to debug and fix execution errors without having the monitor produce health states or errors. A disabled monitor can still be used to do a `dry-run`.
@@ -205,12 +205,12 @@ stac monitor enable <id-or-identifier-of-the-monitor>
 {% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 
-### Delete
+### Delete a monitor
 
 {% hint style="info" %}
 A deleted monitor will be entirely removed from StackState. When a monitor is deleted, all health states associated with the monitor will also be removed, and they will no longer be visible in the StackState UI.
 
-You can also [disable a monitor](#enable-disable) to stop it running and producing health states without the need to completely delete it.
+You can also [disable a monitor](#enable-disable-a-monitor) to stop it running and producing health states without the need to completely delete it.
 {% endhint %}
 
 To delete a monitor and remove it from StackState, use the StackState CLI:
