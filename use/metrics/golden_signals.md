@@ -35,7 +35,7 @@ To add a latency stream, [add a telemetry stream](/use/metrics/add-telemetry-to-
 - 4xx
 - 5xx
 
-By default, processes and services that serve on HTTP request have the following response time streams:
+By default, processes and services that serve HTTP requests have the following response time streams:
 
 - HTTP total response time (s) (95th percentile)
 - HTTP 5xx error response time (s) (95th percentile)
@@ -48,7 +48,7 @@ By default, processes and services that serve on HTTP request have the following
 
 Similar to measuring the latency, StackState Agent V2 supports the `http_requests_per_second` telemetry stream. The same response codes and predefined groups are also supported for the traffic stream.
 
-By default, processes and services that serve on HTTP requests have the following request rate streams:
+By default, processes and services that serve HTTP requests have the following request rate streams:
 
 - HTTP total rate (req/s)
 - HTTP 5xx error rate (req/s)
