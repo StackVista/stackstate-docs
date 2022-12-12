@@ -58,7 +58,7 @@ For the remainder of this document these paths will be referred to as `checks.d`
 
 ## Check Configuration
 
-Each check has a configuration directory and file that will be placed in the `conf.d` directory. Configuration is written using [YAML](https://yaml.org/). The folder name should match the name of the check \(e.g.: `example.py` and `example.d` containing the `conf.yaml` configuration file\). We will be using the StackState "Skeleton" / bare essentials check and configuration as a starting point.
+Each check has a configuration directory and file that will be placed in the `conf.d` directory. Configuration is written using [YAML](https://yaml.org/). The folder name should match the name of the check \(for example,: `example.py` and `example.d` containing the `conf.yaml` configuration file\). We will be using the StackState "Skeleton" / bare essentials check and configuration as a starting point.
 
 The configuration file for the "Skeleton" check has the following structure:
 

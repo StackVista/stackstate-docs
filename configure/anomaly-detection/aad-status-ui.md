@@ -54,14 +54,14 @@ For more permanent accessibility, the status UI can also be exposed using ingres
 # status UI ingress (the configuration below is example for nginx ingress controller)
 ingress:
     enabled: true
-    hostname: <domain name> # e.g. spotlight.domain.com
+    hostname: <domain name> # for example, spotlight.domain.com
     port: 8090              # status page will be available on spotlight.domain.com:8090
     annotations:
-        external-dns.alpha.kubernetes.io/hostname: <domain name> # e.g. spotlight.domain.com
+        external-dns.alpha.kubernetes.io/hostname: <domain name> # for example, spotlight.domain.com
         kubernetes.io/ingress.class: nginx
         nginx.ingress.kubernetes.io/ingress.class: nginx
     hosts:
-        - host: <domain name>  # e.g. spotlight.domain.com
+        - host: <domain name>  # for example, spotlight.domain.com
 ```
 {% endtab %}
 {% endtabs %}

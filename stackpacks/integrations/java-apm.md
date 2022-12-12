@@ -135,7 +135,7 @@ The `stackstate-java-agent` includes support for automatically tracing the follo
 | Rabbit AMQP | 2.7+ | Fully Supported | `amqp`, `rabbitmq` |
 | OkHTTP | 3.0+ | Fully Supported | `okhttp`, `okhttp-3` |
 
-**Networking tracing provides:** timing request to response, tags for the request \(e.g. response code\), error and stacktrace capturing, and distributed tracing.
+**Networking tracing provides:** timing request to response, tags for the request \(for example, response code\), error and stacktrace capturing, and distributed tracing.
 
 Don't see your desired networking framework? StackState is continuously adding additional support. Contact our support if you need help.
 
@@ -169,7 +169,7 @@ Don't see your desired networking framework? StackState is continuously adding a
 * Oracle
 * Postgres SQL
 
-**Datastore tracing provides:** timing request to response, query info \(e.g. a sanitized query string\), and error and stacktrace capturing.
+**Datastore tracing provides:** timing request to response, query info \(for example, a sanitized query string\), and error and stacktrace capturing.
 
 Don't see your desired datastores? StackState is continuously adding additional support. Contact our support if you need help.
 

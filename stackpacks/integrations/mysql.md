@@ -102,7 +102,7 @@ Query OK, 0 rows affected (0.00 sec)
     - server: 127.0.0.1
       user: stackstate
       pass: '<YOUR_CHOSEN_PASSWORD>' # from the CREATE USER step earlier
-      port: <YOUR_MYSQL_PORT> # e.g. 3306
+      port: <YOUR_MYSQL_PORT> # for example, 3306
       options:
           replication: 0
           galera_cluster: 1

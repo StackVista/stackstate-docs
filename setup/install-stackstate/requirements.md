@@ -171,7 +171,7 @@ The development setup runs on a single node and requires:
 To meet StackState minimal requirements, the AWS instance type needs to have at least:
 
 * 4 CPU cores
-* 16GB of memory, e.g., m5.xlarge.
+* 16GB of memory. For example, m5.xlarge.
 
 The AWS CLI has to be installed on the EC2 instance that's running StackState.
 

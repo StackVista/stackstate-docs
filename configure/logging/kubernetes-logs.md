@@ -10,7 +10,7 @@ In a Kubernetes setup, StackState functions are distributed across different pod
 
 ## Kubernetes pods for logging
 
-StackState logs are stored per pod and container. The table below shows the pod to access for logs relating to specific StackState functions. Note that actual pod names will include a number or random string suffix \(e.g. `stackstate-receiver-5b9d79db86-h2hkz`\) and may also include the release name specified when StackState was deployed as a prefix.
+StackState logs are stored per pod and container. The table below shows the pod to access for logs relating to specific StackState functions. Note that actual pod names will include a number or random string suffix (for example, `stackstate-receiver-5b9d79db86-h2hkz`\) and may also include the release name specified when StackState was deployed as a prefix.
 
 {% hint style="info" %}
 Note that logs stored on pods will be regularly removed. For long term access to logs, it's advised that you set up [log aggregation](#log-aggregation) for your Kubernetes cluster.

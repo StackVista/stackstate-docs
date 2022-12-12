@@ -168,7 +168,7 @@ docker run stackstate/stackstate-cli2
 
 Alternatively, go to the **CLI** page in the StackState UI and copy the **Quick installation** command for **Docker** - this is pre-filled with the correct `<URL>` and `<API-TOKEN>` required to configure the CLI for your StackState instance.
 
-You can now run CLI commands by adding appending them to the end of the `docker run` command (e.g. `docker run stackstate/stackstate-cli2 version`).
+You can now run CLI commands by adding appending them to the end of the `docker run` command (for example, `docker run stackstate/stackstate-cli2 version`).
 
 {% endtab %}
 {% endtabs %}

@@ -22,7 +22,7 @@ If required, overrides to the default retention limits can be placed in the file
 
 ```text
 stackstate.kafkaTraceToES.elasticsearch.index.splittingStrategy = "days" // defines the unit of time for which data is retained
-stackstate.kafkaTraceToES.elasticsearch.index.maxIndicesRetained = 8 // defines the total number of time units to be retained, e.g. 8 days
+stackstate.kafkaTraceToES.elasticsearch.index.maxIndicesRetained = 8 // defines the total number of time units to be retained, for example, 8 days
 ```
 
 Restart the component for changes to take effect.
