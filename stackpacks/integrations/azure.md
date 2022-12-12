@@ -124,7 +124,7 @@ To upgrade to a new major release of the Azure StackPack:
 
 1. Completely remove the StackState Azure resources, either in Azure directly or using the provided deprovisioning script, and uninstall the current StackPack. For details see [uninstall the Azure StackPack](azure.md#uninstall).
 2. Install the new version from the page **StackPacks** &gt; **Integrations** &gt; **Azure**.
-3. Install the new StackState Azure resources using the install script, see [deploy the StackState Azure agent](azure.md#deploy-azure-agent).
+3. Install the new StackState Azure resources using the install script, see [deploy the StackState Azure Agent](azure.md#deploy-azure-agent).
 
 ## Integration details
 
@@ -215,7 +215,7 @@ Troubleshooting steps can be found in the StackState support Knowledge base guid
 
 The Azure StackPack can be uninstalled by clicking the _Uninstall_ button from the StackState UI **StackPacks** &gt; **Integrations** &gt; **Azure** screen. This will remove all Azure specific configuration in StackState. You can also stop and delete the created resources \(within the resource group specified when running the manual installation\). They have been labeled with the tag `StackState`.
 
-To do so, you can use the scripts in the manual installation zip file you downloaded when installing the StackState Azure agent. You can download this file again at anytime from the StackState UI **StackPacks** &gt; **Integrations** &gt; **Azure** screen.
+To do so, you can use the scripts in the manual installation zip file you downloaded when installing the StackState Azure Agent. You can download this file again at anytime from the StackState UI **StackPacks** &gt; **Integrations** &gt; **Azure** screen.
 
 {% tabs %}
 {% tab title="Bash" %}
