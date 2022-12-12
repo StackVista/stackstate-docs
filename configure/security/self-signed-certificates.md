@@ -18,7 +18,7 @@ Note that self-signed certificates are not compatible with the [StackState Azure
 
 You need to have the custom TLS certificate available. If you don't have that, you will need to [retrieve it via the browser](self-signed-certificates.md#retrieve-certificate-via-the-browser).
 
-To convert an existing TLS certificate file to the format needed by StackState, you will need to use the keytool tool and the `cacerts` file that are included in the JVM \(Java Virtual Machine\) installation. You can run this on any machine, regardless of the type of operating system.
+Use the keytool tool and the `cacerts` file included in the JVM \(Java Virtual Machine\) installation to convert an existing TLS certificate file to the format needed by StackState. You can run this on any machine, regardless of the type of operating system.
 
 If you don't have the JVM installed on your computer, you can also [use a JVM Docker image](self-signed-certificates.md#using-a-docker-jvm) instead.
 
