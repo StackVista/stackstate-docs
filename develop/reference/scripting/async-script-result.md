@@ -25,7 +25,7 @@ The Groovy script above can be shortened to:
 ScriptApi.asyncFn().then { it.toString() }
 ```
 
-The `it` keyword is default Groovy keyword that you do not need to define a variable in which you receive your result. You might see this being used in our examples.
+The `it` keyword is default Groovy keyword that you don't need to define a variable in which you receive your result. You might see this being used in our examples.
 
 ### Chaining
 

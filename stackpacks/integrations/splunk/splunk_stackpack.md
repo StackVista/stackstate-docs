@@ -111,8 +111,8 @@ With HTTP basic authentication, the `username` and `password` specified in the S
 instances:
     - url: "https://localhost:8089"
 
-    # username: "admin" ## deprecated - do not use
-    # password: "admin" ## deprecated - do not use
+    # username: "admin" ## deprecated - don't use
+    # password: "admin" ## deprecated - don't use
 
     # verify_ssl_certificate: false
 

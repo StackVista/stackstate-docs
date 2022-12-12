@@ -34,7 +34,7 @@ StackState Agent V2.19.x is supported to run on:
 StackState Agent V2 is installed using a [PowerShell \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-7.2&viewFallbackFrom=powershell-6) script.
 
 * [Online install](windows.md#online-install) - If you have access to the internet on the machine where the Agent will be installed. 
-* [Offline install](windows.md#offline-install) - If you **do not** have access to the internet on the machine where the Agent will be installed.
+* [Offline install](windows.md#offline-install) - If you **don't** have access to the internet on the machine where the Agent will be installed.
 
 {% hint style="info" %}
 
@@ -56,7 +56,7 @@ install -stsApiKey "<STACKSTATE_RECEIVER_API_KEY>" `
 
 #### Offline install
 
-If you do not have access to the internet on the machine where the Agent will be installed, you will need to download both the install script and the Agent installer package before you install.
+If you don't have access to the internet on the machine where the Agent will be installed, you will need to download both the install script and the Agent installer package before you install.
 
 1. Download the PowerShell install script and copy this to the host where it will be installed:
    * [https://stackstate-agent-2.s3.amazonaws.com/install.ps1](https://stackstate-agent-2.s3.amazonaws.com/install.ps1)

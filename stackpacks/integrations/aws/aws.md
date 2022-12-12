@@ -156,7 +156,7 @@ To enable the AWS check and begin collecting topology and log data from AWS, add
 
 If StackState Agent is running on Kubernetes, the AWS check should be configured as a [cluster check](/setup/agent/kubernetes-openshift.md#enable-cluster-checks).
 
-1. If you do not already have it, you will need to add the StackState helm repository to the local helm client:
+1. If you don't already have it, you will need to add the StackState helm repository to the local helm client:
 
    ```text
     helm repo add stackstate https://helm.stackstate.io
@@ -419,7 +419,7 @@ IAM is a global service. Only one IAM role is necessary per account.
 #### S3 Bucket
 
 {% hint style="warning" %}
-Once the Agent has finished reading a file in this bucket, the file will be **deleted**. Do not use an existing bucket for this, the Agent should have its own bucket to read from. The S3 bucket will not be read from if it does not have bucket versioning enabled, to protect data.
+Once the Agent has finished reading a file in this bucket, the file will be **deleted**. Don't use an existing bucket for this, the Agent should have its own bucket to read from. The S3 bucket will not be read from if it does not have bucket versioning enabled, to protect data.
 {% endhint %}
 
 The S3 bucket is used to store all incoming events from EventBridge and other event-based sources. The Agent then reads objects from this bucket. These events are used to provide features such as real-time topology updates, and creating relations between components based on event data such as VPC FlowLogs. If the S3 bucket isn't available to the Agent it will fall back to reading CloudTrail directly, which introduces a 15-minute delay in real-time updates. EventBridge events and VPC FlowLogs are only available via the S3 bucket.

@@ -10,7 +10,7 @@ StackState is configured by default with file based authentication with predefin
 
 ## How to make a new user or group with scopes
 
-To create a new subject \(a group or a username\), you must follow the `stac` CLI route below. When you create a subject, it has no permissions at first. All custom subjects need a scope by design, so they do not have access to the full topology. This is a security requirement that makes sure that users have access only to what they need.
+To create a new subject \(a group or a username\), you must follow the `stac` CLI route below. When you create a subject, it has no permissions at first. All custom subjects need a scope by design, so they don't have access to the full topology. This is a security requirement that makes sure that users have access only to what they need.
 
 **Examples**
 

@@ -89,7 +89,7 @@ When StackState is deployed on Kubernetes, logs about synchronization can be fou
 
 * The `stackstate-sync` pod contains details of:
   * Template/mapping function errors.
-  * Component types that do not have a mapping.
+  * Component types that don't have a mapping.
   * Relations connected to a non-existing component.
   * Messages that have been discarded due to a slow synchronization.
 
@@ -115,7 +115,7 @@ There are two log files for each synchronization:
 
 * `sync.<Synchronization_name>.log` contains information about mapping, templates and merging. Here you will find details of:
   * Template/mapping function errors.
-  * Component types that do not have a mapping.
+  * Component types that don't have a mapping.
 
 Logs about StackPacks are stored in the directory:
 

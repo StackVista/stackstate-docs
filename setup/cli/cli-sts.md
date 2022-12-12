@@ -237,7 +237,7 @@ The new `sts` CLI supports configuration and management of different (authentica
 
 ### Configuration options
 
-You do not need a configuration file to run the new `sts` CLI. You can also configure the CLI through a combination of environment variables and flags.
+You don't need a configuration file to run the new `sts` CLI. You can also configure the CLI through a combination of environment variables and flags.
 
 If multiple types of configuration are presented to the CLI the order of processing will be:
 

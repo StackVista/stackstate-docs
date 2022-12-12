@@ -14,7 +14,7 @@ This page describes what StackState monitors are and how they work.
 
 **Monitors** are a new feature of StackState, introduced in version 5.0. Monitors allow novel ways of combining 4T data and complex validation rules to improve rule expressiveness and monitoring coverage. Health state information is computed using 4T data collected by StackState and attached to topology elements using health synchronization.
 
-Unlike checks, monitors do not directly relate to elements in the topology and do not require any changes to the topology synchronization templates in order to operate. In this sense, each monitor can be used by any number of topology elements to calculate health state information. This means that only a single instance of a monitor needs to be created to serve the whole topology.
+Unlike checks, monitors don't directly relate to elements in the topology and don't require any changes to the topology synchronization templates in order to operate. In this sense, each monitor can be used by any number of topology elements to calculate health state information. This means that only a single instance of a monitor needs to be created to serve the whole topology.
 
 Monitors are a flexible way to define a custom set of monitoring rules. They can be created manually, packaged as part of a StackPack, or integrated into any modern software development practice that leverages automation (for instance, GitOps).
 

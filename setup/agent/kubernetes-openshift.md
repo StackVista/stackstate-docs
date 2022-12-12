@@ -51,7 +51,7 @@ The following checks can be configured to run as a cluster check:
   * [Kubernetes integration `kubernetes_state` check](/stackpacks/integrations/kubernetes.md)
   * [OpenShift integration `kubernetes_state` check](/stackpacks/integrations/openshift.md)
 * The [AWS check](/stackpacks/integrations/aws/aws.md#configure-the-aws-check)
-* The Checks Agent is also useful to run checks that do not need to run on a specific node and monitor non-containerized workloads such as:
+* The Checks Agent is also useful to run checks that don't need to run on a specific node and monitor non-containerized workloads such as:
   * Out-of-cluster datastores and endpoints \(for example, RDS or CloudSQL\).
   * Load-balanced cluster services \(for example, Kubernetes services\).
 
@@ -93,7 +93,7 @@ The StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics can be 
 
 The StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics can be installed together using the StackState Agent Helm Chart:
 
-1. If you do not already have it, you will need to add the StackState helm repository to the local helm client:
+1. If you don't already have it, you will need to add the StackState helm repository to the local helm client:
 
    ```sh
     helm repo add stackstate https://helm.stackstate.io

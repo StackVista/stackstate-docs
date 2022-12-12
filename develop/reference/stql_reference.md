@@ -78,10 +78,10 @@ name = "serviceB"
 # Select all components in the "application" layer:
 layer = "application"
 
-# Select all components named either "appA" or "appB" that do not have a label "bck"
+# Select all components named either "appA" or "appB" that don't have a label "bck"
 name IN ("appA","appB") NOT label = "bck"
 
-# Select all components named "appA" that do not have a label "bck" or "test"
+# Select all components named "appA" that don't have a label "bck" or "test"
 name = "appA" NOT label in ("bck", "test")
 ```
 
@@ -124,7 +124,7 @@ You can switch between basic and advanced filtering by selecting **Basic** or **
 It's always possible to switch from Basic to Advanced filtering. The selected basic filters will be converted directly to an STQL query. For simple queries it's also possible to switch from Advanced to Basic filtering, however, some advanced queries are not compatible with basic filters. 
 
 * Basic filters can't contain an inequality.
-* Basic filters do not use `=`, rather they are formatted using the `IN` operator. For example `name IN ("DLL_DB”)` and not `name = "DLL_DB”`.
+* Basic filters don't use `=`, rather they are formatted using the `IN` operator. For example `name IN ("DLL_DB”)` and not `name = "DLL_DB”`.
 * Basic filters use AND/OR in a specific way:
     - All items in each basic filter box are joined with an **OR**: `layer IN ("business service", "applications", "databases")`
     - The different basic filter boxes are chained together with an **AND**: `layer IN ("business service") AND domain IN ("online banking”)`

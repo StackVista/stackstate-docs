@@ -16,7 +16,7 @@ The Agent V2 runs the `secret_backend_command` executable as a sub-process. On W
 
 **Note:** The executable shares the same environment variables as the Agent V2.
 
-Do not output sensitive information on `stderr`. If the binary exits with a different status code than 0, the Agent V2 logs the standard error output of the executable to ease troubleshooting.
+Don't output sensitive information on `stderr`. If the binary exits with a different status code than 0, the Agent V2 logs the standard error output of the executable to ease troubleshooting.
 
 ## How to use the executable API
 

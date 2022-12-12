@@ -42,7 +42,7 @@ StackState Agent is tested to run on the Linux versions listed below with 64bit 
 StackState Agent V2 is installed using an install script.
 
 * [Online install](linux.md#online-install) - If you have access to the internet on the machine where the Agent will be installed. 
-* [Offline install](linux.md#offline-install) - If you **do not** have access to the internet on the machine where the Agent will be installed.
+* [Offline install](linux.md#offline-install) - If you **don't** have access to the internet on the machine where the Agent will be installed.
 
 #### Online install
 
@@ -73,7 +73,7 @@ STS_URL="<STACKSTATE_RECEIVER_API_ADDRESS>" bash
 
 #### Offline install
 
-If you do not have access to the internet on the machine where the Agent will be installed, you will need to download both the install script and the Agent installer package before you install. You can then set the environment variable `STS_INSTALL_NO_REPO=yes` and specify the path to the downloaded installer package when you run the `install.sh` script.
+If you don't have access to the internet on the machine where the Agent will be installed, you will need to download both the install script and the Agent installer package before you install. You can then set the environment variable `STS_INSTALL_NO_REPO=yes` and specify the path to the downloaded installer package when you run the `install.sh` script.
 
 1. Download the install script and copy this to the host where it will be installed:
    * [https://stackstate-agent-2.s3.amazonaws.com/install.sh](https://stackstate-agent-2.s3.amazonaws.com/install.sh)
