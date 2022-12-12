@@ -10,7 +10,7 @@ A relation connects two [components or groups of components](/use/concepts/compo
 
 ## Relation types
 
-Relations in StackState can be either direct or indirect. The type of relation is indicated by the type of line connecting the components. Relations that connect to a component group are represented as grouped relations, these can contain a combination of direct and indirect relations and may connect to all or only some of the components included in the group. Select a relation in the topology visualizer to display detailed information about it in the right panel details tab - **Direct relation details**, **Indirect relation details** or **Grouped relation details** depending on the relation type that you selected. 
+Relations in StackState can be either direct or indirect. The type of relation is indicated by the type of line connecting the components. Relations that connect to a component group are represented as grouped relations, these can contain a combination of direct and indirect relations and may connect to all or only some components included in the group. Select a relation in the topology visualizer to display detailed information about it in the right panel details tab - **Direct relation details**, **Indirect relation details** or **Grouped relation details** depending on the relation type that you selected. 
 
 You can customize the types of relations displayed in the [visualization settings](/use/stackstate-ui/views/visualization_settings.md).
 

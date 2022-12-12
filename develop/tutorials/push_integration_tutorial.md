@@ -64,7 +64,7 @@ When you run the Agent, it writes logging to its standard output. The Agent has 
 
 Once the check has run successfully, the topology data produced by the `example` check will be sent to StackState.
 
-Press `ctrl-c` to stop the agent.
+Press `ctrl-c` to stop the Agent.
 
 ## See the topology in StackState
 

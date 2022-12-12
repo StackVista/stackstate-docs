@@ -5,7 +5,7 @@ description: StackState Self-hosted v5.1.x
 # AWS \(legacy\)
 
 {% hint style="info" %}
-The AWS \(legacy\) StackPack has been deprecated. It is recommended to use the [new AWS integration](aws.md).
+The AWS \(legacy\) StackPack has been deprecated. It's recommended to use the [new AWS integration](aws.md).
 {% endhint %}
 
 ## Overview

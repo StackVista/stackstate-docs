@@ -9,6 +9,7 @@ all
 anomalyDirection
 APIs
 async
+AWS
 BACK
 Back
 back
@@ -64,6 +65,7 @@ SLO
 SMS
 SMTP
 Splunk
+STAC
 stac
 StackState
 StackPack

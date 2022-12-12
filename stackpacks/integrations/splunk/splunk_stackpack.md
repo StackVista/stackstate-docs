@@ -100,7 +100,7 @@ The first time the check runs, the configured `initial_token` will be exchanged 
 #### HTTP basic authentication
 
 {% hint style="info" %}
-It is recommended to use [token-based authentication](splunk_stackpack.md#token-based-authentication).
+It's recommended to use [token-based authentication](splunk_stackpack.md#token-based-authentication).
 {% endhint %}
 
 With HTTP basic authentication, the `username` and `password` specified in the StackState Agent V2 check configuration files are used to connect to Splunk. These parameters are specified in the section `authentication.basic_auth` of each StackState Agent V2 Splunk check configuration file.

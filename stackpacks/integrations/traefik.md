@@ -71,7 +71,7 @@ or for a similar docker-compose configuration:
 ```text
   stackstate-demo-app:
     image: stackstate-demo-app:latest
-    pid: "host" # use pid:"host" to ensure pid's match with processes reported by the StackState process agent
+    pid: "host" # use pid:"host" to ensure pid's match with processes reported by the StackState process Agent
     ports:
       - '8081-8091:8081'
     depends_on:
