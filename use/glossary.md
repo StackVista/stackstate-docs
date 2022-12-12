@@ -7,7 +7,7 @@ description: StackState Self-hosted v5.1.x
 Below you can find a short dictionary that can help you get a better grasp on the context of the terms used in our documentation.
 
 * **4T data model -** Stands for Topology, Telemetry, Traces and Time. These four dimensions are the key concepts of the StackSate data model.
-* **agent** - Software that runs on hosts. Collects events and metrics from hosts and sends them to StackState.
+* **Agemt** - Software that runs on hosts. Collects events and metrics from hosts and sends them to StackState.
 * **baseline** - Information used as a starting point by which to compare other information. In StackState it's used for comparison with the metric stream. It learns from the historical data and calculates the baseline on the current data.
 * **check** - Defines the status of the component/relation and therefore represents the graphic presentation of the health status in the StackState view. It's responsible for determining the health status of the component based on the telemetry streams.
 * **check function** - Logic to determine health and run state based on the input \(for example, metric stream\).
