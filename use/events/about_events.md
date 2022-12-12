@@ -41,7 +41,7 @@ All events in StackState have a category assigned based on the event type and so
 
 Select an event to display detailed information about it in the right panel **Event details** tab. Events from external systems will also include links through to relevant information in the source system here:
 
-* **Elements** - The components and/or relations involved in the event.
+* **Elements** - The components or relations involved in the event.
 * **Event type** - A description of the event type.
 * **Event time** - The time at which the event occurred. For events from an external system, this will be the timestamp from the external system. Click the timestamp to [time travel](/use/stackstate-ui/perspectives/events_perspective.md#time-travel) to the topology at the moment that the event occurred.
 * **Processed time** - For external events, this is the time that the event was received by StackState. For internally generated events that affect the graph database, this is the time data was stored in the graph database. Click the timestamp to [time travel](/use/stackstate-ui/perspectives/events_perspective.md#time-travel) to the topology at the moment that the event was processed by StackState.

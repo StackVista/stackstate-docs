@@ -57,7 +57,7 @@ The following aggregation methods are available:
 
 The unit used to measure a metric stream's data can be specified at the end of the metric stream name between parentheses. For example, a metric stream named `Kubernetes Memory Used (decmbytes)` would display a metric chart where the incoming data was formatted as MegBytes (MB).
 
-The sections below list all available units and the associated metric stream names that apply them. Based on the specified unit, standard conversions (up and/or down) will be applied.
+The sections below list all available units and the associated metric stream names that apply them. Based on the specified unit, standard conversions (up or down) will be applied.
 
 #### Miscellaneous 
 

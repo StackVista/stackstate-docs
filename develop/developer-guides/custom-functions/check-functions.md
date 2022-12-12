@@ -171,12 +171,12 @@ The Metric stream ID parameter is used for check functions that listen to anomal
 
 ## Result
 
-Whenever a check function runs, it returns a result. This can be a **health state** \(with or without an expiration\) and/or a **run state**. Alternatively, a custom map can be returned containing a collection of data formatted as described below.
+Whenever a check function runs, it returns a result. This can be a **health state** \(with or without an expiration\), a **run state** or both. Alternatively, a custom map can be returned containing a collection of data formatted as described below.
 
 * **Health state** - A `HealthStateValue`. This will be the new health state of the component \(`CLEAR`, `DEVIATING`, `CRITICAL`, `DISABLED` or `UNKNOWN`\). A 
 * **Expiration** - A `CheckStateExpiration`. Specifies how long a health state should remain valid and what it should change to after expiration.
 * **Run state** - A `RunStateValue`. This will be the new run state of the component \(`UNKNOWN`, `STARTING`, `RUNNING`, `STOPPING` `STOPPED`, `DEPLOYED` or `DEPLOYING`\). \|
-* **Custom map** - A custom map can contain a health state and/or run state as described above, as well as:
+* **Custom map** - A custom map can contain a health state and a run state as described above, as well as:
   * `detailedMessage` - Markdown formatted explanation of the reason behind a returned health state. `String`.
   * `shortMessage` - A short description of the state change. `String`.
   * `causingEvents` - The events that triggered the health state change. These are used in check functions that listen to [anomaly events](check-functions.md#anomaly-check-functions) to link changes to anomaly events. Provided as a map with the keys `title` \(`String`\), `eventId` \(`String`\), `eventTimestamp` \(`Long`\) and `eventType` \(`String`\).

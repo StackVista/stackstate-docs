@@ -35,7 +35,7 @@ When a component is selected by clicking on it, detailed information about the c
 
 ## Grouping
 
-Components of the same type and/or state can optionally be grouped together into a single element. Grouped components are represented by a circle in the topology visualization. The component group will be named `<COMPONENT_TYPE> group`. For example a group of components with type `pod` will be named `pod group`.
+Components of the same type or state can optionally be grouped together into a single element. Grouped components are represented by a circle in the topology visualization. The component group will be named `<COMPONENT_TYPE> group`. For example a group of components with type `pod` will be named `pod group`.
 
 The size of the component group's circle in the topology visualization represents the number of components in the group:
 

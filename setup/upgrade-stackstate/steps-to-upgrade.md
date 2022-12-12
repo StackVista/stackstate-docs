@@ -45,7 +45,7 @@ A minor upgrade consists of the following steps:
 
 A major release of StackState is indicated by a change in the first digit of the version number, for example 4.0.0.
 
-If you are upgrading to a new **major** StackState release, StackState and/or the installed StackPacks may be incompatible with the current installation. For details, check the [version-specific upgrade notes](version-specific-upgrade-instructions.md).
+If you upgrade to a new **major** StackState release, StackState and the installed StackPacks may be incompatible with the current installation. For details, check the [version-specific upgrade notes](version-specific-upgrade-instructions.md).
 
 A major upgrade consists of the following steps:
 

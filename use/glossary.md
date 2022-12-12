@@ -10,7 +10,7 @@ Below you can find a short dictionary that can help you get a better grasp on th
 * **agent** - Software that runs on hosts. Collects events and metrics from hosts and sends them to StackState.
 * **baseline** - Information used as a starting point by which to compare other information. In StackState it's used for comparison with the metric stream. It learns from the historical data and calculates the baseline on the current data.
 * **check** - Defines the status of the component/relation and therefore represents the graphic presentation of the health status in the StackState view. It's responsible for determining the health status of the component based on the telemetry streams.
-* **check function** - Logic to determine health and/or run state based on the input \(e.g., metric stream\).
+* **check function** - Logic to determine health and run state based on the input \(e.g., metric stream\).
 * **component** - The smallest unit of a topology; represents a real-life component in the IT landscape like a server, a service or an application. Each component belongs to one layer and one domain only.
 * **component action** - Performs an action based on a component when the user triggers the action on the quick action menu of the component.
 * **component health state** - Determined by all defined checks on the component. The most severe one always determines the state of the component.

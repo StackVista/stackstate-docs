@@ -126,7 +126,7 @@ instances:
 
 ### Status
 
-To check the status of the Splunk integration, run the status subcommand and look for `splunk_topology`, `splunk_metrics` and/or `splunk_events` under `Running Checks`:
+To check the status of the Splunk integration, run the status subcommand and look for `splunk_topology`, `splunk_metrics` or `splunk_events` under `Running Checks`:
 
 ```text
 sudo stackstate-agent status

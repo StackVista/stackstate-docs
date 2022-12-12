@@ -23,7 +23,7 @@ STML is a valid superset of markdown. In other words, it's markdown plus extensi
 
 STML is markdown plus HTML-like tags. Tags are StackState-specific extensions to Markdown that render in some specific way. It could be a chart, visualization, pie chart, etc.
 
-Each tag has its unique rendering, and a set of required and/or optional attributes.
+Each tag has its unique rendering, and a set of required or optional attributes.
 
 Tags in STML are coded in the following format:
 

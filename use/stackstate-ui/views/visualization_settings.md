@@ -37,7 +37,7 @@ Grouping is enabled by default and respects the selected [grid options](visualiz
 Three types of grouping are available, or you can choose not to group components together:
 
 * **No grouping** - Components and relations are not grouped in any way.
-* **Auto grouping** - Grouping settings are automatically adjusted to keep the number of components and/or component groups visualized below 35.
+* **Auto grouping** - Grouping settings are automatically adjusted to keep the number of components or component groups visualized below 35.
 * **Group by state and type** - Components of the same type and with the same health state are grouped together into one group. If one of the grouped components changes its health state and no longer matches the health state of the component group, it will pop out of the group. If other components of the same type have the same health state, a new group will be created.
 * **Group by type, state and relation** - Components are grouped together as with **group by state and type** while maintaining information about relations to components outside of the group. All components in a group have the same source and target connection. This is useful because grouping components together by state and type alone can cause some information on relations for the components in the group to be lost.
 

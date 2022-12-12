@@ -107,7 +107,7 @@ As the `vm.max_map_count` Linux system setting is usually lower than required fo
 
 ### Disable the privileged Elasticsearch init container
 
-In case you and/or your Kubernetes/OpenShift administrators do not want the privileged Elasticsearch init container to be enabled by default, you can disable this behavior in the file `values.yaml` used to install StackState:
+In case you or your Kubernetes/OpenShift administrators do not want the privileged Elasticsearch init container to be enabled by default, you can disable this behavior in the file `values.yaml` used to install StackState:
 
 {% tabs %}
 {% tab title="values.yaml" %}

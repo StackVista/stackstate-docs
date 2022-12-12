@@ -209,7 +209,7 @@ The blacklist is specified as a list of regex patterns. Inclusions override the 
 
 {% tabs %}
 {% tab title="Docker, Kubernetes, OpenShift" %}
-To specify a blacklist and/or inclusions, set the associated environment variables and restart StackState Agent V2.
+To specify a blacklist or inclusions, set the associated environment variables and restart StackState Agent V2.
 
 | Environment variable | Description |
 | :--- | :--- |
@@ -223,7 +223,7 @@ To specify a blacklist and/or inclusions, set the associated environment variabl
 {% endtab %}
 
 {% tab title="Linux, Windows" %}
-To specify a blacklist and/or inclusions, edit the below settings in the Agent configuration file `stackstate.yaml` and restart StackState Agent V2.
+To specify a blacklist or inclusions, edit the below settings in the Agent configuration file `stackstate.yaml` and restart StackState Agent V2.
 
 * **Linux** - `/etc/stackstate-agent/stackstate.yaml`
 * **Windows** - `C:\ProgramData\StackState\stackstate.yaml`

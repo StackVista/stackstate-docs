@@ -187,7 +187,7 @@ instances:
         #password: '???'
 
     ## The CLI uses a client configuration to identify who is sending to the StackState instance. The client
-    ## is used to send topology and/or telemetry to the receiver API.
+    ## is used to send topology and telemetry to the receiver API.
     ##
     ## Unless the `--client` argument is passed the CLI will pick the `default` instance as configured below.
     ## Other clients follow the exact same configuration pattern as the default client. You may simply copy-paste its config and modify whatever is needed.

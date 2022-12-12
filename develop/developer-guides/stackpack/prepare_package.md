@@ -31,7 +31,7 @@ Inside the `.sts` archive you can find the provisioning directory, resources dir
 * `provisioning` directory is where all icons, templates, and `groovy` scripts used for provisioning the StackPack are stored. The provisioning can also be split into multiple groovy scripts, and the `provisioning` directory is part of the `classpath` while provisioning the StackPack. Find more on [Groovy in StackState](../../reference/scripting/).
 * `resources` directory contains all the static resources and contents for the StackPack. They are available in the Groove code through `/stackpack/{stackpack-name}/resources/{resource}`.
 * `stackpack.conf` is where the StackPack is configured. See the section below for more details.
-* `Templates` - these files are StackState Templated JSON handlebar files that reflect StackState configuration; it may contain `ComponentTypes`, `Id Extractors`, and/or component/relations templates. Find more details on the [templates page](how_to_get_a_template_file.md)  
+* `Templates` - these files are StackState Templated JSON handlebar files that reflect StackState configuration; it may contain `ComponentTypes`, `Id Extractors` and component/relations templates. Find more details on the [templates page](how_to_get_a_template_file.md)  
 
 ## The StackPack configuration file
 
