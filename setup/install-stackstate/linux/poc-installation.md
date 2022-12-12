@@ -29,7 +29,7 @@ After starting processes are complete, the service is available at `http://<stac
 
 ### Stopping StackState
 
-StackState can be stopped by `sudo systemctl stop stackstate.service`. StackGraph is not automatically stopped when stopping StackState, StackGraph can be stopped by `sudo systemctl stop stackgraph.service`.
+StackState can be stopped by `sudo systemctl stop stackstate.service`. StackGraph isn't automatically stopped when stopping StackState, StackGraph can be stopped by `sudo systemctl stop stackgraph.service`.
 
 ### StackState Status
 

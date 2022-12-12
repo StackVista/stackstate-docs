@@ -63,7 +63,7 @@ The supported fields are:
 
 ### identifier
 
-An important field of the monitor node is the `identifier` - it is a unique value of the StackState URN format that can be used together with the monitor-specific StackState CLI commands. The identifier should be formatted as follows:
+An important field of the monitor node is the `identifier` - it's a unique value of the StackState URN format that can be used together with the monitor-specific StackState CLI commands. The identifier should be formatted as follows:
 
 `urn : <prefix> : monitor : <unique-monitor-identification>`
 
@@ -223,7 +223,7 @@ Monitor functions that utilize telemetry tend to be parameterized with the exact
 
 {% tabs %}
 {% tab title="Monitor STJ definition" %}
-To supply a value to the `telemetryQuery` parameter defined in the monitor function, the monitor STJ definition would look something like the following. Note that the provided `value` must utilize the StackState Telemetry Script API and evaluate to a telemetry query, otherwise it will not pass the argument validation that is performed before the function execution begins.
+To supply a value to the `telemetryQuery` parameter defined in the monitor function, the monitor STJ definition would look something like the following. Note that the provided `value` must utilize the StackState Telemetry Script API and evaluate to a telemetry query, otherwise it won't pass the argument validation that is performed before the function execution begins.
 
 ```json
 ...
@@ -312,7 +312,7 @@ The declaration of a topology identifier pattern would look something like the f
 
 ### status
 
-A monitor with an `ENABLED` status will be automatically executed and its results will be persisted. A `DISABLED` monitor is still available for a `dry-run` in order to inspect its results and execution (helpful for debugging a monitor). When a monitor is initially created it will start with a `DISABLED` status, unless the `status` field is present in the payload. When a monitor is updated, it will keep its own `status`, unless the `status` is specified. If the `status` field is included in the payload, the monitor will assume the specified `status`.
+A monitor with an `ENABLED` status will be automatically executed and its results will be persisted. A `DISABLED` monitor is still available for a `dry-run` to inspect its results and execution (helpful for debugging a monitor). When a monitor is initially created it will start with a `DISABLED` status, unless the `status` field is present in the payload. When a monitor is updated, it will keep its own `status`, unless the `status` is specified. If the `status` field is included in the payload, the monitor will assume the specified `status`.
 
 {% hint style="info" %}
 When a monitor is disabled, all health states associated with the monitor will be removed, and they will no longer be visible in the StackState UI. Disabling a monitor is quite useful to debug and fix execution errors without having the monitor produce health states or errors. A disabled monitor can still be used to do a `dry-run`.

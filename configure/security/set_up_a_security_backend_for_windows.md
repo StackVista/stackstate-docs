@@ -8,7 +8,7 @@ This document explains the process of setting up a security backend on a Windows
 
 ## Security agent requirements
 
-The Agent V2 runs the `secret_backend_command` executable as a sub-process. On Windows, the executable set as `secret_backend_command` is required to:
+StackState Agent V2 runs the `secret_backend_command` executable as a sub-process. On Windows, the executable set as `secret_backend_command` must:
 
 * Have read/exec for `stsagentuser` \(the user used to run the Agent\).
 * Have no rights for any user or group except `Administrator` or `LocalSystem`.
@@ -16,11 +16,11 @@ The Agent V2 runs the `secret_backend_command` executable as a sub-process. On W
 
 **Note:** The executable shares the same environment variables as the Agent V2.
 
-Do not output sensitive information on `stderr`. If the binary exits with a different status code than 0, the Agent V2 logs the standard error output of the executable to ease troubleshooting.
+Don't output sensitive information on `stderr`. If the binary exits with a different status code than 0, the Agent V2 logs the standard error output of the executable to ease troubleshooting.
 
 ## How to use the executable API
 
-The executable respects a simple API that reads JSON structures from the standard input, and outputs JSON containing the decrypted secrets to the standard output. If the exit code is anything other than 0, then the integration configuration that is being decrypted is considered faulty and is dropped.
+The executable respects a simple API that reads JSON structures from the standard input, and outputs JSON containing the decrypted secrets to the standard output. If the exit code is anything other than 0, then the integration configuration being decrypted is considered faulty and is dropped.
 
 ### Input
 
@@ -57,12 +57,12 @@ The executable is expected to output to the standard output a JSON payload conta
 
 The expected payload is a JSON object, where each key is one of the handles requested in the input payload. The value for each handle is a JSON object with two fields:
 
-* `value`: a string; the actual value that is used in the check configurations
+* `value`: a string; the actual value used in the check configurations
 * `error`: a string; the error message, if needed. If error is anything other than null, the integration configuration that uses this handle is considered erroneous and is dropped.
 
 ### Example
 
-The following is a dummy implementation of the secret reader that is prefixing every secret with `decrypted_`:
+The following is a dummy implementation of the secret reader that's prefixing every secret with `decrypted_`:
 
 {% code lineNumbers="true" %}
 ```golang
@@ -129,7 +129,7 @@ instances:
 
 ### Listing detected secrets
 
-The `secret` command in the Agent CLI shows any errors related to your setup. For example, if the rights on the executable are incorrect. It also lists all handles found, and where they are located.
+The `secret` command in the Agent CLI shows any errors related to your setup. For example, if the rights on the executable are incorrect. It also lists all handles found, and where they're located.
 
 The command outputs ACL rights for the executable, as in the example from an Administrator PowerShell below:
 
@@ -188,16 +188,16 @@ Secrets handle decrypted:
 
 #### Testing your executable
 
-Your executable is executed by the Agent V2 when fetching your secrets. StackState Agent V2 runs using the stsagentuser. This user has no specific rights, but it is part of the Performance Monitor Users group. The password for this user is randomly generated at install time and is never saved anywhere.
+Your executable is executed by the Agent V2 when fetching your secrets. StackState Agent V2 runs using the stsagentuser. This user has no specific rights, but it's part of the Performance Monitor Users group. The password for this user is randomly generated at install time and is never saved anywhere.
 
-This means that your executable might work with your default user or development user — but not when it is run by the Agent, since stsagentuser has more restricted rights.
+This means that your executable might work with your default user or development user — but not when it's run by the Agent, since stsagentuser has more restricted rights.
 
 To test your executable in the same conditions as the Agent V2, update the password of the stsagentuser on your dev box. This way, you can authenticate as stsagentuser and run your executable in the same context the Agent would.
 
 To do so, follow steps below:
 
 1. Remove `stsagentuser` from the `Local Policies/User Rights Assignement/Deny Log on locally` list in the `Local Security Policy`.
-2. Set a new password for `stsagenuser` \(as the one generated during install is not saved anywhere\). In Powershell, run:
+2. Set a new password for `stsagenuser` \(as the one generated during install isn't saved anywhere\). In Powershell, run:
 
    ```text
       $user = [ADSI]"WinNT://./stsagentuser";

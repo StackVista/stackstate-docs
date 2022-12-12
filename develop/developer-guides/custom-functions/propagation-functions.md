@@ -57,7 +57,7 @@ The simplest possible function that can be written is given below. This function
     return DEVIATING
 ```
 
-You can also use a propagation function to implement more complicated logic. For example, the script below will return a `DEVIATING` state in case a component is not running:
+You can also use a propagation function to implement more complicated logic. For example, the script below will return a `DEVIATING` state in case a component isn't running:
 
 ```text
 Component
@@ -108,12 +108,12 @@ Functions that run with asynchronous execution can make an HTTP request and use 
 
 {% hint style="danger" %}
 **Keep performance aspects in mind when developing functions with asynchronous execution**  
-The script APIs provide super-human levels of flexibility and even allow querying standalone services. Consider extreme cases where the function is executed on all components and properly assess system impact. StackState comes with a number of StackPacks that include tuned propagating functions. Changes to those functions are possible, but may impact the stability of the system.
+The script APIs offer super-human levels of flexibility and even allow querying standalone services. Consider extreme cases where the function is executed on all components and properly assess system impact. StackState comes with a number of StackPacks that include tuned propagating functions. Changes to those functions are possible, but may impact the stability of the system.
 {% endhint %}
 
 #### Synchronous execution
 
-Running a propagation function with synchronous execution places limitations on both the capability of what it can achieve, and the number of functions that can be run in parallel. Synchronous propagation functions do, however, have access to `stateChangesRepository` information that is not available if the function runs with asynchronous execution.
+Running a propagation function with synchronous execution places limitations on both the capability of what it can achieve, and the number of functions that can be run in parallel. Synchronous propagation functions do, however, have access to `stateChangesRepository` information that isn't available if the function runs with asynchronous execution.
 
 `stateChangesRepository` can be used to return:
 
@@ -176,7 +176,7 @@ To manually specify a non-default propagation function, a `"propagation"` block 
 The propagation block requires the following keys:
 - **_type** - specifies that the JSON block defines a Propagation.
 - **function** the node ID of the propagation function to use. This can be obtained using a `get` helper.
-- **arguments** - a list of arguments to match any user parameters that the propagation function requires. Arguments for system parameters are automatically provided during run time and do not need to be specified here. For further details, see the [examples](#example-templates) of adding a propagation function to a template.
+- **arguments** - a list of arguments to match any user parameters that the propagation function requires. Arguments for system parameters are automatically provided during run time and don't need to be specified here. For further details, see the [examples](#example-templates) of adding a propagation function to a template.
   - **_type** - the type of the argument. This must match the **type** specified for the user parameter in the [propagation function](#create-a-custom-propagation-function).
   - **parameter** - the node ID of the propagation function’s user parameter. This can be obtained using a `get` helper.
   - Any values required for the specified argument **_type**.
@@ -190,7 +190,7 @@ Examples of adding a propagation function to a template can be found below:
 
 #### Active/active failover propagation function
 
-The example template below uses a `get` helper to obtain the ID of the **Active/active failover** propagation function with the identifier `urn:stackpack:common:propagation-function:active-failover`. No `"arguments"` are specified as the propagation function does not include any user parameters. Arguments for system parameters are automatically provided during run time and do not need to be specified.
+The example template below uses a `get` helper to obtain the ID of the **Active/active failover** propagation function with the identifier `urn:stackpack:common:propagation-function:active-failover`. No `"arguments"` are specified as the propagation function does not include any user parameters. Arguments for system parameters are automatically provided during run time and don't need to be specified.
 
 {% tabs %}
 {% tab title="Template `propagation` block" %}
@@ -211,7 +211,7 @@ The example template below uses a `get` helper to obtain the ID of the **Active/
 
 #### Stop propagation for relation type
 
-The template example below includes an argument that will be passed to the propagation function as a user parameter together with the standard system parameters. The `"arguments"` list contains one argument that matches the user parameter `relationType` from the **Stop propagation for relation type** propagation function. Arguments for system parameters are automatically provided during run time and do not need to be specified.
+The template example below includes an argument that will be passed to the propagation function as a user parameter together with the standard system parameters. The `"arguments"` list contains one argument that matches the user parameter `relationType` from the **Stop propagation for relation type** propagation function. Arguments for system parameters are automatically provided during run time and don't need to be specified.
 
 {% tabs %}
 {% tab title="Template `propagation` block" %}

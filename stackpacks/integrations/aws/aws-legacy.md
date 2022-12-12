@@ -40,12 +40,12 @@ To set up the StackState AWS integration, you need to have:
 
 If your StackState instance is behind a proxy, you need to configure the proxy URL and port for the AWS authorization to work. You can configure a proxy URL environment variable or JVM system property.
 
-* Environment variable `HTTP_PROXY` and/or `HTTPS_PROXY`
-* Pass following properties when starting StackState instance `-Dhttp.proxyHost -Dhttp.proxyPort` and/or `-Dhttps.proxyHost -Dhttps.proxyPort`
+* Environment variable `HTTP_PROXY` or `HTTPS_PROXY`
+* Pass following properties when starting StackState instance `-Dhttp.proxyHost -Dhttp.proxyPort` or `-Dhttps.proxyHost -Dhttps.proxyPort`
 
 ### Install
 
-Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
+Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
 
 * **AWS instance name** - the user-defined name of the AWS account shown in configurations such as views.
 * **AWS Access Key id** - the access key for the user for retrieving CloudWatch metrics.
@@ -56,8 +56,8 @@ Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrati
 
 The StackState AWS Cloudformation stacks are deployed on your AWS account to enable topology monitoring. There are two options for StackState monitoring:
 
-* [Full install](aws-legacy.md#full-install) - all changes to AWS resources will be picked up and pushed to StackState.
-* [Minimal install](aws-legacy.md#minimal-install) - changes will be picked up only at a configured interval.
+* [Full install](aws-legacy.md#full-install) - picks up all changes to AWS resources and pushes to StackState.
+* [Minimal install](aws-legacy.md#minimal-install) - picks up changes at a configured interval only.
 
 #### Full install
 

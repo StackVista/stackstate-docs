@@ -16,7 +16,7 @@ To migrate from the Linux install to the Kubernetes or OpenShift install of Stac
 2. [Migrate StackState configuration and topology data \(StackGraph\)](migrate_from_linux.md#step-2-migrate-stackstate-configuration-and-topology-data-stackgraph) from the Linux install to the Kubernetes or OpenShift install.
 3. [Migrate telemetry data \(Elasticsearch\)](migrate_from_linux.md#step-3-migrate-telemetry-data-elasticsearch) from the Linux install to the Kubernetes or OpenShift install.
 
-Incoming data from agents \(Kafka\) and node synchronisation data \(Zookeeper\) will not be copied.
+Incoming data from agents \(Kafka\) and node synchronisation data \(Zookeeper\) won't be copied.
 
 **After the migration:**
 
@@ -129,7 +129,7 @@ The Helm values `backup.stackGraph.scheduled.enabled`, `backup.elasticsearch.res
 
    The output should be empty, as we have not created any buckets yet.
 
-   If the output is not empty, the automatic backup functionality has been enabled. Disable the automatic backup functionality and configure MinIO as described above \(i.e. not as a gateway to AWS S3 or Azure Blob Storage and without any local storage\).
+   If the output isn't empty, the automatic backup functionality has been enabled. Disable the automatic backup functionality and configure MinIO as described above \(i.e. not as a gateway to AWS S3 or Azure Blob Storage and without any local storage\).
 
 5. Create the bucket that is used to store StackGraph buckets:
 

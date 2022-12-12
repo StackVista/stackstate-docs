@@ -34,7 +34,7 @@ Splunk is a [StackState core integration](/stackpacks/integrations/about_integra
 
 ### Install
 
-The Splunk StackPack provides all the necessary configuration to easily work with Splunk topology data in StackState. Install the Splunk StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
+The Splunk StackPack provides all the necessary configuration to easily work with Splunk topology data in StackState. Install the Splunk StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
 
 * **Splunk instance name** - A unique name to identify the Splunk instance in StackState. 
 * **Splunk API URL** - The URL where the Splunk API can be reached. For example: `http://splunk.network.local:8089`.
@@ -61,7 +61,7 @@ Two authentication mechanisms are available:
 
 #### Token-based Authentication
 
-Token-based authentication supports Splunk authentication tokens. An initial Splunk token is provided in the Splunk check configuration. This initial token is used the first time the check starts, it is then exchanged for a new token. For details on using token based authentication with Splunk, see the [Splunk documentation \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/8.1.3/Security/Setupauthenticationwithtokens).
+Token-based authentication supports Splunk authentication tokens. An initial Splunk token is provided in the Splunk check configuration. This initial token is used the first time the check starts, it's then exchanged for a new token. For details on using token based authentication with Splunk, see the [Splunk documentation \(docs.splunk.com\)](https://docs.splunk.com/Documentation/Splunk/8.1.3/Security/Setupauthenticationwithtokens).
 
 Token-based authentication is preferred over HTTP basic authentication and will override basic authentication in case both are configured.
 
@@ -111,8 +111,8 @@ With HTTP basic authentication, the `username` and `password` specified in the S
 instances:
     - url: "https://localhost:8089"
 
-    # username: "admin" ## deprecated - do not use
-    # password: "admin" ## deprecated - do not use
+    # username: "admin" ## deprecated - don't use
+    # password: "admin" ## deprecated - don't use
 
     # verify_ssl_certificate: false
 
@@ -126,7 +126,7 @@ instances:
 
 ### Status
 
-To check the status of the Splunk integration, run the status subcommand and look for `splunk_topology`, `splunk_metrics` and/or `splunk_events` under `Running Checks`:
+To check the status of the Splunk integration, run the status subcommand and look for `splunk_topology`, `splunk_metrics` or `splunk_events` under `Running Checks`:
 
 ```text
 sudo stackstate-agent status

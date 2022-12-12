@@ -47,7 +47,7 @@ To set up the StackState Azure integration, you need to have:
 
 ### Install StackPack
 
-Install the Azure StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
+Install the Azure StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
 
 * **Azure instance name** - the user-defined name of the Azure instance shown in configurations such as views.
 * **Client Id** - the client ID of the Azure Service Principal.

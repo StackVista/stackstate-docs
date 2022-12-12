@@ -23,7 +23,7 @@ A synchronization pipeline takes data through these two models using configurabl
 
 ### Data source
 
-The data source configures the plugin to connect to a specific instance of an external system. The Plugins section of the documentation contains more details on configurations of specific plugins. It is possible to define several synchronizations for the same data source.
+The data source configures the plugin to connect to a specific instance of an external system. The Plugins section of the documentation contains more details on configurations of specific plugins. It's possible to define several synchronizations for the same data source.
 
 ### ID Extraction
 
@@ -39,11 +39,11 @@ StackState comes with some default identity extractor functions, which should be
 
 ### Mapping
 
-Next up is mapping. It specifies the transformation of external system topological data into StackState domain. Mapping is defined by model element type name that is coming from external system, mapping functions and mapping functions parameters.
+Next up is mapping. It specifies the transformation of external system topological data into StackState domain. Mapping is defined by the model element type name coming from external system, mapping functions and mapping functions parameters.
 
-* _Model Element Type Name_ - identifier of external element type, e.g. linux, hypervisor, java
+* _Model Element Type Name_ - identifier of external element type. For example, linux, hypervisor, java
 * _Mapper Function_ - Mapper function that knows how to process the data of _Model Element Type_
-* _Parameters_ - values for mapper function parameters, e.g. selecting template function that knows how to create specific StackState objects
+* _Parameters_ - values for mapper function parameters, for example, selecting template function that knows how to create specific StackState objects
 * _Merge Strategy_ - indicates the merge strategy applied in case several components form a single entity
 
 ## Merge Strategy
@@ -55,7 +55,7 @@ The merge strategy is applied when multiple components get synchronized which ha
 * _Merge, prefer mine_ - Merge fields that are mergable, if not take the data from this mapping
 * _Merge, prefer theirs_ - Merge fields that are mergable, if not take the data from the other components
 
-Mergable fields in the component are set fields \(like streams and checks\) and optional fields \(like version, description\). Mandatory fields \(like name, layer\) cannot be merged, for these always one has to be picked based on Mine/Theirs configuration.
+In a component, it's possible to merge set fields \(such as streams and checks\) and optional fields \(such as version and description\). It isn't possible to merge mandatory fields \(such as name and layer\). In this case, pick one based on Mine/Theirs configuration.
 
 ## Mapping Functions
 

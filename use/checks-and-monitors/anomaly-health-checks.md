@@ -27,7 +27,7 @@ Follow the instructions below to add an anomaly health check to a component.
      * `Rise` - to detect peaks, for example in a latency metric stream.
      * `Drop` - to detect sudden drops, for example in the number of threads free in a thread pool.
      * `Any` - to detect both rises and drops, for example when detecting both hot and cold deviations in data center temperature.
-   * **metricStream** - a metric stream that is available on the component to detect the anomalies on.
+   * **metricStream** - a metric stream available on the component to detect the anomalies on.
    * **event** - leave unchanged. This is an instance of an anomaly event that the check will react to.
 5. Click **CREATE** to activate the check.
 

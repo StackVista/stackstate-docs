@@ -12,7 +12,7 @@ There are several ways to send events to StackState. A large number of [integrat
 
 ## StackState Receiver API
 
-The StackState Receiver API accepts topology, metrics, events and health data in a common JSON object. By default, the receiver API is hosted at the `<STACKSTATE_RECEIVER_API_ADDRESS>` this is constructed using the `<STACKSTATE_BASE_URL>` and <`STACKSTATE_RECEIVER_API_KEY>`.
+The StackState Receiver API accepts topology, metrics, events and health data in a common JSON object. The default location for the receiver API is the `<STACKSTATE_RECEIVER_API_ADDRESS>`, constructed using the `<STACKSTATE_BASE_URL>` and <`STACKSTATE_RECEIVER_API_KEY>`.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
@@ -33,7 +33,7 @@ The `<STACKSTATE_RECEIVER_API_ADDRESS>` for StackState deployed on Linux is:
 https://<STACKSTATE_BASE_URL>:<STACKSTATE_RECEIVER_PORT>/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>
 ```
 
-The `<STACKSTATE_BASE_URL>` and <STACKSTATE_RECEIVER_API_KEY>` are set during StackState installation, for details see [Linux install - configuration parameters](/setup/install-stackstate/linux/install_stackstate.md#configuration-options-required-during-install).
+The `<STACKSTATE_BASE_URL>` and `<STACKSTATE_RECEIVER_API_KEY>` are set during StackState installation, for details see [Linux install - configuration parameters](/setup/install-stackstate/linux/install_stackstate.md#configuration-options-required-during-install).
 {% endtab %}
 {% endtabs %}
 
@@ -45,7 +45,7 @@ Topology, metrics, event and health data are sent to the StackState receiver API
 {
   "collection_timestamp": 1548855554, // the epoch timestamp for the collection in seconds
   "events": {}, // see the section on "events", below
-  "internalHostname": "local.test", // the host that is sending this data
+  "internalHostname": "local.test", // the host sending this data
   "metrics": [], // see the section on "metrics", below
   "service_checks": [],
   "topologies": [], // used for sending topology data
@@ -103,7 +103,7 @@ All events in StackState relate to a topology element or elements. Any propertie
 
 Events have the following details:
 
-* An event name. this must not start with any of the following prefixes: `eventType`, `host`, `labels`, `message`, `name`, `tags`, `timeReceived`, `timestamp` or `title`.
+* An event name. this must not start with any of the following prefixes: `eventType`, `host`, `labels`, `message`, `name`, `tags`, `timeReceived`, `timestamp` or `title`. In the example above, the event name is `event.test`.
 * **context** - Optional. Includes details of the source system for an event. Events that contain a context will be visible in the StackState [Events Perspective](../../use/stackstate-ui/perspectives/events_perspective.md) for views that contain a component with a matching source identifier. Events without a context will be available in StackState as a log stream:
   * **category** - The event category. Can be `Activities`, `Alerts`, `Anomalies`, `Changes` or `Others`.
   * **element\_identifiers** - The [identifiers for the topology element\(s\)](../topology/identifiers.md#topology-identifiers) the event relates to. These are used to bind the event to a topology element or elements.
@@ -212,7 +212,7 @@ stac event send "event_type" \
 
 ⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")

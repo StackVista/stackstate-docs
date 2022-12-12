@@ -23,7 +23,7 @@ To set up the ??? integration you will need to have:
 
 ### Install
 
-Install the ??? StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
+Install the ??? StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following parameters:
 
 * **???** - ???.
 * **???** - ???.

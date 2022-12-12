@@ -10,7 +10,7 @@ This page explains the [telemetry synchronization process](#synchronization-proc
 
 ## Troubleshooting  steps
 
-If telemetry data is not available in StackState, follow the steps below to pinpoint the issue.
+If telemetry data isn't available in StackState, follow the steps below to pinpoint the issue.
 
 **Identify the scale of impact**
 
@@ -64,11 +64,11 @@ Telemetry is either pushed to StackState by a StackState Agent, or pulled from a
 
 For integrations that run through StackState Agent, StackState Agent is a good place to start an investigation.
 - Check the [StackState Agent log](#stackstate-agent) for hints that it has problems connecting to StackState.
-- The integration can be triggered manually using the `stackstate-agent check <check_name> -l debug` command on your terminal. This command will not send any data to StackState. Instead, it will return the topology and telemetry collected to standard output along with any generated log messages.
+- The integration can be triggered manually using the `stackstate-agent check <check_name> -l debug` command on your terminal. This command won't send any data to StackState. Instead, it will return the topology and telemetry collected to standard output along with any generated log messages.
 
 Note that for the Kubernetes and OpenShift integrations, different Agent types supply different sets of metrics. 
 
-- **StackState Agents (node Agents):** Supplies metrics from the node on which they are deployed on. If the Checks Agent is disabled, the node agent will collect metrics from kube-state-metrics instead of the Checks Agent.
+- **StackState Agents (node Agents):** Supplies metrics from the node on which they're deployed on. If the Checks Agent is disabled, the node agent will collect metrics from kube-state-metrics instead of the Checks Agent.
 - **Checks Agent:** Supplies metrics from kube-state-metrics.
 
 ### StackState Receiver
@@ -82,7 +82,7 @@ The StackState Receiver receives JSON data from StackState Agent V2.
 Telemetry data from push-based integrations is stored in an Elasticsearch index. The naming of the fields within the index is entirely based on the data retrieved from the external source system.
 
 - Use the [telemetry inspector](/use/metrics/browse-telemetry.md) to check which data is available in Elasticsearch by selecting the data source `StackState Multi Metrics`. All metrics available in the selected data source are listed under **Select**. Note that if no data is available for a telemetry stream, the telemetry inspector can still be opened by selecting **inspect** from the context menu (the triple dots menu in the top-right corner of the telemetry stream). 
-- If the expected data is not in Elasticsearch, check the [KafkaToES log](#stackstate) for errors.
+- If the expected data isn't in Elasticsearch, check the [KafkaToES log](#stackstate) for errors.
 
 ### Telemetry stream configuration
 

@@ -11,7 +11,7 @@ StackState has a new CLI! The new CLI has many advantages and a few notable diff
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
@@ -32,7 +32,7 @@ The new `sts` CLI has been built for a reason. Here are the major advantages of 
 
 ## Notable Differences between the CLIs
 
- * Unlike `stac`, the new `sts` CLI will not have commands for sending data to StackState. For these purposes, you can use either the StackState Agent or the StackState Receiver API.
+ * Unlike `stac`, the new `sts` CLI won't have commands for sending data to StackState. For these purposes, you can use either the StackState Agent or the StackState Receiver API.
  * Some commands have been renamed to fall more in line with how we think of StackState today. For example, the old command `stac graph` is now called `sts settings`.
  * The new `sts` CLI only works with StackState v5.0 or later.
 
@@ -57,7 +57,7 @@ The `stac` CLI is:
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
@@ -120,9 +120,9 @@ The new `sts` CLI replaces the old `stac` CLI, however, not all commands are ava
 | `topic *`                  | `topic *`                         | Inspect StackState messaging topics.                                                                                                                                                                                                                                                                                    |
 | ❌                          | `completion`                      | Generate the CLI autocompletion script for the specified shell.                                                                                                                                                                                                                                                         |
 | ❌                          | `context`                         | Manage CLI authentication contexts.                                                                                                                                                                                                                                                                                     |
-| `anomaly send`             | ❌                                 | Send anomalies. Will not be ported to the new `sts` CLI. This remains possible via the StackState Receiver API.                                                                                                                                                                                                         |
-| `event send`               | ❌                                 | Send events. Will not be ported to the new `sts` CLI. This remains possible via the StackState Agent and the StackState Receiver API.                                                                                                                                                                                   |
-| `metric *`                 | ❌                                 | Send and retrieve metrics. Will not be ported to the new `sts` CLI. Metrics can still be sent via the StackState Agent and the StackState Receiver API. To retrieve metrics, use the StackState UI [telemetry inspector](/use/metrics/browse-telemetry.md) or [analytics environment](/use/stackstate-ui/analytics.md). |
-| `serverlog`                | ❌                                 | Read StackState log files. Will not be ported to the new `sts` CLI. Log files can be read via Kubernetes or directly from disk.                                                                                                                                                                                         |
-| `topology send`            | ❌                                 | Send topology. Will not be ported to the new `sts` CLI. This remains possible via the StackState Agent or the StackState Receiver API.                                                                                                                                                                                  |
-| `trace send`               | ❌                                 | Send traces. Will not be ported to the new `sts` CLI. This remains possible via the StackState Agent or the StackState Receiver API.                                                                                                                                                                                    |                                             
+| `anomaly send`             | ❌                                 | Send anomalies. Won't be ported to the new `sts` CLI. This remains possible via the StackState Receiver API.                                                                                                                                                                                                         |
+| `event send`               | ❌                                 | Send events. Won't be ported to the new `sts` CLI. This remains possible via the StackState Agent and the StackState Receiver API.                                                                                                                                                                                   |
+| `metric *`                 | ❌                                 | Send and retrieve metrics. Won't be ported to the new `sts` CLI. Metrics can still be sent via the StackState Agent and the StackState Receiver API. To retrieve metrics, use the StackState UI [telemetry inspector](/use/metrics/browse-telemetry.md) or [analytics environment](/use/stackstate-ui/analytics.md). |
+| `serverlog`                | ❌                                 | Read StackState log files. Won't be ported to the new `sts` CLI. Log files can be read via Kubernetes or directly from disk.                                                                                                                                                                                         |
+| `topology send`            | ❌                                 | Send topology. Won't be ported to the new `sts` CLI. This remains possible via the StackState Agent or the StackState Receiver API.                                                                                                                                                                                  |
+| `trace send`               | ❌                                 | Send traces. Won't be ported to the new `sts` CLI. This remains possible via the StackState Agent or the StackState Receiver API.                                                                                                                                                                                    |                                             

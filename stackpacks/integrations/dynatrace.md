@@ -18,7 +18,7 @@ Dynatrace is a [StackState core integration](/stackpacks/integrations/about_inte
 * Agent V2 pushes [retrieved data](dynatrace.md#data-retrieved) to StackState.
     * [Topology data](dynatrace.md#topology) is translated into components and relations. 
     * [Tags](dynatrace.md#tags) defined in Dynatrace are added to components and relations in StackState. Any defined StackState tags are used by StackState when the topology is retrieved.
-    * [Events](dynatrace.md#events) are available in the StackState Events Perspective. They are also included in the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**..
+    * [Events](dynatrace.md#events) are available in the StackState Events Perspective. They're also included in the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**..
 
 ## Setup
 
@@ -32,7 +32,7 @@ To set up the Dynatrace integration you will need to have:
 
 ### Install
 
-Install the Dynatrace StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
+Install the Dynatrace StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
 
 * **Dynatrace URL** - the Dynatrace URL from which topology will be collected. 
 * **Dynatrace Instance Name** - the user-defined name of the Dynatrace account shown in configurations such as views. 
@@ -202,7 +202,7 @@ The [Dynatrace health check](#dynatrace-health-check) retrieves all events and t
 
 | Dynatrace event severity | Available in StackState as                                                                                                                                                                                                                      |
 | :--- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `INFO` | Events are mapped to the associated component. They are listed on the StackState Events Perspective. They are also included in the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**. |
+| `INFO` | Events are mapped to the associated component. They're listed on the StackState Events Perspective. They're also included in the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**. |
 | `PERFORMANCE`, `RESOURCE_CONTENTION`, `MONITORING_UNAVAILABLE`, `ERROR` | Events are added to a StackState health stream. These event severities will result in a `DEVIATING` state on the associated component.                                                                                                         |
 | `AVAILABILITY`, `CUSTOM_ALERT` | Events are added to a StackState health stream. These event severities will result in a CRITICAL state on the associated component.                                                                                                            |
 

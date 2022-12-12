@@ -4,7 +4,7 @@ description: StackState Self-hosted v5.1.x
 
 # Prepare a StackPack provisioning script
 
-The provisioning script that is used for provisioning the StackPack should extend from `com.stackstate.stackpack.ProvisioningScript`. The provisioning script can be split into multiple groovy scripts. The `provisioning` directory inside the StackPack is part of the classpath, so any groovy script referred to inside the `provisioning` directory is also loaded.
+The provisioning script used for provisioning the StackPack should extend from `com.stackstate.stackpack.ProvisioningScript`. The provisioning script can be split into multiple groovy scripts. The `provisioning` directory inside the StackPack is part of the classpath, so any groovy script referred to inside the `provisioning` directory is also loaded.
 
 A provisioning script is provided with a set of capabilities that it can execute in the `StackState` environment. The capabilities are restricted to those that are defined as part of `com.stackstate.stackpack.ProvisioningContext` which is passed as a constructor parameter for the `ProvisioningScript`.
 
@@ -56,12 +56,12 @@ class SomeProvisioningScript extends ProvisioningScript {
 
 The supported actions are:
 
-* `preInstall` - this action is run when installing the very first instance of a StackPack - it is meant to install all the objects that each of the instances will share.
-* `install` - this action is run for every installed instance of a StackPack - it is meant to install instance-specific objects, that will be of use for this instance only.
+* `preInstall` - this action is run when installing the very first instance of a StackPack - it's meant to install all the objects that each of the instances will share.
+* `install` - this action is run for every installed instance of a StackPack - it's meant to install instance-specific objects, that will be of use for this instance only.
 * `waitingForData` - this action allows the StackPack creator to check wether any external service that this StackPack communicates with is properly sending data that this StackPack can process. By default, it just transitions to the `INSTALLED` state.
 * `upgrade` - this action is run for every installed instance of a StackPack when the user upgrades their StackPack version.
-* `uninstall` - this action is run for every instance when it is being uninstalled - it is meant to clean up all the instance-specific objects.
-* `postUninstall` - this action is run when uninstalling the very last instance of a StackPack - it is meant to clean up all the StackPack-shared objects.
+* `uninstall` - this action is run for every instance when it's being uninstalled - it's meant to clean up all the instance-specific objects.
+* `postUninstall` - this action is run when uninstalling the very last instance of a StackPack - it's meant to clean up all the StackPack-shared objects.
 
 ## Provisioning script context
 
@@ -80,7 +80,7 @@ The `context()` function returns an object that provides the following functions
 
 ### The StackState \(`sts`\) object
 
-The provisioning script can interact with the StackState instance it is running in via the `sts()` function:
+The provisioning script can interact with the StackState instance it's running in via the `sts()` function:
 
 ```text
 context().sts()
@@ -136,7 +136,7 @@ The `env()` function returns an object that provides the following functions:
 
 ## How to ensure consistency between the provisioning script and the template file
 
-It is time to template out the variables exposed by your StackPack. It is possible to define some input fields that your StackPack requires to authenticate against some external sources and to differentiate between instances. To generalize the configuration, it is needed to inject the configuration file with some template parameters which are provided by the provisioning script. Any parameters or configuration item can be passed down to the `.stj` template file.
+It is time to template out the variables exposed by your StackPack. It is possible to define some input fields that your StackPack requires to authenticate against some external sources and to differentiate between instances. To generalize the configuration, it's needed to inject the configuration file with some template parameters which are provided by the provisioning script. Any parameters or configuration item can be passed down to the `.stj` template file.
 
 One common example is to create the topic name required by the data source for a given instance. To ensure data received from the StackState Agent Check ends up in your StackPack's data source, make sure that you create the same topic in the provisioning script. The following code snippet shows how to create a function called `topicName` that generates a topic name for this instance, based on the data provided by the user in the StackPack installation step.
 

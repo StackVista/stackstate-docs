@@ -10,7 +10,7 @@ StackState calculates and reports the health state for elements (components and 
 
 * [Element own health state](#element-own-health-state) - indicates the current health state of an element based on configured health sources.
 * [Element propagated health state](#element-propagated-health-state) - highlights potential impact resulting from other unhealthy elements in the topology.
-* [View health state](#view-health-state) - summarizes the health states and/or propagated health states of all elements in a view.
+* [View health state](#view-health-state) - summarizes the health states and propagated health states of all elements in a view.
 
 Changes to a health state will generate [events](/use/events/about_events.md) that can be used to trigger [event notifications](/use/events/event-notifications.md).
 
@@ -22,7 +22,7 @@ Health data in StackState can be derived from a number of health sources.
 
 StackState health checks calculate a health state based on the telemetry or log streams that are defined for a topology element. This approach opens up the possibility to use the Autonomous Anomaly Detector \(AAD\) for anomaly health checks.
 
-Existing StackPacks provide StackState health checks out of the box.
+Existing StackPacks offer StackState health checks out of the box.
 
 * [How to add a health check](../checks-and-monitors/add-a-health-check.md)
 * [How to set up anomaly health checks](../checks-and-monitors/anomaly-health-checks.md)
@@ -32,16 +32,16 @@ Existing StackPacks provide StackState health checks out of the box.
 
 StackState monitors compute a health state based on a configured algorithm that combines and processes the 4T data collected by StackState. Health states computed this way are bound to topology elements using health synchronization.
 
-Existing StackPacks will provide StackState monitors out of the box.
+Existing StackPacks will offer StackState monitors out of the box.
 
 * [How to manage monitors](/use/checks-and-monitors/manage-monitors.md)
 * [About StackState monitors](../checks-and-monitors/monitors.md)
 
 ### External monitoring systems
 
-Health data from external monitoring systems can be sent to StackState using health synchronization. In this case, the health state is calculated by an external system based on its own rules. The calculated health state is then sent to StackState as a health stream and bound to the associated topology element. This approach is useful if you have existing health calculations defined externally, or if it is not viable to send telemetry or events data to StackState and translate the health calculation rules.
+Health data from external monitoring systems can be sent to StackState using health synchronization. In this case, the health state is calculated by an external system based on its own rules. The calculated health state is then sent to StackState as a health stream and bound to the associated topology element. This approach is useful if you have existing health calculations defined externally, or if it isn't viable to send telemetry or events data to StackState and translate the health calculation rules.
 
-Existing StackPacks will provide health synchronization out of the box.
+Existing StackPacks offer health synchronization out of the box.
 
 {% hint style="success" "self-hosted info" %}
 
@@ -119,19 +119,19 @@ You can check the view health state in the following places in the StackState UI
 
 ## Run state
 
-Some components in StackState will report a **Run state**, for example, AWS EC2 instances. This is different to the [health state](/use/concepts/health-state.md) and indicates the component’s operational state. The run state can be `DEPLOYING`, `DEPLOYED`, `STARTING`, `STARTED`, `STOPPING`, `STOPPED` or `UNKNOWN`. It is not used in the calculation of a component's health state.
+Some components in StackState will report a **Run state**, for example, AWS EC2 instances. This is different to the [health state](/use/concepts/health-state.md) and indicates the component’s operational state. The run state can be `DEPLOYING`, `DEPLOYED`, `STARTING`, `STARTED`, `STOPPING`, `STOPPED` or `UNKNOWN`. It isn't used in the calculation of a component's health state.
 
 For every change in run state, a `Run state changed` event is generated. These events are visible in the [Events Perspective](/use/stackstate-ui/perspectives/events_perspective.md) and can help to correlate changes in the deployment state of components with problems in an environment.
 
 ## Propagation
 
-The propagated health state of an element is calculated using a propagation function. Health state will propagate from one element to the next, from dependencies to dependent elements. Note that this is the opposite direction to the arrows shown on relations in the topology visualization. A `CLEAR` \(green\) or `UNKNOWN` \(gray\) health state will not propagate.
+The propagated health state of an element is calculated using a propagation function. Health state will propagate from one element to the next, from dependencies to dependent elements. Note that this is the opposite direction to the arrows shown on relations in the topology visualization. A `CLEAR` \(green\) or `UNKNOWN` \(gray\) health state won't propagate.
 
 | Dependency and propagated state                        | Description |
 |:-------------------------------------------------------| :--- |
 | ![](../../.gitbook/assets/v51_propagation_b_to_a.png)  | Component A depends on component B. Health state will propagate from B to A. |
 | ![](../../.gitbook/assets/v51_propagation_a_to_b.png)  | Component B depends on component A. Health state will propagate from A to B. |
-| ![](../../.gitbook/assets/v51_propagation_a_and_b.png) | Dependency in both directions. Health state will propagate from A to B and from B to A. In other words, it is a circular dependency. |
+| ![](../../.gitbook/assets/v51_propagation_a_and_b.png) | Dependency in both directions. Health state will propagate from A to B and from B to A. In other words, it's a circular dependency. |
 | ![](../../.gitbook/assets/v51_no_propagation.png)      | No dependency. Health state does not propagate. |
 
 {% hint style="success" "self-hosted info" %}

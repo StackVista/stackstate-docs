@@ -16,9 +16,9 @@ The first step to take is integrating StackState with your IT systems. This can 
 
 After setting up an [integration](/stackpacks/integrations/), you can go to the [Explore Mode](/use/stackstate-ui/explore_mode.md) to explore your IT landscape or visit a specific [view](/use/stackstate-ui/views/about_views.md) from your installed StackPacks.
 
-StackState visualizes components in the Topology Perspective by the layer and domain that they are placed in. These are logical groupings of components. Layers are displayed on the vertical axis. Domains are displayed on the horizontal axis.
+StackState visualizes components in the Topology Perspective by the layer and domain that they're placed in. These are logical groupings of components. Layers are displayed on the vertical axis. Domains are displayed on the horizontal axis.
 
-You can change which part of the landscape you are viewing \(e.g. layers and domains\) with the [view filters](/use/stackstate-ui/filters.md) on the left bar, or by [hovering over a component](/use/stackstate-ui/perspectives/topology-perspective.md#component-context-menu).
+You can change which part of the landscape you are viewing \(for example, layers and domains\) with the [view filters](/use/stackstate-ui/filters.md) on the left bar, or by [hovering over a component](/use/stackstate-ui/perspectives/topology-perspective.md#component-context-menu).
 
 ➡️ [Learn more about the Topology Perspective](/use/stackstate-ui/perspectives/topology-perspective.md)
 
@@ -30,7 +30,7 @@ A topology consists of components and relations combined with their health state
 
 The health state of a component is indicated by two colors:
 
-* The component color indicates the health state that is calculated for the component itself.
+* The component color indicates the health state calculated for the component itself.
 * The outer color indicates there is potential impact from unhealthy components or relations that this component depends upon.
 
 The direction of a relation's arrow indicates dependency. For example, `app -> db` means: `app` depends on `db`. Health propagates in the opposite direction to the arrows. So if the `db` component turns red, the outer color of the `app` component will turn red too.
@@ -85,7 +85,7 @@ To show all events for the selected Topology, select the Events Perspective from
 
 ![Events Perspective](/.gitbook/assets/v51_events-perspective.png)
 
-The Events Perspective is not the only place you can find events; you can find the latest events in the Events section in the right panel **View summary** tab and in the details tabs - **Component details** and **Direct relation details**.
+The Events Perspective isn't the only place you can find events; you can find the latest events in the Events section in the right panel **View summary** tab and in the details tabs - **Component details** and **Direct relation details**.
 
 ![Events section](/.gitbook/assets/v51_events-section.png)
 

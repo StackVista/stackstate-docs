@@ -27,7 +27,7 @@ Locate the component that you want to edit Telemetry streams for. Select the com
 
 ### 2. Choose the telemetry streams to prioritize
 
-Components can have multiple Telemetry streams. They are presented in a list, so not all of them are visible at first. Let's say that instead of `BytesReceivedRate`, you want to see `PacketsReceivedRate` right after the `basic_health` stream. Click the **...** menu in the top-right corner of the `basic_health` stream and choose **Edit**:
+Components can have multiple Telemetry streams. They're presented in a list, so not all of them are visible at first. Let's say that instead of `BytesReceivedRate`, you want to see `PacketsReceivedRate` right after the `basic_health` stream. Click the **...** menu in the top-right corner of the `basic_health` stream and choose **Edit**:
 
 ![Edit telemetry stream](../../.gitbook/assets/v51_telstream_edit.png)
 

@@ -59,7 +59,7 @@ Shortcuts give you direct access to detailed information about the specific comp
 
 ## Relations
 
-Relations show how components in the topology are connected together. They are represented by a dashed or solid line and have an arrowhead showing the direction of dependency between the components they link. [Health state will propagate](../../concepts/health-state.md#element-propagated-health-state) from one component to the next, from dependencies to dependent components. Relations that have one or more health checks configured will report a calculated health state.
+Relations show how components in the topology are connected together. They're represented by a dashed or solid line and have an arrowhead showing the direction of dependency between the components they link. [Health state will propagate](../../concepts/health-state.md#element-propagated-health-state) from one component to the next, from dependencies to dependent components. Relations that have one or more health checks configured will report a calculated health state.
 
 Select a relation to open detailed information about it in the right panel details tab - **Direct relation details**, **Indirect relation details** or **Grouped relation details** depending on the relation type that has been selected.
 
@@ -116,9 +116,9 @@ If there are components with [telemetry streams](../../metrics/telemetry_streams
 You can configure or develop your own [propagation functions](../../../develop/developer-guides/custom-functions/propagation-functions.md).
 {% endhint %}
 
-It is possible that a view can contain components that have a `DEVIATING` propagated health state caused by a component that is itself not included in the view. The Topology Perspective allows you to configure whether the view should be expanded to automatically show root cause components that are outside the currently displayed view:
+It's possible that a view can contain components that have a `DEVIATING` propagated health state caused by a component that's not included in the view itself. The Topology Perspective allows you to configure whether the view should be expanded to automatically show root cause components that are outside the currently displayed view:
 
-* **Don't show root cause** - Do not show the root causes of components shown by the current topology filters.
+* **Don't show root cause** - Don't show the root causes of components shown by the current topology filters.
 * **Show root cause only** - Only show the root causes of components shown by the current topology filters that have a `CRITICAL` or `DEVIATING` propagated health. Indirect relations are visualized if a component directly depends on at least one invisible component that leads to the root cause.
 * **Show full root cause tree** - Show all paths from components shown by the current topology filters that have a `CRITICAL` or `DEVIATING` propagated health to their root causes.
 

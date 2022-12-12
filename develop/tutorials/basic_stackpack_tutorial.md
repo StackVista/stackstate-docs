@@ -36,7 +36,7 @@ zip -r ./tutorial-stackpack-0.0.1.sts stackpack.conf provisioning resources
 
 ## Importing the StackPack
 
-The StackPack must be imported into StackState before it can be installed. This can be done using the [StackState CLI](/setup/cli/README.md). Please make sure it is installed and configured to connect with your StackState instance.
+The StackPack must be imported into StackState before it can be installed. This can be done using the [StackState CLI](/setup/cli/README.md). Please make sure it's installed and configured to connect with your StackState instance.
 
 The following command installs our new tutorial StackPack in StackState:
 
@@ -58,7 +58,7 @@ stac stackpack upload tutorial-stackpack-0.0.1.sts
 
 ⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
@@ -68,7 +68,7 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 {% endtabs %}
 
 {% hint style="info" %}
-The StackState CLI requires a `conf.d` configuration folder in the directory it is running from. This may require you to run the CLI from a different location. If so, remember to use an absolute path to refer to the StackPack binary.
+The StackState CLI requires a `conf.d` configuration folder in the directory it's running from. This may require you to run the CLI from a different location. If so, remember to use an absolute path to refer to the StackPack binary.
 {% endhint %}
 
 We are now ready to install our tutorial StackPack.
@@ -111,7 +111,7 @@ Select the **myDummyApp** component to display detailed information about it in 
 
 In the Template Editor you can edit the template used to create components based on data coming in from your sample check. It shows the following information:
 
-* **Input parameters** - The data sent by our `curl` command that is processed by StackState
+* **Input parameters** - The data sent by our `curl` command that's processed by StackState
 * **Template function** - The template that uses the input parameters to create a component
 * **Component preview** - A preview of the component produced by applying the input parameters to the template function
 

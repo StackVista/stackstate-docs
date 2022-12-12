@@ -50,7 +50,7 @@ No manual action required.
 
 #### v5.0.1
 
-⚠️ Do not use. Please upgrade to StackState v5.0.2.
+⚠️ Don't use. Please upgrade to StackState v5.0.2.
 
 #### v5.0.0
 
@@ -77,7 +77,7 @@ No manual action required.
 
 #### v5.0.1
 
-⚠️ Do not use. Please upgrade to StackState v5.0.2.
+⚠️ Don't use. Please upgrade to StackState v5.0.2.
 
 #### v5.0.0
 
@@ -176,7 +176,7 @@ No manual action required.
 #### v4.5.0
 
 * ⚠️ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.5.1.
-* ⚠️ StackState v4.5.0 is not compatible with StackState Agent v2.15.0.
+* ⚠️ StackState v4.5.0 isn't compatible with StackState Agent v2.15.0.
 * Change in supported platforms:
   * Support for Kubernetes 1.17 was dropped.
   * Support for Amazon Elastic Kubernetes Service (EKS) 1.20 and 1.21 was added.
@@ -203,7 +203,7 @@ No manual action required.
 #### v4.5.0
 
 * ⚠️ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.5.1.
-* ⚠️ StackState v4.5.0 is not compatible with StackState Agent v2.15.0.
+* ⚠️ StackState v4.5.0 isn't compatible with StackState Agent v2.15.0.
 
 {% endtab %}
 {% endtabs %}
@@ -227,10 +227,10 @@ No manual action required.
   * The requirements for the recommended highly available setup have grown \(from 5\) to 6 nodes with 32 GB of memory and 8 vCPUS.
   * The requirements for a minimal highly available setup have grown \(from 4\) to 5 nodes with 32 GB of memory and 8 vCPUS.
   * A [non-high availability setup](../install-stackstate/kubernetes_openshift/non_high_availability_setup.md) has been added, the requirements for which are 3 nodes with 32 GB of memory and 8 vCPUS.
-* Baselines have been disabled in v4.4. The `BaselineFunction` and `Baseline` objects are still available, but they do not serve any purpose other than smooth transition to the Autonomous Anomaly Detector \(AAD\) framework. If you have custom StackPacks that auto-create baselines, this is the last opportunity to remove baselines from templates and make transition to the AAD. In release v4.5 baselines will be removed completely and templates using them will break.
+* Baselines have been disabled in v4.4. The `BaselineFunction` and `Baseline` objects are still available, but they don't serve any purpose other than smooth transition to the Autonomous Anomaly Detector \(AAD\) framework. If you have custom StackPacks that auto-create baselines, this is the last opportunity to remove baselines from templates and make transition to the AAD. In release v4.5 baselines will be removed completely and templates using them will break.
 * Transparent propagation has been renamed to **Auto propagation**. The behavior remains the same.
 * The ElasticSearch Helm subchart `elasticsearch-exporter` has been renamed to `prometheus-elasticsearch-exporter`. This means that any configuration for that subchart needs to use the new subchart key `elasticsearch.prometheus-elasticsearch-exporter.*`
-* The `passwordMd5` field in the [file based authentication](../../configure/security/authentication/file.md) has been renamed to `passwordHash` as it is now possible to use `bcrypt` type passwords.
+* The `passwordMd5` field in the [file based authentication](../../configure/security/authentication/file.md) has been renamed to `passwordHash` as it's now possible to use `bcrypt` type passwords.
 * Security improvement for Authentication and Authorization. There is a single configuration for groups to roles mappings and a single authentication provider used for both the Base API and Admin API. The default StackState roles are now always available, these could previously be overridden - `stackstate-admin`, `stackstate-power-user`, `stackstate-guest`. Additionally, a new default role `stackstate-platform-admin` has been introduced.
 
   ```text
@@ -277,7 +277,7 @@ No manual action required.
 #### v4.4.0
 
 * ⚠️ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 and CVE-2021-45046. Resolved in version v4.4.3.
-* Baselines have been disabled in v4.4. The `BaselineFunction` and `Baseline` objects are still available, but they do not serve any purpose other than smooth transition to the Autonomous Anomaly Detector \(AAD\) framework. If you have custom StackPacks that auto-create baselines, this is the last opportunity to remove baselines from templates and make transition to the AAD. In release v4.5 baselines will be removed completely and templates using them will break.
+* Baselines have been disabled in v4.4. The `BaselineFunction` and `Baseline` objects are still available, but they don't serve any purpose other than smooth transition to the Autonomous Anomaly Detector \(AAD\) framework. If you have custom StackPacks that auto-create baselines, this is the last opportunity to remove baselines from templates and make transition to the AAD. In release v4.5 baselines will be removed completely and templates using them will break.
 * Transparent propagation has been renamed to **Auto propagation**. The behavior remains the same.
 * Security improvement for Authentication and Authorization. There is a single configuration for groups to roles mappings and a single authentication provider used for both the Base API and Admin API. The default StackState roles are now always available, these could previously be overridden - `stackstate-admin`, `stackstate-power-user`, `stackstate-guest`. Additionally, a new default role `stackstate-platform-admin` has been introduced.
 
@@ -377,9 +377,9 @@ No manual action required.
 * Two new [permissions](../../configure/security/rbac/rbac_permissions.md) have been added - `manage-event-handlers` and `execute-restricted-scripts`:
   * Guest users will no longer be able to create or edit event handlers.
   * Power Users will no longer be able to execute scripts using the HTTP script API.
-  * Admin users will not be affected.
-* Baselines have been deprecated and will be removed in v4.4. To reflect this, baseline functions and check functions that use baselines have been renamed. Templates that resolve these functions by name will stop working after upgrade to StackState 4.3. The function identifiers have not changed and can still be used to reference functions, however, it is advised that you migrate to using the [Autonomous Anomaly Detector](../../use/checks-and-monitors/anomaly-health-checks.md).
-* A Slack integration StackPack is now available that includes a new Slack event handler. Existing Slack event handlers will continue to run in StackState v4.3, however, the old Slack event handler has been deprecated and will be removed in a future release of StackState. To continue using Slack event notifications, it is advised to install the Slack StackPack and [configure view event handlers](/use/events/manage-event-handlers.md) to use the new Slack event handler in place of the old `Notify via slack for component health state change. (deprecated)` and `Notify via slack for view health state change.(deprecated)`.
+  * Admin users won't be affected.
+* Baselines have been deprecated and will be removed in v4.4. To reflect this, baseline functions and check functions that use baselines have been renamed. Templates that resolve these functions by name will stop working after upgrade to StackState 4.3. The function identifiers have not changed and can still be used to reference functions, however, it's advised that you migrate to using the [Autonomous Anomaly Detector](../../use/checks-and-monitors/anomaly-health-checks.md).
+* A Slack integration StackPack is now available that includes a new Slack event handler. Existing Slack event handlers will continue to run in StackState v4.3, however, the old Slack event handler has been deprecated and will be removed in a future release of StackState. To continue using Slack event notifications, it's advised to install the Slack StackPack and [configure view event handlers](/use/events/manage-event-handlers.md) to use the new Slack event handler in place of the old `Notify via slack for component health state change. (deprecated)` and `Notify via slack for view health state change.(deprecated)`.
 * Dynatrace StackPack - The location of the Dynatrace check config file has moved. If you choose to upgrade to the version of the Dynatrace StackPack shipped with StackState v4.3, the Agent check configuration file should also be moved. The new location is `/etc/sts-agent/conf.d/dynatrace.d/conf.yaml` the previous location was `/etc/sts-agent/conf.d/dynatrace_topology.d/conf.yaml`.
 {% endtab %}
 
@@ -398,9 +398,9 @@ No manual action required.
 * Two new [permissions](../../configure/security/rbac/rbac_permissions.md) have been added - `manage-event-handlers` and `execute-restricted-scripts`:
   * Guest users will no longer be able to create or edit event handlers.
   * Power Users will no longer be able to execute scripts using the HTTP script API.
-  * Admin users will not be affected.
-* Baselines have been deprecated and will be removed in v4.4. To reflect this, baseline functions and check functions that use baselines have been renamed. Templates that resolve these functions by name will stop working after upgrade to StackState 4.3. The function identifiers have not changed and can still be used to reference functions, however, it is advised that you migrate to using the [Autonomous Anomaly Detector](../../use/checks-and-monitors/anomaly-health-checks.md).
-* A Slack integration StackPack is now available that includes a new Slack event handler. Existing Slack event handlers will continue to run in StackState v4.3, however, the old Slack event handler has been deprecated and will be removed in a future release of StackState. To continue using Slack event notifications, it is advised to install the Slack StackPack and [configure view event handlers](/use/events/manage-event-handlers.md) to use the new Slack event handler in place of the old `Notify via slack for component health state change. (deprecated)` and `Notify via slack for view health state change.(deprecated)`.
+  * Admin users won't be affected.
+* Baselines have been deprecated and will be removed in v4.4. To reflect this, baseline functions and check functions that use baselines have been renamed. Templates that resolve these functions by name will stop working after upgrade to StackState 4.3. The function identifiers have not changed and can still be used to reference functions, however, it's advised that you migrate to using the [Autonomous Anomaly Detector](../../use/checks-and-monitors/anomaly-health-checks.md).
+* A Slack integration StackPack is now available that includes a new Slack event handler. Existing Slack event handlers will continue to run in StackState v4.3, however, the old Slack event handler has been deprecated and will be removed in a future release of StackState. To continue using Slack event notifications, it's advised to install the Slack StackPack and [configure view event handlers](/use/events/manage-event-handlers.md) to use the new Slack event handler in place of the old `Notify via slack for component health state change. (deprecated)` and `Notify via slack for view health state change.(deprecated)`.
 * Dynatrace StackPack - The location of the Dynatrace check config file has moved. If you choose to upgrade to the version of the Dynatrace StackPack shipped with StackState v4.3, the Agent check configuration file should also be moved. The new location is `/etc/sts-agent/conf.d/dynatrace.d/conf.yaml` the previous location was `/etc/sts-agent/conf.d/dynatrace_topology.d/conf.yaml`.
 {% endtab %}
 {% endtabs %}

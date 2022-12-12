@@ -72,7 +72,7 @@ If we then merge our middle component `Service Name: Child Component` with the e
 
 ## Multiple children
 
-It is also good to know that a single parent can have multiple children. This allows you to build a tree with branches of relations, for example:
+It's also good to know that a single parent can have multiple children. This allows you to build a tree with branches of relations, for example:
 
 ```text
 Service Name: Parent Component

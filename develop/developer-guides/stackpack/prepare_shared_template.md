@@ -4,13 +4,13 @@ description: StackState Self-hosted v5.1.x
 
 # Prepare a shared template
 
-Shared template file contains information that is going to be used across instances, like: Component Types, IdExtractor functions for components and relations, Component Template functions, Relation Template functions, or Layers. They can be derived from the exported `.stj` file, by exporting configuration nodes with `shared` in their identifiers, for example `"identifier": "urn:stackpack:{StackPackName}:shared:relation-template-function:test-relation-template",`.
+Shared template file contains information that's going to be used across instances, like: Component Types, IdExtractor functions for components and relations, Component Template functions, Relation Template functions, or Layers. They can be derived from the exported `.stj` file, by exporting configuration nodes with `shared` in their identifiers, for example `"identifier": "urn:stackpack:{StackPackName}:shared:relation-template-function:test-relation-template",`.
 
-Shared template file contains information that is going to be used across instances, like:
+Shared template file contains information that's going to be used across instances, like:
 
 ## Component Types
 
-Component Type in a template file contains a PNG or SVG icon image that is `base64` encoded as in the example below:
+Component Type in a template file contains a PNG or SVG icon image that's `base64` encoded as in the example below:
 
 ```javascript
 {

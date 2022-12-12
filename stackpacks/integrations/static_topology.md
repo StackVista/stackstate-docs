@@ -21,7 +21,7 @@ To set up the StackState Static Topology integration, you need to have:
 
 ### Install
 
-Install the Static Topology StackPack from the StackState UI **StackPacks** > **Integrations** screen. You will need to provide the following parameters:
+Install the Static Topology StackPack from the StackState UI **StackPacks** > **Integrations** screen. You will need to enter the following details:
 
 * **Path to component CSV file** - the CSV file to read component data from.
 * **Path to relation CSV file** - the CSV file to read relation data from.

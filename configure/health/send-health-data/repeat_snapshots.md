@@ -60,7 +60,7 @@ Every health Repeat Snapshots data payload has the following details:
 * **stop_snapshot** - Optional. An end of a snapshot will be processed after processing the`check_states`.
 * **stream** - Object providing identification regarding which snapshots and `check_states` belong together. It contains the following fields:
   * **urn** - Data source and stream ID encoded as a StackState [URN](/configure/topology/identifiers.md) that matches the following convention: `urn:health:<sourceId>:<streamId>` where `<sourceId>` is the name if the external data source and `<streamId>` is a unique identifier for the health data stream.
-  * **sub_stream_id** - Optional. Identifier for a sub set of the stream health data. When the stream data is distributed and reported by several agents, this allows snapshot lifecycles per `sub_stream_id`
+  * **sub_stream_id** - Optional. Identifier for a subset of the stream health data. When the stream data is distributed and reported by several Agents, this allows snapshot lifecycles per `sub_stream_id`
 * **check_states** - A list of check states. Each check state can have the following fields:
   * **checkStateId** - Identifier for the check state in the external system
   * **message** - Optional. Message to display in StackState UI. Data will be interpreted as markdown allowing to have links to the external system check that generated the external check state.
@@ -117,7 +117,7 @@ curl -X POST \
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")

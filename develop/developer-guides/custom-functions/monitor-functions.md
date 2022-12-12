@@ -21,7 +21,7 @@ To add a custom monitor function:
    * **Script** - The groovy script run by the function. For more details see the section [script](#script).
    * **Identifier** - a StackState-URN-formatted value that uniquely identifies the monitor function. The identifier is used by the monitor definition during the invocation of this function.
 4. Click **CREATE** to save the monitor function.
-   * The monitor function will be listed in the StackState UI page **Settings** >  **Functions** > **Monitor Functions**. It can be exported from here to use in a monitor or add to a template that is included in a custom StackPack.
+   * The monitor function will be listed in the StackState UI page **Settings** >  **Functions** > **Monitor Functions**. It can be exported from here to use in a monitor or add to a template included in a custom StackPack.
 
 ![Add a custom monitor function](../../../.gitbook/assets/v51_add-monitor-function.png)
 
@@ -45,7 +45,7 @@ The following parameter types are available for use in monitor functions:
 
 A user parameter of type **Telemetry query** can be added to a monitor function. The monitor that invokes the monitor function can then specify a telemetry query expression as a value to the function. The query indicates the specific metric values to fetch, along with the aggregation method and the time window to use.
 
-The telemetry query parameter type will ensure that the provided query is well-formed - in case of any syntactic or type errors, a suitable error will be reported. This will prevent execution of the monitor function with potentially bogus values.
+The telemetry query parameter type will ensure that the provided query is well-formed - in case of any syntactic or type errors, a suitable error will be reported. This will prevent execution of the monitor function with bogus values.
 
 ➡️ [Learn how to specify a telemetry query in a monitor definition file](/develop/developer-guides/monitors/monitor-stj-file-format.md#telemetry-query)
 
@@ -59,7 +59,7 @@ Below is an example monitor function with one user parameter defined. The parame
 
 ![`latest_metrics` user parameter in a monitor function](/.gitbook/assets/v51_latest_metrics_user_parameter.png)
 
-To successfully invoke this function, a monitor must set a `value` for the required `latest_metrics` parameter. This is done by adding an `arguments` block similar to the one shown below to the monitor definition file. The `value` shown here includes an example telemetry query, this would be run to provide telemetry to the monitor function.
+To successfully invoke this function, a monitor must set a `value` for the required `latest_metrics` parameter. This is done by adding an `arguments` block similar to the one shown below to the monitor definition file. The `value` shown here includes an example telemetry query, this would be run to retrieve telemetry for the monitor function.
 
 {% code title="Monitor definition JSON" lineNumbers="true" %}
 ```json

@@ -6,14 +6,14 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-In a Kubernetes setup, StackState functions are distributed across different pods and logs for each function are stored per pod and container. You can access recent logs using `kubectl`, although for long term storage it is recommended to set up log aggregation.
+In a Kubernetes setup, StackState functions are distributed across different pods and logs for each function are stored per pod and container. You can access recent logs using `kubectl`, although for long term storage it's recommended to set up log aggregation.
 
 ## Kubernetes pods for logging
 
-StackState logs are stored per pod and container. The table below shows the pod to access for logs relating to specific StackState functions. Note that actual pod names will include a number or random string suffix \(e.g. `stackstate-receiver-5b9d79db86-h2hkz`\) and may also include the release name specified when StackState was deployed as a prefix.
+StackState logs are stored per pod and container. The table below shows the pod to access for logs relating to specific StackState functions. Note that actual pod names will include a number or random string suffix (for example, `stackstate-receiver-5b9d79db86-h2hkz`\) and may also include the release name specified when StackState was deployed as a prefix.
 
 {% hint style="info" %}
-Note that logs stored on pods will be regularly removed. For long term access to logs, it is advised that you set up [log aggregation](#log-aggregation) for your Kubernetes cluster.
+Note that logs stored on pods will be regularly removed. For long term access to logs, it's advised that you set up [log aggregation](#log-aggregation) for your Kubernetes cluster.
 {% endhint %}
 
 | StackState function | Logs on pod                                                                                                                                         |
@@ -74,7 +74,7 @@ $ kubectl logs stackstate-sync-0 | grep "Agent"
 
 ## Log aggregation
 
-For long term storage of StackState log data, it is advised that you set up log aggregation on your Kubernetes cluster. This can be done using a third party system for storage such as Elasticsearch, Splunk or Logz.io and a log shipper such as Logstash or Fluentd.
+For long term storage of StackState log data, it's advised that you set up log aggregation on your Kubernetes cluster. This can be done using a third party system for storage such as Elasticsearch, Splunk or Logz.io and a log shipper such as Logstash or Fluentd.
 
 For more details of how this can be done, check:
 

@@ -11,5 +11,5 @@ In the future we will move away from Linux support. Read how to [migrate from th
 
 StackState and related software are distributed through our download website. The software distribution website is located at [download.stackstate.com](https://download.stackstate.com).
 
-It is required to have a license key to download from the distribution website. A license key can be obtained by [getting in touch with us](https://www.stackstate.com/contact/).
+To download from the distribution website, you must have a valid license key. A license key can be obtained by [getting in touch with us](https://www.stackstate.com/contact/).
 

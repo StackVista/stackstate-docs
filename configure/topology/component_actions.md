@@ -4,7 +4,7 @@ description: StackState Self-hosted v5.1.x
 
 # Component actions
 
-Component Actions in StackState provide an ability to act based on various events and inputs provided by StackState monitoring capabilities. This functionality provides users with configurable **Actions** that can be executed from the component context menu or the right panel details tab when a component has been selected - **Component details**.
+Component Actions in StackState offer the ability to act based on various events and inputs provided by StackState monitoring capabilities. This functionality provides users with configurable **Actions** that can be executed from the component context menu or the right panel details tab when a component has been selected - **Component details**.
 
 ![Component Actions](../../.gitbook/assets/v51_actions.png)
 
@@ -12,7 +12,7 @@ Component Actions can be configured within StackState Settings or can be predefi
 
 ## What is a Component Action?
 
-A Component Action is a script that can be executed for components bound to that script with an [STQL query](../../develop/reference/stql_reference.md). A Component Action consists of a unique name that is case-sensitive, an STQL bind that selects components, and a script that determines the action's behavior. There are also optional fields for providing a description and an Identifier.
+A Component Action is a script that can be executed for components bound to that script with an [STQL query](../../develop/reference/stql_reference.md). A Component Action consists of a unique name (case-sensitive), an STQL bind that selects components, and a script that determines the action's behavior. There are also optional fields for providing a description and an Identifier.
 
 ## Component Actions in use
 

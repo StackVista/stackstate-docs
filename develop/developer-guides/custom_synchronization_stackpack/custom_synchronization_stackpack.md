@@ -10,7 +10,7 @@ Building a new topology synchronization pipeline starts with the custom synchron
 
 ## When to use the Custom Synchronization StackPack
 
-The Custom Synchronization StackPack is meant for integrations that include a topology aspect. If your integration only has telemetry, you do not need this StackPack.
+The Custom Synchronization StackPack is meant for integrations that include a topology aspect. If your integration only has telemetry, you don't need this StackPack.
 
 ## Getting started with the Custom Synchronization StackPack
 

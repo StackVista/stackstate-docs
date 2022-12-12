@@ -22,7 +22,7 @@ Below are StackState's tagging restrictions, requirements, and suggestions:
 
      Other special characters are converted to underscores.
 
-     **Note**: A tag cannot end with a colon, for example `tag:`
+     **Note**: A tag can't end with a colon, for example `tag:`
 2. Tags can be **up to 200 characters** long and support Unicode.
 3. Tags are converted to lowercase. Therefore, `CamelCase` tags are not recommended.
 4. A tag can be in the format `value` or `<KEY>:<VALUE>`. For optimal functionality, **we recommend constructing tags in the `<KEY>:<VALUE>` format.** Commonly used tag keys are `env`, `instance`, and `name`. The key always precedes the first colon of the global tag definition, for example:
@@ -75,11 +75,11 @@ tags:
     - <KEY_3>:<VALUE_3>
 ```
 
-It is recommended you assign tags as `<KEY>:<VALUE>` pairs, but simple tags are also accepted.
+It's recommended you assign tags as `<KEY>:<VALUE>` pairs, but simple tags are also accepted.
 
 ## StackPack Inheritance
 
-The most efficient method for assigning tags is to rely on your StackPacks. Tags assigned to your Amazon Web Services components, Azure components, and more are all automatically assigned to the topology when they are brought into StackState.
+The most efficient method for assigning tags is to rely on your StackPacks. Tags assigned to your Amazon Web Services components, Azure components, and more are all automatically assigned to the topology when they're brought into StackState.
 
 ### Common tags
 

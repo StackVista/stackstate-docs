@@ -6,12 +6,12 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-Components from a custom instrumentation can be merged with pre-existing components in StackState. This allows you to:
-- Add extra attributes into pre-existing components.
+StackState can merge components from a custom instrumentation with pre-existing components. You can use this to:
+- Add extra attributes to pre-existing components.
 - Create custom relations for pre-existing components. 
 - Influence the propagation of health state. For details, see the page [Span health state](span-health.md).
 
-Components with the [same identifier](#component-identifier) will be merged together in StackState. After merging, the original component will [inherit all properties](#merging-inheritance) from the component that merged with it. The component that was merged will no longer be visible.
+StackState will merge components with the [same identifier](#component-identifier). After merging, the original component will [inherit all properties](#merging-inheritance) from the component that merged with it. The component that was merged will no longer be visible.
 
 {% hint style="info" %}
 **Important to know when merging:**
@@ -21,7 +21,7 @@ When a custom instrumentation is merged with a pre-existing StackState component
 
 ## Merging inheritance
 
-When a custom instrumentation component is merged with a pre-existing component, the component with which it is merged will inherit all the properties, health, and relations from the custom instrumentation component. This means that, although the custom instrumentation component will no longer be visible, the component that it merged with now acts as both the original component and the custom instrumentation component. The resulting component will now contain, for example, all the labels, telemetry, and health from the custom instrumentation component.
+When a custom instrumentation component is merged with a pre-existing component, the component with which it's merged will inherit all the properties, health, and relations from the custom instrumentation component. This means that, although the custom instrumentation component will no longer be visible, the component that it merged with now acts as both the original component and the custom instrumentation component. The resulting component will now contain, for example, all the labels, telemetry, and health from the custom instrumentation component.
 
 The example below shows an unmerged child component; below are all the `labels` and `identifiers` for this child component.
 

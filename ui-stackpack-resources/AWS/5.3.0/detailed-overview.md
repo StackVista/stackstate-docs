@@ -15,8 +15,8 @@ To set up the StackState AWS integration, you need to have:
 If your StackState instance is behind a proxy, you need to configure the proxy URL and port for the AWS authorization to work.
 You can configure a proxy URL environment variable or JVM system property.
 
-- Environment variable `HTTP_PROXY` and/or `HTTPS_PROXY`
-- Pass following properties when starting StackState instance `-Dhttp.proxyHost -Dhttp.proxyPort` and/or `-Dhttps.proxyHost -Dhttps.proxyPort`
+- Environment variable `HTTP_PROXY` or `HTTPS_PROXY`
+- Pass following properties when starting StackState instance `-Dhttp.proxyHost -Dhttp.proxyPort` or `-Dhttps.proxyHost -Dhttps.proxyPort`
 
 ### Costs
 

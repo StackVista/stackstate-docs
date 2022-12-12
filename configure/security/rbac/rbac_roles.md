@@ -14,7 +14,7 @@ There are four roles predefined in StackState:
 
 * **Administrator** - has full access to all views and has all permissions, except for platform management.
 * **Platform Administrator** - has platform management permissions and access to all views.
-* **Power User** - typically granted to a user that needs to configure StackState for a team\(s\), but will not manage the entire StackState installation.
+* **Power User** - typically granted to a user that needs to configure StackState for a team\(s\), but won't manage the entire StackState installation.
 * **Guest** - has read-only access to StackState.
 
 The permissions assigned to each predefined StackState role can be found below. For details of the different permissions and how to manage them using the `stac` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md)
@@ -67,7 +67,7 @@ upload-stackpacks           | system
 {% endtab %}
 {% tab title="Platform Administrator" %}
 
-Platform Administrator \(`stackstate-platform-admin`\) is the only predefined role that is assigned the permission `access-admin-api`.
+Platform Administrator \(`stackstate-platform-admin`\) is the only predefined role assigned the permission `access-admin-api`.
 
 Permissions assigned to the predefined Platform Administrator role (`stackstate-platform-admin`) are listed below, these were retrieved using the `sts` CLI. For details of the different permissions and how to manage them using the `sts` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md).
 
@@ -219,7 +219,7 @@ The instructions below will take you through the process of setting up a new gro
 
    Also, please note that the subject's name is case-sensitive.
 
-2. Configured subjects need permissions to access parts of the UI and to execute actions in it. StackState Manager role requires access to the specific view of business applications, and there is no need to grant any CRUD, or StackPack permissions - they will not be used in day-to-day work by any Manager. To grant permission to view the `Business Applications` view, follow the below example:
+2. Configured subjects need permissions to access parts of the UI and to execute actions in it. StackState Manager role requires access to the specific view of business applications, and there is no need to grant any CRUD, or StackPack permissions - they won't be used in day-to-day work by any Manager. To grant permission to view the `Business Applications` view, follow the below example:
 
    ```text
    # `stac` CLI:

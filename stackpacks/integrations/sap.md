@@ -34,7 +34,7 @@ The StackState SAP integration requires the following TCP ports:
 
 ### Install
 
-Install the SAP StackPack from the StackState UI **StackPacks** > **Integrations** screen. You will need to provide the following parameter:
+Install the SAP StackPack from the StackState UI **StackPacks** > **Integrations** screen. You will need to enter the following details:
 
 - **SAP Host Name** - the SAP host name from which topology and metrics need to be collected.
 

@@ -23,7 +23,7 @@ The new StackState `sts` CLI provides easy access to the functionality provided 
 If you are running an older version of StackState, use the [`stac` CLI](cli-stac.md  "StackState Self-Hosted only").
 {% endhint %}[](http://not.a.link "StackState Self-Hosted only")
 
-1. If it is installed, upgrade the old `sts` CLI to `stac`:[](http://not.a.link "StackState Self-Hosted only")
+1. If it's installed, upgrade the old `sts` CLI to `stac`:[](http://not.a.link "StackState Self-Hosted only")
    * [Check if the old `sts` CLI is installed](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only").
    * [Upgrade the old `sts` CLI to `stac`](/setup/cli/cli-stac.md#upgrade "StackState Self-Hosted only").
 2. Follow the steps below to install the new `sts` CLI:
@@ -168,7 +168,7 @@ docker run stackstate/stackstate-cli2
 
 Alternatively, go to the **CLI** page in the StackState UI and copy the **Quick installation** command for **Docker** - this is pre-filled with the correct `<URL>` and `<API-TOKEN>` required to configure the CLI for your StackState instance.
 
-You can now run CLI commands by adding appending them to the end of the `docker run` command (e.g. `docker run stackstate/stackstate-cli2 version`).
+You can now run CLI commands by adding appending them to the end of the `docker run` command (for example, `docker run stackstate/stackstate-cli2 version`).
 
 {% endtab %}
 {% endtabs %}
@@ -194,7 +194,7 @@ The most secure way to use your API token is through an environment variable. Yo
 
 #### Docker
 
-The Docker version of the CLI cannot be configured with a config file. Specify the configuration of your StackState instance using environment variables and pass these to Docker:
+The Docker version of the CLI can't be configured with a config file. Specify the configuration of your StackState instance using environment variables and pass these to Docker:
 
 * `STS_CLI_URL` - the URL to your StackState instance.
 * `STS_CLI_API_TOKEN` - the API token taken from the StackState UI **Main menu** &gt; **CLI** page.
@@ -237,7 +237,7 @@ The new `sts` CLI supports configuration and management of different (authentica
 
 ### Configuration options
 
-You do not need a configuration file to run the new `sts` CLI. You can also configure the CLI through a combination of environment variables and flags.
+You don't need a configuration file to run the new `sts` CLI. You can also configure the CLI through a combination of environment variables and flags.
 
 If multiple types of configuration are presented to the CLI the order of processing will be:
 
@@ -253,7 +253,7 @@ If multiple types of configuration are presented to the CLI the order of process
 | `STS_CLI_API_PATH`      | n/a | The path appended to the end of the URL to get the API endpoint. (Defaults to `/api`)                                                                                                                                                           |
 | `STS_CLI_CONTEXT` | `--context` | The name of the context to use.                                                                                                                                                                                                                |
 
-Next to overriding specific parts of the config file, it is also possible to override the default config file location. This is done through the `--config <PATH>` flag.
+Next to overriding specific parts of the config file, it's also possible to override the default config file location. This is done through the `--config <PATH>` flag.
 
 ## Upgrade
 

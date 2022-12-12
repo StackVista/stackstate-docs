@@ -6,11 +6,11 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-Health synchronization allows you to add existing health checks from external monitoring systems to StackState topology elements. Health data is calculated in the external monitoring system using its own data and rules, then automatically synchronized and attached to the associated topology elements in StackState.
+Health synchronization adds existing health checks from external monitoring systems to StackState topology elements. Health data is calculated in the external monitoring system using its own data and rules, then automatically synchronized and attached to the associated topology elements in StackState.
 
 ## Set up health synchronization
 
-The StackState Receiver API will automatically receive and process all incoming health data. No additional configuration is required in StackState to enable this, however, the health data received should match the expected JSON format.
+The StackState Receiver API will automatically receive and process all incoming health data. StackState does not require additional configuration to enable health synchronization, however, the health data received should match the expected JSON format.
 
 Details on how to ingest health data can be found on the following pages:
 
@@ -43,7 +43,7 @@ The `REPEAT_SNAPSHOTS` consistency model works with periodic, full snapshots of 
 {% tab title="Repeat States model" %}
 The `REPEAT_STATES` consistency model works with periodic checks received from an external monitoring system. StackState keeps track of the checks and decides if associated external checks need to be created or updated in StackState. A configurable expiry mechanism is used to delete external checks that are not observed anymore. This model offers less control over data than the `REPEAT_SNAPSHOTS` model. As an expiry configuration is used to delete external checks, it might happen that elements are deleted due to barely missing the expiry timeout. This would reflect as external checks disappearing and reappearing in StackState.
 
-**Use this model when:** The external monitoring system is not capable of collecting all checks in a determined time window, and the best effort is just to send the external checks as they are obtained.
+**Use this model when:** The external monitoring system isn't capable of collecting all checks in a determined time window. The best effort is just to send the external checks as they're obtained.
 
 **JSON payload:** The [Repeat States health payload](/configure/health/send-health-data/repeat_states.md) accepts specific properties to specify the expiry configuration.
 {% endtab %}
@@ -58,26 +58,26 @@ The `TRANSACTIONAL_INCREMENTS` consistency model is designed to be used on strea
 {% endtab %}
 {% endtabs %}
 
-### Health stream and sub stream
+### Health stream and substream
 
-External monitoring systems send health data to the StackState Receiver in a health stream. Each health stream contains at least one sub stream with health checks.
+External monitoring systems send health data to the StackState Receiver in a health stream. Each health stream contains at least one substream with health checks.
 
 #### Health stream
 
 The Health stream uniquely identifies the health synchronization and defines the boundaries within which the health check states should be processed together.
 
-#### Sub stream
+#### Substream
 
-Sub streams contain the health check data that are processed by StackState. When working with health data from a distributed external monitoring system, multiple sub streams can be configured, each containing health snapshots from a single location. The data in each sub stream is semi-independent, but contributes to the health check states of the complete health stream. If a single location is responsible for reporting the health check states of the health stream, the `sub_stream_id` can be omitted from the [health payload](/configure/health/send-health-data/send-health-data.md#json-health-payload). StackState will assume that all the external health checks belong to a single, default sub stream. 
+Sub streams contain the health check data that are processed by StackState. When working with health data from a distributed external monitoring system, multiple sub streams can be configured, each containing health snapshots from a single location. The data in each substream is semi-independent, but contributes to the health check states of the complete health stream. If a single location is responsible for reporting the health check states of the health stream, you can omit the `sub_stream_id` from the [health payload](/configure/health/send-health-data/send-health-data.md#json-health-payload). StackState will assume that all the external health checks belong to a single, default substream. 
 
 
 ### Repeat Interval
 
-Health synchronization processes the ingested health data per sub stream. The repeat interval specified in the [health payload](/configure/health/send-health-data/send-health-data.md#json-health-payload) is the commitment from the external monitoring system to send complete snapshots over and over in order to keep the data up to date on StackState. This is helpful for StackState to be able to inform the user how up to date the health synchronization is running.
+Health synchronization processes the ingested health data per substream. The repeat interval specified in the [health payload](/configure/health/send-health-data/send-health-data.md#json-health-payload) is the commitment from the external monitoring system to send complete snapshots over and over to keep the data up to date on StackState. This is helpful for StackState to be able to inform the user how up to date the health synchronization is running.
 
 ### Expire Interval
 
-The expire interval can be used to configure sub streams in the health synchronization to delete data that is not sent by the external system anymore. This is helpful in case the source for a sub stream could potentially be decommissioned and StackState would not hear from it again. Without an expire interval, the previously synchronized data would be left permanently hanging.
+The expire interval can be used to configure sub streams in the health synchronization to delete data that isn't sent by the external system anymore. This is helpful in case the source for a substream could be decommissioned and StackState would not hear from it again. Without an expire interval, the previously synchronized data would be left permanently hanging.
 
 ### Check State
 

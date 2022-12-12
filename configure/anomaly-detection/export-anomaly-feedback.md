@@ -10,7 +10,7 @@ Feedback that has been added to anomalies reported by the Autonomous Anomaly Det
 
 ## Export feedback
 
-To export anomaly feedback from StackState, the [StackState CLI](/setup/cli/README.md) is required. When an export is run, all feedback and comments for all anomalies reported in the specified time window will be exported.
+Use the [StackState CLI](/setup/cli/README.md) to export anomaly feedback from StackState. When an export is run, all feedback and comments for all anomalies reported in the specified time window will be exported.
 
 {% hint style="warning" %}
 **Note that any user comments will be included in the exported feedback.** These comments are very useful, but should not contain any sensitive information.
@@ -43,7 +43,7 @@ $ sts anomaly collect-feedback --start-time -10d --end-time -2d --history 3d --f
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`.**
 
-The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")

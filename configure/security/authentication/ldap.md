@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-StackState can use an LDAP server \(including AD\) to authenticate against and to get roles/groups from. It does require a running LDAP server that is accessible to StackState.
+StackState can use an LDAP server \(including AD\) to authenticate against and to get roles/groups from. It does require a running LDAP server that's accessible to StackState.
 
 The LDAP main directory and all subdirectories will be checked for user files. The bind credentials in the StackState configuration are used to authenticate StackState on the LDAP server. After authentication, StackState passes the top LDAP directory name for the user that wants to log in to StackState.
 
@@ -70,7 +70,7 @@ Follow the steps below to configure StackState to authenticate using LDAP:
    * **bind** - Optional, used to authenticate StackState to LDAP server if the LDAP server does not support anonymous LDAP searches.
    * **userQuery parameters and groupQuery parameters** - The set of parameters inside correspond to the base dn of your LDAP where users and groups can be found. The first one is used for authenticating users in StackState, while the second is used for retrieving the group of that user to determine if the user is an Administrator, Power User or a Guest.
    * **usernameKey** - The name of the attribute that stores the username, value is matched against the username provided on the login screen.
-   * **emailKey** - The name of the attribute that is used as the email address in StackState.
+   * **emailKey** - The name of the attribute that's used as the email address in StackState.
    * **rolesKey** - The name of the attribute that stores the group name.
    * **groupMemberKey** - The name of the attribute that indicates whether a user is a member of a group. The constructed LDAP filter follows this pattern: `<groupMemberKey>=<user.dn>,ou=groups,dc=acme,dc=com`. To return all nested groups, use `groupMemberKey: "member:1.2.840.113556.1.4.1941:"`.
 2. In `authentication.yaml` - map user roles from LDAP to the correct StackState subjects \(see the example above\):
@@ -204,7 +204,7 @@ Follow the steps below to configure StackState to authenticate using LDAP:
    * **bindCredentials** - optional, used to authenticate StackState on the LDAP server if the LDAP server does not support anonymous LDAP searches.
    * **userQuery and groupQuery parameters** - The set of parameters inside correspond to the base dn of your LDAP where users and groups can be found. The first one is used for authenticating users in StackState, while the second is used for retrieving the group of that user to determine if the user is an Administrator, Power User or a Guest.
    * **usernameKey** - The name of the attribute that stores the username, value is matched against the username provided on the login screen.
-   * **emailKey** - The name of the attribute that is used as the email address in StackState.
+   * **emailKey** - The name of the attribute that's used as the email address in StackState.
    * **rolesKey** - The name of the attribute that stores the group name.
    * **groupMemberKey** - The name of the attribute that indicates whether a user is a member of a group. The constructed LDAP filter follows this pattern: `<groupMemberKey>=<user.dn>,ou=groups,dc=acme,dc=com`. To return all nested groups, use `groupMemberKey: "member:1.2.840.113556.1.4.1941:"`.
 2. In `application_stackstate.conf` - map the LDAP groups to the correct StackState groups using **guestGroups**, **powerUserGroups**, **adminGroups** and **platformAdminGroups** \(see the example above\). For details, see the [default StackState roles](../rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](../rbac/).
