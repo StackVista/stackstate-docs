@@ -14,7 +14,7 @@ Common questions that can be answered in the AAD status UI:
 
 **Is the AAD Kubernetes service running?**
 If the status UI is accessible: The service is running.
-If the status UI is not available: Either the service is not running, or the Ingress has not been configured \(See the install section\).
+If the status UI isn't available: Either the service isn't running, or the Ingress hasn't been configured \(See the install section\).
 
 **Can the AAD Kubernetes service reach StackState?**
 Check the status UI sections **Top errors** and **Last stream polling results**. Errors here usually indicate connection problems.
@@ -54,14 +54,14 @@ For more permanent accessibility, the status UI can also be exposed using ingres
 # status UI ingress (the configuration below is example for nginx ingress controller)
 ingress:
     enabled: true
-    hostname: <domain name> # e.g. spotlight.domain.com
+    hostname: <domain name> # for example, spotlight.domain.com
     port: 8090              # status page will be available on spotlight.domain.com:8090
     annotations:
-        external-dns.alpha.kubernetes.io/hostname: <domain name> # e.g. spotlight.domain.com
+        external-dns.alpha.kubernetes.io/hostname: <domain name> # for example, spotlight.domain.com
         kubernetes.io/ingress.class: nginx
         nginx.ingress.kubernetes.io/ingress.class: nginx
     hosts:
-        - host: <domain name>  # e.g. spotlight.domain.com
+        - host: <domain name>  # for example, spotlight.domain.com
 ```
 {% endtab %}
 {% endtabs %}

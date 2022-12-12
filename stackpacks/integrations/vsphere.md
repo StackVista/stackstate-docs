@@ -42,7 +42,7 @@ To set up the StackState VMWare vSphere integration, you need to have:
 
 ### Install
 
-The VMWare vSphere StackPack can be installed from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
+The VMWare vSphere StackPack can be installed from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
 
 * **VSphere Host Name** - The VMWare vSphere host name from which data will be collected.
 
@@ -78,7 +78,7 @@ The advanced configuration items described below can optionally be added to the 
 
 | Options | Required? | Description |
 | :--- | :--- | :--- |
-| `all_metrics` | No | Default `false`. Set to `true` to collect _every_ metric. This will collect a LOT of metrics that you probably do not need. When set to `false` \(default\), a selected set of metrics that are interesting to monitor will be collected. Note that when using both `all_metrics` and `collection_level` setting `all_metrics` will be ignored. |
+| `all_metrics` | No | Default `false`. Set to `true` to collect _every_ metric. This will collect a LOT of metrics that you probably don't need. When set to `false` \(default\), a selected set of metrics that are interesting to monitor will be collected. Note that when using both `all_metrics` and `collection_level` setting `all_metrics` will be ignored. |
 | `collection_level` | No | Specify the metrics to retrieve using a [data collection level \(docs.vmware.com\)](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-25800DE4-68E5-41CC-82D9-8811E27924BC.html) (a number between 1 and 4). Note that when using both `all_metrics` and `collection_level` setting `all_metrics` will be ignored. |
 | `ssl_verify` | No | Set to `false` to disable SSL verification when connecting to vCenter. |
 | `ssl_capath` | No | The absolute file path of a directory containing CA certificates in PEM format. |
@@ -108,7 +108,7 @@ The VMWare vSphere integration retrieves the following data:
 
 #### Events
 
-VMWare vSphere events are sent to StackState in a telemetry stream. These can be mapped to components and relations in the StackState topology, however, they will not be visible in the StackState Events Perspective.
+VMWare vSphere events are sent to StackState in a telemetry stream. These can be mapped to components and relations in the StackState topology, however, they won't be visible in the StackState Events Perspective.
 
 The VMWare vSphere check watches the vCenter Event Manager for the events listed below and makes these available in StackState in the generic events topic telemetry stream:
 
@@ -151,7 +151,7 @@ The VMWare vSphere integration understands StackState [common tags](../../config
 
 #### Traces
 
-The VMWare vSphere integration does not retrieve any traces data.
+The VMWare vSphere integration doesn't retrieve any traces data.
 
 ### REST API endpoints
 

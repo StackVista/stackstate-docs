@@ -67,19 +67,19 @@ Every health Transactional Increments data payload has the following details:
 
 * **increment** - An increment objects needs to be present on every message. This enables StackState to track the complete chain of messages and be able to detect when a retransmission of data, or an unexpected gap in the data is occurring. It carries the following fields as increment metadata:
   * **checkpoint** - Object providing the checkpoint that belongs the `check_states` present in the message, it contains two fields:
-    * **offset** - The offset asigned to the messages by the streaming pipeline (e.g. Kafka offset)
-    * **batch_index** - Optional. When using a single message to accumulate several `check_states` the batch index represents the latest index that is present in the message, allowing to send big batches in separate api calls.
+    * **offset** - The offset asigned to the messages by the streaming pipeline. For example, Kafka offset.
+    * **batch_index** - Optional. When using a single message to accumulate several `check_states` the batch index represents the latest index that's present in the message, allowing to send big batches in separate api calls.
   * **previous_checkpoint** - Optional. Represents the previously communicated checkpoint, can be empty on the very first transmission on the substream. It allows StackState to keep track if there could be any data missing from upstream.
 * **stream** - Object providing identification regarding which snapshots and `check_states` belong together. It contains the following fields:
   * **urn** - Data source and stream ID encoded as a StackState [URN](/configure/topology/identifiers.md) that matches the following convention: `urn:health:<sourceId>:<streamId>` where `<sourceId>` is the name if the external data source and `<streamId>` is a unique identifier for the health data stream.
-  * **sub_stream_id** - Optional. Identifier for a sub set of the stream health data. When the stream data is distributed and reported by several agents, this allows snapshot lifecycles per `sub_stream_id`
+  * **sub_stream_id** - Optional. Identifier for a subset of the stream health data. When the stream data is distributed and reported by several agents, this allows snapshot lifecycles per `sub_stream_id`
 * **check_states** - A list of check states. Each check state can have the following fields:
   * **checkStateId** - Identifier for the check state in the external system
   * **message** - Optional. Message to display in StackState UI. Data will be interpreted as markdown allowing to have links to the external system check that generated the external check state.
   * **health** - One of the following StackState Health state values: `Clear`, `Deviating`, `Critical`.
   * **topologyElementIdentifier** - Used to bind the check state to a StackState topology element.
   * **name** - Name of the external check state.
-  * **delete** - Flag that is interpreted as a delete request for the related `checkStateId`. Even if the rest of the fields for the create are present, e.g. `name, health, ...` the delete will take precedence.
+  * **delete** - Flag that's interpreted as a delete request for the related `checkStateId`. Even if the rest of the fields for the create are present, for example, `name, health, ...` the delete will take precedence.
 
 
 ## Send health to StackState
@@ -140,19 +140,19 @@ curl -X POST \
 {% hint style="warning" %}
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
 * [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
 {% endhint %}
 
-Sending of Transactional increments check_states is not available in the CLI, but all the debugging and introspection features can still be used.
+Sending of Transactional increments check_states isn't available in the CLI, but all the debugging and introspection features can still be used.
 
 {% endtab %}
 {% tab title="CLI: sts" %}
 
-Sending of Transactional increments check_states is not available in the `sts` CLI.
+Sending of Transactional increments check_states isn't available in the `sts` CLI.
 {% endtab %}
 
 {% endtabs %}

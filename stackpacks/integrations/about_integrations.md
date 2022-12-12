@@ -12,7 +12,7 @@ StackState integrations are split into three groups - core, curated and communit
 * [StackState curated integrations](about_integrations.md#stackstate-curated-integrations)
 * [Community integrations](about_integrations.md#community-integrations)
 
-The description at the top of each integration's documentation page will clearly state if it is a core, curated or community integration.
+The description at the top of each integration's documentation page will clearly state if it's a core, curated or community integration.
 
 ## StackState core integrations
 

@@ -15,12 +15,12 @@ To set up the StackState AWS integration, you need to have:
 If your StackState instance is behind a proxy, you need to configure the proxy URL and port for the AWS authorization to work.
 You can configure a proxy URL environment variable or JVM system property.
 
-- Environment variable `HTTP_PROXY` and/or `HTTPS_PROXY`
-- Pass following properties when starting StackState instance `-Dhttp.proxyHost -Dhttp.proxyPort` and/or `-Dhttps.proxyHost -Dhttps.proxyPort`
+- Environment variable `HTTP_PROXY` or `HTTPS_PROXY`
+- Pass following properties when starting StackState instance `-Dhttp.proxyHost -Dhttp.proxyPort` or `-Dhttps.proxyHost -Dhttps.proxyPort`
 
 ### Costs
 
-The AWS lightweight agent uses Amazon resources (Lambda and Kinesis) for which Amazon will charge a minimal fee. Amazon also charges a fee for the use of CloudWatch metrics. Metrics are only retrieved when viewed or when a check is configured on a CloudWatch metric.
+The AWS lightweight Agent uses Amazon resources (Lambda and Kinesis) for which Amazon will charge a minimal fee. Amazon also charges a fee for the use of CloudWatch metrics. Metrics are only retrieved when viewed or when a check is configured on a CloudWatch metric.
 
 ### Timeout
 The default read timeout for AWS is set to 30 seconds. You can specify custom read timeout with the `AWS_CLI_READ_TIMEOUT` environment variable. 
@@ -29,7 +29,7 @@ The default read timeout for AWS is set to 30 seconds. You can specify custom re
 
 #### Events
 
-The AWS integration does not retrieve any Events data.
+The AWS integration doesn't retrieve any Events data.
 
 #### Metrics
 
@@ -87,7 +87,7 @@ The following relations between components are retrieved:
 
 #### Traces
 
-The AWS integration does not retrieve any Traces data.
+The AWS integration doesn't retrieve any Traces data.
 
 ### AWS lambdas
 

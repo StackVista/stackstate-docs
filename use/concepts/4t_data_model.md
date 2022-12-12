@@ -18,7 +18,7 @@ Each of these sources defines one or multiple subgraphs of the stack’s topolog
 
 ![Telemetry](../../.gitbook/assets/v51_4T_Telemetry_UnderDaHood.png)
 
-StackState is able to ingest telemetry data \(metrics, events, and logs\) from external IT systems such as monitoring, provisioning, deployment, and configuration management tools, or StackState’s agent. The telemetry is combined with the topology data to create a comprehensive picture of your IT environment and how it is functioning in real-time.
+StackState is able to ingest telemetry data \(metrics, events, and logs\) from external IT systems such as monitoring, provisioning, deployment, and configuration management tools, or StackState’s Agemt. The telemetry is combined with the topology data to create a comprehensive picture of your IT environment and how it's functioning in real-time.
 
 StackState relies on plugins to receive and convert the incoming data streams. Plugins can be implemented in easy-to-use scripting languages and support both a push and a pull interaction model.
 
@@ -34,7 +34,7 @@ StackState Tracing capability supports all major languages and has full support 
 
 ![Time](../../.gitbook/assets/4T_Time_UnderDaHood-1.png)
 
-Issues within IT stacks can usually be traced back to changes. Having a change log of everything that happens in your IT landscape is vital. To record these changes, we have built StackGraph, the world's only versioned graph database. StackGraph allows StackState to go back to any particular point on the timescale and to see exactly what your landscape looked like at that moment.
+Issues within IT stacks can usually be traced back to changes. Having a change log of everything that happens in your IT landscape is vital. To record these changes, we have built StackGraph, the world's only versioned graph database. With StackGraph, StackState can go back to any particular point on the timescale and to see exactly what your landscape looked like at that moment.
 
-The web-based user interface of StackState is equipped with a WebGL based rendering engine. Hardware accelerated graphics allow for visualizing massive topologies. The 3D visualization allows you to visualize not only the present topology, but also the past and the future - all in one view.
+The web-based user interface of StackState is equipped with a WebGL based rendering engine. Hardware accelerated graphics allow for visualizing massive topologies. You can use the 3D visualization to visualize not only the present topology, but also the past and the future - all in one view.
 

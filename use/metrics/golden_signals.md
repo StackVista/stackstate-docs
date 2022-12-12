@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.1.x
 
 To assist in monitoring distributed systems with a defined SLO (Service Level Objective), StackState can be configured to alert you if an SLI (Service Level Indicator) falls below a defined threshold. StackState Agent V2 deployed on a Linux host will retrieve telemetry that can be used to monitor the [four golden signals \(sre.google\)](https://sre.google/sre-book/monitoring-distributed-systems/#xref_monitoring_golden-signals). These metrics can then be used to build a [check](#checks) in StackState that responds to fluctuations in service level.
 
-The checks described on this page do not ensure that you are meeting your SLO directly, but they can help prevent an SLO violation by catching and alerting on changes in your SLIs as soon as possible.
+The checks described on this page don't ensure that you are meeting your SLO directly, but they can help prevent an SLO violation by catching and alerting on changes in your SLIs as soon as possible.
 
 ## Requirements
 
@@ -35,7 +35,7 @@ To add a latency stream, [add a telemetry stream](/use/metrics/add-telemetry-to-
 - 4xx
 - 5xx
 
-By default, the following response time streams are set for processes and services that serve on HTTP requests:
+By default, processes and services that serve HTTP requests have the following response time streams:
 
 - HTTP total response time (s) (95th percentile)
 - HTTP 5xx error response time (s) (95th percentile)
@@ -48,7 +48,7 @@ By default, the following response time streams are set for processes and servic
 
 Similar to measuring the latency, StackState Agent V2 supports the `http_requests_per_second` telemetry stream. The same response codes and predefined groups are also supported for the traffic stream.
 
-By default, the following request rate streams are set for processes and services that serve on HTTP requests:
+By default, processes and services that serve HTTP requests have the following request rate streams:
 
 - HTTP total rate (req/s)
 - HTTP 5xx error rate (req/s)
@@ -98,4 +98,4 @@ Use this function to make sure you meet your SLO for maximum response time, for 
 
 The metrics described in this page are gathered by the StackState Agent and can be disabled. Refer to the [StackState Agent documentation](/setup/agent/about-stackstate-agent.md) for more information. 
 
-Note that StackState Agent can only report on request rate and response time of HTTP/1 protocol. HTTP/2, HTTP/3 and HTTPS protocols are not currently supported.
+Note that StackState Agent can only report on request rate and response time of HTTP/1 protocol. HTTP/2, HTTP/3 and HTTPS protocols aren't currently supported.

@@ -39,7 +39,7 @@ Requirements for the recommended high availability setup with backups enabled:
 * Node requirements: minimum 8 vCPUs, minimum 32GB memory
 * Total of 56 vCPUs available for StackState
 * Total of 120 GB memory available for StackState
-* Total of 2 TB disk space for data storing services (does not include disk space required for backups)
+* Total of 2 TB disk space for data storing services (doesn't include disk space required for backups)
 
 {% endtab %}
 
@@ -49,7 +49,7 @@ Requirements for the minimal high availability setup with backups enabled:
 * Node requirements: minimum 8 vCPUs, minimum 32GB memory
 * Total of 37 vCPUs available for StackState
 * Total of 98 GB memory available for StackState
-* Total of 2 TB disk space for data storing services (does not include disk space required for backups)
+* Total of 2 TB disk space for data storing services (doesn't include disk space required for backups)
 
 {% endtab %}
 
@@ -101,9 +101,9 @@ For more details on configuring Ingress, have a look at the page [Configure Ingr
 
 ### Namespace resource limits
 
-It is not recommended to set a ResourceQuota as this can interfere with resource requests. The resources required by StackState will vary according to the features used, configured resource limits and dynamic usage patterns, such as Deployment or DaemonSet scaling.
+It isn't recommended to set a ResourceQuota as this can interfere with resource requests. The resources required by StackState will vary according to the features used, configured resource limits and dynamic usage patterns, such as Deployment or DaemonSet scaling.
 
-If it is necessary to set a ResourceQuota for your implementation, the namespace resource limit should be set to match the node sizing requirements. For example, using the recommended node sizing for virtual machines \(6 nodes with `32GB memory`, `8 vCPUs`\), the namespace resource limit should be `6*32GB = 192GB` and `6*8 vCPUs = 48 vCPUs`.
+If it's necessary to set a ResourceQuota for your implementation, the namespace resource limit should be set to match the node sizing requirements. For example, using the recommended node sizing for virtual machines \(6 nodes with `32GB memory`, `8 vCPUs`\), the namespace resource limit should be `6*32GB = 192GB` and `6*8 vCPUs = 48 vCPUs`.
 
 ## Linux
 
@@ -171,9 +171,9 @@ The development setup runs on a single node and requires:
 To meet StackState minimal requirements, the AWS instance type needs to have at least:
 
 * 4 CPU cores
-* 16GB of memory, e.g., m5.xlarge.
+* 16GB of memory. For example, m5.xlarge.
 
-The AWS CLI has to be installed on the EC2 instance that is running StackState.
+The AWS CLI has to be installed on the EC2 instance that's running StackState.
 
 ## Networking
 
@@ -185,7 +185,7 @@ All listed ports are TCP ports.
 
 A production deployment separates StackState and StackState's database processes; StackGraph.
 
-StackState has to be reachable on port 7070 by any supported browser. StackState port 7077 must be reachable from any system that is pushing data to StackState
+StackState has to be reachable on port 7070 by any supported browser. StackState port 7077 must be reachable from any system pushing data to StackState
 
 StackGraph should be reachable by StackState on ports 2181, 8020, 15165, 16000, 16020, 50010.
 
@@ -196,7 +196,7 @@ The following ports can be opened for monitoring, but are also useful when troub
 
 ### Development/POC deployment
 
-StackState has to be reachable on port 7070 by any supported browser. StackState port 7077 must be reachable from any system that is pushing data to StackState
+StackState has to be reachable on port 7070 by any supported browser. StackState port 7077 must be reachable from any system pushing data to StackState
 
 The following ports can be opened for monitoring, but are also useful when troubleshooting: 9001, 9002, 9003, 9004, 9005, 9006, 9010, 9011, 9020, 9021, 9022, 9023, 9024, 9025, 9026, 16010, 16030, 50070, 50075
 

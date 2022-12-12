@@ -10,7 +10,7 @@ StackState can synchronize health information from your own data sources either 
 
 ## StackState Receiver API
 
-The StackState Receiver API accepts topology, metrics, events and health data in a common JSON object. By default, the receiver API is hosted at the `<STACKSTATE_RECEIVER_API_ADDRESS>` this is constructed using the `<STACKSTATE_BASE_URL>` and <`STACKSTATE_RECEIVER_API_KEY>`.
+The StackState Receiver API accepts topology, metrics, events and health data in a common JSON object. The default location for the receiver API is the `<STACKSTATE_RECEIVER_API_ADDRESS>`, constructed using the `<STACKSTATE_BASE_URL>` and <`STACKSTATE_RECEIVER_API_KEY>`.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
@@ -31,7 +31,7 @@ The `<STACKSTATE_RECEIVER_API_ADDRESS>` for StackState deployed on Linux is:
 https://<STACKSTATE_BASE_URL>:<STACKSTATE_RECEIVER_PORT>/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>
 ```
 
-The `<STACKSTATE_BASE_URL>` and <STACKSTATE_RECEIVER_API_KEY>` are set during StackState installation, for details see [Linux install - configuration parameters](/setup/install-stackstate/linux/install_stackstate.md#configuration-options-required-during-install).
+The `<STACKSTATE_BASE_URL>` and `<STACKSTATE_RECEIVER_API_KEY>` are set during StackState installation, for details see [Linux install - configuration parameters](/setup/install-stackstate/linux/install_stackstate.md#configuration-options-required-during-install).
 {% endtab %}
 {% endtabs %}
 
@@ -45,7 +45,7 @@ Topology, telemetry and health data are sent to the receiver API via HTTP POST. 
 {
   "collection_timestamp": 1548855554, // the epoch timestamp for the collection
   "events": {}, // used to send events data
-  "internalHostname": "localdocker.test", // the host that is sending this data
+  "internalHostname": "localdocker.test", // the host sending this data
   "metrics": [], // used to send metrics data
   "service_checks": [],
   "topologies": [], // used to send topology data

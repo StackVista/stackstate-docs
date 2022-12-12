@@ -4,8 +4,8 @@
 
 The StackState AWS Cloudformation stacks are deployed on your AWS account to enable topology monitoring. There are two options for StackState monitoring:
 
-* [**Full install**](#full-install) - all changes to AWS resources will be picked up and pushed to StackState.
-* [**Minimal install**](#minimal-install) - changes will be picked up only at a configured interval.
+* [**Full install**](#full-install) - picks up all changes to AWS resources and pushes these to StackState.
+* [**Minimal install**](#minimal-install) - picks up changes at a configured interval only.
 
 #### Full install
 
@@ -46,7 +46,7 @@ These environment variables have the same names used by the AWS_CLI utility and 
 
 #### Minimal install
 
-The minimal installation is useful when less permissions are available. This installs only the `stackstate-topo-cron` Cloudformation stack, which means StackState's topology will only get a full topology update every hour. Updates between the hour are not sent to StackState. 
+The minimal installation is useful when less permissions are available. This installs only the `stackstate-topo-cron` Cloudformation stack, which means StackState's topology will only get a full topology update every hour. Updates between the hour aren't sent to StackState. 
 
 Follow the steps below to complete a minimal install:
 

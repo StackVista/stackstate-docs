@@ -102,7 +102,7 @@ Query OK, 0 rows affected (0.00 sec)
     - server: 127.0.0.1
       user: stackstate
       pass: '<YOUR_CHOSEN_PASSWORD>' # from the CREATE USER step earlier
-      port: <YOUR_MYSQL_PORT> # e.g. 3306
+      port: <YOUR_MYSQL_PORT> # for example, 3306
       options:
           replication: 0
           galera_cluster: 1
@@ -200,7 +200,7 @@ Run the Agent's `status` subcommand and look for `mysql` under the Checks sectio
 
 See `metadata.csv` for a list of metrics provided by this integration.
 
-The check does not collect all metrics by default. Set the following boolean configuration options to `true` to enable the respective metrics:
+The check doesn't collect all metrics by default. Set the following boolean configuration options to `true` to enable the respective metrics:
 
 `extra_status_metrics` adds the following metrics:
 
@@ -345,11 +345,11 @@ The check does not collect all metrics by default. Set the following boolean con
 
 ### Events
 
-The MySQL check does not include any events.
+The MySQL check doesn't include any events.
 
 ### Service Checks
 
 `mysql.replication.slave_running`: Returns CRITICAL for a slave that's not running, otherwise OK.
 
-`mysql.can_connect`: Returns CRITICAL if the Agent cannot connect to MySQL to collect metrics, otherwise OK.
+`mysql.can_connect`: Returns CRITICAL if the Agent can't connect to MySQL to collect metrics, otherwise OK.
 

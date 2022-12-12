@@ -6,11 +6,11 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-Elements in StackState can have a telemetry \(metrics or log\) stream assigned. This provides additional insight into your topology and is required, for example, to [monitor the health of an element](../checks-and-monitors/add-a-health-check.md). If a telemetry stream was not automatically assigned to an element, or you want to add a custom telemetry stream, you can do this manually from the StackState UI.
+Elements in StackState can have telemetry streams assigned - metrics streams and log streams. This provides additional insight into your topology. StackState requires elements to have telemetry streams for some features, for example, to [add a health check to an element](../checks-and-monitors/add-a-health-check.md). Many StackPacks will automatically link telemetry to elements in the topology. If a telemetry stream was not automatically assigned to an element, or you want to add a custom telemetry stream, you can do this manually from the StackState UI.
 
 ## Add a telemetry stream to an element
 
-Telemetry streams can be added to any component or direct relation in the StackState Topology Perspective.
+You can add telemetry streams to any component or direct relation in the StackState Topology Perspective.
 
 ![Add a telemetry stream to an element](../../.gitbook/assets/v51_add_telemetry_stream.png)
 
@@ -25,11 +25,11 @@ Telemetry streams can be added to any component or direct relation in the StackS
    * **Metric stream** \(default\) - use for metrics. Allows for various [aggregation methods](#aggregation-methods) and will be visualized as a timeseries line chart.
    * **Log stream** - use for streams that contain logs and events. Will be visualized as a bar chart.
 6. Provide the following details:
-   * **Time window** - The selection of time to be shown in the StackState UI. The time window is used for display purposes only and does not affect handling in any way.
+   * **Time window** - The selection of time to be shown in the StackState UI. The time window is used for display purposes only and doesn't affect handling in any way.
    * **Filters** - Select the data relevant to the element. For example, if the data source contains data about all services on a host, select the specific host and service to attach data for.
    * **Select** - for metric streams only, select the metric that you want to retrieve and the function to apply to it.
    * **Priority** - Optional, you can [set a priority for the telemetry stream](set-telemetry-stream-priority.md). This will influence the order in which the stream is displayed in the StackState UI and the way the stream is handled by other services, such as the [Autonomous Anomaly Detector](../../stackpacks/add-ons/aad.md).
-7. The stream preview on the right will update to show the incoming log or metric values based on the details you provide.
+7. The stream preview on the right will update to show the incoming log or metric values based on the details provided.
 8. Click **SAVE** to add the stream to the element.
    * You will receive a notification that the stream has been successfully completed.
 9. A graph of the selected telemetry stream data will be visible under **Telemetry** in the right panel details tab. You can inspect data in the stream using the [telemetry inspector](browse-telemetry.md).
@@ -57,7 +57,7 @@ The following aggregation methods are available:
 
 The unit used to measure a metric stream's data can be specified at the end of the metric stream name between parentheses. For example, a metric stream named `Kubernetes Memory Used (decmbytes)` would display a metric chart where the incoming data was formatted as MegBytes (MB).
 
-The sections below list all available units and the associated metric stream names that apply them. Based on the specified unit, standard conversions (up and/or down) will be applied.
+The sections below list all available units and the associated metric stream names that apply them. Based on the specified unit, standard conversions (up or down) will be applied.
 
 #### Miscellaneous 
 

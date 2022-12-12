@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-The new AWS integration available from StackState v4.4 is an entirely new StackPack that replaces the old AWS \(legacy\) StackPack. The AWS \(legacy\) StackPack has now been deprecated, and it is advised that you migrate your StackState AWS integration to use the new AWS StackPack.
+The new AWS integration available from StackState v4.4 is an entirely new StackPack that replaces the old AWS \(legacy\) StackPack. The AWS \(legacy\) StackPack has now been deprecated, and it's advised that you migrate your StackState AWS integration to use the new AWS StackPack.
 
 In the new AWS integration, topology data is collected using StackState Agent V2. Within StackState, each installed AWS StackPack instance can now be used to collect data from all regions in a single account.
 

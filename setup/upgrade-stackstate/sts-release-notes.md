@@ -225,9 +225,9 @@ Details of the included features, improvements, bug fixes and updated StackPacks
 
 **Improvements**
 
-- Introduced [service tokens](/configure/security/authentication/service_tokens.md) as a means of authenticating to StackState. Service tokens are not tied to a principal, but instead to a set of roles, allowing for service authentication. More information on creating and managing these can be found in the StackState documentation. STAC-15016
+- Introduced [service tokens](/configure/security/authentication/service_tokens.md) as a means of authenticating to StackState. Service tokens aren't tied to a principal, but instead to a set of roles, allowing for service authentication. More information on creating and managing these can be found in the StackState documentation. STAC-15016
 - Introduced optional View access logging. When enabled, a new access log for StackState views is created under `logs/access/`. This log allows you to track how often specific views are accessed and by which user. To enable this feature, you need to enable the feature flag `featureSwitches.viewAccessLogs` in the StackState Api config. STAC-16369
-- The OIDC `refresh_token` is now cached to prevent re-authenticating the user if the OIDC server does not return a new `refresh_token` when the old one hasn't expired yet. STAC-16158
+- The OIDC `refresh_token` is now cached to prevent re-authenticating the user if the OIDC server doesn't return a new `refresh_token` when the old one hasn't expired yet. STAC-16158
 - Updated the [telemetry script API](/develop/reference/scripting/script-apis/telemetry.md) to stream results. More information can be found in the StackState documentation. STAC-16801
 - kafkaup-operator Helm chart: Added a configurable SecurityContext so that the container no longer requires privileged mode. STAC-16664
 - StackState Helm chart: Added configurable resource requests and limits for all containers. STAC-16443
@@ -427,7 +427,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 
 **Features**
 
-- The ability to create manual topology from the StackState UI has been removed. Please use the Static Topology StackPack in order to [create components manually](/configure/topology/how_to_create_manual_topology.md). STAC-14377
+- The ability to create manual topology from the StackState UI has been removed. Please use the Static Topology StackPack to [create components manually](/configure/topology/how_to_create_manual_topology.md). STAC-14377
 - Improved feedback from the topology synchronization service by exposing synchronization metrics via the CLI. STAC-13318
 - Improved root cause analysis using subviews: modify your view to include additional components, show indirect relations and paths, [show grouped relations](/use/concepts/relations.md), save changed views even when timetravelling. STAC-13142
 - Start anomaly detection on new streams after two hours. Adapt to changing streams in real-time. STAC-12996
@@ -443,7 +443,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 - Check state changes always invoke auto propagation even if a CRITICAL state has been propagated before. STAC-13656
 - Highlight exact changes when displaying Version Change, Health State Change or Run State Change events. STAC-13117
 - Retain timeline settings when switching views. STAC-12745
-- Component drag&drop functionality has been removed from the topology visualizer. Please use the Static Topology StackPack in order to [create components manually](/configure/topology/how_to_create_manual_topology.md). STAC-12718
+- Component drag&drop functionality has been removed from the topology visualizer. Please use the Static Topology StackPack to [create components manually](/configure/topology/how_to_create_manual_topology.md). STAC-12718
 - Support [querying for problems in the Script API](/develop/reference/scripting/script-apis/view.md). STAC-12506
 - Support [problem notifications](/use/problem-analysis/problem_notifications.md) to Slack. STAC-12496
 - Prevent StackPacks requiring an incompatible version of StackState from being installed. STAC-9311
@@ -528,7 +528,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 * [Support BCrypt](../../configure/security/authentication/file.md) next to md5 for file based passwords. STAC-13246
 * Configuration of authorization for various StackState APIs can now be [defined in one central location](version-specific-upgrade-instructions.md#upgrade-to-v44x). STAC-12968
 * Completed removal of deprecated baseline functions. Baseline functions should be removed from all templates. [See upgrade documentation for more details](version-specific-upgrade-instructions.md#upgrade-to-v-4-4-x). STAC-12602
-* The HDFS OpenShift SecurityContextConfiguration is not necessary and has been removed from the documentation. STAC-12573
+* The HDFS OpenShift SecurityContextConfiguration isn't necessary and has been removed from the documentation. STAC-12573
 * [Timeline improvements](../../use/stackstate-ui/timeline-time-travel.md):
   * It is now possible to zoom out of a time range. STAC-12533
   * Added support for navigating to the next and previous time range. STAC-12531
@@ -540,7 +540,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 **Bug fixes**
 
 * Fixed issue that caused an import via the CLI to fail. STAC-13481
-* The deprecated elasticsearch-exporter Helm chart has been replaced with the prometheus-elasticsearch-exporter Helm chart in order to make it OpenShift compatible. STAC-13473
+* The deprecated elasticsearch-exporter Helm chart has been replaced with the prometheus-elasticsearch-exporter Helm chart to make it OpenShift compatible. STAC-13473
 * Fixed issue that prevented Keycloak authentication from working after expiry of a refresh token. STAC-13268
 * Fixed issue that prevented certain views from opening from the View Overview page. STAC-13244
 * Fixed crash when accessing the logs API. STAC-13149
@@ -677,7 +677,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 **Bugfixes**
 
 * Fix issue blocking the sync service and not letting process topology anymore. STAC-12116
-* Fixed problem where LDAP users with a special character in their DN could not be authorized. STAC-12059
+* Fixed problem where LDAP users with a special character in their DN couldn't be authorized. STAC-12059
 * Fixed issue that caused filtering on a domain containing an ampersand to redirect to the Views page. STAC-11797
 
 #### v4.2.3 (EOL)
@@ -727,9 +727,9 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 **Bug fixes**
 
 * Fixed issue where duplicate negative IDs in a component template leads to `lastUpdateTimstampField` missing. STAC-11495
-* Fix issue where kafkaToES would not log when it is dropping data. STAC-11434
+* Fix issue where kafkaToES would not log when it's dropping data. STAC-11434
 * Fixed issue where kafkaToES would not adhere to the index size boundaries when historic data is stored. STAC-11433
-* Upload of a new StackPack now returns more details on why an uploaded StackPack is not valid. STAC-11094
+* Upload of a new StackPack now returns more details on why an uploaded StackPack isn't valid. STAC-11094
 * Fixed issue that caused a baseline stream to disappear if the associated stream's filter was changed. STAC-10872
 * Fixed issue that caused incoming telemetry data to be rejected due to incorrect interpretation of telemetry data end timestamp. STAC-10777
 * Fixed bug where a non-existing datasource in a synchronization template would cause the synchronization to stop processing. STAC-10774
@@ -737,7 +737,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 * Fixed issue that caused checks to ignore a change to a streams filter under certain circumstances. STAC-10733
 * Fixed issue that caused an error when StackState attempted to connect to an LDAP server using LDAPS on certain versions of the JVM. STAC-10606
 * Fixed issue that made it impossible to save changes to functions in the Settings screen. STAC-10180
-* Next to the admin and guest roles StackState now has a standard power user role. It has the same permissions as an admin user except it is not allowed to grant permissions or to upload stackpacks. STAC-10170
+* Next to the admin and guest roles StackState now has a standard power user role. It has the same permissions as an admin user except it isn't allowed to grant permissions or to upload stackpacks. STAC-10170
 * UPGRADE NOTE: It is strongly advised to review the roles your users have and limit the number of admin users. Users that need to configure StackState can be given the role of power user instead. STAC-10170
 * Fixed issue that caused a security exception to occur when using a groovy regex in the Analytics environment. STAC-9947
 * Fixed issue that caused an error when showing the Component Details pane for a component or relation originating from a removed synchronization. STAC-8165
@@ -787,7 +787,7 @@ With the release of StackState v4.4, StackState v4.1 reached End of Life \(EOL\)
 * Improved navigation in the StackState UI. STAC-9448
 * Added support for Splunk token-based authentication for Splunk versions 7.3 and later. STAC-9032
 * Added ability to star views for easy access. STAC-8805
-* StackState shows a warning when a license key is about to expire or an error when it is invalid or has expired. This includes the option to update the license key from that screen directly. STAC-7453
+* StackState shows a warning when a license key is about to expire or an error when it's invalid or has expired. This includes the option to update the license key from that screen directly. STAC-7453
 * StackState CLI is now shipped as a standalone binary for Linux and Windows. STAC-5614
 
 **Bug fixes**
@@ -799,7 +799,7 @@ With the release of StackState v4.4, StackState v4.1 reached End of Life \(EOL\)
 * Fixed issue where check updating would retry indefinitely when an element is already gone. STAC-9323
 * Fixed issue that redirected users to a stream URL instead of the StackState application. STAC-9186
 * Fixed issue where component version information was not properly merged during synchronization. STAC-8624
-* Fixed issue where state service could not find some elements due to querying with an incomplete time slice. STAC-8195
+* Fixed issue where state service couldn't find some elements due to querying with an incomplete time slice. STAC-8195
 * Propagation function will be re evaluated for all related components when the body of the function changes. STAC-4114
 
 ### StackState v4.0.x (EOL)
@@ -859,6 +859,6 @@ StackState v4.0 is End of Life \(EOL\) and is no longer supported.
 * Proper handling for trailing slash in a receiver URL configuration. STAC-7817
 * Upgrade the requirement and documentation of Static Topology to use AgentV2. STAC-8640
 * `processmanager-properties.conf` was merged into `processmanager.conf` for both StackState and StackGraph. If you have changes to either one of those configuration files, your changes will need to be reaplied after upgrade. STAC-8473
-* The authentication for the admin API \(port 7071 by default\) is now configured separately from the normal authentication and, for new installations, it is enabled by default. If authentication was enabled for this api \(by default not\) this requires a change in the StackState configuration file. If it was not enabled it is strongly advised to enable it now and change the password. See the `application_stackstate.conf.example` file for an explanation on how to do both. STAC-7993
+* The authentication for the admin API \(port 7071 by default\) is now configured separately from the normal authentication and, for new installations, it's enabled by default. If authentication was enabled for this api \(by default not\) this requires a change in the StackState configuration file. If it was not enabled it's strongly advised to enable it now and change the password. See the `application_stackstate.conf.example` file for an explanation on how to do both. STAC-7993
 * It is now possible to configure a proxy for event handlers, see [how to set this up](../../configure/topology/proxy-for-event-handlers.md). STAC-7784
 * Allow STS process manager to perform HTTPS health check. STAC-7718

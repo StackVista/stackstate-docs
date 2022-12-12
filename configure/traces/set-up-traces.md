@@ -14,7 +14,7 @@ For traces to be available in StackState, the [StackState Agent V2 StackPack](..
 
 ### 1\) Install StackState Agent V2
 
-The StackState Agent V2 StackPack enables integration with external systems to receive trace data. You can check if it is installed on the StackPacks page in StackState. If it is not installed, follow the [StackState Agent setup instructions](../../setup/agent/about-stackstate-agent.md).
+The StackState Agent V2 StackPack enables integration with external systems to receive trace data. You can check if it's installed on the StackPacks page in StackState. If it isn't installed, follow the [StackState Agent setup instructions](../../setup/agent/about-stackstate-agent.md).
 
 ### 2\) Configure tracing integrations
 

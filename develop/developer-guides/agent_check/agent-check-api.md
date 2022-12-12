@@ -57,7 +57,7 @@ class MyCheck(AgentCheckV2):
 A more comprehensive example can be found in the [StackState Agent Integrations repo](https://github.com/StackVista/stackstate-agent-integrations/tree/master/agent_v2_integration_sample)
 
 ### StatefulAgentCheck (Agent 2.18+)
-An Stateful Agent Check is a Python class that inherits from `StatefulAgentCheck` and implements the `stateful_check` method. This is intended to be used for agent checks that requires the ability to persist data across check runs and be available in the event of agent failure. If an agent failure occurs, the persisted state will be used in the next check run. **Persistent state is persisted even in the event of check failure.** The `StatefulAgentCheck` receives the current persistent state as an input parameter. The `persistent_state` parameter of the `CheckResponse` return type is then set as the new persistent state value. 
+An Stateful Agent Check is a Python class that inherits from `StatefulAgentCheck` and implements the `stateful_check` method. This is intended to be used for Agent checks that requires the ability to persist data across check runs and be available in the event of Agent failure. If an Agent failure occurs, the persisted state will be used in the next check run. **Persistent state is persisted even in the event of check failure.** The `StatefulAgentCheck` receives the current persistent state as an input parameter. The `persistent_state` parameter of the `CheckResponse` return type is then set as the new persistent state value. 
 
 ```text
 from stackstate_checks.base.checks.v2.stateful_agent_check import StatefulAgentCheck
@@ -75,7 +75,7 @@ class MyCheck(StatefulAgentCheck):
 A more comprehensive example can be found in the [StackState Agent Integrations repo](https://github.com/StackVista/stackstate-agent-integrations/tree/master/agent_v2_integration_stateful_sample)
 
 ### TransactionalAgentCheck (Agent 2.18+)
-An Transactional Agent Check is a Python class that inherits from `TransactionalAgentCheck` and implements the `transactional_check` method. This is intended to be used for agent checks that require transactional behavior for updating it's state. A Agent Check transaction is considered a success if the data submitted by the Agent Check reaches StackState. This enables checks to never process / submit data that has already been received by StackState. **Persistent state is persisted even in the event of check failure, while transactional state is only persistent once a transaction has succeeded.** The `TransactionalAgentCheck` receives the current transactional and persistent state as input parameters. The `transactional_state` and `persistent_state` parameters of the `CheckResponse` return type are then correspondingly set as the new state values.
+An Transactional Agent Check is a Python class that inherits from `TransactionalAgentCheck` and implements the `transactional_check` method. This is intended to be used for Agent checks that require transactional behavior for updating it's state. A Agent Check transaction is considered a success if the data submitted by the Agent Check reaches StackState. This enables checks to never process / submit data that has already been received by StackState. **Persistent state is persisted even in the event of check failure, while transactional state is only persistent once a transaction has succeeded.** The `TransactionalAgentCheck` receives the current transactional and persistent state as input parameters. The `transactional_state` and `persistent_state` parameters of the `CheckResponse` return type are then correspondingly set as the new state values.
 
 ```text
 from stackstate_checks.base.checks.v2.transactional_agent_check import TransactionalAgentCheck
@@ -135,7 +135,7 @@ The `AgentCheck`, `AgentCheckV2`, `StatefulAgentCheck`, `TransactionalAgentCheck
 
 ## Scheduling
 
-Multiple instances of the same check can run concurrently. If a check is already running, it is not necessary to schedule another one.
+Multiple instances of the same check can run concurrently. If a check is already running, it isn't necessary to schedule another one.
 
 ## Send data
 
@@ -323,7 +323,7 @@ This will be fully deprecated in Agent Check V2 in favour of the `CheckResponse`
 Health information can be sent to StackState with the following methods:
 
 * `self.health.check_state` - send a check state as part of a snapshot.
-* `self.health.start_snapshot()` - start a health snapshot. Stackstate will only process health information if it is sent as part of a snapshot.
+* `self.health.start_snapshot()` - start a health snapshot. Stackstate will only process health information if it's sent as part of a snapshot.
 * `self.health.stop_snapshot()` -  stop the snapshot, signaling that all submitted data is complete. This should be done at the end of the check after all data has been submitted. If exceptions occur in the check or not all data can be produced for some other reason, this function should not be called.
 
 #### Set up a health stream
@@ -506,7 +506,7 @@ An event stream health check includes the details listed below. Note that a cust
 * **contains\_key** - for check `contains_key_value` only. The key that should be contained in the event.
 * **contains\_value** - for check `contains_key_value` only. The value that should be contained in the event.
 * **found\_health\_state** - for check `contains_key_value` only. The health state to return when this tag and value is found.
-* **missing\_health\_state** - for check `contains_key_value` only. The health state to return when the tag/value is not found.
+* **missing\_health\_state** - for check `contains_key_value` only. The health state to return when the tag/value isn't found.
 * **tag\_name** - for check `use_tag_as_health` only. The key of the tag that should be used as the health state.
 
 For details see the [EventHealthChecks class \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/stackstate_checks_base/stackstate_checks/base/utils/telemetry.py#L24).
@@ -641,7 +641,7 @@ Example taken from the [StackState MySQL Agent check \(github.com\)](https://git
 
 ## Error handling
 
-A check should raise a significant exception when it cannot work correctly, for example due to a wrong configuration or runtime error. Exceptions are logged and shown in the Agent status page. The `warning` method can be used to log a warning message and display it on the Agent status page.
+A check should raise a significant exception when it can't work correctly, for example due to a wrong configuration or runtime error. Exceptions are logged and shown in the Agent status page. The `warning` method can be used to log a warning message and display it on the Agent status page.
 
 ```text
 self.warning("This will be visible in the status page")

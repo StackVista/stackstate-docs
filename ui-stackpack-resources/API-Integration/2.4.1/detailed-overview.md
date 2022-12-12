@@ -58,4 +58,4 @@ Logs for the subsystems are in the following files:
 /var/log/stackstate/forwarder.log
 ```
 
-If you're still having trouble, our [support team](https://support.stackstate.com/hc/en-us) will be glad to provide further assistance.
+If you're still having trouble, our [support team](https://support.stackstate.com/hc/en-us) will be glad to offer further assistance.

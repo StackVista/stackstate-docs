@@ -100,7 +100,7 @@ Those two steps \(referencing assembly, configuring endpoint\) is enough for sta
 
 ### Configuration Variables
 
-The following tables list the supported configuration variables. Use the first name \(e.g. `DD_TRACE_AGENT_URL`\) when setting environment variables or configuration files. The second name, if present \(e.g. `AgentUri`\), indicates the name the `TracerSettings` property to use when changing settings in the code.
+The following tables list the supported configuration variables. Use the first name \(for example, `DD_TRACE_AGENT_URL`\) when setting environment variables or configuration files. The second name, if present \(for example, `AgentUri`\), indicates the name the `TracerSettings` property to use when changing settings in the code.
 
 The first table below lists configuration variables available.
 
@@ -110,7 +110,7 @@ The first table below lists configuration variables available.
 | `DD_AGENT_HOST` | Sets the host where traces are sent \(the host running the Agent\). Can be a hostname or an IP address. Ignored if `DD_TRACE_AGENT_URL` is set. Default is value `localhost`. |
 | `DD_TRACE_AGENT_PORT` | Sets the port where traces are sent \(the port where the Agent is listening for  connections\). Ignored if `DD_TRACE_AGENT_URL` is set. Default value is `8126`. |
 | `DD_ENV` `Environment` | If specified, adds the `env` tag with the specified value to all generated spans. |
-| `DD_SERVICE_NAME` `ServiceName` | If specified, sets the default service name. Otherwise, the .NET Tracer tries to determine service name automatically from application name \(e.g. IIS application name,  process entry assembly, or process name\). |
+| `DD_SERVICE_NAME` `ServiceName` | If specified, sets the default service name. Otherwise, the .NET Tracer tries to determine service name automatically from application name \(for example, IIS application name,  process entry assembly, or process name\). |
 | `DD_TRACE_GLOBAL_FLAGS` `GlobalTags` | If specified, adds all of the specified tags to all generated spans. |
 
 #### Automatic instrumentation \(experimental\)
@@ -143,13 +143,13 @@ To set environment variables for a Windows Service, use the multi-string key
 
 `HKLM\System\CurrentControlSet\Services\{service name}\Environment` in the Windows Registry.
 
-Note: The .NET runtime tries to load a profiler into any .NET process that is started with these environment variables. You should limit instrumentation only to the applications that need to be traced. We do not recommend setting these environment variables globally as this causes all .NET processes on the host to load the profiler.
+Note: The .NET runtime tries to load a profiler into any .NET process that's started with these environment variables. You should limit instrumentation only to the applications that need to be traced. We don't recommend setting these environment variables globally as this causes all .NET processes on the host to load the profiler.
 
 If host has datadog so-called automatic instrumentation installed, following settings can be used.
 
 | Setting Name | Description |
 | :--- | :--- |
-| `DD_TRACE_ENABLED` `TraceEnabled` | Enables or disables all automatic instrumentation. Setting the environment variable to `false` completely disables the CLR profiler. For other configuration methods, the CLR profiler is still loaded, but traces will not be generated. Valid values are: `true` \(default\) or `false`. |
+| `DD_TRACE_ENABLED` `TraceEnabled` | Enables or disables all automatic instrumentation. Setting the environment variable to `false` completely disables the CLR profiler. For other configuration methods, the CLR profiler is still loaded, but traces won't be generated. Valid values are: `true` \(default\) or `false`. |
 | `DD_TRACE_DEBUG` | Enables or disables debug logs in the Tracer. Valid values are: `true` or `false` \(default\). Setting this as an environment variable also enabled debug logs in the CLR Profiler. |
 | `DD_TRACE_LOG_PATH` | Sets the path for the CLR profiler’s log file. Default: `%ProgramData%\Datadog .NET Tracer\logs\dotnet-profiler.log` |
 | `DD_DISABLED_INTEGRATIONS` `DisabledIntegrationNames` | Sets a list of integrations to disable. All other integrations remain enabled. If not set, all integrations are enabled. Supports multiple values separated with semicolons. |

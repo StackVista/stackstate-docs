@@ -36,7 +36,7 @@ The filters described below can be combined using the available [operators](#ope
 | `layer` | "all" | Components in the named layer. |
 | `name` | "all" | Components with the specified name. |
 | `type` | "all" | Components of the specified type. |
-| `identifier` | "all" | Components with the specified URN identifier. The identifier filter is only compatible with basic filtering when it is specified using `identifier IN (...)` and combined with other filters using an `OR` operator. When the set filter is compatible with basic filtering, the number of component identifiers queried will be reported in the [**Other filters** box](/use/stackstate-ui/filters.md#other-filters). |
+| `identifier` | "all" | Components with the specified URN identifier. The identifier filter is only compatible with basic filtering when it's specified using `identifier IN (...)` and combined with other filters using an `OR` operator. When the set filter is compatible with basic filtering, the number of component identifiers queried will be reported in the [**Other filters** box](/use/stackstate-ui/filters.md#other-filters). |
 
 ### Operators
 
@@ -64,7 +64,7 @@ For example:
 
 ### Wildcard
 
-You can use `*` as a full wildcard in a component filter. It is not possible to filter for partial matches using a wildcard character.
+You can use `*` as a full wildcard in a component filter. It isn't possible to filter for partial matches using a wildcard character.
 
 ### Examples
 
@@ -78,10 +78,10 @@ name = "serviceB"
 # Select all components in the "application" layer:
 layer = "application"
 
-# Select all components named either "appA" or "appB" that do not have a label "bck"
+# Select all components named either "appA" or "appB" that don't have a label "bck"
 name IN ("appA","appB") NOT label = "bck"
 
-# Select all components named "appA" that do not have a label "bck" or "test"
+# Select all components named "appA" that don't have a label "bck" or "test"
 name = "appA" NOT label in ("bck", "test")
 ```
 
@@ -93,7 +93,7 @@ The function withNeighborsOf extends STQL query output, adding connected compone
 
 `withNeighborsOf(components=(), levels=, direction=)`
 
-To be compatible with basic filtering, the function can only be combined with other filters using an `OR` operator. When an advanced filter contains a function `withNeighborsOf` that is compatible with basic filtering, the number of components whose neighbors are queried for is shown in the [**Other filters** box](/use/stackstate-ui/filters.md#other-filters). 
+To be compatible with basic filtering, the function can only be combined with other filters using an `OR` operator. When an advanced filter contains a function `withNeighborsOf` that's compatible with basic filtering, the number of components whose neighbors are queried for is shown in the [**Other filters** box](/use/stackstate-ui/filters.md#other-filters). 
 
 #### Parameters / fields
 
@@ -115,23 +115,23 @@ layer = "application"
 
 ### withCauseOf - DEPRECATED
 
-The `withCauseOf` function has been deprecated. This functionality has been replaced by the Root Cause Analysis section in the visualizer. The construct will be parsed, but will not produce any additional components.
+The `withCauseOf` function has been deprecated. This functionality has been replaced by the Root Cause Analysis section in the visualizer. The construct will be parsed, but won't produce any additional components.
 
 ## Compatibility basic and advanced filters
 
 You can switch between basic and advanced filtering by selecting **Basic** or **Advanced** under **Filter Topology** in the **View Filters** panel.
 
-It is always possible to switch from Basic to Advanced filtering. The selected basic filters will be converted directly to an STQL query. For simple queries it is also possible to switch from Advanced to Basic filtering, however, some advanced queries are not compatible with basic filters. 
+It's always possible to switch from Basic to Advanced filtering. The selected basic filters will be converted directly to an STQL query. For simple queries it's also possible to switch from Advanced to Basic filtering, however, some advanced queries aren't compatible with basic filters. 
 
-* Basic filters cannot contain an inequality.
-* Basic filters do not use `=`, rather they are formatted using the `IN` operator. For example `name IN ("DLL_DB”)` and not `name = "DLL_DB”`.
+* Basic filters can't contain an inequality.
+* Basic filters don't use `=`, rather they're formatted using the `IN` operator. For example `name IN ("DLL_DB”)` and not `name = "DLL_DB”`.
 * Basic filters use AND/OR in a specific way:
     - All items in each basic filter box are joined with an **OR**: `layer IN ("business service", "applications", "databases")`
     - The different basic filter boxes are chained together with an **AND**: `layer IN ("business service") AND domain IN ("online banking”)`
     - The **Include components** basic filter box (name) is the exception - this is chained to the other filter boxes with an OR: `layer IN ("business service") AND domain IN ("online banking") OR name IN ("DLL_DB”)`
-    - The advanced filtering options **withNeighborsOf** function and **identifier** are only compatible with basic filtering if they are joined to other filters with an **OR**: `layer in ("Processes") OR identifier IN ("urn:test:component")`
+    - The advanced filtering options **withNeighborsOf** function and **identifier** are only compatible with basic filtering if they're joined to other filters with an **OR**: `layer in ("Processes") OR identifier IN ("urn:test:component")`
   
-If you try to switch from an Advanced filter to a Basic filter and the query is not compatible, StackState will let you know and ask for confirmation to continue as you will lose some of the set filters. Alternatively, you can choose to stay in advanced filtering.
+If you try to switch from an Advanced filter to a Basic filter and the query isn't compatible, StackState will let you know and ask for confirmation to continue as you will lose some of the set filters. Alternatively, you can choose to stay in advanced filtering.
 
 
 ## See also

@@ -38,7 +38,7 @@ The first step is to prepare a check using the Agent V2 StackPack. This step all
 
 ### 2. Install Custom Synchronization StackPack
 
-To install this StackPack go to StackState's StackPacks section and locate the "Custom Synchronization" in Other StackPacks. During the installation process, you need to provide the following information:
+To install this StackPack go to StackState's StackPacks section and locate the "Custom Synchronization" in Other StackPacks. During the installation process, you need to enter the following information:
 
 * Instance type \(source identifier\) - this is the identifier for the resource that you want to integrate with StackState, for example, AWS, Azure and Zabbix.
 * Instance URL - The URL of the instance the data is being reported for.
@@ -47,7 +47,7 @@ When the above information is provided click the "Install" button and if Agent V
 
 ### 3. Configure Layers, Domains, and Environments
 
-Once you have installed Custom Synchronization StackPack, you need to start preparing the configuration that is needed for your integration.
+Once you have installed Custom Synchronization StackPack, you need to start preparing the configuration that's needed for your integration.
 
 There are some default Layers, Domains, and Environments created by StackState. Layers are used for vertical separation between components; Domains are used for horizontal separation between components; Environments are grouping components. You can add custom Layers, Domains, and Environments in the Settings pages to match your StackPack needs.
 
@@ -61,13 +61,13 @@ Component types and Relation types can also be created automatically by StackSta
 
 ### 5. Prepare ID Extractor Functions
 
-When creating a StackPack, it is important to have a `component` and `relation` identity extractor function. There are a few default ID Extractor Functions present in StackState. The `Auto sync component id extractor` and `Auto sync relation id extractor` are good starting points for your StackPack. You can go ahead and rename these, add a description if needed, and confirm the popup dialog to unlock these ID Extractor Functions from the `Custom Synchronization` StackPack.
+When creating a StackPack, it's important to have a `component` and `relation` identity extractor function. There are a few default ID Extractor Functions present in StackState. The `Auto sync component id extractor` and `Auto sync relation id extractor` are good starting points for your StackPack. You can go ahead and rename these, add a description if needed, and confirm the popup dialog to unlock these ID Extractor Functions from the `Custom Synchronization` StackPack.
 
 ➡️ [Learn more about ID Extractors](custom-functions/id-extractor-functions.md)
 
 ### 6. Prepare Component and Relation Mapping Functions
 
-Component Mapping Functions are used by StackState to do some translation of incoming component data. They are applied in the Synchronization for a given source/component type.
+Component Mapping Functions are used by StackState to do some translation of incoming component data. They're applied in the Synchronization for a given source/component type.
 
 Mapping functions are an optional step in the Synchronization flow. [Find out more about Mapping Functions](custom-functions/mapping-functions.md).
 

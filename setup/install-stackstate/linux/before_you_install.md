@@ -16,7 +16,7 @@ StackState can be installed either with Linux packages on one or two Linux machi
 Before setting up StackState, you need to choose whether you want to run StackState in Development, POC, or Production mode.
 
 * **Development setup:** requires only one machine, but will be limited to 1000 components/relations per view, due to the limited setup. This is recommended for small trials.
-* **POC setup:** used for bigger installations, giving almost the same power as production, but is not suited for processing perpetual data streams.
+* **POC setup:** used for bigger installations, giving almost the same power as production, but isn't suited for processing perpetual data streams.
 * **Production setup:** used when bringing StackState to production or when the other environments are too limiting.
 
 ## Requirements
@@ -32,7 +32,7 @@ There is an RPM package available that provides easy installation and upgrade of
 StackState supports three different installation configurations:
 
 * [Production setup](production-installation.md) suitable for production use.
-* [Proof-of-concept \(POC\) setup](poc-installation.md) suitable for proof of concepts. This is not suited for processing perpetual data streams.
+* [Proof-of-concept \(POC\) setup](poc-installation.md) suitable for proof of concepts. This isn't suited for processing perpetual data streams.
 * [Development setup](development-installation.md) suitable for a pilot or demo. This setup can deal with limited amounts of topology \(max 1000 components/relations per view\).
 
 ## Upgrading

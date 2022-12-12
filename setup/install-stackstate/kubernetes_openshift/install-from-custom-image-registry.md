@@ -10,7 +10,7 @@ This page describes how to use a custom image registry to install StackState, th
 
 ## Serve images from a different image registry
 
-Pulling the images from the different image registries can take some time when pods are started, either when the application starts for the first time or when it is being scaled to a new node. If one of those registries is not accessible for some reason, the pods won't start.
+Pulling the images from the different image registries can take some time when pods are started, either when the application starts for the first time or when it's being scaled to a new node. If one of those registries isn't accessible for some reason, the pods won't start.
 
 To address this issue, you can copy all the images to a single registry close to your clsuter, and configure the Helm chart to pull the images from that registry:
 
@@ -45,7 +45,7 @@ To address this issue, you can copy all the images to a single registry close to
 5. Edit the `values.yaml` file and add the following:
    * **global.imageRegistry** - the registry to use.
    * **global.imagePullSecrets** and **pull-secret** object - optional. The authentication details required for the `global.imageRegistry`.
-   * **elasticsearch.prometheus-elasticsearch-exporter.image.repository** - the image used by the prometheus-elasticsearch-exporter sub-chart. This is required as it cannot be configured with the setting `global.imageRegistry`
+   * **elasticsearch.prometheus-elasticsearch-exporter.image.repository** - the image used by the prometheus-elasticsearch-exporter sub-chart. Required as it can't be configured with the setting `global.imageRegistry`
     ```yaml
     global:
       imageRegistry: 57413481473.dkr.ecr.eu-west-1.amazonaws.com

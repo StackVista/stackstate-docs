@@ -22,7 +22,7 @@ Slack is a [StackState core integration](/stackpacks/integrations/about_integrat
 
 ### Install
 
-Install the Slack StackPack from the StackState UI **StackPacks** > **Integrations** screen. You do not need to provide any parameters.
+Install the Slack StackPack from the StackState UI **StackPacks** > **Integrations** screen. You don't need to enter any details.
 
 ### Configure
 
@@ -43,7 +43,7 @@ For an overview of recent StackPack updates, check the [StackPack versions](/set
 
 ### Data retrieved
 
-The Slack integration is used to send event notifications to Slack. It does not retrieve any data from Slack.
+The Slack integration is used to send event notifications to Slack. It doesn't retrieve any data from Slack.
 
 ## Uninstall
 

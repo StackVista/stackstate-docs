@@ -23,7 +23,7 @@ To set up the ??? integration you will need to have:
 
 ### Install
 
-Install the ??? StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
+Install the ??? StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following parameters:
 
 * **???** - ???.
 * **???** - ???.
@@ -65,11 +65,11 @@ For considerations and instructions on upgrading a StackPack, see [how to upgrad
 
 #### Events
 
-The ??? check does not retrieve any event data.
+The ??? check doesn't retrieve any event data.
 
 #### Metrics
 
-The ??? check does not retrieve any metrics data.
+The ??? check doesn't retrieve any metrics data.
 
 #### Tags
 
@@ -86,7 +86,7 @@ The ??? check retrieves the following topology data from ???:
 
 #### Traces
 
-The ??? check does not retrieve any traces data.
+The ??? check doesn't retrieve any traces data.
 
 ### ??? views in StackState
 

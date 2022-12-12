@@ -31,19 +31,19 @@ To set up the StackState AWS integration, you need to have:
 * AWS CLI version 2.0.4 or later is installed on the environment where StackState is running.
 * The following AWS accounts:
   * At least one target AWS account that will be monitored.
-  * An AWS account for StackState and the StackState Agent to use when retrieving data from the target AWS account(s). It is recommended to use a separate shared account for this and not use any of the accounts that will be monitored by StackState, but this is not required. 
+  * An AWS account for StackState and the StackState Agent to use when retrieving data from the target AWS account(s). It's recommended to use a separate shared account for this and not use any of the accounts that will be monitored by StackState, but this isn't required. 
   * A user or role with a policy attached that contains the action to allow assuming the role stsIntegrationRole in the account that will be monitored. For details see the StackState docs on the required AWS policy.
 
 ### AWS accounts
 
-It is recommended to have two different AWS accounts: One that is being monitored and another used for data collection.
+It's recommended to have two different AWS accounts: One that's being monitored and another used for data collection.
 
 * **Monitor Account** - used to [deploy a CloudFormation Stack](#deploy-the-aws-cloudformation-stack). The CloudFormation stack will create an IAM role that has the permissions required to retrieve data from this Monitor Account (`StackStateAwsIntegrationRole`). 
-* **Data Collection Account** - used by StackState and StackState Agent to retrieve data from the Monitor Account. An AWS policy granting permissions to assume the role `StackStateAwsIntegrationRole` in the Monitor Account is required. 
+* **Data Collection Account** - used by StackState and StackState Agent to retrieve data from the Monitor Account. Requires an AWS policy granting permissions to assume the role `StackStateAwsIntegrationRole` in the Monitor Account. 
 
 #### AWS policy
 
-The policy below grants permission to assume the role `StackStateAwsIntegrationRole` that is created in each target AWS Monitor Account when the CloudFormation Stack is deployed. This policy is required by StackState and StackState Agent to collect data from the AWS Monitor Account. The policy should be created and attached to the AWS user(s) or IAM role(s) that will be used by StackState and the StackState Agent:
+The policy below grants permission to assume the role `StackStateAwsIntegrationRole` that's created in each target AWS Monitor Account when the CloudFormation Stack is deployed. StackState and StackState Agent require this policy to collect data from the AWS Monitor Account. The policy should be created and attached to the AWS user(s) or IAM role(s) that will be used by StackState and the StackState Agent:
 
 ```javascript
 {
@@ -60,7 +60,7 @@ The policy below grants permission to assume the role `StackStateAwsIntegrationR
 
 The policy can be made available to StackState and the StackState Agent in one of the following ways:
 
-* **If StackState and/or StackState Agent run on EC2 or EKS AND the Data Collection Account and Monitor Account are in the same AWS organization**: 
+* **If StackState or StackState Agent run on EC2 or EKS AND the Data Collection Account and Monitor Account are in the same AWS organization**: 
   * [Attach an IAM role to the EC2 instance or EKS pod](#iam-role-on-ec2-or-eks).
 * **In all other situations**: 
   * StackState: Attach the policy to the user [configured when the AWS StackPack instance is installed](#install-the-aws-stackpack).
@@ -68,7 +68,7 @@ The policy can be made available to StackState and the StackState Agent in one o
 
 #### IAM role on EC2 or EKS
 
-StackState Agent collects topology, logs and (if configured) VPC flow logs, and StackState pulls CloudWatch metrics from AWS. If StackState Agent and/or StackState run in an AWS environment and the Data Collection Account and Monitor Account are in the same AWS organization, an IAM role can be attached to the EC2 instance or EKS pod that they run on and used for authentication. This removes the need to specify an AWS Access Key ID and Secret when a StackPack instance is installed or in the Agent AWS check configuration.
+StackState Agent collects topology, logs and (if configured) VPC flow logs, and StackState pulls CloudWatch metrics from AWS. If StackState Agent or StackState run in an AWS environment and the Data Collection Account and Monitor Account are in the same AWS organization, an IAM role can be attached to the EC2 instance or EKS pod that they run on and used for authentication. This removes the need to specify an AWS Access Key ID and Secret when a StackPack instance is installed or in the Agent AWS check configuration.
 
 {% hint style="info" %}
 Note: The AWS Data Collection Account and Monitor Account must be a part of the same AWS organization to be able to authenticate using an IAM role in this way. For details, see the AWS documentation on [AWS organizations \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html). 
@@ -97,7 +97,7 @@ The StackState AWS CloudFormation Stack should be deployed in each AWS account t
 {% hint style="info" %}
 For special environments where the CloudFormation template may not function correctly, advanced AWS users can refer to the [required AWS resources](aws.md#required-aws-resources) for a reference on all resources that must be manually created..
 
-**It is recommended to use the** [**StackState CloudFormation template**](aws.md#stackstate-template-deployment) **wherever possible** as this provides an easy upgrade path for future versions and reduces the maintenance burden.
+**It's recommended to use the** [**StackState CloudFormation template**](aws.md#stackstate-template-deployment) **wherever possible** as this provides an easy upgrade path for future versions and reduces the maintenance burden.
 {% endhint %}
 
 #### Quick deployment
@@ -124,25 +124,25 @@ The table below includes links to deploy the template in popular AWS regions. Fo
 
 #### StackState template deployment
 
-The default StackState CloudFormation template can be used to deploy all necessary resources. It can be deployed to multiple AWS accounts and regions at once by deploying it in a CloudFormation StackSet. It is recommended to use this template as it provides an easy upgrade path for future versions and reduces the maintenance burden compared to creating a custom template.
+The default StackState CloudFormation template can be used to deploy all necessary resources. It can be deployed to multiple AWS accounts and regions at once by deploying it in a CloudFormation StackSet. It's recommended to use this template as it provides an easy upgrade path for future versions and reduces the maintenance burden compared to creating a custom template.
 
 * [Download the default StackState CloudFormation template \(stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com\)](https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.3.cfn.yaml)
 
 The template requires the following parameters:
 
 * **MainRegion** - The primary AWS region. This can be any region, as long as this region is the same for every template deployed within the AWS account. Global resources will be deployed in this region such as the IAM role and S3 bucket. Example: `us-east-1`.
-* **StsAccountId** - The 12-digit AWS account ID that is going to be monitored. This will be the AWS account that the IAM role can be assumed from, to perform actions on the target AWS account. Example: `0123456789012`.
+* **StsAccountId** - The 12-digit AWS account ID to be monitored. This will be the AWS account that the IAM role can be assumed from, to perform actions on the target AWS account. Example: `0123456789012`.
 * **ExternalId** - A shared secret that the StackState Agent will present when assuming a role. Use the same value across all AWS accounts that the Agent is monitoring. Example: `uniquesecret!1`.
-* **IncludeOpenTelemetryTracing** - Default: `disabled`. Set to `enabled` to include the OpenTelemetry layer in your deployment. This is required to [retrieve OpenTelemetry traces from AWS Lambda scripts running NodeJS](/stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md).
+* **IncludeOpenTelemetryTracing** - Default: `disabled`. Set to `enabled` to include the OpenTelemetry layer in your deployment. Required to [retrieve OpenTelemetry traces from AWS Lambda scripts running NodeJS](/stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md).
 * **Post fix** - Optional. Value to append to all resource names when deploying the stack multiple times in the same account.
 
 For more information on how to use StackSets, check the AWS documentation on [working with AWS CloudFormation StackSets \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
 
 ### Install the AWS StackPack
 
-Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters, these will be used by StackState to configure the StackPack instance within StackState and query live telemetry from the AWS account. To create topology in StackState, you will also need to configure the AWS check on StackState Agent V2.
+Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details, these will be used to configure the StackPack instance within StackState and for StackState to query live telemetry from the AWS account. To create topology in StackState, you will also need to configure the AWS check on StackState Agent V2.
 
-* **Role ARN** - the ARN of the IAM Role created by the cloudFormation stack. For example, `arn:aws:iam::<account id>:role/StackStateAwsIntegrationRole` where `<account id>` is the 12-digit AWS account ID that is being monitored. 
+* **Role ARN** - the ARN of the IAM Role created by the cloudFormation stack. For example, `arn:aws:iam::<account id>:role/StackStateAwsIntegrationRole` where `<account id>` is the 12-digit AWS account ID being monitored. 
 * **External ID** - a shared secret that StackState will present when assuming a role. Use the same value across all AWS accounts. For example, `uniquesecret!1`
 * **AWS Access Key ID** - The Access Key ID of the IAM user that will be used by StackState to collect CloudWatch metrics. This is the same as the IAM user used by the Agent to collect topology data and logs from AWS. If StackState is running within AWS, it may also be possible to [authenticate with an IAM role](#iam-role-on-ec2-or-eks).
 * **AWS Secret Access Key** - The Secret Access Key of the IAM user that will be used by StackState to collect CloudWatch metrics. This is the same as the IAM user used by the Agent to collect topology data and logs from AWS. If StackState is running within AWS, it may also be possible to [authenticate with an IAM role](#iam-role-on-ec2-or-eks).
@@ -156,7 +156,7 @@ To enable the AWS check and begin collecting topology and log data from AWS, add
 
 If StackState Agent is running on Kubernetes, the AWS check should be configured as a [cluster check](/setup/agent/kubernetes-openshift.md#enable-cluster-checks).
 
-1. If you do not already have it, you will need to add the StackState helm repository to the local helm client:
+1. If you don't already have it, you will need to add the StackState helm repository to the local helm client:
 
    ```text
     helm repo add stackstate https://helm.stackstate.io
@@ -174,7 +174,7 @@ If StackState Agent is running on Kubernetes, the AWS check should be configured
       config:
         override:
     #clusterAgent.config.override -- Defines kubernetes_state check for checksAgent agents. Auto-discovery
-    #with ad_identifiers does not work here. Use a specific URL instead.
+    #with ad_identifiers doesn't work here. Use a specific URL instead.
         - name: conf.yaml
           path: /etc/stackstate-agent/conf.d/aws_topology.d
           data: |
@@ -191,7 +191,7 @@ If StackState Agent is running on Kubernetes, the AWS check should be configured
                 regions:
                 - global
                 - eu-west-1
-                collection_interval: 60 # The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
+                collection_interval: 60 # The amount of time in seconds between each scan. Decreasing this value won't appreciably increase topology update speed.
                 # apis_to_run:
                 #   - ec2
                 # log_bucket_name: '' 
@@ -257,7 +257,7 @@ If StackState Agent is running on a Linux VM:
          - global # a special "region" used for global resources
          - eu-west-1
        # min_collection_interval: 60 # use in place of collection_interval for Agent V2.14.x or earlier 
-       collection_interval: 60 # The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
+       collection_interval: 60 # The amount of time in seconds between each scan. Decreasing this value won't appreciably increase topology update speed.
        # apis_to_run:
        #   - ec2
        # log_bucket_name: '' 
@@ -267,9 +267,9 @@ If StackState Agent is running on a Linux VM:
 
 2. You can also add optional configuration and filters: 
     - **full_run_interval** - Optional. The time in seconds between a full AWS topology scan. Intermediate runs only fetch events.
-    - **collection_interval** - The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
-    - **apis_to_run** - Optionally whitelist specific AWS services. It is not recommended to set this; instead rely on IAM permissions.
-    - **log_bucket_name** - The S3 bucket that the agent should read events from. This value should only be set in custom implementations.
+    - **collection_interval** - The amount of time in seconds between each scan. Decreasing this value won't appreciably increase topology update speed.
+    - **apis_to_run** - Optionally whitelist specific AWS services. It isn't recommended to set this; instead rely on IAM permissions.
+    - **log_bucket_name** - The S3 bucket that the Agent should read events from. This value should only be set in custom implementations.
     - **tags** - Optional. Can be used to apply specific tags to all reported data in StackState.
 
 3. [Restart the StackState Agent](/setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
@@ -295,7 +295,7 @@ To configure a VPC FlowLog from the AWS console:
 
 ### Use an HTTP proxy
 
-Access to the internet is required to call the AWS APIs. If StackState or the StackState Agent cannot be given direct internet access, an HTTP proxy can be used to proxy the API calls. 
+StackState and the StackState Agent require access to the internet to call the AWS APIs. If direct internet access can't be given, an HTTP proxy can be used to proxy the API calls. 
 
 In the StackState AWS integration, CloudWatch metrics are pulled directly by StackState, while events and topology data are collected by the StackState Agent. This means that proxy details must be configured in two places to handle all requests - StackState for CloudWatch metrics and StackState Agent for topology and events data.
 
@@ -332,7 +332,7 @@ The AWS StackPack supports the following event:
 
 * EC2 Instance Run State: when the instance is started, stopped, or terminated. This will appear as the Run State in the EC2 instance component.
 
-AWS events are primarily used to provide real-time updates to topology. These events are not displayed as StackState events.
+AWS events are primarily used to provide real-time updates to topology. These events aren't displayed as StackState events.
 
 #### Metrics
 
@@ -393,7 +393,7 @@ OpenTelemetry creates traces from the AWS services that your Lambdas interacts w
 
 ### Required AWS resources
 
-A high-level of overview of all resources necessary to run the StackState Agent with full capabilities is provided in the graph below. Users with intermediate to high level AWS skills can use these details to set up the StackState Agent resources manually. For the majority of installations, this is not the recommended approach. Use the provided [StackState CloudFormation template](aws.md#stackstate-template-deployment) unless there are environment-specific issues that must be worked around.
+A high-level of overview of all resources necessary to run the StackState Agent with full capabilities is provided in the graph below. Users with intermediate to high level AWS skills can use these details to set up the StackState Agent resources manually. For the majority of installations, this isn't the recommended approach. Use the provided [StackState CloudFormation template](aws.md#stackstate-template-deployment) unless there are environment-specific issues that must be worked around.
 
 ![Account components](../../../.gitbook/assets/stackpack-aws-v2-account-components.svg)
 
@@ -402,7 +402,7 @@ Hourly and event-based updates collect data:
 * Hourly full topology updates - collected by the StackState Agent using an IAM role with access to the AWS services.
 * Event-based updates for single components and relations - captured using AWS services and placed into an S3 bucket for the StackState Agent to read.
 
-If the StackState Agent does not have permission to access a certain component, it will skip it.
+If the StackState Agent doesn't have permission to access a certain component, it will skip it.
 
 #### StackState Agent IAM Role
 
@@ -419,10 +419,10 @@ IAM is a global service. Only one IAM role is necessary per account.
 #### S3 Bucket
 
 {% hint style="warning" %}
-Once the Agent has finished reading a file in this bucket, the file will be **deleted**. Do not use an existing bucket for this, the Agent should have its own bucket to read from. The S3 bucket will not be read from if it does not have bucket versioning enabled, to protect data.
+Once the Agent has finished reading a file in this bucket, the file will be **deleted**. Don't use an existing bucket for this, the Agent should have its own bucket to read from. The S3 bucket won't be read from if it doesn't have bucket versioning enabled, to protect data.
 {% endhint %}
 
-The S3 bucket is used to store all incoming events from EventBridge and other event-based sources. The Agent then reads objects from this bucket. These events are used to provide features such as real-time topology updates, and creating relations between components based on event data such as VPC FlowLogs. If the S3 bucket is not available to the Agent it will fall back to reading CloudTrail directly, which introduces a 15-minute delay in real-time updates. EventBridge events and VPC FlowLogs are only available via the S3 bucket.
+The S3 bucket is used to store all incoming events from EventBridge and other event-based sources. The Agent then reads objects from this bucket. These events are used for features such as real-time topology updates, and creating relations between components based on event data such as VPC FlowLogs. If the S3 bucket isn't available to the Agent it will fall back to reading CloudTrail directly, which introduces a 15-minute delay in real-time updates. EventBridge events and VPC FlowLogs are only available via the S3 bucket.
 
 {% hint style="info" %}
 Only one S3 bucket is necessary per account; all regions can send to the same bucket.
@@ -455,7 +455,7 @@ A delivery stream must be created in each region where events are captured, howe
 
 A KMS Customer Managed Key \(CMK\) can be used to secure data at rest in S3. The KMS key is used in the Firehose Delivery Stream. The S3 bucket also uses the KMS key as its default key.
 
-Use of a KMS is key is not necessary for the operation of the StackPack, however as encryption at rest is a requirement in most environments, the CloudFormation template includes this by default.
+Use of a KMS is key isn't necessary for the operation of the StackPack, however as encryption at rest is a requirement in most environments, the CloudFormation template includes this by default.
 
 {% hint style="info" %}
 A KMS key must be created in each region where events are captured.
@@ -471,7 +471,7 @@ VPC FlowLogs support is currently experimental.
 
 A VPC configured to send flow logs to the `stackstate-logs-${AccountId}` S3 bucket. The Agent requires the AWS default format for VPC FlowLogs, and expects data to be aggregated every 1 minute. The FlowLogs contain meta information about the network traffic inside VPCs. Only private network traffic is considered, traffic from NAT gateways and application load balancers will be ignored. 
 
-S3 objects that have been processed will be deleted from the bucket to make sure they will not be processed again. On the default S3 bucket, object versioning is enabled, this means objects will not actually be immediately deleted. A lifecycle configuration will expire (delete) both current and non-current object versions after one day. When using a non default bucket, you can set these expiry periods differently.
+S3 objects that have been processed will be deleted from the bucket to make sure they won't be processed again. On the default S3 bucket, object versioning is enabled, this means objects won't actually be immediately deleted. A lifecycle configuration will expire (delete) both current and non-current object versions after one day. When using a non default bucket, you can set these expiry periods differently.
 
 If configuring FlowLogs using CloudFormation, the `stackstate-resources` template exports the ARN of the S3 bucket it creates, so this can be imported into your template.
 

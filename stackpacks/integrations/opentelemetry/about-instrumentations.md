@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.1.x
 
 To understand what OpenTelemetry instrumentation is, we first need to understand the concept of distributed tracing,
 how a trace looks and what the content of a trace contains. 
-As a side note, If you are unfamiliar with OpenTelemetry you can visit their docs page [What is OpenTelemetry? \(opentelemetry.io\)](https://opentelemetry.io/docs/concepts/what-is-opentelemetry/) to get more information about OpenTelemetry and what it is.
+As a side note, If you are unfamiliar with OpenTelemetry you can visit their docs page [What is OpenTelemetry? \(opentelemetry.io\)](https://opentelemetry.io/docs/concepts/what-is-opentelemetry/) to get more information about OpenTelemetry.
 
 ## Distributed traces
 
@@ -44,7 +44,7 @@ And the last interaction before the Trace is completed is another interaction wi
 
 As you can see from the above, within this trace context, it had three span timed operations; thus, spans is a tree of timed operations that make up a trace.
 
-A span can be one of two types, a `parent span` or a `child span.` It **can not be both**, and if it is a child span, then there should be a pre-existing parent span that it can be linked to.
+A span can be one of two types, a `parent span` or a `child span.` It **can not be both**, and if it's a child span, then there should be a pre-existing parent span that it can be linked to.
 
 A span works with the concept that you open a span and then close it when it reaches a certain point in your code.
 This will then determine the duration of your span and, eventually, your trace.
@@ -54,7 +54,7 @@ This will then determine the duration of your span and, eventually, your trace.
 - For example, if we execute a Lambda script, The script execution will be created as the parent span. All the other
   things monitored and executed inside this Lambda will be captured as children span.
 - The parent span should be the last span you close. This is usually either at the end of your script execution or after you close your last child span
-- A parent span does not require a child span; it can be standalone if it is not a part of anything.
+- A parent span doesn't require a child span; it can be standalone if it isn't a part of anything.
 
 ### Child span
 - A child span is started by a parent span and might involve calling a function, the database, another service, etc. In the example mentioned above, a child span may be a function that determines if the item is accessible. Child spans offer insight into every element of a request.
@@ -111,7 +111,7 @@ You can head over to the [manual instrumentation component relations](/stackpack
 
 
 ### Span contents
-Each span has a context that defines the request it is a part of.
+Each span has a context that defines the request it's a part of.
 Request, error, and duration information from Spans can be utilized to troubleshoot performance and availability problems.
 
 To give your actions additional context, you may also include span characteristics.
@@ -165,7 +165,7 @@ This allows us to capture unique data for a specific type of instrumentation and
 StackState currently supports two types of instrumentations:
 
 - An ***out-of-the-box*** solution specifically for AWS using a Lambda layer for all your ***NodeJS*** functions. 
-  - This solution does not require you to write any code, but only supports certain services
+  - This solution doesn't require you to write any code, but only supports certain services
   - Visit the [AWS OpenTelemetry integrations page](/stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md) for more information regarding the [supported AWS services](/stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md#supported-services) and how to install and use this Lambda layer.
 - **Manual instrumentation** using the [OpenTelemetry API](https://opentelemetry.io/docs/instrumentation/)
   - This gives you the ability to create and display a custom component with a health state within StackState using the [OpenTelemetry API](https://opentelemetry.io/docs/instrumentation/).
