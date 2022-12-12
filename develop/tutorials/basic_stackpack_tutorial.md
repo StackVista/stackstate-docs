@@ -267,7 +267,7 @@ Push the **Overwrite** button to overwrite your local modifications with those i
 Pass the **Waiting for data** stage again with the `curl` command we used earlier and your upgrade is complete.
 
 {% hint style="info" %}
-It is also possible to install and upgrade a StackPack using the CLI, see the [CLI documentation](../../setup/cli/README.md) for more information.
+It's also possible to install and upgrade a StackPack using the CLI, see the [CLI documentation](../../setup/cli/README.md) for more information.
 {% endhint %}
 
 If you navigate to your **myDummyApp** component, you should now see the stream you added to the template:

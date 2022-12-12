@@ -127,7 +127,7 @@ The Helm values `backup.stackGraph.scheduled.enabled`, `backup.elasticsearch.res
     mc ls minio-backup
    ```
 
-   The output should be empty, as we have not created any buckets yet.
+   The output should be empty, as we haven't created any buckets yet.
 
    If the output isn't empty, the automatic backup functionality has been enabled. Disable the automatic backup functionality and configure MinIO as described above \(i.e. not as a gateway to AWS S3 or Azure Blob Storage and without any local storage\).
 

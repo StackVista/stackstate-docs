@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 {% hint style="info" %}
-The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the sts CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli)
@@ -243,7 +243,7 @@ StackState receives topology, telemetry and trace data via the Receiver API. If 
 {% hint style="warning" %}
 **Base API and Admin API authentication using username/password will be deprecated.**
 
-The `stac` CLI will issue a warning when username/password authentication is used for the Base API and the Admin API. It is recommended to switch to token based authentication as described below.
+The `stac` CLI will issue a warning when username/password authentication is used for the Base API and the Admin API. It's recommended to switch to token based authentication as described below.
 {% endhint %}
 
 The `stac` CLI authenticates against the Base API and the Admin API using a unique API token auto-generated for your StackState user account. The same API token should be entered in the `stac` CLI configuration file for both the Base API and the Admin API.

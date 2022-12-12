@@ -88,7 +88,7 @@ instances:
 
 #### Configuration Options
 
-* `custom_jar_paths` \(Optional\) - Allows specifying custom jars that will be added to the classpath of the agent's JVM.
+* `custom_jar_paths` \(Optional\) - Allows specifying custom jars that will be added to the classpath of the Agent's JVM.
 * `jmx_url` - \(Optional\) - If the Agent needs to connect to a non-default JMX URL, specify it here instead of a host and a port. If you use this you need to specify a 'name' for the instance.
 * `is_jmx` \(Optional\) - Allows creating different configuration files for each application rather than using a single long jmx file. Include the option in each configuration file.
 * `name` - \(Optional\) - Used in conjunction with `jmx_url`.
@@ -284,7 +284,7 @@ To see what you're collecting and get below the limit, begin by using the comman
 
 ### Java Path
 
-The Agent doesn't come with a bundled JVM, but will use the one installed on your system. Therefore, you must make sure that the Java home directory is present in the path of the user running the agent.
+The Agent doesn't come with a bundled JVM, but will use the one installed on your system. Therefore, you must make sure that the Java home directory is present in the path of the user running the Agent.
 
 Alternatively, you can specify the JVM path in the integration's configuration file:
 
@@ -318,7 +318,7 @@ JBoss/WildFly applications expose JMX over a specific protocol \(Remoting JMX\) 
                              # will be used to tag the metrics pulled from
    ```
 
-5. Restart the agent: `sudo /etc/init.d/stackstate-agent`
+5. Restart the Agent: `sudo /etc/init.d/stackstate-agent`
 
 ### Monitoring Tomcat with JMX Remote Lifecycle Listener enabled
 
@@ -344,5 +344,5 @@ init_config:
                                   # will be used to tag the metrics pulled from that instance
 ```
 
-1. Restart the agent: `sudo /etc/init.d/stackstate-agent`
+1. Restart the Agent: `sudo /etc/init.d/stackstate-agent`
 

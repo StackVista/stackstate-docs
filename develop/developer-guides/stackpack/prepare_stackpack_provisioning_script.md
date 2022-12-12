@@ -136,7 +136,7 @@ The `env()` function returns an object that provides the following functions:
 
 ## How to ensure consistency between the provisioning script and the template file
 
-It's time to template out the variables exposed by your StackPack. It is possible to define some input fields that your StackPack requires to authenticate against some external sources and to differentiate between instances. To generalize the configuration, it is needed to inject the configuration file with some template parameters which are provided by the provisioning script. Any parameters or configuration item can be passed down to the `.sty` template file.
+It's time to template out the variables exposed by your StackPack. It's possible to define some input fields that your StackPack requires to authenticate against some external sources and to differentiate between instances. To generalize the configuration, it is needed to inject the configuration file with some template parameters which are provided by the provisioning script. Any parameters or configuration item can be passed down to the `.sty` template file.
 
 One common example is to create the topic name required by the data source for a given instance. To ensure data received from the StackState Agent Check ends up in your StackPack's data source, make sure that you create the same topic in the provisioning script. The following code snippet shows how to create a function called `topicName` that generates a topic name for this instance, based on the data provided by the user in the StackPack installation step.
 
@@ -160,7 +160,7 @@ private def topicName(Map<String, Object> stackpackConfig) {
 }
 ```
 
-It is possible now to reference any of the above `templateArguments` in your `.sty` template file. In case of the `topicName` you can replace the `topic` value in the `config` section of your StackState DataSource with this parameter:
+It's possible now to reference any of the above `templateArguments` in your `.sty` template file. In case of the `topicName` you can replace the `topic` value in the `config` section of your StackState DataSource with this parameter:
 
 ```yaml
 _type: "DataSource",
