@@ -199,7 +199,7 @@ If you don't use the following code and don't see your value in StackState this 
 
 ```javascript
 // NB: Optional Flush
-// For example this is required in a Lambda environment to force the OLTP HTTP to post before the script ends.
+// For example, required in a Lambda environment to force the OLTP HTTP to post before the script ends.
 provider.forceFlush().finally(() => {
     console.log('Successfully Force Flushed The OTEL Provider')
 });
@@ -281,7 +281,7 @@ rdsDatabaseTable.end();
 rdsDatabase.end();
 
 // NB: Optional Flush
-// For example this is required in a Lambda environment to force the OLTP HTTP to post before the script ends.
+// For example, required in a Lambda environment to force the OLTP HTTP to post before the script ends.
 provider.forceFlush().finally(() => {
     console.log('Success')
 });

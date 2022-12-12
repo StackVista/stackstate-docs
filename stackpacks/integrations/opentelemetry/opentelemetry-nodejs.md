@@ -35,7 +35,7 @@ To set up OpenTelemetry traces, you need to have:
 * AWS Lambda scripts running `NodeJS 14.x` (or later)
   * These will be the Lambda functions you wish to add OpenTelemetry support to.
   * They should be able to communicate with the StackState Agent.
-* The [AWS StackPack](/stackpacks/integrations/aws/aws.md) should be installed and configured in StackState. The AWS StackPack CloudFormation template will deploy the latest supported OpenTelemetry Lambda Layer, which is required for AWS OpenTelemetry functionality.
+* The [AWS StackPack](/stackpacks/integrations/aws/aws.md) should be installed and configured in StackState. The AWS StackPack CloudFormation template will deploy the latest supported OpenTelemetry Lambda Layer (required for AWS OpenTelemetry functionality).
 
 ### Supported Services
 

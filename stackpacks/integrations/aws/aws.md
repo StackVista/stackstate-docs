@@ -39,11 +39,11 @@ To set up the StackState AWS integration, you need to have:
 It's recommended to have two different AWS accounts: One that's being monitored and another used for data collection.
 
 * **Monitor Account** - used to [deploy a CloudFormation Stack](#deploy-the-aws-cloudformation-stack). The CloudFormation stack will create an IAM role that has the permissions required to retrieve data from this Monitor Account (`StackStateAwsIntegrationRole`). 
-* **Data Collection Account** - used by StackState and StackState Agent to retrieve data from the Monitor Account. An AWS policy granting permissions to assume the role `StackStateAwsIntegrationRole` in the Monitor Account is required. 
+* **Data Collection Account** - used by StackState and StackState Agent to retrieve data from the Monitor Account. Requires an AWS policy granting permissions to assume the role `StackStateAwsIntegrationRole` in the Monitor Account. 
 
 #### AWS policy
 
-The policy below grants permission to assume the role `StackStateAwsIntegrationRole` that's created in each target AWS Monitor Account when the CloudFormation Stack is deployed. This policy is required by StackState and StackState Agent to collect data from the AWS Monitor Account. The policy should be created and attached to the AWS user(s) or IAM role(s) that will be used by StackState and the StackState Agent:
+The policy below grants permission to assume the role `StackStateAwsIntegrationRole` that's created in each target AWS Monitor Account when the CloudFormation Stack is deployed. StackState and StackState Agent require this policy to collect data from the AWS Monitor Account. The policy should be created and attached to the AWS user(s) or IAM role(s) that will be used by StackState and the StackState Agent:
 
 ```javascript
 {
@@ -133,7 +133,7 @@ The template requires the following parameters:
 * **MainRegion** - The primary AWS region. This can be any region, as long as this region is the same for every template deployed within the AWS account. Global resources will be deployed in this region such as the IAM role and S3 bucket. Example: `us-east-1`.
 * **StsAccountId** - The 12-digit AWS account ID to be monitored. This will be the AWS account that the IAM role can be assumed from, to perform actions on the target AWS account. Example: `0123456789012`.
 * **ExternalId** - A shared secret that the StackState Agent will present when assuming a role. Use the same value across all AWS accounts that the Agent is monitoring. Example: `uniquesecret!1`.
-* **IncludeOpenTelemetryTracing** - Default: `disabled`. Set to `enabled` to include the OpenTelemetry layer in your deployment. This is required to [retrieve OpenTelemetry traces from AWS Lambda scripts running NodeJS](/stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md).
+* **IncludeOpenTelemetryTracing** - Default: `disabled`. Set to `enabled` to include the OpenTelemetry layer in your deployment. Required to [retrieve OpenTelemetry traces from AWS Lambda scripts running NodeJS](/stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md).
 * **Post fix** - Optional. Value to append to all resource names when deploying the stack multiple times in the same account.
 
 For more information on how to use StackSets, check the AWS documentation on [working with AWS CloudFormation StackSets \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html).
@@ -295,7 +295,7 @@ To configure a VPC FlowLog from the AWS console:
 
 ### Use an HTTP proxy
 
-Access to the internet is required to call the AWS APIs. If StackState or the StackState Agent can't be given direct internet access, an HTTP proxy can be used to proxy the API calls. 
+StackState and the StackState Agent require access to the internet to call the AWS APIs. If direct internet access can't be given, an HTTP proxy can be used to proxy the API calls. 
 
 In the StackState AWS integration, CloudWatch metrics are pulled directly by StackState, while events and topology data are collected by the StackState Agent. This means that proxy details must be configured in two places to handle all requests - StackState for CloudWatch metrics and StackState Agent for topology and events data.
 

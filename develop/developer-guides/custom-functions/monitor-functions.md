@@ -45,7 +45,7 @@ The following parameter types are available for use in monitor functions:
 
 A user parameter of type **Telemetry query** can be added to a monitor function. The monitor that invokes the monitor function can then specify a telemetry query expression as a value to the function. The query indicates the specific metric values to fetch, along with the aggregation method and the time window to use.
 
-The telemetry query parameter type will ensure that the provided query is well-formed - in case of any syntactic or type errors, a suitable error will be reported. This will prevent execution of the monitor function with potentially bogus values.
+The telemetry query parameter type will ensure that the provided query is well-formed - in case of any syntactic or type errors, a suitable error will be reported. This will prevent execution of the monitor function with bogus values.
 
 ➡️ [Learn how to specify a telemetry query in a monitor definition file](/develop/developer-guides/monitors/monitor-stj-file-format.md#telemetry-query)
 

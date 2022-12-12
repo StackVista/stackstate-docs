@@ -25,13 +25,17 @@ SolarWinds is a [StackState curated integration](/stackpacks/integrations/about_
 To set up the SolarWinds integration you will need to have:
 
 * [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to both SolarWinds \(default via TCP port 17778\) and StackState.
-* To support [component actions](solarwinds.md#component-actions) from StackState, the SolarWinds server needs to be accessible from the user's browser.
 * A running SolarWinds instance with correctly configured Network Performance Monitor \(NPM\) and User Device Tracker (UDT) modules. For details see [retrieved topology data](#topology).
 * A SolarWinds user with access to the required [API endpoints](solarwinds.md#rest-api-endpoints).
   * The lowest access level is sufficient.
   * The user must not have any account limitations set that block access to nodes intended to be retrieved.
-* To see relations between components, a layer 3 network device is required.
 * A SolarWinds administrator needs to be available to add custom node properties.
+
+Additionally, for some optional features you will need:
+
+* To see relations between components, a layer 3 network device is required.
+* To support [component actions](solarwinds.md#component-actions) from StackState, the SolarWinds server needs to be accessible from the user's browser.
+
 
 ### Install
 

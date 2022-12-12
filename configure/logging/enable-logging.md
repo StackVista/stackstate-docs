@@ -18,8 +18,8 @@ To enable logging for an instance of a function, use its ID to set a logging lev
 
 {% hint style="info" %}
 * It's only possible to enable logging for functions running on a Linux installation of StackState.
-* The logging level should be set using the ID for an instance of a function, not the ID of the function itself.
-* The [`stac` CLI](/setup/cli/cli-stac.md) is required to set the logging level. It isn't possible to set the logging level of a function instance using the new `sts` CLI.
+* Use the ID for an instance of a function to set the logging level, not the ID of the function itself.
+* Use the [`stac` CLI](/setup/cli/cli-stac.md) to set the logging level. It isn't possible to set the logging level of a function instance using the new `sts` CLI.
 {% endhint %}
 
 1. Find the ID for the instance of the function that you want to enable logging for:

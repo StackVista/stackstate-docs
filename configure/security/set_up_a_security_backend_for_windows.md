@@ -8,7 +8,7 @@ This document explains the process of setting up a security backend on a Windows
 
 ## Security agent requirements
 
-The Agent V2 runs the `secret_backend_command` executable as a sub-process. On Windows, the executable set as `secret_backend_command` is required to:
+StackState Agent V2 runs the `secret_backend_command` executable as a sub-process. On Windows, the executable set as `secret_backend_command` must:
 
 * Have read/exec for `stsagentuser` \(the user used to run the Agent\).
 * Have no rights for any user or group except `Administrator` or `LocalSystem`.

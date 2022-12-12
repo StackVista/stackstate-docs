@@ -10,7 +10,7 @@ Health synchronization adds existing health checks from external monitoring syst
 
 ## Set up health synchronization
 
-The StackState Receiver API will automatically receive and process all incoming health data. No additional configuration is required in StackState to enable this, however, the health data received should match the expected JSON format.
+The StackState Receiver API will automatically receive and process all incoming health data. StackState does not require additional configuration to enable health synchronization, however, the health data received should match the expected JSON format.
 
 Details on how to ingest health data can be found on the following pages:
 
@@ -77,7 +77,7 @@ Health synchronization processes the ingested health data per substream. The rep
 
 ### Expire Interval
 
-The expire interval can be used to configure sub streams in the health synchronization to delete data that isn't sent by the external system anymore. This is helpful in case the source for a substream could potentially be decommissioned and StackState would not hear from it again. Without an expire interval, the previously synchronized data would be left permanently hanging.
+The expire interval can be used to configure sub streams in the health synchronization to delete data that isn't sent by the external system anymore. This is helpful in case the source for a substream could be decommissioned and StackState would not hear from it again. Without an expire interval, the previously synchronized data would be left permanently hanging.
 
 ### Check State
 

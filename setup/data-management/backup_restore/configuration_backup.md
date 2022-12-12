@@ -68,7 +68,7 @@ To export configuration using curl, follow the steps below (with or without auth
 
 {% tabs %}
 {% tab title="curl with authentication" %}
-StackState server can be configured to authenticate users when they access the application. In this case, an export curl script is required to first obtain a token before making the export request. This isn't necessary when using the StackState CLI as authentication details are configured during installation.
+You can configure StackState server to authenticate users when they access the application. To do this, an export curl script must first obtain a token before making the export request. This isn't necessary when using the StackState CLI as authentication details are configured during installation.
 
 Here is a sample sequence of curl commands to achieve this. The `<api-token>` used for authorization is available on the **CLI** page in the StackState UI main menu:
 

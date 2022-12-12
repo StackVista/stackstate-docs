@@ -11,7 +11,7 @@ Anomaly detection identifies abnormal behavior in your fast-changing IT environm
 The AAD supports daily and weekly seasonality, creating an anomaly when the observed values differ a lot from the expected values. Daily seasonality is enabled by default.
 
 {% hint style="info" %}
-Note that a [training period](aad.md#training-period) is required before the AAD can begin to report anomalies.
+Note that the AAD requires a [training period](aad.md#training-period) before it can begin to report anomalies.
 {% endhint %}
 
 ### The anomaly detection process
@@ -80,7 +80,7 @@ The feedback sent to StackState consists of:
 
 ### Install the AAD StackPack
 
-To install the AAD StackPack, simply press the **INSTALL** button. No other actions need to be taken. A [training period](aad.md#training-period) is required before AAD can begin to report anomalies.
+To install the AAD StackPack, simply press the **INSTALL** button. No other actions need to be taken. THe AAD requires a [training period](aad.md#training-period) before it can begin to report anomalies.
 
 ### Training period
 

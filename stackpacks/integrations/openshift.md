@@ -54,7 +54,7 @@ Install the OpenShift StackPack from the StackState UI **StackPacks** &gt; **Int
 
 * **OpenShift Cluster Name** - A name to identify the cluster. This does not need to match the cluster name used in `kubeconfig`, however, that's usually a good candidate for a unique name.
 
-If the Agent StackPack isn't already installed, this will be automatically installed together with the OpenShift StackPack. This is required to work with the StackState Agent, which will need to be deployed on each node in the OpenShift cluster.
+If the Agent StackPack isn't already installed, this will be automatically installed together with the OpenShift StackPack. StackState requires the Agent StackPack to work with the StackState Agent, which will need to be deployed on each node in the OpenShift cluster.
 
 ### Deploy: Agent and Cluster Agent
 

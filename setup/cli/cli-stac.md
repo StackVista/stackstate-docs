@@ -137,7 +137,7 @@ Thank you! Config file saved to: /Users/myuser/.stackstate/cli/conf.yaml
 
 ### Manual configuration \(Docker\)
 
-The `stac` CLI configuration file can be manually created or edited using the steps below. This is required for a Docker install and optional for a Linux or Windows install using a standalone executable file.
+Follow the steps below to manually create or edit the `stac` CLI configuration file. A Docker install of the `stac` CLI must be manually configured. For a Linux or Windows install using a standalone executable file, you can also use the [configuration wizard](#configuration-wizard-linux-and-windows-install) (preferred).
 
 1. Download the ZIP file `sts-cli-VERSION.zip` from [https://download.stackstate.com](https://download.stackstate.com). If you ran the Docker install, you can skip this step and use the ZIP archive you already downloaded.
 2. Copy the file `conf.d/conf.example.yaml` from the ZIP archive and put it in one of the following directories:

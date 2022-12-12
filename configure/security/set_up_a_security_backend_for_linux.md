@@ -8,7 +8,7 @@ This document explains the process of setting up a security backend on a Linux s
 
 ## Security agent requirements
 
-The Agent V2 runs the `secret_backend_command` executable as a sub-process. On Linux, the executable set as `secret_backend_command` is required to:
+StackState Agent V2 runs the `secret_backend_command` executable as a sub-process. On Linux, the executable set as `secret_backend_command` must:
 
 * Belong to the same user running the Agent \(or `root` inside a container\).
 * Have no rights for group or other.

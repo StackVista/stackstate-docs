@@ -54,7 +54,7 @@ Install the Kubernetes StackPack from the StackState UI **StackPacks** &gt; **In
 
 * **Kubernetes Cluster Name** - A name to identify the cluster. This does not need to match the cluster name used in `kubeconfig`, however, that's usually a good candidate for a unique name.
 
-If the Agent StackPack isn't already installed, this will be automatically installed together with the Kubernetes StackPack. This is required to work with the StackState Agent, which will need to be deployed on each node in the Kubernetes cluster.
+If the Agent StackPack isn't already installed, this will be automatically installed together with the Kubernetes StackPack. StackState requires the Agent StackPack to work with the StackState Agent, which will need to be deployed on each node in the Kubernetes cluster.
 
 ### Deploy: Agent and Cluster Agent
 

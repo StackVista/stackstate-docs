@@ -24,7 +24,7 @@ The Java/JMX check is included in the [Agent V2 StackPack](agent.md).
 
 Make sure you can open a [JMX remote connection](http://docs.oracle.com/javase/1.5.0/docs/guide/management/agent.html).
 
-A remote connection is required for StackState Agent V2 to connect to the JVM, even when the two are on the same host.
+StackState Agent V2 requires a remote connection to connect to the JVM, even when the two are on the same host.
 
 ### Configuration
 
