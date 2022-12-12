@@ -65,6 +65,7 @@ SLO
 SMS
 SMTP
 Splunk
+STAC
 stac
 StackState
 StackPack
