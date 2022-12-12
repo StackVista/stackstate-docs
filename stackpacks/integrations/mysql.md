@@ -351,5 +351,5 @@ The MySQL check does not include any events.
 
 `mysql.replication.slave_running`: Returns CRITICAL for a slave that's not running, otherwise OK.
 
-`mysql.can_connect`: Returns CRITICAL if the Agent cannot connect to MySQL to collect metrics, otherwise OK.
+`mysql.can_connect`: Returns CRITICAL if the Agent can't connect to MySQL to collect metrics, otherwise OK.
 

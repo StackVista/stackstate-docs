@@ -46,7 +46,7 @@ Restart the component for changes to take effect.
 
 ## Turn off tracing
 
-Tracing cannot be turned off in StackState. If required, you can hide traces from the StackState UI in the file `etc/application_stackstate.conf` by setting:
+Tracing can't be turned off in StackState. If required, you can hide traces from the StackState UI in the file `etc/application_stackstate.conf` by setting:
 
 ```text
 stackstate.webUIConfig.featureFlags.enableTraces = false

@@ -76,7 +76,7 @@ It's always possible to switch from Basic to Advanced filtering. The selected ba
 
 ### Other filters
 
-The advanced filters listed below are compatible with basic filtering, but cannot be set or adjusted as a basic filter.
+The advanced filters listed below are compatible with basic filtering, but can't be set or adjusted as a basic filter.
 
 * **withNeighborsOf** - when an advanced filter contains the function [withNeighborsOf](/develop/reference/stql_reference.md#withneighborsof), the number of components whose neighbors are queried for is shown in the **Other filters** box. To be compatible with basic filtering, a `withNeighborsOf` function must be joined to other filters using an `OR` operator.
 * **identifier** - when an advanced filter selects components by [identifier](/develop/reference/stql_reference.md#filters), the number of component identifiers queried is reported in the **Other filters** box. To be compatible with basic filtering, an `identifier` filter must be specified and joined to other filters using the operator `OR identifier IN (...)`.

@@ -295,7 +295,7 @@ To configure a VPC FlowLog from the AWS console:
 
 ### Use an HTTP proxy
 
-Access to the internet is required to call the AWS APIs. If StackState or the StackState Agent cannot be given direct internet access, an HTTP proxy can be used to proxy the API calls. 
+Access to the internet is required to call the AWS APIs. If StackState or the StackState Agent can't be given direct internet access, an HTTP proxy can be used to proxy the API calls. 
 
 In the StackState AWS integration, CloudWatch metrics are pulled directly by StackState, while events and topology data are collected by the StackState Agent. This means that proxy details must be configured in two places to handle all requests - StackState for CloudWatch metrics and StackState Agent for topology and events data.
 

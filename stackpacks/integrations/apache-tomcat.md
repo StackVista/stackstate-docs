@@ -119,7 +119,7 @@ Configuration Options:
 | `user` and `password` | No | Username and password |
 | `process_name_regex` | No | Instead of specifying a host and port or `jmx_url`, the Agent can connect using the attach api. This requires the JDK to be installed and the path to tools.jar to be set. |
 | `tools_jar_path` | No | Should be set when `process_name_regex` is set. |
-| `java_bin_path` | No | Should be set if the Agent cannot find your java executable. |
+| `java_bin_path` | No | Should be set if the Agent can't find your java executable. |
 | `java_options` | No | Java JVM options |
 | `trust_store_path` and `trust_store_password` | No | Should be set if `com.sun.management.jmxremote.ssl` is set to true on the target JVM. |
 | `key_store_path` and `key_store_password` | No | Should be set if `com.sun.management.jmxremote.ssl.need.client.auth` is set to true on the target JVM. |
