@@ -12,7 +12,7 @@ There are several ways to send metrics to StackState. A large number of [integra
 
 ## StackState Receiver API
 
-The StackState Receiver API accepts topology, metrics, events and health data in a common JSON object. By default, the receiver API is hosted at the `<STACKSTATE_RECEIVER_API_ADDRESS>` this is constructed using the `<STACKSTATE_BASE_URL>` and <`STACKSTATE_RECEIVER_API_KEY>`.
+The StackState Receiver API accepts topology, metrics, events and health data in a common JSON object. By default, the receiver API is hosted at the `<STACKSTATE_RECEIVER_API_ADDRESS>`. This is constructed using the `<STACKSTATE_BASE_URL>` and <`STACKSTATE_RECEIVER_API_KEY>`.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
@@ -65,16 +65,16 @@ Metrics can be sent to the StackState Receiver API using the `"metrics"` propert
 {% tab title="Example metric JSON" %}
 ```javascript
 [
-  "test.metric", // the metric name
+  "test.metric",
   1548857152,
-  10.0, // double - value of the metric
+  10.0,
   {
     "hostname": "local.test",
+    "type": "gauge",
     "tags": [ 
       "tag_key1:tag_value1",
       "tag_key2:tag_value2"
-    ],
-    "type": "gauge"
+    ]
   }
 ]
 ```
@@ -83,9 +83,9 @@ Metrics can be sent to the StackState Receiver API using the `"metrics"` propert
 
 Every metric has the following details:
 
-* **name** - The metric name. You can also [specify a unit type](/use/metrics/add-telemetry-to-element.md#units-of-measurement) here. Note that the name must not start with any of the following prefixes: `host`, `labels`, `name`, `tags` , `timeReceived`, `timestamp`, `tags` or `values`. 
-* **timestamp** - The UTC timestamp of the metric expressed in epoch seconds.
-* **value** - The value of the metric.
+* The metric name. You can also [specify a unit type](/use/metrics/add-telemetry-to-element.md#units-of-measurement) here. Note that the metric name must not start with any of the following prefixes: `host`, `labels`, `name`, `tags` , `timeReceived`, `timestamp`, `tags` or `values`. In the example above, the metric name is `test.metric`.
+* The UTC timestamp of the metric expressed in epoch seconds.
+* The value of the metric (double). In the example above, the value is `10.0`.
 * **hostname** - The host this metric is from.
 * **type** - The type of metric. Can be `gauge`, `count`, `rate`, `counter` or `raw`.
 * **tags** - Optional.  A list of key/value tags to associate with the metric.

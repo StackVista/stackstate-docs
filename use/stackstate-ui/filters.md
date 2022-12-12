@@ -76,13 +76,15 @@ It is always possible to switch from Basic to Advanced filtering. The selected b
 
 ### Other filters
 
-Some advanced filtering options are compatible with basic filtering, but cannot be set or adjusted as a basic filter. When these advanced filters are set in a way that is compatible with basic filtering, the box **Other filters** will be shown in the View Filters panel with details of the affected components:
+The advanced filters listed below are compatible with basic filtering, but cannot be set or adjusted as a basic filter.
 
 * **withNeighborsOf** - when an advanced filter contains the function [withNeighborsOf](/develop/reference/stql_reference.md#withneighborsof), the number of components whose neighbors are queried for is shown in the **Other filters** box. To be compatible with basic filtering, a `withNeighborsOf` function must be joined to other filters using an `OR` operator.
-* **identifier** - when an advanced filter filters components by [identifier](/develop/reference/stql_reference.md#filters), the number of component identifiers queried is reported in the **Other filters** box. To be compatible with basic filtering, an `identifier` filter must be specified and joined to other filters using the operator `OR identifier IN (...)`.
+* **identifier** - when an advanced filter selects components by [identifier](/develop/reference/stql_reference.md#filters), the number of component identifiers queried is reported in the **Other filters** box. To be compatible with basic filtering, an `identifier` filter must be specified and joined to other filters using the operator `OR identifier IN (...)`.
+
+The **Other filters** box in the View Filters panel lists all such advanced filters and the number of affected components.
 
 {% hint style="info" %}
-The **Other filters** box will only contain details of advanced filters that have been set and are compatible with basic filtering.
+The **Other filters** box only contains details of advanced filters that have been set and are compatible with basic filtering.
 {% endhint %}
 
 ### Topology filtering limits
