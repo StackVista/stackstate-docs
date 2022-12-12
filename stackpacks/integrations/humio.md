@@ -17,7 +17,7 @@ Humio is a [community integration](/stackpacks/integrations/about_integrations.m
 ## Prerequisites
 
 * A Humio cloud account
-* The Humio Kubernetes agent, see the [Humio Kubernetes platform integration \(library.humio.com\)](hhttps://library.humio.com/humio-server/log-formats-kubernetes.html).
+* The Humio Kubernetes Agent, see the [Humio Kubernetes platform integration \(library.humio.com\)](hhttps://library.humio.com/humio-server/log-formats-kubernetes.html).
 * Logging from each Kubernetes cluster must be stored in a **repository with the same name as your cluster** in Humio.
 
 ## Using the Humio StackPack

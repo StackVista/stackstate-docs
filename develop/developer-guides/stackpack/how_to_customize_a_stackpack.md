@@ -93,7 +93,7 @@ If the user doesn't enter any value to any of the input fields defined in the `s
 
 ## Customize Components and Relations
 
-If you have not completed this step during [configuration of the elements created by Custom Synchronization](../custom_synchronization_stackpack/how_to_customize_elements_created_by_custom_synchronization_stackpack.md) StackPack, then you need to configure Components and Relations with icons now.
+If you haven't completed this step during [configuration of the elements created by Custom Synchronization](../custom_synchronization_stackpack/how_to_customize_elements_created_by_custom_synchronization_stackpack.md) StackPack, then you need to configure Components and Relations with icons now.
 
 ### Component and Relation types
 
@@ -105,7 +105,7 @@ Component types and Relation types can also be created automatically by StackSta
 
 The `Custom Synchronization` StackPack installed as an integration prerequisite, creates a Component Template called `autosync-component-template`. Similarly, `Custom Synchronization` StackPack, creates a Relation Template called `autosync-relation-template`.
 
-You can go ahead to Settings page section `Topology Synchronization` and rename it, add a description if needed. It is recommended to change the default value of the `ComponentType` from `Auto-synced Component` to something that represents a generic component in your data source. The same goes for `Layer`, `Domain` and `Environment` which defaults to `Auto-synced Components`, `Auto-synced Domain`,`Auto-synced Environment` respectively. As this template is using the `getOrCreate` functionality, these values are auto-created by StackState if they don't already exist. Find more on [Templates](../../reference/stj/using_stj.md).
+You can go ahead to Settings page section `Topology Synchronization` and rename it, add a description if needed. It's recommended to change the default value of the `ComponentType` from `Auto-synced Component` to something that represents a generic component in your data source. The same goes for `Layer`, `Domain` and `Environment` which defaults to `Auto-synced Components`, `Auto-synced Domain`,`Auto-synced Environment` respectively. As this template is using the `getOrCreate` functionality, these values are auto-created by StackState if they don't already exist. Find more on [Templates](../../reference/stj/using_stj.md).
 
 Once you have completed all the changes, you can click **UPDATE** and confirm the popup dialog to unlock this Template from the `Custom Synchronization` StackPack.
 
