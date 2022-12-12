@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-StackState imposes data retention limits to save storage space and improve performance. You can configure the data retention period to provide a balance between the amount of data stored, StackState performance, and data availability.
+StackState imposes data retention limits to save storage space and improve performance. You can configure the data retention period to balance the amount of data stored with StackState performance and data availability.
 
 ## Retention of topology graph data
 

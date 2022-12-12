@@ -50,7 +50,7 @@ Note that versions of StackState Agent prior to v2.16 support the Docker contain
 
 ### Install
 
-Install the Kubernetes StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
+Install the Kubernetes StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
 
 * **Kubernetes Cluster Name** - A name to identify the cluster. This does not need to match the cluster name used in `kubeconfig`, however, that's usually a good candidate for a unique name.
 

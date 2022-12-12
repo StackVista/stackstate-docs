@@ -10,7 +10,7 @@ The recommended way to connect your Agent check and visualize the data within St
 
 ## Install
 
-Install the Custom Synchronization StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
+Install the Custom Synchronization StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following parameters:
 
 * **Instance type \(source identifier\)** - `TopologyInstance`
 * **Instance URL**

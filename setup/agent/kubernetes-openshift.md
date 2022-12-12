@@ -216,7 +216,7 @@ If required, the images required to install the StackState Agent, Cluster Agent,
 ## Helm chart values
 
 Additional variables can be added to the standard helm command used to deploy the StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics. For example:
-* It is recommended to [provide a `stackstate.cluster.authToken`](#stackstateclusterauthtoken).
+* It is recommended to [use a `stackstate.cluster.authToken`](#stackstateclusterauthtoken).
 * If you use a custom socket path, [set the `agent.containerRuntime.customSocketPath`](#agentcontainerruntimecustomsocketpath).
 
 {% hint style="info" %}
@@ -225,7 +225,7 @@ Details of all available helm chart values can be found in the [Agent Helm Chart
 
 ### stackstate.cluster.authToken
 
-It is recommended to provide a `stackstate.cluster.authToken` in addition to the standard helm chart variables when the StackState Agent is deployed. This is an optional variable, however, if not provided a new, random value will be generated each time a helm upgrade is performed. This could leave some pods in the cluster with an incorrect configuration.
+It is recommended to use a `stackstate.cluster.authToken` in addition to the standard helm chart variables when the StackState Agent is deployed. This is an optional variable, however, if not provided a new, random value will be generated each time a helm upgrade is performed. This could leave some pods in the cluster with an incorrect configuration.
 
 For example:
 
@@ -263,7 +263,7 @@ helm upgrade --install \
 
 It is not necessary to configure this property if your cluster uses one of the default socket paths (`/var/run/docker.sock`, `/var/run/containerd/containerd.sock` or `/var/run/crio/crio.sock`)
 
-If your cluster uses a custom socket path, you can provide it using the key `agent.containerRuntime.customSocketPath`. For example:
+If your cluster uses a custom socket path, you can specify it using the key `agent.containerRuntime.customSocketPath`. For example:
 
 ```bash
 helm upgrade --install \

@@ -39,7 +39,7 @@ Additionally, for some optional features you will need:
 
 ### Install
 
-Install the SolarWinds StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
+Install the SolarWinds StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
 
 * **SolarWinds Instance URL**: The SolarWinds instance URL from which topology data will be collected.
 * **SolarWinds Instance Name**: The user-defined name of the SolarWinds account shown in configurations such as views.

@@ -45,7 +45,7 @@ If your StackState instance is behind a proxy, you need to configure the proxy U
 
 ### Install
 
-Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
+Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
 
 * **AWS instance name** - the user-defined name of the AWS account shown in configurations such as views.
 * **AWS Access Key id** - the access key for the user for retrieving CloudWatch metrics.

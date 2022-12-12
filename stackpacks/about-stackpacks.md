@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-StackPacks extend StackState functionality and provide automated integration with external systems. They can be easily installed and uninstalled from the StackPacks page in StackState.
+StackPacks extend StackState functionality and offer automated integration with external systems. They can be easily installed and uninstalled from the StackPacks page in StackState.
 
 There are two types of StackPack - Add-ons and Integrations. The available StackPack add-ons and integrations can be found on the **StackPacks** page in the StackState UI. You can also find details on these pages:
 

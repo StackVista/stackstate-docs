@@ -236,7 +236,7 @@ The `stac` CLI uses three StackState APIs: the Base API, the Admin API and the R
 
 ### API key - Receiver API
 
-StackState receives topology, telemetry and trace data via the Receiver API. If you want to push information to StackState using the `stac` CLI, you will need to provide a Receiver API key. This is the same API key used by the StackState Agent and is available from your administrator.
+StackState receives topology, telemetry and trace data via the Receiver API. If you want to push information to StackState using the `stac` CLI, you will need a Receiver API key. This is the same API key used by the StackState Agent and is available from your administrator.
 
 ### API token - Base API and Admin API
 

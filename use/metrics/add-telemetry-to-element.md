@@ -29,7 +29,7 @@ You can add telemetry streams to any component or direct relation in the StackSt
    * **Filters** - Select the data relevant to the element. For example, if the data source contains data about all services on a host, select the specific host and service to attach data for.
    * **Select** - for metric streams only, select the metric that you want to retrieve and the function to apply to it.
    * **Priority** - Optional, you can [set a priority for the telemetry stream](set-telemetry-stream-priority.md). This will influence the order in which the stream is displayed in the StackState UI and the way the stream is handled by other services, such as the [Autonomous Anomaly Detector](../../stackpacks/add-ons/aad.md).
-7. The stream preview on the right will update to show the incoming log or metric values based on the details you provide.
+7. The stream preview on the right will update to show the incoming log or metric values based on the details provided.
 8. Click **SAVE** to add the stream to the element.
    * You will receive a notification that the stream has been successfully completed.
 9. A graph of the selected telemetry stream data will be visible under **Telemetry** in the right panel details tab. You can inspect data in the stream using the [telemetry inspector](browse-telemetry.md).

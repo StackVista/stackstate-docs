@@ -45,7 +45,7 @@ The first step is to prepare a check using the Agent V2 StackPack. This step all
 
 ### 2. Install Custom Synchronization StackPack
 
-To install this StackPack go to StackState's StackPacks section and locate the "Custom Synchronization" in Other StackPacks. During the installation process, you need to provide the following information:
+To install this StackPack go to StackState's StackPacks section and locate the "Custom Synchronization" in Other StackPacks. During the installation process, you need to enter the following information:
 
 * Instance type \(source identifier\) - this is the identifier for the resource that you want to integrate with StackState, for example, AWS, Azure and Zabbix.
 * Instance URL - The URL of the instance the data is being reported for.

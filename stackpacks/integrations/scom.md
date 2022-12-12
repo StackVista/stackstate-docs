@@ -70,7 +70,7 @@ To set up the StackState SCOM PowerShell integration, you need to have:
 
 ### Install
 
-Install the SCOM StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
+Install the SCOM StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
 
 * **SCOM Instance URL**: the SCOM instance URL from which topology need to be collected.
 

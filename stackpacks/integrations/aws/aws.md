@@ -140,7 +140,7 @@ For more information on how to use StackSets, check the AWS documentation on [wo
 
 ### Install the AWS StackPack
 
-Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters, these will be used by StackState to configure the StackPack instance within StackState and query live telemetry from the AWS account. To create topology in StackState, you will also need to configure the AWS check on StackState Agent V2.
+Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details, these will be used to configure the StackPack instance within StackState and for StackState to query live telemetry from the AWS account. To create topology in StackState, you will also need to configure the AWS check on StackState Agent V2.
 
 * **Role ARN** - the ARN of the IAM Role created by the cloudFormation stack. For example, `arn:aws:iam::<account id>:role/StackStateAwsIntegrationRole` where `<account id>` is the 12-digit AWS account ID being monitored. 
 * **External ID** - a shared secret that StackState will present when assuming a role. Use the same value across all AWS accounts. For example, `uniquesecret!1`
@@ -422,7 +422,7 @@ IAM is a global service. Only one IAM role is necessary per account.
 Once the Agent has finished reading a file in this bucket, the file will be **deleted**. Don't use an existing bucket for this, the Agent should have its own bucket to read from. The S3 bucket will not be read from if it does not have bucket versioning enabled, to protect data.
 {% endhint %}
 
-The S3 bucket is used to store all incoming events from EventBridge and other event-based sources. The Agent then reads objects from this bucket. These events are used to provide features such as real-time topology updates, and creating relations between components based on event data such as VPC FlowLogs. If the S3 bucket isn't available to the Agent it will fall back to reading CloudTrail directly, which introduces a 15-minute delay in real-time updates. EventBridge events and VPC FlowLogs are only available via the S3 bucket.
+The S3 bucket is used to store all incoming events from EventBridge and other event-based sources. The Agent then reads objects from this bucket. These events are used for features such as real-time topology updates, and creating relations between components based on event data such as VPC FlowLogs. If the S3 bucket isn't available to the Agent it will fall back to reading CloudTrail directly, which introduces a 15-minute delay in real-time updates. EventBridge events and VPC FlowLogs are only available via the S3 bucket.
 
 {% hint style="info" %}
 Only one S3 bucket is necessary per account; all regions can send to the same bucket.

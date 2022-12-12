@@ -32,7 +32,7 @@ To set up the Dynatrace integration you will need to have:
 
 ### Install
 
-Install the Dynatrace StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
+Install the Dynatrace StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
 
 * **Dynatrace URL** - the Dynatrace URL from which topology will be collected. 
 * **Dynatrace Instance Name** - the user-defined name of the Dynatrace account shown in configurations such as views. 

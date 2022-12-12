@@ -59,7 +59,7 @@ Below is an example monitor function with one user parameter defined. The parame
 
 ![`latest_metrics` user parameter in a monitor function](/.gitbook/assets/v51_latest_metrics_user_parameter.png)
 
-To successfully invoke this function, a monitor must set a `value` for the required `latest_metrics` parameter. This is done by adding an `arguments` block similar to the one shown below to the monitor definition file. The `value` shown here includes an example telemetry query, this would be run to provide telemetry to the monitor function.
+To successfully invoke this function, a monitor must set a `value` for the required `latest_metrics` parameter. This is done by adding an `arguments` block similar to the one shown below to the monitor definition file. The `value` shown here includes an example telemetry query, this would be run to retrieve telemetry for the monitor function.
 
 {% code title="Monitor definition JSON" lineNumbers="true" %}
 ```json
