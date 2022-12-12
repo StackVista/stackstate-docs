@@ -15,6 +15,8 @@ crazyword
 
 LIVE JIRA STJ
 
+stackState git
+
 StackState reports a health state for elements in the topology based on the health state reported by checks and monitors attached to the element. Checks and monitors have a similar function in StackState, but work very differently under the hood.
 
 This page describes what StackState monitors are and how they work.
