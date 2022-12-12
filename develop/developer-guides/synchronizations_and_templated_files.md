@@ -172,7 +172,7 @@ private def topicName(Map<String, Object> stackpackConfig) {
 }
 ```
 
-It is possible now to reference any of the above `templateArguments` in your `.stj` template file. In case of the `topicName` you can replace the `topic` value in the `config` section of your StackState DataSource with this parameter:
+It's possible now to reference any of the above `templateArguments` in your `.stj` template file. In case of the `topicName` you can replace the `topic` value in the `config` section of your StackState DataSource with this parameter:
 
 ```text
 {

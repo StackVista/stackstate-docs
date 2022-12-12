@@ -68,7 +68,7 @@ Reference: the integration's configuration file is located at `C:\ProgramData\St
 
 The `Status` page in the StackState Agent Manager provides insight into the operational status of the configurated WMI queries/instances.
 
-It is possible to invoke the WMI integration to verify whether the configured WMI queries/instances telemetry is being retrieved and collected by StackState Agent V2 for Windows. To invoke, in PowerShell:
+It's possible to invoke the WMI integration to verify whether the configured WMI queries/instances telemetry is being retrieved and collected by StackState Agent V2 for Windows. To invoke, in PowerShell:
 
 ```text
 PS> & 'C:\Program Files\StackState\StackState Agent\embedded\agent.exe' check wmi_check

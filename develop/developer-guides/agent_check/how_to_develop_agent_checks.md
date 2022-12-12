@@ -223,7 +223,7 @@ The example below submits a gauge metric `system.cpu.usage` for our previously s
 self.gauge("system.cpu.usage", 24.5, tags=["hostname:this-host"])
 ```
 
-Note: It is important to have a tag or combination of tags that you can use to uniquely identify this metric and map it to the corresponding component within StackState.
+Note: It's important to have a tag or combination of tags that you can use to uniquely identify this metric and map it to the corresponding component within StackState.
 
 ➡️ [Learn more about the Agent Check Metric API](agent-check-api.md)
 
