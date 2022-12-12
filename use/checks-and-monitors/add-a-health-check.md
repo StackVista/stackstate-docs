@@ -12,7 +12,7 @@ The combined check states attached to an element are used to calculate its overa
 
 ## Add a health check
 
-Most elements in the StackState topology will have a relevant health check added when they are created. If required, you can also add custom health checks that calculate a health state in StackState based on available telemetry streams or [synchronize health data from an external monitoring system](add-a-health-check.md#synchronize-external-health-data).
+Most elements in the StackState topology will have a relevant health check added when they're created. If required, you can also add custom health checks that calculate a health state in StackState based on available telemetry streams or [synchronize health data from an external monitoring system](add-a-health-check.md#synchronize-external-health-data).
 
 To add a health check calculated in StackState:
 

@@ -12,7 +12,7 @@ StackState can detect anomalies in your IT infrastructure by monitoring the metr
 
 The StackState Autonomous Anomaly Detector \(AAD\) StackPack works fully autonomously to identify anomalies in your IT environment. When installed and enabled, it will determine for itself the best configuration of its machine learning models and the metric streams that should be prioritized for anomaly detection. No configuration is required, although you can influence the selection of telemetry streams by giving them a higher priority.
 
-Once the anomalies are identified, they are displayed in the MetricStream charts as in the example below:
+Once the anomalies are identified, they're displayed in the MetricStream charts as in the example below:
 
 ![Anomaly example](../../.gitbook/assets/v51_anomaly_severity.png)
 

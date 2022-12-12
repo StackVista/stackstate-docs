@@ -79,7 +79,7 @@ It's recommended you assign tags as `<KEY>:<VALUE>` pairs, but simple tags are a
 
 ## StackPack Inheritance
 
-The most efficient method for assigning tags is to rely on your StackPacks. Tags assigned to your Amazon Web Services components, Azure components, and more are all automatically assigned to the topology when they are brought into StackState.
+The most efficient method for assigning tags is to rely on your StackPacks. Tags assigned to your Amazon Web Services components, Azure components, and more are all automatically assigned to the topology when they're brought into StackState.
 
 ### Common tags
 

@@ -125,7 +125,7 @@ instances:
 
 ### Listing detected secrets
 
-The `secret` command in the Agent CLI shows any errors related to your setup. For example, if the rights on the executable are incorrect. It also lists all handles found, and where they are located.
+The `secret` command in the Agent CLI shows any errors related to your setup. For example, if the rights on the executable are incorrect. It also lists all handles found, and where they're located.
 
 On Linux, the command outputs file mode, owner and group for the executable. Example:
 

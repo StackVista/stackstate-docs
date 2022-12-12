@@ -8,13 +8,13 @@ description: StackState Self-hosted v5.1.x
 
 Monitors process 4T data, such as metrics, events and topology, to produce a health state for elements \(components and relations\). The states are calculated and attached to relevant topology elements by a specific monitor function that's selected by the user.
 
-Monitors are run by a dedicated subsystem of StackState called the monitor runner. The main task of the monitor runner is to schedule the execution of all existing monitors in such a way as to ensure that all of them produce viable results in a timely manner. The monitor runner is maintenance free - it starts whenever StackState starts and picks up any newly applied monitor definitions automatically whenever they are created, changed or removed. Any changes that have been applied to the monitors are reflected with the next execution cycle.
+Monitors are run by a dedicated subsystem of StackState called the monitor runner. The main task of the monitor runner is to schedule the execution of all existing monitors in such a way as to ensure that all of them produce viable results in a timely manner. The monitor runner is maintenance free - it starts whenever StackState starts and picks up any newly applied monitor definitions automatically whenever they're created, changed or removed. Any changes that have been applied to the monitors are reflected with the next execution cycle.
 
 ## Single monitor
 
 ### Add a monitor
 
-Most Monitors in StackState are created as part of a StackPack installed by the user. They are added automatically upon installation and start producing health state results immediately afterwards, no further user action is required. Monitors automatically handle newly created topology elements and don't need to be specifically reconfigured after any topology changes occur or otherwise added to the newly created elements.
+Most Monitors in StackState are created as part of a StackPack installed by the user. They're added automatically upon installation and start producing health state results immediately afterwards, no further user action is required. Monitors automatically handle newly created topology elements and don't need to be specifically reconfigured after any topology changes occur or otherwise added to the newly created elements.
 
 * Details of the monitor functions provided by StackPacks can be found in [the StackPack documentation](../../stackpacks/integrations/README.md).
 * You can [create a custom monitor](../../develop/developer-guides/monitors/create-custom-monitors.md) from scratch using the StackState CLI.
