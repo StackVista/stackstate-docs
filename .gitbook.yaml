@@ -120,7 +120,7 @@ redirects:
   setup/backup_restore/configuration: ./setup/data-management/backup_restore/configuration_backup.md
   setup/backup_restore/kubernetes_backup: ./setup/data-management/backup_restore/kubernetes_backup.md
   setup/backup_restore/file: ./setup/data-management/backup_restore/linux_backup.md
-  setup/backup_restore/manual_topology: ./setup/data-management/backup_restore/manual_topology_backup.md
+  setup/backup_restore/manual_topology: ./setup/data-management/backup_restore/README.md
   setup/clear_data: ./setup/data-management/clear_stored_data.md
   setup/cli: ./setup/cli/README.md
   setup/download: ./setup/install-stackstate/linux/download.md
