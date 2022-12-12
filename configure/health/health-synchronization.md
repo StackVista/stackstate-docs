@@ -58,26 +58,26 @@ The `TRANSACTIONAL_INCREMENTS` consistency model is designed to be used on strea
 {% endtab %}
 {% endtabs %}
 
-### Health stream and sub stream
+### Health stream and substream
 
-External monitoring systems send health data to the StackState Receiver in a health stream. Each health stream contains at least one sub stream with health checks.
+External monitoring systems send health data to the StackState Receiver in a health stream. Each health stream contains at least one substream with health checks.
 
 #### Health stream
 
 The Health stream uniquely identifies the health synchronization and defines the boundaries within which the health check states should be processed together.
 
-#### Sub stream
+#### Substream
 
-Sub streams contain the health check data that are processed by StackState. When working with health data from a distributed external monitoring system, multiple sub streams can be configured, each containing health snapshots from a single location. The data in each sub stream is semi-independent, but contributes to the health check states of the complete health stream. If a single location is responsible for reporting the health check states of the health stream, you can omit the `sub_stream_id` from the [health payload](/configure/health/send-health-data/send-health-data.md#json-health-payload). StackState will assume that all the external health checks belong to a single, default sub stream. 
+Sub streams contain the health check data that are processed by StackState. When working with health data from a distributed external monitoring system, multiple sub streams can be configured, each containing health snapshots from a single location. The data in each substream is semi-independent, but contributes to the health check states of the complete health stream. If a single location is responsible for reporting the health check states of the health stream, you can omit the `sub_stream_id` from the [health payload](/configure/health/send-health-data/send-health-data.md#json-health-payload). StackState will assume that all the external health checks belong to a single, default substream. 
 
 
 ### Repeat Interval
 
-Health synchronization processes the ingested health data per sub stream. The repeat interval specified in the [health payload](/configure/health/send-health-data/send-health-data.md#json-health-payload) is the commitment from the external monitoring system to send complete snapshots over and over in order to keep the data up to date on StackState. This is helpful for StackState to be able to inform the user how up to date the health synchronization is running.
+Health synchronization processes the ingested health data per substream. The repeat interval specified in the [health payload](/configure/health/send-health-data/send-health-data.md#json-health-payload) is the commitment from the external monitoring system to send complete snapshots over and over in order to keep the data up to date on StackState. This is helpful for StackState to be able to inform the user how up to date the health synchronization is running.
 
 ### Expire Interval
 
-The expire interval can be used to configure sub streams in the health synchronization to delete data that isn't sent by the external system anymore. This is helpful in case the source for a sub stream could potentially be decommissioned and StackState would not hear from it again. Without an expire interval, the previously synchronized data would be left permanently hanging.
+The expire interval can be used to configure sub streams in the health synchronization to delete data that isn't sent by the external system anymore. This is helpful in case the source for a substream could potentially be decommissioned and StackState would not hear from it again. Without an expire interval, the previously synchronized data would be left permanently hanging.
 
 ### Check State
 

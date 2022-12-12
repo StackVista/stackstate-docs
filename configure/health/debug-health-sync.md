@@ -13,7 +13,7 @@ The [StackState CLI](/setup/cli/README.md) can be used to troubleshoot a health 
 When debugging the health synchronization there are some common verification steps that can be made no matter what the specific issue is:
 
 1. [Verify that the stream exists](debug-health-sync.md#list-streams).
-2. If you are using sub streams, [verify that the sub stream exists](debug-health-sync.md#list-sub-streams). The response will also show the number of check states on the sub stream. This lets you know if the data is being ingested and processed.
+2. If you are using sub streams, [verify that the substream exists](debug-health-sync.md#list-sub-streams). The response will also show the number of check states on the substream. This lets you know if the data is being ingested and processed.
 3. Investigate further:
    * **Stream present** - [Check the stream status](debug-health-sync.md#show-stream-status), this will show the metrics latency of the stream and any [errors](debug-health-sync.md#error-messages).
    * **Streams / sub streams present, but there are no check states** - Confirm that the payload sent to the Receiver API adheres to the [health payload specification](send-health-data.md).
@@ -55,8 +55,8 @@ $ stac topic show sts_health_sync
 
 There can be two reasons for a check state not to show on a component in StackState:
 
-* The health check state has not been created. Follow the [general troubleshooting steps](debug-health-sync.md#general-troubleshooting-steps) to confirm that the stream / sub stream has been created and that data is arriving in StackState.
-* The health check state was created, but its `topologyElementIdentifier` does not match any `identifiers` from the StackState topology. Use the CLI command [show sub stream status](debug-health-sync.md#show-sub-stream-status) to verify if there are any `Check states with identifier which has no matching topology element`.
+* The health check state hasn't been created. Follow the [general troubleshooting steps](debug-health-sync.md#general-troubleshooting-steps) to confirm that the stream / substream has been created and that data is arriving in StackState.
+* The health check state was created, but its `topologyElementIdentifier` does not match any `identifiers` from the StackState topology. Use the CLI command [show substream status](debug-health-sync.md#show-substream-status) to verify if there are any `Check states with identifier which has no matching topology element`.
 
 ### Check state slow to update in StackState
 
@@ -98,7 +98,7 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 # List streams
 $ stac health list-streams
 
-stream urn                                            sub stream count
+stream urn                                            substream count
 --------------------------------------------------  ------------------
 urn:health:sourceId:streamId                                         1
 ```
@@ -141,7 +141,7 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 # List sub streams
 $ stac health list-sub-streams urn:health:sourceId:streamId
 
-sub stream id                     check state count
+substream id                     check state count
 ------------------------------  -------------------
 subStreamId1                                     20
 subStreamId2                                     17
@@ -153,7 +153,7 @@ subStreamId2                                     17
 
 ### Show stream status
 
-The stream status command returns the aggregated stream latency and throughput metrics. This is helpful when debugging why a health check takes a long time to land on the expected topology elements. It will help diagnose if the frequency of data sent to StackState should be adjusted. The output contains a section `Errors for non-existing sub streams:` as some errors are only relevant when a sub stream could not be created, for example `StreamMissingSubStream`. Sub stream errors can be any of the documented [error messages](debug-health-sync.md#error-messages).
+The stream status command returns the aggregated stream latency and throughput metrics. This is helpful when debugging why a health check takes a long time to land on the expected topology elements. It will help diagnose if the frequency of data sent to StackState should be adjusted. The output contains a section `Errors for non-existing sub streams:` as some errors are only relevant when a substream could not be created, for example `StreamMissingSubStream`. Substream errors can be any of the documented [error messages](debug-health-sync.md#error-messages).
 
 {% tabs %}
 {% tab title="CLI: sts" %}
@@ -197,14 +197,14 @@ Errors for non-existing sub streams:
 
 error message                                                                                   error occurrence count
 ----------------------------------------------------------------------------------------------  ------------------------
-Sub stream `substream with ID `subStreamId2`` not started when receiving snapshot stop                          6
+Substream `substream with ID `subStreamId2`` not started when receiving snapshot stop                          6
 ```
 {% endtab %}
 {% endtabs %}
 
-### Show sub stream status
+### Show substream status
 
-The sub stream status provides useful information to verify that check states sent to StackState from an external system could be bound and linked to existing topology elements. This information is helpful to debug why a specific check isn't visible on the expected topology element.
+The substream status provides useful information to verify that StackState could bind check states sent from an external system to existing topology elements. This information is helpful to debug why a specific check isn't visible on the expected topology element.
 
 {% tabs %}
 {% tab title="CLI: sts" %}
@@ -231,7 +231,7 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 {% endhint %}
 
 ```sh
-# Show a sub stream status.
+# Show a substream status.
 $ stac health show urn:health:sourceId:streamId -s "subStreamId3"
 
 Synchronized check state count: 32
@@ -257,13 +257,13 @@ check states deleted (per second)  -
 {% endtabs %}
 
 {% hint style="info" %}
-A sub stream status will show the metadata related to the consistency model:
+A substream status will show the metadata related to the consistency model:
 * **Repeat Snapshots** - Show repeat interval and expiry
 * **Repeat States** - Show repeat interval and expiry
 * **Transactional Increments** - Show checkpoint offset and checkpoint batch index
 {% endhint %}
 
-The sub stream status can be expanded to include details of matched and unmatched check states using the `-t` command line argument. This is helpful to identify any health states that are not attached to a topology element.
+The substream status can be expanded to include details of matched and unmatched check states using the `-t` command line argument. This is helpful to identify any health states that are not attached to a topology element.
 In the example below, `checkStateId2` is listed under `Check states with identifier which has no matching topology element`. This means that it was not possible to match the check state to a topology element with the identifier `server-2`.
 
 {% tabs %}
@@ -291,10 +291,10 @@ The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts
 {% endhint %}
 
 ```sh
-# Show a sub stream status matched/unmatched check states.
+# Show a substream status matched/unmatched check states.
 $ stac health show urn:health:sourceId:streamId -s "subStreamId3" -t
 # If we configured our stream to not use explicit substreams then a default
-# sub stream can be reached by omitting the optional substreamId parameter as in:
+# substream can be reached by omitting the optional substreamId parameter as in:
 $ stac health show urn:health:sourceId:streamId -t
 
 Check states with identifier matching exactly 1 topology element: 32
@@ -405,13 +405,13 @@ For example a `SubStreamStopWithoutStart` will be closed once the health synchro
 | **SubStreamCheckStateOutsideSnapshot** | Raised when the health synchronization receives external check states without previously opening a snapshot. |
 | **SubStreamStopWithoutStart** | Raised when the health synchronization receives a stop snapshot message without having started a snapshot at all. |
 | **SubStreamMissingStop** | Raised when the health synchronization does not receive a stop snapshot after time out period of two times the `repeat_interval_s` established in the start snapshot message. In this case an automatic stop snapshot will be applied. |
-| **SubStreamExpired** | Raised when the health synchronization stops receiving data on a particular sub stream for longer than the configured `expiry_interval_s`. In this case, the sub stream will be deleted. |
+| **SubStreamExpired** | Raised when the health synchronization stops receiving data on a particular substream for longer than the configured `expiry_interval_s`. In this case, the substream will be deleted. |
 | **SubStreamLateData** | Raised when the health synchronization does not receive a complete snapshot timely based on the established `repeat_interval_s`. |
 | **SubStreamTransformerError** | Raised when the health synchronization is unable to interpret the payload sent to the receiver. For example, "Missing required field 'name'" with payload `{"checkStateId":"checkStateId3","health":"deviating","message":"Unable to provision the device. ","topologyElementIdentifier":"server-3"}` and transformation `Default Transformation`. |
-| **SubStreamMissingCheckpoint** | Raised when a Transactional increments sub stream previously observed a checkpoint, but the received message is missing the `previous_checkpoint` |
-| **SubStreamInvalidCheckpoint** | Raised when a Transactional increments sub stream previously observed a checkpoint, but the received message has a `previous_checkpoint` that isn't equivalent to the last observed one. |
-| **SubStreamOutdatedCheckpoint** | Raised when a Transactional increments sub stream previously observed a checkpoint, but the received message has a `checkpoint` that precedes the last observed one, meaning that its data that StackState already received. |
-| **SubStreamUnknownCheckState** | Raised when deleting a Transactional increments check_state and the `check_state_id` isn't present on the sub stream.
+| **SubStreamMissingCheckpoint** | Raised when a Transactional increments substream previously observed a checkpoint, but the received message is missing the `previous_checkpoint` |
+| **SubStreamInvalidCheckpoint** | Raised when a Transactional increments substream previously observed a checkpoint, but the received message has a `previous_checkpoint` that isn't equivalent to the last observed one. |
+| **SubStreamOutdatedCheckpoint** | Raised when a Transactional increments substream previously observed a checkpoint, but the received message has a `checkpoint` that precedes the last observed one, meaning that its data that StackState already received. |
+| **SubStreamUnknownCheckState** | Raised when deleting a Transactional increments check_state and the `check_state_id` isn't present on the substream.
 
 ## See also
 
