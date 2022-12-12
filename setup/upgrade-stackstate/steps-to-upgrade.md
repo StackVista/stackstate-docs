@@ -80,7 +80,7 @@ To create a backup on Linux, see:
 {% endtabs %}
 
 {% hint style="info" %}
-Note that it will not be possible to restore the backup on the upgraded version of StackState. The StackState backup can only be restored in the StackState and StackPack versions prior to the upgrade.
+Note that it won't be possible to restore the backup on the upgraded version of StackState. The StackState backup can only be restored in the StackState and StackPack versions prior to the upgrade.
 {% endhint %}
 
 ### Uninstall StackPacks (optional)

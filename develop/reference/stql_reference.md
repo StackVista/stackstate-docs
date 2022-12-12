@@ -115,7 +115,7 @@ layer = "application"
 
 ### withCauseOf - DEPRECATED
 
-The `withCauseOf` function has been deprecated. This functionality has been replaced by the Root Cause Analysis section in the visualizer. The construct will be parsed, but will not produce any additional components.
+The `withCauseOf` function has been deprecated. This functionality has been replaced by the Root Cause Analysis section in the visualizer. The construct will be parsed, but won't produce any additional components.
 
 ## Compatibility basic and advanced filters
 

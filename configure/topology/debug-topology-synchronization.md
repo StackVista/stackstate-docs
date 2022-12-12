@@ -43,7 +43,7 @@ A topology synchronized using StackState Agent follows the process described bel
 
 For integrations that run through StackState Agent, StackState Agent is a good place to start an investigation.
 - Check the [StackState Agent log](/setup/agent/about-stackstate-agent.md#deployment) for hints that it has problems connecting to StackState.
-- The integration can be triggered manually using the `stackstate-agent check <check_name> -l debug` command on your terminal. This command will not send any data to StackState. Instead, it will return the topology and telemetry collected to standard output along with any generated log messages.
+- The integration can be triggered manually using the `stackstate-agent check <check_name> -l debug` command on your terminal. This command won't send any data to StackState. Instead, it will return the topology and telemetry collected to standard output along with any generated log messages.
 
 ### StackState Receiver
 
@@ -79,7 +79,7 @@ To troubleshoot processing errors, refer to the relevant StackState log files. T
 
 ### Relations
 
-It's possible that a relation references a source or target component that does not exist. Components are always processed before relations. If a component referenced by a relation isn't present in the synchronization’s topology, the relation will not be created. When this happens, a warning is logged to the synchronization’s specific log file or the `stackstate-sync` pod. The component external ID and relation external ID are logged to help.
+It's possible that a relation references a source or target component that does not exist. Components are always processed before relations. If a component referenced by a relation isn't present in the synchronization’s topology, the relation won't be created. When this happens, a warning is logged to the synchronization’s specific log file or the `stackstate-sync` pod. The component external ID and relation external ID are logged to help.
 
 ## Synchronization logs
 

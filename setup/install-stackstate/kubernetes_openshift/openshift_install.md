@@ -81,7 +81,7 @@ The script requires the following configuration options:
 | Kubernetes cluster name | `-k` | Option only available for plain Kubernetes installation                                                                                                                                                                                                                                  |
 
 {% hint style="info" %}
-Store the `values.yaml` file somewhere safe. You can reuse this file for upgrades, which will save time and \(more importantly\) will ensure that StackState continues to use the same API key. This is desirable as it means agents and other data providers for StackState will not need to be updated.
+Store the `values.yaml` file somewhere safe. You can reuse this file for upgrades, which will save time and \(more importantly\) will ensure that StackState continues to use the same API key. This is desirable as it means agents and other data providers for StackState won't need to be updated.
 {% endhint %}
 
 ### Create `openshift-values.yaml`

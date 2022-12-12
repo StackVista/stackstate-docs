@@ -108,7 +108,7 @@ The VMWare vSphere integration retrieves the following data:
 
 #### Events
 
-VMWare vSphere events are sent to StackState in a telemetry stream. These can be mapped to components and relations in the StackState topology, however, they will not be visible in the StackState Events Perspective.
+VMWare vSphere events are sent to StackState in a telemetry stream. These can be mapped to components and relations in the StackState topology, however, they won't be visible in the StackState Events Perspective.
 
 The VMWare vSphere check watches the vCenter Event Manager for the events listed below and makes these available in StackState in the generic events topic telemetry stream:
 

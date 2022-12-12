@@ -81,7 +81,7 @@ The topology time can be set in the following ways:
 
 #### Topology time outside the telemetry interval
 
-If the selected topology time is a time outside the currently selected [telemetry interval](timeline-time-travel.md#telemetry-interval), the message "The topology time is out of the current telemetry interval" will be displayed and the **Topology time** box at the top of the timeline will be highlighted black. As the timeline shows the telemetry interval from left to right, the playhead indicating the current topology time will not be visible on the timeline.
+If the selected topology time is a time outside the currently selected [telemetry interval](timeline-time-travel.md#telemetry-interval), the message "The topology time is out of the current telemetry interval" will be displayed and the **Topology time** box at the top of the timeline will be highlighted black. As the timeline shows the telemetry interval from left to right, the playhead indicating the current topology time won't be visible on the timeline.
 
 ![Topology time outside telemetry interval](/.gitbook/assets/v51_topology_time_outside_telemetry_interval.png)
 

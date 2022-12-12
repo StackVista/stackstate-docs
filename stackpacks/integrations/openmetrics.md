@@ -156,7 +156,7 @@ Run the Agent status subcommand and look for `openmetrics` under the `Checks` se
 
 By default, all metrics are retrieved from the specified OpenMetrics endpoint and available in the **StackState multi metrics** data source. To optimize performance, a maximum of 2000 metrics will be retrieved. If the check is attempting to retrieve more than 2000 metrics, add a `metrics` filter to the [configuration](#configuration) to ensure that all important metrics can be retrieved within the limit.
 
-Retrieved metrics will not automatically be mapped to topology elements. They can be browsed using the [telemetry inspector](/use/metrics/browse-telemetry.md) or added to a component as a telemetry stream. Select the data source **StackState Multi Metrics** and type the configured `namespace` in the **Select** box to get a full list of all available metrics. 
+Retrieved metrics won't automatically be mapped to topology elements. They can be browsed using the [telemetry inspector](/use/metrics/browse-telemetry.md) or added to a component as a telemetry stream. Select the data source **StackState Multi Metrics** and type the configured `namespace` in the **Select** box to get a full list of all available metrics. 
 
 ![Inspect OpenMetrics telemetry](/.gitbook/assets/v51_openmetrics_stream.png)
 

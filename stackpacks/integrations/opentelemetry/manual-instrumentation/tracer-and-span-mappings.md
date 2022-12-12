@@ -22,7 +22,7 @@ StackState requires the following name and version to be set:
 - **Version:** `1.0.0`
 
 {% hint style="info" %}
-If the tracer name passed to StackState Agent does not exactly match the value specified above, received data will not be displayed in StackState.
+If the tracer name passed to StackState Agent does not exactly match the value specified above, received data won't be displayed in StackState.
 {% endhint %}
 
 ➡️ [See how this is implemented in code examples](code-examples.md#2-core-definitions)
@@ -36,7 +36,7 @@ When the [log level in StackState Agent](/setup/agent/about-stackstate-agent.md#
 The table below provides a summary of all the span keys that can be provided and are required. Further details of each key can be found in the sections below.
 
 {% hint style="info" %}
-Note that ALL the keys listed as required must be provided when creating a span. If any required keys are missing, the component will not appear in StackState.
+Note that ALL the keys listed as required must be provided when creating a span. If any required keys are missing, the component won't appear in StackState.
 {% endhint %}
 
 | **Key**                                              |  **Type**  | **Required**  | **Allowed Value** | **Example**                         |

@@ -26,7 +26,7 @@ The components in the topology perspective can optionally be organized in a grid
 * **Organize by layers** - Components of the same layer are placed in the same grid row in the topology visualization. Disable to remove the rows from the grid.
 * **Organize by domains** - Components of the same domain are placed in the same grid column in the topology visualization. Disable to remove the columns from the grid.
 
-For example, if you have a business service visualization of a stack that comes from four or five different sources, the source \(domain\) they're coming from will not be so important in the visualization. This could be a good situation to visualize the topology with **organize by domains** switched off.
+For example, if you have a business service visualization of a stack that comes from four or five different sources, the source \(domain\) they're coming from won't be so important in the visualization. This could be a good situation to visualize the topology with **organize by domains** switched off.
 
 ## Components grouping
 

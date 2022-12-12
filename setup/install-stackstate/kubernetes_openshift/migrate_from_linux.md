@@ -16,7 +16,7 @@ To migrate from the Linux install to the Kubernetes or OpenShift install of Stac
 2. [Migrate StackState configuration and topology data \(StackGraph\)](migrate_from_linux.md#step-2-migrate-stackstate-configuration-and-topology-data-stackgraph) from the Linux install to the Kubernetes or OpenShift install.
 3. [Migrate telemetry data \(Elasticsearch\)](migrate_from_linux.md#step-3-migrate-telemetry-data-elasticsearch) from the Linux install to the Kubernetes or OpenShift install.
 
-Incoming data from agents \(Kafka\) and node synchronisation data \(Zookeeper\) will not be copied.
+Incoming data from agents \(Kafka\) and node synchronisation data \(Zookeeper\) won't be copied.
 
 **After the migration:**
 

@@ -19,7 +19,7 @@ Click on any of the telemetry stream charts, or select **Inspect stream** from i
 Within the telemetry inspector you can adjust the selected metric as well as the filters, time window and aggregation applied to the data source. 
 
 {% hint style="info" %}
-Changes made here will not be saved to the telemetry stream attached to the element.
+Changes made here won't be saved to the telemetry stream attached to the element.
 {% endhint %}
 
 ### Anomaly feedback

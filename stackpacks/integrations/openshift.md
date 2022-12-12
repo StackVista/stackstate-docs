@@ -172,7 +172,7 @@ Changes will be detected in the following object types:
 * `StatefulSet`
 
 {% hint style="info" %}
-Note that, to reduce noise of changes, the following object properties **will not** be compared:
+Note that, to reduce noise of changes, the following object properties **won't** be compared:
 * `metadata`
   * `managedFields`
   * `resourceVersion`
