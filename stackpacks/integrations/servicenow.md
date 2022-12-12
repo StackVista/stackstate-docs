@@ -196,7 +196,7 @@ The ServiceNow check retrieves the following events data from ServiceNow:
 
 #### Metrics
 
-The ServiceNow check does not retrieve any metrics data.
+The ServiceNow check doesn't retrieve any metrics data.
 
 #### Tags
 
@@ -219,7 +219,7 @@ The ServiceNow integration understands StackState [common tags](../../configure/
 
 #### Traces
 
-The ServiceNow check does not retrieve any traces data.
+The ServiceNow check doesn't retrieve any traces data.
 
 ### REST API endpoints
 

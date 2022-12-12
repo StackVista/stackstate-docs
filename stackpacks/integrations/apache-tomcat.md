@@ -302,7 +302,7 @@ See `metadata.csv` for a list of metrics provided by this check.
 
 ### Events
 
-The Tomcat check does not include any events.
+The Tomcat check doesn't include any events.
 
 ### Service Checks
 
@@ -316,7 +316,7 @@ The Tomcat check does not include any events.
 
   `sudo /etc/init.d/stackstate-agent jmx list_matching_attributes`
 
-* List attributes that match one of your instance configurations but that are not collected because it would exceed the number of metrics that can be collected:
+* List attributes that match one of your instance configurations but that aren't collected because it would exceed the number of metrics that can be collected:
 
   `sudo /etc/init.d/stackstate-agent jmx list_limited_attributes`
 

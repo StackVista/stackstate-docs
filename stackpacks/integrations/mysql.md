@@ -200,7 +200,7 @@ Run the Agent's `status` subcommand and look for `mysql` under the Checks sectio
 
 See `metadata.csv` for a list of metrics provided by this integration.
 
-The check does not collect all metrics by default. Set the following boolean configuration options to `true` to enable the respective metrics:
+The check doesn't collect all metrics by default. Set the following boolean configuration options to `true` to enable the respective metrics:
 
 `extra_status_metrics` adds the following metrics:
 
@@ -345,7 +345,7 @@ The check does not collect all metrics by default. Set the following boolean con
 
 ### Events
 
-The MySQL check does not include any events.
+The MySQL check doesn't include any events.
 
 ### Service Checks
 

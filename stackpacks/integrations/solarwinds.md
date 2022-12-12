@@ -102,11 +102,11 @@ Refer to the SolarWinds product documentation for details on how to [Manage Orio
 
 #### Events
 
-The SolarWinds check does not retrieve any event data.
+The SolarWinds check doesn't retrieve any event data.
 
 #### Metrics
 
-The SolarWinds check does not retrieve any metrics data.
+The SolarWinds check doesn't retrieve any metrics data.
 
 #### Topology
 
@@ -144,7 +144,7 @@ The configured `collection_interval` will be used as the [`repeat_interval` for 
 
 #### Traces
 
-The SolarWinds check does not retrieve any trace data.
+The SolarWinds check doesn't retrieve any trace data.
 
 ### StackState views
 

@@ -68,7 +68,7 @@ For example:
 # Logs of the synchronization for a specific Kubernetes cluster
 $ kubectl logs stackstate-sync-0 | grep "Kubernetes - \<cluster-name\>"
 
-# Logs of the agent synchronization
+# Logs of the Agent synchronization
 $ kubectl logs stackstate-sync-0 | grep "Agent"
 ```
 

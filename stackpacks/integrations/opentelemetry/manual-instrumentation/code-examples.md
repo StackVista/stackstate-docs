@@ -28,10 +28,10 @@ The following example implements a solution that crates the above-mentioned comp
 To set up a OpenTelemetry manual instrumentations, you need to have:
 
 * [StackState Agent](/setup/agent/about-stackstate-agent.md) v2.17 (or later)
-* [Traces enabled](/setup/agent/advanced-agent-configuration.md#enable-traces) on StackState Agent. If traces are not enabled on the Agent, OpenTelemetry won't generate any data.
+* [Traces enabled](/setup/agent/advanced-agent-configuration.md#enable-traces) on StackState Agent. If traces aren't enabled on the Agent, OpenTelemetry won't generate any data.
 * The [Agent StackPack](/stackpacks/integrations/agent.md) should be installed in StackState.
 
-For NodeJS and Javascript, we are not explaining the setup to get to this point but rather the code example and libraries that was used.
+For NodeJS and Javascript, we aren't explaining the setup to get to this point but rather the code example and libraries that was used.
 
 You should install the following npm libraries using npm or yarn
 
@@ -107,7 +107,7 @@ const tracer = openTelemetry.trace.getTracer(
 ---
 
 ### 4 - Root span / parent span
-Now let's create the root span, For the root span we are creating a custom RDS Database entry (This database does not have to exist you control the span values).
+Now let's create the root span, For the root span we are creating a custom RDS Database entry (This database doesn't have to exist you control the span values).
 
 Example Database
 - Database Name: Hello World
@@ -115,7 +115,7 @@ Example Database
 
 ```javascript
 // Creating a parent span. You need a identifier for this span inside the code
-// we will use the value 'RDS Database' but this does not matter.
+// we will use the value 'RDS Database' but this doesn't matter.
 const rdsDatabase = tracer.startSpan('RDS Database', {
     root: true,
 });
@@ -147,7 +147,7 @@ Example Table
 
 ```javascript
 // Creating a child span. You need a identifier for this span inside the code
-// we will use the value 'RDS Table' but this does not matter.
+// we will use the value 'RDS Table' but this doesn't matter.
 const rdsDatabaseTable = tracer.startSpan(
     'RDS Table',
     undefined,
@@ -242,7 +242,7 @@ const tracer = openTelemetry.trace.getTracer(
 );
 
 // Creating a parent span. You need an identifier for this span inside the code
-// we will use the value 'RDS Database' but this does not matter.
+// we will use the value 'RDS Database' but this doesn't matter.
 const rdsDatabase = tracer.startSpan('RDS Database', {
     root: true,
 });
@@ -256,7 +256,7 @@ rdsDatabase.setAttribute('resource.name', 'AWS RDS');
 
 
 // Creating a child span. You need a identifier for this span inside the code
-// we will use the value 'RDS Table' but this does not matter.
+// we will use the value 'RDS Table' but this doesn't matter.
 const rdsDatabaseTable = tracer.startSpan(
     'RDS Table',
     undefined,

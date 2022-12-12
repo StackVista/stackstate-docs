@@ -76,7 +76,7 @@ The feedback sent to StackState consists of:
 ### Prerequisites[](http://not.a.link "StackState Self-Hosted only")
 
 * The AAD StackPack can only be installed within a [Kubernetes setup](../../setup/install-stackstate/kubernetes_openshift/ "StackState Self-Hosted only"). Please make sure that this is supported by your StackState installation.
-* If you are not sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://support.stackstate.com/hc/en-us "StackState Self-Hosted only").
+* If you aren't sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://support.stackstate.com/hc/en-us "StackState Self-Hosted only").
 
 ### Install the AAD StackPack
 
@@ -112,7 +112,7 @@ After an initial [training period](aad.md#training-period), the AAD ensures that
 
 ### Can anomalies trigger alerts?
 
-Yes. The AAD itself does not alert on anomalies found, but [anomaly health checks](../../use/checks-and-monitors/anomaly-health-checks.md) can be added to components to automatically change the health status of the component to `DEVIATING`. This health state change event can then trigger notifications by [adding an event handler](../../use/events/manage-event-handlers.md) to a view.
+Yes. The AAD itself doesn't alert on anomalies found, but [anomaly health checks](../../use/checks-and-monitors/anomaly-health-checks.md) can be added to components to automatically change the health status of the component to `DEVIATING`. This health state change event can then trigger notifications by [adding an event handler](../../use/events/manage-event-handlers.md) to a view.
 
 ## Uninstall
 

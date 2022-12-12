@@ -4,7 +4,7 @@ description: StackState Self-hosted v5.1.x
 
 # Manually created topology backup
 
-This page describes the process of exporting and importing manual topology data, i.e. components and relations that are not synchronized via StackPacks.
+This page describes the process of exporting and importing manual topology data, i.e. components and relations that aren't synchronized via StackPacks.
 
 **Requirements**
 

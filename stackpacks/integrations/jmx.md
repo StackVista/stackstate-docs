@@ -89,13 +89,13 @@ instances:
 #### Configuration Options
 
 * `custom_jar_paths` \(Optional\) - Allows specifying custom jars that will be added to the classpath of the agent's JVM.
-* `jmx_url` - \(Optional\) - If the agent needs to connect to a non-default JMX URL, specify it here instead of a host and a port. If you use this you need to specify a 'name' for the instance.
+* `jmx_url` - \(Optional\) - If the Agent needs to connect to a non-default JMX URL, specify it here instead of a host and a port. If you use this you need to specify a 'name' for the instance.
 * `is_jmx` \(Optional\) - Allows creating different configuration files for each application rather than using a single long jmx file. Include the option in each configuration file.
 * `name` - \(Optional\) - Used in conjunction with `jmx_url`.
-* `java_bin_path` - \(Optional\) - Should be set if the agent can't find your java executable.
+* `java_bin_path` - \(Optional\) - Should be set if the Agent can't find your java executable.
 * `java_options` - \(Optional\) - Java JVM options
 * `trust_store_path` and `trust_store_password` - \(Optional\) - Should be set if ssl is enabled.
-* `process_name_regex` - \(Optional\) - Instead of specifying a host and port or jmx\_url, the agent can connect using the attach api. This requires the JDK to be installed and the path to tools.jar to be set.
+* `process_name_regex` - \(Optional\) - Instead of specifying a host and port or jmx\_url, the Agent can connect using the attach api. This requires the JDK to be installed and the path to tools.jar to be set.
 * `tools_jar_path` - \(Optional\) - To be set when process\_name\_regex is set.
 * `refresh_beans` - \(Optional\) - Refresh period for refreshing the matching MBeans list. Default is 600 seconds. Decreasing this value may result in increased CPU usage.
 
@@ -256,7 +256,7 @@ JMX Checks have a default configuration that will collect 11 metrics from your J
 
   `sudo /etc/init.d/stackstate-agent jmx list_matching_attributes`
 
-* List attributes that do match one of your instances configuration but that are not being collected because it would exceed the number of metrics that can be collected:
+* List attributes that do match one of your instances configuration but that aren't being collected because it would exceed the number of metrics that can be collected:
 
   `sudo /etc/init.d/stackstate-agent jmx list_limited_attributes`
 
@@ -278,13 +278,13 @@ JMX Checks have a default configuration that will collect 11 metrics from your J
 
 ### The 350 metric limit
 
-Due to the nature of these integrations, it's possible to submit an extremely high number of metrics directly to Stackstate. What we've found in speaking with many customers is that some of these metrics are not needed; thus, we've set the limit at 350 metrics.
+Due to the nature of these integrations, it's possible to submit an extremely high number of metrics directly to Stackstate. What we've found in speaking with many customers is that some of these metrics aren't needed; thus, we've set the limit at 350 metrics.
 
 To see what you're collecting and get below the limit, begin by using the commands seen above to investigate what metrics are available. We then recommend creating filters to refine what metrics are collected. If you believe you need more than 350 metrics, please reach out to [our technical support](https://support.stackstate.com).
 
 ### Java Path
 
-The agent does not come with a bundled JVM, but will use the one installed on your system. Therefore, you must make sure that the Java home directory is present in the path of the user running the agent.
+The Agent doesn't come with a bundled JVM, but will use the one installed on your system. Therefore, you must make sure that the Java home directory is present in the path of the user running the agent.
 
 Alternatively, you can specify the JVM path in the integration's configuration file:
 

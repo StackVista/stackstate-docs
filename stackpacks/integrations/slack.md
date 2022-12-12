@@ -43,7 +43,7 @@ For an overview of recent StackPack updates, check the [StackPack versions](/set
 
 ### Data retrieved
 
-The Slack integration is used to send event notifications to Slack. It does not retrieve any data from Slack.
+The Slack integration is used to send event notifications to Slack. It doesn't retrieve any data from Slack.
 
 ## Uninstall
 

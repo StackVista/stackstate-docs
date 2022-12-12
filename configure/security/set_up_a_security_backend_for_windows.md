@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 This document explains the process of setting up a security backend on a Windows system. You can find more information in the [Secrets Management section](secrets_management.md).
 
-## Security agent requirements
+## Security Agent requirements
 
 StackState Agent V2 runs the `secret_backend_command` executable as a sub-process. On Windows, the executable set as `secret_backend_command` must:
 
@@ -174,7 +174,7 @@ Secrets handle decrypted:
       error while decrypting secrets in an instance: Invalid executable 'C:\decrypt.exe': other users/groups than LOCAL_SYSTEM, Administrators or stsagentuser have rights on it
    ```
 
-2. If `stsagentuser` does not have read and execute right on the file, a similar error logged:
+2. If `stsagentuser` doesn't have read and execute right on the file, a similar error logged:
 
    ```text
       error while decrypting secrets in an instance: could not query ACLs for C:\decrypt.exe
@@ -227,7 +227,7 @@ exit code:
 
 #### Agent V2 is refusing to start
 
-The first thing the Agent V2 does on startup is to load `stackstate.yaml` and decrypt any secrets in it. This is done before setting up the logging. This means that on platforms like Windows, errors occurring when loading `stackstate.yaml` are not written in the logs, but on `stderr`. This can occur when the executable given to the Agent for secrets returns an error.
+The first thing the Agent V2 does on startup is to load `stackstate.yaml` and decrypt any secrets in it. This is done before setting up the logging. This means that on platforms like Windows, errors occurring when loading `stackstate.yaml` aren't written in the logs, but on `stderr`. This can occur when the executable given to the Agent for secrets returns an error.
 
 If you have secrets in `stackstate.yaml` and the Agent refuses to start:
 

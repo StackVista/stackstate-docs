@@ -10,7 +10,7 @@ Health synchronization adds existing health checks from external monitoring syst
 
 ## Set up health synchronization
 
-The StackState Receiver API will automatically receive and process all incoming health data. StackState does not require additional configuration to enable health synchronization, however, the health data received should match the expected JSON format.
+The StackState Receiver API will automatically receive and process all incoming health data. StackState doesn't require additional configuration to enable health synchronization, however, the health data received should match the expected JSON format.
 
 Details on how to ingest health data can be found on the following pages:
 
@@ -41,7 +41,7 @@ The `REPEAT_SNAPSHOTS` consistency model works with periodic, full snapshots of 
 {% endtab %}
 
 {% tab title="Repeat States model" %}
-The `REPEAT_STATES` consistency model works with periodic checks received from an external monitoring system. StackState keeps track of the checks and decides if associated external checks need to be created or updated in StackState. A configurable expiry mechanism is used to delete external checks that are not observed anymore. This model offers less control over data than the `REPEAT_SNAPSHOTS` model. As an expiry configuration is used to delete external checks, it might happen that elements are deleted due to barely missing the expiry timeout. This would reflect as external checks disappearing and reappearing in StackState.
+The `REPEAT_STATES` consistency model works with periodic checks received from an external monitoring system. StackState keeps track of the checks and decides if associated external checks need to be created or updated in StackState. A configurable expiry mechanism is used to delete external checks that aren't observed anymore. This model offers less control over data than the `REPEAT_SNAPSHOTS` model. As an expiry configuration is used to delete external checks, it might happen that elements are deleted due to barely missing the expiry timeout. This would reflect as external checks disappearing and reappearing in StackState.
 
 **Use this model when:** The external monitoring system isn't capable of collecting all checks in a determined time window. The best effort is just to send the external checks as they're obtained.
 
@@ -51,9 +51,9 @@ The `REPEAT_STATES` consistency model works with periodic checks received from a
 {% tab title="Transactional Increments model" %}
 The `TRANSACTIONAL_INCREMENTS` consistency model is designed to be used on streaming systems where only incremental changes are communicated to StackState. As there is no repetition of data, data consistency is upheld by ensuring that at-least-once delivery is guaranteed across the entire pipeline. To detect whether any data is missing, StackState requires that both a checkpoint and the previous checkpoint are communicated together with the `check_states`. This model requires strict control across the whole pipeline to guarantee no data loss.
 
-**Use this model when:** The external monitoring system does not have access to the total external checks state, but only works on an event based approach. 
+**Use this model when:** The external monitoring system doesn't have access to the total external checks state, but only works on an event based approach. 
 
-**JSON payload:** The metadata `repeat_interval` and `expire_interval` are not relevant for the [Transactional Increments health payload](/configure/health/send-health-data/transactional_increments.md) as there is no predefined periodicity on the data.
+**JSON payload:** The metadata `repeat_interval` and `expire_interval` aren't relevant for the [Transactional Increments health payload](/configure/health/send-health-data/transactional_increments.md) as there is no predefined periodicity on the data.
 
 {% endtab %}
 {% endtabs %}

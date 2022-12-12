@@ -225,9 +225,9 @@ Details of the included features, improvements, bug fixes and updated StackPacks
 
 **Improvements**
 
-- Introduced [service tokens](/configure/security/authentication/service_tokens.md) as a means of authenticating to StackState. Service tokens are not tied to a principal, but instead to a set of roles, allowing for service authentication. More information on creating and managing these can be found in the StackState documentation. STAC-15016
+- Introduced [service tokens](/configure/security/authentication/service_tokens.md) as a means of authenticating to StackState. Service tokens aren't tied to a principal, but instead to a set of roles, allowing for service authentication. More information on creating and managing these can be found in the StackState documentation. STAC-15016
 - Introduced optional View access logging. When enabled, a new access log for StackState views is created under `logs/access/`. This log allows you to track how often specific views are accessed and by which user. To enable this feature, you need to enable the feature flag `featureSwitches.viewAccessLogs` in the StackState Api config. STAC-16369
-- The OIDC `refresh_token` is now cached to prevent re-authenticating the user if the OIDC server does not return a new `refresh_token` when the old one hasn't expired yet. STAC-16158
+- The OIDC `refresh_token` is now cached to prevent re-authenticating the user if the OIDC server doesn't return a new `refresh_token` when the old one hasn't expired yet. STAC-16158
 - Updated the [telemetry script API](/develop/reference/scripting/script-apis/telemetry.md) to stream results. More information can be found in the StackState documentation. STAC-16801
 - kafkaup-operator Helm chart: Added a configurable SecurityContext so that the container no longer requires privileged mode. STAC-16664
 - StackState Helm chart: Added configurable resource requests and limits for all containers. STAC-16443
@@ -677,7 +677,7 @@ This release is susceptible to the Apache log4j2 vulnerabilities CVE-2021-44228 
 **Bugfixes**
 
 * Fix issue blocking the sync service and not letting process topology anymore. STAC-12116
-* Fixed problem where LDAP users with a special character in their DN could not be authorized. STAC-12059
+* Fixed problem where LDAP users with a special character in their DN couldn't be authorized. STAC-12059
 * Fixed issue that caused filtering on a domain containing an ampersand to redirect to the Views page. STAC-11797
 
 #### v4.2.3 (EOL)
@@ -799,7 +799,7 @@ With the release of StackState v4.4, StackState v4.1 reached End of Life \(EOL\)
 * Fixed issue where check updating would retry indefinitely when an element is already gone. STAC-9323
 * Fixed issue that redirected users to a stream URL instead of the StackState application. STAC-9186
 * Fixed issue where component version information was not properly merged during synchronization. STAC-8624
-* Fixed issue where state service could not find some elements due to querying with an incomplete time slice. STAC-8195
+* Fixed issue where state service couldn't find some elements due to querying with an incomplete time slice. STAC-8195
 * Propagation function will be re evaluated for all related components when the body of the function changes. STAC-4114
 
 ### StackState v4.0.x (EOL)

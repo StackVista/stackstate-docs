@@ -50,8 +50,8 @@ When set to 0, the view will always report a `CRITICAL` or `DEVIATING` health st
 
 The **MINIMUM HEALTH STATES** view health state configuration function calculates the health state of the view as follows:
 
-* The view has a `CRITICAL` health state when more than the **minCriticalHealthStates** components inside the view have a `CRITICAL` health state. This does not count propagated health states.
-* The view has a `DEVIATING` health state When more than the **minDeviatingHealthStates** components inside the view have a `DEVIATING` health state. This does not count propagated health states.
+* The view has a `CRITICAL` health state when more than the **minCriticalHealthStates** components inside the view have a `CRITICAL` health state. This doesn't count propagated health states.
+* The view has a `DEVIATING` health state When more than the **minDeviatingHealthStates** components inside the view have a `DEVIATING` health state. This doesn't count propagated health states.
 * In all other situations, the view has a `CLEAR` health state.
 
 {% hint style="success" "self-hosted info" %}

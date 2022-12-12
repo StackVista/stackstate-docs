@@ -91,7 +91,7 @@ For example, running a container in a pod, setting the jvm arguments as part of 
 
 ## Compatibility
 
-StackState officially supports the Java JRE 1.7 and higher versions of both Oracle JDK and OpenJDK. StackState does not officially support any early-access versions of Java.
+StackState officially supports the Java JRE 1.7 and higher versions of both Oracle JDK and OpenJDK. StackState doesn't officially support any early-access versions of Java.
 
 ### Web Framework Compatibility
 

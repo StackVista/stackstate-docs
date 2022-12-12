@@ -36,7 +36,7 @@ Grouping is enabled by default and respects the selected [grid options](visualiz
 
 Three types of grouping are available, or you can choose not to group components together:
 
-* **No grouping** - Components and relations are not grouped in any way.
+* **No grouping** - Components and relations aren't grouped in any way.
 * **Auto grouping** - Grouping settings are automatically adjusted to keep the number of components or component groups visualized below 35.
 * **Group by state and type** - Components of the same type and with the same health state are grouped together into one group. If one of the grouped components changes its health state and no longer matches the health state of the component group, it will pop out of the group. If other components of the same type have the same health state, a new group will be created.
 * **Group by type, state and relation** - Components are grouped together as with **group by state and type** while maintaining information about relations to components outside of the group. All components in a group have the same source and target connection. This is useful because grouping components together by state and type alone can cause some information on relations for the components in the group to be lost.
@@ -51,12 +51,12 @@ By default, the minimum group size is 2, this means that if there is one compone
 
 Another option in the view visualization settings is showing indirect relations. So, what are indirect relations? Well, if we take a landscape with three components that are all dependent on each other. If we then created a view in which only two of those components are included - for example, the first and last components – we would see both components, but we would not see a relation between them anymore. In this case, we would probably still want to know that there is an indirect path between those two components and that's where this functionality comes in.
 
-If we enable show indirect relations in the view visualizations settings, then StackState will draw a dotted line between those two components to show that there is a path between them passes through components that are not included on the view.
+If we enable show indirect relations in the view visualizations settings, then StackState will draw a dotted line between those two components to show that there is a path between them passes through components that aren't included on the view.
 
 * A solid line between two components indicates that there is a direct relation between them 
 * StackState shows a dotted line when two components have a path between them, but the full path isn't visible in the current view.
 
-Show indirect relations is switched off by default. If we take a view of three components again and remove the Applications layer. That will hide the middle component. With show indirect relations disabled there are no connection between the remaining components - it appears that these components are not connected at all - you see the tree of connected components at the top and then 4 components at the bottom that are not connected to anything, with no relations between them.
+Show indirect relations is switched off by default. If we take a view of three components again and remove the Applications layer. That will hide the middle component. With show indirect relations disabled there are no connection between the remaining components - it appears that these components aren't connected at all - you see the tree of connected components at the top and then 4 components at the bottom that aren't connected to anything, with no relations between them.
 
 If we enable show all indirect relations, there will always be a dotted line marking all indirect connections between the components. That could work out to be a heavy operation on a large topology and might slow down the topology visualization. We don’t need to enable indirect relations here to show them the view expands to show Root Cause Only components.
 

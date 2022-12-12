@@ -31,7 +31,7 @@ The StackState OpenTelemetry Lambda Layer can be used with AWS Lambda scripts ru
 
 To set up OpenTelemetry traces, you need to have:
 * [StackState Agent](/setup/agent/about-stackstate-agent.md) v2.16 (or later)
-* StackState Agent should have [traces enabled](/setup/agent/advanced-agent-configuration.md#enable-traces). If traces are not enabled on the Agent, OpenTelemetry won't generate any data.
+* StackState Agent should have [traces enabled](/setup/agent/advanced-agent-configuration.md#enable-traces). If traces aren't enabled on the Agent, OpenTelemetry won't generate any data.
 * AWS Lambda scripts running `NodeJS 14.x` (or later)
   * These will be the Lambda functions you wish to add OpenTelemetry support to.
   * They should be able to communicate with the StackState Agent.

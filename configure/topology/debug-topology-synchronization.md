@@ -79,7 +79,7 @@ To troubleshoot processing errors, refer to the relevant StackState log files. T
 
 ### Relations
 
-It's possible that a relation references a source or target component that does not exist. Components are always processed before relations. If a component referenced by a relation isn't present in the synchronization’s topology, the relation won't be created. When this happens, a warning is logged to the synchronization’s specific log file or the `stackstate-sync` pod. The component external ID and relation external ID are logged to help.
+It's possible that a relation references a source or target component that doesn't exist. Components are always processed before relations. If a component referenced by a relation isn't present in the synchronization’s topology, the relation won't be created. When this happens, a warning is logged to the synchronization’s specific log file or the `stackstate-sync` pod. The component external ID and relation external ID are logged to help.
 
 ## Synchronization logs
 
