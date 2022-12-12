@@ -13,21 +13,21 @@ jobs:
       with:
         fetch-depth: 0
 # Only changed files are checked - this is quicker and lighter than checking through the full repo
-#    - name: Get changed files
-#      id: changed-files-specific
-#      uses: tj-actions/changed-files@v34
-#      with:
-#        separator: ","
-#    - name: List changed files
-##      if: steps.changed-files-specific.outputs.any_changed == 'true'
-#      run: |
-#        echo "These files that have changed: ${{ steps.changed-files-specific.outputs.all_changed_files }}"
+    - name: Get changed files
+      id: changed-files-specific
+      uses: tj-actions/changed-files@v34
+      with:
+        separator: ","
+    - name: List changed files
+#      if: steps.changed-files-specific.outputs.any_changed == 'true'
+      run: |
+        echo "These files that have changed: ${{ steps.changed-files-specific.outputs.all_changed_files }}"
     - name: Run vale linter
       uses: errata-ai/vale-action@reviewdog
       with:
-#        separator: ","
-#        files: '${{ steps.changed-files-specific.outputs.all_changed_files }}'
-#        debug: true
+        separator: ","
+        files: '${{ steps.changed-files-specific.outputs.all_changed_files }}'
+        debug: true
         reporter: github-pr-review
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
