@@ -12,7 +12,7 @@ I monitor this. Tou vale TCP StackState.
 
 and
 
-stackstate
+stackstate STQL
 
 StackState reports a health state for elements in the topology based on the health state reported by checks and monitors attached to the element. Checks and monitors have a similar function in StackState, but work very differently under the hood.
 
