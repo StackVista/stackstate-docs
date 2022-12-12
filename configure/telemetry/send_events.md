@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-StackState can either pull events from a data source or can receive pushed events. Pushed events are stored by StackState, while pulled events are not. Pushed events are stored for the duration of the configured retention period. This page describes how events can be pushed.
+StackState can either pull events from a data source or can receive pushed events. Pushed events are stored by StackState, while pulled events aren't. Pushed events are stored for the duration of the configured retention period. This page describes how events can be pushed.
 
 There are several ways to send events to StackState. A large number of [integrations](../../stackpacks/integrations/) are provided out of the box that may help you get started. If there is no out of the box integration available,  you can send events to StackState using either HTTP or the [StackState `stac` CLI](/setup/cli/cli-stac.md).
 

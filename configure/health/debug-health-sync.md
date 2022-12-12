@@ -153,7 +153,7 @@ subStreamId2                                     17
 
 ### Show stream status
 
-The stream status command returns the aggregated stream latency and throughput metrics. This is helpful when debugging why a health check takes a long time to land on the expected topology elements. It will help diagnose if the frequency of data sent to StackState should be adjusted. The output contains a section `Errors for non-existing sub streams:` as some errors are only relevant when a substream could not be created, for example `StreamMissingSubStream`. Substream errors can be any of the documented [error messages](debug-health-sync.md#error-messages).
+The stream status command returns the aggregated stream latency and throughput metrics. This is helpful when debugging why a health check takes a long time to land on the expected topology elements. It will help diagnose if the frequency of data sent to StackState should be adjusted. The output contains a section `Errors for non-existing sub streams:` as some errors are only relevant when a substream couldn't be created, for example `StreamMissingSubStream`. Substream errors can be any of the documented [error messages](debug-health-sync.md#error-messages).
 
 {% tabs %}
 {% tab title="CLI: sts" %}
@@ -263,7 +263,7 @@ A substream status will show the metadata related to the consistency model:
 * **Transactional Increments** - Show checkpoint offset and checkpoint batch index
 {% endhint %}
 
-The substream status can be expanded to include details of matched and unmatched check states using the `-t` command line argument. This is helpful to identify any health states that are not attached to a topology element.
+The substream status can be expanded to include details of matched and unmatched check states using the `-t` command line argument. This is helpful to identify any health states that aren't attached to a topology element.
 In the example below, `checkStateId2` is listed under `Check states with identifier which has no matching topology element`. This means that it was not possible to match the check state to a topology element with the identifier `server-2`.
 
 {% tabs %}

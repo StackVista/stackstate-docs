@@ -10,7 +10,7 @@ All of StackState's own components can run without any extra permissions. Howeve
 
 ## Autonomous Anomaly Detector \(AAD\)
 
-In order to run the [Autonomous Anomaly Detector](../../../stackpacks/add-ons/aad.md), or prepare your clsuter to run it, StackState needs to create a `ClusterRole` and two `ClusterRoleBinding` resources. Creating these cluster-wide resources is often prohibited for users that are not a Kubernetes/OpenShift administrator.
+In order to run the [Autonomous Anomaly Detector](../../../stackpacks/add-ons/aad.md), or prepare your clsuter to run it, StackState needs to create a `ClusterRole` and two `ClusterRoleBinding` resources. Creating these cluster-wide resources is often prohibited for users that aren't a Kubernetes/OpenShift administrator.
 
 ### Disable automatic creation of cluster-wide resources
 

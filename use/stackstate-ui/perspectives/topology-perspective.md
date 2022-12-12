@@ -87,7 +87,7 @@ The visualization of components and relations in the topology perspective can be
 * Root cause display - to what extent the view should be expanded when an element in the view reports a `DEVIATING` or `CRITICAL` health state or propagated health state.
 * Grouping - should all components be displayed individually or should like components be grouped. For details, see [component grouping](topology-perspective.md#grouping).
 * Grid - should components be organized by [layer and domain](../../concepts/layers_domains_environments.md).
-* Indirect relations - should relations between components be shown if these connect through other components that are not displayed in the view. For details, see [relations](/use/concepts/relations.md).
+* Indirect relations - should relations between components be shown if these connect through other components that aren't displayed in the view. For details, see [relations](/use/concepts/relations.md).
 
 The Visualization Settings are saved together with the View. For details, see the page [Visualization settings](../views/visualization_settings.md).
 

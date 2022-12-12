@@ -227,7 +227,7 @@ exit code:
 
 #### Agent V2 is refusing to start
 
-The first thing the Agent V2 does on startup is to load `stackstate.yaml` and decrypt any secrets in it. This is done before setting up the logging. This means that on platforms like Windows, errors occurring when loading `stackstate.yaml` are not written in the logs, but on `stderr`. This can occur when the executable given to the Agent for secrets returns an error.
+The first thing the Agent V2 does on startup is to load `stackstate.yaml` and decrypt any secrets in it. This is done before setting up the logging. This means that on platforms like Windows, errors occurring when loading `stackstate.yaml` aren't written in the logs, but on `stderr`. This can occur when the executable given to the Agent for secrets returns an error.
 
 If you have secrets in `stackstate.yaml` and the Agent refuses to start:
 

@@ -101,7 +101,7 @@ These environment variables have the same names used by the AWS_CLI utility and 
 
 ### Minimal install
 
-The minimal installation is useful when less permissions are available. This installs only the `stackstate-topo-cron` Cloudformation stack, which means StackState's topology will only get a full topology update every hour. Updates between the hour are not sent to StackState. 
+The minimal installation is useful when less permissions are available. This installs only the `stackstate-topo-cron` Cloudformation stack, which means StackState's topology will only get a full topology update every hour. Updates between the hour aren't sent to StackState. 
 
 Follow the steps below to complete a minimal install:
 

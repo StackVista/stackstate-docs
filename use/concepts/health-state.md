@@ -45,7 +45,7 @@ Existing StackPacks offer health synchronization out of the box.
 
 {% hint style="success" "self-hosted info" %}
 
-You can set up a [custom health synchronization](../../configure/health/health-synchronization.md) to integrate with external monitoring systems that are not supported out of the box.
+You can set up a [custom health synchronization](../../configure/health/health-synchronization.md) to integrate with external monitoring systems that aren't supported out of the box.
 {% endhint %}
 
 ## Health state types
