@@ -25,7 +25,7 @@ Assigns the transparent state as the propagated state of a component.
 
 ### Transparent state
 
-The transparent state is precalculated by StackState and used for the default propagation type (auto propagation). It's passed to each propagation function script at run time in the [system parameters](#system-parameters) `transparentState` and `autoState`. The transparent state is calculated as the maximum of a component's own state and the propagated state of all the components that it depends upon. For example:
+The transparent state is pre-calculated by StackState and used for the default propagation type (auto propagation). It's passed to each propagation function script at run time in the [system parameters](#system-parameters) `transparentState` and `autoState`. The transparent state is calculated as the maximum of a component's own state and the propagated state of all the components that it depends upon. For example:
 
 | Dependency state | Component state | Transparent state |
 | :--- | :--- | :--- |
