@@ -1,4 +1,4 @@
-extends: conditional
+extends: Microsoft.Acronyms
 message: "'%s' has no definition."
 level: suggestion
 ignorecase: false
