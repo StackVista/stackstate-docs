@@ -227,7 +227,7 @@ Details of the included features, improvements, bug fixes and updated StackPacks
 
 - Introduced [service tokens](/configure/security/authentication/service_tokens.md) as a means of authenticating to StackState. Service tokens are not tied to a principal, but instead to a set of roles, allowing for service authentication. More information on creating and managing these can be found in the StackState documentation. STAC-15016
 - Introduced optional View access logging. When enabled, a new access log for StackState views is created under `logs/access/`. This log allows you to track how often specific views are accessed and by which user. To enable this feature, you need to enable the feature flag `featureSwitches.viewAccessLogs` in the StackState Api config. STAC-16369
-- The OIDC `refresh_token` is now cached to prevent re-authenticating the user if the OIDC server does not return a new `refresh_token` when the old one hasn't expired yet. STAC-16158
+- The OIDC `refresh_token` is now cached to prevent re-authenticating the user if the OIDC server doesn't return a new `refresh_token` when the old one hasn't expired yet. STAC-16158
 - Updated the [telemetry script API](/develop/reference/scripting/script-apis/telemetry.md) to stream results. More information can be found in the StackState documentation. STAC-16801
 - kafkaup-operator Helm chart: Added a configurable SecurityContext so that the container no longer requires privileged mode. STAC-16664
 - StackState Helm chart: Added configurable resource requests and limits for all containers. STAC-16443

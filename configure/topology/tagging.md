@@ -40,7 +40,7 @@ Tags may be assigned using any \(or all\) of the following methods.
 
 | Method | Assign tags |
 | :--- | :--- |
-| Configuration Files | Manually in your main agent configuration files, or in your integrations configuration file. |
+| Configuration Files | Manually in your main Agent configuration files, or in your integrations configuration file. |
 | StackPack Inheritance | Automatically with supported StackPacks after setup |
 
 ### Configuration Files

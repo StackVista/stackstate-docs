@@ -4,7 +4,7 @@ description: StackState Self-hosted v5.1.x
 
 # How to develop Agent checks
 
-This document covers how to create your first check with Agent V2 Check API. Following topics are covered in this document: the agent directory structure, configuring your check, writing your first check, sending topology, metrics, events, and service checks as well as how to add external python dependencies and putting it all together.
+This document covers how to create your first check with Agent V2 Check API. Following topics are covered in this document: the Agent directory structure, configuring your check, writing your first check, sending topology, metrics, events, and service checks as well as how to add external python dependencies and putting it all together.
 
 ## Installing Agent V2 StackPack
 
@@ -271,7 +271,7 @@ class ExampleCheck(AgentCheck):
 ...
 ```
 
-This function specifies what health synchronization stream this agent check will produce to. Having this function defined will enable the `self.health` api on the Agent Check.
+This function specifies what health synchronization stream this Agent check will produce to. Having this function defined will enable the `self.health` api on the Agent Check.
 
 ### Health Synchronization Snapshots
 
@@ -305,7 +305,7 @@ self.health.check_state(
 )
 ```
 
-If after following the previous steps you health data does not show in StackState, there is a [troubleshooting guide](../../../configure/health/debug-health-sync.md) for the health synchronization.
+If after following the previous steps you health data doesn't show in StackState, there is a [troubleshooting guide](../../../configure/health/debug-health-sync.md) for the health synchronization.
 
 ### Send in Stream Definitions and Health Checks
 
@@ -343,7 +343,7 @@ We create a `MetricStream` on the `system.cpu.usage` metric with some conditions
 
 ### Send Service Checks
 
-Service Checks are used to submit the state of the agent integration instance. Service checks can be submitted using the `self.service_check` method in the `AgentCheck` interface. Service check data is also stored in the `StackState Generic Events` data source.
+Service Checks are used to submit the state of the Agent integration instance. Service checks can be submitted using the `self.service_check` method in the `AgentCheck` interface. Service check data is also stored in the `StackState Generic Events` data source.
 
 The example below submits a service check to StackState when it's verified that the check was configured correctly and it can communicate with the instance that is monitored:
 
@@ -395,7 +395,7 @@ C:\Program Files\StackState\StackState Agent\embedded\agent.exe check <CHECK_NAM
 
 This executes your check once and displays the results.
 
-Once you are happy with the result of your check, you can restart the StackState Agent V2 service and your check will be scheduled alongside the other agent checks.
+Once you are happy with the result of your check, you can restart the StackState Agent V2 service and your check will be scheduled alongside the other Agent checks.
 
 For Linux:
 

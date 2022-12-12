@@ -20,7 +20,7 @@ The easiest way to get started is to follow the [push-integration tutorial](../.
 
 Refer to:
 
-* [How to connect your agent check to a StackState instance](../agent_check/connect_agent_check_with_stackstate.md)
+* [How to connect your Agent check to a StackState instance](../agent_check/connect_agent_check_with_stackstate.md)
 * [How to customize topology created with the Custom Synchronization StackPack](how_to_customize_elements_created_by_custom_synchronization_stackpack.md)
 * [How to configure a Custom Synchronization](how_to_configure_custom_synchronization.md)
 

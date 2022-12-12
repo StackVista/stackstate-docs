@@ -131,7 +131,7 @@ To configure the Splunk Topology Agent check:
 2. Under **instances**, add details of your Splunk instance:
    * **url** - The URL of your Splunk instance.
    * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based \(recommended\) or basic authentication. For details, see [authentication configuration details](splunk_stackpack.md#authentication).
-   * **ignore\_saved\_search\_errors** - Set to `false` to return an error if one of the configured saved searches does not exist. Default `true`.
+   * **ignore\_saved\_search\_errors** - Set to `false` to return an error if one of the configured saved searches doesn't exist. Default `true`.
    * **tags** - Optional. Can be used to apply specific tags to all reported topology in StackState.
 3. Under **component\_saved\_searches**, add details of each Splunk saved search that the check should execute to retrieve components: 
    * **name** - The name of the [Splunk saved search](splunk_topology.md#splunk-saved-search) to execute.

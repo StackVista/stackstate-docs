@@ -71,6 +71,8 @@ STJ
 STY
 STQL
 sts
+Substream
+substream
 SUBVIEW
 subview
 Subview

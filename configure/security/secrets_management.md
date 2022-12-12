@@ -14,7 +14,7 @@ The Agent V2 can leverage the `secrets` package to call a user-provided executab
 
 Use the `ENC[]` notation to denote a secret as the value of any YAML field in your configuration. Secrets are supported in any configuration backend \(for example, file, etcd, consul\) and environment variables.
 
-Secrets are also supported in `stackstate.yaml` - agent check configuration file. The Agent V2 first loads the main configuration and reloads it after decrypting the secrets. This means that secrets can't be used in the `secret_*` settings.
+Secrets are also supported in `stackstate.yaml` - Agent check configuration file. The Agent V2 first loads the main configuration and reloads it after decrypting the secrets. This means that secrets can't be used in the `secret_*` settings.
 
 Secrets are always strings, which means that it isn't possible to set them to integer or Boolean type.
 
@@ -52,7 +52,7 @@ StackState Agent V2 caches secrets internally in memory to reduce the number of 
 
 Relying on a user-provided executable has multiple benefits:
 
-* Guaranteeing that the Agent does not attempt to load in memory parameters for which there isn’t a secret handle.
+* Guaranteeing that the Agent doesn't attempt to load in memory parameters for which there isn’t a secret handle.
 * The ability for the user to limit the visibility of the Agent to secrets that it needs. For example, by restraining the accessible list of secrets in the critical management backend\)
 * Freedom and flexibility in allowing users to use any secrets management backend without having to rebuild the Agent.
 * It enables each user to solve the initial trust problem from the Agent to their secrets management backend. The problem occurs in a way that leverages each user’s preferred authentication method and fits into their continuous integration workflow.

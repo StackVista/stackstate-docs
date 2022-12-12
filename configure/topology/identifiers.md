@@ -85,7 +85,7 @@ Recognized URN prefixes are:
 The identifier is uniquely identified by the `<type-name>:<free-form>` segments.
 
 * `<type-name>` matches the domain object type of the object that the identifier is assigned to \(not case-sensitive\). 
-* `<free-form>` is arbitrary, but must be unique for the type. The format of the free-form segment is decided by the user. It does not need to match the name of the object \(if any is present\) and can itself consist of multiple segments.
+* `<free-form>` is arbitrary, but must be unique for the type. The format of the free-form segment is decided by the user. It doesn't need to match the name of the object \(if any is present\) and can itself consist of multiple segments.
 
 ## Example identifiers
 

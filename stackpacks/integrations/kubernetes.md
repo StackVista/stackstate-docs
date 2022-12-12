@@ -52,7 +52,7 @@ Note that versions of StackState Agent prior to v2.16 support the Docker contain
 
 Install the Kubernetes StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
 
-* **Kubernetes Cluster Name** - A name to identify the cluster. This does not need to match the cluster name used in `kubeconfig`, however, that's usually a good candidate for a unique name.
+* **Kubernetes Cluster Name** - A name to identify the cluster. This doesn't need to match the cluster name used in `kubeconfig`, however, that's usually a good candidate for a unique name.
 
 If the Agent StackPack isn't already installed, this will be automatically installed together with the Kubernetes StackPack. StackState requires the Agent StackPack to work with the StackState Agent, which will need to be deployed on each node in the Kubernetes cluster.
 
@@ -236,7 +236,7 @@ The following relations between components are retrieved:
 
 #### Traces
 
-The Kubernetes integration does not retrieve any traces data.
+The Kubernetes integration doesn't retrieve any traces data.
 
 #### Tags
 

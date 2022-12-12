@@ -162,9 +162,9 @@ zookeeper:
 
 StackState has built-in support for OpenShift by means of the [OpenShift StackPack](../../../stackpacks/integrations/openshift.md). To get started quickly, the StackState installation can automate installation of this StackPack and the required Agent for the cluster that StackState itself will be installed on. This isn't required and can always be done later from the StackPacks page of the StackState UI for StackState's cluster or any other OpenShift cluster.
 
-The only required information is a name for the OpenShift cluster that will distinguish it from the other OpenShift clusters monitored by StackState. A good choice usually is the same name that is used in the kube context configuration. This will then automatically install the StackPack and install a Daemonset for the agent and a deployment for the so-called cluster agent. For the full details, read the [OpenShift StackPack](../../../stackpacks/integrations/openshift.md) page.
+The only required information is a name for the OpenShift cluster that will distinguish it from the other OpenShift clusters monitored by StackState. A good choice usually is the same name that is used in the kube context configuration. This will then automatically install the StackPack and install a Daemonset for the Agent and a deployment for the so-called cluster agent. For the full details, read the [OpenShift StackPack](../../../stackpacks/integrations/openshift.md) page.
 
-To automate this installation, the below values file can be added to the `helm install` command. The agent chart needs to add specific OpenShift `SecurityContextConfiguration` objects to the OpenShift installation.
+To automate this installation, the below values file can be added to the `helm install` command. The Agent chart needs to add specific OpenShift `SecurityContextConfiguration` objects to the OpenShift installation.
 
 If you're installing as an administrator on the OpenShift cluster, it's possible to automatically create this. You can configure this using the following configuration option in the values file:
 
@@ -174,7 +174,7 @@ If you're installing as an administrator on the OpenShift cluster, it's possible
 
 If you're not installing as an administrator, follow the instructions below to [first install the `SecurityContextConfiguration` objects in OpenShift](openshift_install.md#manually-create-securitycontextconfiguration-objects). Then ensure that you set the above configuration flag to `false`.
 
-The values file that automates the installation of the OpenShift StackPack and monitoring agent is:
+The values file that automates the installation of the OpenShift StackPack and monitoring Agent is:
 
 ```yaml
 stacktate:

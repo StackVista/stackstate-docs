@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 This document explains the process of setting up a security backend on a Windows system. You can find more information in the [Secrets Management section](secrets_management.md).
 
-## Security agent requirements
+## Security Agent requirements
 
 StackState Agent V2 runs the `secret_backend_command` executable as a sub-process. On Windows, the executable set as `secret_backend_command` must:
 
@@ -174,7 +174,7 @@ Secrets handle decrypted:
       error while decrypting secrets in an instance: Invalid executable 'C:\decrypt.exe': other users/groups than LOCAL_SYSTEM, Administrators or stsagentuser have rights on it
    ```
 
-2. If `stsagentuser` does not have read and execute right on the file, a similar error logged:
+2. If `stsagentuser` doesn't have read and execute right on the file, a similar error logged:
 
    ```text
       error while decrypting secrets in an instance: could not query ACLs for C:\decrypt.exe

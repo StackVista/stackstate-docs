@@ -39,7 +39,7 @@ Requirements for the recommended high availability setup with backups enabled:
 * Node requirements: minimum 8 vCPUs, minimum 32GB memory
 * Total of 56 vCPUs available for StackState
 * Total of 120 GB memory available for StackState
-* Total of 2 TB disk space for data storing services (does not include disk space required for backups)
+* Total of 2 TB disk space for data storing services (doesn't include disk space required for backups)
 
 {% endtab %}
 
@@ -49,7 +49,7 @@ Requirements for the minimal high availability setup with backups enabled:
 * Node requirements: minimum 8 vCPUs, minimum 32GB memory
 * Total of 37 vCPUs available for StackState
 * Total of 98 GB memory available for StackState
-* Total of 2 TB disk space for data storing services (does not include disk space required for backups)
+* Total of 2 TB disk space for data storing services (doesn't include disk space required for backups)
 
 {% endtab %}
 

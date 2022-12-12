@@ -137,7 +137,7 @@ stackstate-agent stackstate/stackstate-agent
 
 ### Air gapped install
 
-If StackState Agent will run in an environment that does not have a direct connection to the Internet, the images required to install the StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics can be downloaded and stored in a local system or image registry.
+If StackState Agent will run in an environment that doesn't have a direct connection to the Internet, the images required to install the StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics can be downloaded and stored in a local system or image registry.
 
 1. Internet connection required:
    1. Download or clone the StackState Helm charts repo from GitHub: [https://github.com/StackVista/helm-charts](https://github.com/StackVista/helm-charts)
@@ -519,7 +519,7 @@ To find the status of an Agent check:
 
 2. Run the command:
    ```yaml
-   kubectl exec <agent-pod-name> -n <agent-namespace> -- agent status
+   kubectl exec <agent-pod-name> -n <agent-namespace> -- Agent status
    ```
 
 3. Look for the check name under the `Checks` section.

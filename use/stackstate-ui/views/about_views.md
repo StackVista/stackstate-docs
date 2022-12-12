@@ -53,7 +53,7 @@ A view is also a tool to define a clear selection of components for which you wa
 
 * Report view health state `CLEAR` if service A and service B are working fine.
 * Report view health `DEVIATING` if service A has a problem.
-* Report view health `CRITICAL` if service B does not have health state `CLEAR`.
+* Report view health `CRITICAL` if service B doesn't have health state `CLEAR`.
 
 ### Enable or disable view health state
 

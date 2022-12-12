@@ -143,7 +143,7 @@ stac health send check-state urn:health:sourceId:streamId \
 {% endtab %}
 {% tab title="CLI: sts" %}
 
-The new `sts` CLI does not support sending health states. This is only supported by directly calling out to the receiver API.
+The new `sts` CLI doesn't support sending health states. This is only supported by directly calling out to the receiver API.
 {% endtab %}
 
 {% endtabs %}

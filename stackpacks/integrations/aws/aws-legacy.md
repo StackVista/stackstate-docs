@@ -148,7 +148,7 @@ The default read timeout for AWS is set to 30 seconds. You can specify custom re
 
 #### Events
 
-The AWS integration does not retrieve any Events data.
+The AWS integration doesn't retrieve any Events data.
 
 #### Metrics
 
@@ -206,7 +206,7 @@ The following relations between components are retrieved:
 
 #### Traces
 
-The AWS integration does not retrieve any Traces data.
+The AWS integration doesn't retrieve any Traces data.
 
 ### AWS lambdas
 
@@ -220,7 +220,7 @@ The StackState AWS integration installs the following AWS lambdas:
 
 ### Costs
 
-The AWS lightweight agent uses Amazon resources \(Lambda and Kinesis\) for which Amazon will charge a minimal fee. Amazon also charges a fee for the use of CloudWatch metrics. Metrics are only retrieved when viewed or when a check is configured on a CloudWatch metric.
+The AWS lightweight Agent uses Amazon resources \(Lambda and Kinesis\) for which Amazon will charge a minimal fee. Amazon also charges a fee for the use of CloudWatch metrics. Metrics are only retrieved when viewed or when a check is configured on a CloudWatch metric.
 
 ### AWS views in StackState
 

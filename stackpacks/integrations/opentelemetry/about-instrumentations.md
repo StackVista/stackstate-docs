@@ -54,7 +54,7 @@ This will then determine the duration of your span and, eventually, your trace.
 - For example, if we execute a Lambda script, The script execution will be created as the parent span. All the other
   things monitored and executed inside this Lambda will be captured as children span.
 - The parent span should be the last span you close. This is usually either at the end of your script execution or after you close your last child span
-- A parent span does not require a child span; it can be standalone if it isn't a part of anything.
+- A parent span doesn't require a child span; it can be standalone if it isn't a part of anything.
 
 ### Child span
 - A child span is started by a parent span and might involve calling a function, the database, another service, etc. In the example mentioned above, a child span may be a function that determines if the item is accessible. Child spans offer insight into every element of a request.
@@ -165,7 +165,7 @@ This allows us to capture unique data for a specific type of instrumentation and
 StackState currently supports two types of instrumentations:
 
 - An ***out-of-the-box*** solution specifically for AWS using a Lambda layer for all your ***NodeJS*** functions. 
-  - This solution does not require you to write any code, but only supports certain services
+  - This solution doesn't require you to write any code, but only supports certain services
   - Visit the [AWS OpenTelemetry integrations page](/stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md) for more information regarding the [supported AWS services](/stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md#supported-services) and how to install and use this Lambda layer.
 - **Manual instrumentation** using the [OpenTelemetry API](https://opentelemetry.io/docs/instrumentation/)
   - This gives you the ability to create and display a custom component with a health state within StackState using the [OpenTelemetry API](https://opentelemetry.io/docs/instrumentation/).
