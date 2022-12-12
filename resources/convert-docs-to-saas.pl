@@ -3,7 +3,7 @@
 use File::Find;
 use File::Copy;
 
-# This script converts the documentation site as it is expected to be 
+# This script converts the documentation site as it's expected to be
 # for the hybrid IT / self-hosted StackState edition and converts it to 
 # docs for the SaaS edition as follows:
 # 

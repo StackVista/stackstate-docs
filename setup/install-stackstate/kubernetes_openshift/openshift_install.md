@@ -160,13 +160,13 @@ zookeeper:
 
 ### Automatically install the Cluster Agent for OpenShift
 
-StackState has built-in support for OpenShift by means of the [OpenShift StackPack](../../../stackpacks/integrations/openshift.md). To get started quickly, the StackState installation can automate installation of this StackPack and the required Agent for the cluster that StackState itself will be installed on. This is not required and can always be done later from the StackPacks page of the StackState UI for StackState's cluster or any other OpenShift cluster.
+StackState has built-in support for OpenShift by means of the [OpenShift StackPack](../../../stackpacks/integrations/openshift.md). To get started quickly, the StackState installation can automate installation of this StackPack and the required Agent for the cluster that StackState itself will be installed on. This isn't required and can always be done later from the StackPacks page of the StackState UI for StackState's cluster or any other OpenShift cluster.
 
 The only required information is a name for the OpenShift cluster that will distinguish it from the other OpenShift clusters monitored by StackState. A good choice usually is the same name that is used in the kube context configuration. This will then automatically install the StackPack and install a Daemonset for the agent and a deployment for the so-called cluster agent. For the full details, read the [OpenShift StackPack](../../../stackpacks/integrations/openshift.md) page.
 
 To automate this installation, the below values file can be added to the `helm install` command. The agent chart needs to add specific OpenShift `SecurityContextConfiguration` objects to the OpenShift installation.
 
-If you're installing as an administrator on the OpenShift cluster, it is possible to automatically create this. You can configure this using the following configuration option in the values file:
+If you're installing as an administrator on the OpenShift cluster, it's possible to automatically create this. You can configure this using the following configuration option in the values file:
 
 | Pod\(s\) | Config key | Description |
 | :--- | :--- | :--- |
@@ -206,7 +206,7 @@ Save this as `agent-values.yaml` and add it to the `helm install` command to ena
 
 ### Deploy StackState with Helm
 
-The recommended deployment of StackState is a production ready, high availability setup with many services running redundantly. If required, it is also possible to run StackState in a non-redundant setup, where each service has only a single replica.
+The recommended deployment of StackState is a production ready, high availability setup with many services running redundantly. If required, it's also possible to run StackState in a non-redundant setup, where each service has only a single replica.
 
 {% hint style="info" %}
 The non-high availability setup is only suitable for situations that do not require high availability.

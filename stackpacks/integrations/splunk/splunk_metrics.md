@@ -9,7 +9,7 @@ description: StackState Self-hosted v5.1.x
 {% hint style="info" %}
 This page describes the Splunk Metrics check running on StackState Agent V2. 
 
-If you are currently running the Splunk Metrics check on Agent V1 (legacy), it is advised that you migrate to Agent V2.
+If you are currently running the Splunk Metrics check on Agent V1 (legacy), it's advised that you migrate to Agent V2.
 
 * [Migrate to Agent V2](/setup/agent/migrate-agent-v1-to-v2/)
 * [Documentation for the Splunk Metrics check running on Agent V1 \(legacy\)](https://docs.stackstate.com/v/5.0/stackpacks/integrations/splunk/splunk_metrics)
@@ -118,7 +118,7 @@ To configure the Splunk Metrics Agent check:
 
 To prevent sending duplicate metrics over multiple check runs, received saved search records must be uniquely identified for comparison. By default, a record is identified by the Splunk default fields `_bkt` and `_cd`. This behavior can be customized for each saved search by specifying `unique_key_fields` in the Splunk Metrics Agent check configuration. Note that the specified `unique_key_fields` fields are mandatory fields for each record returned by the Splunk saved search.
 
-If it is not possible to uniquely identify a record by a combination of specific fields, the whole record can be used by setting `unique_key_fields: []` \(an empty list\).
+If it isn't possible to uniquely identify a record by a combination of specific fields, the whole record can be used by setting `unique_key_fields: []` \(an empty list\).
 
 ### Disable the Agent check
 

@@ -12,7 +12,7 @@ To install this StackPack navigate to StackState’s StackPacks page using left 
 
 ## Directory Structure
 
-Before starting your first check it is worth understanding the checks directory structure. There are two places that you will need to add files for your check. The first is the `checks.d` folder, which lives in your Agent root.
+Before starting your first check it's worth understanding the checks directory structure. There are two places that you will need to add files for your check. The first is the `checks.d` folder, which lives in your Agent root.
 
 For all Linux systems, you should find it at:
 
@@ -345,7 +345,7 @@ We create a `MetricStream` on the `system.cpu.usage` metric with some conditions
 
 Service Checks are used to submit the state of the agent integration instance. Service checks can be submitted using the `self.service_check` method in the `AgentCheck` interface. Service check data is also stored in the `StackState Generic Events` data source.
 
-The example below submits a service check to StackState when it is verified that the check was configured correctly and it can communicate with the instance that is monitored:
+The example below submits a service check to StackState when it's verified that the check was configured correctly and it can communicate with the instance that is monitored:
 
 ```text
 # some logic here to test our connection and if successful:

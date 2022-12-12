@@ -36,7 +36,7 @@ To avoid computations becoming too heavy, the `StreamingScriptResult` cannot be 
 The `StreamingScriptResult` can be returned from a script, after which the script runtime will take care of collecting the results. This is the preferred way of using the `StreamingScriptResult` because it allows StackState to process data incrementally with constant memory. In exceptional cases, it can be useful to actually run a stream, such that all results are accessible. This can be achieved with the `collectStream` function.
 
 {% hint style="warning" %}
-Be careful collecting data from a stream with higher limits. This can cause memory pressure and the script to fail. It is always best not to collect the data and process the data in a streaming fashion.
+Be careful collecting data from a stream with higher limits. This can cause memory pressure and the script to fail. It's always best not to collect the data and process the data in a streaming fashion.
 {% endhint %}
 
 For example:

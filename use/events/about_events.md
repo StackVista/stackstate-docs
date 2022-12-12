@@ -31,7 +31,7 @@ Many StackState integrations retrieve events from external systems. All events r
 
 ### Log streams
 
-Event data that is not bound to an element is made available in a log [telemetry stream](/use/metrics/telemetry_streams.md#log-streams). Events in these streams will not be listed in the Events Perspective, however, they are available to be used by a check or monitor. This can then trigger a health state change event, which would be listed in the Events Perspective as an internally generated event.
+Event data that isn't bound to an element is made available in a log [telemetry stream](/use/metrics/telemetry_streams.md#log-streams). Events in these streams will not be listed in the Events Perspective, however, they are available to be used by a check or monitor. This can then trigger a health state change event, which would be listed in the Events Perspective as an internally generated event.
 
 ## Event category
 

@@ -69,7 +69,7 @@ When ingesting traces, StackState attaches service identifiers to the components
 
 ## Sorting and limits
 
-Traces are sorted by latency \(descending\). This is the only sorting criteria available in this version. The trace list is not limited by size, you can scroll infinitely to see all traces that are available for your component, filter and time selections. Finally, on top of the list of traces, StackState displays an approximation of the total amount of traces that are returned from the filters you have selected.
+Traces are sorted by latency \(descending\). This is the only sorting criteria available in this version. The trace list isn't limited by size, you can scroll infinitely to see all traces that are available for your component, filter and time selections. Finally, on top of the list of traces, StackState displays an approximation of the total amount of traces that are returned from the filters you have selected.
 
 ## Time Travel
 

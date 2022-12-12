@@ -7,13 +7,13 @@ description: StackState Self-hosted v5.1.x
 Traces can be viewed in the [Traces Perspective](../../use/stackstate-ui/perspectives/traces-perspective.md) screen in the StackState UI. To enable tracing, you first need to install the StackState Agent V2 StackPack and configure one or more tracing integrations, see [how to set up traces](set-up-traces.md). This page describes how to override the default tracing configuration and hide traces from the StackState UI.
 
 {% hint style="info" %}
-**Note that it is not advised to change the default configuration for tracing.**
+**Note that it isn't advised to change the default configuration for tracing.**
 {% endhint %}
 
 ## Retention limits
 
 {% hint style="info" %}
-It is not advised to change the default settings for retention!
+It isn't advised to change the default settings for retention!
 {% endhint %}
 
 Retention limits specify the index size of StackState and how long data is stored. Changing the default value here can lead to reduced stability and may cause trace and topology data to go out of sync.
@@ -32,7 +32,7 @@ For more details, see [how to configure the StackState metrics, events and trace
 ## Rate limits
 
 {% hint style="info" %}
-It is not advised to change the default settings for rate limits!
+It isn't advised to change the default settings for rate limits!
 {% endhint %}
 
 If required, overrides to the default rate limits can be placed in the file `etc/stackstate-receiver/application.conf`:

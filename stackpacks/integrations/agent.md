@@ -55,7 +55,7 @@ To upgrade StackState Agent V2, see the [StackState Agent documentation](/setup/
 
 ### Data retrieved
 
-When installed and running, StackState Agent V2 will synchronize the following data with StackState from the host it is running on:
+When installed and running, StackState Agent V2 will synchronize the following data with StackState from the host it's running on:
 
 Linux:
 

@@ -23,7 +23,7 @@ A synchronization pipeline takes data through these two models using configurabl
 
 ### Data source
 
-The data source configures the plugin to connect to a specific instance of an external system. The Plugins section of the documentation contains more details on configurations of specific plugins. It is possible to define several synchronizations for the same data source.
+The data source configures the plugin to connect to a specific instance of an external system. The Plugins section of the documentation contains more details on configurations of specific plugins. It's possible to define several synchronizations for the same data source.
 
 ### ID Extraction
 
@@ -55,7 +55,7 @@ The merge strategy is applied when multiple components get synchronized which ha
 * _Merge, prefer mine_ - Merge fields that are mergable, if not take the data from this mapping
 * _Merge, prefer theirs_ - Merge fields that are mergable, if not take the data from the other components
 
-In a component, it is possible to merge set fields \(such as streams and checks\) and optional fields \(such as version and description\). Mandatory fields \(such as name and layer\) cannot be merged. If a field cannot be merged, one has to be picked based on Mine/Theirs configuration.
+In a component, it's possible to merge set fields \(such as streams and checks\) and optional fields \(such as version and description\). Mandatory fields \(such as name and layer\) cannot be merged. If a field cannot be merged, one has to be picked based on Mine/Theirs configuration.
 
 ## Mapping Functions
 

@@ -135,7 +135,7 @@ The `AgentCheck`, `AgentCheckV2`, `StatefulAgentCheck`, `TransactionalAgentCheck
 
 ## Scheduling
 
-Multiple instances of the same check can run concurrently. If a check is already running, it is not necessary to schedule another one.
+Multiple instances of the same check can run concurrently. If a check is already running, it isn't necessary to schedule another one.
 
 ## Send data
 
@@ -323,7 +323,7 @@ This will be fully deprecated in Agent Check V2 in favour of the `CheckResponse`
 Health information can be sent to StackState with the following methods:
 
 * `self.health.check_state` - send a check state as part of a snapshot.
-* `self.health.start_snapshot()` - start a health snapshot. Stackstate will only process health information if it is sent as part of a snapshot.
+* `self.health.start_snapshot()` - start a health snapshot. Stackstate will only process health information if it's sent as part of a snapshot.
 * `self.health.stop_snapshot()` -  stop the snapshot, signaling that all submitted data is complete. This should be done at the end of the check after all data has been submitted. If exceptions occur in the check or not all data can be produced for some other reason, this function should not be called.
 
 #### Set up a health stream
@@ -506,7 +506,7 @@ An event stream health check includes the details listed below. Note that a cust
 * **contains\_key** - for check `contains_key_value` only. The key that should be contained in the event.
 * **contains\_value** - for check `contains_key_value` only. The value that should be contained in the event.
 * **found\_health\_state** - for check `contains_key_value` only. The health state to return when this tag and value is found.
-* **missing\_health\_state** - for check `contains_key_value` only. The health state to return when the tag/value is not found.
+* **missing\_health\_state** - for check `contains_key_value` only. The health state to return when the tag/value isn't found.
 * **tag\_name** - for check `use_tag_as_health` only. The key of the tag that should be used as the health state.
 
 For details see the [EventHealthChecks class \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/stackstate_checks_base/stackstate_checks/base/utils/telemetry.py#L24).

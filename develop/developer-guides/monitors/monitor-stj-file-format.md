@@ -63,7 +63,7 @@ The supported fields are:
 
 ### identifier
 
-An important field of the monitor node is the `identifier` - it is a unique value of the StackState URN format that can be used together with the monitor-specific StackState CLI commands. The identifier should be formatted as follows:
+An important field of the monitor node is the `identifier` - it's a unique value of the StackState URN format that can be used together with the monitor-specific StackState CLI commands. The identifier should be formatted as follows:
 
 `urn : <prefix> : monitor : <unique-monitor-identification>`
 

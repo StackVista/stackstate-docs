@@ -31,12 +31,12 @@ To set up the StackState AWS integration, you need to have:
 * AWS CLI version 2.0.4 or later is installed on the environment where StackState is running.
 * The following AWS accounts:
   * At least one target AWS account that will be monitored.
-  * An AWS account for StackState and the StackState Agent to use when retrieving data from the target AWS account(s). It is recommended to use a separate shared account for this and not use any of the accounts that will be monitored by StackState, but this is not required. 
+  * An AWS account for StackState and the StackState Agent to use when retrieving data from the target AWS account(s). It's recommended to use a separate shared account for this and not use any of the accounts that will be monitored by StackState, but this isn't required. 
   * A user or role with a policy attached that contains the action to allow assuming the role stsIntegrationRole in the account that will be monitored. For details see the StackState docs on the required AWS policy.
 
 ### AWS accounts
 
-It is recommended to have two different AWS accounts: One that is being monitored and another used for data collection.
+It's recommended to have two different AWS accounts: One that is being monitored and another used for data collection.
 
 * **Monitor Account** - used to [deploy a CloudFormation Stack](#deploy-the-aws-cloudformation-stack). The CloudFormation stack will create an IAM role that has the permissions required to retrieve data from this Monitor Account (`StackStateAwsIntegrationRole`). 
 * **Data Collection Account** - used by StackState and StackState Agent to retrieve data from the Monitor Account. An AWS policy granting permissions to assume the role `StackStateAwsIntegrationRole` in the Monitor Account is required. 
@@ -97,7 +97,7 @@ The StackState AWS CloudFormation Stack should be deployed in each AWS account t
 {% hint style="info" %}
 For special environments where the CloudFormation template may not function correctly, advanced AWS users can refer to the [required AWS resources](aws.md#required-aws-resources) for a reference on all resources that must be manually created..
 
-**It is recommended to use the** [**StackState CloudFormation template**](aws.md#stackstate-template-deployment) **wherever possible** as this provides an easy upgrade path for future versions and reduces the maintenance burden.
+**It's recommended to use the** [**StackState CloudFormation template**](aws.md#stackstate-template-deployment) **wherever possible** as this provides an easy upgrade path for future versions and reduces the maintenance burden.
 {% endhint %}
 
 #### Quick deployment
@@ -124,7 +124,7 @@ The table below includes links to deploy the template in popular AWS regions. Fo
 
 #### StackState template deployment
 
-The default StackState CloudFormation template can be used to deploy all necessary resources. It can be deployed to multiple AWS accounts and regions at once by deploying it in a CloudFormation StackSet. It is recommended to use this template as it provides an easy upgrade path for future versions and reduces the maintenance burden compared to creating a custom template.
+The default StackState CloudFormation template can be used to deploy all necessary resources. It can be deployed to multiple AWS accounts and regions at once by deploying it in a CloudFormation StackSet. It's recommended to use this template as it provides an easy upgrade path for future versions and reduces the maintenance burden compared to creating a custom template.
 
 * [Download the default StackState CloudFormation template \(stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com\)](https://stackstate-integrations-resources-eu-west-1.s3.eu-west-1.amazonaws.com/aws-topology/cloudformation/stackstate-resources-1.3.cfn.yaml)
 
@@ -268,7 +268,7 @@ If StackState Agent is running on a Linux VM:
 2. You can also add optional configuration and filters: 
     - **full_run_interval** - Optional. The time in seconds between a full AWS topology scan. Intermediate runs only fetch events.
     - **collection_interval** - The amount of time in seconds between each scan. Decreasing this value will not appreciably increase topology update speed.
-    - **apis_to_run** - Optionally whitelist specific AWS services. It is not recommended to set this; instead rely on IAM permissions.
+    - **apis_to_run** - Optionally whitelist specific AWS services. It isn't recommended to set this; instead rely on IAM permissions.
     - **log_bucket_name** - The S3 bucket that the agent should read events from. This value should only be set in custom implementations.
     - **tags** - Optional. Can be used to apply specific tags to all reported data in StackState.
 
@@ -393,7 +393,7 @@ OpenTelemetry creates traces from the AWS services that your Lambdas interacts w
 
 ### Required AWS resources
 
-A high-level of overview of all resources necessary to run the StackState Agent with full capabilities is provided in the graph below. Users with intermediate to high level AWS skills can use these details to set up the StackState Agent resources manually. For the majority of installations, this is not the recommended approach. Use the provided [StackState CloudFormation template](aws.md#stackstate-template-deployment) unless there are environment-specific issues that must be worked around.
+A high-level of overview of all resources necessary to run the StackState Agent with full capabilities is provided in the graph below. Users with intermediate to high level AWS skills can use these details to set up the StackState Agent resources manually. For the majority of installations, this isn't the recommended approach. Use the provided [StackState CloudFormation template](aws.md#stackstate-template-deployment) unless there are environment-specific issues that must be worked around.
 
 ![Account components](../../../.gitbook/assets/stackpack-aws-v2-account-components.svg)
 
@@ -422,7 +422,7 @@ IAM is a global service. Only one IAM role is necessary per account.
 Once the Agent has finished reading a file in this bucket, the file will be **deleted**. Do not use an existing bucket for this, the Agent should have its own bucket to read from. The S3 bucket will not be read from if it does not have bucket versioning enabled, to protect data.
 {% endhint %}
 
-The S3 bucket is used to store all incoming events from EventBridge and other event-based sources. The Agent then reads objects from this bucket. These events are used to provide features such as real-time topology updates, and creating relations between components based on event data such as VPC FlowLogs. If the S3 bucket is not available to the Agent it will fall back to reading CloudTrail directly, which introduces a 15-minute delay in real-time updates. EventBridge events and VPC FlowLogs are only available via the S3 bucket.
+The S3 bucket is used to store all incoming events from EventBridge and other event-based sources. The Agent then reads objects from this bucket. These events are used to provide features such as real-time topology updates, and creating relations between components based on event data such as VPC FlowLogs. If the S3 bucket isn't available to the Agent it will fall back to reading CloudTrail directly, which introduces a 15-minute delay in real-time updates. EventBridge events and VPC FlowLogs are only available via the S3 bucket.
 
 {% hint style="info" %}
 Only one S3 bucket is necessary per account; all regions can send to the same bucket.
@@ -455,7 +455,7 @@ A delivery stream must be created in each region where events are captured, howe
 
 A KMS Customer Managed Key \(CMK\) can be used to secure data at rest in S3. The KMS key is used in the Firehose Delivery Stream. The S3 bucket also uses the KMS key as its default key.
 
-Use of a KMS is key is not necessary for the operation of the StackPack, however as encryption at rest is a requirement in most environments, the CloudFormation template includes this by default.
+Use of a KMS is key isn't necessary for the operation of the StackPack, however as encryption at rest is a requirement in most environments, the CloudFormation template includes this by default.
 
 {% hint style="info" %}
 A KMS key must be created in each region where events are captured.

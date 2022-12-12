@@ -71,7 +71,7 @@ A `ViewStateChangedEvent` event is triggered whenever a view changes its health 
 
 {% hint style="success" "self-hosted info" %}
 
-Through a combination of configuration of permissions and scope, it is possible [control access for a specific user](../../../configure/security/rbac/role_based_access_control.md). This can be done in the following ways:
+Through a combination of configuration of permissions and scope, it's possible [control access for a specific user](../../../configure/security/rbac/role_based_access_control.md). This can be done in the following ways:
 
 * Grant the user access to a subset of the topology \(a so-called scope\) and allow them to create their own views from the topology that is available to them.
 * Grant the user access to specific, existing views only and deny them permission to create, modify or delete views.
@@ -104,7 +104,7 @@ You can open a subview in any of the following ways:
 * Double-click on a component, relation or group in the topology visualizer.
 * Use the [Actions](/use/stackstate-ui/perspectives/topology-perspective.md#actions) list in the component context menu or right panel details tab to open a selection subview for a component.
 
-Subviews can be shared with other StackState users as a link, this will include any modifications that you have made to the subview. It is not possible to save a subview.
+Subviews can be shared with other StackState users as a link, this will include any modifications that you have made to the subview. It isn't possible to save a subview.
 
 To exit a subview and return to the previous view or explore mode, click the view name in the top bar of the StackState UI.
 

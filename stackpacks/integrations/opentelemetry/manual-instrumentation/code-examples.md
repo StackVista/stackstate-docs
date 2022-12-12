@@ -190,7 +190,7 @@ rdsDatabase.end();
 ---
 
 ### 7 - Flush the data
-This step is not always required, but good to know about. Sometimes a script might attempt to end before the actual span was sent away.
+This step isn't always required, but good to know about. Sometimes a script might attempt to end before the actual span was sent away.
 
 A good example of this will be a Lambda execution, StackState will never receive the data as the execution stopped the second the Lambda was done. To get past this
 you can force flush the Trace Provider to definitely makes sure that StackState received the trace.

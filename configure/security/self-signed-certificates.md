@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-StackState has several points of interaction with external systems, for example event handlers can call out to webhooks in other systems while plugins can retrieve data from external systems like Splunk or Elasticsearch. With the default configuration, StackState will not be able to communicate with these systems when they are secured with TLS using a self-signed certificate or a certificate that is not by default trusted by the JVM.
+StackState has several points of interaction with external systems, for example event handlers can call out to webhooks in other systems while plugins can retrieve data from external systems like Splunk or Elasticsearch. With the default configuration, StackState will not be able to communicate with these systems when they are secured with TLS using a self-signed certificate or a certificate that isn't by default trusted by the JVM.
 
 To mitigate this, StackState allows configuration of a custom trust store.
 
@@ -80,7 +80,7 @@ If you do not have JVM installed on your computer, you can use a JVM Docker imag
 
 ### Kubernetes
 
-For Kubernetes installations, the trust store and the password can be specified as values. The trust store can only be specified from the helm command line as it is a file. We specify the password value in the same way, but it could also be provided via a `values.yaml` file.
+For Kubernetes installations, the trust store and the password can be specified as values. The trust store can only be specified from the helm command line as it's a file. We specify the password value in the same way, but it could also be provided via a `values.yaml` file.
 
 ```bash
 helm upgrade \

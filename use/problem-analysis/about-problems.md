@@ -30,7 +30,7 @@ When the root cause element changes, a `Problem updated` event is generated. Not
 
 ### Contributing causes
 
-A problem can contain any number of contributing causes. These are all the unhealthy elements that depend on the problem's root cause element. A change in the health state of elements might result in contributing causes being added to or removed from an existing problem. It is possible for a single unhealthy element to be a contributing cause in two separate problems - if there are two potential root cause elements for an element's unhealthy state, StackState will see this as two separate problems. 
+A problem can contain any number of contributing causes. These are all the unhealthy elements that depend on the problem's root cause element. A change in the health state of elements might result in contributing causes being added to or removed from an existing problem. It's possible for a single unhealthy element to be a contributing cause in two separate problems - if there are two potential root cause elements for an element's unhealthy state, StackState will see this as two separate problems. 
 
 When a contributing cause element is added or removed, a `Problem updated` event is generated.
 

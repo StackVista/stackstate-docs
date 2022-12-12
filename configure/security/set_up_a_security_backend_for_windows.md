@@ -188,16 +188,16 @@ Secrets handle decrypted:
 
 #### Testing your executable
 
-Your executable is executed by the Agent V2 when fetching your secrets. StackState Agent V2 runs using the stsagentuser. This user has no specific rights, but it is part of the Performance Monitor Users group. The password for this user is randomly generated at install time and is never saved anywhere.
+Your executable is executed by the Agent V2 when fetching your secrets. StackState Agent V2 runs using the stsagentuser. This user has no specific rights, but it's part of the Performance Monitor Users group. The password for this user is randomly generated at install time and is never saved anywhere.
 
-This means that your executable might work with your default user or development user — but not when it is run by the Agent, since stsagentuser has more restricted rights.
+This means that your executable might work with your default user or development user — but not when it's run by the Agent, since stsagentuser has more restricted rights.
 
 To test your executable in the same conditions as the Agent V2, update the password of the stsagentuser on your dev box. This way, you can authenticate as stsagentuser and run your executable in the same context the Agent would.
 
 To do so, follow steps below:
 
 1. Remove `stsagentuser` from the `Local Policies/User Rights Assignement/Deny Log on locally` list in the `Local Security Policy`.
-2. Set a new password for `stsagenuser` \(as the one generated during install is not saved anywhere\). In Powershell, run:
+2. Set a new password for `stsagenuser` \(as the one generated during install isn't saved anywhere\). In Powershell, run:
 
    ```text
       $user = [ADSI]"WinNT://./stsagentuser";

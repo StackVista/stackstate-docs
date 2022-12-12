@@ -54,7 +54,7 @@ Another option in the view visualization settings is showing indirect relations.
 If we enable show indirect relations in the view visualizations settings, then StackState will draw a dotted line between those two components to show that there is a path between them passes through components that are not included on the view.
 
 * A solid line between two components indicates that there is a direct relation between them 
-* StackState shows a dotted line when two components have a path between them, but the full path is not visible in the current view.
+* StackState shows a dotted line when two components have a path between them, but the full path isn't visible in the current view.
 
 Show indirect relations is switched off by default. If we take a view of three components again and remove the Applications layer. That will hide the middle component. With show indirect relations disabled there are no connection between the remaining components - it appears that these components are not connected at all - you see the tree of connected components at the top and then 4 components at the bottom that are not connected to anything, with no relations between them.
 

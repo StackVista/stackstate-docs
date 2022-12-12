@@ -42,7 +42,7 @@ The built-in MinIO instance can be configured to store the backups in three loca
 
 Amazon S3-managed keys (SSE-S3) should be used when encrypting S3 buckets that store the backups. 
 
-⚠️ Encryption with AWS KMS keys stored in AWS Key Management Service (SSE-KMS) is not supported. This will result in errors such as this one in the Elasticsearch logs:
+⚠️ Encryption with AWS KMS keys stored in AWS Key Management Service (SSE-KMS) isn't supported. This will result in errors such as this one in the Elasticsearch logs:
 
 `Caused by: org.elasticsearch.common.io.stream.NotSerializableExceptionWrapper: sdk_client_exception: Unable to verify integrity of data upload. Client calculated content hash (contentMD5: ZX4D/ZDUzZWRhNDUyZTI1MTc= in base 64) didn't match hash (etag: c75faa31280154027542f6530c9e543e in hex) calculated by Amazon S3. You may need to delete the data stored in Amazon S3. (metadata.contentMD5: null, md5DigestStream: com.amazonaws.services.s3.internal.MD5DigestCalculatingInputStream@5481a656, bucketName: stackstate-elasticsearch-backup, key: tests-UG34QIV9s32tTzQWdPsZL/master.dat)",`
 {% endhint %}
@@ -133,11 +133,11 @@ The StackGraph and Elasticsearch backups are stored in BLOB containers called `s
 {% hint style="warning" %}
 If MinIO is configured to store its data in Kubernetes storage, a PersistentVolumeClaim (PVC) is used to request storage from the Kubernetes cluster. The kind of storage that is allocated depends on the configuration of the cluster.
 
-It is advised to use AWS S3 for clusters running on Amazon AWS and Azure Blob Storage for clusters running on Azure for the following reasons:
+It's advised to use AWS S3 for clusters running on Amazon AWS and Azure Blob Storage for clusters running on Azure for the following reasons:
 
 1. Kubernetes clusters running in a cloud provider usually map PVCs to block storage, such as Elastic Block Storage for AWS or Azure Block Storage. Block storage is expensive, especially for large data volumes.
 2. Persistent Volumes are destroyed when the cluster that created them is destroyed. That means an (accidental) deletion of your cluster will also destroy all backups stored in Persistent Volumes.
-3. Persistent Volumes cannot be accessed from another cluster. That means that it is not possible to restore StackState from a backup taken on another cluster.
+3. Persistent Volumes cannot be accessed from another cluster. That means that it isn't possible to restore StackState from a backup taken on another cluster.
 {% endhint %}
 
 To enable backups to cluster-local storage, enable MinIO by adding the following YAML fragment to the Helm `values.yaml` file used to install StackState:
@@ -232,8 +232,8 @@ Scripts to list and restore backups and snapshots can be found in the [restore d
     2. The namespace within that cluster where StackState has been installed.
 * The following Helm values have been correctly set:
     1. `backup.enabled` is set to `true`.
-    2. `backup.stackGraph.restore.enabled` is not set to `false` \(to access StackGraph backups\).
-    3. `backup.elasticsearch.restore.enabled` is not set to `false` \(to access Elasticsearch snapshots\).
+    2. `backup.stackGraph.restore.enabled` isn't set to `false` \(to access StackGraph backups\).
+    3. `backup.elasticsearch.restore.enabled` isn't set to `false` \(to access Elasticsearch snapshots\).
 {% endhint %}
 
 ### List StackGraph backups
@@ -313,7 +313,7 @@ job.batch "stackgraph-restore-20210222t112142" deleted
 In case you are running a restore command missing the `-force` flag on a non-empty database the output will contain an error like this:
 
 ```bash
-ERROR com.stackvista.graph.migration.Restore - Restore is not possible in a non empty.
+ERROR com.stackvista.graph.migration.Restore - Restore isn't possible in a non empty.
 ```
 
 {% hint style="info" %}

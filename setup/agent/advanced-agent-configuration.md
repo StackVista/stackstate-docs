@@ -205,7 +205,7 @@ The Agent can be configured to use a proxy for HTTP and HTTPS requests. For deta
 
 Processes reported by StackState Agent V2 can optionally be filtered using a blacklist. Using this in conjunction with inclusion rules will allow otherwise excluded processes to be included.
 
-The blacklist is specified as a list of regex patterns. Inclusions override the blacklist patterns, these are used to include processes that consume a lot of resources. Each inclusion type specifies an amount of processes to report as the top resource using processes. For `top_cpu` and `top_mem` a threshold must first be met, meaning that a process needs to consume a higher percentage of resources than the specified threshold before it is reported.
+The blacklist is specified as a list of regex patterns. Inclusions override the blacklist patterns, these are used to include processes that consume a lot of resources. Each inclusion type specifies an amount of processes to report as the top resource using processes. For `top_cpu` and `top_mem` a threshold must first be met, meaning that a process needs to consume a higher percentage of resources than the specified threshold before it's reported.
 
 {% tabs %}
 {% tab title="Docker, Kubernetes, OpenShift" %}
@@ -242,7 +242,7 @@ To specify a blacklist and/or inclusions, edit the below settings in the Agent c
 
 ## Enable traces
 
-The trace Agent will be enabled by default when StackState Agent is installed. It is required to receive traces in StackState. In case it has been disabled, you can enable it again using the instructions below.
+The trace Agent will be enabled by default when StackState Agent is installed. It's required to receive traces in StackState. In case it has been disabled, you can enable it again using the instructions below.
 
 {% tabs %}
 {% tab title="Docker" %}

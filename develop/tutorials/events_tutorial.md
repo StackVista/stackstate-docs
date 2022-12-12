@@ -34,7 +34,7 @@ First, boot the virtual machine using Vagrant:
 vagrant up
 ```
 
-Vagrant will download a virtual machine image and provision a virtual machine. When it is finished, you can log into the machine using the command:
+Vagrant will download a virtual machine image and provision a virtual machine. When it's finished, you can log into the machine using the command:
 
 ```text
 vagrant ssh

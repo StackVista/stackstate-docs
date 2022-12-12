@@ -39,7 +39,7 @@ Existing StackPacks will provide StackState monitors out of the box.
 
 ### External monitoring systems
 
-Health data from external monitoring systems can be sent to StackState using health synchronization. In this case, the health state is calculated by an external system based on its own rules. The calculated health state is then sent to StackState as a health stream and bound to the associated topology element. This approach is useful if you have existing health calculations defined externally, or if it is not viable to send telemetry or events data to StackState and translate the health calculation rules.
+Health data from external monitoring systems can be sent to StackState using health synchronization. In this case, the health state is calculated by an external system based on its own rules. The calculated health state is then sent to StackState as a health stream and bound to the associated topology element. This approach is useful if you have existing health calculations defined externally, or if it isn't viable to send telemetry or events data to StackState and translate the health calculation rules.
 
 Existing StackPacks will provide health synchronization out of the box.
 
@@ -119,7 +119,7 @@ You can check the view health state in the following places in the StackState UI
 
 ## Run state
 
-Some components in StackState will report a **Run state**, for example, AWS EC2 instances. This is different to the [health state](/use/concepts/health-state.md) and indicates the component’s operational state. The run state can be `DEPLOYING`, `DEPLOYED`, `STARTING`, `STARTED`, `STOPPING`, `STOPPED` or `UNKNOWN`. It is not used in the calculation of a component's health state.
+Some components in StackState will report a **Run state**, for example, AWS EC2 instances. This is different to the [health state](/use/concepts/health-state.md) and indicates the component’s operational state. The run state can be `DEPLOYING`, `DEPLOYED`, `STARTING`, `STARTED`, `STOPPING`, `STOPPED` or `UNKNOWN`. It isn't used in the calculation of a component's health state.
 
 For every change in run state, a `Run state changed` event is generated. These events are visible in the [Events Perspective](/use/stackstate-ui/perspectives/events_perspective.md) and can help to correlate changes in the deployment state of components with problems in an environment.
 
@@ -131,7 +131,7 @@ The propagated health state of an element is calculated using a propagation func
 |:-------------------------------------------------------| :--- |
 | ![](../../.gitbook/assets/v51_propagation_b_to_a.png)  | Component A depends on component B. Health state will propagate from B to A. |
 | ![](../../.gitbook/assets/v51_propagation_a_to_b.png)  | Component B depends on component A. Health state will propagate from A to B. |
-| ![](../../.gitbook/assets/v51_propagation_a_and_b.png) | Dependency in both directions. Health state will propagate from A to B and from B to A. In other words, it is a circular dependency. |
+| ![](../../.gitbook/assets/v51_propagation_a_and_b.png) | Dependency in both directions. Health state will propagate from A to B and from B to A. In other words, it's a circular dependency. |
 | ![](../../.gitbook/assets/v51_no_propagation.png)      | No dependency. Health state does not propagate. |
 
 {% hint style="success" "self-hosted info" %}
