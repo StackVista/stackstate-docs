@@ -28,7 +28,7 @@ The `example` check consists of two files:
 
 ## Prepare StackState
 
-Before you get started, StackState must be configured to handle the data we will be sending from the sample check. The sample check sends data in a format that is consumed by the built-in **Custom Synchronization StackPack**. After installing this StackPack, StackState will know how to interpret the sample check data and turn it into topology.
+Before you get started, StackState must be configured to handle the data we will be sending from the sample check. The sample check sends data in a format that's consumed by the built-in **Custom Synchronization StackPack**. After installing this StackPack, StackState will know how to interpret the sample check data and turn it into topology.
 
 Configure the StackPack with the following values so they match with the data the check sends:
 
@@ -60,7 +60,7 @@ That's it, you are now ready to run the Agent.
 
 The sample project contains a `run.sh` shell script that runs StackState Agent V2 in a docker container. It reads the configuration from this sample project and executes the `example` check.
 
-When you run the Agent, it writes logging to its standard output. The agent has debugging turned on by default \(check the `stackstate.yaml` file\) so it is fairly verbose.
+When you run the Agent, it writes logging to its standard output. The Agent has debugging turned on by default \(check the `stackstate.yaml` file\) so it's fairly verbose.
 
 Once the check has run successfully, the topology data produced by the `example` check will be sent to StackState.
 
@@ -72,13 +72,13 @@ When you log into your StackState instance, go to the **Explore Mode**. Using th
 
 ![](../../.gitbook/assets/v51_example-topology.png)
 
-Note that the components you see are hardcoded in the `example` agent check. The components appear in the **Example** domain and **Applications** and **Hosts** layers. The check produces two application components that StackState has grouped together. This is shown as a circle icon. Select the group to display the individual components that make up the group in the right panel details tab - **Group details**.
+Note that the components you see are hardcoded in the `example` Agent check. The components appear in the **Example** domain and **Applications** and **Hosts** layers. The check produces two application components that StackState has grouped together. This is shown as a circle icon. Select the group to display the individual components that make up the group in the right panel details tab - **Group details**.
 
 Select a component to display detailed information about it in the right panel details tab - **Component details**. You'll see the component's labels and other metadata that the check sent.
 
 ## Merge topology
 
-StackState creates a single, unified picture of your IT landscape by ingesting and merging data from multiple sources. If the data your check delivers should be merged with data from other StackPacks, you'll need to configure the components with the correct extra identifiers.
+StackState creates a single, unified picture of your IT landscape by ingesting and merging data from multiple sources. If your check delivers data that should merge with data from other StackPacks, you'll need to configure the components with the correct extra identifiers.
 
 In our sample check, this code defines the extra identifiers:
 
@@ -118,7 +118,7 @@ Select the **some-application-1** component again to display detailed informatio
 
 In the Template Editor you can edit the template used to create components based on data coming in from your sample check. It shows the following information:
 
-* **Input parameters** - this is the data sent by our example check that is processed by StackState
+* **Input parameters** - this is the data sent by our example check that's processed by StackState
 * **Template function** - this is the template that uses the input parameters to create a component
 * **Component preview** - this is a preview of the component produced by applying the input parameters to the template function
 
@@ -175,7 +175,7 @@ If you go back to the topology, you'll see that both application components \(an
 
 ## Set a component's health state from an external source
 
-StackState calculates the health state of a component using a metric stream and one of the many check functions it ships with. It is also possible to create your own check function that interprets log data from an external source, such as another monitoring tool, and uses it to set the component's health state. Let's try that out on our **a-host** component.
+StackState calculates the health state of a component using a metric stream and one of the many check functions it ships with. It's also possible to create your own check function that interprets log data from an external source, such as another monitoring tool, and uses it to set the component's health state. Let's try that out on our **a-host** component.
 
 Let's start by creating the check function that takes the incoming data and translates it to a health state. Go to the **Settings** area and find the **Check functions** page. Click the **Add Check function** button to create a new check function. Name the function **External monitor state**.
 

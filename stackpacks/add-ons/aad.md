@@ -6,12 +6,12 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-Anomaly detection identifies abnormal behavior in your fast-changing IT environment. This helps direct the attention of IT operators to the root cause of problems or can provide an early warning. The Autonomous Anomaly Detector (AAD) requires zero configuration. It is fully autonomous in selecting both the metric streams it will apply anomaly detection to, and the appropriate machine learning algorithms to use for each metric stream.
+Anomaly detection identifies abnormal behavior in your fast-changing IT environment. This helps direct the attention of IT operators to the root cause of problems or can give an early warning. The Autonomous Anomaly Detector (AAD) requires zero configuration. It's fully autonomous in selecting both the metric streams it will apply anomaly detection to, and the appropriate machine learning algorithms to use for each metric stream.
 
 The AAD supports daily and weekly seasonality, creating an anomaly when the observed values differ a lot from the expected values. Daily seasonality is enabled by default.
 
 {% hint style="info" %}
-Note that a [training period](aad.md#training-period) is required before the AAD can begin to report anomalies.
+Note that the AAD requires a [training period](aad.md#training-period) before it can begin to report anomalies.
 {% endhint %}
 
 ### The anomaly detection process
@@ -50,7 +50,7 @@ When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream An
 ### Anomaly feedback
 
 {% hint style="info" %}
-Note that feedback is not used to train the running instance of the AAD.
+Note that feedback isn't used to train the running instance of the AAD.
 {% endhint %}
 
 Models are selected by the AAD and optimized for each metric stream. The quality of the anomalies reported is determined to a large extent by how well the selected model describes the stream that it runs on. The StackState team works with representative datasets to develop new models and optimize the hyperparameters used for model selection and training the AAD. 
@@ -76,17 +76,17 @@ The feedback sent to StackState consists of:
 ### Prerequisites[](http://not.a.link "StackState Self-Hosted only")
 
 * The AAD StackPack can only be installed within a [Kubernetes setup](../../setup/install-stackstate/kubernetes_openshift/ "StackState Self-Hosted only"). Please make sure that this is supported by your StackState installation.
-* If you are not sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://support.stackstate.com/hc/en-us "StackState Self-Hosted only").
+* If you aren't sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://support.stackstate.com/hc/en-us "StackState Self-Hosted only").
 
 ### Install the AAD StackPack
 
-To install the AAD StackPack, simply press the **INSTALL** button. No other actions need to be taken. A [training period](aad.md#training-period) is required before AAD can begin to report anomalies.
+To install the AAD StackPack, simply press the **INSTALL** button. No other actions need to be taken. THe AAD requires a [training period](aad.md#training-period) before it can begin to report anomalies.
 
 ### Training period
 
 The AAD will need to train on your data before it can begin reporting anomalies. With data collected in 1 minute buckets, the AAD requires a 2-hour training period. If historic data exists for relevant metric streams, this will also be used for training the AAD. In this case, the first results can be expected within an hour. Up to three days of data are used for training. After the initial training, the AAD will continuously refine its model and adapt to any changes in the data.
 
-For weekly seasonality, the training period needs to be extended to at least three weeks of data. With fine-grained metrics data, this puts a considerable load on the metrics store. The access pattern is quite different from other typical metric data uses. Enabling weekly seasonality therefore must be validated, in order to prevent degraded performance.
+For weekly seasonality, the training period needs to be extended to at least three weeks of data. With fine-grained metrics data, this puts a considerable load on the metrics store. The access pattern is quite different from other typical metric data uses. Enabling weekly seasonality therefore must be validated to prevent degraded performance.
 
 ## Frequently Asked Questions
 
@@ -99,7 +99,7 @@ The AAD scales to large environments by autonomously prioritizing metric streams
 * From those components, the metric streams with the highest priorities are ranked highest. See [how to set the priority for a stream](../../use/metrics/set-telemetry-stream-priority.md).
 * Anomaly detection will be disabled on streams if more than 20% of their time is flagged as anomalous.
 
-You cannot directly control the stream selected, but you can steer the metric stream selection of the AAD by manipulating the above-mentioned factors.
+You can't directly control the stream selected, but you can steer the metric stream selection of the AAD by manipulating the above-mentioned factors.
 
 {% hint style="success" "self-hosted info" %}
 
@@ -112,7 +112,7 @@ After an initial [training period](aad.md#training-period), the AAD ensures that
 
 ### Can anomalies trigger alerts?
 
-Yes. The AAD itself does not alert on anomalies found, but [anomaly health checks](../../use/checks-and-monitors/anomaly-health-checks.md) can be added to components to automatically change the health status of the component to `DEVIATING`. This health state change event can then trigger notifications by [adding an event handler](../../use/events/manage-event-handlers.md) to a view.
+Yes. The AAD itself doesn't alert on anomalies found, but [anomaly health checks](../../use/checks-and-monitors/anomaly-health-checks.md) can be added to components to automatically change the health status of the component to `DEVIATING`. This health state change event can then trigger notifications by [adding an event handler](../../use/events/manage-event-handlers.md) to a view.
 
 ## Uninstall
 

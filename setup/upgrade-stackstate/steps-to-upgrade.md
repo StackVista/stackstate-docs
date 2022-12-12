@@ -45,7 +45,7 @@ A minor upgrade consists of the following steps:
 
 A major release of StackState is indicated by a change in the first digit of the version number, for example 4.0.0.
 
-If you are upgrading to a new **major** StackState release, StackState and/or the installed StackPacks may be incompatible with the current installation. For details, check the [version-specific upgrade notes](version-specific-upgrade-instructions.md).
+If you upgrade to a new **major** StackState release, StackState and the installed StackPacks may be incompatible with the current installation. For details, check the [version-specific upgrade notes](version-specific-upgrade-instructions.md).
 
 A major upgrade consists of the following steps:
 
@@ -59,7 +59,7 @@ A major upgrade consists of the following steps:
 
 ### Create a backup
 
-Before upgrading StackState it is recommended to back up your configuration and topology data.
+Before upgrading StackState it's recommended to back up your configuration and topology data.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
@@ -80,7 +80,7 @@ To create a backup on Linux, see:
 {% endtabs %}
 
 {% hint style="info" %}
-Note that it will not be possible to restore the backup on the upgraded version of StackState. The StackState backup can only be restored in the StackState and StackPack versions prior to the upgrade.
+Note that it won't be possible to restore the backup on the upgraded version of StackState. The StackState backup can only be restored in the StackState and StackPack versions prior to the upgrade.
 {% endhint %}
 
 ### Uninstall StackPacks (optional)

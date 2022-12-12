@@ -6,11 +6,11 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-All of StackState's own components can run without any extra permissions. However, in order to install StackState successfully, you need some additional privileges, or ensure that the requirements described in this page are met.
+All of StackState's own components can run without any extra permissions. However, to install StackState successfully, you need some additional privileges, or ensure that the requirements described in this page are met.
 
 ## Autonomous Anomaly Detector \(AAD\)
 
-In order to run the [Autonomous Anomaly Detector](../../../stackpacks/add-ons/aad.md), or prepare your clsuter to run it, StackState needs to create a `ClusterRole` and two `ClusterRoleBinding` resources. Creating these cluster-wide resources is often prohibited for users that are not a Kubernetes/OpenShift administrator.
+In order to run the [Autonomous Anomaly Detector](../../../stackpacks/add-ons/aad.md), or prepare your clsuter to run it, StackState needs to create a `ClusterRole` and two `ClusterRoleBinding` resources. Creating these cluster-wide resources is often prohibited for users that aren't a Kubernetes/OpenShift administrator.
 
 ### Disable automatic creation of cluster-wide resources
 
@@ -107,7 +107,7 @@ As the `vm.max_map_count` Linux system setting is usually lower than required fo
 
 ### Disable the privileged Elasticsearch init container
 
-In case you and/or your Kubernetes/OpenShift administrators do not want the privileged Elasticsearch init container to be enabled by default, you can disable this behavior in the file `values.yaml` used to install StackState:
+In case you or your Kubernetes/OpenShift administrators don't want the privileged Elasticsearch init container to be enabled by default, you can disable this behavior in the file `values.yaml` used to install StackState:
 
 {% tabs %}
 {% tab title="values.yaml" %}
@@ -120,7 +120,7 @@ elasticsearch:
 {% endtabs %}
 
 {% hint style="info" %}
-If this is disabled, you will need to ensure that the `vm.max_map_count` setting is changed from its common default value of `65530` to `262144`. If this is not done, Elasticsearch will fail to start up and its pods will be in a restart loop.
+If this is disabled, you will need to ensure that the `vm.max_map_count` setting is changed from its common default value of `65530` to `262144`. If this isn't done, Elasticsearch will fail to start up and its pods will be in a restart loop.
 {% endhint %}
 
 To inspect the current `vm.max_map_count` setting, run the following command. Note that it runs a privileged pod:
@@ -129,7 +129,7 @@ To inspect the current `vm.max_map_count` setting, run the following command. No
 kubectl run -i --tty sysctl-check-max-map-count --privileged=true  --image=busybox --restart=Never --rm=true -- sysctl vm.max_map_count
 ```
 
-If the current `vm.max_map_count` setting is not at least `262144`, it will need to be increased in a different way or Elasticsearch will fail to start up and its pods will be in a restart loop. The logs will contain an error message like this:
+If the current `vm.max_map_count` setting isn't at least `262144`, it will need to be increased in a different way or Elasticsearch will fail to start up and its pods will be in a restart loop. The logs will contain an error message like this:
 
 ```text
 bootstrap checks failed

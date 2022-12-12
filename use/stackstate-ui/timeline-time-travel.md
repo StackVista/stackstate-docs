@@ -57,7 +57,7 @@ The topology and all telemetry displayed in StackState are based on a snapshot o
 
 ![Topology time](../../.gitbook/assets/v51_topology_time.png)
 
-On the timeline, the selected topology time is indicated by the playhead - a black line with the current topology time at the top. It is also specified in the **Topology time** box at the top of the timeline.
+On the timeline, the selected topology time is indicated by the playhead - a black line with the current topology time at the top. It's also specified in the **Topology time** box at the top of the timeline.
 
 #### Set the topology time
 
@@ -81,7 +81,7 @@ The topology time can be set in the following ways:
 
 #### Topology time outside the telemetry interval
 
-If the selected topology time is a time outside the currently selected [telemetry interval](timeline-time-travel.md#telemetry-interval), the message "The topology time is out of the current telemetry interval" will be displayed and the **Topology time** box at the top of the timeline will be highlighted black. As the timeline shows the telemetry interval from left to right, the playhead indicating the current topology time will not be visible on the timeline.
+If the selected topology time is a time outside the currently selected [telemetry interval](timeline-time-travel.md#telemetry-interval), the message "The topology time is out of the current telemetry interval" will be displayed and the **Topology time** box at the top of the timeline will be highlighted black. As the timeline shows the telemetry interval from left to right, the playhead indicating the current topology time won't be visible on the timeline.
 
 ![Topology time outside telemetry interval](/.gitbook/assets/v51_topology_time_outside_telemetry_interval.png)
 
@@ -106,7 +106,7 @@ Health state information is available when [health state is enabled](views/confi
 If the topology filters have been edited and not saved, no health state information will be available.
 {% endhint %}
 
-When health state information is not available, a gray line is displayed.
+When health state information isn't available, a gray line is displayed.
 
 ![Health state not available](../../.gitbook/assets/v51_timeline_no_health_state.png)
 
@@ -131,9 +131,9 @@ In each of the StackState perspectives, you can either be in live mode or in the
 
 Let's imagine a concrete scenario:
 
-* You received an event notification saying that your payment processing application is not able to process any payments right now, and your customers aren't being served.
+* You received an event notification saying that your payment processing application isn't able to process any payments right now, and your customers aren't being served.
 * In StackState, you can go to the moment in time when the components that make up the CRITICAL path of payment processing turned to a CRITICAL state. That moment corresponds to the point in time for which you will fetch the snapshot of your IT infrastructure - the topology time.
-* You can then select to see the hours that preceded that moment in order to fetch the telemetry that will hopefully point you to the root cause of your problem - the telemetry interval.
+* You can then select to see the hours that preceded that moment to fetch the telemetry that will hopefully point you to the root cause of your problem - the telemetry interval.
 
 StackState will enter time travel mode whenever a custom topology time is selected, the **Pause** button is clicked, or a custom telemetry interval is set for the telemetry interval. When StackState is in time travel mode:
 

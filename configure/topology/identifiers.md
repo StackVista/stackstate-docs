@@ -13,7 +13,7 @@ Identifiers are used in StackState to identify objects, such as topology element
 Topology elements use two types of identifiers in StackState:
 
 * **Integration scope identifiers** - used for identifying components and relations within an integration. Each component or relation has only one integration scope identifier. The identifier is arbitrary, but must be consistent within the scope of the integration itself.
-* **Global scope identifiers** - used for merging components between integrations, for example ServiceNow and the StackState Agent. Each component can have multiple global scope identifiers, while relations do not have any global identifiers. They are assigned by StackState and formatted in accordance with the [StackState global identifier convention](identifiers.md#global-scope-identifiers).
+* **Global scope identifiers** - used for merging components between integrations, for example ServiceNow and the StackState Agent. Each component can have multiple global scope identifiers, while relations don't have any global identifiers. They're assigned by StackState and formatted in accordance with the [StackState global identifier convention](identifiers.md#global-scope-identifiers).
 
 The code sample below shows a component with both types of identifiers.
 
@@ -78,14 +78,14 @@ Recognized URN prefixes are:
 * `stackpack:<name>` - objects belonging to StackPacks.
 * `stackpack:<name>:shared` - objects shared between instances of a StackPack.
 * `stackpack:<name>:instance:{{instanceId}}`- objects belonging to a specific instance of a StackPack, where `{{instanceId}}` is a handlebar that returns the ID provided during the StackPack installation process for each specific instance of the StackPack.
-* `system:auto` - objects created by the system that do not belong to any specific StackPacks.
+* `system:auto` - objects created by the system that don't belong to any specific StackPacks.
 
 ### Type-name and free-form
 
 The identifier is uniquely identified by the `<type-name>:<free-form>` segments.
 
 * `<type-name>` matches the domain object type of the object that the identifier is assigned to \(not case-sensitive\). 
-* `<free-form>` is arbitrary, but must be unique for the type. The format of the free-form segment is decided by the user. It does not need to match the name of the object \(if any is present\) and can itself consist of multiple segments.
+* `<free-form>` is arbitrary, but must be unique for the type. The format of the free-form segment is decided by the user. It doesn't need to match the name of the object \(if any is present\) and can itself consist of multiple segments.
 
 ## Example identifiers
 

@@ -193,9 +193,9 @@ Details of the included features, improvements, bug fixes and updated StackPacks
 
 **Improvements**
 
-- Introduced service tokens as a means of authenticating to StackState. Service tokens are not tied to a principal, but instead to a set of roles, allowing for service authentication. More information on creating and managing these can be found in the StackState documentation. STAC-15016
+- Introduced service tokens as a means of authenticating to StackState. Service tokens aren't tied to a principal, but instead to a set of roles, allowing for service authentication. More information on creating and managing these can be found in the StackState documentation. STAC-15016
 - Introduced optional View access logging. When enabled, a new access log for StackState views is created under `logs/access/`. This log allows you to track how often specific views are accessed and by which user. To enable this feature, you need to enable the feature flag `featureSwitches.viewAccessLogs` in the StackState Api config. STAC-16369
-- The OIDC `refresh_token` is now cached to prevent re-authenticating the user if the OIDC server does not return a new `refresh_token` when the old one hasn't expired yet. STAC-16158
+- The OIDC `refresh_token` is now cached to prevent re-authenticating the user if the OIDC server doesn't return a new `refresh_token` when the old one hasn't expired yet. STAC-16158
 - Updated the telemetry script API to stream results. More information can be found in the StackState documentation. STAC-16801
 - kafkaup-operator Helm chart: Added a configurable SecurityContext so that the container no longer requires privileged mode. STAC-16664
 - StackState Helm chart: Added configurable resource requests and limits for all containers. STAC-16443
@@ -349,7 +349,7 @@ Details of the included improvements and bug fixes can be found below.
 
 **Features**
 
-- The ability to create manual topology from the StackState UI has been removed. Please use the Static Topology StackPack in order to create components manually. STAC-14377
+- The ability to create manual topology from the StackState UI has been removed. Please use the Static Topology StackPack to create components manually. STAC-14377
 - Improved feedback from the topology synchronization service by exposing synchronization metrics via the CLI. STAC-13318
 - Improved root cause analysis using subviews: modify your view to include additional components, show indirect relations and paths, [show grouped relations](/use/concepts/relations.md), save changed views even when timetravelling. STAC-13142
 - Start anomaly detection on new streams after two hours. Adapt to changing streams in real-time. STAC-12996
@@ -365,7 +365,7 @@ Details of the included improvements and bug fixes can be found below.
 - Check state changes always invoke auto propagation even if a CRITICAL state has been propagated before. STAC-13656
 - Highlight exact changes when displaying Version Change, Health State Change or Run State Change events. STAC-13117
 - Retain timeline settings when switching views. STAC-12745
-- Component drag&drop functionality has been removed from the topology visualizer. Please use the Static Topology StackPack in order to create components manually. STAC-12718
+- Component drag&drop functionality has been removed from the topology visualizer. Please use the Static Topology StackPack to create components manually. STAC-12718
 - Support querying for problems in the Script API. STAC-12506
 - Support [problem notifications](/use/problem-analysis/problem_notifications.md) to Slack. STAC-12496
 - Prevent StackPacks requiring an incompatible version of StackState from being installed. STAC-9311

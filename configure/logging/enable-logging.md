@@ -10,16 +10,16 @@ description: StackState Self-hosted v5.1.x
 Only available for Linux installations of StackState.
 {% endhint %}
 
-For debugging purposes, it may be helpful to enable logging for a StackState function. You can add logging statements to functions and then use the StackState `stac` CLI to set the logging level for an individual function instance . Log messages will be added to the StackState log file `stackstate.log`. It is not possible to enable logging for all function types.
+For debugging purposes, it may be helpful to enable logging for a StackState function. You can add logging statements to functions and then use the StackState `stac` CLI to set the logging level for an individual function instance . Log messages will be added to the StackState log file `stackstate.log`. It isn't possible to enable logging for all function types.
 
 ## Set the logging level for a function instance
 
 To enable logging for an instance of a function, use its ID to set a logging level in the `stac` CLI. Note that the function itself will have an ID and each instance of the function relating to a component or view in StackState will have a separate ID.
 
 {% hint style="info" %}
-* It is only possible to enable logging for functions running on a Linux installation of StackState.
-* The logging level should be set using the ID for an instance of a function, not the ID of the function itself.
-* The [`stac` CLI](/setup/cli/cli-stac.md) is required to set the logging level. It is not possible to set the logging level of a function instance using the new `sts` CLI.
+* It's only possible to enable logging for functions running on a Linux installation of StackState.
+* Use the ID for an instance of a function to set the logging level, not the ID of the function itself.
+* Use the [`stac` CLI](/setup/cli/cli-stac.md) to set the logging level. It isn't possible to set the logging level of a function instance using the new `sts` CLI.
 {% endhint %}
 
 1. Find the ID for the instance of the function that you want to enable logging for:
@@ -95,7 +95,7 @@ stac graph list EventHandler
 
 ⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
@@ -134,7 +134,7 @@ stac monitor list
 
 ⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.** 
 
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")

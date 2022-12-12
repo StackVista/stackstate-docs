@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-Unhealthy components in a view are grouped into [problems](about-problems.md) based on how they are connected in the topology. When StackState identifies a problem, this will be reported in the right panel under **Problems**.
+Unhealthy components in a view are grouped into [problems](about-problems.md) based on how they're connected in the topology. When StackState identifies a problem, this will be reported in the right panel under **Problems**.
 
 * The **View summary** and **Subview summary** tabs list all problems that impact components in the current view or subview. 
 * The **Component details** tab lists all problems that involve the selected component. 
@@ -69,7 +69,7 @@ A problem subview is a temporary StackState view. The filters applied to a probl
   * Upstream healthy dependencies of the root cause or one of the contributing causes.
   * Downstream healthy components with an unhealthy [propagated state](/use/concepts/health-state.md#element-propagated-health-state) that originates from either the root cause or one of the contributing causes.
 
-Within a problem subview, you have access to all perspectives containing data specific to the problem time window and the involved components. The applied filters can be adjusted, but it is not possible to save the subview. You can share the problem subview with other StackState users, including any modifications you have made, as a link.
+Within a problem subview, you have access to all perspectives containing data specific to the problem time window and the involved components. The applied filters can be adjusted, but it isn't possible to save the subview. You can share the problem subview with other StackState users, including any modifications you have made, as a link.
 
 To exit the Problem Subview, click the view name in the top bar of the StackState UI.
 

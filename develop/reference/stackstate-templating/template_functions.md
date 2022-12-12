@@ -88,7 +88,7 @@ Two or more URNs strings.
 {% endtab %}
 
 {% tab title="Data" %}
-This example assumes `urn:stackpack:aws:Old:` does not exist, whereas `urn:stackpack:aws:domain:New` does exist.
+This example assumes `urn:stackpack:aws:Old:` doesn't exist, whereas `urn:stackpack:aws:domain:New` does exist.
 {% endtab %}
 
 {% tab title="Result" %}

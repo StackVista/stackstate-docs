@@ -51,7 +51,7 @@ The following checks can be configured to run as a cluster check:
   * [Kubernetes integration `kubernetes_state` check](/stackpacks/integrations/kubernetes.md)
   * [OpenShift integration `kubernetes_state` check](/stackpacks/integrations/openshift.md)
 * The [AWS check](/stackpacks/integrations/aws/aws.md#configure-the-aws-check)
-* The Checks Agent is also useful to run checks that do not need to run on a specific node and monitor non-containerized workloads such as:
+* The Checks Agent is also useful to run checks that don't need to run on a specific node and monitor non-containerized workloads such as:
   * Out-of-cluster datastores and endpoints \(for example, RDS or CloudSQL\).
   * Load-balanced cluster services \(for example, Kubernetes services\).
 
@@ -93,7 +93,7 @@ The StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics can be 
 
 The StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics can be installed together using the StackState Agent Helm Chart:
 
-1. If you do not already have it, you will need to add the StackState helm repository to the local helm client:
+1. If you don't already have it, you will need to add the StackState helm repository to the local helm client:
 
    ```sh
     helm repo add stackstate https://helm.stackstate.io
@@ -137,7 +137,7 @@ stackstate-agent stackstate/stackstate-agent
 
 ### Air gapped install
 
-If StackState Agent will run in an environment that does not have a direct connection to the Internet, the images required to install the StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics can be downloaded and stored in a local system or image registry.
+If StackState Agent will run in an environment that doesn't have a direct connection to the Internet, the images required to install the StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics can be downloaded and stored in a local system or image registry.
 
 1. Internet connection required:
    1. Download or clone the StackState Helm charts repo from GitHub: [https://github.com/StackVista/helm-charts](https://github.com/StackVista/helm-charts)
@@ -216,7 +216,7 @@ If required, the images required to install the StackState Agent, Cluster Agent,
 ## Helm chart values
 
 Additional variables can be added to the standard helm command used to deploy the StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics. For example:
-* It is recommended to [provide a `stackstate.cluster.authToken`](#stackstateclusterauthtoken).
+* It is recommended to [use a `stackstate.cluster.authToken`](#stackstateclusterauthtoken).
 * If you use a custom socket path, [set the `agent.containerRuntime.customSocketPath`](#agentcontainerruntimecustomsocketpath).
 
 {% hint style="info" %}
@@ -225,7 +225,7 @@ Details of all available helm chart values can be found in the [Agent Helm Chart
 
 ### stackstate.cluster.authToken
 
-It is recommended to provide a `stackstate.cluster.authToken` in addition to the standard helm chart variables when the StackState Agent is deployed. This is an optional variable, however, if not provided a new, random value will be generated each time a helm upgrade is performed. This could leave some pods in the cluster with an incorrect configuration.
+It is recommended to use a `stackstate.cluster.authToken` in addition to the standard helm chart variables when the StackState Agent is deployed. This is an optional variable, however, if not provided a new, random value will be generated each time a helm upgrade is performed. This could leave some pods in the cluster with an incorrect configuration.
 
 For example:
 
@@ -263,7 +263,7 @@ helm upgrade --install \
 
 It is not necessary to configure this property if your cluster uses one of the default socket paths (`/var/run/docker.sock`, `/var/run/containerd/containerd.sock` or `/var/run/crio/crio.sock`)
 
-If your cluster uses a custom socket path, you can provide it using the key `agent.containerRuntime.customSocketPath`. For example:
+If your cluster uses a custom socket path, you can specify it using the key `agent.containerRuntime.customSocketPath`. For example:
 
 ```bash
 helm upgrade --install \
@@ -490,7 +490,7 @@ StackState Agent V2 can be configured to reduce data production, tune the proces
 
 ## External integration configuration
 
-To integrate with other external services, a separate instance of the [StackState Agent](about-stackstate-agent.md) should be deployed on a standalone VM. Other than [kubernetes_state check](/stackpacks/integrations/kubernetes.md) and [AWS check](/stackpacks/integrations/aws/aws.md#configure-the-aws-check), it is not currently possible to configure a StackState Agent deployed on a Kubernetes or OpenShift cluster with checks that integrate with other services.
+To integrate with other external services, a separate instance of the [StackState Agent](about-stackstate-agent.md) should be deployed on a standalone VM. Other than [kubernetes_state check](/stackpacks/integrations/kubernetes.md) and [AWS check](/stackpacks/integrations/aws/aws.md#configure-the-aws-check), it isn't currently possible to configure a StackState Agent deployed on a Kubernetes or OpenShift cluster with checks that integrate with other services.
 
 # Commands
 
@@ -519,7 +519,7 @@ To find the status of an Agent check:
 
 2. Run the command:
    ```yaml
-   kubectl exec <agent-pod-name> -n <agent-namespace> -- agent status
+   kubectl exec <agent-pod-name> -n <agent-namespace> -- Agent status
    ```
 
 3. Look for the check name under the `Checks` section.

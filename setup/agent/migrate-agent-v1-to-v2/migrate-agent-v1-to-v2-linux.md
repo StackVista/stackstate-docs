@@ -15,9 +15,9 @@ Problems can occur if any of the steps is completed out of order. This could res
 {% endhint %}
 
 {% hint style="warning" %}
-**It is highly recommended to run this migration in a test environment.** 
+**It's highly recommended to run this migration in a test environment.** 
 
-It may affect some steps below, but will reduce the initial impact if something does not run to plan.
+It may affect some steps below, but will reduce the initial impact if something doesn't run to plan.
 {% endhint %}
 
 ## Impact analysis

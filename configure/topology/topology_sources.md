@@ -21,18 +21,18 @@ The screen contains the following fields:
 | **Name** | The name of the data source. |
 | **Description** | Optional. A description of the data source. |
 | **Use StackState's default Kafka** | Select to use either the default Kafka bus on the StackState server or a separate Kafka instance. |
-| **Kafka host\(s\)** | Required if StackState's default Kafka is not used. |
+| **Kafka host\(s\)** | Required if StackState's default Kafka isn't used. |
 | **Instance type** | The integration type. Select from the dropdown list. This list is populated with the `type` passed in the `instance` field in the [source JSON data](send-topology-data.md#topology-json-format). |
 | **Topic** | The Kafka topic to retrieve data from. Select from the dropdown list. This list is populated based on the `type` and `url` passed in the `instance` field in the [source topology JSON](send-topology-data.md#topology-json-format). |
 | **Maximum batch size** | The maximum number of components from a JSON file that are processed in a single batch. Used for rate limiting. |
-| **Expire elements** | When enabled, topology elements will be set to `expired` if they do not appear in this data source for a configured amount of time. Expired elements will be automatically removed. |
+| **Expire elements** | When enabled, topology elements will be set to `expired` if they don't appear in this data source for a configured amount of time. Expired elements will be automatically removed. |
 | **Expire after \(minutes\)** | When **Expire elements** is enabled, this is the timeout period after which elements should be expired. |
 | **Identifier** | Optional. A valid URN. |
 
 {% hint style="info" %}
 **Snapshot mode**
 
-When topology data is sent in snapshot mode, it is not necessary to expire elements. Each snapshot represents a complete landscape instance and elements missing from the snapshot will be automatically deleted.
+When topology data is sent in snapshot mode, it isn't necessary to expire elements. Each snapshot represents a complete landscape instance and elements missing from the snapshot will be automatically deleted.
 
 See the [Topology JSON format description](send-topology-data.md#topology-json-format) for details.
 {% endhint %}

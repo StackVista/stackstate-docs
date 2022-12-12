@@ -70,19 +70,21 @@ This same filter result could also be returned with basic filters, see [basic to
 
 You can switch between basic and advanced filtering by selecting **Basic** or **Advanced** under **Filter Topology** in the **View Filters** panel.
 
-It is always possible to switch from Basic to Advanced filtering. The selected basic filters will be converted directly to an STQL query. For simple queries it is also possible to switch from Advanced to Basic filtering, however, some advanced queries are not compatible with basic filters. 
+It's always possible to switch from Basic to Advanced filtering. The selected basic filters will be converted directly to an STQL query. For simple queries it's also possible to switch from Advanced to Basic filtering, however, some advanced queries aren't compatible with basic filters. 
 
 ➡️ [Learn more about the compatibility of basic and advanced topology filters](/develop/reference/stql_reference.md#compatibility-basic-and-advanced-filters)
 
 ### Other filters
 
-Some advanced filtering options are compatible with basic filtering, but cannot be set or adjusted as a basic filter. When these advanced filters are set in a way that is compatible with basic filtering, the box **Other filters** will be shown in the View Filters panel with details of the affected components:
+The advanced filters listed below are compatible with basic filtering, but can't be set or adjusted as a basic filter.
 
 * **withNeighborsOf** - when an advanced filter contains the function [withNeighborsOf](/develop/reference/stql_reference.md#withneighborsof), the number of components whose neighbors are queried for is shown in the **Other filters** box. To be compatible with basic filtering, a `withNeighborsOf` function must be joined to other filters using an `OR` operator.
-* **identifier** - when an advanced filter filters components by [identifier](/develop/reference/stql_reference.md#filters), the number of component identifiers queried is reported in the **Other filters** box. To be compatible with basic filtering, an `identifier` filter must be specified and joined to other filters using the operator `OR identifier IN (...)`.
+* **identifier** - when an advanced filter selects components by [identifier](/develop/reference/stql_reference.md#filters), the number of component identifiers queried is reported in the **Other filters** box. To be compatible with basic filtering, an `identifier` filter must be specified and joined to other filters using the operator `OR identifier IN (...)`.
+
+The **Other filters** box in the View Filters panel lists all such advanced filters and the number of affected components.
 
 {% hint style="info" %}
-The **Other filters** box will only contain details of advanced filters that have been set and are compatible with basic filtering.
+The **Other filters** box only contains details of advanced filters that have been set and are compatible with basic filtering.
 {% endhint %}
 
 ### Topology filtering limits
@@ -111,7 +113,7 @@ If required, you can [manually configure the topology filtering limit](/configur
 
 ## Filter Events
 
-The **View Filters** panel on the left of the StackState UI can be used to filter the events shown in the [Events Perspective](perspectives/events_perspective.md). They are also included in the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**.
+The **View Filters** panel on the left of the StackState UI can be used to filter the events shown in the [Events Perspective](perspectives/events_perspective.md). They're also included in the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**.
 
 The following event filters are available:
 

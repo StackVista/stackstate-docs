@@ -23,7 +23,7 @@ The OpenShift integration collects topology data in an OpenShift cluster as well
   * [Topology data](openshift.md#topology) is translated into components and relations.
   * [Tags](openshift.md#tags) defined in OpenShift are added to components and relations in StackState.
   * Relevant [metrics data](openshift.md#metrics) is mapped to associated components and relations in StackState. All retrieved metrics data is stored and accessible within StackState.
-  * [OpenShift events](openshift.md#events) are available in the StackState UI Events Perspective. They are also included the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**.
+  * [OpenShift events](openshift.md#events) are available in the StackState UI Events Perspective. They're also included the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**.
   * [Object change events](openshift.md#events) are created for every detected change to `spec` or `metadata` in OpenShift objects
 
 ## Setup
@@ -50,11 +50,11 @@ Note that versions of StackState Agent prior to v2.16 support the Docker contain
 
 ### Install
 
-Install the OpenShift StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
+Install the OpenShift StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
 
-* **OpenShift Cluster Name** - A name to identify the cluster. This does not need to match the cluster name used in `kubeconfig`, however, that is usually a good candidate for a unique name.
+* **OpenShift Cluster Name** - A name to identify the cluster. This doesn't need to match the cluster name used in `kubeconfig`, however, that's usually a good candidate for a unique name.
 
-If the Agent StackPack is not already installed, this will be automatically installed together with the OpenShift StackPack. This is required to work with the StackState Agent, which will need to be deployed on each node in the OpenShift cluster.
+If the Agent StackPack isn't already installed, this will be automatically installed together with the OpenShift StackPack. StackState requires the Agent StackPack to work with the StackState Agent, which will need to be deployed on each node in the OpenShift cluster.
 
 ### Deploy: Agent and Cluster Agent
 
@@ -68,7 +68,7 @@ For the OpenShift integration to retrieve topology, events and metrics data, you
 ➡️ [Deploy StackState Agents and kube-state-metrics](../../setup/agent/kubernetes-openshift.md).
 
 {% hint style="info" %}
-To integrate with other services, a separate instance of the [StackState Agent](../../setup/agent/about-stackstate-agent.md) should be deployed on a standalone VM. It is not currently possible to configure a StackState Agent deployed on an OpenShift cluster with checks that integrate with other services.
+To integrate with other services, a separate instance of the [StackState Agent](../../setup/agent/about-stackstate-agent.md) should be deployed on a standalone VM. It isn't currently possible to configure a StackState Agent deployed on an OpenShift cluster with checks that integrate with other services.
 {% endhint %}
 
 ### Configure kube-state-metrics
@@ -172,7 +172,7 @@ Changes will be detected in the following object types:
 * `StatefulSet`
 
 {% hint style="info" %}
-Note that, in order to reduce noise of changes, the following object properties **will not** be compared:
+Note that, to reduce noise of changes, the following object properties **won't** be compared:
 * `metadata`
   * `managedFields`
   * `resourceVersion`
@@ -239,7 +239,7 @@ The following relations between components are retrieved:
 
 #### Traces
 
-The OpenShift integration does not retrieve any traces data.
+The OpenShift integration doesn't retrieve any traces data.
 
 #### Tags
 
@@ -295,7 +295,7 @@ For further details, refer to the [OpenShift API documentation \(openshift.com\)
 
 ### Component actions
 
-A number of [actions](../../use/stackstate-ui/perspectives/topology-perspective.md#actions) are added to StackState when the OpenShift StackPack is installed. They are available from the **Actions** section in the right panel details tab - **Component details** - when an OpenShift component is selected or from the component context menu, which is displayed when you hover the mouse pointer over an OpenShift component in the Topology Perspective
+A number of [actions](../../use/stackstate-ui/perspectives/topology-perspective.md#actions) are added to StackState when the OpenShift StackPack is installed. They're available from the **Actions** section in the right panel details tab - **Component details** - when an OpenShift component is selected or from the component context menu, which is displayed when you hover the mouse pointer over an OpenShift component in the Topology Perspective
 
 | Action | Available for component types | Description |
 | :--- | :--- | :--- |

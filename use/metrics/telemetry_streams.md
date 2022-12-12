@@ -27,7 +27,7 @@ In StackState, telemetry streams need to be linked to elements \(components or r
 
 {% hint style="success" "self-hosted info" %}
 
-Telemetry streams can also be defined in templates and attached automatically to elements when they are imported by a synchronization. Read how to [add telemetry during topology synchronization](../../configure/telemetry/telemetry_synchronized_topology.md).
+Telemetry streams can also be defined in templates and attached automatically to elements when they're imported by a synchronization. Read how to [add telemetry during topology synchronization](../../configure/telemetry/telemetry_synchronized_topology.md).
 {% endhint %}
 
 ## See also

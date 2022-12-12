@@ -10,11 +10,11 @@ description: StackState Self-hosted v5.1.x
 **StackState Agent V2**
 {% endhint %}
 
-StackState Agent V2 can be installed on Windows systems. The Agent collects data from the host where it is running and can be configured to integrate with external systems. Retrieved data is pushed to StackState, to work with this data the [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md) must be installed in your StackState instance. For details of the data retrieved and available integrations, see the [StackPack integration documentation](../../stackpacks/integrations/).
+StackState Agent V2 can be installed on Windows systems. The Agent collects data from the host where it's running and can be configured to integrate with external systems. Retrieved data is pushed to StackState, to work with this data the [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md) must be installed in your StackState instance. For details of the data retrieved and available integrations, see the [StackPack integration documentation](../../stackpacks/integrations/).
 
 ## Monitoring
 
-StackState Agent V2 will synchronize the following data from the host it is running on with StackState:
+StackState Agent V2 will synchronize the following data from the host it's running on with StackState:
 
 * Hosts, processes and containers.
 * Telemetry for hosts, processes and containers   
@@ -34,7 +34,7 @@ StackState Agent V2.19.x is supported to run on:
 StackState Agent V2 is installed using a [PowerShell \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-7.2&viewFallbackFrom=powershell-6) script.
 
 * [Online install](windows.md#online-install) - If you have access to the internet on the machine where the Agent will be installed. 
-* [Offline install](windows.md#offline-install) - If you **do not** have access to the internet on the machine where the Agent will be installed.
+* [Offline install](windows.md#offline-install) - If you **don't** have access to the internet on the machine where the Agent will be installed.
 
 {% hint style="info" %}
 
@@ -56,7 +56,7 @@ install -stsApiKey "<STACKSTATE_RECEIVER_API_KEY>" `
 
 #### Offline install
 
-If you do not have access to the internet on the machine where the Agent will be installed, you will need to download both the install script and the Agent installer package before you install.
+If you don't have access to the internet on the machine where the Agent will be installed, you will need to download both the install script and the Agent installer package before you install.
 
 1. Download the PowerShell install script and copy this to the host where it will be installed:
    * [https://stackstate-agent-2.s3.amazonaws.com/install.ps1](https://stackstate-agent-2.s3.amazonaws.com/install.ps1)
@@ -91,7 +91,7 @@ StackState Agent V2 can be configured to reduce data production, tune the proces
 
 ### Integration configuration
 
-The Agent can be configured to run checks that integrate with external systems. Configuration files for integrations run through StackState Agent V2 can be found in the directory `C:\ProgramData\StackState\conf.d`. Each integration has its own configuration file that is used by the enabled Agent checks.
+The Agent can be configured to run checks that integrate with external systems. Configuration files for integrations run through StackState Agent V2 can be found in the directory `C:\ProgramData\StackState\conf.d`. Each integration has its own configuration file that's used by the enabled Agent checks.
 
 Documentation for the available StackState integrations, including configuration details can be found on the [StackPacks &gt; Integrations pages](../../stackpacks/integrations/).
 

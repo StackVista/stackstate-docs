@@ -6,15 +6,15 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-Monitors process 4T data, such as metrics, events and topology, to produce a health state for elements \(components and relations\). The states are calculated and attached to relevant topology elements by a specific monitor function that is selected by the user.
+Monitors process 4T data, such as metrics, events and topology, to produce a health state for elements \(components and relations\). The states are calculated and attached to relevant topology elements by a specific monitor function that's selected by the user.
 
-Monitors are run by a dedicated subsystem of StackState called the monitor runner. The main task of the monitor runner is to schedule the execution of all existing monitors in such a way as to ensure that all of them produce viable results in a timely manner. The monitor runner is maintenance free - it starts whenever StackState starts and picks up any newly applied monitor definitions automatically whenever they are created, changed or removed. Any changes that have been applied to the monitors are reflected with the next execution cycle.
+Monitors are run by a dedicated subsystem of StackState called the monitor runner. The main task of the monitor runner is to schedule the execution of all existing monitors in such a way as to ensure that all of them produce viable results in a timely manner. The monitor runner is maintenance free - it starts whenever StackState starts and picks up any newly applied monitor definitions automatically whenever they're created, changed or removed. Any changes that have been applied to the monitors are reflected with the next execution cycle.
 
 ## Single monitor
 
 ### Add a monitor
 
-Most Monitors in StackState are created as part of a StackPack installed by the user. They are added automatically upon installation and start producing health state results immediately afterwards, no further user action is required. Monitors automatically handle newly created topology elements and do not need to be specifically reconfigured after any topology changes occur or otherwise added to the newly created elements.
+Most Monitors in StackState are created as part of a StackPack installed by the user with no further action required. The monitors are added upon installation of the StackPack and immediately start to produce health state results. Monitors automatically handle newly created topology elements and don't need to be specifically reconfigured after any topology changes occur or otherwise added to the newly created elements.
 
 * Details of the monitor functions provided by StackPacks can be found in [the StackPack documentation](../../stackpacks/integrations/README.md).
 * You can [create a custom monitor](../../develop/developer-guides/monitors/create-custom-monitors.md) from scratch using the StackState CLI.
@@ -40,7 +40,7 @@ Once applied, the updated monitor definition will be in effect. Changes will be 
 
 ### Set the run interval
 
-The monitor runner schedules monitor execution using an interval parameter that is configured on a per-monitor basis - the `intervalSeconds`. The runner will attempt to schedule a monitor execution every `intervalSeconds`, counting from the end of the previous execution cycle, in parallel to the other existing monitors (subject to resource limits). For example, setting `intervalSeconds` of a monitor definition to the value `600` will cause the monitor runner to attempt to schedule the execution of this monitor every ten minutes, assuming that the execution time itself is negligible.
+The monitor runner schedules monitor execution using an interval parameter that's configured on a per-monitor basis - the `intervalSeconds`. The runner will attempt to schedule a monitor execution every `intervalSeconds`, counting from the end of the previous execution cycle, in parallel to the other existing monitors (subject to resource limits). For example, setting `intervalSeconds` of a monitor definition to the value `600` will cause the monitor runner to attempt to schedule the execution of this monitor every ten minutes, assuming that the execution time itself is negligible.
 
 To set a new run interval for a monitor, adjust the `intervalSeconds` parameter in the monitor STY definition as described in the instructions to [edit the monitor](#edit-a-monitor).
 
@@ -91,7 +91,7 @@ $ sts monitor status --identifier <identifier-of-a-monitor>
 {% hint style="warning" %}[](http://not.a.link "StackState Self-Hosted only")
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**[](http://not.a.link "StackState Self-Hosted only")
 
-The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
+The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
@@ -131,7 +131,7 @@ $ sts monitor run --identifier <identifier-of-a-monitor>
 {% hint style="warning" %}[](http://not.a.link "StackState Self-Hosted only")
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**[](http://not.a.link "StackState Self-Hosted only")
 
-The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
+The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
@@ -187,7 +187,7 @@ sts monitor enable --identifier <identifier-of-the-monitor>
 {% hint style="warning" %}[](http://not.a.link "StackState Self-Hosted only")
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**[](http://not.a.link "StackState Self-Hosted only")
 
-The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
+The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
@@ -234,7 +234,7 @@ $ sts monitor delete --identifier <identifier-of-the-monitor>
 {% hint style="warning" %}[](http://not.a.link "StackState Self-Hosted only")
 **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**[](http://not.a.link "StackState Self-Hosted only")
 
-The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
+The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
 * [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")

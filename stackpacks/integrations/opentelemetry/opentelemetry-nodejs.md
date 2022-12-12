@@ -31,11 +31,11 @@ The StackState OpenTelemetry Lambda Layer can be used with AWS Lambda scripts ru
 
 To set up OpenTelemetry traces, you need to have:
 * [StackState Agent](/setup/agent/about-stackstate-agent.md) v2.16 (or later)
-* StackState Agent should have [traces enabled](/setup/agent/advanced-agent-configuration.md#enable-traces). If traces are not enabled on the Agent, OpenTelemetry will not generate any data.
+* StackState Agent should have [traces enabled](/setup/agent/advanced-agent-configuration.md#enable-traces). If traces aren't enabled on the Agent, OpenTelemetry won't generate any data.
 * AWS Lambda scripts running `NodeJS 14.x` (or later)
   * These will be the Lambda functions you wish to add OpenTelemetry support to.
   * They should be able to communicate with the StackState Agent.
-* The [AWS StackPack](/stackpacks/integrations/aws/aws.md) should be installed and configured in StackState. The AWS StackPack CloudFormation template will deploy the latest supported OpenTelemetry Lambda Layer, which is required for AWS OpenTelemetry functionality.
+* The [AWS StackPack](/stackpacks/integrations/aws/aws.md) should be installed and configured in StackState. The AWS StackPack CloudFormation template will deploy the latest supported OpenTelemetry Lambda Layer (required for AWS OpenTelemetry functionality).
 
 ### Supported Services
 
@@ -77,7 +77,7 @@ Change the region in the top-right corner to the region where the [AWS StackPack
 Verify that there is a Lambda Layer called `stackstate-otel-nodejs`.
 
 {% hint style="info" %}
-**If the Lambda Layer is not present:**
+**If the Lambda Layer isn't present:**
 
   - The AWS StackPack CloudFormation Template installed may not be the latest one containing the Lambda Layer. Follow the [AWS StackPack](/stackpacks/integrations/aws/aws.md) documentation to verify the installation of this StackPack.
   - Lambda Layers are **AWS REGION** based. This means that the AWS StackPack CloudFormation template should also be deployed inside the same region as the targeted Lambda. If the CloudFormation template is currently deployed in another region other than where the targeted Lambda lives.
@@ -199,7 +199,7 @@ After the latest StackPack CloudFormation template has been deployed, there shou
 
 Click on the layer `stackstate-otel-nodejs` to enter and view the details of the layer.
 
-The **Created** box on the right should have a relative new time showing when it was created. Alternatively, go to any Lambda Function that is currently using the `stackstate-otel-nodejs` layer and compare the version it is using to the version displayed under the **Version** block for the layer.
+The **Created** box on the right should have a relative new time showing when it was created. Alternatively, go to any Lambda Function that's currently using the `stackstate-otel-nodejs` layer and compare the version it's using to the version displayed under the **Version** block for the layer.
 
 ![List of Lambda Layers](../../../.gitbook/assets/otel_lambda_layer_version.png)
 

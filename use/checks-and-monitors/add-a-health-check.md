@@ -12,7 +12,7 @@ The combined check states attached to an element are used to calculate its overa
 
 ## Add a health check
 
-Most elements in the StackState topology will have a relevant health check added when they are created. If required, you can also add custom health checks that calculate a health state in StackState based on available telemetry streams or [synchronize health data from an external monitoring system](add-a-health-check.md#synchronize-external-health-data).
+Most elements in the StackState topology will have a relevant health check added when they're created. If required, you can also add custom health checks that calculate a health state in StackState based on available telemetry streams or [synchronize health data from an external monitoring system](add-a-health-check.md#synchronize-external-health-data).
 
 To add a health check calculated in StackState:
 
@@ -20,7 +20,7 @@ To add a health check calculated in StackState:
    * Detailed information about the element will be displayed in the right panel details tab - **Component details** or **Direct relation details** depending on the element type that you selected.
    * If no telemetry stream is available on the selected element, you will need to [add a telemetry stream](../metrics/add-telemetry-to-element.md) first before you can add a health check.
 2. Click **ADD NEW HEALTH CHECK** under **Health** in the right panel details tab.
-3. In the **Add check** dialog box, provide the following details:
+3. In the **Add check** dialog box, enter the following details:
    * **Name** - The health check name. Will be displayed in the StackState UI right panel details tab **Health** section.
    * **Description** - Optional, can be used to explain the check in greater detail.
    * **Remediation hint** - Optional, will be automatically displayed on the element when this check goes to a non-clear state, for example `critical` or `deviating`.
@@ -47,7 +47,7 @@ For metrics check functions, a windowing method and window size must be provided
 
 ### Time window (or window size)
 
-By default, the time window is 300000 milliseconds (or 5 minutes). The time window will directly influence the number of positive or false negative alerts. The longer you configure the time window, the less sensitive it will be. However, if it is too short this may lead to a sudden spike in unwanted alerts, which might not help you meet your SLO. You should balance the time window based on the metric and how early you want to be alerted on spikes.
+By default, the time window is 300000 milliseconds (or 5 minutes). The time window will directly influence the number of positive or false negative alerts. The longer you configure the time window, the less sensitive it will be. However, if it's too short this may lead to a sudden spike in unwanted alerts, which might not help you meet your SLO. You should balance the time window based on the metric and how early you want to be alerted on spikes.
 
 ## Check functions
 

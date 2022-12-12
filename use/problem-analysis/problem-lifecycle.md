@@ -17,7 +17,7 @@ The stages in the problem lifecycle and associated StackState events are describ
 
 ## Problem created
 
-If an element's health state changes to `DEVIATING` (orange) or `CRITICAL` (red) and the probable root cause is not already part of an existing problem, a new problem will be created. All other elements in the landscape with an unhealthy state that can be attributed to the same root cause will be added to the same problem as contributing causes. 
+If an element's health state changes to `DEVIATING` (orange) or `CRITICAL` (red) and the probable root cause isn't already part of an existing problem, a new problem will be created. All other elements in the landscape with an unhealthy state that can be attributed to the same root cause will be added to the same problem as contributing causes. 
 
 When a problem is created, the following events are generated:
 

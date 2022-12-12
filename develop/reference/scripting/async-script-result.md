@@ -4,7 +4,7 @@ description: StackState Self-hosted v5.1.x
 
 # Async script result
 
-Most API functions execute asynchronously. That means they will not directly return results. Some functions are dependent on the network or other resources in order to complete, therefore they cannot immediately return results. Such asynchronous functions return an `AsyncScriptResult`. The concept of an `AsyncScriptResult` is modelled after how promises work in JavaScript.
+Most API functions execute asynchronously. That means they won't directly return results. Some functions are dependent on the network or other resources to complete, therefore they can't immediately return results. Such asynchronous functions return an `AsyncScriptResult`. The concept of an `AsyncScriptResult` is modelled after how promises work in JavaScript.
 
 ## Working with `AsyncScriptResult.then`
 
@@ -25,7 +25,7 @@ The Groovy script above can be shortened to:
 ScriptApi.asyncFn().then { it.toString() }
 ```
 
-The `it` keyword is default Groovy keyword that you do not need to define a variable in which you receive your result. You might see this being used in our examples.
+The `it` keyword is default Groovy keyword that you don't need to define a variable in which you receive your result. You might see this being used in our examples.
 
 ### Chaining
 
@@ -74,7 +74,7 @@ will return an array of both the result of `asyncFn2` and `asyncFn3`.
 
 ### Transforming a list using `thenCollect`
 
-Often it is desirable to transform a list of element coming from an `AsyncScriptResult`.
+Often it's desirable to transform a list of element coming from an `AsyncScriptResult`.
 
 Assuming `ScriptApi.asyncFn1()` return an `AsyncScriptResult` that contains the list `[1,2,3]`, this can be transformed to `[2,3,4]` in the following way:
 
@@ -113,7 +113,7 @@ ScriptApi.asyncFn1().thenInject([])  { accumulator, element ->
 
 ### Handling Exceptions
 
-It is sometimes necessary to handle exceptions raised during execution of `AsyncScriptResult`. This can be achieved using `catchError` function. For example:
+It's sometimes necessary to handle exceptions raised during execution of `AsyncScriptResult`. This can be achieved using `catchError` function. For example:
 
 ```text
 ScriptApi.asyncFn1().catchError { ex ->

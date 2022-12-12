@@ -90,7 +90,7 @@ Follow the steps below to configure StackState to authenticate using OIDC:
 
 ### Linux
 
-To configure StackState to use an OIDC authentication provider on Linux, OIDC details and user role mapping needs to be added to the file `application_stackstate.conf`. This should replace the existing `authentication` section that is nested in `stackstate.api`. For example:
+To configure StackState to use an OIDC authentication provider on Linux, OIDC details and user role mapping needs to be added to the file `application_stackstate.conf`. This should replace the existing `authentication` section that's nested in `stackstate.api`. For example:
 
 {% tabs %}
 {% tab title="application\_stackstate.conf" %}
@@ -137,7 +137,7 @@ authentication {
 
 Follow the steps below to configure StackState to authenticate using OIDC:
 
-1. In `application_stackstate.conf` - add details of the OIDC authentication provider \(see the example above\). This should replace the existing `authentication` section that is nested in `stackstate.api`:
+1. In `application_stackstate.conf` - add details of the OIDC authentication provider \(see the example above\). This should replace the existing `authentication` section that's nested in `stackstate.api`:
    * **clientId** - The ID of the [OIDC client you created for StackState](oidc.md#configure-oidc-provider).
    * **secret** - The secret for the [OIDC client you created for StackState](oidc.md#configure-oidc-provider)
    * **discoveryUri** - URI that can be used to discover the OIDC provider. Normally also documented or returned when creating the client in the OIDC provider.

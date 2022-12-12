@@ -6,9 +6,9 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-You can create and save views in StackState to bookmark a part of your topology that is of particular interest to your team. By default, saved views will be visible to all users, these can be [secured by a StackState administrator](about_views.md#secure-views-with-rbac) if required. 
+You can create and save views in StackState to bookmark a part of your topology that's of particular interest to your team. By default, saved views will be visible to all users, these can be [secured by a StackState administrator](about_views.md#secure-views-with-rbac) if required. 
 
-Not all views are manually created. Many [StackPacks](../../../stackpacks/about-stackpacks.md) generate views after installation. It is recommended to use these views only as starting points for creating your own views.
+Not all views are manually created. Many [StackPacks](../../../stackpacks/about-stackpacks.md) generate views after installation. It's recommended to use these views only as starting points for creating your own views.
 
 ## Create a view
 
@@ -19,8 +19,8 @@ In the **Save view as** dialog, the following options can be set:
 | Field Name | Description |
 | :--- | :--- |
 | View name | The name of the view. |
-| View health state enabled | Whether the view has a health state. If this is disabled, the health state, depicted by the colored circle next to the view name, will always be gray. When disabled, the StackState backend will not need to spend resources calculating a view health state each time the view changes. |
-| Configuration function | When view health state is enabled, you can choose a function that is used to calculate the view health state whenever there are changes in the view. The default choice is **minimum health states**. |
+| View health state enabled | Whether the view has a health state. If this is disabled, the health state, depicted by the colored circle next to the view name, will always be gray. When disabled, the StackState backend won't need to spend resources calculating a view health state each time the view changes. |
+| Configuration function | When view health state is enabled, you can choose a function that's used to calculate the view health state whenever there are changes in the view. The default choice is **minimum health states**. |
 | Arguments | The required arguments will vary depending on the chosen configuration function. |
 
 {% hint style="success" "self-hosted info" %}
@@ -34,7 +34,7 @@ In the **Save view as** dialog, the following options can be set:
 ## Delete or edit a view
 
 {% hint style="info" %}
-* It is not recommended to delete or edit views created by StackPacks. When doing so, you will get a warning that the view is locked. If you proceed anyway the issue needs to be resolved when upgrading the StackPack that created the view.
+* It isn't recommended to delete or edit views created by StackPacks. When doing so, you will get a warning that the view is locked. If you proceed anyway the issue needs to be resolved when upgrading the StackPack that created the view.
 * Note that changes made to a view will be applied for all users.
 {% endhint %}
 

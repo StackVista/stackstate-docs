@@ -36,7 +36,7 @@ To enable the Nagios check and begin collecting data from your Nagios instance:
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/nagios.d/conf.yaml`:
    * Include details of your Nagios instance: 
      * **nagios\_conf** - path to the `nagios.cfg` file
-   * By default, the Nagios check will not collect any metrics. To enable data collection, set one or both of the following to **True**:
+   * By default, the Nagios check won't collect any metrics. To enable data collection, set one or both of the following to **True**:
 
      * **collect\_host\_performance\_data**
      * **collect\_service\_performance\_data**.
@@ -58,7 +58,7 @@ To enable the Nagios check and begin collecting data from your Nagios instance:
 
 ## Permissions for Nagios files
 
-Nagios StackState Agent check tails Nagios config and log files, so it should have permission to read those files. If you run StackState Agent with some other user than `root`, the StackState Agent user must be added to the same group that is attached to the config and log files. Note that manually setting read permission is not an option as the files can sometimes be recreated by Nagios.
+Nagios StackState Agent check tails Nagios config and log files, so it should have permission to read those files. If you run StackState Agent with some other user than `root`, the StackState Agent user must be added to the same group that's attached to the config and log files. Note that manually setting read permission isn't an option as the files can sometimes be recreated by Nagios.
 
 ## Release notes
 

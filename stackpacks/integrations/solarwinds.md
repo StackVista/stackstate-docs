@@ -25,17 +25,21 @@ SolarWinds is a [StackState curated integration](/stackpacks/integrations/about_
 To set up the SolarWinds integration you will need to have:
 
 * [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to both SolarWinds \(default via TCP port 17778\) and StackState.
-* To support [component actions](solarwinds.md#component-actions) from StackState, the SolarWinds server needs to be accessible from the user's browser.
 * A running SolarWinds instance with correctly configured Network Performance Monitor \(NPM\) and User Device Tracker (UDT) modules. For details see [retrieved topology data](#topology).
 * A SolarWinds user with access to the required [API endpoints](solarwinds.md#rest-api-endpoints).
   * The lowest access level is sufficient.
   * The user must not have any account limitations set that block access to nodes intended to be retrieved.
-* To see relations between components, a layer 3 network device is required.
 * A SolarWinds administrator needs to be available to add custom node properties.
+
+Additionally, for some optional features you will need:
+
+* To see relations between components, a layer 3 network device is required.
+* To support [component actions](solarwinds.md#component-actions) from StackState, the SolarWinds server needs to be accessible from the user's browser.
+
 
 ### Install
 
-Install the SolarWinds StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters:
+Install the SolarWinds StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
 
 * **SolarWinds Instance URL**: The SolarWinds instance URL from which topology data will be collected.
 * **SolarWinds Instance Name**: The user-defined name of the SolarWinds account shown in configurations such as views.
@@ -98,11 +102,11 @@ Refer to the SolarWinds product documentation for details on how to [Manage Orio
 
 #### Events
 
-The SolarWinds check does not retrieve any event data.
+The SolarWinds check doesn't retrieve any event data.
 
 #### Metrics
 
-The SolarWinds check does not retrieve any metrics data.
+The SolarWinds check doesn't retrieve any metrics data.
 
 #### Topology
 
@@ -115,7 +119,7 @@ The SolarWinds check retrieves the following topology data from SolarWinds:
 
 | Data | Description |
 | :--- | :--- |
-| Components | Nodes and interfaces. In some cases, a SolarWinds node will not show any interfaces in the SolarWinds system. If UDT detects that such a node is connected to a device, a 'ghost' interface will be created in StackState to show the full topology. |
+| Components | Nodes and interfaces. In some cases, a SolarWinds node won't show any interfaces in the SolarWinds system. If UDT detects that such a node is connected to a device, a 'ghost' interface will be created in StackState to show the full topology. |
 | Relations | **NPM**: Layer-2 topology information from network devices. **UDT**: Layer-2 topology information connecting generic nodes to network devices |
 
 #### Health
@@ -140,7 +144,7 @@ The configured `collection_interval` will be used as the [`repeat_interval` for 
 
 #### Traces
 
-The SolarWinds check does not retrieve any trace data.
+The SolarWinds check doesn't retrieve any trace data.
 
 ### StackState views
 

@@ -22,7 +22,7 @@ StackState requires the following name and version to be set:
 - **Version:** `1.0.0`
 
 {% hint style="info" %}
-If the tracer name passed to StackState Agent does not exactly match the value specified above, received data will not be displayed in StackState.
+If the tracer name passed to StackState Agent doesn't exactly match the value specified above, received data won't be displayed in StackState.
 {% endhint %}
 
 ➡️ [See how this is implemented in code examples](code-examples.md#2-core-definitions)
@@ -36,7 +36,7 @@ When the [log level in StackState Agent](/setup/agent/about-stackstate-agent.md#
 The table below provides a summary of all the span keys that can be provided and are required. Further details of each key can be found in the sections below.
 
 {% hint style="info" %}
-Note that ALL the keys listed as required must be provided when creating a span. If any required keys are missing, the component will not appear in StackState.
+Note that ALL the keys listed as required must be provided when creating a span. If any required keys are missing, the component won't appear in StackState.
 {% endhint %}
 
 | **Key**                                              |  **Type**  | **Required**  | **Allowed Value** | **Example**                         |
@@ -169,7 +169,7 @@ The `service.type` is used to identify the type of service in the span in the St
 
 The service identifier is used for merging components. The provided value will be added to the identifier list on the component in StackState. 
 
-Components with the same service identifiers will merge into one component. This allows multiple components to be merged to create relations. COmponents can also bo merged with existing StackState components.
+Components with the same service identifiers will merge into one component. This allows multiple components to merge and create relations. Components can also bo merged with existing StackState components.
 
 ➡️ [Learn more about merging components](/stackpacks/integrations/opentelemetry/manual-instrumentation/merging.md)
 
@@ -189,7 +189,7 @@ Components with the same service identifiers will merge into one component. This
 1) Click on your component in the StackState Topology Perspective
 2) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
 3) The row with the key `identifiers` will contain the value you defined, as seen below in the image.
-4) ***NB. It is recommended to go and read the [merging with pre-existing components](/stackpacks/integrations/opentelemetry/manual-instrumentation/merging.md) page to know how this value can be leverage to create relations***
+4) ***NB. It's recommended to go and read the [merging with pre-existing components](/stackpacks/integrations/opentelemetry/manual-instrumentation/merging.md) page to know how this value can be leverage to create relations***
 
 ![Topology Perspective - service.identifier](../../../../.gitbook/assets/v51_otel_traces_service_identifier.png)
 {% endtab %}

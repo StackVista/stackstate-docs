@@ -102,7 +102,7 @@ The StackState CLI can be run inside a Docker container on Linux, Windows or mac
 
 ## Configure the `stac` CLI
 
-After a new installation, the `stac` CLI must be configured with the API connection details for your StackState instance. If you upgraded from a previous version of the CLI, it is not necessary to configure the CLI again, the existing CLI configuration will be used.
+After a new installation, the `stac` CLI must be configured with the API connection details for your StackState instance. If you upgraded from a previous version of the CLI, it isn't necessary to configure the CLI again, the existing CLI configuration will be used.
 
 The standalone executable StackState CLI on Linux or Windows includes a wizard to guide you through configuration. If you installed the Docker version of the `stac` CLI on macOS, Linux or Windows, the configuration file must be manually created.
 
@@ -111,9 +111,9 @@ The standalone executable StackState CLI on Linux or Windows includes a wizard t
 
 ### Configuration wizard \(Linux and Windows install\)
 
-If the `stac` CLI was installed on Linux or Windows using a standalone executable file, the first time you run any `stac` command, a configuration wizard will request the required configuration items. The wizard will then create a configuration file with the entered details and store it under the user's home directory. If a valid configuration file already exists, the `stac` CLI will use this and the configuration wizard will not run.
+If the `stac` CLI was installed on Linux or Windows using a standalone executable file, the first time you run any `stac` command, a configuration wizard will request the required configuration items. The wizard will then create a configuration file with the entered details and store it under the user's home directory. If a valid configuration file already exists, the `stac` CLI will use this and the configuration wizard won't run.
 
-The configuration wizard is not available when the `stac` CLI is run inside a Docker container on macOS, Linux or Windows.
+The configuration wizard isn't available when the `stac` CLI is run inside a Docker container on macOS, Linux or Windows.
 
 {% hint style="info" %}
 To configure the `stac` CLI, you will need your [authentication credentials](#authentication).
@@ -137,7 +137,7 @@ Thank you! Config file saved to: /Users/myuser/.stackstate/cli/conf.yaml
 
 ### Manual configuration \(Docker\)
 
-The `stac` CLI configuration file can be manually created or edited using the steps below. This is required for a Docker install and optional for a Linux or Windows install using a standalone executable file.
+Follow the steps below to manually create or edit the `stac` CLI configuration file. A Docker install of the `stac` CLI must be manually configured. For a Linux or Windows install using a standalone executable file, you can also use the [configuration wizard](#configuration-wizard-linux-and-windows-install) (preferred).
 
 1. Download the ZIP file `sts-cli-VERSION.zip` from [https://download.stackstate.com](https://download.stackstate.com). If you ran the Docker install, you can skip this step and use the ZIP archive you already downloaded.
 2. Copy the file `conf.d/conf.example.yaml` from the ZIP archive and put it in one of the following directories:
@@ -187,14 +187,14 @@ instances:
         #password: '???'
 
     ## The CLI uses a client configuration to identify who is sending to the StackState instance. The client
-    ## is used to send topology and/or telemetry to the receiver API.
+    ## is used to send topology and telemetry to the receiver API.
     ##
     ## Unless the `--client` argument is passed the CLI will pick the `default` instance as configured below.
     ## Other clients follow the exact same configuration pattern as the default client. You may simply copy-paste its config and modify whatever is needed.
     clients:
       default:
         api_key: "<STACKSTATE_RECEIVER_API_KEY>"
-        ## The name of the host that is passed to StackState when sending. Leave these values unchanged
+        ## The name of the host that's passed to StackState when sending. Leave these values unchanged
         ## if you have no idea what to fill here.
         hostname: "hostname"
         internal_hostname: "internal_hostname"
@@ -236,7 +236,7 @@ The `stac` CLI uses three StackState APIs: the Base API, the Admin API and the R
 
 ### API key - Receiver API
 
-StackState receives topology, telemetry and trace data via the Receiver API. If you want to push information to StackState using the `stac` CLI, you will need to provide a Receiver API key. This is the same API key that is used by the StackState Agent and is available from your administrator.
+StackState receives topology, telemetry and trace data via the Receiver API. If you want to push information to StackState using the `stac` CLI, you will need a Receiver API key. This is the same API key used by the StackState Agent and is available from your administrator.
 
 ### API token - Base API and Admin API
 
@@ -246,7 +246,7 @@ StackState receives topology, telemetry and trace data via the Receiver API. If 
 The `stac` CLI will issue a warning when username/password authentication is used for the Base API and the Admin API. It is recommended to switch to token based authentication as described below.
 {% endhint %}
 
-The `stac` CLI authenticates against the Base API and the Admin API using a unique API token that is auto-generated for your StackState user account. The same API token should be entered in the `stac` CLI configuration file for both the Base API and the Admin API.
+The `stac` CLI authenticates against the Base API and the Admin API using a unique API token auto-generated for your StackState user account. The same API token should be entered in the `stac` CLI configuration file for both the Base API and the Admin API.
 
 * The Base API is used for most operations. All users have access to this API, although the available operations will be restricted in accordance with the permissions assigned to each role.
 * The Admin API is used for some operations that affect the global configuration of StackState, such as the configuration of StackGraph's retention. Only users with the permission `access-admin-api` will have access to the Admin API and the associated operations.
@@ -267,7 +267,7 @@ curl -H "Authorization: ApiToken <token>" <stackstate-api-endpoint>
 
 ## Upgrade
 
-Follow the steps below to upgrade an installed version of the CLI. Note that it is not necessary to configure the CLI again after the upgraded version is installed, the existing CLI configuration will be used.
+Follow the steps below to upgrade an installed version of the CLI. Note that it isn't necessary to configure the CLI again after the upgraded version is installed, the existing CLI configuration will be used.
 
 1. Delete the existing CLI files:
    * **Windows and Linux:**
@@ -281,7 +281,7 @@ Follow the steps below to upgrade an installed version of the CLI. Note that it 
    * [Windows install](#windows-install)
    * [Docker install \(macOS, Linux, Windows\)](#docker-install-macos-linux-windows)
 
-3. It is not necessary to configure the CLI again, the existing CLI configuration will be used.
+3. It isn't necessary to configure the CLI again, the existing CLI configuration will be used.
 
 ## Uninstall
 
@@ -324,5 +324,5 @@ stac subscription update new-license-key
 ```
 
 {% hint style="info" %}
-Note that it is not necessary to do this using the CLI. StackState will also offer this option in the UI when a license is about to expire or has expired.
+Note that it isn't necessary to do this using the CLI. StackState will also offer this option in the UI when a license is about to expire or has expired.
 {% endhint %}

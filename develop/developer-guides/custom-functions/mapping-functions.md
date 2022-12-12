@@ -22,7 +22,7 @@ To add a custom component or relation mapping function:
 3. Enter the required settings:
    * **Name** - The name of the mapping function is shown on the settings page and in the topology synchronization that uses it. 
    * **Description** - Optional. Describes the mapping function in further detail. Will be shown on the mapping function settings page.
-   * **Parameters** - Mapping functions work with one system parameter `element`. This is used to process the component or relation JSON payload. It is not possible to add additional user parameters.
+   * **Parameters** - Mapping functions work with one system parameter `element`. This is used to process the component or relation JSON payload. It isn't possible to add additional user parameters.
    * **Script** - Defines the logic of the mapping function using the Groovy scripting language.
    * **Identifier** - Optional. Specifies the URN identifier for the mapping function. This should be set if you intend to include the mapping function in a StackPack.
 4. Click **CREATE** to save the mapping function.
@@ -43,7 +43,7 @@ This example shows a simple component mapping function - the **Fixed label mappi
 
 #### Script 
 
-The script checks if the data payload already contains a key named `labels`, as shown on line 1. If the `labels` key is not present, then the value is initialized to an empty list to ensure that the value is going to be a list. If the `labels` key does exist, the assumption is made that the value is a list.
+The script checks if the data payload already contains a key named `labels`, as shown on line 1. If the `labels` key isn't present, then the value is initialized to an empty list to ensure that the value is going to be a list. If the `labels` key does exist, the assumption is made that the value is a list.
 
 Line 5 appends the label `label-added-by-mapper-function` to the list of labels. The updated `element` variable is returned by the mapping function on line 7. 
 

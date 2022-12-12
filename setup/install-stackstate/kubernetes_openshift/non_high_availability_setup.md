@@ -6,10 +6,10 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-The recommended Kubernetes/OpenShift deployment of StackState is a production ready setup with many services running redundantly. If required, it is also possible to run StackState in a non-redundant setup, where each service has only a single replica.
+The recommended Kubernetes/OpenShift deployment of StackState is a production ready setup with many services running redundantly. If required, it's also possible to run StackState in a non-redundant setup, where each service has only a single replica.
 
 {% hint style="info" %}
-The non-high availability setup is only suitable for situations that do not require high availability.
+The non-high availability setup is only suitable for situations that don't require high availability.
 {% endhint %}
 
 ## Create `nonha_values.yaml`

@@ -10,7 +10,7 @@ With StackState Markup Language \(STML\), you can create pretty formatted docume
 
 ## Rich text formatting using Markdown
 
-STML is a valid superset of markdown. In other words, it is markdown plus extensions. That means that you can easily format documents with headings, bullet point lists, links and tables as you may be used to with the Markdown format. For example the following valid STML document create a table of elements to buy with links to google:
+STML is a valid superset of markdown. In other words, it's markdown plus extensions. That means that you can easily format documents with headings, bullet point lists, links and tables as you may be used to with the Markdown format. For example the following valid STML document create a table of elements to buy with links to google:
 
 ```text
 | To buy                              | Amount |
@@ -23,7 +23,7 @@ STML is a valid superset of markdown. In other words, it is markdown plus extens
 
 STML is markdown plus HTML-like tags. Tags are StackState-specific extensions to Markdown that render in some specific way. It could be a chart, visualization, pie chart, etc.
 
-Each tag has its unique rendering, and a set of required and/or optional attributes.
+Each tag has its unique rendering, and a set of required or optional attributes.
 
 Tags in STML are coded in the following format:
 
@@ -68,7 +68,7 @@ Telemetry
 ```
 {% endcode %}
 
-Notice that the third parameter of the `showReport` function is a map that is defined by `[ metrics: host1Load ]`. This map defines which variables are available to STML. In this case the variable `metrics` references the data `host1Load`.
+Notice that the third parameter of the `showReport` function is a map that's defined by `[ metrics: host1Load ]`. This map defines which variables are available to STML. In this case the variable `metrics` references the data `host1Load`.
 
 The syntax for using such variables in STML is `{NAME}`, where NAME is the name of the variable containing the data. Thus, passing the `metrics` variable to the `data` variable using this syntax means that the `auto-widget` can use the metric to render a nice chart.
 

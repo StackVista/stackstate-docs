@@ -1,6 +1,6 @@
 ## The Azure StackPack is waiting for your action
 
-To enable the Azure integration and begin collecting data from Azure, you will need to deploy the StackState Azure Agent to your Azure instance. The StackState Azure agent is a collection of Azure functions that connect to Azure REST API endpoints. You can deploy one or more StackState Azure Agents, each will collect data from resources related to the configured `Reader` roles in the Azure Service Principle.
+To enable the Azure integration and begin collecting data from Azure, you will need to deploy the StackState Azure Agent to your Azure instance. The StackState Azure Agent is a collection of Azure functions that connect to Azure REST API endpoints. You can deploy one or more StackState Azure Agents, each will collect data from resources related to the configured `Reader` roles in the Azure Service Principle.
 
 1. Download the [manual installation zip file](/api/stackpack/azure/resources/{{configurationVersion}}/stackstate-azure-manual-installation.zip).
 

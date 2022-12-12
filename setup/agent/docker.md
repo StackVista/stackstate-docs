@@ -10,13 +10,13 @@ description: StackState Self-hosted v5.1.x
 **StackState Agent V2**
 {% endhint %}
 
-StackState Agent V2 can run in a Docker container. The Agent collects data from the host where it is running and can be configured to integrate with external systems. Retrieved data is pushed to StackState, to work with this data the [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md) must be installed in your StackState instance. For details of the data retrieved and available integrations, see the [StackPack integration documentation](../../stackpacks/integrations/).
+StackState Agent V2 can run in a Docker container. The Agent collects data from the host where it's running and can be configured to integrate with external systems. Retrieved data is pushed to StackState, to work with this data the [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md) must be installed in your StackState instance. For details of the data retrieved and available integrations, see the [StackPack integration documentation](../../stackpacks/integrations/).
 
 In Docker Swarm mode, the StackState Swarm Agent can be deployed on the manager node to retrieve topology data for the cluster.
 
 ## Monitoring
 
-StackState Agent V2 will retrieve topology and metrics data from the host that it is running on. In [Docker swarm mode](#docker-swarm-mode), StackState Cluster Agent running on the manager node will synchronize data for a Docker cluster. For details, see the [data retrieved](#data-retrieved).
+StackState Agent V2 will retrieve topology and metrics data from the host that it's running on. In [Docker swarm mode](#docker-swarm-mode), StackState Cluster Agent running on the manager node will synchronize data for a Docker cluster. For details, see the [data retrieved](#data-retrieved).
 
 ## Setup
 
@@ -166,7 +166,7 @@ StackState Agent V2 can be configured to reduce data production, tune the proces
 
 ### External integration configuration
 
-StackState Agent V2 can be configured to run checks that integrate with external systems. Each integration has its own configuration file that is used by the associated Agent check. Configuration files for integrations that will run through StackState Agent V2 in Docker should be added as a volume to the directory `/etc/stackstate-agent/conf.d/` when the container is started.
+StackState Agent V2 can be configured to run checks that integrate with external systems. Each integration has its own configuration file that's used by the associated Agent check. Configuration files for integrations that will run through StackState Agent V2 in Docker should be added as a volume to the directory `/etc/stackstate-agent/conf.d/` when the container is started.
 
 For example, the Agent Docker configuration below includes a volume with a check configuration file for the ServiceNow integration:
 
@@ -221,7 +221,7 @@ StackState Agent V2 can be configured to collect traces via a [StackState tracin
 
 ### Start or stop the Agent
 
-To start, stop or restart StackState Agent V2, start or stop the container it is running in:
+To start, stop or restart StackState Agent V2, start or stop the container it's running in:
 
 ```text
 # Start container
@@ -321,7 +321,7 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 ## Uninstall
 
-To uninstall StackState Agent V2, stop the Docker container it is running in and remove it.
+To uninstall StackState Agent V2, stop the Docker container it's running in and remove it.
 
 ```text
 docker stop stackstate-agent
@@ -332,7 +332,7 @@ docker container rm stackstate-agent
 
 ### Topology
 
-StackState Agent V2 will retrieve the following topology data from the host that it is running on:
+StackState Agent V2 will retrieve the following topology data from the host that it's running on:
 
 * Hosts, processes and containers
 * Network connections between processes/containers/services 

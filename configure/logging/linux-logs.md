@@ -169,7 +169,7 @@ From StackState v1.15.0, the version of Elasticsearch used by StackState changed
 
 ## Log files
 
-StackState keeps logs in files that have a maximum size of 50 MB. When a log file exceeds 50 MB size cap, it is divided into ordered parts, as in the below example:
+StackState keeps logs in files that have a maximum size of 50 MB. When a log file exceeds 50 MB size cap, it's divided into ordered parts, as in the below example:
 
 ```text
 ./sync:

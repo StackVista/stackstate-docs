@@ -12,13 +12,13 @@ Layers are one of the ways to logically group components. Layers are represented
 
 ## Domains
 
-Domains are another way of grouping components logically. They are shown as columns ordered from left to right in StackState Views. The order of Domains can be configured in the **Settings** page under the **Domains** section by providing numeric values in the `Order` column. Should two domains have the same numeric value, then the alphabetic order of the domain names determines which domain has the position more to the left.
+Domains are another way of grouping components logically. They're shown as columns ordered from left to right in StackState Views. The order of Domains can be configured in the **Settings** page under the **Domains** section by providing numeric values in the `Order` column. Should two domains have the same numeric value, then the alphabetic order of the domain names determines which domain has the position more to the left.
 
 ![Domains Settings](../../.gitbook/assets/domains.png)
 
 ## Environments
 
-Environments are meant for grouping components using the DTAP model: Development, Testing, Acceptance, and Production. A component can belong to one **or multiple** environments. This can be useful when modeling, for example, a database that is used for both the development and testing environment. Environments share the same domains and layers. Typically, you need a view of a single environment at a time; however, it is possible to get a view of multiple environments at the same time.
+Environments are meant for grouping components using the DTAP model: Development, Testing, Acceptance, and Production. A component can belong to one **or multiple** environments. This can be useful when modeling, for example, a database used for both the development and testing environment. Environments share the same domains and layers. Typically, you need a view of a single environment at a time; however, it's possible to get a view of multiple environments at the same time.
 
 ![Environments](../../.gitbook/assets/environments.png)
 
