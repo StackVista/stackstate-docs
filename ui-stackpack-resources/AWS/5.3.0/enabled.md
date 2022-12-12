@@ -59,8 +59,8 @@ These environment variables have the same names used by the AWS_CLI utility and 
 
 The StackState AWS Cloudformation stacks are deployed on your AWS account to enable topology monitoring. In case these have been uninstalled, they can be reinstalled using the instructions provided below. There are two options for StackState monitoring:
 
-* [**Full install**](#full-install) - all changes to AWS resources will be picked up and pushed to StackState.
-* [**Minimal install**](#minimal-install) - changes will be picked up only at a configured interval.
+* [**Full install**](#full-install) - picks up all changes to AWS resources and pushes these to StackState.
+* [**Minimal install**](#minimal-install) - picks up changes at a configured interval only.
 
 ### Full install
 

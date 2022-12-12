@@ -33,7 +33,7 @@ In a self-hosted installation, feedback must be [exported and sent to StackState
 {% hint style="warning" %} 
 **Take care not to include sensitive data in comments.** 
 
-Comments added to an anomaly will be included in any anomaly feedback data that is sent to StackState.
+Comments added to an anomaly will be included in any anomaly feedback data sent to StackState.
 {% endhint %}
 
 ## See also

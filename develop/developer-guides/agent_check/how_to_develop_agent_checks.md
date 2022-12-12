@@ -187,7 +187,7 @@ The identifiers and the external identifier, for example `some-application-uniqu
 
 #### Merge Identifiers
 
-The `identifiers` are used within StackState to merge components across different integrations. Components with a matching identifier will be merged within StackState.
+StackState uses the `identifiers` to merge components across different integrations. If components have a matching identifier they will be merged.
 
 Given the following example:
 

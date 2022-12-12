@@ -8,7 +8,7 @@ The page explains how health state in StackState works with custom instrumentati
 
 * If you have not already read about the health state span mapping `http.status_code`, head over to the page [tracer and span mappings](/stackpacks/integrations/opentelemetry/manual-instrumentation/tracer-and-span-mappings.md) to understand how the health state is mapped to a span. 
 * If you are not familiar with how health state works in StackState, see the page [about health state](/use/concepts/health-state.md) to learn about the types of element health state available, what propagated health state is and how it works.
-* To understand how custom instrumentations will be merged with existing components in StackState, see the page [Merging components](merging.md).
+* To understand how StackState merges custom instrumentations with existing components, see the page [Merging components](merging.md).
 
 # Health state without merging
 

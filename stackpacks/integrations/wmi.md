@@ -36,14 +36,14 @@ The integration can be enabled via the StackState Agent Manager:
 
 After the integration is enabled WMI queries can be defined in the integrations configuration yaml file, i.e. `wmi_check.d/conf.yaml`. Multiple WMI queries can be configured. In the configuration file, an instance can be configured which represents a WMI query. An instance is defined by the following fields:
 
-| Field | Required | Description |
-| :--- | :--- | :--- |
-| `class` | Yes | The WMI class to use in the query. |
+| Field | Required | Description                                                                                                                                                                                                                                                         |
+| :--- | :--- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `class` | Yes | The WMI class to use in the query.                                                                                                                                                                                                                                  |
 | `metrics` | Yes | The metrics that need to be collected. This is in format `[WMI property name, metric name, metric type]`. The `WMI property name` is the property to be collected, `metric name` is the metric name reported to StackState, and `metric type` is the metric's type. |
-| `tag_by` | No | Adds the properties value as tag to the metric that is send to StackState. |
-| `tags` | No | Add customer tags to the metric that is send to StackState. |
-| `filters` | No | WMI query filter to reduce the amount of metrics returned. |
-| `collection_interval` | No | Periodicity of executing the WMI query, in seconds. Default is once per 15 seconds. |
+| `tag_by` | No | Adds the properties value as tag to the metric sent to StackState.                                                                                                                                                                                                  |
+| `tags` | No | Add customer tags to the metric sent to StackState.                                                                                                                                                                                                                 |
+| `filters` | No | WMI query filter to reduce the amount of metrics returned.                                                                                                                                                                                                          |
+| `collection_interval` | No | Periodicity of executing the WMI query, in seconds. Default is once per 15 seconds.                                                                                                                                                                                 |
 
 Example instance:
 

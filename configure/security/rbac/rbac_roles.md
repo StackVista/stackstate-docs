@@ -67,7 +67,7 @@ upload-stackpacks           | system
 {% endtab %}
 {% tab title="Platform Administrator" %}
 
-Platform Administrator \(`stackstate-platform-admin`\) is the only predefined role that is assigned the permission `access-admin-api`.
+Platform Administrator \(`stackstate-platform-admin`\) is the only predefined role assigned the permission `access-admin-api`.
 
 Permissions assigned to the predefined Platform Administrator role (`stackstate-platform-admin`) are listed below, these were retrieved using the `sts` CLI. For details of the different permissions and how to manage them using the `sts` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md).
 

@@ -56,8 +56,8 @@ Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrati
 
 The StackState AWS Cloudformation stacks are deployed on your AWS account to enable topology monitoring. There are two options for StackState monitoring:
 
-* [Full install](aws-legacy.md#full-install) - all changes to AWS resources will be picked up and pushed to StackState.
-* [Minimal install](aws-legacy.md#minimal-install) - changes will be picked up only at a configured interval.
+* [Full install](aws-legacy.md#full-install) - picks up all changes to AWS resources and pushes to StackState.
+* [Minimal install](aws-legacy.md#minimal-install) - picks up changes at a configured interval only.
 
 #### Full install
 

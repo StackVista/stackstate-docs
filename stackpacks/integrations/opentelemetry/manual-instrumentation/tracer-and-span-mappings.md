@@ -169,7 +169,7 @@ The `service.type` is used to identify the type of service in the span in the St
 
 The service identifier is used for merging components. The provided value will be added to the identifier list on the component in StackState. 
 
-Components with the same service identifiers will merge into one component. This allows multiple components to be merged to create relations. COmponents can also bo merged with existing StackState components.
+Components with the same service identifiers will merge into one component. This allows multiple components to merge and create relations. Components can also bo merged with existing StackState components.
 
 ➡️ [Learn more about merging components](/stackpacks/integrations/opentelemetry/manual-instrumentation/merging.md)
 

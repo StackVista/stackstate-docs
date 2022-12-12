@@ -111,7 +111,7 @@ Select the **myDummyApp** component to display detailed information about it in 
 
 In the Template Editor you can edit the template used to create components based on data coming in from your sample check. It shows the following information:
 
-* **Input parameters** - The data sent by our `curl` command that is processed by StackState
+* **Input parameters** - The data sent by our `curl` command that's processed by StackState
 * **Template function** - The template that uses the input parameters to create a component
 * **Component preview** - A preview of the component produced by applying the input parameters to the template function
 

@@ -143,7 +143,7 @@ To set environment variables for a Windows Service, use the multi-string key
 
 `HKLM\System\CurrentControlSet\Services\{service name}\Environment` in the Windows Registry.
 
-Note: The .NET runtime tries to load a profiler into any .NET process that is started with these environment variables. You should limit instrumentation only to the applications that need to be traced. We do not recommend setting these environment variables globally as this causes all .NET processes on the host to load the profiler.
+Note: The .NET runtime tries to load a profiler into any .NET process that's started with these environment variables. You should limit instrumentation only to the applications that need to be traced. We do not recommend setting these environment variables globally as this causes all .NET processes on the host to load the profiler.
 
 If host has datadog so-called automatic instrumentation installed, following settings can be used.
 

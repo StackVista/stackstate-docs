@@ -68,7 +68,7 @@ Telemetry
 ```
 {% endcode %}
 
-Notice that the third parameter of the `showReport` function is a map that is defined by `[ metrics: host1Load ]`. This map defines which variables are available to STML. In this case the variable `metrics` references the data `host1Load`.
+Notice that the third parameter of the `showReport` function is a map that's defined by `[ metrics: host1Load ]`. This map defines which variables are available to STML. In this case the variable `metrics` references the data `host1Load`.
 
 The syntax for using such variables in STML is `{NAME}`, where NAME is the name of the variable containing the data. Thus, passing the `metrics` variable to the `data` variable using this syntax means that the `auto-widget` can use the metric to render a nice chart.
 

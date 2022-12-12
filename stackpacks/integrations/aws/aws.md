@@ -36,14 +36,14 @@ To set up the StackState AWS integration, you need to have:
 
 ### AWS accounts
 
-It's recommended to have two different AWS accounts: One that is being monitored and another used for data collection.
+It's recommended to have two different AWS accounts: One that's being monitored and another used for data collection.
 
 * **Monitor Account** - used to [deploy a CloudFormation Stack](#deploy-the-aws-cloudformation-stack). The CloudFormation stack will create an IAM role that has the permissions required to retrieve data from this Monitor Account (`StackStateAwsIntegrationRole`). 
 * **Data Collection Account** - used by StackState and StackState Agent to retrieve data from the Monitor Account. An AWS policy granting permissions to assume the role `StackStateAwsIntegrationRole` in the Monitor Account is required. 
 
 #### AWS policy
 
-The policy below grants permission to assume the role `StackStateAwsIntegrationRole` that is created in each target AWS Monitor Account when the CloudFormation Stack is deployed. This policy is required by StackState and StackState Agent to collect data from the AWS Monitor Account. The policy should be created and attached to the AWS user(s) or IAM role(s) that will be used by StackState and the StackState Agent:
+The policy below grants permission to assume the role `StackStateAwsIntegrationRole` that's created in each target AWS Monitor Account when the CloudFormation Stack is deployed. This policy is required by StackState and StackState Agent to collect data from the AWS Monitor Account. The policy should be created and attached to the AWS user(s) or IAM role(s) that will be used by StackState and the StackState Agent:
 
 ```javascript
 {
@@ -131,7 +131,7 @@ The default StackState CloudFormation template can be used to deploy all necessa
 The template requires the following parameters:
 
 * **MainRegion** - The primary AWS region. This can be any region, as long as this region is the same for every template deployed within the AWS account. Global resources will be deployed in this region such as the IAM role and S3 bucket. Example: `us-east-1`.
-* **StsAccountId** - The 12-digit AWS account ID that is going to be monitored. This will be the AWS account that the IAM role can be assumed from, to perform actions on the target AWS account. Example: `0123456789012`.
+* **StsAccountId** - The 12-digit AWS account ID to be monitored. This will be the AWS account that the IAM role can be assumed from, to perform actions on the target AWS account. Example: `0123456789012`.
 * **ExternalId** - A shared secret that the StackState Agent will present when assuming a role. Use the same value across all AWS accounts that the Agent is monitoring. Example: `uniquesecret!1`.
 * **IncludeOpenTelemetryTracing** - Default: `disabled`. Set to `enabled` to include the OpenTelemetry layer in your deployment. This is required to [retrieve OpenTelemetry traces from AWS Lambda scripts running NodeJS](/stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md).
 * **Post fix** - Optional. Value to append to all resource names when deploying the stack multiple times in the same account.
@@ -142,7 +142,7 @@ For more information on how to use StackSets, check the AWS documentation on [wo
 
 Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to provide the following parameters, these will be used by StackState to configure the StackPack instance within StackState and query live telemetry from the AWS account. To create topology in StackState, you will also need to configure the AWS check on StackState Agent V2.
 
-* **Role ARN** - the ARN of the IAM Role created by the cloudFormation stack. For example, `arn:aws:iam::<account id>:role/StackStateAwsIntegrationRole` where `<account id>` is the 12-digit AWS account ID that is being monitored. 
+* **Role ARN** - the ARN of the IAM Role created by the cloudFormation stack. For example, `arn:aws:iam::<account id>:role/StackStateAwsIntegrationRole` where `<account id>` is the 12-digit AWS account ID being monitored. 
 * **External ID** - a shared secret that StackState will present when assuming a role. Use the same value across all AWS accounts. For example, `uniquesecret!1`
 * **AWS Access Key ID** - The Access Key ID of the IAM user that will be used by StackState to collect CloudWatch metrics. This is the same as the IAM user used by the Agent to collect topology data and logs from AWS. If StackState is running within AWS, it may also be possible to [authenticate with an IAM role](#iam-role-on-ec2-or-eks).
 * **AWS Secret Access Key** - The Secret Access Key of the IAM user that will be used by StackState to collect CloudWatch metrics. This is the same as the IAM user used by the Agent to collect topology data and logs from AWS. If StackState is running within AWS, it may also be possible to [authenticate with an IAM role](#iam-role-on-ec2-or-eks).

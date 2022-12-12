@@ -173,7 +173,7 @@ To meet StackState minimal requirements, the AWS instance type needs to have at 
 * 4 CPU cores
 * 16GB of memory, e.g., m5.xlarge.
 
-The AWS CLI has to be installed on the EC2 instance that is running StackState.
+The AWS CLI has to be installed on the EC2 instance that's running StackState.
 
 ## Networking
 
@@ -185,7 +185,7 @@ All listed ports are TCP ports.
 
 A production deployment separates StackState and StackState's database processes; StackGraph.
 
-StackState has to be reachable on port 7070 by any supported browser. StackState port 7077 must be reachable from any system that is pushing data to StackState
+StackState has to be reachable on port 7070 by any supported browser. StackState port 7077 must be reachable from any system pushing data to StackState
 
 StackGraph should be reachable by StackState on ports 2181, 8020, 15165, 16000, 16020, 50010.
 
@@ -196,7 +196,7 @@ The following ports can be opened for monitoring, but are also useful when troub
 
 ### Development/POC deployment
 
-StackState has to be reachable on port 7070 by any supported browser. StackState port 7077 must be reachable from any system that is pushing data to StackState
+StackState has to be reachable on port 7070 by any supported browser. StackState port 7077 must be reachable from any system pushing data to StackState
 
 The following ports can be opened for monitoring, but are also useful when troubleshooting: 9001, 9002, 9003, 9004, 9005, 9006, 9010, 9011, 9020, 9021, 9022, 9023, 9024, 9025, 9026, 16010, 16030, 50070, 50075
 

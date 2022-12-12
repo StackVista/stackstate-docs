@@ -45,7 +45,7 @@ Topology, telemetry and health data are sent to the receiver API via HTTP POST. 
 {
   "collection_timestamp": 1548855554, // the epoch timestamp for the collection
   "events": {}, // used to send events data
-  "internalHostname": "localdocker.test", // the host that is sending this data
+  "internalHostname": "localdocker.test", // the host sending this data
   "metrics": [], // used to send metrics data
   "service_checks": [],
   "topologies": [], // used to send topology data

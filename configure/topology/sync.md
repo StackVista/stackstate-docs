@@ -39,7 +39,7 @@ StackState comes with some default identity extractor functions, which should be
 
 ### Mapping
 
-Next up is mapping. It specifies the transformation of external system topological data into StackState domain. Mapping is defined by model element type name that is coming from external system, mapping functions and mapping functions parameters.
+Next up is mapping. It specifies the transformation of external system topological data into StackState domain. Mapping is defined by the model element type name coming from external system, mapping functions and mapping functions parameters.
 
 * _Model Element Type Name_ - identifier of external element type, e.g. linux, hypervisor, java
 * _Mapper Function_ - Mapper function that knows how to process the data of _Model Element Type_
@@ -55,7 +55,7 @@ The merge strategy is applied when multiple components get synchronized which ha
 * _Merge, prefer mine_ - Merge fields that are mergable, if not take the data from this mapping
 * _Merge, prefer theirs_ - Merge fields that are mergable, if not take the data from the other components
 
-In a component, it's possible to merge set fields \(such as streams and checks\) and optional fields \(such as version and description\). Mandatory fields \(such as name and layer\) can't be merged. If a field can't be merged, one has to be picked based on Mine/Theirs configuration.
+In a component, it's possible to merge set fields \(such as streams and checks\) and optional fields \(such as version and description\). It isn't possible to merge mandatory fields \(such as name and layer\). In this case, pick one based on Mine/Theirs configuration.
 
 ## Mapping Functions
 

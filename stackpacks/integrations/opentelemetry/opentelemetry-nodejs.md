@@ -199,7 +199,7 @@ After the latest StackPack CloudFormation template has been deployed, there shou
 
 Click on the layer `stackstate-otel-nodejs` to enter and view the details of the layer.
 
-The **Created** box on the right should have a relative new time showing when it was created. Alternatively, go to any Lambda Function that is currently using the `stackstate-otel-nodejs` layer and compare the version it's using to the version displayed under the **Version** block for the layer.
+The **Created** box on the right should have a relative new time showing when it was created. Alternatively, go to any Lambda Function that's currently using the `stackstate-otel-nodejs` layer and compare the version it's using to the version displayed under the **Version** block for the layer.
 
 ![List of Lambda Layers](../../../.gitbook/assets/otel_lambda_layer_version.png)
 

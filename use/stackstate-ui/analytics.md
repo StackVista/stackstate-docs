@@ -24,7 +24,7 @@ The analytics environment is divided into two sections:
 * The query you want to execute on the left
 * The results and query history on the right.
 
-When executing a query for the first time, the result of the query is displayed in preview form if a preview is available for the type of data that is requested, for example a metric chart or a topology view. If no preview is available, the data will be shown in JSON form.
+When executing a query for the first time, the result of the query is displayed in preview form if a preview is available for the type of data requested, for example a metric chart or a topology view. If no preview is available, the data will be shown in JSON form.
 
 Every query that you have executed in StackState is shown in the query history, together with the query result at that point in time.
 

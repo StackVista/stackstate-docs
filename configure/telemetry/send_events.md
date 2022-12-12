@@ -45,7 +45,7 @@ Topology, metrics, event and health data are sent to the StackState receiver API
 {
   "collection_timestamp": 1548855554, // the epoch timestamp for the collection in seconds
   "events": {}, // see the section on "events", below
-  "internalHostname": "local.test", // the host that is sending this data
+  "internalHostname": "local.test", // the host sending this data
   "metrics": [], // see the section on "metrics", below
   "service_checks": [],
   "topologies": [], // used for sending topology data

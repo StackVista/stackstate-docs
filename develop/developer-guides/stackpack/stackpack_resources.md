@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 The resources reside in `<your-stackpack>/src/main/stackpack/resources` directory. This folder contains files to be used mostly as display assets in the StackState UI as steps during the StackPack installation process. Some of the files are required for a StackPack to be displayed correctly:
 
-* `logo.png` - an image file with the StackPack logo that is displayed on the StackPacks page in StackState.
+* `logo.png` - an image file with the StackPack logo that's displayed on the StackPacks page in StackState.
 * `overview.md` - a Markdown text file with general information about the StackPack.
 * `configuration.md` - a Markdown text file with information about how to configure a StackPack instance.
 

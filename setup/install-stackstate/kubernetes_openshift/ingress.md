@@ -12,7 +12,7 @@ StackState can be exposed with Ingress resources. The example on this page shows
 
 The StackState Helm chart exposes an `ingress` section in its values. This is disabled by default. The example below shows how to use the Helm chart to configure an nginx-ingress controller with TLS encryption enabled. Note that setting up the controller itself and the certificates is beyond the scope of this document.
 
-To configure the ingress for StackState, create a file `ingress_values.yaml` with contents like below. Replace `MY_DOMAIN` with your own domain \(that is linked with your ingress controller\) and set the correct name for the `tls-secret`. Consult the documentation of your ingress controller for the correct annotations to set. All fields below are optional, for example, if no TLS will be used, that section can be omitted.
+To configure the ingress for StackState, create a file `ingress_values.yaml` with contents like below. Replace `MY_DOMAIN` with your own domain \(that's linked with your ingress controller\) and set the correct name for the `tls-secret`. Consult the documentation of your ingress controller for the correct annotations to set. All fields below are optional, for example, if no TLS will be used, that section can be omitted.
 
 ```text
 ingress:
