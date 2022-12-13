@@ -138,7 +138,7 @@ The configuration file has the following format:
 
 ### 11. Convert your StackState configuration file to the `.stj` template
 
-Each of the node elements represents a configuration item in StackState. This config file contains all of the configuration of your StackState instance, which means you have to take out unnecessary configuration node objects. Take the steps below to convert your configuration file into an `.stj` template file:
+Each of the node elements represents a configuration item in StackState. This config file has all the configuration of your StackState instance, which means you have to take out unnecessary configuration node objects. Take the steps below to convert your configuration file into an `.stj` template file:
 
 * Remove all configuration `node` objects that are owned by another StackPack. They all have a field called `ownedBy`.
 * StackState uses an urn-based identifiers, you can go ahead and define an urn for each of your configuration objects.

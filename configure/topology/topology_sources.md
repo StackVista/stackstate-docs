@@ -14,7 +14,7 @@ To add a new topology data source, click **ADD STS DATA SOURCE** from the screen
 
 ![ADD STS DATA SOURCE screen](../../.gitbook/assets/v51_add_sts_data_source.png)
 
-The screen contains the following fields:
+The screen has the following fields:
 
 | Field | Description |
 | :--- | :--- |

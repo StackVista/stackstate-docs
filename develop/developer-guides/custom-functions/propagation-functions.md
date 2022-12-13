@@ -211,7 +211,7 @@ The example template below uses a `get` helper to obtain the ID of the **Active/
 
 #### Stop propagation for relation type
 
-The template example below includes an argument that will be passed to the propagation function as a user parameter together with the standard system parameters. The `"arguments"` list contains one argument that matches the user parameter `relationType` from the **Stop propagation for relation type** propagation function. Arguments for system parameters are automatically provided during run time and don't need to be specified.
+The template example below includes an argument that will be passed to the propagation function as a user parameter together with the standard system parameters. The `"arguments"` list has one argument that matches the user parameter `relationType` from the **Stop propagation for relation type** propagation function. Arguments for system parameters are automatically provided during run time and don't need to be specified.
 
 {% tabs %}
 {% tab title="Template `propagation` block" %}
