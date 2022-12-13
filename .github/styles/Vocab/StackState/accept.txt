@@ -90,5 +90,3 @@ URL
 VIEW
 View
 view
-aws.amazon.com
-docs.aws.amazon.com

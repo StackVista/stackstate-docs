@@ -6,8 +6,6 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-k8s
-
 You can create and save views in StackState to bookmark a part of your topology that's of particular interest to your team. By default, saved views will be visible to all users, these can be [secured by a StackState administrator](about_views.md#secure-views-with-rbac) if required. 
 
 Not all views are manually created. Many [StackPacks](../../../stackpacks/about-stackpacks.md) generate views after installation. It's recommended to use these views only as starting points for creating your own views.
