@@ -148,7 +148,7 @@ description: StackState Self-hosted v5.1.x
             <td><a href="/.gitbook/assets/gitbook-card-image_openmetrics.jpg">gitbook-card-image_openmetrics.jpg</a></td>
         </tr>
         <tr>
-            <td><strong>Postgres</strong></td>
+            <td><strong>PostgreSQL</strong></td>
             <td><a href="/stackpacks/integrations/postgresql.md">postgresql</a></td>
             <td><a href="/.gitbook/assets/gitbook-card-image_postgres.jpg">gitbook-card-image_postgres.jpg</a></td>
         </tr>

@@ -73,6 +73,8 @@ STJ
 STY
 STQL
 sts
+Subgraphs
+subgraphs
 Substream
 substream
 SUBVIEW

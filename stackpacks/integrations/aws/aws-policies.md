@@ -19,11 +19,11 @@ To use a template, replace the following values:
 
 ## StackStateAwsIntegrationRole
 
-The JSON objects below contains the least-privilege IAM policy used by the AWS integration. The Assume Role Policy Document should grant the Agemt access. Refer to the AWS documentation for more information on [setting a trust policy \(aws.amazon.com\)](https://aws.amazon.com/blogs/security/how-to-use-trust-policies-with-iam-roles/).
+The JSON objects below contains the least-privilege IAM policy used by the AWS integration. The Assume Role Policy Document should grant the Agent access. Refer to the AWS documentation for more information on [setting a trust policy \(aws.amazon.com\)](https://aws.amazon.com/blogs/security/how-to-use-trust-policies-with-iam-roles/).
 
 ### Trust Relationship
 
-For an AWS Agemt running outside of AWS, using an IAM user. Replace the Principal with the IAM user or AWS account that the Agemt is using.
+For an AWS Agent running outside of AWS, using an IAM user. Replace the Principal with the IAM user or AWS account that the Agent is using.
 
 ```javascript
 {
@@ -47,7 +47,7 @@ For an AWS Agemt running outside of AWS, using an IAM user. Replace the Principa
 }
 ```
 
-For an AWS Agemt running on an EC2 instance:
+For an AWS Agent running on an EC2 instance:
 
 ```javascript
 {
