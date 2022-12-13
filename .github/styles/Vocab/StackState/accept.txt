@@ -33,6 +33,7 @@ endtabs
 EVENT
 Event
 event
+IAM
 ITSM
 JIRA
 JVM
@@ -51,6 +52,7 @@ new
 New
 playhead
 Playhead
+PostgreSQL
 RBAC
 SAVE
 Save
@@ -88,3 +90,5 @@ URL
 VIEW
 View
 view
+aws.amazon.com
+docs.aws.amazon.com
