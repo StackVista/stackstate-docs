@@ -58,7 +58,7 @@ Every health Repeat States data payload has the following details:
 * **expiry** - Optional. An expiry update needs to be processed before processing `check_states`. This enables StackState to track how long the external checks should be present in the system if they aren't sent again. It carries the following fields as expiry metadata:
   * **repeat_interval_s** - Time in seconds. The frequency with which the external source will send health data to StackState. Max allowed value is 1800 (30 minutes).
   * **expiry_interval_s** - Time in seconds. The time to wait after the last update before an external check is deleted by StackState if the external check isn't observed again.
-* **stream** - Object providing identification regarding which snapshots and `check_states` belong together. It contains the following fields:
+* **stream** - Object providing identification regarding which snapshots and `check_states` belong together. It has the following fields:
   * **urn** - Data source and stream ID encoded as a StackState [URN](/configure/topology/identifiers.md) that matches the following convention: `urn:health:<sourceId>:<streamId>` where `<sourceId>` is the name if the external data source and `<streamId>` is a unique identifier for the health data stream.
   * **sub_stream_id** - Optional. Identifier for a subset of the stream health data. When the stream data is distributed and reported by several agents, this allows snapshot lifecycles per `sub_stream_id`
 * **check_states** - A list of check states. Each check state can have the following fields:

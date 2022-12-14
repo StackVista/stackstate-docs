@@ -109,7 +109,7 @@ The following properties return details of a received event:
 
 #### Metric stream anomaly data
 
-An anomaly event contains details on the anomaly that was detected in the metric stream.
+An anomaly event has details on the anomaly that was detected in the metric stream.
 
 | Property | Type | Returns |
 | :--- | :--- | :--- |

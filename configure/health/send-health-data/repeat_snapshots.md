@@ -58,7 +58,7 @@ Every health Repeat Snapshots data payload has the following details:
   * **repeat_interval_s** - Time in seconds. The frequency with which the external source will send health data to StackState. Max allowed value is 1800 (30 minutes).
   * **expiry_interval_s** - Time in seconds. The time to wait after the last update before an external check is deleted by StackState. Required when using sub streams.
 * **stop_snapshot** - Optional. An end of a snapshot will be processed after processing the`check_states`.
-* **stream** - Object providing identification regarding which snapshots and `check_states` belong together. It contains the following fields:
+* **stream** - Object providing identification regarding which snapshots and `check_states` belong together. It has the following fields:
   * **urn** - Data source and stream ID encoded as a StackState [URN](/configure/topology/identifiers.md) that matches the following convention: `urn:health:<sourceId>:<streamId>` where `<sourceId>` is the name if the external data source and `<streamId>` is a unique identifier for the health data stream.
   * **sub_stream_id** - Optional. Identifier for a subset of the stream health data. When the stream data is distributed and reported by several Agents, this allows snapshot lifecycles per `sub_stream_id`
 * **check_states** - A list of check states. Each check state can have the following fields:

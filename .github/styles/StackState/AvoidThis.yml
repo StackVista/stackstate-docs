@@ -1,0 +1,11 @@
+extends: substitution
+message: "Use'%s' instead of '%s'."
+#ignorecase: true
+level: suggestion
+action:
+  name: replace
+swap:
+  [Kk]8s: Kubernetes
+  id: ID
+  API's: APIs
+  [Cc]onfig: configuration

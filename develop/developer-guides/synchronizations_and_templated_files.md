@@ -75,7 +75,7 @@ Mapping functions are an optional step in the Synchronization flow. [Find out mo
 
 Once you have installed the `Custom Synchronization` StackPack, it creates a Component Template called `autosync-component-template`. Similarly, `Custom Synchronization` StackPack, creates a Relation Template called `autosync-relation-template`.
 
-You can go ahead and rename it, add a description if needed. It is recommended to change the default value of the `ComponentType` from `Auto-synced Component` to something that represents a generic component in your data source. The same goes for `Layer`, `Domain` and `Environment` which defaults to `Auto-synced Components`, `Auto-synced Domain`,`Auto-synced Environment` respectively. As this template is using the `getOrCreate` functionality, these values are auto-created by StackState if they don't already exist. Find more on Templates [here](../reference/stackstate-templating/using_stackstate_templating.md).
+You can go ahead and rename it, add a description if needed. It's recommended to change the default value of the `ComponentType` from `Auto-synced Component` to something that represents a generic component in your data source. The same goes for `Layer`, `Domain` and `Environment` which defaults to `Auto-synced Components`, `Auto-synced Domain`,`Auto-synced Environment` respectively. As this template is using the `getOrCreate` functionality, these values are auto-created by StackState if they don't already exist. Find more on Templates [here](../reference/stackstate-templating/using_stackstate_templating.md).
 
 Once you have completed all the changes, you can click **UPDATE** and confirm the popup dialog to unlock this Template from the `Custom Synchronization` StackPack.
 
@@ -129,7 +129,7 @@ nodes:
 
 ### 11. Convert your StackState configuration file to the `.sty` template
 
-Each of the node elements represents a configuration item in StackState. This config file contains all of the configuration of your StackState instance, which means you have to take out unnecessary configuration node objects. Take the steps below to convert your configuration file into an `.sty` template file:
+Each of the node elements represents a configuration item in StackState. This configuration file has all the configuration of your StackState instance, which means you have to take out unnecessary configuration node objects. Take the steps below to convert your configuration file into an `.sty` template file:
 
 * Remove all configuration `node` objects that are owned by another StackPack. They all have a field called `ownedBy`.
 * StackState uses an urn-based identifiers, you can go ahead and define an urn for each of your configuration objects.
@@ -139,7 +139,7 @@ Each of the node elements represents a configuration item in StackState. This co
 
 The only way to add/modify the identifiers is the manual edit of the configuration file. This option will be available also through UI in the upcoming releases.
 
-After cleaning up the configuration file it is time to template out the variables exposed by your StackPack. As explained in the [Configuration input](stackpack/prepare_package.md) documentation section, it is possible to define some input fields that your StackPack requires to authenticate against some external sources and to differentiate between instances. To generalize the configuration, it is needed to inject the configuration file with some template parameters which is provided by the [Provisioning Script](stackpack/prepare_stackpack_provisioning_script.md). Any parameters or configuration item can be passed down to the `.sty` template file.
+After cleaning up the configuration file it's time to template out the variables exposed by your StackPack. As explained in the [Configuration input](stackpack/prepare_package.md) documentation section, it's possible to define some input fields that your StackPack requires to authenticate against some external sources and to differentiate between instances. To generalize the configuration, it's needed to inject the configuration file with some template parameters which is provided by the [Provisioning Script](stackpack/prepare_stackpack_provisioning_script.md). Any parameters or configuration item can be passed down to the `.sty` template file.
 
 One common example is to create the topic name required by the data source for a given instance. To ensure data received from the StackState Agent Check ends up in your StackPack's data source, make sure that you create the same topic in the provisioning script. Following code snippet shows how to create a function called `topicName` that generates a topic name for this instance based on the data provided by the user in the StackPack installation step.
 

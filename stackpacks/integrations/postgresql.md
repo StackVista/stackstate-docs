@@ -23,7 +23,7 @@ The PostgreSQL check is included in the [Agent V2 StackPack](agent.md). To start
 
 Edit the `postgres.d/conf.yaml` file, in the `conf.d/` folder at the root of your Agent's configuration directory to start collecting your PostgreSQL metrics and logs. See the sample `postgres.d/conf.yaml` for all available configuration options.
 
-#### Prepare Postgres
+#### Prepare PostgreSQL
 
 To get started with the PostgreSQL integration, create a read-only `stackstate` user with proper access to your PostgreSQL server. Start `psql` on your PostgreSQL database and run:
 
@@ -48,8 +48,8 @@ To verify the permissions are correct, run the following command:
 ```text
 psql -h localhost -U stackstate postgres -c \
 "select * from pg_stat_database LIMIT(1);" \
-&& echo -e "\e[0;32mPostgres connection - OK\e[0m" \
-|| echo -e "\e[0;31mCannot connect to Postgres\e[0m"
+&& echo -e "\e[0;32mPostgreSQL connection - OK\e[0m" \
+|| echo -e "\e[0;31mCannot connect to PostgreSQL\e[0m"
 ```
 
 When it prompts for a password, enter the one used in the first command.

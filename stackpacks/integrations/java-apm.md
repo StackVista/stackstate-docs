@@ -167,7 +167,7 @@ Don't see your desired networking framework? StackState is continuously adding a
 * MSSQL \(Microsoft SQL Server\)
 * MySQL
 * Oracle
-* Postgres SQL
+* PostgreSQL
 
 **Datastore tracing provides:** timing request to response, query info \(for example, a sanitized query string\), and error and stacktrace capturing.
 

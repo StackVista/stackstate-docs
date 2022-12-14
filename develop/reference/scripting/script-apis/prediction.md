@@ -26,7 +26,7 @@ Predict metrics for any metric query coming from any data source.
 
 `AsyncScriptResult[PredictionResponse]`
 
-A `PredictionResponse`, which contains the following fields:
+A `PredictionResponse`, which has the following fields:
 
 Fields:
 

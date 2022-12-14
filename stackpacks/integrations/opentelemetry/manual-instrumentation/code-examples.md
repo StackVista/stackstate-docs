@@ -209,7 +209,7 @@ provider.forceFlush().finally(() => {
 
 ### The complete example
 
-The code block below contains the complete example for JavaScript and NodeJS including all of the code snippets above.
+Below is the complete example for JavaScript and NodeJS, including all of the code snippets above.
 
 ```javascript
 // Base Imports for OpenTelemetry

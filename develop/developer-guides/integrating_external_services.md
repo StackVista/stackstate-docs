@@ -10,7 +10,7 @@ Integrating external services with StackState is done by using the [HTTP script 
 
 ## Example
 
-Let's say you have developed a service that contains a list of components that should not propagate their state. This service can be developed in any language, but is accessible via a REST API.
+Let's say you have developed a service that has a list of components that should not propagate their state. This service can be developed in any language, but is accessible via a REST API.
 
 Whenever you call your HTTP server with `/propagation?componentName=SOMENAME` it will respond with: `{ "allow": "OK" }` or `{ "allow": "NOK" }` depending on the passed name of the component.
 

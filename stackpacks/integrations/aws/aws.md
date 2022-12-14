@@ -32,7 +32,7 @@ To set up the StackState AWS integration, you need to have:
 * The following AWS accounts:
   * At least one target AWS account that will be monitored.
   * An AWS account for StackState and the StackState Agent to use when retrieving data from the target AWS account(s). It's recommended to use a separate shared account for this and not use any of the accounts that will be monitored by StackState, but this isn't required. 
-  * A user or role with a policy attached that contains the action to allow assuming the role stsIntegrationRole in the account that will be monitored. For details see the StackState docs on the required AWS policy.
+  * A user or role with a policy attached with the action to allow assuming the role stsIntegrationRole in the account that will be monitored. For details see the StackState docs on the required AWS policy.
 
 ### AWS accounts
 
@@ -483,7 +483,7 @@ A [FlowLog must be configured](#configure-vpc-flowlogs) for each VPC that you wa
 
 ### Costs
 
-The AWS StackPack CloudFormation template contains all resources that are necessary to run the AWS check on the StackState Agent. The installed resources are kept as minimal as possible. All costs incurred are minimal but variable, with costs scaling depending on how many events are emitted in a given account. In practice, the costs created by the AWS integration will be negligible.
+The AWS StackPack CloudFormation template with all resources necessary to run the AWS check on the StackState Agent. The installed resources are kept as minimal as possible. All costs incurred are minimal but variable, with costs scaling depending on how many events are emitted in a given account. In practice, the costs created by the AWS integration will be negligible.
 
 * Kinesis Firehose: priced by the amount of data processed. Events use very small amounts of data. [Firehose pricing \(aws.amazon.com\)](https://aws.amazon.com/kinesis/data-firehose/pricing/)
 * S3: priced by amount of data stored, and amount of data transferred. Running the Agent inside of AWS will reduce data transfer costs. [S3 pricing \(aws.amazon.com\)](https://aws.amazon.com/s3/pricing/)

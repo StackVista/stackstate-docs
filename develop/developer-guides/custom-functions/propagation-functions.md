@@ -78,7 +78,7 @@ This code works as follows:
 | :--- | :--- |
 | `.withId(componentId)` | The `componentId` is passed as long and resolved |
 | `.fullComponent()` | Returns a JSON-style representation of the component. This is the same format as is obtained from the `Show Json` properties menu for a component, or by using a [topology query](../../reference/scripting/script-apis/topology.md) in analytics. |
-| `then { component -> ... }` | An async lambda function where the main logic for the propagation function resides. `component` is the component variable, which has properties that can be accessed using `.<property name>`. For example, `.type` returns component type id. |
+| `then { component -> ... }` | An async lambda function where the main logic for the propagation function resides. `component` is the component variable, which has properties that can be accessed using `.<property name>`. For example, `.type` returns component type ID. |
 |  |  |
 
 ### System parameters
@@ -211,7 +211,7 @@ The example template below uses a `get` helper to obtain the ID of the **Active/
 
 #### Stop propagation for relation type
 
-The template example below includes an argument that will be passed to the propagation function as a user parameter together with the standard system parameters. The `"arguments"` list contains one argument that matches the user parameter `relationType` from the **Stop propagation for relation type** propagation function. Arguments for system parameters are automatically provided during run time and don't need to be specified.
+The template example below includes an argument that will be passed to the propagation function as a user parameter together with the standard system parameters. The `"arguments"` list has one argument that matches the user parameter `relationType` from the **Stop propagation for relation type** propagation function. Arguments for system parameters are automatically provided during run time and don't need to be specified.
 
 {% tabs %}
 {% tab title="Template `propagation` block" %}

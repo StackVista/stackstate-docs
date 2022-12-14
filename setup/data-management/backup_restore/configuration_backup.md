@@ -287,7 +287,7 @@ curl -XPOST http://yourInstance/api/import?namespace=urn:stackpack:{stackpack_na
 
 ### Why versioning?
 
-As StackState evolves, versioning of the exported Node elements is necessary. The export conf contains metadata stating the Node version \(`_version`\) which is useful to allow an autoupgrade to a more recent version of StackState and ensure compatibility.
+As StackState evolves, versioning of the exported Node elements is necessary. The export conf contains metadata stating the Node version \(`_version`\), which is useful to allow an automatic upgrade to a more recent version of StackState and ensure compatibility.
 
 ```yaml
 _version: 1.0.0

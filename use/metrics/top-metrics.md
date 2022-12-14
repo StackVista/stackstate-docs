@@ -2,7 +2,7 @@
 
 ## Overview
 
-When you hover the mouse pointer over a component in the Topology Perspective, the component context menu is displayed. This contains a list of the three top metrics for the component, together with the most recently retrieved metric value. Click the metric name to open the associated metric stream in the [telemetry inspector](/use/metrics/browse-telemetry.md).
+When you hover the mouse pointer over a component in the Topology Perspective, the component context menu is displayed. Here you will find a list of the three top metrics for the component, together with the most recently retrieved metric value. Click the metric name to open the associated metric stream in the [telemetry inspector](/use/metrics/browse-telemetry.md).
 
 ![Top metrics](/.gitbook/assets/v51_component_context_menu.png)
 
