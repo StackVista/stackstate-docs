@@ -5,6 +5,7 @@ level: suggestion
 action:
   name: replace
 swap:
-  [kK]8s: Kubernetes
+  [Kk]8s: Kubernetes
   id: ID
   API's: APIs
+  [Cc]onfig: configuration
