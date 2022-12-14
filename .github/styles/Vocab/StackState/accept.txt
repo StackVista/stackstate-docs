@@ -35,6 +35,7 @@ endtabs
 EVENT
 Event
 event
+HIGH
 IAM
 ITSM
 JIRA
@@ -42,6 +43,7 @@ JVM
 LIVE
 Live
 live
+LOW
 metricStream
 MetricStream
 monitor
