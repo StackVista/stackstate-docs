@@ -31,7 +31,7 @@ Each check result displays among other information:
 - A **metric chart** of the data that resulted in this health state being generated
 - The check function configuration utilized by this check
 
-The context menu of each check result (...) contains several useful shortcuts:
+The context menu of each check result **(...)** has useful shortcuts:
 
 - **Edit** - change the configuration of a specific check.
 - **Delete** - remove the Check associated with this result panel.

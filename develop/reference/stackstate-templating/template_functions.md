@@ -212,7 +212,7 @@ iconbase64: "{{ include "./icons/aws.cloudformation.png" "base64" }}"
 {% endtab %}
 
 {% tab title="Data" %}
-The file `/provisioning/icons/aws.cloudformation.png` contains an image of the AWS CloudFormation logo.
+The file `/provisioning/icons/aws.cloudformation.png` is an image of the AWS CloudFormation logo.
 {% endtab %}
 
 {% tab title="Result" %}

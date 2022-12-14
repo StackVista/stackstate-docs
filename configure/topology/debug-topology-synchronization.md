@@ -87,13 +87,13 @@ It's possible that a relation references a source or target component that doesn
 {% tab title="Kubernetes" %}
 When StackState is deployed on Kubernetes, logs about synchronization can be found in the `stackstate-sync` pod and the `stackstate-api` pod. The name of the synchronization is shown in the log entries.
 
-* The `stackstate-sync` pod contains details of:
+* The `stackstate-sync` pod has details of:
   * Template/mapping function errors.
   * Component types that don't have a mapping.
   * Relations connected to a non-existing component.
   * Messages that have been discarded due to a slow synchronization.
 
-* The `stackstate-api` pod contains details of:
+* The `stackstate-api` pod has details of:
   * ID extractor errors.
   * StackPacks.
 
@@ -108,12 +108,12 @@ When StackState is deployed on Linux, logs about synchronization are stored in t
 
 There are two log files for each synchronization:
 
-* `exttopo.<DataSource_name>.log` contains information about ID extraction and the building of an external topology. Here you will find details of:
+* `exttopo.<DataSource_name>.log` has information about ID extraction and the building of an external topology. Here you will find details of:
   * ID extractor errors.
   * Relations connected to a non-existing component.
   * Messages that have been discarded due to a slow synchronization.
 
-* `sync.<Synchronization_name>.log` contains information about mapping, templates and merging. Here you will find details of:
+* `sync.<Synchronization_name>.log` has information about mapping, templates and merging. Here you will find details of:
   * Template/mapping function errors.
   * Component types that don't have a mapping.
 

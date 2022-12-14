@@ -20,7 +20,7 @@ Configured proxy settings will be used by the Agent in the following sequence:
 2. Environment variables `HTTPS_PROXY` / `HTTP_PROXY`
 3. Proxy settings in the Agent configuration file.
 
-For example, if the environment variable `STS_PROXY_HTTPS=""` is set and the Agent configuration file contains the proxy setting `https: https://example.com:1234`, the Agent will use the proxy `""` for HTTPS requests to StackState.
+For example, if the environment variable `STS_PROXY_HTTPS=""` is set and the Agent configuration file includes the proxy setting `https: https://example.com:1234`, the Agent will use the proxy `""` for HTTPS requests to StackState.
 
 ## Proxy for all Agent communication
 

@@ -35,7 +35,7 @@ The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts`
 {% endtab %}
 {% endtabs %}
 
-Follow the preparation steps below to prepare the `.sty` file, such that it contains only configuration nodes pertaining to your StackPack.
+Follow the preparation steps below to prepare the `.sty` file, such that it has only configuration nodes pertaining to your StackPack.
 
 If all of your configuration nodes already have been assigned to the right namespace you can get all the nodes of your StackPack using the command:
 
@@ -71,7 +71,7 @@ The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts`
 
 ## Prepare the template file
 
-A `.sty` file contains a number of configuration nodes. Each of the configuration nodes represents a configuration item in StackState, for example Layer, Domain and Environment. This file contains all of the configuration of your StackState instance, which means you have to take out configuration nodes that are unnecessary for your StackPack. Take the steps below to prepare your template file:
+A `.sty` file has a number of configuration nodes. Each of the configuration nodes represents a configuration item in StackState, for example Layer, Domain and Environment. This file contains all of the configuration of your StackState instance, which means you have to take out configuration nodes that are unnecessary for your StackPack. Take the steps below to prepare your template file:
 
 * Remove all configuration nodes that are owned by another StackPack. They all have a field called `ownedBy`.
 * Items that are extended from the `Custom Synchronization` StackPack, will have their urn `identifier` field with the following structure: `urn:stackpack:autosync:{type_name}:{object_name}`.

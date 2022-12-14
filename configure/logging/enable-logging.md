@@ -120,7 +120,7 @@ The ID for an instance of a monitor function can be found using the [StackState 
 {% tabs %}
 {% tab title="CLI: stac (deprecated)" %}
 ```text
-# get the list of monitors which contains their corresponding monitor function id
+# get the list of monitors, which includes their corresponding monitor function id
 stac monitor list
 
              id  status    identifier                                                       name                       description    remediation hint        function id    interval (seconds)  tags
@@ -144,7 +144,7 @@ In a future release of StackState, the new `sts` CLI will fully replace the `sta
 {% tab title="CLI: sts" %}
 
 ```commandline
-# get the list of monitors which contains their corresponding monitor function id
+# get the list of monitors, which includes their corresponding monitor function id
 sts monitor list
 
 ID              | STATUS   | IDENTIFIER                                                      | NAME                      | FUNCTION ID     | TAGS  

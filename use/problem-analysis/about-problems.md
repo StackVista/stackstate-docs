@@ -15,11 +15,11 @@ When a component or relation reports a `DEVIATING` \(orange\) or `CRITICAL` \(re
 
 ## Topology elements in a problem
 
-A problem in StackState is a collection of unhealthy elements (components and relations) that can all be attributed to a single probable root cause. Each problem contains one root cause element and any number of contributing causes.
+A problem in StackState is a collection of unhealthy elements (components and relations) that can all be attributed to a single probable root cause. Each problem has one root cause element and any number of contributing causes.
 
 ### Root cause
 
-The root cause is the unhealthy element at the bottom of the dependency chain. Each problem contains a single root cause, this element is considered the probable root cause for the problem. A change in the health state of elements might result in a change to the root cause of a problem. For example:
+The root cause is the unhealthy element at the bottom of the dependency chain. Each problem has a single root cause, this element is considered the probable root cause for the problem. A change in the health state of elements might result in a change to the root cause of a problem. For example:
 
 - A previously healthy upstream dependency switches to an unhealthy state. The existing root cause is no longer the unhealthy element at the bottom of the dependency chain. All affected problems will be updated to reflect the new root cause element. This update may result in existing problems being subsumed.
 - The existing root cause switches its state to healthy. As the root cause must have an unhealthy state, the next contributing cause in the dependency chain will become the new root cause. If there is more than one possible new root cause element, new problems will be created - one for each root cause.

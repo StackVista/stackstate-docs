@@ -153,7 +153,7 @@ Follow the steps below to configure StackState to authenticate using OIDC:
 
 ## Additional settings for specific OIDC providers
 
-This section contains additional settings needed for specific OIDC providers.
+This section includes additional settings needed for specific OIDC providers.
 
 ### Microsoft Identity Platform
 

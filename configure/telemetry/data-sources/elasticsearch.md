@@ -31,7 +31,7 @@ To add an Elasticsearch data source:
    * **Base URL** - the URL of the REST API of your Elasticsearch instance \(default port 9200\). Note that this must be reachable by StackState.
    * **Index pattern** - the Elasticsearch index to retrieve. It's possible to specify a pattern if the index is sliced by time. See [how to find the Elasticsearch index pattern](elasticsearch.md#find-the-elasticsearch-index-pattern).
    * **Time zone** - the timezone of the timestamps stored in the Elasticsearch documents. Required to ensure data is correctly processed by StackState.
-   * **Time field** - the field in the Elasticsearch documents that contains the timestamp of the event/metric.
+   * **Time field** - the field in the Elasticsearch documents with the timestamp of the event/metric.
    * **Time field format** - the format of the value in the specified **Time field**. See [how to find the Elasticsearch time field format](elasticsearch.md#find-the-elasticsearch-time-field-format).
    * A number of additional settings can be tweaked in non-standard use-cases. See the [advanced settings](elasticsearch.md#advanced-settings).
 4. Click **TEST CONNECTION** to confirm that StackState can connect to Elasticsearch at the configured Base URL.

@@ -47,7 +47,7 @@ All the requests are POST requests and input/output is passed in the JSON body o
 
 ### Common Request Information
 
-Each request JSON contains a number of fields. The following fields are common:
+Each request JSON has a number of fields. The following fields are common:
 
 * Connection Details
 * Query Equality Conditions
@@ -56,7 +56,7 @@ Each request JSON contains a number of fields. The following fields are common:
 
 #### Connection Details
 
-The field `connectionDetails` is mandatory and must be present in each request. The field contains arbitrary JSON configuration for connecting to the target system. This is a flexible configuration, and it's up to the Mirror implementor to decide what configuration elements are required. For example, a target telemetry source URL, timeouts, API key, and many others.
+The field `connectionDetails` is mandatory and must be present in each request. The field has arbitrary JSON configuration for connecting to the target system. This is a flexible configuration, and it's up to the Mirror implementor to decide what configuration elements are required. For example, a target telemetry source URL, timeouts, API key, and many others.
 
 Example:
 
@@ -91,7 +91,7 @@ Please see the example below:
 ```
 {% endcode %}
 
-The equality condition consists of the key and value. The `key` is of type string, and it contains the name of the variable/field/label in the remote monitoring system. The `value` is a JSON object that contains the actual value of one of three types: string, double or boolean.
+The equality condition consists of the key and value. The `key` is of type string, and it has the name of the variable/field/label in the remote monitoring system. The `value` is a JSON object that has the actual value of one of three types: string, double or boolean.
 
 #### Time Range
 
@@ -187,7 +187,7 @@ Sample request:
 }
 ```
 
-The `FieldNamesRequest` request type contains a `FieldNamesQuery` object. The query object contains `conditions`, `startTime`, `endTime`, and `limit` acting as a filter for the result field list. These parameters help the user to do continuous refinement of available field names during configuration of a telemetry stream.
+The `FieldNamesRequest` request type has a `FieldNamesQuery` object. The query object has `conditions`, `startTime`, `endTime`, and `limit` acting as a filter for the result field list. These parameters help the user to do continuous refinement of available field names during configuration of a telemetry stream.
 
 A successful response should contain the list of field descriptors for the fields in the format below:
 
@@ -256,7 +256,7 @@ The FieldValuesResponse holds the list of possible values:
 }
 ```
 
-There are two types of values: `CompleteValue`, and `FieldValuePattern`. The `CompleteValue` indicates that the `value` field contains a full value token. The `FieldValuePattern` specifies the partial value that can be used as a `fieldValuePrefix` in subsequent refinement requests.
+There are two types of values: `CompleteValue`, and `FieldValuePattern`. The `CompleteValue` indicates that the `value` field has a full value token. The `FieldValuePattern` specifies the partial value that can be used as a `fieldValuePrefix` in subsequent refinement requests.
 
 ## Method: Get Metric Values
 
@@ -311,7 +311,7 @@ An example response of the raw metric query is given below:
 
 The fields have the following meaning:
 
-* the `points` list contains several sublists each representing one data point
+* the `points` list has several sublists each representing one data point
 * the field name positions of values in the data point sublist is specified by the `dataFormat` field
 * the field `isPartial` indicates if the response has been truncated either by application of the `limit` field or by the telemetry store itself. In this case, the user should take action and execute another metric request specifying the last point timestamp as `request`.`query`.`startTime` to retrieve truncated values.
 
