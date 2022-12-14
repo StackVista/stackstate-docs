@@ -1,8 +1,10 @@
 extends: substitution
 message: "Use'%s' instead of '%s'."
-ignorecase: true
+#ignorecase: true
 level: suggestion
 action:
   name: replace
 swap:
-  K8s: Kubernetes
+  [kK]8s: Kubernetes
+  id: ID
+  API's: APIs
