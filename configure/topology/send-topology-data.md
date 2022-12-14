@@ -130,7 +130,7 @@ StackState accepts topology information in the following JSON format:
 ```
 {% endcode %}
 
-The JSON contains the following fields:
+The JSON has the following fields:
 
 * **apiKey**: The key that StackState provided for your installation.
 * **collection_timestamp**: Collection timestamp in Epoch seconds. Depending on your StackState configuration, topology that's to old may be ignored.

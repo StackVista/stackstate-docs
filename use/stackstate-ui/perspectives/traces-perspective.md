@@ -20,7 +20,7 @@ The Traces Perspective shows a list of the slowest traces for the components in 
 
 ![Inspecting a trace](../../../.gitbook/assets/v51_trace-inspection.png)
 
-Span types are colored differently according to the information on the right. For example, the orange spans in this trace correspond to Postgres calls that are made when completing the request.
+Span types are colored differently according to the information on the right. For example, the orange spans in this trace correspond to PostgreSQL calls that are made when completing the request.
 
 ### Span Details
 

@@ -60,7 +60,7 @@ The `TRANSACTIONAL_INCREMENTS` consistency model is designed to be used on strea
 
 ### Health stream and substream
 
-External monitoring systems send health data to the StackState Receiver in a health stream. Each health stream contains at least one substream with health checks.
+External monitoring systems send health data to the StackState Receiver in a health stream. Each health stream has at least one substream with health checks.
 
 #### Health stream
 
@@ -81,7 +81,7 @@ The expire interval can be used to configure sub streams in the health synchroni
 
 ### Check State
 
-The health check state calculated by an external monitoring system. This contains the relevant information to attach to a topology element and to contribute to the topology element health state.
+The health check state is calculated by an external monitoring system and includes all information required to attach it to a topology element. Once attached to a topology element, the health check state contributes to the [element's own health state](/use/concepts/health-state.md#element-own-health-state).
 
 ## See also
 

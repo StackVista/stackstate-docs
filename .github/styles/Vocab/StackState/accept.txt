@@ -7,6 +7,7 @@ ALL
 All
 all
 anomalyDirection
+API
 APIs
 async
 AWS
@@ -22,6 +23,7 @@ clear
 CLIs
 component
 Component
+concept
 disable
 Disable
 disabled
@@ -33,6 +35,7 @@ endtabs
 EVENT
 Event
 event
+IAM
 ITSM
 JIRA
 JVM
@@ -51,7 +54,7 @@ new
 New
 playhead
 Playhead
-RBAC
+PostgreSQL
 SAVE
 Save
 save
@@ -69,10 +72,9 @@ STAC
 stac
 StackState
 StackPack
-STJ
-STY
-STQL
 sts
+Subgraphs
+subgraphs
 Substream
 substream
 SUBVIEW

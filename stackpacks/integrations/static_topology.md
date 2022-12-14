@@ -88,7 +88,7 @@ Both CSV files are read to form a topology. The CSV file for components and rela
 
 ### Component CSV file
 
-The component CSV file contains details of components. The file should contain a header with the following fields:
+The component CSV file has details of components. The file should contain a header with the following fields:
 
 * `id` - The component's unique identifier.
 * `name` - The component's name.
@@ -114,7 +114,7 @@ id,name,type,layer,domain,environment
 
 ### Relation CSV file
 
-The relation CSV file contains details of relations between components. The file should contain a header with the following fields:
+The relation CSV file has details of relations between components. The file should contain a header with the following fields:
 
 * `sourceid` - The identifier of the component to create a relation from. This must match the component `id` in the component CSV file.
 * `targetid` - The identifier of the component to create a relation to. This must identifier has to match the component `id` in the component CSV file.

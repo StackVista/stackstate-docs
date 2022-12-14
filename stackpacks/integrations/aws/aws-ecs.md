@@ -17,23 +17,23 @@ StackState Agent V2 provides the following functionality:
 * Reporting hosts, processes, and containers
 * Reporting all network connections between processes / containers including network traffic telemetry
 * Telemetry for hosts, processes, and containers
-* Trace Agemt support
+* Trace Agent support
 
 ## Setup
 
 ### Installation
 
-To monitor your ECS containers and tasks run the Agemt as a container on every EC2 instance in your ECS cluster.
+To monitor your ECS containers and tasks run the Agent as a container on every EC2 instance in your ECS cluster.
 
 Download the manifest from the StackState UI page **StackPacks** &gt; **AWS ECS** and edit it providing the configuration parameters provided there.
 
-Once the manifest is ready, the Agemt task can be registered with the following command:
+Once the manifest is ready, the Agent task can be registered with the following command:
 
 ```text
 aws ecs register-task-definition --cli-input-json file://path/to/stackstate-agent-v2-ecs.json
 ```
 
-The Agemt should be loaded on one container on each EC2 instance. The way to achieve this is to run Agemt as a [Daemon Service \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html#service_scheduler_daemon).
+The Agent should be loaded on one container on each EC2 instance. The way to achieve this is to run Agent as a [Daemon Service \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html#service_scheduler_daemon).
 
 Schedule a Daemon Service in AWS using StackState Agent V2 ECS Task:
 

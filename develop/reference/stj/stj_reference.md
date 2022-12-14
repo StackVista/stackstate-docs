@@ -222,7 +222,7 @@ The file `/provisioning/script/AWS event run state.groovy` in the AWS StackPack 
 {% endtab %}
 
 {% tab title="Data" %}
-The file `/provisioning/icons/aws.cloudformation.png` contains an image of the AWS CloudFormation logo.
+The file `/provisioning/icons/aws.cloudformation.png` is an image of the AWS CloudFormation logo.
 {% endtab %}
 
 {% tab title="Result" %}

@@ -31,7 +31,7 @@ And on the right side, we included the list of health checks and telemetry also 
 
 ![Topology Perspective - Unmerged Healthy OTEL Component](../../../../.gitbook/assets/v51_otel_unmerged_child_health.png)
 
-Now when we look at the component that we want to merge with, you will notice the `labels` and `identifiers` contains none of the same ones we looked at when viewing the child component.
+Now when we look at the component that we want to merge with, you will notice the `labels` and `identifiers` contain none of the same ones we looked at when viewing the child component.
 
 ![Topology Perspective - Labels and Identifiers After Merge](../../../../.gitbook/assets/v51_otel_merging_attempt.png)
 

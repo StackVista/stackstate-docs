@@ -43,7 +43,7 @@ This example shows a simple component mapping function - the **Fixed label mappi
 
 #### Script 
 
-The script checks if the data payload already contains a key named `labels`, as shown on line 1. If the `labels` key isn't present, then the value is initialized to an empty list to ensure that the value is going to be a list. If the `labels` key does exist, the assumption is made that the value is a list.
+The script checks if the data payload already has a key named `labels`, as shown on line 1. If the `labels` key isn't present, then the value is initialized to an empty list to ensure that the value is going to be a list. If the `labels` key does exist, the assumption is made that the value is a list.
 
 Line 5 appends the label `label-added-by-mapper-function` to the list of labels. The updated `element` variable is returned by the mapping function on line 7. 
 
@@ -90,8 +90,8 @@ This example is used for hosts reported by StackState Agent. The mapping functio
 The mapping function script is shown below.
 
 * Line 1 of the script sets the value of the key streams to be a list. 
-* The entries of that list are also added, as shown on lines 2 through to 14. Each entry will be a map of `key:value` pairs with enough information about the metric stream for the template to create the stream definition. Each entry contains the keys `name`, `metric`, `id`, and `priority`. 
-* Line 17 contains an `if` statement checking whether the operating system is Linux by checking the `os.linux` data payload. If the `if` statement resolves to `True`, then two more metric streams are added to the streams list. This illustrates that the mapping function can be used to make  decisions based on the received data to change the resulting topology element.
+* The entries of that list are also added, as shown on lines 2 through to 14. Each entry will be a map of `key:value` pairs with enough information about the metric stream for the template to create the stream definition. Each entry has the keys `name`, `metric`, `id`, and `priority`. 
+* Line 17 has an `if` statement checking whether the operating system is Linux by checking the `os.linux` data payload. If the `if` statement resolves to `True`, then two more metric streams are added to the streams list. This illustrates that the mapping function can be used to make  decisions based on the received data to change the resulting topology element.
 
 {% code lineNumbers="true" %}
 ```commandline
@@ -136,7 +136,7 @@ The **streams** section of the component template is shown on the left. On the r
 The template shows the streams block starting on line 53 in the screenshot above. For easy reference, the full streams block is shown below.
 
 * Line 2 in the streams block below shows the `join` helper being used to iterate over each entry in the streams list. 
-* Inside the `join` helper’s code block, a definition of a metric stream is placed. Each entry in the streams list adds a new stream definition to the resulting template JSON.  Variables are used to create stream blocks dynamically. These variables are available on each entry of the streams list. Each entry contains the following variables: `name`, `metric`, `id`, and `priority`. 
+* Inside the `join` helper’s code block, a definition of a metric stream is placed. Each entry in the streams list adds a new stream definition to the resulting template JSON.  Variables are used to create stream blocks dynamically. These variables are available on each entry of the streams list. Each entry has the following variables: `name`, `metric`, `id`, and `priority`. 
 * The `name` key is referenced on line 5 to add the value as the name of the stream. In the screenshot above, the resulting name of the stream is shown on the right. 
 * The `conditions` block on line 7 adds two conditions for each metric stream. 
 * Lines 8 through to 11 define a filter for the host. The value for that condition is obtained from `element.data.host` and not from the streams list. 
@@ -185,7 +185,7 @@ The template shows the streams block starting on line 53 in the screenshot above
 ```
 {% endcode %}
 
-After processing, the resulting component contains quite some metric stream definitions - one metric stream definition for each entry in the streams list. 
+After processing, the resulting component has quite some metric stream definitions - one metric stream definition for each entry in the streams list. 
 
 The `list` and the `join` helper show that definitions can be created dynamically. 
 

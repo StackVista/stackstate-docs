@@ -14,9 +14,9 @@ The repository contains a StackPack that configures StackState to receive extern
 
 ## What's in the StackPack?
 
-The tutorial StackPack is fairly basic. It contains configuration information that configure StackState to receive a specific data format and turn this into topology.
+The tutorial StackPack is fairly basic. It includes configuration information that configure StackState to receive a specific data format and turn this into topology.
 
-Specifically, the StackPack contains:
+Specifically, the StackPack has:
 
 * A [Groovy](https://groovy-lang.org/) provisioning script that installs the components of the StackPack \(`TutorialProvision.groovy`\)
 * A component and relation template that tell StackState how to process incoming data into components and relations \(`tutorial-component-template.json.handlebars` and `tutorial-relation-template.json.handlebars`\)
@@ -162,7 +162,7 @@ Locate the tutorial StackPack template \(`tutorial-tutorial://tutorial-1-compone
 
 ## Updating the StackPack
 
-The exported component template will replace the `tutorial-component-template.json.handlebars`file in your StackPack. The export has a different structure than the file in our StackPack so we need to edit the file before updating the original. Specifically, the file in our StackPack contains only the `handlebarsTemplate` property in the export.
+The exported component template will replace the `tutorial-component-template.json.handlebars`file in your StackPack. The export has a different structure than the file in our StackPack so we need to edit the file before updating the original. Specifically, the file in our StackPack has only the `handlebarsTemplate` property in the export.
 
 Open the exported file in an editor and make the following changes:
 
@@ -235,7 +235,7 @@ Now replace the file in your StackPack with the above JSON.
 {% hint style="info" %}
 If you want to change the Groovy scripts, beware that the Groovy script files contain only the Groovy code and no JSON wrappers.
 
-The `tutorial-template.stj` contains a `DataSource` and `Synchronization` and includes the contents of the separate templates and Groovy script files into a single JSON
+The `tutorial-template.stj` has a `DataSource` and `Synchronization` and includes the contents of the separate templates and Groovy script files into a single JSON
 {% endhint %}
 
 ## Building a new version of the StackPack

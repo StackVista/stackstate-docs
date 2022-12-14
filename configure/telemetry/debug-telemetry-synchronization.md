@@ -118,7 +118,7 @@ When deployed on Linux, StackState log files are located in the directory:
 The following log files may be useful when debugging telemetry synchronization:
 
 * **StackState Receiver:** `/opt/stackstate/var/log/stackstate-receiver`
-* **kafkaToEs:** `/opt/stackstate/var/log/kafka-to-es` - contains logs for the processes that are responsible for getting telemetry data to Elasticsearch. Note that there are separate processes for metrics, events, and traces.
+* **kafkaToEs:** `/opt/stackstate/var/log/kafka-to-es` - has logs for the processes that are responsible for getting telemetry data to Elasticsearch. Note that there are separate processes for metrics, events, and traces.
 * **ElasticSearch:** `/opt/stackstate/var/log/elasticsearch7`
 
 ➡️ [Learn more about the StackState log files](/configure/logging/linux-logs.md)
