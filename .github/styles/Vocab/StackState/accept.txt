@@ -7,6 +7,7 @@ ALL
 All
 all
 anomalyDirection
+API
 APIs
 async
 AWS
@@ -53,7 +54,6 @@ New
 playhead
 Playhead
 PostgreSQL
-RBAC
 SAVE
 Save
 save
@@ -71,9 +71,6 @@ STAC
 stac
 StackState
 StackPack
-STJ
-STY
-STQL
 sts
 Subgraphs
 subgraphs
