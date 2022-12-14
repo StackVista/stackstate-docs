@@ -1,4 +1,5 @@
  -
+[a-z.]*.com
 ADD
 Add
 add
