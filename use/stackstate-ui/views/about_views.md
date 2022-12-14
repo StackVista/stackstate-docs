@@ -28,7 +28,7 @@ Click a view name to open the topology perspective for that view.
 
 ## Starred views
 
-You can add a star to a view you use frequently to add it to your personal main menu for easy access. View star settings are a personal preference stored in your user account. You can recognize starred views by the yellow star icon next to their name.
+You can add a star to a view that you often use to add it to your personal main menu for easy access. View star settings are a personal preference stored in your user account. You can recognize starred views by the yellow star icon next to their name.
 
 To add or remove a star:
 
