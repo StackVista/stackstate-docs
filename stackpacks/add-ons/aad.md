@@ -26,11 +26,11 @@ The Autonomous Anomaly Detector (AAD) is enabled as soon as the [AAD StackPack h
 
 Each identified anomaly is given a severity. This can be HIGH, MEDIUM or LOW. The severity shows how far a metric point has deviated from the expected model and the length of time for which anomalous data has been observed.
 
-| Severity | Description |
-| :--- | :--- |
-| 🟥 **HIGH** (red) | Reported only when data points with a low probability of occurrence are observed for at least 3 minutes. The least frequently reported severity. [Generates an anomaly event](aad.md#anomaly-events). |
-| 🟧 **MEDIUM** (orange) | Reported for anomalous data observed for a short period of time or slightly anomalous data observed for a longer period of time. Reported less frequently than LOW severity and more frequently than HIGH severity anomalies. Useful for root cause analysis and can offer additional insight into HIGH severity anomalies reported on the stream. |
-| 🟨 **LOW** (yellow) | Reported when slightly anomalous data is observed. The most frequently reported anomaly severity. Less frequent occurrences of LOW severity anomalies indicates a higher reliability of anomaly reports from the AAD. |
+| Severity | Description                                                                                                                                                                                                                                                                                                                              |
+| :--- |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 🟥 **HIGH** (red) | Reported only when data points with a low probability of occurrence are observed for at least 3 minutes. The least often reported severity. [Generates an anomaly event](aad.md#anomaly-events).                                                                                                                                         |
+| 🟧 **MEDIUM** (orange) | Reported for anomalous data observed for a short period of time or slightly anomalous data observed for a longer period of time. Reported less often than LOW severity and more often than HIGH severity anomalies. Useful for root cause analysis and can offer additional insight into HIGH severity anomalies reported on the stream. |
+| 🟨 **LOW** (yellow) | Reported when slightly anomalous data is observed. The most often reported anomaly severity. Less frequent occurrences of LOW severity anomalies indicates a higher reliability of anomaly reports from the AAD.                                                                                                                         |
 
 ![HIGH, MEDIUM and LOW severity anomalies](/.gitbook/assets/v51_anomaly_severity_inspector.png)
 
