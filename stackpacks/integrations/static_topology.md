@@ -26,7 +26,7 @@ Install the Static Topology StackPack from the StackState UI **StackPacks** > **
 * **Path to component CSV file** - the CSV file to read component data from.
 * **Path to relation CSV file** - the CSV file to read relation data from.
 
-The CSV files should follow the [Static Topology CSV file specification](#csv-file-specification) and be available in a location where StackState Agent is able to read them, for example `/etc/stackstate-agent/conf.d/`. StackState Agent V2 runs as system user/group `stackstate-agent`.
+The CSV files should follow the [Static Topology CSV file specification](#csv-file-specification) and be available in a location where StackState Agent can read them, for example `/etc/stackstate-agent/conf.d/`. StackState Agent V2 runs as system user/group `stackstate-agent`.
 
 ### Configure
 

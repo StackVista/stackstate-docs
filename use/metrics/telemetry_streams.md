@@ -15,7 +15,7 @@ Metric, or time-series, data are numeric values over time. A metric can represen
 
 ### Log streams
 
-A log entry is a \(JSON style\) data object with some properties. Each log entry may represent an event or even some state information coming from an external system. StackState is able to synchronize the checks of external systems, such as OpsView or Nagios. These systems report check changes to StackState in a log stream. These log entries are then checked for their data by a check, which in turn can translate into an element state change in StackState.
+A log entry is a \(JSON style\) data object with some properties. Each log entry may represent an event or even some state information coming from an external system. StackState can synchronize the checks of external systems, such as OpsView or Nagios. These systems report check changes to StackState in a log stream. These log entries are then checked for their data by a check, which in turn can translate into an element state change in StackState.
 
 ## Telemetry stream providers
 
