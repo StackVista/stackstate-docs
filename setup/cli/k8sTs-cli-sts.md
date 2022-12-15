@@ -12,8 +12,9 @@ The StackState `sts` CLI provides easy access to the functionality provided by t
 
 Follow the steps below to install the `sts` CLI:
 
-{% tabs %}
-{% tab title="Windows" %}
+### Windows
+
+Follow the steps below to install the StackState `sts` CLI on Windows.
 
 {% tabs %}
 {% tab title="Installer" %}
@@ -67,8 +68,9 @@ Open a **Powershell** terminal (version 5.1 or later) and run the steps below. T
 {% endtab %}
 {% endtabs %}
 
-{% endtab %}
-{% tab title="macOS" %}
+### macOS
+
+Follow the steps below to install the StackState `sts` CLI on macOS.
 
 {% tabs %}
 {% tab title="Installer" %}
@@ -109,8 +111,9 @@ Open a terminal and run the steps below. This can be done one step at a time, or
 {% endtab %}
 {% endtabs %}
 
-{% endtab %}
-{% tab title="Linux" %}
+### Linux
+
+Follow the steps below to install the StackState `sts` CLI on Linux.
 
 {% tabs %}
 {% tab title="Installer" %}
@@ -141,8 +144,7 @@ Open a terminal and run the steps below. This can be done one step at a time, or
 {% endtab %}
 {% endtabs %}
 
-{% endtab %}
-{% tab title="Docker" %}
+### Docker
 
 To run the latest version of the CLI using Docker execute:
 
@@ -154,8 +156,6 @@ Alternatively, go to the **CLI** page in the StackState UI and copy the **Quick 
 
 You can now run CLI commands by adding appending them to the end of the `docker run` command (for example, `docker run stackstate/stackstate-cli2 version`).
 
-{% endtab %}
-{% endtabs %}
 
 ## Configure the `sts` CLI
 
