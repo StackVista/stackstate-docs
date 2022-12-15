@@ -39,7 +39,7 @@
 * [StackState Markup Language \(STML\)](develop/reference/stml/README.md)
   * [Using STML](develop/reference/stml/using_stml.md)
   * [STML Tags](develop/reference/stml/tags.md)
-* [StackState Query Language \(STQL\)](develop/reference/stql_reference.md)
+* [StackState Query Language \(STQL\)](develop/reference/k8sTs-stql_reference.md)
 * [StackState Scripting Language \(STSL\)](develop/reference/scripting/README.md)
   * [Scripting in StackState](develop/reference/scripting/scripting-in-stackstate.md)
   * [Script result: Async](develop/reference/scripting/async-script-result.md)
