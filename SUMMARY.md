@@ -1,6 +1,7 @@
 # Table of contents
 
-* [Welcome to the StackState docs!](latest.md)
+* [Welcome to the StackState docs!](README.md)
+* [Kubernetes troubleshooting with StackState](latest.md)
 * [Getting Started](getting_started.md)
 
 ## 🚀 Get started
