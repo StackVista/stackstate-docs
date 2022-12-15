@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Welcome to the StackState docs!](README.md)
+* [Welcome to the StackState docs!](latest.md)
 * [Getting Started](getting_started.md)
 
 ## StackState Agent
