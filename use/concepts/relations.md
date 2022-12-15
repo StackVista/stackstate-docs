@@ -62,7 +62,7 @@ The **Grouped relation details** tab is shown in the StackState UI right panel w
 
 ![Relation details](/.gitbook/assets/v51_direct_relation_details.png)
 
-When a relation is selected by clicking on it, detailed information about the component is shown in the right panel details tab - **Direct relation details**, **Indirect relation details** or **Grouped relation details**, depending on the type of relation that has been selected. For details of the tab content, see the relation types [direct relations](#direct-relations), [indirect relations](#indirect-relations) and [grouped relations](#grouped-relations).
+When a relation is selected by clicking on it, detailed information about the relation is shown in the right panel details tab - **Direct relation details**, **Indirect relation details** or **Grouped relation details**, depending on the type of relation that has been selected. For details of the tab content, see the relation types [direct relations](#direct-relations), [indirect relations](#indirect-relations) and [grouped relations](#grouped-relations).
 
 ## Dependencies and propagation
 
