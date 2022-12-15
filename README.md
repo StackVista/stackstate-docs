@@ -12,7 +12,7 @@ Select your version of StackState to jump to the associated documentation.
 
 Use StackState to troubleshoot your Kubernetes cluster.
 
-🚀 [Kubernetes troubleshooting with StackState](latest.md)
+🚀 [Kubernetes troubleshooting with StackState](k8sTs-latest.md)
 
 ### StackState Self-hosted
 
