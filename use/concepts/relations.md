@@ -44,7 +44,7 @@ Indirect relations link two components that are connected together via a path of
 
 ![Indirect relation details](/.gitbook/assets/v51_indirect_relation_details.png)
 
-The **Indirect relation details** tab is shown in the StackState UI right panel when an indirect relation is selected in the topology visualizer. The full path, including all components that connect the source and the target component, is shown. From here you can click on a component or relation between components to jump to the associated **Component details** tab or **Direct relation details** tab where you will find detailed information about the selected component or relation.
+The **Indirect relation details** tab is shown in the StackState UI right panel when an indirect relation is selected in the topology visualizer. The full path, including all components that connect the source and the target component, is shown. From here, you can click on a component or relation between components to jump to the associated **Component details** tab or **Direct relation details** tab where you will find detailed information about the selected component or relation.
 
 ### Grouped relations
 
@@ -56,7 +56,7 @@ Relations between a component group and a component or component group are shown
 
 ![Grouped relation details](/.gitbook/assets/v51_grouped_relation_details.png)
 
-The **Grouped relation details** tab is shown in the StackState UI right panel when a grouped relation is selected in the topology visualizer. This shows all direct and indirect relations included in the group. From here you can click on a component or relation between components to open the associated **Component details** tab, **Direct relation details** tab or **Indirect relation details** tab with detailed information about the selected component or relation.
+The **Grouped relation details** tab is shown in the StackState UI right panel when a grouped relation is selected in the topology visualizer. This shows all direct and indirect relations included in the group. From here, you can click on a component or relation between components to open the associated **Component details** tab, **Direct relation details** tab or **Indirect relation details** tab with detailed information about the selected component or relation.
 
 ## Relation details
 
