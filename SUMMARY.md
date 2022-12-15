@@ -3,22 +3,35 @@
 * [Welcome to the StackState docs!](latest.md)
 * [Getting Started](getting_started.md)
 
-## StackState Agent
+## 🚀 Get started
 
-* [About StackState Agent V2](setup/agent/about-stackstate-agent.md)
-* [StackState Agent V2 StackPack](stackpacks/integrations/agent.md)
-* [Setup]()
+* [Quick start guide](saas-quick-start-guide.md)
+* [StackState walk-through](getting_started.md)
+* [Concepts](use/concepts/README.md)
+  * [The 4T data model](use/concepts/4t_data_model.md)
+  * [Components](use/concepts/components.md)
+  * [Health state](use/concepts/health-state.md)
+  * [Relations](use/concepts/relations.md)
+  * [Layers, Domains and Environments](use/concepts/layers_domains_environments.md)
+  * [Perspectives](use/concepts/perspectives.md)
+  * [Anomaly detection](use/concepts/anomaly-detection.md)
+
+## ⚙️ Set up
+
+* [StackState Agent](setup/agent/README.md)
+  * [About StackState Agent V2](setup/agent/about-stackstate-agent.md)
   * [Docker](setup/agent/docker.md)
   * [Kubernetes / OpenShift](setup/agent/kubernetes-openshift.md)
   * [Linux](setup/agent/linux.md)
   * [Windows](setup/agent/windows.md)
-* [Advanced Agent configuration](setup/agent/advanced-agent-configuration.md)
-* [Use an HTTP/HTTPS proxy](setup/agent/agent-proxy.md)
-
-* [StackState CLI](setup/cli/cli-sts.md)
+  * [Advanced Agent configuration](setup/agent/advanced-agent-configuration.md)
+  * [Use an HTTP/HTTPS proxy](setup/agent/agent-proxy.md)
+* [StackState](setup/install-stackstate/README.md)
+  * [StackState Agent V2 StackPack](stackpacks/integrations/agent.md)
   * [Autonomous Anomaly Detector](stackpacks/add-ons/aad.md)
   * [Kubernetes integration](stackpacks/integrations/kubernetes.md)
   * [OpenShift integration](stackpacks/integrations/openshift.md)
+* [StackState CLI](setup/cli/cli-sts.md)
 
 ## 🔧 Configure
 
