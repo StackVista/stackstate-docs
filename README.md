@@ -8,11 +8,17 @@ layout: landing
 
 Select your version of StackState to jump to the associated documentation.
 
+### Kubernetes troubleshooting
+
+Use StackState to troubleshoot your Kubernetes cluster.
+
+🚀 [Kubernetes troubleshooting with StackState](latest.md)
+
 ### StackState Self-hosted
 
 Use StackState Self-hosted to observe an extensive set of technologies that originate either in your own data centers or in the cloud.
 
-🚀 **[StackState Self-hosted v5.1 docs](latest.md) - latest release!**
+↗️ **[StackState Self-hosted v5.1 docs](https://docs.stackstate.com/latest.md) - latest release!**
 
 ↗️ [StackState Self-hosted v5.0 docs](https://docs.stackstate.com/v/5.0/)
 
