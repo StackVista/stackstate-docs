@@ -1,8 +1,7 @@
 # Table of contents
 
 * [Welcome to the StackState docs!](README.md)
-* [Kubernetes troubleshooting with StackState](latest.md)
-* [Getting Started](getting_started.md)
+* [Kubernetes troubleshooting with StackState](k8sTs-latest.md)
 
 ## 🚀 Get started
 
