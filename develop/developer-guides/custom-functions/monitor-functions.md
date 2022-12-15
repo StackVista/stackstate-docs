@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-Monitor functions are run by [monitors](/use/checks-and-monitors/monitors.md) in StackState. They can process 4T data to trigger a change in health status of a component or relation. A number of monitor functions are shipped together with StackState, or you can write your own monitor function as a groovy script.
+Monitor functions are run by [monitors](/use/checks-and-monitors/monitors.md) in StackState. They process 4T data to trigger a change in health status of a component or relation. A number of monitor functions are shipped together with StackState, or you can write your own monitor function as a groovy script.
 
 ## Create a custom monitor function
 
