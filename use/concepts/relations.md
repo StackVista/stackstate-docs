@@ -56,7 +56,7 @@ Relations between a component group and a component or component group are shown
 
 ![Grouped relation details](/.gitbook/assets/v51_grouped_relation_details.png)
 
-The **Grouped relation details** tab is shown in the StackState UI right panel when a grouped relation is selected in the topology visualizer. This shows all direct and indirect relations included in the group. From here, you can click on a component or relation between components to open the associated **Component details** tab, **Direct relation details** tab or **Indirect relation details** tab with detailed information about the selected component or relation.
+Select a grouped relation in the topology visualizer to display detailed information about it in the right panel details tab - **Grouped relation details**. This shows all direct and indirect relations included in the group. From here, you can click on a component, or a relation between components, to open its associated details tab - **Component details**, **Direct relation details** or **Indirect relation details**.
 
 ## Relation details
 
