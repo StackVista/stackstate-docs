@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-Check functions are run by [health checks](../../../use/checks-and-monitors/add-a-health-check.md) in StackState. They can process metric data, logs or events to trigger a change in health status of a component or relation. A number of check functions are shipped together with StackState, or you can write your own check function as a groovy script.
+Check functions are run by [health checks](../../../use/checks-and-monitors/add-a-health-check.md) in StackState. They process metric data, logs or events to trigger a change in health status of a component or relation. A number of check functions are shipped together with StackState, or you can write your own check function as a groovy script.
 
 ## Create a custom check function
 
