@@ -44,7 +44,7 @@ Indirect relations link two components that are connected together via a path of
 
 ![Indirect relation details](/.gitbook/assets/v51_indirect_relation_details.png)
 
-The **Indirect relation details** tab is shown in the StackState UI right panel when an indirect relation is selected in the topology visualizer. The full path, including all components that connect the source and the target component, is shown. From here, you can click on a component or relation between components to jump to the associated **Component details** tab or **Direct relation details** tab where you will find detailed information about the selected component or relation.
+Select an indirect relation in the topology visualizer to display detailed information about it in the right panel **Indirect relation details** tab. The full path, including all components that connect the source and the target component, is shown. From here, you can click on a component, or a relation between components, to open its associated details tab - **Component details** or **Direct relation details**.
 
 ### Grouped relations
 
