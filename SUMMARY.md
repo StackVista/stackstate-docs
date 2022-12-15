@@ -31,7 +31,7 @@
   * [Autonomous Anomaly Detector](stackpacks/add-ons/aad.md)
   * [Kubernetes integration](stackpacks/integrations/kubernetes.md)
   * [OpenShift integration](stackpacks/integrations/openshift.md)
-* [StackState CLI](setup/cli/cli-sts.md)
+* [StackState CLI](setup/cli/k8sTs-cli-sts.md)
 
 ## 🔧 Configure
 
