@@ -2,7 +2,7 @@
 
 **These documentation pages cover all functionality in the StackState Kubernetes troubleshooting product**.
 
-### Using StackState
+### Get started
 
 {% page-ref page="k8sTs-quick-start-guide.md" %}
 
