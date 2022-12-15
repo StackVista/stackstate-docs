@@ -16,7 +16,40 @@
   * [Perspectives](use/concepts/perspectives.md)
   * [Anomaly detection](use/concepts/anomaly-detection.md)
 
-## 🔧️ Set up
+## 🔔 Monitors and events
+
+* [About monitors](use/checks-and-monitors/monitors.md)
+* [Add a custom monitor](develop/developer-guides/monitors/create-custom-monitors.md)
+* [Manage monitors](use/checks-and-monitors/manage-monitors.md)
+* [About events](use/events/about_events.md)
+* [Event notifications](use/events/event-notifications.md)
+* [Manage event handlers](use/events/manage-event-handlers.md)
+
+## 🔬 Investigation
+
+* [About problems](use/problem-analysis/about-problems.md)
+* [Problem lifecycle](use/problem-analysis/problem-lifecycle.md)
+* [Investigate a problem](use/problem-analysis/problem_investigation.md)
+* [Problem notifications](use/problem-analysis/problem_notifications.md)
+
+## 👤 StackState UI
+
+* [Explore mode](use/stackstate-ui/explore_mode.md)
+* [Filters](use/stackstate-ui/filters.md)
+* [Views](use/stackstate-ui/views/README.md)
+  * [About views](use/stackstate-ui/views/about_views.md)
+  * [Create and edit views](use/stackstate-ui/views/create_edit_views.md)
+  * [Configure the view health](use/stackstate-ui/views/configure-view-health.md)
+  * [Visualization settings](use/stackstate-ui/views/visualization_settings.md)
+* [Perspectives](use/stackstate-ui/perspectives/README.md)
+  * [Topology Perspective](use/stackstate-ui/perspectives/topology-perspective.md)
+  * [Events Perspective](use/stackstate-ui/perspectives/events_perspective.md)
+  * [Traces Perspective](use/stackstate-ui/perspectives/traces-perspective.md)
+  * [Metrics Perspective](use/stackstate-ui/perspectives/metrics-perspective.md)
+* [Timeline and time travel](use/stackstate-ui/timeline-time-travel.md)
+* [Keyboard shortcuts](use/stackstate-ui/keyboard-shortcuts.md)
+
+## 🔧️ Setup
 
 * [StackState Agent](setup/agent/README.md)
   * [About StackState Agent V2](setup/agent/about-stackstate-agent.md)
@@ -37,4 +70,5 @@
 
 * [StackState OpenAPI docs](https://dl.stackstate.com/stackstate-openapi/v5.1/openapi-v5.1.0.html)
 * [StackState Query Language \(STQL\)](develop/reference/k8sTs-stql_reference.md)
+* [Monitor STY format](develop/developer-guides/monitors/monitor-sty-file-format.md)
 
