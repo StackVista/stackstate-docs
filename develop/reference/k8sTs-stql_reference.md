@@ -8,7 +8,7 @@ description: StackState Kubernetes troubleshooting
 
 This page describes how to use the built-in StackState Query Language \(STQL\) to write advanced topology component filters. STQL queries are used in StackState to write [advanced topology filters](../../use/stackstate-ui/filters.md#advanced-topology-filters).
 
-An STQL query consists of [component filters](stql_reference.md#component-filters) and [functions](stql_reference.md#functions). The query output is a component, or set of components, filtered from the complete topology.
+An STQL query consists of [component filters](#component-filters) and [functions](#functions). The query output is a component, or set of components, filtered from the complete topology.
 
 ## Component filters
 
@@ -93,7 +93,7 @@ To be compatible with basic filtering, the function can only be combined with ot
 
 | Parameter | Default | Allowed values | Description |
 | :--- | :--- | :--- | :--- |
-| `components` | "all" | A component filter | The component\(s\) for which the neighbors will be returned, see [component filters](stql_reference.md#component-filters). |
+| `components` | "all" | A component filter | The component\(s\) for which the neighbors will be returned, see [component filters](#component-filters). |
 | `levels` | 1 | "all", \[1:14\] | The number of levels to include in the output. Use "all" to display all available levels \(maximum 15\) |
 | `direction` | "both" | "up", "down", "both" | **up**: only components that depend on the named component\(s\) will be added  **down**: only dependencies of the named component\(s\) will be added  **both**: components that depend on and dependencies of the named component\(s\) will be added. |
 
