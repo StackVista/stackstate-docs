@@ -15,7 +15,7 @@ Pulling the images from the different image registries can take some time when p
 To address this issue, you can copy all the images to a single registry close to your cluster, and configure the Helm chart to pull the images from that registry:
 
 {% hint style="info" %}
-The install script `copy_images.sh` must be run on an Intel x86_64 machine. It isn't compatible with Macs that have an M1 or M2 processors.
+The install script `copy_images.sh` must be run on an Intel x86_64 machine. It isn't compatible with Macs that have an M1 or M2 processor.
 {% endhint %}
 
 1. Set up a registry close to your cluster.
