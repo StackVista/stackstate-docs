@@ -22,8 +22,8 @@ You can add telemetry streams to any component or direct relation in the StackSt
    * **Data source** - The data source for the telemetry stream. You can select from the standard data sources or add your own in **Settings** &gt; **Telemetry Sources**.
 4. Click **NEXT**
 5. At the top of the **Add a new stream** popup, select whether to output the telemetry stream as a Metric stream or a Log stream:
-   * **Metric stream** \(default\) - use for metrics. Allows for various [aggregation methods](#aggregation-methods) and will be visualized as a time series line chart.
-   * **Log stream** - use for streams that contain logs and events. Will be visualized as a bar chart.
+   * **Metric stream** \(default\) - use for metrics. StackState visualizes metric streams as a time series line chart. Check the available [aggregation methods](#aggregation-methods).
+   * **Log stream** - use for streams that contain logs and events. StackState visualizes log streams as a bar chart.
 6. Provide the following details:
    * **Time window** - The selection of time to be shown in the StackState UI. The time window is used for display purposes only and doesn't affect handling in any way.
    * **Filters** - Select the data relevant to the element. For example, if the data source contains data about all services on a host, select the specific host and service to attach data for.
