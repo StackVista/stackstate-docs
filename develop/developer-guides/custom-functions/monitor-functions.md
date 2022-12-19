@@ -82,7 +82,7 @@ The script should return a result of type `MonitorHealthState` with the followin
 * `id` - An identifier for the monitor health state. This uniquely identifies a monitor health state between monitor runs.
 * `state` - A `HealthStateValue`. This will be the new health state of the monitor (`CLEAR`, `DEVIATING`, `CRITICAL`, `DISABLED` or `UNKNOWN`).
 * `topologyIdentifier` - The identifier of a component or relation that the monitor health state will bind to.
-* `displayTimeSeries` - Description of a timeseries that will be shown as a chart in the StackState UI.
+* `displayTimeSeries` - Description of a time series that will be shown as a chart in the StackState UI.
 
 Example monitor function script:
 
