@@ -14,21 +14,32 @@ Pulling the images from the different image registries can take some time when p
 
 To address this issue, you can copy all the images to a single registry close to your cluster, and configure the Helm chart to pull the images from that registry:
 
+{% hint style="info" %}
+The install script `copy_images.sh` must be run on an Intel x86_64 machine. It isn't compatible with Macs that have an M1 or M2 processors.
+{% endhint %}
+
 1. Set up a registry close to your cluster.
    * For Amazon Elastic Kubernetes Service (EKS), use [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/).
    * For Azure Kubernetes Service (AKS), use [Azure Container Registry (ACR) \(azure.microsoft.com\)](https://azure.microsoft.com/en-us/products/container-registry/).
-2. Use the relevant script to copy all the images used by the Helm chart to the new registry:
+2. Log in to both Docker image registries:
+   * StackState image registry - `docker login quay.io` - use the username and password provided by StackState.
+   * Custom image registry - `docker login --username <USERNAME>  <REGISTRY_ADDRESS>`
+3. Download the relevant script to copy all the images used by the Helm chart to the new registry. Note that you will first need to make the downloaded script executable:
    * **StackState:** [stackstate/installation/copy_images.sh \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation "StackState Self-Hosted only") to copy all the images used by the Helm chart to the new registry
    * **StackState Agent:** [stackstate-agent/installation/copy_images.sh \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-agent/installation/copy_images.sh)
-   * For example:
+   * For example: 
 
     ```bash
+    # make downloaded script executable
+    chmod a+x copy_images.sh
+    
+    # download images to the custom image registry
     ./installation/copy_images.sh -d 57413481473.dkr.ecr.eu-west-1.amazonaws.com
 
     ```
 
-    * The script will detect when an ECR registry is used and automatically create the required repositories. Most other registries will automatically create repositories when the first image is pushed to it.
-    *   The script has a dry-run option that can be activated with the `-t` flag. This will show the images that will be copied without actually copying them, for example:
+    * The script will detect when an ECR registry is used and automatically create the required repositories. Most other registries will automatically create repositories when the first image is pushed to it. 
+    * The script has a dry-run option that can be activated with the `-t` flag. This will show the images that will be copied without actually copying them, for example:
 
         ```bash
          $ ./installation/copy_images.sh -d 57413481473.dkr.ecr.eu-west-1.amazonaws.com -t
@@ -42,7 +53,7 @@ To address this issue, you can copy all the images to a single registry close to
     * Additional optional flags can be used when running the script:
       * `-c` specify a different chart to use.
       * `-r` specify a different repository to use.
-5. Edit the `values.yaml` file and add the following:
+4. Edit the `values.yaml` file and add the following:
    * **global.imageRegistry** - the registry to use.
    * **global.imagePullSecrets** and **pull-secret** object - optional. The authentication details required for the `global.imageRegistry`.
    * **elasticsearch.prometheus-elasticsearch-exporter.image.repository** - the image used by the prometheus-elasticsearch-exporter sub-chart. Required as it can't be configured with the setting `global.imageRegistry`
