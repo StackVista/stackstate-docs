@@ -10,7 +10,7 @@ All of StackState's own components can run without any extra permissions. Howeve
 
 ## Autonomous Anomaly Detector \(AAD\)
 
-In order to run the [Autonomous Anomaly Detector](../../../stackpacks/add-ons/aad.md), or prepare your cluster to run it, StackState needs to create a `ClusterRole` and two `ClusterRoleBinding` resources. Creating these cluster-wide resources is often prohibited for users that aren't a Kubernetes/OpenShift administrator.
+To run the [Autonomous Anomaly Detector](../../../stackpacks/add-ons/aad.md), or prepare your cluster to run it, StackState needs to create a `ClusterRole` and two `ClusterRoleBinding` resources. Creating these cluster-wide resources is often prohibited for users that aren't a Kubernetes/OpenShift administrator.
 
 ### Disable automatic creation of cluster-wide resources
 
@@ -138,7 +138,7 @@ max virtual memory areas vm.max_map_count [65530] is too low, increase to at lea
 
 ### Increase Linux system settings for Elasticsearch
 
-Depending on what your Kubernetes/OpenShift administrators prefer, the `vm.max_map_count` can be set to a higher default on all nodes by either changing the default node configuration \(for example via init scripts\) or by having a DaemonSet do this right after node startup. The former is very dependent on your cluster setup, so there are no general solutions there.
+If your Kubernetes/OpenShift administrators prefer, the `vm.max_map_count` can be set to a higher default on all nodes. To do this, either change the default node configuration \(for example, via init scripts\) or have a DaemonSet do this straight after node startup. The former option is very dependent on your cluster setup, so there are no general solutions there.
 
 Below is an example that can be used as a starting point for a DaemonSet to change the `vm.max_map_count` setting:
 
