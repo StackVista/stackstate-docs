@@ -6,8 +6,6 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-timeseries
-
 This page describes how to use a custom image registry to install StackState, the StackState Agent, Cluster Agent and kube-state-metrics. The required images are first copied and then the helm chart can then be configured to pull images using the custom registry and tag.
 
 ## Serve images from a different image registry
