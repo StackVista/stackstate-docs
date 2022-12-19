@@ -13,7 +13,7 @@ If you are currently running the Splunk Metrics check on Agent V1 (legacy), it's
 
 * [Migrate to Agent V2](/setup/agent/migrate-agent-v1-to-v2/)
 * [Documentation for the Splunk Metrics check running on Agent V1 \(legacy\)](https://docs.stackstate.com/v/5.0/stackpacks/integrations/splunk/splunk_metrics)
-{% endhint %}q
+{% endhint %}
 
 When the [Splunk StackPack](splunk_stackpack.md) is installed in StackState, you can configure the Splunk Metrics check on StackState Agent V2 to begin collecting Splunk metrics data.
 
@@ -30,7 +30,7 @@ To run the Splunk Metrics Agent check, you need to have:
 
 * A running Splunk instance.
 * The [Splunk StackPack](splunk_stackpack.md) installed on your StackState instance.
-* [StackState Agent V2 v2.18 or later](/setup/agent/about-stackstate-agent.md) must be installed on a single machine which can connect to Splunk and StackState.
+* [StackState Agent v2.18 or later](/setup/agent/about-stackstate-agent.md) must be installed on a single machine which can connect to Splunk and StackState.
 
 ## Splunk saved search
 

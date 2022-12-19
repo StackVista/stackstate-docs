@@ -44,7 +44,7 @@ Indirect relations link two components that are connected together via a path of
 
 ![Indirect relation details](/.gitbook/assets/v51_indirect_relation_details.png)
 
-The **Indirect relation details** tab is shown in the StackState UI right panel when an indirect relation is selected in the topology visualizer. The full path, including all components that connect the source and the target component, is shown. From here you can click on a component or relation between components to jump to the associated **Component details** tab or **Direct relation details** tab where you will find detailed information about the selected component or relation.
+Select an indirect relation in the topology visualizer to display detailed information about it in the right panel **Indirect relation details** tab. The full path, including all components that connect the source and the target component, is shown. From here, you can click on a component, or a relation between components, to open its associated details tab - **Component details** or **Direct relation details**.
 
 ### Grouped relations
 
@@ -56,23 +56,23 @@ Relations between a component group and a component or component group are shown
 
 ![Grouped relation details](/.gitbook/assets/v51_grouped_relation_details.png)
 
-The **Grouped relation details** tab is shown in the StackState UI right panel when a grouped relation is selected in the topology visualizer. This shows all direct and indirect relations included in the group. From here you can click on a component or relation between components to open the associated **Component details** tab, **Direct relation details** tab or **Indirect relation details** tab with detailed information about the selected component or relation.
+Select a grouped relation in the topology visualizer to display detailed information about it in the right panel details tab - **Grouped relation details**. This shows all direct and indirect relations included in the group. From here, you can click on a component, or a relation between components, to open its associated details tab - **Component details**, **Direct relation details** or **Indirect relation details**.
 
 ## Relation details
 
 ![Relation details](/.gitbook/assets/v51_direct_relation_details.png)
 
-When a relation is selected by clicking on it, detailed information about the component is shown in the right panel details tab - **Direct relation details**, **Indirect relation details** or **Grouped relation details**, depending on the type of relation that has been selected. For details of the tab content, see the relation types [direct relations](#direct-relations), [indirect relations](#indirect-relations) and [grouped relations](#grouped-relations).
+Select a relation in the visualizer to display detailed information about it in the right panel. The right panel details tab will be named **Direct relation details**, **Indirect relation details** or **Grouped relation details**, depending on the type of relation that you selected. For details of the tab content, see the relation types [direct relations](#direct-relations), [indirect relations](#indirect-relations) and [grouped relations](#grouped-relations).
 
 ## Dependencies and propagation
 
-If a relation indicates a dependency, the line will have an arrowhead showing the direction of the dependency. A dependency could be in one direction or in both directions, indicating that two components depend on each other, for example a network device talking to another networking device that has a bidirectional connection.
+If a relation indicates a dependency, the line will have an arrowhead showing the direction of the dependency. A dependency could be in one direction or in both directions, indicating that two components depend on each other. For example, a network device talking to another networking device that has a bidirectional connection.
 
 [Health state will propagate](health-state.md#element-propagated-health-state) from one component to the next upwards along a chain of dependencies. If the relation doesn't show a dependency between the components it connects \(no arrowhead\), it can be considered as merely a line in the visualizer or a connection in the stack topology.
 
 ## See also
 
 * [Topology perspective](/use/stackstate-ui/perspectives/topology-perspective.md)
-* [Components](/use/concepts/relations.md)
+* [Components](/use/concepts/components.md)
 * [Health state propagation](/use/concepts/health-state.md#element-propagated-health-state)
 * [View visualization settings](/use/stackstate-ui/views/visualization_settings.md)
