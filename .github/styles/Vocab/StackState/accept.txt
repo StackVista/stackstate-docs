@@ -25,12 +25,15 @@ CLIs
 component
 Component
 concept
+containerd
+CRI-O
 datastore
 datastores
 disable
 Disable
 disabled
 Disabled
+EKS
 endcode
 endhint
 endtab
@@ -64,6 +67,7 @@ playhead
 Playhead
 PostgreSQL
 RDS
+repo
 SAVE
 Save
 save

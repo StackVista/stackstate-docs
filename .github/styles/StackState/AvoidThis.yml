@@ -5,9 +5,12 @@ level: suggestion
 action:
   name: replace
 swap:
-  K8s: Kubernetes
-  k8s: Kubernetes
-  id: ID
   API's: APIs
   config: configuration
   Config: Configuration
+  Air gapped: Air-gapped
+  air gapped: air-gapped
+  helm: Helm
+  id: ID
+  K8s: Kubernetes
+  k8s: Kubernetes
