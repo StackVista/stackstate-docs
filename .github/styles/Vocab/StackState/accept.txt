@@ -2,6 +2,7 @@
 ADD
 Add
 add
+agent
 Agent
 ALL
 All
@@ -43,6 +44,7 @@ ITSM
 JIRA
 JVM
 kubelet
+kubernetes_state
 LIVE
 Live
 live
@@ -57,6 +59,7 @@ Namespace
 NEW
 new
 New
+OLD
 playhead
 Playhead
 PostgreSQL
