@@ -1,6 +1,6 @@
 extends: substitution
 message: "Use'%s' instead of '%s'."
-#ignorecase: true
+ignorecase: true
 level: suggestion
 action:
   name: replace
@@ -11,3 +11,5 @@ swap:
   API's: APIs
   config: configuration
   Config: Configuration
+  timeseries: time series
+  time-series: time series
