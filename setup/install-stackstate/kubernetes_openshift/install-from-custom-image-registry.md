@@ -42,12 +42,12 @@ The install script `copy_images.sh` must be run on an Intel x86_64 machine. It i
     * The script has a dry-run option that can be activated with the `-t` flag. This will show the images that will be copied without actually copying them, for example:
 
         ```bash
-         $ ./installation/copy_images.sh -d 57413481583.dkr.ecr.eu-west-1.amazonaws.com -t
-         Copying justwatch/elasticsearch_exporter:1.1.0 to 57413481583.dkr.ecr.eu-west-1.amazonaws.com/justwatch/elasticsearch_exporter:1.1.0 (dry-run)
-         Copying quay.io/stackstate/stackgraph-console:3.6.14 to 57413481583.dkr.ecr.eu-west-1.amazonaws.com/stackstate/stackgraph-console:3.6.14 (dry-run)
-         Copying quay.io/stackstate/stackstate-server-stable:4.2.2 to 57413481583.dkr.ecr.eu-west-1.amazonaws.com/stackstate/stackstate-server-stable:4.2.2 (dry-run)
-         Copying quay.io/stackstate/wait:1.0.0 to 57413481583.dkr.ecr.eu-west-1.amazonaws.com/stackstate/wait:1.0.0 (dry-run)
-         Copying quay.io/stackstate/stackstate-server-stable:4.2.2 to 57413481583.dkr.ecr.eu-west-1.amazonaws.com/stackstate/stackstate-server-stable:4.2.2 (dry-run)
+         $ ./installation/copy_images.sh -d 57413481473.dkr.ecr.eu-west-1.amazonaws.com -t
+         Copying stackstate/elasticsearch_exporter:1.1.0 to 57413481473.dkr.ecr.eu-west-1.amazonaws.com/stackstate/elasticsearch_exporter:1.1.0 (dry-run)
+         Copying quay.io/stackstate/stackgraph-console:3.6.14 to 57413481473.dkr.ecr.eu-west-1.amazonaws.com/stackstate/stackgraph-console:3.6.14 (dry-run)
+         Copying quay.io/stackstate/stackstate-server-stable:4.2.2 to 57413481473.dkr.ecr.eu-west-1.amazonaws.com/stackstate/stackstate-server-stable:4.2.2 (dry-run)
+         Copying quay.io/stackstate/wait:1.0.0 to 57413481473.dkr.ecr.eu-west-1.amazonaws.com/stackstate/wait:1.0.0 (dry-run)
+         Copying quay.io/stackstate/stackstate-server-stable:4.2.2 to 57413481473.dkr.ecr.eu-west-1.amazonaws.com/stackstate/stackstate-server-stable:4.2.2 (dry-run)
 
         ```
     * Additional optional flags can be used when running the script:
@@ -56,10 +56,11 @@ The install script `copy_images.sh` must be run on an Intel x86_64 machine. It i
 4. Edit the `values.yaml` file and add the following:
    * **global.imageRegistry** - the registry to use.
    * **global.imagePullSecrets** and **pull-secret** object - optional. The authentication details required for the `global.imageRegistry`.
-   * **elasticsearch.prometheus-elasticsearch-exporter.image.repository** - the image used by the prometheus-elasticsearch-exporter sub-chart. Required as it can't be configured with the setting `global.imageRegistry`
+   * **minio.image.registry** - The image registry used by the minio sub-chart. Required as it can't be configured with the setting `global.imageRegistry`.
+   * **elasticsearch.prometheus-elasticsearch-exporter.image.repository** - the image used by the prometheus-elasticsearch-exporter sub-chart. Required as it can't be configured with the setting `global.imageRegistry`.
     ```yaml
     global:
-      imageRegistry: 57413481583.dkr.ecr.eu-west-1.amazonaws.com
+      imageRegistry: 57413481473.dkr.ecr.eu-west-1.amazonaws.com
     ## to specify authentication details for the global.imageRegistry
     ## add the sections below.
     #   imagePullSecrets:
@@ -68,14 +69,18 @@ The install script `copy_images.sh` must be run on an Intel x86_64 machine. It i
     #   enabled: true
     #   fullNameOverride: stackstate-pull-secret
     #   credentials:
-    #   - registry: 57413481583.dkr.ecr.eu-west-1.amazonaws.com
+    #   - registry: 57413481473.dkr.ecr.eu-west-1.amazonaws.com
     #     username: johndoe
     #     password: my_secret-p@ssw0rd
    
+    minio:
+      image:
+        registry: 57413481583.dkr.ecr.eu-west-1.amazonaws.com
+
      elasticsearch:
        prometheus-elasticsearch-exporter:
          image:
-           repository: 57413481583.dkr.ecr.eu-west-1.amazonaws.com/justwatch/elasticsearch_exporter
+           repository: 57413481473.dkr.ecr.eu-west-1.amazonaws.com/stackstate/elasticsearch_exporter
     ```
 
 ## Images
