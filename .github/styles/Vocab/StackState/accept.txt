@@ -2,6 +2,7 @@
 ADD
 Add
 add
+agent
 Agent
 ALL
 All
@@ -24,6 +25,8 @@ CLIs
 component
 Component
 concept
+datastore
+datastores
 disable
 Disable
 disabled
@@ -40,6 +43,8 @@ IAM
 ITSM
 JIRA
 JVM
+kubelet
+kubernetes_state
 LIVE
 Live
 live
@@ -54,9 +59,11 @@ Namespace
 NEW
 new
 New
+OLD
 playhead
 Playhead
 PostgreSQL
+RDS
 SAVE
 Save
 save

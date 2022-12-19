@@ -117,6 +117,7 @@ helm upgrade --install \
    --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
    --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
    --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
+   --set-string 'logsAgent.enabled'='true' \
    stackstate-agent stackstate/stackstate-agent
 ```
 {% endtab %}
@@ -239,6 +240,7 @@ helm upgrade --install \
   --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
   --set-string 'stackstate.cluster.authToken'='<CLUSTER_AUTH_TOKEN>' \
   --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
+  --set-string 'logsAgent.enabled'='true' \
   stackstate-agent stackstate/stackstate-agent
 ```
 {% endtab %}
@@ -273,6 +275,7 @@ helm upgrade --install \
 --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
 --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
 --set-string 'agent.containerRuntime.customSocketPath'='<CUSTOM_SOCKET_PATH>' \
+--set-string 'logsAgent.enabled'='true' \
 stackstate-agent stackstate/stackstate-agent
 ```
 
@@ -300,6 +303,7 @@ helm upgrade --install \
   --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
   --set-string 'stackstate.cluster.authToken'='<CLUSTER_AUTH_TOKEN>' \
   --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
+  --set-string 'logsAgent.enabled'='true' \
   --values values.yaml \
   stackstate-agent stackstate/stackstate-agent
 ```
@@ -370,6 +374,7 @@ helm upgrade --install \
   --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
   --set-string 'stackstate.cluster.authToken'='<CLUSTER_AUTH_TOKEN>' \
   --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
+  --set-string 'logsAgent.enabled'='true' \
   --values values.yaml \
   stackstate-agent stackstate/stackstate-agent
 ```
@@ -490,6 +495,8 @@ StackState Agent V2 can be configured to reduce data production, tune the proces
 
 ## External integration configuration
 
+To integrate with other external services, a separate instance of the [StackState Agent](about-stackstate-agent.md) should be deployed on a standalone VM. Other than [kubernetes_state check](/stackpacks/integrations/kubernetes.md) and [AWS check](/stackpacks/integrations/aws/aws.md#configure-the-aws-check), it isn't currently possible to configure a StackState Agent deployed on a Kubernetes or OpenShift cluster with checks that integrate with other services.
+
 To integrate with other external services, a separate instance of the [StackState Agent](about-stackstate-agent.md) should be deployed on a standalone VM. StackState Agent deployed on a Kubernetes or OpenShift cluster can only run the [kubernetes_state check](/stackpacks/integrations/kubernetes.md) and [AWS check](/stackpacks/integrations/aws/aws.md#configure-the-aws-check).
 
 # Commands
@@ -547,6 +554,7 @@ helm upgrade --install \
    --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
    --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
    --set-string 'global.extraEnv.open.STS_LOG_PAYLOADS'='true' \
+   --set-string 'logsAgent.enabled'='true' \
    --set 'agent.logLevel'='debug' \
    stackstate-agent stackstate/stackstate-agent
 ```
