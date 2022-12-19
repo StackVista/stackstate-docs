@@ -19,7 +19,7 @@ To integrate with other services, a separate instance of StackState Agent V2 sho
 
 # StackState Agent types
 
-The Kubernetes and OpenShift integrations collect topology data from Kubernetes and OpenShift clusters respectively, as well as metrics and events. To achieve this, different types of StackState Agent are used:
+The Kubernetes and OpenShift integrations collect topology data, metrics and events from Kubernetes and OpenShift clusters. To achieve this, different types of StackState Agent are used:
 
 | Component | Pod name |
 | :--- | :--- |
