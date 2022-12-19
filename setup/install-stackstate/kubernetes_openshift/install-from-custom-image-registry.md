@@ -23,7 +23,7 @@ The install script `copy_images.sh` must be run on an Intel x86_64 machine. It i
    * For Azure Kubernetes Service (AKS), use [Azure Container Registry (ACR) \(azure.microsoft.com\)](https://azure.microsoft.com/en-us/products/container-registry/).
 2. Log in to both Docker image registries:
    * **StackState image registry** - `docker login quay.io` - use the username and password provided by StackState.
-   * **Custom image registry** - `docker login --username <USERNAME>  <REGISTRY_ADDRESS>`
+   * **Custom image registry** - `docker login --username <USERNAME>  <CUSTOM_REGISTRY_ADDRESS>`
 3. Download the relevant script and use this to copy all images used by the Helm chart to the custom registry. Note that you will first need to make the downloaded script executable:
    * **StackState:** [stackstate/installation/copy_images.sh \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation "StackState Self-Hosted only")
    * **StackState Agent:** [stackstate-agent/installation/copy_images.sh \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-agent/installation/copy_images.sh)
