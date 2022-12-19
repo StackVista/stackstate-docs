@@ -34,7 +34,7 @@ The install script `copy_images.sh` must be run on an Intel x86_64 machine. It i
       chmod a+x copy_images.sh
       
       # download images to the custom image registry
-      ./installation/copy_images.sh -d 57413481473.dkr.ecr.eu-west-1.amazonaws.com
+      ./installation/copy_images.sh -d <CUSTOM_REGISTRY_ADDRESS>
   
       ```
 
