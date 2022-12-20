@@ -73,7 +73,6 @@ Splunk
 STAC
 stac
 StackState
-stackstate.[a-z]*
 StackPack
 storageClass
 sts
