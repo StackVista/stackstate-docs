@@ -3,7 +3,6 @@ ADD
 Add
 add
 Agent
-agent.[a-z]*
 ALL
 All
 all
