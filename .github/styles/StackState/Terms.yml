@@ -5,7 +5,6 @@ level: suggestion
 action:
   name: replace
 swap:
-  '(?:virtual assistant|intelligent personal assistant)': personal digital assistant
   '(?:drive C:|drive C>|C: drive)': drive C
   '(?:internet bot|web robot)s?': bot(s)
   '(?:microsoft cloud|the cloud)': cloud
