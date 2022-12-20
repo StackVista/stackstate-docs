@@ -3,6 +3,7 @@ ADD
 Add
 add
 Agent
+agent.[a-z]*
 ALL
 All
 all
@@ -73,6 +74,7 @@ Splunk
 STAC
 stac
 StackState
+stackstate.[a-z]*
 StackPack
 storageClass
 sts
