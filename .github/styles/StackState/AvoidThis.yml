@@ -13,3 +13,4 @@ swap:
   Config: Configuration
   timeseries: time series
   time-series: time series
+  agent: Agent
