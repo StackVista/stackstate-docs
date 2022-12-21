@@ -392,3 +392,11 @@ redirects:
   develop/reference/stj/using_stj: ./develop/reference/stackstate-templating/using_stackstate_templating.md
   develop/reference/stj: ./develop/reference/stackstate-templating/README.md
   setup/data-management/backup_restore/manual_topology_backup: ./setup/data-management/backup_restore/README.md
+
+# StackState SaaS docs
+
+  metrics-and-events/how_to_setup_traces: ./configure/traces/metrics/set-up-traces.md
+  metrics-and-events/how_to_use_the_priority_field_for_components: ./use/metrics/set-telemetry-stream-priority.md
+  metrics-and-events/add-telemetry-to-element: ./use/metrics/add-telemetry-to-element.md
+  metrics-and-events/event-notifications: ./use/events/event-notifications.md
+  metrics-and-events/browse-telemetry: ./use/metrics/browse-telemetry.md
