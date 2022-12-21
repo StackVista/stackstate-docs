@@ -385,3 +385,10 @@ redirects:
   use/stackstate-ui/views/manage-event-handlers#add-event-handler: ./use/events/manage-event-handlers.md#add-event-handler
   setup/agent/kubernetes: ./setup/agent/kubernetes-openshift.md
 
+# StackState SaaS docs
+
+  metrics-and-events/how_to_setup_traces: ./configure/traces/metrics/set-up-traces.md
+  metrics-and-events/how_to_use_the_priority_field_for_components: ./use/metrics/set-telemetry-stream-priority.md
+  metrics-and-events/add-telemetry-to-element: ./use/metrics/add-telemetry-to-element.md
+  metrics-and-events/event-notifications: ./use/events/event-notifications.md
+  metrics-and-events/browse-telemetry: ./use/metrics/browse-telemetry.md
