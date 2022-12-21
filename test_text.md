@@ -1,21 +1,17 @@
 # agent.big.link
 
-agent.short
+## Flag 
 
-stackstate.big.link
+* Agent and StackState: the StackState agent is made by stackstate.
+* Agents: agents
+* stackstateshort 
+* testest 
+* agenttesttext
 
-stackstate.short.
+## Don't flag
 
-the StackState agent is made by stackstate.
-
-agents
-
-stackstateshort
-
-testest
-
-agenttesttext
-
-test.agent.com
-
-agent.gina.please.work
+* test.agent.com 
+* agent.gina.please.work
+* agent.short 
+* stackstate.big.link 
+* stackstate.short.
