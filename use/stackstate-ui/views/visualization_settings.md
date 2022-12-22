@@ -15,6 +15,10 @@ Visualization settings let you customize how components in the view and the rela
 
 Changes made to the visualization settings are saved together with the view.
 
+Click the **Visualization Settings** icon in the top right of the topology visualizer to open the visualization settings menu. 
+
+![Visualization settings menu](.gitbook/assets/v52_visualization_settings.png)
+
 ## Root cause
 
 The root cause visualization settings allow you to make the same changes as can be done with the lightening bolt buttons in the top right corner of the topology visualization. By default, this will be set to **don't show root cause**. When enabled, the view will be automatically expanded to show dependencies that are impacting `DEVIATING` or `CRITICAL` propagated health states of components in the view.

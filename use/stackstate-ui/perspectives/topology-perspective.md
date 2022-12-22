@@ -82,7 +82,11 @@ The view filters are saved together with the View. For details, see the page [fi
 
 ## Visualization settings
 
-The visualization of components and relations in the topology perspective can be customized in the visualization settings. Click the **Visualization Settings** icon in the left menu to open the visualization settings menu. Here you can edit:
+The visualization of components and relations in the topology perspective can be customized in the visualization settings. Click the **Visualization Settings** icon in the top right of the topology visualizer to open the visualization settings menu. 
+
+![Visualization settings menu](.gitbook/assets/v52_visualization_settings.png)
+
+Here you can edit:
 
 * Root cause display - to what extent the view should be expanded when an element in the view reports a `DEVIATING` or `CRITICAL` health state or propagated health state.
 * Grouping - should all components be displayed individually or should like components be grouped. For details, see [component grouping](topology-perspective.md#grouping).
