@@ -134,9 +134,9 @@ The OpenShift integration retrieves the following data:
 
 #### Events
 
-The OpenShift integration retrieves all OpenShift events from the OpenShift cluster. In addition to this, `Element Properties Change` events will be generated in StackState for changes in Kubernetes objects.
+The OpenShift integration retrieves all OpenShift events from the OpenShift cluster. In addition to this, `Configuration Change` events will be generated in StackState for changes in Kubernetes objects.
 * All [OpenShift events](#openshift-events) are retrieved from the Kubernetes cluster.
-* StackState `Element Properties Change` events will be generated for [changes detected in an OpenShift object](#object-change-events).
+* StackState `Configuration Change` events will be generated for [changes detected in an OpenShift object](#object-change-events).
 
 ##### OpenShift events
 
@@ -151,9 +151,9 @@ The OpenShift integration retrieves all events from the OpenShift cluster. The t
 
 ##### Object change events
 
-The OpenShift integration will detect changes in OpenShift objects and will create an event of type `Element Properties Change` with a diff with a YAML representation of the changed object.
+The OpenShift integration will detect changes in OpenShift objects and will create an event of type `Configuration Change` with a diff with a YAML representation of the changed object.
 
-![Element Properties Change event](../../.gitbook/assets/k8s-change-event.png)
+![Configuration Change event](../../.gitbook/assets/k8s-change-event.png)
 
 Changes will be detected in the following object types:
 * `ConfigMap`
