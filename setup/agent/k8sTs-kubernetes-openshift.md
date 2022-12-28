@@ -177,10 +177,7 @@ OpenShift has its own system for forwarding logs, which we can configure to send
 
 4. If the `ClusterLogForwarder` was already installed before, amend the existing resource configuration to include the `outputs` and `pipelines` sections from `logforwarder.yaml`.
 
-### Air gapped install
-=======
 ### Air-gapped install
->>>>>>> origin/stac-18524
 
 If StackState Agent will run in an environment that doesn't have a direct connection to the Internet, the images required to install the StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics can be downloaded and stored in a local system or image registry.
 
