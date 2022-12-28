@@ -39,7 +39,7 @@ To address this issue, you can copy all the images to a single registry close to
          Copying quay.io/stackstate/stackstate-server-stable:4.2.2 to 57413481473.dkr.ecr.eu-west-1.amazonaws.com/stackstate/stackstate-server-stable:4.2.2 (dry-run)
 
         ```
-    * Additional optional flags can be used when running the script:
+    * Additional, optional flags can be used when running the script:
       * `-c` specify a different chart to use.
       * `-r` specify a different repository to use.
 5. Edit the `values.yaml` file and add the following:

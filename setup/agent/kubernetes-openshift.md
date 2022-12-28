@@ -86,7 +86,7 @@ StackState Agent v2.19.x is supported to monitor the following versions of Kuber
 The StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics can be installed together using the StackState Agent Helm Chart:
 
 * [Online install](#online-install) - charts are retrieved from the default StackState chart repository (https://helm.stackstate.io), images are retrieved from the default StackState image registry (quay.io).
-* [Air gapped install](#air-gapped-install) - images are retrieved from a local system or registry.
+* [Air-gapped install](#air-gapped-install) - images are retrieved from a local system or registry.
 * [Install from a custom image registry](#install-from-a-custom-image-registry) - images are retrieved from a configured image registry.
 
 ### Online install
@@ -106,7 +106,7 @@ The StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics can be 
 
    * For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
 
-   - Note that [additional optional configuration](#helm-chart-values) can be added to the standard helm command.
+   - Note that [additional, optional configuration](#helm-chart-values) can be added to the standard helm command.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
@@ -135,7 +135,7 @@ stackstate-agent stackstate/stackstate-agent
 {% endtab %}
 {% endtabs %}
 
-### Air gapped install
+### Air-gapped install
 
 If StackState Agent will run in an environment that doesn't have a direct connection to the Internet, the images required to install the StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics can be downloaded and stored in a local system or image registry.
 
@@ -345,7 +345,7 @@ The `stackstate/cluster-agent` chart is being deprecated and will no longer be s
 The naming of some values has changed in the new chart. If you previously deployed the Agent using the `stackstate/cluster-agent`, follow the steps below to update the values.yaml file and redeploy the Agent with the new `stackstate/stackstate-agent` chart:
 
 2. Backup the values.yaml file that was used to deploy with the old `stackstate/cluster-agent` chart.
-3. Copy of the values.yaml file and update the following values in the new file. This will allow you to re-use the previous values while ensuring compatibility with the new chart:
+3. Copy of the values.yaml file and update the following values in the new file. You can then re-use the previous values, while ensuring compatibility with the new chart:
     * `clusterChecks` has been renamed to `checksAgent` - the `checksAgent` now runs by default. The `checksAgent` section is now only required if you want to disable the Checks Agent.
     * `agent` has been renamed to `nodeAgent`.
     * The kubernetes\_state check now runs in the Checks Agent by default, this no longer needs to be configured on default installations.
@@ -490,7 +490,7 @@ StackState Agent V2 can be configured to reduce data production, tune the proces
 
 ## External integration configuration
 
-To integrate with other external services, a separate instance of the [StackState Agent](about-stackstate-agent.md) should be deployed on a standalone VM. Other than [kubernetes_state check](/stackpacks/integrations/kubernetes.md) and [AWS check](/stackpacks/integrations/aws/aws.md#configure-the-aws-check), it isn't currently possible to configure a StackState Agent deployed on a Kubernetes or OpenShift cluster with checks that integrate with other services.
+To integrate with other external services, a separate instance of the [StackState Agent](about-stackstate-agent.md) should be deployed on a standalone VM. StackState Agent deployed on a Kubernetes or OpenShift cluster can only run the [kubernetes_state check](/stackpacks/integrations/kubernetes.md) and [AWS check](/stackpacks/integrations/aws/aws.md#configure-the-aws-check).
 
 # Commands
 

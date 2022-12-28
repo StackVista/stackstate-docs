@@ -2,6 +2,7 @@
 ADD
 Add
 add
+agent
 Agent
 ALL
 All
@@ -24,12 +25,15 @@ CLIs
 component
 Component
 concept
+containerd
+CRI-O
 datastore
 datastores
 disable
 Disable
 disabled
 Disabled
+EKS
 endcode
 endhint
 endtab
@@ -43,6 +47,7 @@ ITSM
 JIRA
 JVM
 kubelet
+kubernetes_state
 LIVE
 Live
 live
@@ -57,10 +62,12 @@ Namespace
 NEW
 new
 New
+OLD
 playhead
 Playhead
 PostgreSQL
 RDS
+repo
 SAVE
 Save
 save
