@@ -142,9 +142,13 @@ stackstate-agent stackstate/stackstate-agent
 
 ### Logs on OpenShift
 
-OpenShift has its own system for forwarding logs, which we can configure to send logs to StackState. These instructions are for OpenShift only.
+{% hint style="info" %}
+These instructions are for OpenShift only.
+{% endhint %}
 
-1. If not already setup, [setup cluster logging on your OpenShift Cluster \(docs.openshift.com\)](https://docs.openshift.com/container-platform/4.11/logging/cluster-logging-deploying.html). Installing a logStore on OpenShift is not required for forwarding logs to StackState and can be skipped from the setup. The Collector (fluentd) does need to be setup correctly.
+OpenShift has its own system for forwarding logs and can be configured to send logs to StackState.
+
+1. If not already set up, [set up cluster logging on your OpenShift cluster \(docs.openshift.com\)](https://docs.openshift.com/container-platform/4.11/logging/cluster-logging-deploying.html). It is not necessary to install a log store on OpenShift to forward logs to StackState, this can be skipped from the setup. The Collector (Fluentd) does need to be set up correctly.
 
 2. Create a file `logforwarder.yaml`, with the following contents (be sure to replace the `<STACKSTATE_RECEIVER_API_ADDRESS>`)
 
@@ -175,7 +179,7 @@ OpenShift has its own system for forwarding logs, which we can configure to send
    kubectl create --namespace openshift-logging -f logforwarder.yaml
    ```
 
-4. If the `ClusterLogForwarder` was already installed before, amend the existing resource configuration to include the `outputs` and `pipelines` sections from `logforwarder.yaml`.
+4. If the `ClusterLogForwarder` was already installed before, change the existing resource configuration to include the `outputs` and `pipelines` sections from `logforwarder.yaml`.
 
 ### Air-gapped install
 
