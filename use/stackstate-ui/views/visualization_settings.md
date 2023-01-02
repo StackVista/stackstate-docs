@@ -11,11 +11,10 @@ Visualization settings let you customize how components in the view and the rela
 * [Group components](visualization_settings.md#components-grouping)
 * [Organize components](visualization_settings.md#grid-options) by layers or domains
 * [Show indirect relations](visualization_settings.md#relations-settings) between components
-* [Show the root cause](visualization_settings.md#root-cause) for problem components
 
 Changes made to the visualization settings are saved together with the view.
 
-Click the **Visualization Settings** icon in the top right of the topology visualizer to open the visualization settings menu. 
+Click the **Visualization Settings** icon in the top right of theÏ topology visualizer to open the visualization settings menu. 
 
 ![Visualization settings menu](.gitbook/assets/v52_visualization_settings.png)
 
@@ -27,10 +26,10 @@ The root cause visualization settings allow you to make the same changes as can 
 
 The components in the topology perspective can optionally be organized in a grid, with layers grouped in rows and domains visualized as columns. The grid is turned on by default. When no grid options are selected, no grid is displayed.
 
-* **Organize by layers** - Components of the same layer are placed in the same grid row in the topology visualization. Disable to remove the rows from the grid.
-* **Organize by domains** - Components of the same domain are placed in the same grid column in the topology visualization. Disable to remove the columns from the grid.
+* **Organize components by Layers** - Components of the same layer are placed in the same grid row in the topology visualization. Disable to remove the rows from the grid.
+* **Organize components by Domains** - Components of the same domain are placed in the same grid column in the topology visualization. Disable to remove the columns from the grid.
 
-For example, if you have a business service visualization of a stack that comes from four or five different sources, the source \(domain\) they're coming from won't be so important in the visualization. This could be a good situation to visualize the topology with **organize by domains** switched off.
+For example, if you have a business service visualization of a stack that comes from four or five different sources, the source \(domain\) that the components are coming from won't be so important in the visualization. This could be a good situation to switch off **organize components by Domains** in the topology visualization.
 
 ## Components grouping
 
@@ -40,14 +39,14 @@ Grouping is enabled by default and respects the selected [grid options](visualiz
 
 Three types of grouping are available, or you can choose not to group components together:
 
+* **Auto grouping** (default) - Grouping settings are automatically adjusted to keep the number of components or component groups visualized below 35.
 * **No grouping** - Components and relations aren't grouped in any way.
-* **Auto grouping** - Grouping settings are automatically adjusted to keep the number of components or component groups visualized below 35.
-* **Group by state and type** - Components of the same type and with the same health state are grouped together into one group. If one of the grouped components changes its health state and no longer matches the health state of the component group, it will pop out of the group. If other components of the same type have the same health state, a new group will be created.
-* **Group by type, state and relation** - Components are grouped together as with **group by state and type** while maintaining information about relations to components outside of the group. All components in a group have the same source and target connection. This is useful because grouping components together by state and type alone can cause some information on relations for the components in the group to be lost.
+* **Group by type and state** - Components of the same type and with the same health state are grouped together into one group. If one of the grouped components changes its health state and no longer matches the health state of the component group, it will pop out of the group. If other components of the same type have the same health state, a new group will be created.
+* **Group by type, state and relation** - Components are grouped together as with **group by type and state** while maintaining information about relations to components outside the group. All components in a group have the same source and target connection. This is useful because grouping components together by state and type alone can cause some information on relations for the components in the group to be lost.
 
 ### Minimum components in a group 
 
-For **group by state and type** and **group by type, state and relation**, a threshold must be passed before any grouping happens - the Minimum components in a group. 
+For **group by type and state** and **group by type, state and relation**, a threshold must be passed before any grouping happens - the Minimum components in a group. 
 
 By default, the minimum group size is 2, this means that if there is one component of a certain type and health state in a view, then when the next component comes along that has the same state and type a component group will be created. If the threshold value is set higher, to 8 for example, then at least 8 components with the same state type \(and possibly relations\) would be required for a group to be created.
 
