@@ -8,12 +8,14 @@ description: StackState Self-hosted v5.1.x
 **StackState Agent V2**
 {% endhint %}
 
-To retrieve topology, events and metrics data from a Kubernetes or OpenShift cluster, you will need to have the following installed in the cluster:
+To retrieve topology, events, logs and metrics data from a Kubernetes or OpenShift cluster, you will need to have the following installed in the cluster:
 
 * StackState Agent V2 on each node in the cluster
 * StackState Cluster Agent on one node
 * StackState Checks Agent on one node
 * kube-state-metrics
+* Cluster logging (OpenShift only)
+* Cluster logging forwarder (OpenShift only)
 
 To integrate with other services, a separate instance of StackState Agent V2 should be deployed on a standalone VM.
 
@@ -86,6 +88,7 @@ StackState Agent v2.19.x is supported to monitor the following versions of Kuber
 The StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics can be installed together using the StackState Agent Helm Chart:
 
 * [Online install](#online-install) - charts are retrieved from the default StackState chart repository (https://helm.stackstate.io), images are retrieved from the default StackState image registry (quay.io).
+* [Setup logs on OpenShift](#logs-on-openshift) - configure the OpenShift Cluster logging forwarder to send logs to StackState 
 * [Air-gapped install](#air-gapped-install) - images are retrieved from a local system or registry.
 * [Install from a custom image registry](#install-from-a-custom-image-registry) - images are retrieved from a configured image registry.
 
@@ -131,10 +134,52 @@ helm upgrade --install \
 --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
 --set 'agent.scc.enabled'=true \
 --set 'kube-state-metrics.securityContext.enabled'=false \
+--set 'openShiftLogging.installSecret'=true \
 stackstate-agent stackstate/stackstate-agent
 ```
 {% endtab %}
 {% endtabs %}
+
+### Logs on OpenShift
+
+{% hint style="info" %}
+These instructions are for OpenShift only.
+{% endhint %}
+
+OpenShift has its own system for forwarding logs and can be configured to send logs to StackState.
+
+1. If not already set up, [set up cluster logging on your OpenShift cluster \(docs.openshift.com\)](https://docs.openshift.com/container-platform/4.11/logging/cluster-logging-deploying.html). It isn't necessary to install a log store on OpenShift to forward logs to StackState, this can be skipped from the setup. The Collector (Fluentd) does need to be set up correctly.
+
+2. Create a file `logforwarder.yaml`, with the following contents (be sure to replace the `<STACKSTATE_RECEIVER_API_ADDRESS>`)
+
+   ```
+   apiVersion: logging.openshift.io/v1
+   kind: ClusterLogForwarder
+   metadata:
+     name: instance
+     namespace: openshift-logging
+   spec:
+     outputs:
+       - name: stackstate
+         type: loki
+         url: '<STACKSTATE_RECEIVER_API_ADDRESS>logs/openshift'
+         secret:
+           name: stackstate-agent-logging-secret
+     pipelines:
+       - inputRefs:
+           - application
+         outputRefs:
+           - stackstate
+
+   ```
+
+3. Run the following command to install log forwarding
+
+   ```
+   kubectl create --namespace openshift-logging -f logforwarder.yaml
+   ```
+
+4. If the `ClusterLogForwarder` was already installed before, change the existing resource configuration to include the `outputs` and `pipelines` sections from `logforwarder.yaml`.
 
 ### Air-gapped install
 
@@ -256,6 +301,7 @@ helm upgrade --install \
   --set 'agent.logLevel'='debug' \
   --set 'agent.scc.enabled'=true \
   --set 'kube-state-metrics.securityContext.enabled'=false \
+  --set 'openShiftLogging.installSecret'=true \
   stackstate-agent stackstate/stackstate-agent
 ```
 {% endtab %}
@@ -320,6 +366,7 @@ helm upgrade --install \
   --set 'agent.logLevel'='debug' \
   --set 'agent.scc.enabled'=true \
   --set 'kube-state-metrics.securityContext.enabled'=false \
+  --set 'openShiftLogging.installSecret'=true \
   --values values.yaml \
   stackstate-agent stackstate/stackstate-agent
 ```
@@ -391,6 +438,7 @@ helm upgrade --install \
   --set 'agent.logLevel'='debug' \
   --set 'agent.scc.enabled'=true \
   --set 'kube-state-metrics.securityContext.enabled'=false \
+  --set 'openShiftLogging.installSecret'=true \
   --values values.yaml \
   stackstate-agent stackstate/stackstate-agent
 ```

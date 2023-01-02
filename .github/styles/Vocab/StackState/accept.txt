@@ -41,6 +41,7 @@ endtabs
 EVENT
 Event
 event
+Fluentd
 HIGH
 IAM
 ITSM
@@ -63,6 +64,9 @@ NEW
 new
 New
 OLD
+Old
+old
+OpenShift
 playhead
 Playhead
 PostgreSQL
