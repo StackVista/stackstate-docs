@@ -5,12 +5,15 @@ level: suggestion
 action:
   name: replace
 swap:
+  Air gapped: Air-gapped
+  air gapped: air-gapped
   API's: APIs
   config: configuration
   Config: Configuration
-  Air gapped: Air-gapped
-  air gapped: air-gapped
+  ElasticSearch: Elasticsearch
+  fluentd: Fluentd
   helm: Helm
   id: ID
   K8s: Kubernetes
   k8s: Kubernetes
+  Openshift: OpenShift
