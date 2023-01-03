@@ -31,7 +31,7 @@ Click **INVESTIGATE IN SUBVIEW** to open all components in a problem in a dedica
 
 ## Probable causes
 
-For each reported problem, StackState will list all events that are likely to have contributed to unhealthy state changes in the problem. These could be events of type **Anomaly**, **Element properties changed** or **Version changed** that occurred within the [problem time window](about-problems.md#time-window-of-a-problem) and relate to components in the problem. If no relevant probable cause events are available in StackState, the list will be empty.
+For each reported problem, StackState will list all events that are likely to have contributed to unhealthy state changes in the problem. These could be events of type **Anomaly**, **Configuration changed** or **Version changed** that occurred within the [problem time window](about-problems.md#time-window-of-a-problem) and relate to components in the problem. If no relevant probable cause events are available in StackState, the list will be empty.
 
 ### Anomaly events
 
@@ -44,11 +44,11 @@ Anomaly events are generated whenever an anomaly is detected by the [Autonomous 
 
 ![Metric stream anomaly detailed event information](../../.gitbook/assets/v51_event_metric_stream_anomaly.png)
 
-### Element properties changed events
+### Configuration changed events
 
-Element properties changed events are generated whenever relevant properties of a component are updated at the synchronization source. For example, if AWS security rules are changed or a load balancer has increased its capacity. Exact details of the change are provided.
+Configuration changed events are generated whenever relevant properties of a component are updated at the synchronization source. For example, if AWS security rules are changed or a load balancer has increased its capacity. Exact details of the change are provided.
 
-1. Select an `Element properties changed` event in the Events Perspective.
+1. Select an `Configuration changed` event in the Events Perspective.
    * Detailed information about the event is displayed in the right panel details tab - **Event details**.
 2. Click **Show all changes** in the right panel details tab.
    * A diff of the old and new properties is displayed.

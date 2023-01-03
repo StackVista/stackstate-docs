@@ -133,7 +133,7 @@ The Kubernetes integration retrieves the following data:
 #### Events
 
 * All [Kubernetes events](#kubernetes-events) are retrieved from the Kubernetes cluster.
-* StackState `Element Properties Change` events will be generated for [changes detected in a Kubernetes object](#object-change-events).
+* StackState `Configuration Change` events will be generated for [changes detected in a Kubernetes object](#object-change-events).
 
 ##### Kubernetes events
 
@@ -148,9 +148,9 @@ The Kubernetes integration retrieves all events from the Kubernetes cluster. The
 
 ##### Object change events
 
-The Kubernetes integration will detect changes in Kubernetes objects and will create an event of type `Element Properties Change` with a diff with a YAML representation of the changed object.
+The Kubernetes integration will detect changes in Kubernetes objects and will create an event of type `Configuration Change` with a diff with a YAML representation of the changed object.
 
-![Element Properties Change event](../../.gitbook/assets/k8s-change-event.png)
+![Configuration Change event](../../.gitbook/assets/k8s-change-event.png)
 
 Changes will be detected in the following object types:
 * `ConfigMap`
