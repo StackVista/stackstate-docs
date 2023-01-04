@@ -92,7 +92,7 @@ You can still browse topology and telemetry as expected:
 
 #### Live mode 
 
-To stop time travelling and return the topology time to live mode, click **Go live** or **BACK TO LIVE** at the top of the screen.
+To stop time travelling and return the topology time to live mode, click **Go live** in the timeline or at the top of the screen.
 
 ![Go live](../../.gitbook/assets/v51_timeline_go_live.png)
 
@@ -126,22 +126,16 @@ A single click on the timeline will move the playhead to this point in time, and
 
 In each of the StackState perspectives, you can either be in live mode or in the past. In live mode, StackState will constantly poll for new data. When you time travel through topology or telemetry, you are effectively working with a snapshot of your infrastructure. The data available is based on two selections:
 
-* [Topology time](timeline-time-travel.md#topology-time) - a specific moment in time for which you want to fetch a snapshot of your IT infrastructure.
-* [Telemetry interval](timeline-time-travel.md#telemetry-interval) - the time range for which you want to see telemetry and traces.
+1.[Topology time](timeline-time-travel.md#topology-time) - the specific moment in time for which you want to fetch a snapshot of your IT infrastructure.
+2.[Telemetry interval](timeline-time-travel.md#telemetry-interval) - the time range for which you want to see telemetry and traces.
 
-Let's imagine a concrete scenario:
+Let's imagine a concrete scenario - you received an event notification saying that the payment processing application isn't able to process any payments right now. This means that your customers aren't being served. In StackState, you can:
+* Specify a **topology time** that corresponds to the moment when the components that make up the critical path of payment processing turned to an unhealthy state. StackState will fetch a snapshot of your IT infrastructure for that moment.
+* Select a **telemetry interval** to see telemetry and traces from the hours leading up to that moment. This will hopefully point you to the root cause of the problem.
 
-* You received an event notification saying that your payment processing application isn't able to process any payments right now, and your customers aren't being served.
-* In StackState, you can go to the moment in time when the components that make up the CRITICAL path of payment processing turned to a CRITICAL state. That moment corresponds to the point in time for which you will fetch the snapshot of your IT infrastructure - the topology time.
-* You can then select to see the hours that preceded that moment to fetch the telemetry that will hopefully point you to the root cause of your problem - the telemetry interval.
+StackState enters time travel mode whenever a custom topology time is selected, the **Pause** button is clicked, or a **Custom telemetry interval** is set. While in time travel mode, you are effectively working with a snapshot of your infrastructure. Telemetry is available for components that were part of the topology at the selected topology time only. If a relative telemetry interval was selected in live mode before entering time travel mode, this will be frozen as a custom telemetry interval relative to the moment at which time travelling began.
 
-StackState will enter time travel mode whenever a custom topology time is selected, the **Pause** button is clicked, or a custom telemetry interval is set for the telemetry interval. When StackState is in time travel mode:
-
-* You are effectively working with a snapshot of your infrastructure.
-* Telemetry is available for components that were part of the topology at the selected topology time only.
-* If a relative telemetry interval was selected in live mode, this is frozen as a custom telemetry interval relative to the moment at which time travelling began.
-
-To stop time travelling and return to live mode, click **Go live** or **BACK TO LIVE** at the top of the screen.
+To stop time travelling and return to live mode, click **Go live** in the timeline or at the top of the screen.
 
 ![Go live](../../.gitbook/assets/v51_timeline_go_live.png)
 

@@ -128,8 +128,8 @@ The visualization of components and relations in the topology perspective can be
 
 Here you can edit:
 
-* Grid options - should components be organized by [layer and domain](../../concepts/layers_domains_environments.md).
-* Components grouping - should all components be displayed individually or should like components be grouped. For details, see [component grouping](topology-perspective.md#grouping).
-* Relations settings - should relations between components be shown if these connect through other components that aren't displayed in the current view. For details, see [indirect relations](/use/concepts/relations.md#indirect-relations).
+* Grid options - organize components by [layer and domain](../../concepts/layers_domains_environments.md).
+* Components grouping - display components individually or join like components together in component groups. For details, see [component grouping](/use/concepts/components.md#grouping).
+* Relations settings - show or hide indirect relations between components. For details, see [indirect relations](/use/concepts/relations.md#indirect-relations).
 
 The Visualization Settings are saved together with the View. For details, see the page [Visualization settings](../views/visualization_settings.md).
