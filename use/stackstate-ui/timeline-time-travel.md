@@ -129,7 +129,7 @@ In each of the StackState perspectives, you can either be in live mode or in the
 1.[Topology time](timeline-time-travel.md#topology-time) - the specific moment in time for which you want to fetch a snapshot of your IT infrastructure.
 2.[Telemetry interval](timeline-time-travel.md#telemetry-interval) - the time range for which you want to see telemetry and traces.
 
-Let's imagine a concrete scenario - you received an event notification saying that the payment processing application isn't able to process any payments right now. This means that your customers aren't being served. In StackState, you can:
+Imagine a concrete scenario - you received an event notification saying that the payment processing application isn't able to process any payments right now. This means that your customers aren't being served. In StackState, you can:
 * Specify a **topology time** that corresponds to the moment when the components that make up the critical path of payment processing turned to an unhealthy state. StackState will fetch a snapshot of your IT infrastructure for that moment.
 * Select a **telemetry interval** to see telemetry and traces from the hours leading up to that moment. This will hopefully point you to the root cause of the problem.
 

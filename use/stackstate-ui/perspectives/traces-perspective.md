@@ -79,7 +79,7 @@ When using the Traces Perspective, just like in other perspectives, you can eith
 
 When using the Traces Perspective in live mode, you are constantly polling for the slowest traces in your time range selection. However, in a large IT infrastructure with constant requests being traced, your slowest traces right now might not be your slowest traces in a matter of seconds, changing their position the list. These constant updates to the order of the list could become frustrating, for example, if you are inspecting a trace/span, or scrolling through the list to look for a specific trace or pattern.
 
-To avoid this, time will effectively be paused when you inspect a trace/span or scroll through the list of traces in live mode. This allows you to browse through a stable snapshot of your data. Note that pausing time means that you are now in the past, click **Go live** to stop time travelling and return to live mode.:
+To avoid this, time will effectively be paused when you inspect a trace/span or scroll through the list of traces in live mode. You can then browse through a stable snapshot of your data. Note that pausing time means that you are now in the past, click **Go live** to stop time travelling and return to live mode.:
 
 ![Pausing time when inspecting a trace](../../../.gitbook/assets/v51_trace-inspection.png)
 

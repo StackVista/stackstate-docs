@@ -52,13 +52,13 @@ By default, the minimum group size is 2. This means that if there is one compone
 
 ## Relations settings
 
-Another option in the view visualization settings is to show indirect relations. So, what are indirect relations? Well, if we take a landscape with three components that are all dependent on each other. If we then created a view in which only the first and last components  are included, we would see both components, but we would not see a relation between them. In this case, we would probably want to know that there is an indirect path between the two components and that's where this functionality comes in.
+Another option in the view visualization settings is to show indirect relations. So, what are indirect relations? Well, in a landscape with three components that are all dependent on each other. If a view was created that only included the first and last components, both components would be visible in the view, but no relation between them would be shown. In this case, it could be helpful to know that there is an indirect path between the two components and that's where this functionality comes in.
 
 When **Show all indirect relations** is enabled in the view visualizations settings, StackState will draw a dotted line between the two components. This shows that there is a path between the components that passes through other components that aren't included in the view.
 
 * A solid line between two components indicates that there is a direct relation between them.
 * A dotted line between two components indicates that there is a path between them, but the full path isn't visible in the current view.
 
-By default, indirect relations are not shown in a view. When show all indirect relations is enabled, there will always be a dotted line marking all indirect connections between components. On a large topology, that could work out to be a heavy operation and this might slow down the topology visualization.
+By default, indirect relations aren't shown in a view. When show all indirect relations is enabled, there will always be a dotted line marking all indirect connections between components. On a large topology, that could work out to be a heavy operation and this might slow down the topology visualization.
 
 ➡️ [Learn more about indirect relations](/use/concepts/relations.md#relation-types)

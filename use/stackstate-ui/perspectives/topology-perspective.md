@@ -98,7 +98,7 @@ See the full list of [StackState keyboard shortcuts](../keyboard-shortcuts.md).
 
 ### Show root cause
 
-A view can contain components with a `DEVIATING` [propagated health state](/use/concepts/health-state.md#element-propagated-health-state) (outer color) caused by a component that's not included in the view itself. By default, these components are not displayed, however, the topology visualization can be configured to automatically expand and show all root cause components currently affecting the components within the view. Three settings are available:
+A view can contain components with a `DEVIATING` [propagated health state](/use/concepts/health-state.md#element-propagated-health-state) (outer color) caused by a component that isn't included in the view itself. By default, these components aren't displayed, however, the topology visualization can be configured to automatically expand and show all root cause components currently affecting the components within the view. Three settings are available:
 
 * **Don't show root cause** (default) - only components matching the current topology filters are displayed.
 * **Show root cause only** - the topology filters are automatically expanded to include the root cause component of any component with a `CRITICAL` or `DEVIATING` propagated health state. Indirect relations are visualized if a component directly depends on at least one invisible component that leads to the root cause.
