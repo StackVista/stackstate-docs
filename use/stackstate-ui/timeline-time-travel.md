@@ -133,7 +133,7 @@ Imagine a concrete scenario - you received an event notification saying that the
 * Specify a **topology time** that corresponds to the moment when the components that make up the critical path of payment processing turned to an unhealthy state. StackState will fetch a snapshot of your IT infrastructure for that moment.
 * Select a **telemetry interval** to see telemetry and traces from the hours leading up to that moment. This will hopefully point you to the root cause of the problem.
 
-StackState enters time travel mode whenever a custom topology time is selected, the **Pause** button is clicked, or a **Custom telemetry interval** is set. While in time travel mode, you are effectively working with a snapshot of your infrastructure. Telemetry is available for components that were part of the topology at the selected topology time only. If a relative telemetry interval was selected in live mode before entering time travel mode, this will be frozen as a custom telemetry interval relative to the moment at which time travelling began.
+StackState enters time travel mode whenever a custom topology time is selected, the **Pause** button is clicked, or a **Custom telemetry interval** is set. While in time travel mode, you are effectively working with a snapshot of your infrastructure. Telemetry is available for components that were part of the topology at the selected topology time only. If a relative telemetry interval was selected before entering time travel mode, this will be frozen as a custom telemetry interval relative to the frozen topology time.
 
 To stop time travelling and return to live mode, click **Go live** in the timeline or at the top of the screen.
 

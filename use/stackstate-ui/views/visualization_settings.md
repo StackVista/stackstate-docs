@@ -29,7 +29,7 @@ The components in the topology perspective can optionally be organized in a grid
 * **Organize components by Layers** - Components of the same layer are placed in the same grid row in the topology visualization. Disable to remove the rows from the grid.
 * **Organize components by Domains** - Components of the same domain are placed in the same grid column in the topology visualization. Disable to remove the columns from the grid.
 
-For example, if you have a business service visualization of a stack that comes from four or five different sources, the source \(domain\) that the components are coming from won't be so important in the visualization. This could be a good situation to switch off **organize components by Domains** in the topology visualization.
+For example, the source \(domain\) of components might not be important in a business service visualization of a stack that comes from four or five different sources. This could be a good situation to switch off **organize components by Domains** in the topology visualization.
 
 ## Components grouping
 
@@ -48,7 +48,7 @@ Three types of grouping are available, or you can choose not to group components
 
 For **group by type and state** and **group by type, state and relation**, a threshold must be passed before any grouping happens - the **Minimum components in a group**. 
 
-By default, the minimum group size is 2. This means that if there is one component of a certain type and health state in a view, then when the next component comes along that has the same state and type a component group will be created. If the threshold value is set higher, to 8 for example, then at least 8 components with the same state type \(and possibly relations\) would be required for a group to be created.
+By default, the minimum group size is 2. Whenever there are two or more components of a certain type and health state in a view, they will be placed in a component group. If the threshold value is set higher, to 8 for example, then 8 components with the same state, type \(and possibly relations\) are required for a group to be created.
 
 ## Relations settings
 
