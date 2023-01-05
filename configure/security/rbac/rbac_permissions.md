@@ -54,7 +54,7 @@ The following permissions are included in StackState v5.0:
 * `manage-star-view` - Add and remove [stars](/use/stackstate-ui/views/about_views.md#starred-views) from views in the StackState UI.
 * `manage-telemetry-streams` - [Create or edit new telemetry streams](/use/metrics/add-telemetry-to-element.md) for components in the StackState UI.
 * `manage-topology-elements` - Create/update/delete topology elements.
-* `perform-custom-query` - Access the [topology filter](/use/stackstate-ui/filters.md#filter-topology).
+* `perform-custom-query` - Modify the STQL query in the [topology filter](/use/stackstate-ui/filters.md#filter-topology).
 * `read-permissions` - List all granted permissions across the entire system using the CLI.
 * `read-settings` - Access the Settings page in the StackState UI.
 * `read-stackpacks`
