@@ -83,6 +83,7 @@ The script should return a result of type `MonitorHealthState` with the followin
 * `state` - A `HealthStateValue`. This will be the new health state of the monitor (`CLEAR`, `DEVIATING`, `CRITICAL`, `DISABLED` or `UNKNOWN`).
 * `topologyIdentifier` - The identifier of a component or relation that the monitor health state will bind to.
 * `displayTimeSeries` - Description of a time series that will be shown as a chart in the StackState UI.
+* `title` (optional) - A title to display for the monitor-produced health states.
 
 Example monitor function script:
 
@@ -94,19 +95,24 @@ def checkThreshold(points, threshold) {
 
 metrics.then { result ->
   def timeSeries = result.timeSeries
-  def state;
   def topologyIdentifier = StringTemplate.runForTimeSeriesId(topologyMapping, timeSeries.id)
   def displayTimeSeries = [[ _type: "DisplayTimeSeries", name: "Metric Chart", timeSeriesId: timeSeries.id, query: result.query]]
 
+  def state;
   if (checkThreshold(timeSeries.points, criticalValue)) {
     state = "CRITICAL";
   } else if (checkThreshold(timeSeries.points, deviatingValue)) {
     state = "DEVIATING";
   } else {
-    state = "CLEAR"
+    state = "CLEAR";
   }
 
-  return [ _type: "MonitorHealthState", id: timeSeries.id.toIdentifierString(), state: state, topologyIdentifier: topologyIdentifier, displayTimeSeries: displayTimeSeries ]
+  def title;
+  if (titleTemplate && timeSeries.id.groups) {
+    title = StringTemplate.render(titleTemplate, timeSeries.id.groups)
+  }
+
+  return [ _type: "MonitorHealthState", id: timeSeries.id.toIdentifierString(), state: state, topologyIdentifier: topologyIdentifier, displayTimeSeries: displayTimeSeries, title: title ]
 }
 ```
 {% endcode %}

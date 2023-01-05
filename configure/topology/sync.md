@@ -27,7 +27,7 @@ The data source configures the plugin to connect to a specific instance of an ex
 
 ### ID Extraction
 
-`https://<my_instance>/#/settings/idextractors`
+`https://<my_instance>/#/settings/id-extractors`
 
 To turn external data into `External Topology`, we use ID extraction. The goal of this step is to take the external data and produce the following information:
 
