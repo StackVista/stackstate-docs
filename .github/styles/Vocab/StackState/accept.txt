@@ -75,6 +75,7 @@ stac
 StackState
 StackPack
 storageClass
+STQL
 sts
 Subgraphs
 subgraphs
