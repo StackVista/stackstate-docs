@@ -29,9 +29,9 @@
             <td><a href=".gitbook/assets/gitbook-card-image_kubernetes-openshift_blue.jpg">gitbook-card-image_kubernetes-openshift_blue.jpg</a></td>
         </tr>
         <tr>
-            <td><strong>Reference</strong></td>
-            <td>StackState templating, APIs markup and query language.</td>
-            <td><a href="develop/reference/">reference</a></td>
+            <td><strong></strong></td>
+            <td></td>
+            <td><a href=""></a></td>
             <td><a href=".gitbook/assets/gitbook-card-image_reference.jpg">gitbook-card-image_reference.jpg</a></td>
         </tr>
     </tbody>
