@@ -34,8 +34,8 @@
   * [Metrics perspective](use/stackstate-ui/perspectives/metrics-perspective.md)
   * [Explore metrics](use/metrics/k8sTs-explore-metrics.md)
 * [Logs](use/stackstate-ui/k8sTs-log-details.md)
-* [Timeline and time travel](use/stackstate-ui/timeline-time-travel.md)
-* [Keyboard shortcuts](use/stackstate-ui/keyboard-shortcuts.md)
+* [Timeline and time travel](use/stackstate-ui/k8sTs-timeline-time-travel.md)
+* [Keyboard shortcuts](use/stackstate-ui/k8sTs-keyboard-shortcuts.md)
 
 ## 🔧️ Setup
 
