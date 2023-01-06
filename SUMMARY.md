@@ -18,7 +18,7 @@
 
 ## 🔔 Monitors and alerts
 
-* [About monitors](use/checks-and-monitors/monitors.md)
+* [About monitors](use/checks-and-monitors/k8sTs-monitors.md)
 
 
 ## 👤 StackState UI
@@ -28,8 +28,8 @@
 * [Topology](use/stackstate-ui/k8sTs-topology-README.md)
   * [Topology perspective](use/stackstate-ui/perspectives/k8sTs-topology-perspective.md)
   * [Visualization settings](use/stackstate-ui/views/k8sTs-visualization_settings.md)
-* [Events](use/stackstate-ui/perspectives/events_perspective.md)
-* [Traces](use/stackstate-ui/perspectives/traces-perspective.md)
+* [Events](use/stackstate-ui/perspectives/k8sTs-events-perspective.md)
+* [Traces](use/stackstate-ui/perspectives/k8sTs-traces-perspective.md)
 * [Metrics](use/stackstate-ui/k8sTs-metrics-README.md)
   * [Metrics perspective](use/stackstate-ui/perspectives/metrics-perspective.md)
   * [Explore metrics](use/metrics/k8sTs-explore-metrics.md)
