@@ -34,18 +34,17 @@
 
 ## 👤 StackState UI
 
-* [Explore mode](use/stackstate-ui/explore_mode.md)
-* [Filters](use/stackstate-ui/filters.md)
-* [Views](use/stackstate-ui/views/README.md)
-  * [About views](use/stackstate-ui/views/about_views.md)
-  * [Create and edit views](use/stackstate-ui/views/create_edit_views.md)
-  * [Configure the view health](use/stackstate-ui/views/configure-view-health.md)
-  * [Visualization settings](use/stackstate-ui/views/visualization_settings.md)
-* [Perspectives](use/stackstate-ui/perspectives/README.md)
-  * [Topology Perspective](use/stackstate-ui/perspectives/topology-perspective.md)
-  * [Events Perspective](use/stackstate-ui/perspectives/events_perspective.md)
-  * [Traces Perspective](use/stackstate-ui/perspectives/traces-perspective.md)
-  * [Metrics Perspective](use/stackstate-ui/perspectives/metrics-perspective.md)
+* [Pods](use/stackstate-ui/k8sTs-pods.md)
+* [Services](use/stackstate-ui/k8sTs-services.md)
+* [Topology](use/stackstate-ui/k8sTs-topology-README.md)
+  * [Topology perspective](use/stackstate-ui/perspectives/k8sTs-topology-perspective.md)
+  * [Visualization settings](use/stackstate-ui/views/k8sTs-visualization_settings.md)
+* [Events](use/stackstate-ui/perspectives/events_perspective.md)
+* [Traces](use/stackstate-ui/perspectives/traces-perspective.md)
+* [Metrics](use/stackstate-ui/k8sTs-topology-README.md)
+  * [Metrics perspective](use/stackstate-ui/perspectives/metrics-perspective.md)
+  * [Explore metrics](use/metrics/k8sTs-explore-metrics.md)
+* [Logs](use/stackstate-ui/k8sTs-log-details.md)
 * [Timeline and time travel](use/stackstate-ui/timeline-time-travel.md)
 * [Keyboard shortcuts](use/stackstate-ui/keyboard-shortcuts.md)
 
@@ -61,14 +60,8 @@
   * [Use an HTTP/HTTPS proxy](setup/agent/agent-proxy.md)
 * [StackState](setup/install-stackstate/README.md)
   * [StackState Agent V2 StackPack](stackpacks/integrations/agent.md)
-  * [Autonomous Anomaly Detector](stackpacks/add-ons/aad.md)
   * [Kubernetes integration](stackpacks/integrations/kubernetes.md)
   * [OpenShift integration](stackpacks/integrations/openshift.md)
-* [StackState CLI](setup/cli/k8sTs-cli-sts.md)
-
-## 📖 Reference
-
-* [StackState OpenAPI docs](https://dl.stackstate.com/stackstate-openapi/v5.1/openapi-v5.1.0.html)
-* [StackState Query Language \(STQL\)](develop/reference/k8sTs-stql_reference.md)
-* [Monitor STY format](develop/developer-guides/monitors/monitor-sty-file-format.md)
+  * [OpsGenie](stackpacks/integrations/opsgenie.md)
+  * [Slack](stackpacks/integrations/slack.md)
 
