@@ -6,7 +6,7 @@ description: StackState Kubernetes Troubleshooting
 
 ## Overview
 
-TODO - fix for k8sTs
+🚧 TODO - fix for k8sTs
 
 Visualization settings let you customize how components in the view and the relations between them are displayed. Each view contains all components that match the saved topology filter. You may want or need to optimize the way in which these components are visualized in the topology perspective. A number of visualization options can be adjusted to achieve the best visibility for your situation and environment:
 

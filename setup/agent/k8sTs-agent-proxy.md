@@ -6,7 +6,7 @@ description: StackState Kubernetes Troubleshooting
 
 ## Overview
 
-TODO - fix for k8sTs
+🚧 TODO - fix for k8sTs
 
 The Agent can be configured to use a proxy for HTTP and HTTPS requests. Proxy settings can be configured in two ways:
 

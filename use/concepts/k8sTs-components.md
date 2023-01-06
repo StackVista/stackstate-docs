@@ -6,7 +6,7 @@ description: StackState Kubernetes Troubleshooting
 
 ## Overview
 
-TODO - fix for kubernetes troubleshooting
+🚧 TODO - fix for kubernetes troubleshooting
 
 A component is anything that has a run-time state and some relation with other components. Some component examples are a load balancer, a database server, a network switch, or a business service. It's possible to define custom components, and they can be anything - the granularity and range can be defined according to the needs. Each component is of a specific type. Types can be configured.
 

@@ -6,7 +6,7 @@ description: StackState Kubernetes Troubleshooting
 
 ## Overview
 
-TODO - fix for k8sTs
+🚧 TODO - fix for k8sTs
 
 StackState Agent V2 functions as a collector and gateway. It connects to external systems to retrieve data and pushes this to StackState.
 

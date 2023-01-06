@@ -6,7 +6,7 @@ description: StackState Kubernetes Troubleshooting
 
 ## Overview
 
-TODO - fix for k8sTs. To remove? (kubrnetes only?)
+🚧 TODO - fix for k8sTs. To remove? (kubrnetes only?)
 
 The OpenShift integration is used to create a near real-time synchronization of topology and associated internal services from an OpenShift cluster to StackState. This StackPack allows monitoring of the following:
 

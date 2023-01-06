@@ -6,7 +6,7 @@ description: StackState Kubernetes Troubleshooting
 
 ## Overview
 
-TODO - fix for kubernetes troubleshooting
+🚧 TODO - fix for kubernetes troubleshooting
 
 StackState calculates and reports the health state for elements (components and relations) and views. The following health state types are reported:
 

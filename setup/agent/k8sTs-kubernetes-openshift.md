@@ -8,7 +8,7 @@ description: StackState Kubernetes Troubleshooting
 **StackState Agent V2**
 {% endhint %}
 
-TODO - fix for k8sTs
+🚧 TODO - fix for k8sTs
 
 To retrieve topology, events and metrics data from a Kubernetes or OpenShift cluster, you will need to have the following installed in the cluster:
 

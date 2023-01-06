@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-TODO - fix for kubernetes troubleshooting
+🚧 TODO - fix for kubernetes troubleshooting
 
 StackState and its [4T data model](4t_data_model.md) collect real-time data about your IT landscape. **Perspectives** allow you to look at this data from various angles and to relate different types of data to each other.
 

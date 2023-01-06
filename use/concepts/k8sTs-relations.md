@@ -6,7 +6,7 @@ description: StackState Kubernetes Troubleshooting
 
 ## Overview
 
-TODO - fix for kubernetes troubleshooting
+🚧 TODO - fix for kubernetes troubleshooting
 
 A relation connects two [components or groups of components](/use/concepts/components.md). Relations have some similarities with components. Just like a component, they can have a health state and a propagated health state. In the StackState topology perspective, relations are shown as lines connecting components or component groups.
 

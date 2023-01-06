@@ -6,7 +6,7 @@ description: StackState Kubernetes Troubleshooting
 
 ## Overview
 
-TODO - fix for k8sTs - possibly remove if setup covered on "slack notifications" page
+🚧 TODO - fix for k8sTs - possibly remove if setup covered on "slack notifications" page
 
 The Slack StackPack allows you to receive event notifications in Slack channels. The StackPack installs a number of event handler functions that can be used when [adding an event handler](/use/events/manage-event-handlers.md#add-event-handler) to a view in StackState.
 

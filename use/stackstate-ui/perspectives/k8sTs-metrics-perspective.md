@@ -4,7 +4,7 @@ description: StackState Kubernetes Troubleshooting
 
 # Metrics Perspective
 
-TODO - fix for k8sTs
+🚧 TODO - fix for k8sTs
 
 The Metrics Perspective shows metrics for the selected [view](../views/about_views.md). StackState will automatically deliver all the relevant information for any part of your landscape, so you don't need to pre-define the streams you want to see.
 

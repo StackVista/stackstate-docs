@@ -4,7 +4,7 @@ description: StackState Kubernetes Troubleshooting
 
 # Keyboard shortcuts
 
-TODO - fix for k8sTs
+🚧 TODO - fix for k8sTs
 
 The keyboard shortcuts below can be used to navigate the StackState UI.
 
