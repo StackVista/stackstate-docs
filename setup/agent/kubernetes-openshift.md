@@ -129,7 +129,8 @@ helm upgrade --install \
 --set-string 'stackstate.cluster.name'='<OPENSHIFT_CLUSTER_NAME>' \
 --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
 --set 'agent.scc.enabled'=true \
---set 'kube-state-metrics.securityContext.enabled'=false \
+--set 'kube-state-metrics.podSecurityContext.enabled'=false
+--set 'kube-state-metrics.containerSecurityContext.enabled'=false
 stackstate-agent stackstate/stackstate-agent
 ```
 {% endtab %}
