@@ -41,7 +41,7 @@
   * [Visualization settings](use/stackstate-ui/views/k8sTs-visualization_settings.md)
 * [Events](use/stackstate-ui/perspectives/events_perspective.md)
 * [Traces](use/stackstate-ui/perspectives/traces-perspective.md)
-* [Metrics](use/stackstate-ui/k8sTs-topology-README.md)
+* [Metrics](use/stackstate-ui/k8sTs-metrics-README.md)
   * [Metrics perspective](use/stackstate-ui/perspectives/metrics-perspective.md)
   * [Explore metrics](use/metrics/k8sTs-explore-metrics.md)
 * [Logs](use/stackstate-ui/k8sTs-log-details.md)
