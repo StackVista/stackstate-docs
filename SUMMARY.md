@@ -7,18 +7,18 @@
 
 * [Quick start guide](k8sTs-quick-start-guide.md)
 * [StackState walk-through](k8sTs-getting_started.md)
-* [Concepts](use/concepts/README.md)
-  * [The 4T data model](use/concepts/4t_data_model.md)
-  * [Components](use/concepts/components.md)
-  * [Health state](use/concepts/health-state.md)
-  * [Relations](use/concepts/relations.md)
-  * [Layers, Domains and Environments](use/concepts/layers_domains_environments.md)
-  * [Perspectives](use/concepts/perspectives.md)
-  * [Anomaly detection](use/concepts/anomaly-detection.md)
+* [Concepts](use/concepts/k8sTs-README.md)
+  * [The 4T data model](use/concepts/k8sTs-4t_data_model.md)
+  * [Components](use/concepts/k8sTs-components.md)
+  * [Health state](use/concepts/k8sTs-health-state.md)
+  * [Relations](use/concepts/k8sTs-relations.md)
+  * [???Layers, Domains and Environments](use/concepts/layers_domains_environments.md)
+  * [Perspectives](use/concepts/k8sTs-perspectives.md)
 
 ## 🔔 Monitors and alerts
 
 * [About monitors](use/checks-and-monitors/k8sTs-monitors.md)
+* [Slack notifications](use/checks-and-monitors/k8sTs-slack-notifications.md)
 
 
 ## 👤 StackState UI
