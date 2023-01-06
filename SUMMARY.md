@@ -16,21 +16,10 @@
   * [Perspectives](use/concepts/perspectives.md)
   * [Anomaly detection](use/concepts/anomaly-detection.md)
 
-## 🔔 Monitors and events
+## 🔔 Monitors and alerts
 
 * [About monitors](use/checks-and-monitors/monitors.md)
-* [Add a custom monitor](develop/developer-guides/monitors/create-custom-monitors.md)
-* [Manage monitors](use/checks-and-monitors/manage-monitors.md)
-* [About events](use/events/about_events.md)
-* [Event notifications](use/events/event-notifications.md)
-* [Manage event handlers](use/events/manage-event-handlers.md)
 
-## 🔬 Investigation
-
-* [About problems](use/problem-analysis/about-problems.md)
-* [Problem lifecycle](use/problem-analysis/problem-lifecycle.md)
-* [Investigate a problem](use/problem-analysis/problem_investigation.md)
-* [Problem notifications](use/problem-analysis/problem_notifications.md)
 
 ## 👤 StackState UI
 
