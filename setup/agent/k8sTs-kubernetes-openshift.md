@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x
+description: StackState Kubernetes Troubleshooting
 ---
 
 # Overview
@@ -7,6 +7,8 @@ description: StackState Self-hosted v5.1.x
 {% hint style="info" %}
 **StackState Agent V2**
 {% endhint %}
+
+TODO - fix for k8sTs
 
 To retrieve topology, events and metrics data from a Kubernetes or OpenShift cluster, you will need to have the following installed in the cluster:
 

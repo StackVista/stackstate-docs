@@ -1,10 +1,12 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Kubernetes Troubleshooting
 ---
 
 # About StackState Agent V2
 
 ## Overview
+
+TODO - fix for k8sTs
 
 StackState Agent V2 functions as a collector and gateway. It connects to external systems to retrieve data and pushes this to StackState.
 
