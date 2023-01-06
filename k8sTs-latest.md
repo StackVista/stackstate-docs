@@ -23,10 +23,10 @@
             <td><a href=".gitbook/assets/gitbook-card-image_stackstate-agent.jpg">gitbook-card-image_stackstate-agent.jpg</a></td>
         </tr>
         <tr>
-            <td><strong>Tutorials</strong></td>
-            <td>Walkthroughs to help you get started developing on StackState.</td>
-            <td><a href="develop/tutorials/">tutorials</a></td>
-            <td><a href=".gitbook/assets/gitbook-card-image_tutorials.jpg">gitbook-card-image_tutorials.jpg</a></td>
+            <td><strong>Monitors</strong></td>
+            <td>Automated monitoring of Kubernetes services and pods.</td>
+            <td><a href="use/montirs-and-checks/k8sTs-README">Monitors</a></td>
+            <td><a href=".gitbook/assets/gitbook-card-image_kubernetes-openshift_blue.jpg">gitbook-card-image_kubernetes-openshift_blue.jpg</a></td>
         </tr>
         <tr>
             <td><strong>Reference</strong></td>

@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Welcome to the StackState docs!](README.md)
+* [Docs for all StackState products](README.md)
 * [Kubernetes troubleshooting with StackState](k8sTs-latest.md)
 
 ## 🚀 Get started
