@@ -123,15 +123,15 @@ helm upgrade --install \
 {% tab title="OpenShift" %}
 ```sh
 helm upgrade --install \
---namespace stackstate \
---create-namespace \
---set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
---set-string 'stackstate.cluster.name'='<OPENSHIFT_CLUSTER_NAME>' \
---set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
---set 'agent.scc.enabled'=true \
---set 'kube-state-metrics.podSecurityContext.enabled'=false
---set 'kube-state-metrics.containerSecurityContext.enabled'=false
-stackstate-agent stackstate/stackstate-agent
+  --namespace stackstate \
+  --create-namespace \
+  --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
+  --set-string 'stackstate.cluster.name'='<OPENSHIFT_CLUSTER_NAME>' \
+  --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
+  --set 'agent.scc.enabled'=true \
+  --set 'kube-state-metrics.podSecurityContext.enabled'=false \
+  --set 'kube-state-metrics.containerSecurityContext.enabled'=false \
+  stackstate-agent stackstate/stackstate-agent
 ```
 {% endtab %}
 {% endtabs %}
@@ -254,7 +254,8 @@ helm upgrade --install \
   --set-string 'global.extraEnv.open.STS_LOG_PAYLOADS'='true' \
   --set 'agent.logLevel'='debug' \
   --set 'agent.scc.enabled'=true \
-  --set 'kube-state-metrics.securityContext.enabled'=false \
+  --set 'kube-state-metrics.podSecurityContext.enabled'=false \
+  --set 'kube-state-metrics.containerSecurityContext.enabled'=false \\
   stackstate-agent stackstate/stackstate-agent
 ```
 {% endtab %}
@@ -316,7 +317,8 @@ helm upgrade --install \
   --set-string 'global.extraEnv.open.STS_LOG_PAYLOADS'='true' \
   --set 'agent.logLevel'='debug' \
   --set 'agent.scc.enabled'=true \
-  --set 'kube-state-metrics.securityContext.enabled'=false \
+  --set 'kube-state-metrics.podSecurityContext.enabled'=false \
+  --set 'kube-state-metrics.containerSecurityContext.enabled'=false \
   --values values.yaml \
   stackstate-agent stackstate/stackstate-agent
 ```
@@ -386,7 +388,8 @@ helm upgrade --install \
   --set-string 'global.extraEnv.open.STS_LOG_PAYLOADS'='true' \
   --set 'agent.logLevel'='debug' \
   --set 'agent.scc.enabled'=true \
-  --set 'kube-state-metrics.securityContext.enabled'=false \
+  --set 'kube-state-metrics.podSecurityContext.enabled'=false \
+  --set 'kube-state-metrics.containerSecurityContext.enabled'=false \
   --values values.yaml \
   stackstate-agent stackstate/stackstate-agent
 ```

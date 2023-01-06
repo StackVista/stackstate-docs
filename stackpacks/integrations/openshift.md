@@ -102,7 +102,8 @@ If an alternative kube-state-metrics pod \(i.e. Prometheus\) is installed, the d
    --set-string 'stackstate.cluster.authToken=<CLUSTER_AUTH_TOKEN>' \
    --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
    --set 'agent.scc.enabled'=true \
-   --set 'kube-state-metrics.securityContext.enabled'=false \
+   --set 'kube-state-metrics.podSecurityContext.enabled'=false \
+   --set 'kube-state-metrics.containerSecurityContext.enabled'=false \
    --values values.yaml \
    stackstate-agent stackstate/stackstate-agent
    ```
