@@ -116,7 +116,7 @@ To configure StackState to create a bootstrap service token on Kubernetes, The f
 ```yaml
 stackstate:
   authentication:
-    servicetoken:
+    serviceToken:
       bootstrap:
         token: <token>
         roles:
