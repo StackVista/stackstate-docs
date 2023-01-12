@@ -47,12 +47,8 @@
 
 * [StackState Agent](setup/agent/README.md)
   * [About StackState Agent V2](setup/agent/k8sTs-about-stackstate-agent.md)
-  * [???Docker](setup/agent/docker.md)
   * [Kubernetes / OpenShift](setup/agent/k8sTs-kubernetes-openshift.md)
-  * [???Linux](setup/agent/linux.md)
-  * [???Windows](setup/agent/windows.md)
   * [Advanced Agent configuration](setup/agent/k8sTs-advanced-agent-configuration.md)
-  * [Use an HTTP/HTTPS proxy](setup/agent/k8sTs-agent-proxy.md)
 * [StackState](setup/install-stackstate/README.md)
   * [StackState Agent V2 StackPack](stackpacks/integrations/k8sTs-agent.md)
   * [Kubernetes integration](stackpacks/integrations/k8sTs-kubernetes.md)
