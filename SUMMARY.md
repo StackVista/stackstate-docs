@@ -20,6 +20,12 @@
 * [About monitors](use/checks-and-monitors/k8sTs-monitors.md)
 * [Slack notifications](use/checks-and-monitors/k8sTs-slack-notifications.md)
 
+## 🏥 Remediation
+
+* [remediation hint 1]()
+* [remediation hint 2]()
+* [remediation hint 3]()
+* [remediation hint ...]()
 
 ## 👤 StackState UI
 
