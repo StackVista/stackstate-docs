@@ -66,11 +66,9 @@ nodes:
     topolopgyIdentifierPattern: "urn:host:/${tags.host}"
     metrics: |-
       Telemetry
-        .query("StackState Metrics", "")
-        .metricField("system.cpu.system")
-        .groupBy("tags.host")
+        .promql("avg by (tags.host) (system.cpu.system)")
         .start("-1m")
-        .aggregation("mean", "15s")
+        .step("15s")
   intervalSeconds: 60
 ```
 {% endcode %}

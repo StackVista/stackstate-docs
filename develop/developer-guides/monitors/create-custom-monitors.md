@@ -16,11 +16,15 @@ The example on this page creates a CPU metric monitor using an example monitor f
 
 To create the example CPU metric custom monitor in StackState we will:
 
-1. [Create a new STY import file.](#create-a-new-sty-import-file)
-2. [Populate the monitor node.](#populate-the-monitor-node)
-3. [Populate the parameters of the monitor function invocation.](#populate-the-parameters-of-the-monitor-function-invocation)
-4. [Apply the newly created monitor in StackState.](#apply-the-newly-created-monitor-in-stackstate)
-5. [Verify that your newly created monitor is working correctly.](#verify-that-your-newly-created-monitor-is-working-correctly)
+- [Monitors](#monitors)
+  - [Overview](#overview)
+  - [Example - CPU metric monitor](#example---cpu-metric-monitor)
+    - [Create a new STY import file](#create-a-new-sty-import-file)
+    - [Populate the monitor node](#populate-the-monitor-node)
+    - [Populate the parameters of the monitor function invocation](#populate-the-parameters-of-the-monitor-function-invocation)
+    - [Apply the newly created monitor in StackState](#apply-the-newly-created-monitor-in-stackstate)
+    - [Verify that your newly created monitor is working correctly](#verify-that-your-newly-created-monitor-is-working-correctly)
+  - [See also](#see-also)
 
 ### Create a new STY import file
 
@@ -84,11 +88,9 @@ nodes:
       topolopgyIdentifierPattern: "urn:host:/${tags.host}"
       metrics: |-
           Telemetry
-          .query("StackState Metrics", "")
-          .metricField("system.cpu.system")
-          .groupBy("tags.host")
+          .promql("avg by (tags.host) (system.cpu.system)")
           .start("-1m")
-          .aggregation("mean", "15s")
+          .step("15s")
     intervalSeconds: 60
 ```
 
