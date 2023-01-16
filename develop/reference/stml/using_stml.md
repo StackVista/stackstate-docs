@@ -42,9 +42,9 @@ Attribute values can be set directly with literal values, but oftentimes, it may
 Here is an example of a script passing some metric data to the `data` attribute of the `auto-widget` tag. This script uses the `UI.showReport` function which uses STML to format a report.
 
 {% code lineNumbers="true" %}
-```text
+```groovy
 Telemetry
-  .promql("quantile_over_time(0.99, system_load_norm_1{host='host1'})")
+  .promql("quantile_over_time(0.99, system_load_norm_1{host='host1'}[${__interval}])")
   .start("-2h")
   .step("5m")
   .then { host1Load ->

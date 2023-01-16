@@ -28,6 +28,7 @@ nodes:
         Telemetry
               .promql("avg by (host) (cpuload[1m])")
               .window("-10m", "-1m")
+              .step("1m")
       topologyMapping: '${host}'
     function: {{ get "urn:stackpack:stackstate-self-health:shared:monitor-function:higher-than-threshold"  }}
 ```
@@ -202,7 +203,7 @@ To supply a value to the `telemetryQuery` parameter defined in the monitor funct
 ```yaml
 ...
 arguments:
-  telemetryQuery: "Telemetry.promql('avg by (sts_host) (system_cpu_iowait)').start('-10m').step('1m')"
+  telemetryQuery: "Telemetry.promql('avg by (sts_host) (system_cpu_iowait[1m])').start('-10m').step('1m')"
   ...
 ```
 {% endtab %}
@@ -241,7 +242,7 @@ The exact `value` to use for this parameter depends on the topology available in
 
 ```groovy
 Telemetry
-  .promql('avg by (host, region) (system.cpu.iowait)')
+  .promql('avg by (host, region) (system.cpu.iowait[1m])')
   .start('-10m')
   .step('1m')
 ```

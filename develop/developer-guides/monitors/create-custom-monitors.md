@@ -85,10 +85,10 @@ nodes:
     function: {{ get "urn:system:default:monitor-function:metric-above-threshold" }}
     arguments:
       threshold: 90.0
-      topolopgyIdentifierPattern: "urn:host:/${tags.host}"
+      topolopgyIdentifierPattern: "urn:host:/${sts_host}"
       metrics: |-
           Telemetry
-          .promql("avg by (tags.host) (system.cpu.system)")
+          .promql("avg by (sts_host) (system_cpu_system)")
           .start("-1m")
           .step("15s")
     intervalSeconds: 60

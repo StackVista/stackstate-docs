@@ -43,7 +43,12 @@ Methods available on the PromQL query builder:
 
 ### Examples
 
-* [Get metrics aggregated using Mean with bucket size 15 minutes and grouped by the field `host`](#get-metrics-aggregated-using-mean-with-bucket-size-15-minutes-and-grouped-by-the-field-host)
+- [Number of threads per process, averaged over the last 15 minutes per host:](#number-of-threads-per-process-averaged-over-the-last-15-minutes-per-host)
+- [Process the StreamingScriptResult result data, getting the ids of the resulting timeSeries](#process-the-streamingscriptresult-result-data-getting-the-ids-of-the-resulting-timeseries)
+- [Get raw metric by query](#get-raw-metric-by-query)
+- [Get quantile of metric with bucket size 1 minute](#get-quantile-of-metric-with-bucket-size-1-minute)
+- [Query metrics within time range starting 3 hours ago up to 1 hour ago](#query-metrics-within-time-range-starting-3-hours-ago-up-to-1-hour-ago)
+- [Limit the number of points returned](#limit-the-number-of-points-returned)
 
 #### Number of threads per process, averaged over the last 15 minutes per host:
 
@@ -78,12 +83,12 @@ Methods available on the PromQL query builder:
         }
       },
       "points": [
-        [ 1673456100000, 0.274122028626   ],
-        [ 1673456160000, 0.300760551062   ],
-        [ 1673456220000, 0.26927732116157 ],
-        [ 1673456280000, 0.28660962528454 ],
-        [ 1673456340000, 0.287780892103   ],
-        [ 1673456400000, 0.26847119380427 ]
+        [ 1673456100000, 0.274122028626 ],
+        [ 1673456160000, 0.300760551062 ],
+        [ 1673456220000, 0.269277321161 ],
+        [ 1673456280000, 0.286609625284 ],
+        [ 1673456340000, 0.287780892103 ],
+        [ 1673456400000, 0.268471193804 ]
       ],
       "tags": []
     }
@@ -155,11 +160,54 @@ Methods available on the PromQL query builder:
   {% endtab %}
   {% endtabs %}
 
+#### Get raw metric by query
+  ```groovy
+  Telemetry
+    .promql("system_load_1{host='host1'}[${__interval}]")
+    .start("-5m")
+    .step("1m")
+  ```
+
+#### Get quantile of metric with bucket size 1 minute
+  ```groovy
+  Telemetry
+    .promql("quantile_over_time(0.99, system_load_1{host='host1'}[${__interval}])")
+    .start("-10m")
+    .step("1m")
+  ```
+
+#### Query metrics within time range starting 3 hours ago up to 1 hour ago
+
+  ```groovy
+  Telemetry
+    .promql("system_load_1{host='host1'}[${__interval}]")
+    .window("-3h", "-1h") // from 3 hours ago to 1 hour ago
+  ```
+
+#### Limit the number of points returned
+
+  ```groovy
+  Telemetry
+    .promql("max by (host) (system_load_1[${__interval}]) limit 20")
+    .start("-1h")
+    .step("1m")
+  ```
+
+#### Calculate rate of change
+
+  ```groovy
+  Telemetry
+    .promql("rate(kubernetes_memory_requests[${__rate_interval}])")
+    .start("-1h")
+    .step("1m")
+  ```
+
+
 ### High-cardinality metrics
 
 For high-cardinality metrics, the number of time steps that can be retrieved at once is limited.  So it may happen that a query executed as an instance query returns more timeseries than when it is interpreted as a range query.  The way to fix this is to make the [time series selector](https://prometheus.io/docs/prometheus/latest/querying/basics/#time-series-selectors) more specific, by adding additional label matchers.
 
-## Function: `Telemetry.query(dataSourceName: String, query: String)`
+## (Deprecated) Function: `Telemetry.query(dataSourceName: String, query: String)`
 
 {% hint style="warning" %}
 Telemetry queries are only available on StackState versions up to 5.1.  For versions 5.2 and later, the backing data store (ElasticSearch) no longer receives metric data.  Please use the [`Telemetry.promql`](#function-telemetrypromqlquery-string) function to build queries.
@@ -193,29 +241,8 @@ The output format of the Telemetry API changed in StackState v5.0. If you are ru
 
 ### Examples
 
-- [Telemetry - script API](#telemetry---script-api)
-  - [Function: `Telemetry.promql(query: String)`](#function-telemetrypromqlquery-string)
-    - [Query language](#query-language)
-      - [Template variables](#template-variables)
-    - [Builder methods](#builder-methods)
-    - [Examples](#examples)
-      - [Number of threads per process, averaged over the last 15 minutes per host:](#number-of-threads-per-process-averaged-over-the-last-15-minutes-per-host)
-      - [Process the StreamingScriptResult result data, getting the ids of the resulting timeSeries](#process-the-streamingscriptresult-result-data-getting-the-ids-of-the-resulting-timeseries)
-    - [High-cardinality metrics](#high-cardinality-metrics)
-  - [Function: `Telemetry.query(dataSourceName: String, query: String)`](#function-telemetryquerydatasourcename-string-query-string)
-    - [Args](#args)
-    - [Returns](#returns)
-    - [Builder methods](#builder-methods-1)
-    - [Examples](#examples-1)
-      - [Get metrics aggregated using Mean with bucket size 15 minutes and grouped by the field `host`:](#get-metrics-aggregated-using-mean-with-bucket-size-15-minutes-and-grouped-by-the-field-host)
-      - [Process the StreamingScriptResult result data, getting the ids of the resulting timeSeries](#process-the-streamingscriptresult-result-data-getting-the-ids-of-the-resulting-timeseries-1)
-      - [Get raw metric by query](#get-raw-metric-by-query)
-      - [Get metric aggregated using Mean with bucket size 1 minute](#get-metric-aggregated-using-mean-with-bucket-size-1-minute)
-      - [Query metrics starting 3 hours ago till now](#query-metrics-starting-3-hours-ago-till-now)
-      - [Query metrics starting beginning of the data till last hour ago](#query-metrics-starting-beginning-of-the-data-till-last-hour-ago)
-      - [Query metrics within time range starting 3 hours ago up to 1 hour ago](#query-metrics-within-time-range-starting-3-hours-ago-up-to-1-hour-ago)
-      - [Query metrics from field "value" and limits points returned](#query-metrics-from-field-value-and-limits-points-returned)
-  - [See also](#see-also)
+- [Get metrics aggregated using Mean with bucket size 15 minutes and grouped by the field `host`:](#get-metrics-aggregated-using-mean-with-bucket-size-15-minutes-and-grouped-by-the-field-host)
+- [Process the StreamingScriptResult result data, getting the ids of the resulting timeSeries](#process-the-streamingscriptresult-result-data-getting-the-ids-of-the-resulting-timeseries-1)
 
 #### Get metrics aggregated using Mean with bucket size 15 minutes and grouped by the field `host`: 
   
@@ -342,57 +369,6 @@ The output format of the Telemetry API changed in StackState v5.0. If you are ru
   ```
   {% endtab %}
   {% endtabs %}
-
-#### Get raw metric by query
-  ```text
-  Telemetry
-    .query("StackState Metrics", "name='system.load.norm' and host='host1'")
-    .metricField("value")
-  ```
-
-#### Get metric aggregated using Mean with bucket size 1 minute
-  ```text
-  Telemetry
-    .query("StackState Metrics", "name='system.load.norm' and host='host1'")
-    .metricField("value")
-    .aggregation("99th percentile", "1m") // get 99th percentile of each minute
-  ```
-
-#### Query metrics starting 3 hours ago till now
-
-  ```text
-  Telemetry
-    .query("StackState Metrics", "name='system.load.norm' and host='host1'")
-    .metricField("value")
-    .start("-3h") // starting from 3 hours ago
-  ```
-
-#### Query metrics starting beginning of the data till last hour ago
-
-  ```text
-  Telemetry
-    .query("StackState Metrics", "name='system.load.norm' and host='host1'")
-    .metricField("value")
-    .end("-1h") // ending 1 hour ago
-  ```
-
-#### Query metrics within time range starting 3 hours ago up to 1 hour ago
-
-  ```text
-  Telemetry
-    .query("StackState Metrics", "name='system.load.norm' and host='host1'")
-    .metricField("value")
-    .window("-3h", "-1h") // from 3 hours ago to 1 hour ago
-  ```
-
-#### Query metrics from field "value" and limits points returned
-
-  ```text
-  Telemetry
-    .query("StackState Metrics", "name='system.load.norm' and host='host1'")
-    .metricField("value")
-    .limit(100)
-  ```
 
 ## See also
 

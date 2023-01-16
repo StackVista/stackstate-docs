@@ -50,7 +50,7 @@ As streams with an anomaly check have the highest priority in the AAD, these met
 
     ```java
     Telemetry
-      .promql("stackstate_spotlight_streams_checked")
+      .promql("stackstate_spotlight_streams_checked[${__interval}]")
       .start("-6h")
       .step("5m")
     ```
@@ -59,7 +59,7 @@ As streams with an anomaly check have the highest priority in the AAD, these met
 
     ```java
     Telemetry
-      .promql("stackstate_spotlight_streams_with_anomaly_check")
+      .promql("stackstate_spotlight_streams_with_anomaly_check[${__interval}]")
       .start("-6h")
       .step("5m")
     ```
