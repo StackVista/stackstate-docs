@@ -43,11 +43,12 @@ Methods available on the PromQL query builder:
 
 ### Examples
 - [Total CPU usage over the last 15 minutes, per container and host:](#total-cpu-usage-over-the-last-15-minutes-per-container-and-host)
-- [Process the StreamingScriptResult result data, getting the ids of the resulting timeSeries](#process-the-streamingscriptresult-result-data-getting-the-ids-of-the-resulting-timeseries)
+- [Process the StreamingScriptResult result data, getting the ids of the resulting time series](#process-the-streamingscriptresult-result-data-getting-the-ids-of-the-resulting-time-series)
 - [Get raw metric by query](#get-raw-metric-by-query)
 - [Get quantile of metric with bucket size 1 minute](#get-quantile-of-metric-with-bucket-size-1-minute)
 - [Query metrics within time range starting 3 hours ago up to 1 hour ago](#query-metrics-within-time-range-starting-3-hours-ago-up-to-1-hour-ago)
 - [Limit the number of points returned](#limit-the-number-of-points-returned)
+- [Calculate rate of change](#calculate-rate-of-change)
 
 #### Total CPU usage over the last 15 minutes, per container and host:
 
@@ -126,7 +127,7 @@ Methods available on the PromQL query builder:
   {% endtab %}
 
 
-#### Process the [StreamingScriptResult](../streaming-script-result.md) result data, getting the ids of the resulting timeSeries
+#### Process the [StreamingScriptResult](../streaming-script-result.md) result data, getting the ids of the resulting time series
 
   {% tabs %}
   {% tab title="Query" %}
@@ -204,7 +205,7 @@ Methods available on the PromQL query builder:
 
 ### High-cardinality metrics
 
-For high-cardinality metrics, the number of time steps that can be retrieved at once is limited.  So it may happen that a query executed as an instance query returns more timeseries than when it is interpreted as a range query.  The way to fix this is to make the [time series selector](https://prometheus.io/docs/prometheus/latest/querying/basics/#time-series-selectors) more specific, by adding additional label matchers.
+For high-cardinality metrics, the number of time steps that can be retrieved at once is limited.  So it may happen that a query executed as an instance query returns more time series than when it is interpreted as a range query.  The way to fix this is to make the [time series selector](https://prometheus.io/docs/prometheus/latest/querying/basics/#time-series-selectors) more specific, by adding additional label matchers.
 
 ## (Deprecated) Function: `Telemetry.query(dataSourceName: String, query: String)`
 
@@ -241,7 +242,7 @@ The output format of the Telemetry API changed in StackState v5.0. If you are ru
 ### Examples
 
 - [Get metrics aggregated using Mean with bucket size 15 minutes and grouped by the field `host`:](#get-metrics-aggregated-using-mean-with-bucket-size-15-minutes-and-grouped-by-the-field-host)
-- [Process the StreamingScriptResult result data, getting the ids of the resulting timeSeries](#process-the-streamingscriptresult-result-data-getting-the-ids-of-the-resulting-timeseries-1)
+- [Process the StreamingScriptResult result data, getting the ids of the resulting time series](#process-the-streamingscriptresult-result-data-getting-the-ids-of-the-resulting-time-series-1)
 
 #### Get metrics aggregated using Mean with bucket size 15 minutes and grouped by the field `host`: 
   
@@ -334,7 +335,7 @@ The output format of the Telemetry API changed in StackState v5.0. If you are ru
   {% endtab %}
   {% endtabs %}
 
-#### Process the [StreamingScriptResult](../streaming-script-result.md) result data, getting the ids of the resulting timeSeries
+#### Process the [StreamingScriptResult](../streaming-script-result.md) result data, getting the ids of the resulting time series
 
   {% tabs %}
   {% tab title="Query" %}
