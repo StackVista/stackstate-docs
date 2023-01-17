@@ -44,7 +44,7 @@ Here is an example of a script passing some metric data to the `data` attribute 
 {% code lineNumbers="true" %}
 ```groovy
 Telemetry
-  .promql("quantile_over_time(0.99, system_load_norm_1{host='host1'}[${__interval}])")
+  .promql("quantile_over_time(0.90, system_load_norm_1{sts_host='host1'}[15m])")
   .start("-2h")
   .step("5m")
   .then { host1Load ->
@@ -54,7 +54,7 @@ Telemetry
         """
         |# Host 1 load
         |
-        | The last two hours of load on host1, aggregated per 5 minutes and by 99th percentile:
+        | The last two hours of load on host1, aggregated per 5 minutes and by 90th percentile:
         |
         |<auto-widget data={metrics}></auto-widget>
         |

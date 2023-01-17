@@ -19,9 +19,9 @@ It looks at the shape of the `data`, and if it's of some recognizable type \(det
 This is an example of a script that uses the `auto-widget` to render a telemetry chart:
 
 {% code lineNumbers="true" %}
-```text
+```groovy
 Telemetry
-  .promql("quantile_over_time(0.99, system_load_norm_1{host='host1'})")
+  .promql("quantile_over_time(0.99, system_load_norm_1{sts_host='host1'})")
   .start("-2h")
   .step("5m")
   .then { host1Load ->

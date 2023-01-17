@@ -88,7 +88,7 @@ nodes:
       topolopgyIdentifierPattern: "urn:host:/${sts_host}"
       metrics: |-
           Telemetry
-          .promql("avg by (sts_host) (system_cpu_system)")
+          .promql("avg by (sts_host) (system_cpu_system[${__interval}])")
           .start("-1m")
           .step("15s")
     intervalSeconds: 60

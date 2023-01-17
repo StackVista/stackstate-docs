@@ -42,15 +42,14 @@ Methods available on the PromQL query builder:
 * `description(s)` - (optional) description of the metrics returned by the query
 
 ### Examples
-
-- [Number of threads per process, averaged over the last 15 minutes per host:](#number-of-threads-per-process-averaged-over-the-last-15-minutes-per-host)
+- [Total CPU usage over the last 15 minutes, per container and host:](#total-cpu-usage-over-the-last-15-minutes-per-container-and-host)
 - [Process the StreamingScriptResult result data, getting the ids of the resulting timeSeries](#process-the-streamingscriptresult-result-data-getting-the-ids-of-the-resulting-timeseries)
 - [Get raw metric by query](#get-raw-metric-by-query)
 - [Get quantile of metric with bucket size 1 minute](#get-quantile-of-metric-with-bucket-size-1-minute)
 - [Query metrics within time range starting 3 hours ago up to 1 hour ago](#query-metrics-within-time-range-starting-3-hours-ago-up-to-1-hour-ago)
 - [Limit the number of points returned](#limit-the-number-of-points-returned)
 
-#### Number of threads per process, averaged over the last 15 minutes per host:
+#### Total CPU usage over the last 15 minutes, per container and host:
 
   {% tabs %}
   {% tab title="Query" %}
@@ -163,7 +162,7 @@ Methods available on the PromQL query builder:
 #### Get raw metric by query
   ```groovy
   Telemetry
-    .promql("system_load_1{host='host1'}[${__interval}]")
+    .promql("system_load_1{sts_host='host1'}")
     .start("-5m")
     .step("1m")
   ```
@@ -171,7 +170,7 @@ Methods available on the PromQL query builder:
 #### Get quantile of metric with bucket size 1 minute
   ```groovy
   Telemetry
-    .promql("quantile_over_time(0.99, system_load_1{host='host1'}[${__interval}])")
+    .promql("quantile_over_time(0.99, system_load_1{host='host1'})")
     .start("-10m")
     .step("1m")
   ```
@@ -180,7 +179,7 @@ Methods available on the PromQL query builder:
 
   ```groovy
   Telemetry
-    .promql("system_load_1{host='host1'}[${__interval}]")
+    .promql("system_load_1{host='host1'}")
     .window("-3h", "-1h") // from 3 hours ago to 1 hour ago
   ```
 
@@ -188,7 +187,7 @@ Methods available on the PromQL query builder:
 
   ```groovy
   Telemetry
-    .promql("max by (host) (system_load_1[${__interval}]) limit 20")
+    .promql("max by (host) (system_load_1) limit 20")
     .start("-1h")
     .step("1m")
   ```

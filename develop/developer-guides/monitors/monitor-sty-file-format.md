@@ -26,10 +26,10 @@ nodes:
       deviating: 0.8
       metrics: |
         Telemetry
-              .promql("avg by (host) (cpuload[1m])")
+              .promql("avg_by_time(cpuload[1m])")
               .window("-10m", "-1m")
               .step("1m")
-      topologyMapping: '${host}'
+      topologyMapping: 'urn:host:/${sts_host}'
     function: {{ get "urn:stackpack:stackstate-self-health:shared:monitor-function:higher-than-threshold"  }}
 ```
 
@@ -234,7 +234,7 @@ The `topologyIdentifierPattern` value supplied to the monitor function should re
 ```yaml
 ...
 arguments:
-  topologyIdentifierPattern: "urn:host:/${tags.host}"
+  topologyIdentifierPattern: "urn:host:/${sts_host}"
 ...
 ```
 
