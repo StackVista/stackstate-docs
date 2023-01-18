@@ -209,10 +209,6 @@ For high-cardinality metrics, the number of time steps that can be retrieved at 
 
 ## (Deprecated) Function: `Telemetry.query(dataSourceName: String, query: String)`
 
-{% hint style="warning" %}
-Telemetry queries are only available on StackState versions up to 5.1.  For versions 5.2 and later, the backing data store (ElasticSearch) no longer receives metric data.  Please use the [`Telemetry.promql`](#function-telemetrypromqlquery-string) function to build queries.
-{% endhint %}
-
 A telemetry query is a conjunction of equality conditions. For example, `name = 'system.load.norm.15' and host='localhost'`. There are several builder methods available that help to refine the query time range, limit the number of points returned, or set a metric field.
 
 ### Args
