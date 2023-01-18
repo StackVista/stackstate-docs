@@ -171,7 +171,7 @@ Methods available on the PromQL query builder:
 #### Get quantile of metric with bucket size 1 minute
   ```groovy
   Telemetry
-    .promql("quantile_over_time(0.99, system_load_1{host='host1'})")
+    .promql("quantile_over_time(0.99, system_load_1{sts_host='host1'})")
     .start("-10m")
     .step("1m")
   ```
@@ -180,7 +180,7 @@ Methods available on the PromQL query builder:
 
   ```groovy
   Telemetry
-    .promql("system_load_1{host='host1'}")
+    .promql("system_load_1{sts_host='host1'}")
     .window("-3h", "-1h") // from 3 hours ago to 1 hour ago
   ```
 
@@ -188,7 +188,7 @@ Methods available on the PromQL query builder:
 
   ```groovy
   Telemetry
-    .promql("max by (host) (system_load_1) limit 20")
+    .promql("max by (sts_host) (system_load_1) limit 20")
     .start("-1h")
     .step("1m")
   ```
