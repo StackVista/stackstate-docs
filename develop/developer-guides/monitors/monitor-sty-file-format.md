@@ -26,12 +26,10 @@ nodes:
       deviating: 0.8
       metrics: |
         Telemetry
-              .query("StackState Metrics", "")
-              .metricField("stackstate.java_lang_operatingsystem_systemcpuload")
-              .groupBy("host")
+              .promql("avg_by_time(cpuload[1m])")
               .window("-10m", "-1m")
-              .aggregation("mean", "1m")
-      topologyMapping: '${host}'
+              .step("1m")
+      topologyMapping: 'urn:host:/${sts_host}'
     function: {{ get "urn:stackpack:stackstate-self-health:shared:monitor-function:higher-than-threshold"  }}
 ```
 
@@ -192,10 +190,9 @@ parameters:
 {% endtabs %}
 
 #### Telemetry query
-Monitor functions that utilize telemetry tend to be parameterized with the exact telemetry query to use for their computation. The telemetry query should be built using the StackState Telemetry Script API. The following fields are particularly useful in telemetry queries that are passed to monitor functions:
+Monitor functions that utilize telemetry tend to be parameterized with the exact telemetry query to use for their computation. The telemetry query should be built using the StackState Telemetry Script API. To make sure the correct labels are available to the monitor, it is useful to specify these with a PromQL aggregation function.
 
-* `groupBy(fields)` - when a monitor will produce a health state for multiple components, use the `groupBy` field to produce multiple time series as a set of unique values for the defined `fields`.
-* `aggregation(type, interval)` - aggregates each time series by the defined `type`. Each aggregated value is constructed out of a data span the size of the defined `interval`.
+As an example, a PromQL query such as `sum by (host, pod) (http_request_rate)` uses `sum` as the aggregation function and specifies the labels `host` and `pod` for grouping.  The `step` size determines the interval between data points and the `start` time determines how many historic data points are available.
 
 ➡️ [Learn more about the Telemetry script API](/develop/reference/scripting/script-apis/telemetry.md "StackState Self-Hosted only")
 
@@ -206,7 +203,7 @@ To supply a value to the `telemetryQuery` parameter defined in the monitor funct
 ```yaml
 ...
 arguments:
-  telemetryQuery: "Telemetry.query('StackState Metrics', '').metricField('system.cpu.iowait').groupBy('tags.host').start('-10m').aggregation('mean', '1m')"
+  telemetryQuery: "Telemetry.promql('avg by (sts_host) (system_cpu_iowait[1m])').start('-10m').step('1m')"
   ...
 ```
 {% endtab %}
@@ -237,7 +234,7 @@ The `topologyIdentifierPattern` value supplied to the monitor function should re
 ```yaml
 ...
 arguments:
-  topologyIdentifierPattern: "urn:host:/${tags.host}"
+  topologyIdentifierPattern: "urn:host:/${sts_host}"
 ...
 ```
 
@@ -245,11 +242,9 @@ The exact `value` to use for this parameter depends on the topology available in
 
 ```groovy
 Telemetry
-  .query('StackState Metrics', '')
-  .metricField('system.cpu.iowait')
-  .groupBy('host', 'region')
+  .promql('avg by (host, region) (system.cpu.iowait[1m])')
   .start('-10m')
-  .aggregation('mean', '1m')
+  .step('1m')
 ```
 
 The telemetry query above groups its results by two fields: `host` and `region`. Both of these values will be available for value interpolation of an exact topology identifier to use, and each different `host` and `region` pair can be used either individually or together to form a unique topology identifier.

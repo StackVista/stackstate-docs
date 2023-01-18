@@ -42,12 +42,11 @@ Attribute values can be set directly with literal values, but oftentimes, it may
 Here is an example of a script passing some metric data to the `data` attribute of the `auto-widget` tag. This script uses the `UI.showReport` function which uses STML to format a report.
 
 {% code lineNumbers="true" %}
-```text
+```groovy
 Telemetry
-  .query("StackState Metrics", "name='system.load.norm' and host='host1'")
-  .metricField("value")
+  .promql("quantile_over_time(0.90, system_load_norm_1{sts_host='host1'}[15m])")
   .start("-2h")
-  .aggregation("99th percentile", "5m")
+  .step("5m")
   .then { host1Load ->
     UI.showReport(
         "My report",
@@ -55,7 +54,7 @@ Telemetry
         """
         |# Host 1 load
         |
-        | The last two hours of load on host1, aggregated per 5 minutes and by 99th percentile:
+        | The last two hours of load on host1, aggregated per 5 minutes and by 90th percentile:
         |
         |<auto-widget data={metrics}></auto-widget>
         |

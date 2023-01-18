@@ -50,18 +50,18 @@ As streams with an anomaly check have the highest priority in the AAD, these met
 
     ```java
     Telemetry
-      .query("StackState Metrics", "")
-      .metricField("stackstate.spotlight_streams_checked")
+      .promql("stackstate_spotlight_streams_checked")
       .start("-6h")
+      .step("5m")
     ```
 
 3. Use this query to plot the number of streams with an anomaly health check defined:
 
     ```java
     Telemetry
-      .query("StackState Metrics", "")
-      .metricField("stackstate.spotlight_streams_with_anomaly_check")
+      .promql("stackstate_spotlight_streams_with_anomaly_check")
       .start("-6h")
+      .step("5m")
     ```
 
 4. Compare the number of checked streams and the number of streams with anomaly health checks defined:
