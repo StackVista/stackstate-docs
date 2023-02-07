@@ -24,8 +24,8 @@ A few extensions to the basic PromQL language are available, inspired by [Grafan
 
 #### Template variables
 
-* `${__interval}` - the value depends on the step size, but always being bigger than twice the *scrape interval*.  This allows all data to be used, independently of the step size.
-* `${__rate_interval}` - a value always bigger than the step size by at least one *scrape interval*.  This is mainly intended to be used with (rollup) functions that calculate rates of change, like `rate` and `increase`.  Using `${__rate_interval}` makes sure that there is always a value when zooming in (a small step size) and every value change occurs in at least one range (with big step sizes).
+* `${__interval}` - the value depends on the step size, but always being bigger than twice the *scrape interval*. This allows all data to be used in rollup functions (like `*_over_time`), independently of the step size.
+* `${__rate_interval}` - the value also depends on the step size, but always being bigger than 4 times the *scrape interval* and step size plus at least one *scrape interval*.  This is intended to be used with (rollup) functions that calculate rates of change, like `rate` and `increase`.  Using `${__rate_interval}` makes sure that there is always a value when zooming in (a small step size) and every value change occurs in at least one range (with big step sizes).
 
 ### Builder methods
 
