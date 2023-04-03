@@ -25,6 +25,8 @@
 * [Custom views](use/views/custom-views.md)
 * [Explore views](use/views/explore-views.md)
 * [View structure](use/views/view-structure.md)
+  * [Filters](use/views/filters.md)
+  * [Perspectives](use/views/perspectives.md)
 * [Timeline and time travel](use/stackstate-ui/k8sTs-timeline-time-travel.md)
 
 
