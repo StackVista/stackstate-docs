@@ -1,35 +1,48 @@
----
-cover: .gitbook/assets/gitbook-cover.jpg
-coverY: 0
-layout: landing
----
+# StackState Kubernetes troubleshooting
 
-# Welcome to the StackState docs!
+**These documentation pages cover all functionality in the StackState Kubernetes troubleshooting product**.
 
-Select your version of StackState to jump to the associated documentation.
+### Get started
 
-### Kubernetes troubleshooting
+{% page-ref page="k8sTs-quick-start-guide.md" %}
 
-Use StackState to troubleshoot your Kubernetes cluster.
+<table data-view="cards">
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th data-hidden data-card-target data-type="content-ref"></th>
+            <th data-hidden data-card-cover data-type="files"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>StackState Agent</strong></td>
+            <td>Deploy and run StackState Agent V2.</td>
+            <td><a href="setup/agent/">agent</a></td>
+            <td><a href=".gitbook/assets/gitbook-card-image_stackstate-agent.jpg">gitbook-card-image_stackstate-agent.jpg</a></td>
+        </tr>
+        <tr>
+            <td><strong>Monitors</strong></td>
+            <td>Automated monitoring of Kubernetes services and pods.</td>
+            <td><a href="monitors-and-alerts/">Monitors</a></td>
+            <td><a href=".gitbook/assets/gitbook-card-image_kubernetes-openshift_blue.jpg">gitbook-card-image_kubernetes-openshift_blue.jpg</a></td>
+        </tr>
+        <tr>
+            <td><strong></strong></td>
+            <td></td>
+            <td><a href=""></a></td>
+            <td><a href=".gitbook/assets/gitbook-card-image_reference.jpg">gitbook-card-image_reference.jpg</a></td>
+        </tr>
+    </tbody>
+</table>
 
-🚀 [Kubernetes troubleshooting with StackState](k8sTs-latest.md)
+## Can't find something?
 
-### StackState Self-hosted
+**Search for it!** Use the search bar on the top right. 
+If you believe any documentation is missing, please let us know on the [StackState support site](http://support.stackstate.com/).
 
-Use StackState Self-hosted to observe an extensive set of technologies that originate either in your own data centers or in the cloud.
+## Troubleshooting and support
 
-↗️ **[StackState Self-hosted v5.1 docs](https://docs.stackstate.com/latest.md) - latest release!**
+Any questions? We love to help! Find our support team on the [StackState support site](http://support.stackstate.com/).
 
-↗️ [StackState Self-hosted v5.0 docs](https://docs.stackstate.com/v/5.0/)
-
-↗️ [StackState Self-hosted v4.6 docs](https://docs.stackstate.com/v/4.6/)
-
-### StackState SaaS
-
-Use StackState SaaS to observe cloud technologies, such as Kubernetes and AWS services. 
-
-↗️ [StackState SaaS docs](https://docs.stackstate.com/v/stackstate-saas/)
-
-{% hint style="success" %}
-🔒 StackState is SOC2/3 certified. [Learn more](https://www.stackstate.com/compliance)
-{% endhint %}
