@@ -15,15 +15,18 @@ When your StackState SaaS instance has been set up and configured, you will rece
 
 Set up a Kubernetes integration to collect topology, events, logs, change and metrics data from a Kubernetes cluster and make this available in StackState.
 
-### Supported container runtimes
+## Supported Kubernetes versions 
 
-From StackState Agent V2.16, the following container runtimes are supported:
+StackState Agent v2.19.x is supported to monitor the following versions of Kubernetes or OpenShift:
 
-* containerd
-* CRI-O
-* Docker
-
-Note that versions of StackState Agent prior to v2.16 support the Docker container runtime only.
+* Kubernetes:
+  * Kubernetes 1.16 - 1.26
+* OpenShift:
+  * OpenShift 4.3 - 4.12
+* Container runtimes:
+  * Docker
+  * containerd
+  * CRI-O
 
 ### Prerequisites for Kubernetes
 
