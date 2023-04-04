@@ -9,6 +9,7 @@
 
 ## 🦮 Guided troubleshooting
 
+* [What is guided troubleshooting?](use/troubleshooting/guided-troubleshooting.md)
 * [Configuration](use/troubleshooting/configuration.md)
 * [Changes](use/troubleshooting/changes.md)
 * [Logs](use/troubleshooting/logs.md)
