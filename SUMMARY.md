@@ -9,38 +9,38 @@
 
 ## 🦮 Guided troubleshooting
 
-* [What is guided troubleshooting?](use/troubleshooting/guided-troubleshooting.md)
-* [Configuration](use/troubleshooting/configuration.md)
-* [Changes](use/troubleshooting/changes.md)
-* [Logs](use/troubleshooting/logs.md)
+* [What is guided troubleshooting?](use/troubleshooting/k8s-guided-troubleshooting.md)
+* [Configuration](use/troubleshooting/k8s-configuration.md)
+* [Changes](use/troubleshooting/k8s-changes.md)
+* [Logs](use/troubleshooting/k8s-logs.md)
 
 ## 🚨 Monitors and alerts
 
-* [Monitors](use/alerting/monitors.md)
-* [Create your own monitors](use/alerting/manage-monitors.md)
-* [Alerting](use/alerting/alerting.md)]
+* [Monitors](use/alerting/k8s-monitors.md)
+* [Create your own monitors](use/alerting/k8s-manage-monitors.md)
+* [Alerting](use/alerting/k8s-alerting.md)
 
 ## 🔍 Views
 
-* [Kubernetes views](use/views/kubernetes-views.md)
-* [Custom views](use/views/custom-views.md)
-* [Explore views](use/views/explore-views.md)
-* [View structure](use/views/view-structure.md)
-  * [Filters](use/views/filters.md)
-  * [Perspectives](use/views/perspectives.md)
-* [Timeline and time travel](use/stackstate-ui/k8sTs-timeline-time-travel.md)
+* [Kubernetes views](use/views/k8s-views.md)
+* [Custom views](use/views/k8s-custom-views.md)
+* [Explore views](use/views/k8s-explore-views.md)
+* [View structure](use/views/k8s-view-structure.md)
+  * [Filters](use/views/k8s-filters.md)
+  * [Perspectives](use/views/k8s-perspectives.md)
+* [Timeline and time travel](use/stackstate-ui/k8s-timeline-time-travel.md)
 
 
 ## 🔧️ Setup
 
 * [StackState Agent](setup/agent/README.md)
-  * [About StackState Agent V2](setup/agent/k8sTs-about-stackstate-agent.md)
-  * [Kubernetes / OpenShift](setup/agent/k8sTs-kubernetes-openshift.md)
-  * [Advanced Agent configuration](setup/agent/k8sTs-advanced-agent-configuration.md)
+  * [About StackState Agent V2](setup/agent/k8s-about-stackstate-agent.md)
+  * [Kubernetes / OpenShift](setup/agent/k8s-kubernetes-openshift.md)
+  * [Advanced Agent configuration](setup/agent/k8s-advanced-agent-configuration.md)
 * [StackState](setup/install-stackstate/README.md)
-  * [StackState Agent V2 StackPack](stackpacks/integrations/k8sTs-agent.md)
-  * [Kubernetes integration](stackpacks/integrations/k8sTs-kubernetes.md)
-  * [OpenShift integration](stackpacks/integrations/k8sTs-openshift.md)
-  * [OpsGenie](stackpacks/integrations/k8sTs-opsgenie.md)
-  * [Slack](stackpacks/integrations/k8sTs-slack.md)
+  * [StackState Agent V2 StackPack](stackpacks/integrations/k8s-agent.md)
+  * [Kubernetes integration](stackpacks/integrations/k8s-kubernetes.md)
+  * [OpenShift integration](stackpacks/integrations/k8s-openshift.md)
+  * [OpsGenie](stackpacks/integrations/k8s-opsgenie.md)
+  * [Slack](stackpacks/integrations/k8s-slack.md)
 
