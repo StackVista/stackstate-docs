@@ -1,5 +1,5 @@
 ---
-description: StackState Kubernetes troubleshooting
+description: StackState for Kubernetes troubleshooting
 ---
 
 # StackState Query Language \(STQL\)
@@ -49,7 +49,7 @@ For example:
 
 ```yaml
 # Return all components named DLL_DB or J2EE_04 regardless of type:
-  name = DLL_DB OR name = J2EE_04 
+  name = DLL_DB OR name = J2EE_04
 
 # Return only databases named DLL_DB and host systems named J2EE_04:
   (name = DLL_DB AND type = database) OR (name = J2EE_04 AND type = "host systems")
@@ -87,7 +87,7 @@ The function withNeighborsOf extends STQL query output, adding connected compone
 
 `withNeighborsOf(components=(), levels=, direction=)`
 
-To be compatible with basic filtering, the function can only be combined with other filters using an `OR` operator. When an advanced filter includes a function `withNeighborsOf` that's compatible with basic filtering, the number of components whose neighbors are queried for is shown in the [**Other filters** box](/use/stackstate-ui/filters.md#other-filters). 
+To be compatible with basic filtering, the function can only be combined with other filters using an `OR` operator. When an advanced filter includes a function `withNeighborsOf` that's compatible with basic filtering, the number of components whose neighbors are queried for is shown in the [**Other filters** box](/use/stackstate-ui/filters.md#other-filters).
 
 #### Parameters / fields
 
@@ -117,13 +117,13 @@ The `withCauseOf` function has been deprecated. This functionality has been repl
 
 You can switch from basic to advanced filtering by selecting **Advanced** under **Filter Topology** in the **View Filters** panel.
 
-It's always possible to switch from basic to advanced filtering. The selected basic filters will be converted directly to an STQL query. 
+It's always possible to switch from basic to advanced filtering. The selected basic filters will be converted directly to an STQL query.
 
 ### Advanced to basic filtering
 
 You can switch from advanced to basic filtering by selecting **Basic** under **Filter Topology** in the **View Filters** panel.
 
-It isn't always possible to switch from advanced filtering to basic filtering. Mpst simple queries can be converted to basic filters, however, some advanced queries aren't compatible with basic filters. 
+It isn't always possible to switch from advanced filtering to basic filtering. Mpst simple queries can be converted to basic filters, however, some advanced queries aren't compatible with basic filters.
 
 * Basic filters can't contain an inequality.
 * Basic filters don't use `=`, they're always formatted using the `IN` operator. For example `name IN ("DLL_DB”)` and not `name = "DLL_DB”`.
@@ -132,7 +132,7 @@ It isn't always possible to switch from advanced filtering to basic filtering. M
   - The different basic filter boxes are chained together with an **AND**: `layer IN ("business service") AND domain IN ("online banking”)`
   - The **Include components** basic filter box (`name`) is the exception - this is chained to the other filter boxes with an OR: `layer IN ("business service") AND domain IN ("online banking") OR name IN ("DLL_DB”)`
   - To be compatible with basic filtering, the **withNeighborsOf** function and **identifier** filter must be joined to other filters with an **OR**: `layer in ("Processes") OR identifier IN ("urn:test:component")`
-  
+
 If you try to switch from an advanced filter to a basic filter and the query isn't compatible, StackState will ask for confirmation before removing the incompatible filters. To keep the filters, you can choose to stay in advanced filtering.
 
 ## See also
