@@ -59,8 +59,6 @@ To get data from a Kubernetes cluster into StackState, follow the steps describe
 4. Deploy the StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics on your Kubernetes cluster using the helm command provided in the StackState UI after you have installed the StackPack.
    * Once the Agents have been deployed, they will begin collecting data and push this to StackState
 
-➡️ [Learn more about the StackState Kubernetes integration](/stackpacks/integrations/kubernetes.md)
-
 ## OpenShift quick start guide
 
 Set up an OpenShift integration to collect topology, events, logs, change and metrics data from an OpenShift cluster and make this available in StackState.
@@ -95,8 +93,6 @@ To get data from an OpenShift cluster into StackState, follow the steps describe
    * Click **INSTALL**.
 4. Deploy the StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics on your OpenShift cluster using the helm command provided in the StackState UI after you have installed the StackPack.
    * Once the Agents have been deployed, they will begin collecting data and push this to StackState
-
-➡️ [Learn more about the StackState OpenShift integration](/stackpacks/integrations/openshift.md)
 
 ## What next?
 
