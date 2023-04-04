@@ -1,5 +1,5 @@
 ---
-description: StackState Kubernetes troubleshooting
+description: StackState for Kubernetes troubleshooting
 ---
 
 # Getting Started
