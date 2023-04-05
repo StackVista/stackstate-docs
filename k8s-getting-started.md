@@ -15,102 +15,34 @@ After setting up your [integration with Kubernetes](k8s-quick-start-guide.md), y
 
 This brings you to the service overview which shows all services running in your clusters. If you click any of the other items underneath Kubernetes you will go to the overview page of that type of resource. It will show all resources of that type in all clusers and all namespaces at first.
 
-![Service overview](/.gitbook/assets/k8s/k8s-quick-start-services.png)
+![Services overview](/.gitbook/assets/k8s/k8s-quick-start-services.png)
 
 At the right top you have the option to filter your selection to a certain cluster and/ or namespace to see the resources for which you are responsible.
 At the bottom left you find two inputs.
-1. The time-range selector. This select the timerange for all metrics, logs and events you see.
-2. The topology-time selector. This is used to travel back to a certain moment in time to see the exact state of your systems as observed at that moment.
+1. The time-range selector. This selects the timerange for all metrics, logs and events you see throughout the product.
+2. The topology-time selector. This is used to travel back to a certain moment in time to see the exact state of your systems as observed at that moment in time.
 
 You can for example filter on a certain namespace, in this case I filter the services down to 'sock-shop' which is a demo application using different microservices written in different programming languages and using different ways of communication to act as an nice example for troubleshooting an issue.
 If you now click on Topology you will see the topology of the currently selected components (in this case the services of the sock-shop).
 
-![Service topology](/.gitbook/assets/k8s/k8s-quick-start-service-topology.png)
+![Services topology](/.gitbook/assets/k8s/k8s-quick-start-service-topology.png)
 
 In the topology you see al resources, in the case services. 
 - If you click a component (in this case a services) it shows you the details of a service including the most important metrics, in the case of a service for example the latency, througput and error-rate. Next to the most important metrics the health of the component is shown and expanded if there is anything going wrong.
 - If you click a relation you will see the detail of the relation including all components part of it. In the case of a service map you will see all components involved in the service to service communication.
 If you want to open a component to see all details of that resource (e.g. the details of this service a certain service) you can click on the 'Open Component' button from a selected component (which you then see in the Right Hand Side panel) or you can open the component by clicking on the name of the component in the overview page tab.
 
+![Service overview](/.gitbook/assets/k8s/k8s-quick-start-service.png)
 
+After opening a Kubernetes resource you will get a Hightlight perspective showing you all the hightlights of that component.
+1. The component meta-data
+2. The actions available on the component, in the case of a service it gives you the ability to show the Status and/ or Configuration information. If you want to see the logs you can open the pods via the related resources which gives you access to the Logs.
+3. Related resources. This sections shows all related resource to this resource in this case 2 other services to which it communicates and 1 pod which backing this services.
+4. The monitors sections shows you all monitors applied to this Resource including their state a the selected topology-time.
+5. The metrics section showing you all important metrics for this service. The metrics include the selected telemetry-time-interval.
+6. A health time-line for a service showing the health of this resource over time.
+7. A event time-line showing a events happening on this service over time.
 
+Lets now explore a triggered monitor by clicking on the 'HTTP - 5xx error ratio' one.
 
-
-
-
-
-
-StackState visualizes components in the Topology Perspective by the layer and domain that they're placed in. These are logical groupings of components. Layers are displayed on the vertical axis. Domains are displayed on the horizontal axis.
-
-You can change which part of the landscape you are viewing \(for example, layers and domains\) with the [view filters](/use/stackstate-ui/filters.md) on the left bar, or by [hovering over a component](/use/stackstate-ui/perspectives/topology-perspective.md#component-context-menu).
-
-➡️ [Learn more about the Topology Perspective](/use/stackstate-ui/perspectives/topology-perspective.md)
-
-![Explore topology](/.gitbook/assets/v51_topology.png)
-
-## Topology elements
-
-A topology consists of components and relations combined with their health state. Because topologies can get very large, StackState automatically groups the components.
-
-The health state of a component is indicated by two colors:
-
-* The component color indicates the health state calculated for the component itself.
-* The outer color indicates there is potential impact from unhealthy components or relations that this component depends upon.
-
-The direction of a relation's arrow indicates dependency. For example, `app -> db` means: `app` depends on `db`. Health propagates in the opposite direction to the arrows. So if the `db` component turns red, the outer color of the `app` component will turn red too.
-
-➡️ Learn more about [components](/use/concepts/components.md), [relations](/use/concepts/relations.md) and [health state](/use/concepts/health-state.md)
-
-![Component](/.gitbook/assets/v51_topology_elements.png)
-
-## Timeline
-
-The [timeline](/use/stackstate-ui/timeline-time-travel.md) at the bottom of the screen gives you the ability to go to any point in time. All the information that you see \(component details, metric streams, etc.\) is relative to the topology that existed at the currently selected topology time. Normally, StackState is in **live mode**, this means that StackState automatically displays the latest state of the stack.
-
-➡️ [Learn more about the timeline and time travel](/use/stackstate-ui/timeline-time-travel.md)
-
-![Timeline](/.gitbook/assets/v51_timeline.png)
-
-## Detailed information about components and relations
-
-Select a component or a relation to display detailed information about it in the right panel details tab - the tab will be named according to the element type that you selected. For example, **Component details** when you select a component or **Direct relation details** when you select a relation that links two components with no hidden components in between. Click **SHOW ALL PROPERTIES** to open a popup with all details of a component or direct relation.
-
-![Detailed component information](/.gitbook/assets/v51_component_details.png)
-
-## Telemetry inspector
-
-Both components and relations can have one or multiple telemetry streams. The most common type is a metric stream also known as time series. If you click on a metric stream, you can see the metric stream in a popup.
-
-![Telemetry inspector](/.gitbook/assets/v51_component_details_inspect_metric_stream.png)
-
-If you click on a log stream, you can see the log stream in a popup. Again, there are a number of drill-down capabilities available on the left of the popup.
-
-![Telemetry inspector](/.gitbook/assets/v51_component_details_inspect_log_stream.png)
-
-## Problems
-
-![Detailed component information](/.gitbook/assets/v51_problem_summary.png)
-
-To quickly find the cause of any DEVIATING component, head to the right panel in the StackState UI where you can find the **Problems** section. It provides an immediate understanding of ongoing problems in your IT environment clustered by their root cause and will show you the probable cause of current problems.
-
-* The **View summary** and **Subview summary** tabs give an overview of problems based on the components impacted in the current view or subview. 
-* The **Component details** lists all problems that involve the selected component. 
-* The **Direct relation details** tab lists all problems that involve the selected direct relation, its source component or its target component. 
-
-Problems and issues are displayed in order of the last problem update with the most recently updated problem at the top of the list and the oldest update at the bottom. Within each problem, component-specific issues are displayed in order of the timestamp of the last health state change, from the most recent at the top of the list to the oldest at the bottom.
-
-Note that some components listed in the problem panel might not be visible in the current topology view. You can open a dedicated problem subview to focus on all of the topology elements involved in a specific problem.
-
-➡️ [Learn more about problems](/use/problem-analysis/about-problems.md)
-
-## Events
-
-To show all events for the selected Topology, select the Events Perspective from the top of the screen. Examples of important events that may appear here are health state changes and changes to the components themselves, like version changes. With [event handlers](/use/events/event-notifications.md), you can configure StackState to react to any events, for example, by automatically creating a ticket or triggering some automation.
-
-![Events Perspective](/.gitbook/assets/v51_events-perspective.png)
-
-The Events Perspective isn't the only place you can find events; you can find the latest events in the Events section in the right panel **View summary** tab and in the details tabs - **Component details** and **Direct relation details**.
-
-![Events section](/.gitbook/assets/v51_events-section.png)
-
-➡️ [Learn more about the Events Perspective](/use/stackstate-ui/perspectives/events_perspective.md)
+![HTTP - 5xx error ratio triggered monitor](/.gitbook/assets/k8s/k8s-quick-start-service-5xx-error-triggered-monitor.png)
