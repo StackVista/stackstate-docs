@@ -1,5 +1,5 @@
 ---
-description: StackState SaaS
+description: StackState for Kubernetes troubleshooting
 ---
 
 # StackState quick start guide
@@ -15,7 +15,7 @@ When your StackState SaaS instance has been set up and configured, you will rece
 
 Set up a Kubernetes integration to collect topology, events, logs, change and metrics data from a Kubernetes cluster and make this available in StackState.
 
-## Supported Kubernetes versions 
+## Supported Kubernetes versions
 
 StackState Agent v2.19.x is supported to monitor the following versions of Kubernetes or OpenShift:
 
@@ -51,7 +51,7 @@ To get data from a Kubernetes cluster into StackState, follow the steps describe
     helm repo add stackstate https://helm.stackstate.io
     helm repo update
     ```
-   
+
 2. In the StackState UI, open the main menu by clicking in the top left of the screen and go to **StackPacks** > **Integrations** > **Kubernetes**.
 3. Install a new instance of the Kubernetes StackPack:
    * Specify a **Kubernetes Cluster Name** - this name will be used to identify the cluster in StackState.
@@ -86,7 +86,7 @@ To get data from an OpenShift cluster into StackState, follow the steps describe
     helm repo add stackstate https://helm.stackstate.io
     helm repo update
     ```
-   
+
 2. In the StackState UI, open the main menu by clicking in the top left of the screen and go to **StackPacks** > **Integrations** > **OpenShift**.
 3. Install a new instance of the Kubernetes StackPack:
    * Specify a **OpenShift Cluster Name** - this name will be used to identify the cluster in StackState.
@@ -94,6 +94,6 @@ To get data from an OpenShift cluster into StackState, follow the steps describe
 4. Deploy the StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics on your OpenShift cluster using the helm command provided in the StackState UI after you have installed the StackPack.
    * Once the Agents have been deployed, they will begin collecting data and push this to StackState
 
-## What next?
+## What's next?
 
-- [StackState walk-through](/getting_started.md)
+- [StackState walk-through](k8s-getting-started.md)

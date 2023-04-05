@@ -1,20 +1,17 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState for Kubernetes troubleshooting
 ---
 
 # Getting Started
 
-Hi! So, you've just installed StackState and you are ready to get started.[](http://not.a.link "StackState Self-Hosted only")
+Hi! So, you've integrated your Kubernetes or OpenShift clusters and you are ready to get started.
 
-## StackPacks[](http://not.a.link "StackState Self-Hosted only")
-
-The first step to take is integrating StackState with your IT systems. This can be done by installing one or more [StackPacks](/stackpacks/about-stackpacks.md "StackState Self-Hosted only").
-
-![StackPacks overview](/.gitbook/assets/v51_stackpacks.png "StackState Self-Hosted only")
 
 ## Explore topology
 
-After setting up an [integration](/stackpacks/integrations/), you can go to the [Explore Mode](/use/stackstate-ui/explore_mode.md) to explore your IT landscape or visit a specific [view](/use/stackstate-ui/views/about_views.md) from your installed StackPacks.
+After setting up an [integration](/stackpacks/integrations/), you can go open the Main menu to explore your resources. You can for example start with the Services.
+
+![Main menu](/.gitbook/assets/k8s/k8s-quick-start-menu.png)
 
 StackState visualizes components in the Topology Perspective by the layer and domain that they're placed in. These are logical groupings of components. Layers are displayed on the vertical axis. Domains are displayed on the horizontal axis.
 

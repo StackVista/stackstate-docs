@@ -6,6 +6,7 @@
 ## 🚀 Get started
 
 * [Quick start guide](k8s-quick-start-guide.md)
+* [StackState walk-through](k8s-getting-started.md)
 
 ## 🦮 Guided troubleshooting
 
