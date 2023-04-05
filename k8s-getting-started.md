@@ -9,13 +9,13 @@ Hi! So, you've integrated your Kubernetes or OpenShift clusters and you are read
 
 ## Explore topology
 
-After setting up your [integration with Kubernetes](k8s-getting-started.md), you can go open the Main menu to explore your resources. You can for example start with the Services.
+After setting up your [integration with Kubernetes](k8s-quick-start-guide.md), you can go open the Main menu to explore your resources. You can for example start with the Services.
 
 ![Main menu](/.gitbook/assets/k8s/k8s-quick-start-menu.png)
 
-This brings you to the service overview which shows all services running in your clusters. If you click any of the other items underneith Kubernetes you will go to the overview page of that type of resource. It will show all resources of that type in all clusers and all namespaces at first.
+This brings you to the service overview which shows all services running in your clusters. If you click any of the other items underneath Kubernetes you will go to the overview page of that type of resource. It will show all resources of that type in all clusers and all namespaces at first.
 
-![Service overview](/.gitbook/assets/k8s/k8s-service-overview.png)
+![Service overview](/.gitbook/assets/k8s/k8s-quick-start-services.png)
 
 At the right top you have the option to filter your selection to a certain cluster and/ or namespace to see the resources for which you are responsible.
 At the bottom left you find two inputs.
