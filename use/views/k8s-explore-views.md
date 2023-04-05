@@ -16,7 +16,9 @@ Examples of **investigative actions** that will automatically be opened in an ex
 - A topology element (component, relation, group) was **double-clicked** in the _topology perspective_ to investigate it
 - The **'Explore...'** link or button was clicked on a topology element (component, relation, group) to investigate it
 
+{% hint style="info" "self-hosted info" %}
 The investigative actions executed from an existing explore view will not open a new explore view, they will change the scope of the explore view you are in.
+{% endhint %}
 
 ![](../../.gitbook/assets/k8s/k8s-menu.png)
 
