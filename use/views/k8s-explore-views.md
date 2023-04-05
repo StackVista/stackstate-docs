@@ -16,11 +16,11 @@ Examples of investigative actions that will automatically be opened in an **expl
 - A topology element (component, relation, group) was double-clicked in the _topology perspective_ to investigate it
 - The 'Explore...' button was clicked on a topology element (component, relation, group) to investigate it
 
-![](../../.gitbook/assets/k8s/k8s-menu.png)
-
-**Explore views** can be saved as _custom views_, thus they inherit the same _filters_ and the same _perspectives_ as _custom views_.
+**Explore views** can be saved as _custom views_, thus they inherit the same _filters_ and the same _perspectives_.
 
 If you don't want to save an **explore view**, simply close it and go back to the originating view you started from by using the breadcrumbs on the top navigation bar.
+
+![](../../.gitbook/assets/k8s/k8s-menu.png)
 
 
 ## Filters
