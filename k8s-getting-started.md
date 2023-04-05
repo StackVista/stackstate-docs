@@ -9,9 +9,36 @@ Hi! So, you've integrated your Kubernetes or OpenShift clusters and you are read
 
 ## Explore topology
 
-After setting up an [integration](/stackpacks/integrations/), you can go open the Main menu to explore your resources. You can for example start with the Services.
+After setting up your [integration with Kubernetes](k8s-quick-start-guide.md), you can go open the Main menu to explore your resources. You can for example start with the Services.
 
 ![Main menu](/.gitbook/assets/k8s/k8s-quick-start-menu.png)
+
+This brings you to the service overview which shows all services running in your clusters. If you click any of the other items underneath Kubernetes you will go to the overview page of that type of resource. It will show all resources of that type in all clusers and all namespaces at first.
+
+![Service overview](/.gitbook/assets/k8s/k8s-quick-start-services.png)
+
+At the right top you have the option to filter your selection to a certain cluster and/ or namespace to see the resources for which you are responsible.
+At the bottom left you find two inputs.
+1. The time-range selector. This select the timerange for all metrics, logs and events you see.
+2. The topology-time selector. This is used to travel back to a certain moment in time to see the exact state of your systems as observed at that moment.
+
+You can for example filter on a certain namespace, in this case I filter the services down to 'sock-shop' which is a demo application using different microservices written in different programming languages and using different ways of communication to act as an nice example for troubleshooting an issue.
+If you now click on Topology you will see the topology of the currently selected components (in this case the services of the sock-shop).
+
+![Service topology](/.gitbook/assets/k8s/k8s-quick-start-service-topology.png)
+
+In the topology you see al resources, in the case services. 
+- If you click a component (in this case a services) it shows you the details of a service including the most important metrics, in the case of a service for example the latency, througput and error-rate. Next to the most important metrics the health of the component is shown and expanded if there is anything going wrong.
+- If you click a relation you will see the detail of the relation including all components part of it. In the case of a service map you will see all components involved in the service to service communication.
+If you want to open a component to see all details of that resource (e.g. the details of this service a certain service) you can click on the 'Open Component' button from a selected component (which you then see in the Right Hand Side panel) or you can open the component by clicking on the name of the component in the overview page tab.
+
+
+
+
+
+
+
+
 
 StackState visualizes components in the Topology Perspective by the layer and domain that they're placed in. These are logical groupings of components. Layers are displayed on the vertical axis. Domains are displayed on the horizontal axis.
 
