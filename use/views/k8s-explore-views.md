@@ -26,7 +26,7 @@ When an explore view is automatically created, its original scope is also define
 
 Although an explore view is meant to be temporary, it can be saved as a _custom view_ if you want to monitor it or review it later on.
 
-If you don't want to save an explore view, simply go back to the view you started from by using the breadcrumbs on the top navigation bar.
+If you don't want to save an explore view, simply move away from it or go back to the view you started from by using the breadcrumbs on the top navigation bar.
 
 
 ![](../../.gitbook/assets/k8s/k8s-menu.png)
