@@ -33,12 +33,8 @@ If you don't want to save an explore view, simply move away from it or go back t
 ![](../../.gitbook/assets/k8s/k8s-menu.png)
 
 
-## Filters
+## Structure
 
-**Explore views** have the same _filters_ as _custom views_
+The explore views have an identical structure to the _custom views_: they have the same _filters_ and the same _perspectives_.
 
-
-## Perspectives
-
-**Explore views** have the same _perspectives_ as _custom views_
-
+![](../../.gitbook/assets/k8s/k8s-menu.png)
