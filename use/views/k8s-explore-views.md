@@ -20,7 +20,6 @@ Examples of **investigative actions** that will automatically be opened in an ex
 The investigative actions executed from an existing explore view will not open a new explore view, they will change the scope of the explore view you are in.
 {% endhint %}
 
-![](../../.gitbook/assets/k8s/k8s-menu.png)
 
 ## Handling
 
@@ -38,11 +37,8 @@ If you don't want to save an explore view, simply move away from it or go back t
 
 **Explore views** have the same _filters_ as _custom views_
 
-![](../../.gitbook/assets/k8s/k8s-menu.png)
-
 
 ## Perspectives
 
 **Explore views** have the same _perspectives_ as _custom views_
 
-![](../../.gitbook/assets/k8s/k8s-menu.png)
