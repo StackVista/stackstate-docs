@@ -8,7 +8,7 @@ description: StackState for Kubernetes troubleshooting
 
 In general, the concept of a _view_ in StackState allows you to monitor an area of your IT landscape that you had previously saved. But, often times when you need to investigate a subset of a particular view, you don't want to lose the scope of that view. This is where the **explore views** come into play.
 
-To keep the scope of a particular view (e.g. `my view`) intact, all the investigative actions applied to a topology element or selection of elements (e.g. components, relations, groups) will automatically open in a temporary explore view, under the view you have previously started from (e.g. `my view / explore`).
+To keep the scope of a particular view (e.g. `my view`) intact, all the investigative actions applied to a topology element or selection of elements (e.g. components, relations, groups) will automatically open in a temporary explore view, under the view you have started from (e.g. `my view / explore`).
 
 Examples of **investigative actions** that will automatically be opened in an explore view:
 - The **+ button** was clicked on a component in the _topology perspective_ to show the hidden neighbours of that component
@@ -16,7 +16,7 @@ Examples of **investigative actions** that will automatically be opened in an ex
 - A topology element (component, relation, group) was **double-clicked** in the _topology perspective_ to investigate it
 - The **'Explore...'** link or button was clicked on a topology element (component, relation, group) to investigate it
 
-{% hint style="info" "self-hosted info" %}
+{% hint style="success" "self-hosted info" %}
 The investigative actions executed from an existing explore view will not open a new explore view, they will change the scope of the explore view you are in.
 {% endhint %}
 
