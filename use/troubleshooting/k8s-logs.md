@@ -7,11 +7,13 @@ description: StackState for Kubernetes troubleshooting
 
 Kubernetes keeps comprehensive logs of cluster activity and application output. Logging provides valuable insight into how containers, nodes and Kubernetes itself is performing. Meticulously logging everything from Pods to ReplicaSets, it allows you to trace problems back to their source.
 
-## Accessing the pod logs
+## Accessing pod logs
 
 Errors and warnings in the logs are indicators of potential problems in your application, containers or the pod itself. To explore logs when on the pod screen click **Show logs** button.
 
 ![](../../.gitbook/assets/k8s/k8s-logs.png)
+
+## Using pod logs
 
 You can use search to look for specific errors or warnings in the logs. Logs can be filter by container. You can select a desired time interval logs will be shown for and refresh interval for how often you would like logs to be updated.
 
