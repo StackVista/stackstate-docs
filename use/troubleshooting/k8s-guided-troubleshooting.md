@@ -1,6 +1,7 @@
 ---
 description: StackState for Kubernetes troubleshooting
 ---
+# What is guided troubleshooting?
 
 ## Overview
 
