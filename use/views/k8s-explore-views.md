@@ -17,7 +17,7 @@ Examples of **investigative actions** that will automatically be opened in an ex
 - The **'Explore...'** link or button was clicked on a topology element (component, relation, group) to investigate it
 
 {% hint style="success" "self-hosted info" %}
-The investigative actions executed from an existing explore view will not open a new explore view, they will change the scope of the explore view you are in.
+The investigative actions executed from an existing explore view will **not** open a new explore view - they will change the scope of the explore view you are in.
 {% endhint %}
 
 
@@ -30,11 +30,11 @@ Although an explore view is meant to be temporary, it can be saved as a _custom 
 If you don't want to save an explore view, simply move away from it or go back to the view you started from by using the breadcrumbs on the top navigation bar.
 
 
-![](../../.gitbook/assets/k8s/k8s-menu.png)
+![Explore views](../../.gitbook/assets/k8s/k8s-menu.png)
 
 
 ## Structure
 
 The explore views have an identical structure to the _custom views_: they have the same _filters_ and the same _perspectives_.
 
-![](../../.gitbook/assets/k8s/k8s-menu.png)
+![Explore views](../../.gitbook/assets/k8s/k8s-menu.png)

@@ -6,7 +6,7 @@ description: StackState for Kubernetes troubleshooting
 
 ## Overview
 
-The **Filters** menu on the top right corner of the UI allows you to filter the components (topology), events and traces displayed in a view. Once applied, the filters will affect the content of all the perspectives in a view.
+The **Filters** menu on the top right corner of the view UI allows you to filter the components (topology), events and traces displayed in a view. Once applied, the filters will affect the content of all the perspectives in a view.
 
 ![View filters](../../.gitbook/assets/k8s/k8s-menu.png)
 
