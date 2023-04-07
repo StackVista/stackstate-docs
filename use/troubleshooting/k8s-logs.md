@@ -9,7 +9,7 @@ Kubernetes keeps comprehensive logs of cluster activity and application output. 
 
 ## Accessing the pod logs
 
-Errors and warnings in the logs are indicators of potential problems in your application, containers or the pod itself. To explore logs when on the pod screen click Show logs button.
+Errors and warnings in the logs are indicators of potential problems in your application, containers or the pod itself. To explore logs when on the pod screen click **Show logs** button.
 
 ![](../../.gitbook/assets/k8s/k8s-logs.png)
 
