@@ -10,7 +10,7 @@
 
 ## 🦮 Guided troubleshooting
 
-* [What is guided troubleshooting?](troubleshooting/k8s-troubleshooting.md)
+* [What is guided troubleshooting?](use/troubleshooting/k8s-guided-troubleshooting.md)
 * [Configuration](use/troubleshooting/k8s-configuration.md)
 * [Changes](use/troubleshooting/k8s-changes.md)
 * [Logs](use/troubleshooting/k8s-logs.md)
