@@ -41,10 +41,6 @@ The main way to filter topology is using the available basic filters. When you s
 | Component labels | Only include components with a specific label. |
 | Include components | Components named here will be included in the topology **in addition to** the components returned from other filters. |
 
-{% hint style="success" "self-hosted info" %}
-
-You can define [custom labels](../../configure/topology/tagging.md) to make searching for information easier.
-{% endhint %}
 
 To filter the topology using basic filters, click the **Filters** menu in the top right corner of the UI and select **Switch to basic** under the **Topology** vertical tab. 
 
@@ -107,11 +103,6 @@ To successfully produce this topology visualization, we would need to either re-
 ```yaml
 layer = "applications"
 ```
-
-{% hint style="success" "self-hosted info" %}
-
-If required, you can [manually configure the topology filtering limit](/configure/topology/topology-filtering-limits.md). 
-{% endhint %}
 
 ## Filter Events
 
