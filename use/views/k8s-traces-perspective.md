@@ -39,9 +39,9 @@ By installing our Agent and its integrations to gather traces from these technol
 * Each component relates to a span
 * Each trace relates to a list of spans \(or components\) that are traversed to complete the requests executed in your IT infrastructure.
 
-![The spans \(components\) of a trace](../../../.gitbook/assets/v51_traces.png)
+![The spans \(components\) of a trace](../../.gitbook/assets/k8s/k8s-menu.png)
 
-![The topology for which you fetch traces](../../../.gitbook/assets/v51_topology-traces.png)
+![The topology for which you fetch traces](../../.gitbook/assets/k8s/k8s-menu.png)
 
 The two images above illustrate these concepts by showing a library application whose main responsibility is to fetch a list of books. You can see an example of a trace and its spans for a request to fetch the list of books and the resulting topology created out of it.
 
@@ -61,6 +61,6 @@ When using the Traces Perspective in live mode, you are constantly polling for t
 
 To avoid this, time will effectively be paused when you inspect a trace/span or scroll through the list of traces in live mode. This allows you to browse through a stable snapshot of your data. Note that pausing time means that you are now in the past, click **Go live** or **BACK TO LIVE** to stop time travelling and return to live mode.:
 
-![Pausing time when inspecting a trace](../../../.gitbook/assets/v51_trace-inspection.png)
+![Pausing time when inspecting a trace](../../.gitbook/assets/k8s/k8s-menu.png)
 
 ➡️ [Learn more about time travel](../timeline-time-travel.md#time-travel)
