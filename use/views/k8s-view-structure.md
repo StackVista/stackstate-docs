@@ -18,7 +18,7 @@ The **Filters** menu on the top right corner of the view UI allows you to filter
 
 The **Perspectives** of a view are displayed as tabs on the top left corner of the view UI and allow you to visualize all the data in a view through different lenses:
 
-* [Overview or Highlights perspective](k8s-landing-perspective.md) - depending on the type of view
+* [Overview perspective](k8s-overview-perspective.md) or [Highlights perspective](k8s-highlights-perspective.md) - depending on the type of view you are in
 * [Topology perspective](k8s-topology-perspective.md) - the dependency map of the view components
 * [Events perspective](k8s-events-perspective.md) - all the events happening on the topology
 * [Metrics perspective](k8s-metrics-perspective.md) - key metrics for the most relevant components
