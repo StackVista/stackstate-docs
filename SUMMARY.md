@@ -28,7 +28,11 @@
 * [Explore views](use/views/k8s-explore-views.md)
 * [View structure](use/views/k8s-view-structure.md)
   * [Filters](use/views/k8s-filters.md)
-  * [Perspectives](use/views/k8s-perspectives.md)
+  * [Overview or Highlights perspective](use/views/k8s-landing-perspective.md)
+  * [Topology perspective](use/views/k8s-topology-perspective.md)
+  * [Events perspective](use/views/k8s-events-perspective.md)
+  * [Metrics perspective](use/views/k8s-metrics-perspective.md)
+  * [Traces perspective](use/views/k8s-traces-perspective.md)
 * [Timeline and time travel](use/stackstate-ui/k8s-timeline-time-travel.md)
 
 
