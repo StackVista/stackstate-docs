@@ -32,9 +32,9 @@ StackState Agent v2.19.x is supported to monitor the following versions of Kuber
 
 To set up a StackState Kubernetes integration you need to have:
 
-* An up and running Kubernetes Cluster.
+* An up-and-running Kubernetes Cluster.
 * A recent version of Helm 3.
-* A user with permissions to create privileged pods, ClusterRoles and ClusterRoleBindings:
+* A user with permission to create privileged pods, ClusterRoles and ClusterRoleBindings:
   * ClusterRole and ClusterRoleBinding are needed to grant StackState Agents permissions to access the Kubernetes API.
   * StackState Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
@@ -67,9 +67,9 @@ Set up an OpenShift integration to collect topology, events, logs, change and me
 
 To set up a StackState OpenShift integration you need to have:
 
-* An up and running OpenShift Cluster.
+* An up-and-running OpenShift Cluster.
 * A recent version of Helm 3.
-* A user with permissions to create privileged pods, ClusterRoles, ClusterRoleBindings and SCCs:
+* A user with permission to create privileged pods, ClusterRoles, ClusterRoleBindings and SCCs:
   * ClusterRole and ClusterRoleBinding are needed to grant StackState Agents permissions to access the OpenShift API.
   * StackState Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
