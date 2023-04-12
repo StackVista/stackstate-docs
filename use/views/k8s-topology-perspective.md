@@ -18,7 +18,7 @@ Click on the Legend button (?) in the bottom right of the screen (just below the
 
 ## Components
 
-The Topology Perspective shows the filtered components and relations in a selected [view](k8s-views.md). Components that have one or more health checks configured will report a calculated [health state](../../concepts/health-state.md).
+The Topology Perspective shows the filtered components and relations in a selected [view](k8s-view-structure.md). Components that have one or more health checks configured will report a calculated [health state](../../concepts/health-state.md).
 
 * Select a component to display [detailed component information](/use/concepts/components.md#component-details) in the right panel details tab - **Component details**.
 * Hover over a component to open the [component context menu](#component-context-menu).
@@ -48,8 +48,8 @@ A list of the available **Actions** is included in the right panel details tab w
 
 Shortcuts give you direct access to detailed information about the specific component:
 
-* **Open component view** - Opens the ![component view](k8s-component-views.md) for this component. The component view provides you with a comprehensive birds eye view on everything that matters about this component and its direct neighbours.
-* **Explore component** - Opens an ![explore view](k8s-explore-views.md) containing only this component. The explore view allows you to investigate a single component in all perspectives without needing to adjust the view filters. Double clicking a component achieves the same result.
+* **Open component view** - Opens the [component view](k8s-component-views.md) for this component. The component view provides you with a birds eye view of everything that matters about this component and its direct neighbours, depending on the component type you are viewing.
+* **Explore component** - Opens an [explore view](k8s-explore-views.md) containing only this component. The explore view allows you to investigate a single component in all perspectives without needing to adjust the view filters. Double clicking a component achieves the same result.
 * **Show properties** - Opens the properties popup for the component. This is the same as clicking **SHOW ALL PROPERTIES** in the right panel details tab when detailed information about a component is displayed - **Component details**.
 
 ## Relations

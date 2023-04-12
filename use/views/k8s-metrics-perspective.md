@@ -4,7 +4,7 @@ description: StackState Kubernetes Troubleshooting
 
 # Metrics Perspective
 
-The Metrics Perspective shows metrics for the selected [view](k8s-views.md). StackState will automatically deliver all the relevant information for any part of your landscape, so you don't need to pre-define the streams you want to see.
+The Metrics Perspective shows metrics for the selected [view](k8s-view-structure.md). StackState will automatically deliver all the relevant information for any part of your landscape, so you don't need to pre-define the streams you want to see.
 
 ![Metrics Perspective](../../.gitbook/assets/k8s/k8s-menu.png)
 
