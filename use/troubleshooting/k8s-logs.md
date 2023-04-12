@@ -15,13 +15,13 @@ Errors and warnings in the logs are indicators of potential problems in your app
 
 ## Using pod logs
 
-You can use search to look for specific errors or warnings in the logs. Logs can be filter by container. You can select a desired time interval logs will be shown for and refresh interval for how often you would like logs to be updated.
+You can use search to look for specific errors or warnings in the logs. Logs can be filtered by a container. You can select a desired time interval logs will be shown for and a refresh interval for how often you would like logs to be updated.
 
-Logs histogram visualises the number of log lines within a selected time interval and allows you to zoom to particular interval by clicking and dragging.
+Logs histogram visualizes the number of log lines within a selected time interval and allows you to zoom to a particular interval by clicking and dragging.
 
-Use this options to show or hide additional information for each log line:
-- **Show time** shows timestamps
-- **Show containers** shows container name the log line belongs to
+Use these options to show or hide additional information for each log line:
+- **Show time** to show timestamps
+- **Show containers** to show the container name the log line belongs to
 - **Wrap lines** to enable wrapping for the long lines
 - **Newest first/Oldest first** to switch the log sorting order
 
