@@ -25,7 +25,9 @@ At the bottom left, you find two inputs.
 You can for example filter on a certain namespace, in this case, I filter the services down to 'sock-shop' which is a demo application using different microservices written in different programming languages and using different ways of communication to act as a nice example for troubleshooting an issue.
 If you now click on Topology you will see the topology of the currently selected components (in this case the services of the sock-shop).
 
-![Services topology]In the topology, you see all resources, in the case services. 
+![Services topology](/.gitbook/assets/k8s/k8s-quick-start-service-topology.png)
+
+In the topology, you see all resources, in this case services. 
 - If you click a component (in this case a service) it shows you the details of a service including the most important metrics, in the case of a service, for example, the latency, throughput and error rate. Next to the most important metrics the health of the component is shown and expanded if there is anything going wrong.
 - If you click a relation you will see the detail of the relation including all components part of it. In the case of a service map you will see all components involved in the service-to-service communication.
 If you want to open a component to see all details of that resource (e.g. the details of this service a certain service) you can click on the 'Open Component' button from a selected component (which you then see in the Right Hand Side panel) or you can open the component by clicking on the name of the component in the overview page tab.
