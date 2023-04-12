@@ -6,10 +6,9 @@ description: StackState for Kubernetes troubleshooting
 
 Hi! So, you've integrated your Kubernetes or OpenShift clusters and you are ready to get started.
 
-
-## Explore topology
-
 After setting up your [integration with Kubernetes](k8s-quick-start-guide.md), you can go open the Main menu to explore your resources. You can for example start with the Services.
+
+## Explore your Kubernetes resources
 
 ![Main menu](/.gitbook/assets/k8s/k8s-quick-start-menu.png)
 
@@ -18,6 +17,7 @@ This brings you to the service overview which shows all services running in your
 ![Services overview](/.gitbook/assets/k8s/k8s-quick-start-services.png)
 
 At the right top you have the option to filter your selection to a certain cluster and/ or namespace to see the resources for which you are responsible.
+
 At the bottom left you find two inputs.
 1. The time-range selector. This selects the timerange for all metrics, logs and events you see throughout the product.
 2. The topology-time selector. This is used to travel back to a certain moment in time to see the exact state of your systems as observed at that moment in time.
