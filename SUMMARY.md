@@ -19,6 +19,9 @@
 
 * [Monitors](use/alerting/k8s-monitors.md)
 * [Out of the box monitors for Kubernetes](use/alerting/kubernetes-monitors.md)
+* [StackState](setup/install-stackstate/README.md)
+  * [OpsGenie](stackpacks/integrations/k8s-opsgenie.md)
+  * [Slack](stackpacks/integrations/k8s-slack.md)
 
 ## 🔍 Views
 
@@ -35,18 +38,4 @@
   * [Metrics perspective](use/views/k8s-metrics-perspective.md)
   * [Traces perspective](use/views/k8s-traces-perspective.md)
 * [Timeline and time travel](use/stackstate-ui/k8s-timeline-time-travel.md)
-
-
-## 🔧️ Setup
-
-* [StackState Agent](setup/agent/README.md)
-  * [About StackState Agent V2](setup/agent/k8s-about-stackstate-agent.md)
-  * [Kubernetes / OpenShift](setup/agent/k8s-kubernetes-openshift.md)
-  * [Advanced Agent configuration](setup/agent/k8s-advanced-agent-configuration.md)
-* [StackState](setup/install-stackstate/README.md)
-  * [StackState Agent V2 StackPack](stackpacks/integrations/k8s-agent.md)
-  * [Kubernetes integration](stackpacks/integrations/k8s-kubernetes.md)
-  * [OpenShift integration](stackpacks/integrations/k8s-openshift.md)
-  * [OpsGenie](stackpacks/integrations/k8s-opsgenie.md)
-  * [Slack](stackpacks/integrations/k8s-slack.md)
 
