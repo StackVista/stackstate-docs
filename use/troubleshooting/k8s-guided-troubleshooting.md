@@ -24,6 +24,6 @@ To remediate quickly StackState has a clear problem report and remediation guide
 
 ## Using pinned items when troubleshooting
 
-Use **pinned items** to keep a remediation guide at hand while troubleshooting. When you click on **Add to pinned items** button the remediation guide is added to the pinned items. Now you can follow the step-by-step guidance even when you close the triggered monitor. You can access all pinned remediation guides from the pinned items menu. When you are done troubleshooting just unpin the guide from the menu.
+You can keep a remediation guide at hand while troubleshooting by adding it to the **pinned items**. Click on **Add to pinned items** button to pin remediation guide for the current monitor. Now you can follow the step-by-step guidance even when you close the triggered monitor. You can access all pinned remediation guides from the pinned items menu. When you are done troubleshooting just unpin the guide from the menu.
 
 ![](../../.gitbook/assets/k8s/k8s-pinned-items.png)
