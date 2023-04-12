@@ -53,7 +53,7 @@ You can [configure the default telemetry interval](/configure/telemetry/custom_t
 
 ### Topology time
 
-The topology and all telemetry displayed in StackState are based on a snapshot of the IT infrastructure. The moment from which this snapshot is taken is specified by the topology time. By default, StackState is in live mode with the topology time set to the current time. You can [time travel](timeline-time-travel.md#time-travel) to a previous state of the topology by selecting a custom topology time.
+The topology in StackState is based on a snapshot of your environements as observed at that moment. The moment from which this snapshot is taken is specified by the topology time. By default, StackState is in live mode with the topology time set to the current time. You can [time travel](timeline-time-travel.md#time-travel) to a previous state of the topology by selecting a custom topology time. This helps you to investigate an issue at a certain moment in time. Even if a pod is long gone you can still see how it was connected, it's logs, events, related resources, events and more.
 
 ![Topology time](../../.gitbook/assets/v51_topology_time.png)
 
@@ -100,13 +100,7 @@ To stop time travelling and return the topology time to live mode, click **Go li
 
 The health state of a view during the selected telemetry interval is displayed as a color in the timeline **Health** line.
 
-Health state information is available when [health state is enabled](views/configure-view-health.md) for the current view as long as the topology displayed results from the original topology filter saved in the view.
-
-{% hint style="info" %}
-If the topology filters have been edited and not saved, no health state information will be available.
-{% endhint %}
-
-When health state information isn't available, a gray line is displayed.
+For single resources the health will be shown over time, in an overview a gray line is displayed.
 
 ![Health state not available](../../.gitbook/assets/v51_timeline_no_health_state.png)
 
@@ -126,20 +120,8 @@ A single click on the timeline will move the playhead to this point in time, and
 
 In each of the StackState perspectives, you can either be in live mode or in the past. In live mode, StackState will constantly poll for new data. When you time travel through topology or telemetry, you are effectively working with a snapshot of your infrastructure. The data available is based on two selections:
 
-* [Topology time](timeline-time-travel.md#topology-time) - a specific moment in time for which you want to fetch a snapshot of your IT infrastructure.
+* [Topology time](timeline-time-travel.md#topology-time) - a specific moment in time for which you want to fetch a snapshot of your Kubernetes resources.
 * [Telemetry interval](timeline-time-travel.md#telemetry-interval) - the time range for which you want to see telemetry and traces.
-
-Let's imagine a concrete scenario:
-
-* You received an event notification saying that your payment processing application isn't able to process any payments right now, and your customers aren't being served.
-* In StackState, you can go to the moment in time when the components that make up the CRITICAL path of payment processing turned to a CRITICAL state. That moment corresponds to the point in time for which you will fetch the snapshot of your IT infrastructure - the topology time.
-* You can then select to see the hours that preceded that moment to fetch the telemetry that will hopefully point you to the root cause of your problem - the telemetry interval.
-
-StackState will enter time travel mode whenever a custom topology time is selected, the **Pause** button is clicked, or a custom telemetry interval is set for the telemetry interval. When StackState is in time travel mode:
-
-* You are effectively working with a snapshot of your infrastructure.
-* Telemetry is available for components that were part of the topology at the selected topology time only.
-* If a relative telemetry interval was selected in live mode, this is frozen as a custom telemetry interval relative to the moment at which time travelling began.
 
 To stop time travelling and return to live mode, click **Go live** or **BACK TO LIVE** at the top of the screen.
 
