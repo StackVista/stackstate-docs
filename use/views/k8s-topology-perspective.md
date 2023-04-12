@@ -48,7 +48,7 @@ A list of the available **Actions** is included in the right panel details tab w
 
 Shortcuts give you direct access to detailed information about the specific component:
 
-* **Open component view** - Opens the ![component view](k8s-component-views) for this component. The component view provides you with a comprehensive birds eye view on everything that matters about this component and its direct neighbours.
+* **Open component view** - Opens the ![component view](k8s-component-views.md) for this component. The component view provides you with a comprehensive birds eye view on everything that matters about this component and its direct neighbours.
 * **Explore component** - Opens an ![explore view](k8s-explore-views.md) containing only this component. The explore view allows you to investigate a single component in all perspectives without needing to adjust the view filters. Double clicking a component achieves the same result.
 * **Show properties** - Opens the properties popup for the component. This is the same as clicking **SHOW ALL PROPERTIES** in the right panel details tab when detailed information about a component is displayed - **Component details**.
 
