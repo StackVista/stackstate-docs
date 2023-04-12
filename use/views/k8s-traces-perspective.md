@@ -16,9 +16,9 @@ Click on any trace in the list to see the spans that belong to it. Span types ar
 
 Traces and components are tightly related. The traces visible in the Traces Perspective can be filtered using the _view filters_.
 
-The ![topology filters](k8s-filters.md#filter-topology) define the elements \(components and relations\) for which traces will be displayed. Only traces relating to elements that match the applied topology filters, or the view itself, will be visible.
+The [topology filters](../k8s-filters.md#filter-topology) define the elements \(components and relations\) for which traces will be displayed. Only traces relating to elements that match the applied topology filters, or the view itself, will be visible.
 
-The ![trace filters](k8s-filters.md#filter-traces) allow you to refine the traces displayed based on span type and tags.
+The [trace filters](../k8s-filters.md#filter-traces) allow you to refine the traces displayed based on span type and tags.
 
 In addition to these filters, the traces perspective shows traces matching the **Time Window** selected in the timeline control at the bottom of the StackState UI. Adjust the time window to show only traces from that time.
 
