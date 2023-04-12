@@ -12,7 +12,7 @@ The Events Perspective shows events and changes for the elements in the current 
 
 ## Filter displayed events
 
-The events displayed can be filtered in the **filters** menu on top right corner of the view UI. Event filters will be applied to all the events shown in the view: the events perspective, highlights perspectives and the timeline.
+The events displayed can be filtered in the **filters** menu in the top right corner of the view UI. Event filters will be applied to all the events shown in the view: the events perspective, highlights perspectives and the timeline.
 
 ### Filter by properties
 

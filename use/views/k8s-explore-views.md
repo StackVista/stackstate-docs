@@ -11,7 +11,7 @@ In general, the concept of a _view_ in StackState allows you to monitor an area 
 To keep the scope of a particular view (e.g. `my view`) intact, all the investigative actions applied to a topology element or selection of elements (e.g. components, relations, groups) will automatically open in a temporary explore view, under the view you have started from (e.g. `my view / explore`).
 
 Examples of **investigative actions** that will automatically be opened in an explore view:
-- The **+ button** was clicked on a component in the _topology perspective_ to show the hidden neighbours of that component
+- The **+ button** was clicked on a component in the _topology perspective_ to show the hidden neighbors of that component
 - A **quick action** was executed on a component
 - A topology element (component, relation, group) was **double-clicked** in the _topology perspective_ to investigate it
 - The **'Explore...'** link or button was clicked on a topology element (component, relation, group) to investigate it

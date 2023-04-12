@@ -8,6 +8,7 @@ description: StackState for Kubernetes troubleshooting
 
 When your StackState SaaS instance has been set up and configured, you will receive an email from StackState with the required login details. This quick start guide will help you get started and get your own data into your StackState SaaS instance.
 
+To integrate your cluster(s) with StackState you can either follow the instuctions for Kubernetes and/or OpenShift.
 * [Integrate with Kubernetes](#kubernetes-quick-start-guide)
 * [Integrate with OpenShift](#openshift-quick-start-guide)
 
@@ -17,7 +18,7 @@ Set up a Kubernetes integration to collect topology, events, logs, change and me
 
 ## Supported Kubernetes versions
 
-StackState Agent v2.19.x is supported to monitor the following versions of Kubernetes or OpenShift:
+StackState Agent is supported to monitor the following versions of Kubernetes or OpenShift:
 
 * Kubernetes:
   * Kubernetes 1.16 - 1.26
@@ -34,7 +35,7 @@ To set up a StackState Kubernetes integration you need to have:
 
 * An up-and-running Kubernetes Cluster.
 * A recent version of Helm 3.
-* A user with permission to create privileged pods, ClusterRoles and ClusterRoleBindings:
+* A user with THE permission to create privileged pods, ClusterRoles and ClusterRoleBindings:
   * ClusterRole and ClusterRoleBinding are needed to grant StackState Agents permissions to access the Kubernetes API.
   * StackState Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
@@ -69,7 +70,7 @@ To set up a StackState OpenShift integration you need to have:
 
 * An up-and-running OpenShift Cluster.
 * A recent version of Helm 3.
-* A user with permission to create privileged pods, ClusterRoles, ClusterRoleBindings and SCCs:
+* A user with THE permission to create privileged pods, ClusterRoles, ClusterRoleBindings and SCCs:
   * ClusterRole and ClusterRoleBinding are needed to grant StackState Agents permissions to access the OpenShift API.
   * StackState Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
