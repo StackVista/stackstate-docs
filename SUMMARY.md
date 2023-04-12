@@ -25,6 +25,7 @@
 
 * [Kubernetes views](use/views/k8s-views.md)
 * [Custom views](use/views/k8s-custom-views.md)
+* [Component views](use/views/k8s-component-views.md)
 * [Explore views](use/views/k8s-explore-views.md)
 * [View structure](use/views/k8s-view-structure.md)
   * [Filters](use/views/k8s-filters.md)

@@ -1,97 +1,134 @@
 ---
-description: StackState for Kubernetes troubleshooting
+description: StackState Kubernetes Troubleshooting
 ---
 
-# Perspectives
+# Topology Perspective
 
 ## Overview
 
-The **Perspectives** of a view are displayed as tabs on the top left corner of the view UI and allow you to visualize all the data in a view through different lenses:
+The Topology Perspective displays the components in your IT landscape and their relationships.
 
-* [Overview or Highlights perspective](k8s-perspectives#overview-of-highlights-perspective) - depending on the type of view
-* [Topology perspective](k8s-perspectives#topology-perspective) - the dependency map of the view components
-* [Events perspective](k8s-perspectives#events-perspective) - all the events happening on the topology
-* [Metrics perspective](k8s-perspectives#metrics-perspective) - key metrics for the most relevant components
-* [Traces perspective](k8s-perspectives#traces-perspective) - the tracing information running on the topology
+![Topology Perspective](../../.gitbook/assets/k8s/k8s-menu.png)
 
-{% hint style="info" %}
-**All the perspectives** will update their content based on the view _filters_ and _timeline_ configuration.
+## Legend
+
+Click on the Legend button (?) in the bottom right of the screen (just below the zoom controls) to display an explanation of the icons and colors used in the topology visualization.
+
+![Topology Perspective - legend](../../.gitbook/assets/k8s/k8s-menu.png)
+
+## Components
+
+The Topology Perspective shows the filtered components and relations in a selected [view](k8s-views.md). Components that have one or more health checks configured will report a calculated [health state](../../concepts/health-state.md).
+
+* Select a component to display [detailed component information](/use/concepts/components.md#component-details) in the right panel details tab - **Component details**.
+* Hover over a component to open the [component context menu](#component-context-menu).
+
+➡️ [Learn more about components](/use/concepts/components.md#components)
+
+### Component context menu
+
+When you hover the mouse pointer over a component, the component context menu is displayed. This gives you information about the component, this includes:
+
+* The component name and type
+* [Health state](/use/concepts/health-state.md) and [propagated health state](/use/concepts/health-state.md#element-propagated-health-state) of the component.
+* [Actions](#actions) specific to the component.
+* [Shortcuts](#shortcuts) specific to the component.
+
+![Component context menu](../../.gitbook/assets/k8s/k8s-menu.png)
+
+### Actions
+
+Actions can be used to expand the topology selection to show all dependencies for the selected component. Other actions may be available for specific components, such as component actions that are installed as part of a StackPack.
+
+A list of the available **Actions** is included in the right panel details tab when you select a component - **Component details**. Actions are also listed in the component context menu, which is displayed when you hover the mouse pointer over a component.
+
+![Actions](../../.gitbook/assets/k8s/k8s-menu.png)
+
+### Shortcuts
+
+Shortcuts give you direct access to detailed information about the specific component:
+
+* **Open component view** - Opens the ![component view](k8s-component-views.md) for this component. The component view provides you with a comprehensive birds eye view on everything that matters about this component and its direct neighbours.
+* **Explore component** - Opens an ![explore view](k8s-explore-views.md) containing only this component. The explore view allows you to investigate a single component in all perspectives without needing to adjust the view filters. Double clicking a component achieves the same result.
+* **Show properties** - Opens the properties popup for the component. This is the same as clicking **SHOW ALL PROPERTIES** in the right panel details tab when detailed information about a component is displayed - **Component details**.
+
+## Relations
+
+Relations show how components in the topology are connected together. They're represented by a dashed or solid line and have an arrowhead showing the direction of dependency between the components they link. [Health state will propagate](../../concepts/health-state.md#element-propagated-health-state) from one component to the next, from dependencies to dependent components. Relations that have one or more health checks configured will report a calculated health state.
+
+Select a relation to open detailed information about it in the right panel details tab - **Direct relation details**, **Indirect relation details** or **Grouped relation details** depending on the relation type that has been selected.
+
+➡️ [Learn more about relations](/use/concepts/relations.md)
+
+![Indirect relation path](/.gitbook/assets/v51_indirect_relation_details.png)
+
+## Filters
+
+The components and events displayed in the topology visualization can be customized by adding filters.
+
+Click the **View Filters** icon in the left menu to open the view filters. Here you can edit the filters applied to the displayed topology and events:
+
+* **Topology filters** - filter the components displayed in the topology visualization.
+* **Events filters** - filter the events shown in the **Events** list in the right panel **View summary** and details tabs - **Component details** and **Direct relation details**.
+
+Select an element to show detailed information about it in the right panel details tab. Click a label under **Properties** in the details tab to add this to the topology filter. The displayed topology will be expanded to include all components and relations with the selected label. To undo a label selection, click the back button in the browser or edit the topology filter in the view filters.
+
+The view filters are saved together with the View. For details, see the page [filters](../filters.md).
+
+## Visualization settings
+
+The visualization of components and relations in the topology perspective can be customized in the visualization settings. Click the **Visualization Settings** icon in the left menu to open the visualization settings menu. Here you can edit:
+
+* Root cause display - to what extent the view should be expanded when an element in the view reports a `DEVIATING` or `CRITICAL` health state or propagated health state.
+* Grouping - should all components be displayed individually or should like components be grouped. For details, see [component grouping](topology-perspective.md#grouping).
+* Grid - should components be organized by [layer and domain](../../concepts/layers_domains_environments.md).
+* Indirect relations - should relations between components be shown if these connect through other components that aren't displayed in the view. For details, see [relations](/use/concepts/relations.md).
+
+The Visualization Settings are saved together with the View. For details, see the page [Visualization settings](../views/visualization_settings.md).
+
+## Problems
+
+If one or more components in a view have a CRITICAL state, StackState will show the related components and their states as a **Problem** in the [View summary](../views/about_views.md#view-summary).
+
+## Navigation
+
+### Zoom in and out
+
+There are zoom buttons located in the bottom right corner of the topology visualizer. The **plus** button zooms in on the topology, the **minus** button zooms out. In between both buttons is the **fit to screen** button which zooms out so the complete topology becomes visible.
+
+### Find component
+
+You can locate a specific component in the topology by clicking `CTRL` + `SHIFT` + `F` and typing the first few letters of the component name. Alternatively, you can select the **Find component** magnifying glass icon in the bottom right corner of the topology visualizer.
+
+See the full list of [StackState keyboard shortcuts](../keyboard-shortcuts.md).
+
+### Show root cause
+
+If there are components with [telemetry streams](../../metrics/telemetry_streams.md) and [health checks](../../concepts/health-state.md) in your view, the Topology Perspective will calculate a health state and propagate this state throughout the graph. The propagated health state will help you to see the risk of affecting other components. When an element has an unhealthy [propagated health state](/use/concepts/health-state.md#element-propagated-health-state), this will be shown as an outer color in the topology visualization.
+
+{% hint style="success" "self-hosted info" %}
+
+You can configure or develop your own [propagation functions](../../../develop/developer-guides/custom-functions/propagation-functions.md).
 {% endhint %}
 
-![View perspectives](../../.gitbook/assets/k8s/k8s-menu.png)
+It's possible that a view can contain components that have a `DEVIATING` propagated health state caused by a component that's not included in the view itself. The Topology Perspective allows you to configure whether the view should be expanded to automatically show root cause components that are outside the currently displayed view:
 
-## Overview or Highlights perspective
+* **Don't show root cause** - Don't show the root causes of components shown by the current topology filters.
+* **Show root cause only** - Only show the root causes of components shown by the current topology filters that have a `CRITICAL` or `DEVIATING` propagated health. Indirect relations are visualized if a component directly depends on at least one invisible component that leads to the root cause.
+* **Show full root cause tree** - Show all paths from components shown by the current topology filters that have a `CRITICAL` or `DEVIATING` propagated health to their root causes.
 
+![Root cause](/.gitbook/assets/v51_show_full_root_cause_tree.png)
 
+## List mode
 
-## Topology perspective
+The components in the topology visualization can also be shown in a list instead of a graph:
 
+![Filtering\(list format\)](../../../.gitbook/assets/v51_list_mode.png)
 
-## Events perspective
+### Export as CSV
 
+From list mode, the component list can be exported as a CSV file. The CSV file includes `name`, `state`, `type` and `updated` details for each component in the view.
 
-## Metrics perspective
-
-
-## Traces perspective
-
-The Traces Perspective shows a list of traces and their spans for the components in your view. This allows you to monitor the performance of the applications in your IT infrastructure directly in StackState.
-
-![The Traces Perspective](../../.gitbook/assets/k8s/k8s-menu.png)
-
-To find out more about how you can add traces to StackState, read the [guide to setting up traces](../../../configure/traces/set-up-traces.md).
-
-Click on any trace in the list to see the spans that belong to it. Span types are colored differently according to the information on the right. When inspecting a trace and seeing the list of its spans, you can click on any span to see further details. The image below illustrates this action.
-
-![Inspecting a trace](../../.gitbook/assets/k8s/k8s-menu.png)
-
-### Filter traces
-
-Traces and components are tightly related. The traces visible in the Traces Perspective can be filtered using the _view filters_.
-
-The [topology filters](k8s-filters.md#filter-topology) define the elements \(components and relations\) for which traces will be displayed. Only traces relating to elements that match the applied topology filters, or the view itself, will be visible.
-
-The [trace filters](k8s-filters.md#filter-traces) allow you to refine the traces displayed based on span type and tags.
-
-In addition to these filters, the traces perspective shows traces matching the **Time Window** selected in the timeline control at the bottom of the StackState UI. Adjust the time window to show only traces from that time.
-
-### Traces and topology
-
-In StackState, a [view](../views/about_views.md) shows you a sub-selection of your IT infrastructure in terms of components and relations. A number of our supported integrations send traces to StackState via [our Agent](../../../configure/traces/set-up-traces.md). These traces are used in the Traces Perspective and also in the [Topology Perspective](topology-perspective.md) to create the topology of your view.
-
-For example, let's imagine that among your IT infrastructure the following components exist:
-
-1. An HTTP service
-2. A Java Application
-3. A SQL Database
-
-By installing our Agent and its integrations to gather traces from these technologies, StackState will receive traces that traverse these components. At ingestion time, StackState stores both the spans for each component in the list above and the topology that can be extracted from these traces \(components and relations\).
-
-* Each component relates to a span
-* Each trace relates to a list of spans \(or components\) that are traversed to complete the requests executed in your IT infrastructure.
-
-![The spans \(components\) of a trace](../../../.gitbook/assets/v51_traces.png)
-
-![The topology for which you fetch traces](../../../.gitbook/assets/v51_topology-traces.png)
-
-The two images above illustrate these concepts by showing a library application whose main responsibility is to fetch a list of books. You can see an example of a trace and its spans for a request to fetch the list of books and the resulting topology created out of it.
-
-When ingesting traces, StackState attaches service identifiers to the components that are created. These identifiers are also included as part of the **service** property of the spans in a trace. All topology created out of a trace will have a tag **has\_traces**, this allows you to easily identify components for which you have traces.
-
-### Sorting and limits
-
-Traces are sorted by latency \(descending\). This is the only sorting criteria available in this version. The trace list isn't limited by size, you can scroll infinitely to see all traces that are available for your component, filter and time selections. Finally, on top of the list of traces, StackState displays an approximation of the total amount of traces that are returned from the filters you have selected.
-
-### Time Travel
-
-When using the Traces Perspective, just like in other perspectives, you can either be in live mode or [time travel to the past](../timeline-time-travel.md#time-travel).
-
-### Inspection, scrolling and its impact on time selection.
-
-When using the Traces Perspective in live mode, you are constantly polling for the slowest traces in your time range selection. However, in a large IT infrastructure with constant requests being traced, your slowest traces right now might not be your slowest traces in a matter of seconds, changing their position the list. These constant updates to the order of the list could become frustrating, for example, if you are inspecting a trace/span, or scrolling through the list to look for a specific trace or pattern.
-
-To avoid this, time will effectively be paused when you inspect a trace/span or scroll through the list of traces in live mode. This allows you to browse through a stable snapshot of your data. Note that pausing time means that you are now in the past, click **Go live** or **BACK TO LIVE** to stop time travelling and return to live mode.:
-
-![Pausing time when inspecting a trace](../../../.gitbook/assets/v51_trace-inspection.png)
-
-➡️ [Learn more about time travel](../timeline-time-travel.md#time-travel)
+1. From the topology perspective, click the **List mode** icon on the top right to open the topology in list mode.
+2. Click **Download as CSV** from the top of the page.
+   * The component list will be downloaded as a CSV file named `<view_name>.csv`.

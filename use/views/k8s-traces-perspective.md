@@ -8,8 +8,6 @@ The Traces Perspective shows a list of traces and their spans for the components
 
 ![The Traces Perspective](../../.gitbook/assets/k8s/k8s-menu.png)
 
-To find out more about how you can add traces to StackState, read the [guide to setting up traces](../../../configure/traces/set-up-traces.md).
-
 Click on any trace in the list to see the spans that belong to it. Span types are colored differently according to the information on the right. When inspecting a trace and seeing the list of its spans, you can click on any span to see further details. The image below illustrates this action.
 
 ![Inspecting a trace](../../.gitbook/assets/k8s/k8s-menu.png)
@@ -18,15 +16,15 @@ Click on any trace in the list to see the spans that belong to it. Span types ar
 
 Traces and components are tightly related. The traces visible in the Traces Perspective can be filtered using the _view filters_.
 
-The [topology filters](k8s-filters.md#filter-topology) define the elements \(components and relations\) for which traces will be displayed. Only traces relating to elements that match the applied topology filters, or the view itself, will be visible.
+The ![topology filters](k8s-filters.md#filter-topology) define the elements \(components and relations\) for which traces will be displayed. Only traces relating to elements that match the applied topology filters, or the view itself, will be visible.
 
-The [trace filters](k8s-filters.md#filter-traces) allow you to refine the traces displayed based on span type and tags.
+The ![trace filters](k8s-filters.md#filter-traces) allow you to refine the traces displayed based on span type and tags.
 
 In addition to these filters, the traces perspective shows traces matching the **Time Window** selected in the timeline control at the bottom of the StackState UI. Adjust the time window to show only traces from that time.
 
 ## Traces and topology
 
-In StackState, a [view](../views/about_views.md) shows you a sub-selection of your IT infrastructure in terms of components and relations. A number of our supported integrations send traces to StackState via [our Agent](../../../configure/traces/set-up-traces.md). These traces are used in the Traces Perspective and also in the [Topology Perspective](topology-perspective.md) to create the topology of your view.
+In StackState, a [view](k8s-views.md) shows you a sub-selection of your IT infrastructure in terms of components and relations. A number of our supported integrations send traces to StackState via [our Agent](../../../configure/traces/set-up-traces.md). These traces are used in the Traces Perspective and also in the [Topology Perspective](k8s-topology-perspective.md) to create the topology of your view.
 
 For example, let's imagine that among your IT infrastructure the following components exist:
 
