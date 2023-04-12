@@ -26,6 +26,7 @@ You can for example filter on a certain namespace, in this case, I filter the se
 If you now click on Topology you will see the topology of the currently selected components (in this case the services of the sock-shop).
 
 ![Services topology](/.gitbook/assets/k8s/k8s-quick-start-service-topology.png)
+
 In the topology, you see all resources, in the case services. 
 - If you click a component (in this case a service) it shows you the details of a service including the most important metrics, in the case of a service, for example, the latency, throughput and error rate. Next to the most important metrics the health of the component is shown and expanded if there is anything going wrong.
 - If you click a relation you will see the detail of the relation including all components part of it. In the case of a service map you will see all components involved in the service-to-service communication.
