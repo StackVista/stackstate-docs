@@ -34,5 +34,5 @@
   * [Events perspective](use/views/k8s-events-perspective.md)
   * [Metrics perspective](use/views/k8s-metrics-perspective.md)
   * [Traces perspective](use/views/k8s-traces-perspective.md)
-* [Timeline and time travel](use/stackstate-ui/k8s-timeline-time-travel.md)
+* [Timeline and time travel](use/stackstate-ui/k8sTs-timeline-time-travel.md)
 
