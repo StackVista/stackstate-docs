@@ -2,7 +2,7 @@
 description: StackState Kubernetes Troubleshooting
 ---
 
-# Timeline and time travel
+# Timeline and time-travel
 
 ## Overview
 
@@ -18,7 +18,7 @@ The telemetry interval specifies the time window for which events, metrics and t
 
 ![Telemetry interval](../../.gitbook/assets/v51_telemetry_interval.png)
 
-The selected telemetry interval can be either relative \(live mode\), or set to a custom telemetry interval \(time travel mode\). By default, the telemetry interval is set to a relative telemetry interval - in live mode and showing telemetry from the last hour. You can zoom in/out or set a custom telemetry interval to view telemetry from a specific point in time.
+The selected telemetry interval can be either relative \(live mode\), or set to a custom telemetry interval \(time travel mode\). By default, the telemetry interval is set to a relative telemetry interval - in live mode and shows telemetry from the last hour. You can zoom in/out or set a custom telemetry interval to view telemetry from a specific point in time.
 
 #### Set the telemetry interval
 
@@ -53,11 +53,11 @@ You can [configure the default telemetry interval](/configure/telemetry/custom_t
 
 ### Topology time
 
-The topology in StackState is based on a snapshot of your environements as observed at that moment. The moment from which this snapshot is taken is specified by the topology time. By default, StackState is in live mode with the topology time set to the current time. You can [time travel](timeline-time-travel.md#time-travel) to a previous state of the topology by selecting a custom topology time. This helps you to investigate an issue at a certain moment in time. Even if a pod is long gone you can still see how it was connected, it's logs, events, related resources, events and more.
+The topology in StackState is based on a snapshot of your environments as observed at that moment. The moment from which this snapshot is taken is specified by the topology time. By default, StackState is in live mode with the topology time set to the current time. You can [time travel](timeline-time-travel.md#time-travel) to a previous state of the topology by selecting a custom topology time. This helps you to investigate an issue at a certain moment in time. Even if a pod is long gone you can still see how it was connected, its logs, events, related resources, events and more.
 
 ![Topology time](../../.gitbook/assets/v51_topology_time.png)
 
-On the timeline, the selected topology time is indicated by the playhead - a black line with the current topology time at the top. It's also specified in the **Topology time** box at the top of the timeline.
+On the timeline, the selected topology time is indicated by the play head - a black line with the current topology time at the top. It's also specified in the **Topology time** box at the top of the timeline.
 
 #### Set the topology time
 
@@ -81,7 +81,7 @@ The topology time can be set in the following ways:
 
 #### Topology time outside the telemetry interval
 
-If the selected topology time is a time outside the currently selected [telemetry interval](timeline-time-travel.md#telemetry-interval), the message "The topology time is out of the current telemetry interval" will be displayed and the **Topology time** box at the top of the timeline will be highlighted black. As the timeline shows the telemetry interval from left to right, the playhead indicating the current topology time won't be visible on the timeline.
+If the selected topology time is a time outside the currently selected [telemetry interval](timeline-time-travel.md#telemetry-interval), the message "The topology time is out of the current telemetry interval" will be displayed and the **Topology time** box at the top of the timeline will be highlighted black. As the timeline shows the telemetry interval from left to right, the play head indicating the current topology time won't be visible on the timeline.
 
 ![Topology time outside telemetry interval](/.gitbook/assets/v51_topology_time_outside_telemetry_interval.png)
 
@@ -98,9 +98,9 @@ To stop time travelling and return the topology time to live mode, click **Go li
 
 ### Health
 
-The health state of a view during the selected telemetry interval is displayed as a color in the timeline **Health** line.
+The health state of a view during the selected telemetry interval is displayed as a colour in the timeline **Health** line.
 
-For single resources the health will be shown over time, in an overview a gray line is displayed.
+For single resources, the health will be shown over time, in an overview a grey line is displayed.
 
 ![Health state not available](../../.gitbook/assets/v51_timeline_no_health_state.png)
 
@@ -113,12 +113,12 @@ To zoom in on an event bar of interest, click and drag to select a smaller telem
 ![Click and drag to select a telemetry interval](../../.gitbook/assets/v51_timeline_click_drag.png)
 
 {% hint style="info" %}
-A single click on the timeline will move the playhead to this point in time, and thus time travel to the state of the topology at the selected [topology time](timeline-time-travel.md#topology-time). Only events generated by topology elements that existed at the newly selected topology time will now be displayed.
+A single click on the timeline will move the play head to this point in time, and thus time travel to the state of the topology at the selected [topology time](timeline-time-travel.md#topology-time). Only events generated by topology elements that existed at the newly selected topology time will now be displayed.
 {% endhint %}
 
 ## Time travel
 
-In each of the StackState perspectives, you can either be in live mode or in the past. In live mode, StackState will constantly poll for new data. When you time travel through topology or telemetry, you are effectively working with a snapshot of your infrastructure. The data available is based on two selections:
+In each of the StackState perspectives, you can either be in live mode or in the past. In live mode, StackState will constantly poll for new data. When you time-travel through topology or telemetry, you are effectively working with a snapshot of your infrastructure. The data available is based on two selections:
 
 * [Topology time](timeline-time-travel.md#topology-time) - a specific moment in time for which you want to fetch a snapshot of your Kubernetes resources.
 * [Telemetry interval](timeline-time-travel.md#telemetry-interval) - the time range for which you want to see telemetry and traces.
