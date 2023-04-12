@@ -14,10 +14,16 @@ Pre-configured monitors that look at the right things and issue alerts at the ri
 ## Remediating issues with guided troubleshooting
 
 To remediate quickly StackState has a clear problem report and remediation guide packaged in a single screen. It contains the following items:
-1. A brief description to explain to people who are less familiar with what it actually is.
+1. A brief description to explain the problem to people who are less familiar with what it is.
 2. Some facts on this problem such as Health State, triggered time and a reason if present.
 3. The supporting metric indicates how the issue evolved over time.
 4. Often, issues don’t happen in isolation. Sometimes they cause other issues, or the real problem is caused by a different component. StackState keeps track of how all components are related and warns you about related issues.
-5. The remediation guide itself guides you through the problem resolution step by step.
+5. The remediation guide itself to guide you through the problem resolution step by step.
 
 ![](../../.gitbook/assets/k8s/guided-troubleshooting.png)
+
+## Using pinned items when troubleshooting
+
+Use **pinned items** to keep a remediation guide at hand while troubleshooting. When you click on **Add to pinned items** button the remediation guide is added to the pinned items. Now you can follow the step-by-step guidance even when you close the triggered monitor. You can access all pinned remediation guides from the pinned items menu. When you are done troubleshooting just unpin the guide from the menu.
+
+![](../../.gitbook/assets/k8s/k8s-pinned-items.png)
