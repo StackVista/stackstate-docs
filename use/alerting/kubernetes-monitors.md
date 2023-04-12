@@ -6,14 +6,14 @@ description: StackState Kubernetes Troubleshooting
 
 ## Overview
 
-This section describes the out of the box monitors delivered with StackState. Monitors delivered with the product are added constantly. Have a look under the Monitors section in the main menu to find the full list.
+This section describes the out-of-the-box monitors delivered with StackState. Monitors delivered with the product are added constantly. Have a look under the Monitors section in the main menu to find the full list.
 
 ## Out of the box Kubernetes monitors
 
 ### Available service endpoints 
 
 It is important to ensure that your services are available and accessible to users. To monitor this, StackState has set up a check that verifies if a service has at least one endpoint available. Endpoints are network addresses that enable communication between different components in a distributed system, and they need to be available for the service to function properly.
-If there is an occurrence of zero endpoints available within the last 10 minutes, the monitor will remain in a deviating state, indicating that there may be an issue with the service that needs to be addressed.
+If there is an occurrence of zero endpoints available within the last 10 minutes, the monitor will remain deviating, indicating that there may be an issue with the service that needs to be addressed.
 
 ### HTTP - 5xx error ratio
 
@@ -27,7 +27,7 @@ This is a useful measure for identifying outliers and slow requests that may neg
 
 ### Kubernetes volume usage trend over 12 hours
 
-It is important to monitor the usage of Persistent Volume Claims (PVCs) in your Kubernetes cluster. PVCs are used to store data that needs to persist beyond the lifetime of a container, and it's crucial to ensure that they have enough space to store the data.To track this, StackState has set up a check that uses linear prediction to forecast the Kubernetes volume usage trend over a 12-hour period. If the trend indicates that the PVCs will run out of space within this time frame, you will receive a notification, allowing you to take action to prevent data loss or downtime.
+It is important to monitor the usage of Persistent Volume Claims (PVCs) in your Kubernetes cluster. PVCs are used to store data that needs to persist beyond the lifetime of a container, and it's crucial to ensure that they have enough space to store the data. To track this, StackState has set up a check that uses linear prediction to forecast the Kubernetes volume usage trend over a 12-hour period. If the trend indicates that the PVCs will run out of space within this time frame, you will receive a notification, allowing you to take action to prevent data loss or downtime.
 
 ### Kubernetes volume usage trend over 4 days
 
@@ -36,7 +36,7 @@ To track this, StackState set up a check that uses linear prediction to forecast
 
 ### Out of memory for containers
 
-It is important to ensure that the containers running in your Kubernetes cluster have enough memory to function properly. Out of memory (OOM) conditions can cause containers to crash or become unresponsive, leading to restarts and potential data loss.
+It is important to ensure that the containers running in your Kubernetes cluster have enough memory to function properly. Out-of-memory (OOM) conditions can cause containers to crash or become unresponsive, leading to restarts and potential data loss.
 To monitor for these conditions, StackState set up a check that detects and reports OOM events in the containers running in the cluster. This check will help you identify any containers that are running out of memory and allow you to take action to prevent issues before they occur.
 
 ### Pod Readiness 
