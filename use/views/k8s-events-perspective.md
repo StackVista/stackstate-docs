@@ -6,7 +6,7 @@ description: StackState Kubernetes Troubleshooting
 
 ## Overview
 
-The Events Perspective shows events and changes for the elements in the current [view](k8s-views.md) or filtered topology.
+The Events Perspective shows events and changes for the elements in the current [view](k8s-view-structure.md) or filtered topology.
 
 ![The Events Perspective](../../.gitbook/assets/k8s/k8s-menu.png)
 
@@ -49,4 +49,4 @@ For example:
 
 * [Use events to trigger event notifications and actions](/use/events/manage-event-handlers.md)
 * [Filtering data](k8s-filters.md)
-* [Working with StackState views](k8s-views.md)
+* [Working with StackState views](k8s-view-structure.md)
