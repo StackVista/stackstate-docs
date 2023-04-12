@@ -60,35 +60,17 @@ Select a relation to open detailed information about it in the right panel detai
 
 ➡️ [Learn more about relations](/use/concepts/relations.md)
 
-![Indirect relation path](/.gitbook/assets/v51_indirect_relation_details.png)
-
-## Filters
-
-The components and events displayed in the topology visualization can be customized by adding filters.
-
-Click the **View Filters** icon in the left menu to open the view filters. Here you can edit the filters applied to the displayed topology and events:
-
-* **Topology filters** - filter the components displayed in the topology visualization.
-* **Events filters** - filter the events shown in the **Events** list in the right panel **View summary** and details tabs - **Component details** and **Direct relation details**.
-
-Select an element to show detailed information about it in the right panel details tab. Click a label under **Properties** in the details tab to add this to the topology filter. The displayed topology will be expanded to include all components and relations with the selected label. To undo a label selection, click the back button in the browser or edit the topology filter in the view filters.
-
-The view filters are saved together with the View. For details, see the page [filters](../filters.md).
+![Indirect relation path](../../.gitbook/assets/k8s/k8s-menu.png)
 
 ## Visualization settings
 
-The visualization of components and relations in the topology perspective can be customized in the visualization settings. Click the **Visualization Settings** icon in the left menu to open the visualization settings menu. Here you can edit:
+The way components and relations are displayed in the topology perspective can be customized in the visualization settings menu in the top right corner of the visualizer:
 
-* Root cause display - to what extent the view should be expanded when an element in the view reports a `DEVIATING` or `CRITICAL` health state or propagated health state.
-* Grouping - should all components be displayed individually or should like components be grouped. For details, see [component grouping](topology-perspective.md#grouping).
 * Grid - should components be organized by [layer and domain](../../concepts/layers_domains_environments.md).
+* Grouping - should all components be displayed individually or should like components be grouped. For details, see [component grouping](topology-perspective.md#grouping).
 * Indirect relations - should relations between components be shown if these connect through other components that aren't displayed in the view. For details, see [relations](/use/concepts/relations.md).
 
 The Visualization Settings are saved together with the View. For details, see the page [Visualization settings](../views/visualization_settings.md).
-
-## Problems
-
-If one or more components in a view have a CRITICAL state, StackState will show the related components and their states as a **Problem** in the [View summary](../views/about_views.md#view-summary).
 
 ## Navigation
 
@@ -117,13 +99,13 @@ It's possible that a view can contain components that have a `DEVIATING` propaga
 * **Show root cause only** - Only show the root causes of components shown by the current topology filters that have a `CRITICAL` or `DEVIATING` propagated health. Indirect relations are visualized if a component directly depends on at least one invisible component that leads to the root cause.
 * **Show full root cause tree** - Show all paths from components shown by the current topology filters that have a `CRITICAL` or `DEVIATING` propagated health to their root causes.
 
-![Root cause](/.gitbook/assets/v51_show_full_root_cause_tree.png)
+![Root cause](../../.gitbook/assets/k8s/k8s-menu.png)
 
 ## List mode
 
 The components in the topology visualization can also be shown in a list instead of a graph:
 
-![Filtering\(list format\)](../../../.gitbook/assets/v51_list_mode.png)
+![Filtering\(list format\)](../../.gitbook/assets/k8s/k8s-menu.png)
 
 ### Export as CSV
 
