@@ -2,38 +2,7 @@
 description: StackState for Kubernetes troubleshooting
 ---
 
-# Perspectives
-
-## Overview
-
-The **Perspectives** of a view are displayed as tabs on the top left corner of the view UI and allow you to visualize all the data in a view through different lenses:
-
-* [Overview or Highlights perspective](k8s-perspectives#overview-of-highlights-perspective) - depending on the type of view
-* [Topology perspective](k8s-perspectives#topology-perspective) - the dependency map of the view components
-* [Events perspective](k8s-perspectives#events-perspective) - all the events happening on the topology
-* [Metrics perspective](k8s-perspectives#metrics-perspective) - key metrics for the most relevant components
-* [Traces perspective](k8s-perspectives#traces-perspective) - the tracing information running on the topology
-
-{% hint style="info" %}
-**All the perspectives** will update their content based on the view _filters_ and _timeline_ configuration.
-{% endhint %}
-
-![View perspectives](../../.gitbook/assets/k8s/k8s-menu.png)
-
-## Overview or Highlights perspective
-
-
-
-## Topology perspective
-
-
-## Events perspective
-
-
-## Metrics perspective
-
-
-## Traces perspective
+# Highlights perspective
 
 The Traces Perspective shows a list of traces and their spans for the components in your view. This allows you to monitor the performance of the applications in your IT infrastructure directly in StackState.
 
@@ -45,7 +14,7 @@ Click on any trace in the list to see the spans that belong to it. Span types ar
 
 ![Inspecting a trace](../../.gitbook/assets/k8s/k8s-menu.png)
 
-### Filter traces
+## Filter traces
 
 Traces and components are tightly related. The traces visible in the Traces Perspective can be filtered using the _view filters_.
 
@@ -55,7 +24,7 @@ The [trace filters](k8s-filters.md#filter-traces) allow you to refine the traces
 
 In addition to these filters, the traces perspective shows traces matching the **Time Window** selected in the timeline control at the bottom of the StackState UI. Adjust the time window to show only traces from that time.
 
-### Traces and topology
+## Traces and topology
 
 In StackState, a [view](../views/about_views.md) shows you a sub-selection of your IT infrastructure in terms of components and relations. A number of our supported integrations send traces to StackState via [our Agent](../../../configure/traces/set-up-traces.md). These traces are used in the Traces Perspective and also in the [Topology Perspective](topology-perspective.md) to create the topology of your view.
 
@@ -78,15 +47,15 @@ The two images above illustrate these concepts by showing a library application 
 
 When ingesting traces, StackState attaches service identifiers to the components that are created. These identifiers are also included as part of the **service** property of the spans in a trace. All topology created out of a trace will have a tag **has\_traces**, this allows you to easily identify components for which you have traces.
 
-### Sorting and limits
+## Sorting and limits
 
 Traces are sorted by latency \(descending\). This is the only sorting criteria available in this version. The trace list isn't limited by size, you can scroll infinitely to see all traces that are available for your component, filter and time selections. Finally, on top of the list of traces, StackState displays an approximation of the total amount of traces that are returned from the filters you have selected.
 
-### Time Travel
+## Time Travel
 
 When using the Traces Perspective, just like in other perspectives, you can either be in live mode or [time travel to the past](../timeline-time-travel.md#time-travel).
 
-### Inspection, scrolling and its impact on time selection.
+## Inspection, scrolling and its impact on time selection.
 
 When using the Traces Perspective in live mode, you are constantly polling for the slowest traces in your time range selection. However, in a large IT infrastructure with constant requests being traced, your slowest traces right now might not be your slowest traces in a matter of seconds, changing their position the list. These constant updates to the order of the list could become frustrating, for example, if you are inspecting a trace/span, or scrolling through the list to look for a specific trace or pattern.
 
