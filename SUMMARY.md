@@ -19,9 +19,6 @@
 
 * [Monitors](use/alerting/k8s-monitors.md)
 * [Out of the box monitors for Kubernetes](use/alerting/kubernetes-monitors.md)
-* [StackState](setup/install-stackstate/README.md)
-  * [OpsGenie](stackpacks/integrations/k8s-opsgenie.md)
-  * [Slack](stackpacks/integrations/k8s-slack.md)
 
 ## 🔍 Views
 
