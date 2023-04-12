@@ -75,4 +75,4 @@ To monitor this, StackState has set up a check that verifies if the available re
 
 ## See also
 
-* [Monitors](use/alerting/k8s-monitors.md)
+* [Monitors](/use/alerting/k8s-monitors.md)
