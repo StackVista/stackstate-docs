@@ -23,4 +23,4 @@ Remediation guides are shown on the Monitor Status drawer which is shown if you 
 
 ## See also
 
-* [Out of the box monitors for Kubernetes](use/alerting/kubernetes-monitors.md)
+* [Out of the box monitors for Kubernetes](/use/alerting/kubernetes-monitors.md)
