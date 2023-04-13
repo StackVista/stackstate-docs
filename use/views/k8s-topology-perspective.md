@@ -8,13 +8,13 @@ description: StackState Kubernetes Troubleshooting
 
 The Topology Perspective displays the components in your IT landscape and their relationships.
 
-![Topology perspective](../../.gitbook/assets/k8s/k8s-menu.png)
+![Topology perspective](../../.gitbook/assets/k8s/k8s-topology-perspective.png)
 
 ## Legend
 
 Click on the Legend button (?) in the bottom right of the screen (just below the zoom controls) to display an explanation of the icons and colors used in the topology visualization.
 
-![Topology Perspective - legend](../../.gitbook/assets/k8s/k8s-menu.png)
+![Topology perspective legend](../../.gitbook/assets/k8s/k8s-topology-perspective-legend.png)
 
 ## Components
 
@@ -34,15 +34,13 @@ When you hover the mouse pointer over a component, the component context menu is
 * [Actions](#actions) specific to the component.
 * [Shortcuts](#shortcuts) specific to the component.
 
-![Component context menu](../../.gitbook/assets/k8s/k8s-menu.png)
+![Component context menu](../../.gitbook/assets/k8s/k8s-component-contex-menu.png)
 
 ### Actions
 
 Actions can be used to expand the topology selection to show all dependencies for the selected component. Other actions may be available for specific components, such as component actions that are installed as part of a StackPack.
 
 A list of the available **Actions** is included in the right panel details tab when you select a component - **Component details**. Actions are also listed in the component context menu, which is displayed when you hover the mouse pointer over a component.
-
-![Actions](../../.gitbook/assets/k8s/k8s-menu.png)
 
 ### Shortcuts
 
@@ -60,8 +58,6 @@ Select a relation to open detailed information about it in the right panel detai
 
 ➡️ [Learn more about relations](/use/concepts/relations.md)
 
-![Indirect relation path](../../.gitbook/assets/k8s/k8s-menu.png)
-
 ## Visualization settings
 
 The way components and relations are displayed in the topology perspective can be customized in the visualization settings menu in the top right corner of the visualizer:
@@ -71,6 +67,8 @@ The way components and relations are displayed in the topology perspective can b
 * Indirect relations - should relations between components be shown if these connect through other components that aren't displayed in the view. For details, see [relations](/use/concepts/relations.md).
 
 The Visualization Settings are saved together with the View. For details, see the page [Visualization settings](../views/visualization_settings.md).
+
+![Visualization settings](../../.gitbook/assets/k8s/k8s-visualization-settings.png)
 
 ## Navigation
 
@@ -92,13 +90,13 @@ If there are components with monitors on them which are outside the view but mig
 * **Show root cause only** - Only show the root causes of components shown by the current topology filters that have a `CRITICAL` or `DEVIATING` propagated health. Indirect relations are visualized if a component directly depends on at least one invisible component that leads to the root cause.
 * **Show full root cause tree** - Show all paths from components shown by the current topology filters that have a `CRITICAL` or `DEVIATING` propagated health to their root causes.
 
-![Root cause](../../.gitbook/assets/k8s/k8s-menu.png)
+![Root cause](../../.gitbook/assets/k8s/k8s-show-root-cause.png)
 
 ## List mode
 
 The components in the topology visualization can also be shown in a list instead of a graph:
 
-![Filtering\(list format\)](../../.gitbook/assets/k8s/k8s-menu.png)
+![Filtering\(list format\)](../../.gitbook/assets/k8s/k8s-topology-perspective-list-mode.png)
 
 ### Export as CSV
 
