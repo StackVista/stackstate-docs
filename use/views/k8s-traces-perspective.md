@@ -6,7 +6,7 @@ description: StackState for Kubernetes troubleshooting
 
 The Traces Perspective shows a list of traces and their spans for the components in your view. This allows you to monitor the performance of the applications in your IT infrastructure directly in StackState.
 
-![The Traces Perspective](../../.gitbook/assets/k8s/k8s-menu.png)
+![The traces perspective](../../.gitbook/assets/k8s/k8s-menu.png)
 
 Click on any trace in the list to see the spans that belong to it. Span types are colored differently according to the information on the right. When inspecting a trace and seeing the list of its spans, you can click on any span to see further details. The image below illustrates this action.
 

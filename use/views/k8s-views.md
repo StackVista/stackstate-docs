@@ -10,7 +10,7 @@ StackState for Kubernetes Troubleshooting has deep knowledge of Kubernetes and i
 
 StackState for Kubernetes Troubleshooting has dedicated overviews and highlights pages for the following Kubernetes native resources:
 
-![](../../.gitbook/assets/k8s/k8s-menu.png)
+![Kubernetes views](../../.gitbook/assets/k8s/k8s-menu.png)
 
 All other Kubernetes resources are recognized and visualized in the topology views.
 
@@ -18,7 +18,7 @@ All other Kubernetes resources are recognized and visualized in the topology vie
 
 The overview pages provide a high-level overview of specific Kubernetes resources in your environment. These overviews highlight the most important information about the resource, including its health, age, namespace, cluster and more.
 
-![](../../.gitbook/assets/k8s/k8s-service-overview.png)
+![Overview pages](../../.gitbook/assets/k8s/k8s-service-overview.png)
 
 From an overview page, you can click on one of the Kubernetes resources to navigate to the highlights page for that resource.
 
@@ -26,4 +26,4 @@ From an overview page, you can click on one of the Kubernetes resources to navig
 
 The highlights page shows an overview of the most important information about a specific Kubernetes resource. Here you can see the health of the resource, the monitors that are active on the resource, and the events that have occurred on the resource. Also we display the key metrics for the resource.
 
-![](../../.gitbook/assets/k8s/k8s-pod-highlights.png)
+![Highlights pages](../../.gitbook/assets/k8s/k8s-pod-highlights.png)

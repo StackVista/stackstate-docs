@@ -27,3 +27,5 @@ The **Perspectives** of a view are displayed as tabs on the top left corner of t
 {% hint style="info" %}
 **All the perspectives** will update their content based on the view [filters](k8s-filters.md) and the [timeline](../stackstate-ui/k8sTs-timeline-time-travel.md) configuration.
 {% endhint %}
+
+![Overview cards layout](../../.gitbook/assets/k8s/k8s-overview-perspective-cards-layout.png)
