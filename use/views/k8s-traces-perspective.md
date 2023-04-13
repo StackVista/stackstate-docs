@@ -14,7 +14,7 @@ Click on any trace in the list to see the spans that belong to it. Span types ar
 
 ## Filter traces
 
-Traces and components are tightly related. The traces visible in the Traces Perspective can be filtered using the _view filters_.
+Traces and components are tightly related. The traces visible in the Traces Perspective can be filtered using the [view filters](k8s-filters.md).
 
 The [topology filters](k8s-filters.md#filter-topology) define the elements \(components and relations\) for which traces will be displayed. Only traces relating to elements that match the applied topology filters, or the view itself, will be visible.
 

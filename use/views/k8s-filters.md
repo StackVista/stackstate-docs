@@ -20,7 +20,7 @@ Topology filters can be used to select a sub-set of topology components to be sh
 
 ### Topology filters on Kubernetes views
 
-On the _kubernetes views_, the topology filters are limited to a small set of basic filters that persist across all the Kubernetes views: `clusters` and / or `namespaces`. The persistent topology filters for Kubernetes views are placed outside the regular `filters` menu in the UI and are not interdependent on each other (e.g. selecting a cluster does **not** automatically update the `namespaces` filter to reflect only the namespaces of that cluster). Read more in the _topology filters for Kubernetes views_ section.
+On the [kubernetes views](k8s-views.md), the topology filters are limited to a small set of basic filters that persist across all the Kubernetes views: `clusters` and / or `namespaces`. The persistent topology filters for Kubernetes views are placed outside the regular `filters` menu in the UI and are not interdependent on each other (e.g. selecting a cluster does **not** automatically update the `namespaces` filter to reflect only the namespaces of that cluster).
 
 ### Topology filters on other view types
 
