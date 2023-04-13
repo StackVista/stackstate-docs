@@ -30,11 +30,11 @@ Although an explore view is meant to be temporary, it can be saved as a [custom 
 If you don't want to save an explore view, simply move away from it or go back to the view you started from by using the breadcrumbs on the top navigation bar.
 
 
-![Explore views](../../.gitbook/assets/k8s/k8s-menu.png)
+![Explore Views](../../.gitbook/assets/k8s/k8s-explore-views.png)
 
 
 ## Structure
 
 The explore views have an identical structure to the [custom views](k8s-custom-views.md): they have the same [filters](k8s-view-structure.md#filters) and the same [perspectives](k8s-view-structure.md#perspectives).
 
-![Explore views](../../.gitbook/assets/k8s/k8s-menu.png)
+![Explore Views Structure](../../.gitbook/assets/k8s/k8s-explore-views-structure.png)
