@@ -54,7 +54,7 @@ Shortcuts give you direct access to detailed information about the specific comp
 
 ## Relations
 
-Relations show how components in the topology are connected together. They're represented by a dashed or solid line and have an arrowhead showing the direction of dependency between the components they link. [Health state will propagate](../../concepts/health-state.md#element-propagated-health-state) from one component to the next, from dependencies to dependent components. Relations that have one or more health checks configured will report a calculated health state.
+Relations show how components in the topology are connected together. They're represented by a dashed or solid line and have an arrowhead showing the direction of dependency between the components they link. 
 
 Select a relation to open detailed information about it in the right panel details tab - **Direct relation details**, **Indirect relation details** or **Grouped relation details** depending on the relation type that has been selected.
 
@@ -86,14 +86,7 @@ See the full list of [StackState keyboard shortcuts](../keyboard-shortcuts.md).
 
 ### Show root cause
 
-If there are components with [telemetry streams](../../metrics/telemetry_streams.md) and [health checks](../../concepts/health-state.md) in your view, the Topology Perspective will calculate a health state and propagate this state throughout the graph. The propagated health state will help you to see the risk of affecting other components. When an element has an unhealthy [propagated health state](/use/concepts/health-state.md#element-propagated-health-state), this will be shown as an outer color in the topology visualization.
-
-{% hint style="success" "self-hosted info" %}
-
-You can configure or develop your own [propagation functions](../../../develop/developer-guides/custom-functions/propagation-functions.md).
-{% endhint %}
-
-It's possible that a view can contain components that have a `DEVIATING` propagated health state caused by a component that's not included in the view itself. The Topology Perspective allows you to configure whether the view should be expanded to automatically show root cause components that are outside the currently displayed view:
+If there are components with monitors on them which are outside the view but might influence the component in the view, the Topology Perspective will show the health state of all components shown.
 
 * **Don't show root cause** - Don't show the root causes of components shown by the current topology filters.
 * **Show root cause only** - Only show the root causes of components shown by the current topology filters that have a `CRITICAL` or `DEVIATING` propagated health. Indirect relations are visualized if a component directly depends on at least one invisible component that leads to the root cause.
