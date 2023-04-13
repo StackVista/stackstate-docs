@@ -8,12 +8,12 @@ The Overview Perspective shows a list of all the components in your view. Depend
 
 For example, the table structure used on the [kubernetes views](k8s-views.md) will reflect the most important properties of the component types included in each view: as seen below, the `services` view has a different table structure than the `pods` view.
 
-![Overview Table Structure Comparison](../../.gitbook/assets/k8s/k8s-menu.png) 
+![Overview table structure comparison](../../.gitbook/assets/k8s/k8s-overview-perspective-table-comparison.png) 
 
 For [custom views](k8s-custom-views.md) and [explore views](k8s-explore-views.md), the overview perspective table will have a generic one-size-fits-all structure, composed out of the most common properties, because of the diversity of component types that might be included in the view.
 
-![Overview Table Generic Structure](../../.gitbook/assets/k8s/k8s-menu.png) 
+![Overview table generic structure](../../.gitbook/assets/k8s/k8s-overview-perspective-generic-table.png) 
 
 Although a table layout will be used in most of the view types for the overview perspective, in some cases a cards layout will also be provided, allowing you to change between different modes of displaying the contents of the overview perspective.
  
-![Overview Cards Layout](../../.gitbook/assets/k8s/k8s-menu.png)
+![Overview cards layout](../../.gitbook/assets/k8s/k8s-overview-perspective-cards-layout.png)

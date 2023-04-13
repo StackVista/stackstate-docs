@@ -8,7 +8,7 @@ description: StackState Kubernetes Troubleshooting
 
 The Topology Perspective displays the components in your IT landscape and their relationships.
 
-![Topology Perspective](../../.gitbook/assets/k8s/k8s-menu.png)
+![Topology perspective](../../.gitbook/assets/k8s/k8s-menu.png)
 
 ## Legend
 

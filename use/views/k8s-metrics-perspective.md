@@ -6,7 +6,7 @@ description: StackState Kubernetes Troubleshooting
 
 The Metrics Perspective shows metrics for the selected resource. 
 
-![Metrics Perspective](../../.gitbook/assets/k8s/k8s-menu.png)
+![Metrics perspective](../../.gitbook/assets/k8s/k8s-metrics-perspective.png)
 
 ## Charts
 

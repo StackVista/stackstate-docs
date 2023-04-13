@@ -8,7 +8,7 @@ description: StackState Kubernetes Troubleshooting
 
 The Events Perspective shows events and changes for the elements in the current [view](k8s-view-structure.md) or filtered topology.
 
-![Events Perspective](../../.gitbook/assets/k8s/k8s-events-perspective.png)
+![Events perspective](../../.gitbook/assets/k8s/k8s-events-perspective.png)
 
 ## Filter displayed events
 
@@ -43,7 +43,7 @@ For example:
   * by topology elements that existed at that moment in time.
   * within the specified telemetry interval \(this will be adjusted to fit the selected timestamp if required\).
 
-![Events Timeline](../../.gitbook/assets/k8s/k8s-events-perspective-timeline.png)
+![Events timeline](../../.gitbook/assets/k8s/k8s-events-perspective-timeline.png)
 
 ## See also
 
