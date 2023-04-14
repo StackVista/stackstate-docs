@@ -6,11 +6,9 @@ description: StackState for Kubernetes troubleshooting
 
 The Traces Perspective shows a list of traces and their spans for the components in your view. This allows you to monitor the performance of the applications in your IT infrastructure directly in StackState.
 
-![The traces perspective](../../.gitbook/assets/k8s/k8s-menu.png)
-
 Click on any trace in the list to see the spans that belong to it. Span types are colored differently according to the information on the right. When inspecting a trace and seeing the list of its spans, you can click on any span to see further details. The image below illustrates this action.
 
-![Inspecting a trace](../../.gitbook/assets/k8s/k8s-menu.png)
+![Traces perspective](../../.gitbook/assets/k8s/k8s-traces-perspective.png)
 
 ## Filter traces
 
@@ -37,9 +35,7 @@ By installing our Agent and its integrations to gather traces from these technol
 * Each component relates to a span
 * Each trace relates to a list of spans \(or components\) that are traversed to complete the requests executed in your IT infrastructure.
 
-![The spans \(components\) of a trace](../../.gitbook/assets/k8s/k8s-menu.png)
-
-![The topology for which you fetch traces](../../.gitbook/assets/k8s/k8s-menu.png)
+![The spans \(components\) of a trace](../../.gitbook/assets/k8s/k8s-traces-perspective-span-details.png)
 
 The two images above illustrate these concepts by showing a library application whose main responsibility is to fetch a list of books. You can see an example of a trace and its spans for a request to fetch the list of books and the resulting topology created out of it.
 
@@ -57,8 +53,6 @@ When using the Traces Perspective, just like in other perspectives, you can eith
 
 When using the Traces Perspective in live mode, you are constantly polling for the slowest traces in your time range selection. However, in a large IT infrastructure with constant requests being traced, your slowest traces right now might not be your slowest traces in a matter of seconds, changing their position the list. These constant updates to the order of the list could become frustrating, for example, if you are inspecting a trace/span, or scrolling through the list to look for a specific trace or pattern.
 
-To avoid this, time will effectively be paused when you inspect a trace/span or scroll through the list of traces in live mode. This allows you to browse through a stable snapshot of your data. Note that pausing time means that you are now in the past, click **Go live** or **BACK TO LIVE** to stop time travelling and return to live mode.:
-
-![Pausing time when inspecting a trace](../../.gitbook/assets/k8s/k8s-menu.png)
+To avoid this, time will effectively be paused when you inspect a trace/span or scroll through the list of traces in live mode. This allows you to browse through a stable snapshot of your data. Note that pausing time means that you are now in the past, click **Go live** or **BACK TO LIVE** to stop time travelling and return to live mode.
 
 ➡️ [Learn more about time travel](../timeline-time-travel.md#time-travel)
