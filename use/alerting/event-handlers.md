@@ -1,5 +1,5 @@
 ---
-description: StackState Kubernetes Troubleshootings
+description: StackState Kubernetes Troubleshooting
 ---
 
 ## Overview
@@ -14,7 +14,7 @@ Event handlers added to a [custom view](../views/k8s-custom-views.md) can send e
 
 You can check the configured event handlers for a [custom view](../views/k8s-custom-views.md) and add new event handlers from the StackState UI right panel **Alerts** tab. For details, see [manage event handlers](#manage-event-handlers).
 
-![Event handlers](/.gitbook/assets/v51_configured_event_handlers.png)
+![Event handlers](../../.gitbook/assets/k8s/k8s-event-handlers-expanded.png)
 
 ### State change events
 
@@ -38,7 +38,7 @@ Event handlers attached to a [custom view](../views/k8s-custom-views.md) listen 
 
 All event handlers configured for the view are listed in the StackState UI right panel **Alerts** tab. You can add, edit and remove event handlers from here. Expand an event handler to see its configured settings. 
 
-![Event handlers](/.gitbook/assets/v51_configured_event_handlers.png)
+![Event handlers](../../.gitbook/assets/k8s/k8s-event-handlers-listing.png)
 
 ### Add event handler
 
@@ -48,7 +48,7 @@ You can add an event handler to a view from the StackState UI right panel **Aler
 Event handlers can only be added to a saved [custom view](../views/k8s-custom-views.md). It isn't possible to add event handlers to other view types (e.g. [kubernetes views](../views/k8s-views.md), [components views](../views/k8s-component-views.md) or [explore views](../views/k8s-explore-views.md)).
 {% endhint %}
 
-![Add event handler](/.gitbook/assets/v51_add_event_handler.png)
+![Add event handler](../../.gitbook/assets/k8s/k8s-event-handlers-add-new.png)
 
 1. Open a saved [custom view](../views/k8s-custom-views.md).
 2. Select the **Alerts** tab in the right panel. If you have any configured event handlers, they will be listed here.
