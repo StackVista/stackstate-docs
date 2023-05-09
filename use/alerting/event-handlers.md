@@ -2,19 +2,17 @@
 description: StackState Kubernetes Troubleshooting
 ---
 
-# Alerts
-
 ## Overview
 
-When something goes wrong within your IT environment, StackState can use event handlers to send alerts to notify you or your teammates. A message can be sent in the form of an email, Slack message, mobile ping or an HTTP POST request to any URL. Alerts can contain detailed content on the trigger event and possible root cause. 
+When something goes wrong within your IT environment, StackState can use event handlers to notify you or your teammates. A message can be sent in the form of an email, Slack message, mobile ping or an HTTP POST request to any URL. Alerts can contain detailed content on the trigger event and possible root cause. 
 
 ![StackState event notification in Slack with possible root cause information](../../.gitbook/assets/slack_alert.png)
 
 ## Event handlers
 
-Event handlers added to a StackState view can send event notifications or trigger actions in response to health state change events. The event handler will listen to events generated within the view and run a configured event handler function when the configured [event type](#state-change-events) is generated.
+Event handlers added to a StackState view can send event notifications or trigger actions in response to [health state change events](#state-change-events). The event handler will listen to events generated within the view and run a configured event handler function when the configured event type is generated.
 
-You can check the configured event handlers for a view and add new event handlers from the StackState UI right panel **View summary** tab. For details, see [manage Event Handlers](/use/events/manage-event-handlers.md).
+You can check the configured event handlers for a [custom view](../views/k8s-custom-views.md) and add new event handlers from the StackState UI right panel **Alerts** tab. For details, see [manage event handlers](#manage-event-handlers).
 
 ![Event handlers](/.gitbook/assets/v51_configured_event_handlers.png)
 
@@ -32,20 +30,12 @@ The event types generated when an element state changes are described below.
 Note that there may be a slight delay between the generation of a `HealthStateChangedEvent` for an element and the resulting `ViewStateChangedEvent`. This can cause the reported state of a view to differ from the actual state of elements within it.
 {% endhint %}
 
-## See also
 
-* [Out-of-the-box monitors for Kubernetes](/use/alerting/kubernetes-monitors.md)
-
-
-
-
-# Manage event handlers
-
-## Overview
+## Manage event handlers
 
 Event handlers attached to a StackState view listen to events that are generated in relation to components in the view. Event notifications can then be sent or actions can be triggered in response to health state change events or problem events.
 
-## Configured event handlers
+### Configured event handlers
 
 All event handlers configured for the view are listed in the StackState UI right panel **View summary** tab under **Event handlers**. You can add, edit and remove event handlers from here. Expand an event handler to see its configured settings. 
 
@@ -53,7 +43,7 @@ The badge on the right next to the **Event handlers** section heading shows the 
 
 ![Event handlers](/.gitbook/assets/v51_configured_event_handlers.png)
 
-## Add event handler
+### Add event handler
 
 You can add an event handler to a view from the StackState UI right panel **View summary** tab. 
 
@@ -75,7 +65,7 @@ Event handlers can only be added to a saved [view](/use/stackstate-ui/views/abou
 8. Enter the required details, these will vary according to the event handler function you have selected.
 9. Click **SAVE**.
 
-## Event handler functions
+### Event handler functions
 
 Event handlers listen to events generated within a view. When the configured event type is generated, an event handler function is run to send an event notification or trigger an action in a system outside of StackState. For example, an event handler function could send a message to a Slack channel or make a POST to a webhook URL. A number of default event handler functions are included out of the box with StackState, these are described below.
 
@@ -84,7 +74,7 @@ Event handlers listen to events generated within a view. When the configured eve
 * A full list of the event handler functions available in your StackState instance can be found in the StackState UI. Go to **Settings** &gt; **Functions** &gt; **Event Handler Functions**.
 {% endhint %}
 
-### Slack
+#### Slack
 
 The Slack event handler function sends a Slack message with detailed information about the trigger event, including the possible root cause, to the configured Slack webhook URL. See [how to create a Slack Webhook \(slack.com\)](https://api.slack.com/messaging/webhooks). 
 
@@ -94,19 +84,19 @@ Can be triggered by **Health state change events** and **Problem events**.
 Requires the [Slack StackPack](/stackpacks/integrations/slack.md) to be installed on your StackState instance.
 {% endhint %}
 
-### HTTP webhook POST
+#### HTTP webhook POST
 
 The HTTP webhook POST event handler function sends a POST request to the specified URL. 
 
 Can be triggered by **Health state change events** only.
 
-### SMS
+#### SMS
 
 The SMS event handler function sends an SMS with details of a health state change event using MessageBird.
 
 Can be triggered by **Health state change events** only.
 
-### Email
+#### Email
 
 {% hint style="success" "self-hosted info" %}
 The email event handler function will send details of a health state change event using a [configured SMTP server](/configure/topology/configure-email-event-notifications.md).
@@ -114,7 +104,7 @@ The email event handler function will send details of a health state change even
 Can be triggered by **Health state change events** only.
 {% endhint %}
 
-### Custom functions
+#### Custom functions
 
 {% hint style="success" "self-hosted info" %}
 You can [create your own custom event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md).
