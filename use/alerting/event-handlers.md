@@ -75,7 +75,7 @@ Requires the [Slack StackPack](/stackpacks/integrations/slack.md) to be installe
 
 #### OpsGenie
 
-<...>
+The OpsGenie event handler creates an alert in OpsGenie with detailed information on the triggered event.
 
 #### Email
 
