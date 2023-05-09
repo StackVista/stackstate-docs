@@ -79,9 +79,7 @@ The OpsGenie event handler creates an alert in OpsGenie with detailed informatio
 
 #### Email
 
-{% hint style="success" "self-hosted info" %}
 The email event handler function will send details of a health state change event using a [configured SMTP server](/configure/topology/configure-email-event-notifications.md).
-{% endhint %}
 
 #### HTTP webhook POST
 
