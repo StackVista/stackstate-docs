@@ -22,9 +22,8 @@ StackState's monitors generate health states which are mapped on components. A c
 
 The event types generated when an element state changes are described below.
 
-* **State change of an element** - a `HealthStateChangedEvent` event is generated when the health state of an element changes. These events will be listed in the StackState UI [Events Perspective](../views/k8s-events-perspective.md).
-* **Propagated state change of an element** - a `PropagatedStateChangedEvent` event is generated whenever the health state of one of an element’s dependencies changes. These events aren't visible in the StackState UI, but can be used to trigger an event notification.
 * **State change of entire view** - a `ViewStateChangedEvent` event is generated only when the health state of a significant number of elements in a view changes. These events aren't visible in the StackState UI, but can be used to trigger event notifications. 
+* **State change of an element** - a `HealthStateChangedEvent` event is generated when the health state of an element changes. These events will be listed in the StackState UI [Events Perspective](../views/k8s-events-perspective.md).
 
 {% hint style="info" %}
 Note that there may be a slight delay between the generation of a `HealthStateChangedEvent` for an element and the resulting `ViewStateChangedEvent`. This can cause the reported state of a view to differ from the actual state of elements within it.
