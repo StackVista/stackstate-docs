@@ -18,8 +18,7 @@ You can check the configured event handlers for a [custom view](../views/k8s-cus
 
 ### State change events
 
-StackState's monitors generate health states which are mapped on components. These components inherit the most severe health state out of these monitor health states. If a component changes its health state, a `HealthStateChangedEvent` for that component is generated.
-Event notifications or actions can be triggered whenever state changed events are generated for a component in the view.
+StackState's monitors generate health states which are mapped on components. A component will reflect the most severe health state mapped by a monitor as the component's health state. If a component changes its health state, a `HealthStateChangedEvent` for that component is generated. Event notifications or actions can be triggered whenever state changed events are generated for a component in the view.
 
 The event types generated when an element state changes are described below.
 
