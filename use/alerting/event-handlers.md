@@ -18,7 +18,8 @@ You can check the configured event handlers for a [custom view](../views/k8s-cus
 
 ### State change events
 
-Metrics and events data flow through StackState topology elements in telemetry streams. These telemetry streams are used by health checks to determine the health state of an element. For every change in health state, at least one state change event is generated. Event notifications or actions can be triggered whenever state changed events are generated for a component in the view.
+StackState's monitors generate health states which are mapped on components. These components inherit the most severe health state out of these monitor health states. If a component changes its health state, a `HealthStateChangedEvent` for that component is generated.
+Event notifications or actions can be triggered whenever state changed events are generated for a component in the view.
 
 The event types generated when an element state changes are described below.
 
@@ -79,7 +80,7 @@ The OpsGenie event handler creates an alert in OpsGenie with detailed informatio
 
 #### Email
 
-The email event handler function will send details of a health state change event using a [configured SMTP server](/configure/topology/configure-email-event-notifications.md).
+The email event handler function will send details of a health state change event.
 
 #### HTTP webhook POST
 
