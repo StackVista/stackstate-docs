@@ -8,7 +8,7 @@ description: StackState for Kubernetes troubleshooting
 
 Whilst a [kubernetes view](k8s-views.md) acts as a starting point to explore a specific part of your IT landscape, and an [explore view](k8s-explore-views) allows you to investigate a subset of a particular view, a **custom view** provides a way for you to get back to any of these views. 
 
-In other words, you can create a custom view by saving a kubernetes view or an explore view with your own settings (filters, visualization options, view settings, timeline configuration) to bookmark a part of your topology that's of particular interest to you or your team.
+In other words, you can create a custom view by saving a [kubernetes view](k8s-views.md) or an [explore view](k8s-explore-views) with your own settings (filters, visualization options, view settings, timeline configuration) to bookmark a part of your topology that's of particular interest to you or your team.
 
 By default, custom views will be visible to all users, these can be secured by a StackState administrator if required. 
 
@@ -22,7 +22,7 @@ If you frequently use a certain custom view, you can add it to the **starred vie
 
 ### Create a view
 
-To create a new custom view, click the **Save view as...** blue button on the top navigation bar when you're on a kubernetes view or an explore view. To create a new view from a modified custom view, use the dropdown menu next to the button and select **Save view as...**.
+To create a new custom view, click the **Save view as...** blue button on the top navigation bar when you're on a [kubernetes view](k8s-views.md) or an [explore view](k8s-explore-views). To create a new view from a modified custom view, use the dropdown menu next to the button and select **Save view as...**.
 
 ![Edit query view](../../.gitbook/assets/v51_edit_query_view.png)
 
