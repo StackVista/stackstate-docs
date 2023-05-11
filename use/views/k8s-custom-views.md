@@ -12,6 +12,8 @@ In other words, you can create a custom view by saving a kubernetes view or an e
 
 By default, custom views will be visible to all users, these can be [secured by a StackState administrator](about_views.md#secure-views-with-rbac) if required. 
 
+![Explore views structure](../../.gitbook/assets/k8s/k8s-explore-views-structure.png)
+
 ## Handling
 
 All the custom views can be found unde the **Views** entry in the main menu.
@@ -21,6 +23,8 @@ If you frequently use a certain custom view, you can add it to the **starred vie
 ### Create a view
 
 To create a new custom view, click the **Save view as...** blue button on the top navigation bar when you're on a kubernetes view or an explore view. To create a new view from a modified custom view, use the dropdown menu next to the button and select **Save view as...**.
+
+![Edit query view](../../.gitbook/assets/v51_edit_query_view.png)
 
 In the **Save view as** dialog, the following options can be set:
 
