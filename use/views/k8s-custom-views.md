@@ -20,7 +20,7 @@ If you frequently use a certain custom view, you can add it to the **starred vie
 
 ### Create a view
 
-To create a new custom view, click the "Save view as..." blue button on the top navigation bar when you're on a kubernetes view or an explore view. To create a new view from a modified custom view, use the dropdown menu next to the button and select **Save View As**.
+To create a new custom view, click the **Save view as...** blue button on the top navigation bar when you're on a kubernetes view or an explore view. To create a new view from a modified custom view, use the dropdown menu next to the button and select **Save view as...**.
 
 In the **Save view as** dialog, the following options can be set:
 
