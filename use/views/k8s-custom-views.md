@@ -16,7 +16,7 @@ By default, custom views will be visible to all users, these can be [secured by 
 
 All the custom views can be found unde the **Views** entry in the main menu.
 
-If you frequently use a certain custom view, you can add it to the **starred views**. All the starred views are listed directly in the **Views** section of the main menu for quick access - you can recognize the starred views by the yellow star icon next to their name. To add or remove a custom view from the starred views, simply click the star icon next to its name.
+If you frequently use a certain custom view, you can add it to the **starred views**. All the starred views are listed directly in the **Views** section of the main menu for quick access - you can recognize the starred views by the yellow star icon next to their name. Add or remove a custom view from the starred views by simply clicking the star icon next to its name.
 
 ### Create a view
 
@@ -33,37 +33,29 @@ In the **Save view as** dialog, the following options can be set:
 | Arguments | The required arguments will vary depending on the chosen configuration function, if any. |
 | Identifier | A unique reference for the view, helpful when you want to reference the view from an exported configuration, such as the exported configuration in a StackPack. |
 
-{% hint style="success" "self-hosted info" %}
-
-* Views can be given an optional identifier. [Identifiers](../../../configure/topology/identifiers.md) can be used to uniquely reference the view from exported configuration, such as the exported configuration in a StackPack.
-* Views can be [secured by a StackState administrator](about_views.md#secure-views-with-rbac).
-
-{% endhint %}
-
 ### Reset a view
 
-When a custom view is created, all the filters, visualization options, view settings and the timeline configuration are saved on the view. This is helpful if you want to reset the custom view to its original state after you have made some changes to it. Use the dropdown menu next to the **Save...** button on the top navigation bar and select **Reset view** to reset the view.
+When a custom view is created, all the filters, visualization options, view settings and the timeline configuration are saved on the view. If you want to reset the custom view to its original state after you have made some changes to it, use the dropdown menu next to the **Save...** button on the top navigation bar and select **Reset view**.
 
 ### Delete or edit a view
 
 {% hint style="info" %}
-* It isn't recommended to delete or edit views created by StackPacks. When doing so, you will get a warning that the view is locked. If you proceed anyway the issue needs to be resolved when upgrading the StackPack that created the view.
-* Note that changes made to a view will be applied for all users.
+Note that changes made to a custom view will be applied for all users.
 {% endhint %}
 
-A saved view can be edited or deleted from either the **all views** screen, or the right panel **View summary** tab.
+A custom view can be edited or deleted from either the **all views** screen, or the **custom view** screen.
 
-1. All views screen:
+1. **All views** screen:
    * Click **Views** in the main menu to open the **all views** screen.
    * Hover over the view you would like to edit or delete.
-   * Click the **Edit view** or **Delete view** button on the right.
-2. Right panel **View summary** tab:
+   * Click the **Edit view settings** or **Delete view** button on the right.
+2. **Custom view** screen:
    * Open the view.
-   * Open the triple dots menu (to the right of the view name in the right panel **View summary** tab).
-   * Click **Edit** or **Delete**.
+   * Open the dropdown menu next to the **Save...** button on the top navigation bar.
+   * Click **Edit view settings** or **Delete view**.
 
 ## Structure
 
-The explore views have an identical structure to the [custom views](k8s-custom-views.md): they have the same [filters](k8s-view-structure.md#filters) and the same [perspectives](k8s-view-structure.md#perspectives).
+A custom view has an identical structure to the [kubernetes view](k8s-views.md) or the [explore view](k8s-explore-views.md) it was created from: it has the same [filters](k8s-view-structure.md#filters) and the same [perspectives](k8s-view-structure.md#perspectives).
 
 ![Explore views structure](../../.gitbook/assets/k8s/k8s-explore-views-structure.png)
