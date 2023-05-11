@@ -25,11 +25,13 @@ In the **Save view as** dialog, the following options can be set:
 | View name | The name of the view. |
 | View health state enabled | Whether the view has a health state. If this is disabled, the health state, depicted by the colored circle next to the view name, will always be gray. When disabled, the StackState backend won't need to spend resources calculating a view health state each time the view changes. |
 | Configuration function | When view health state is enabled, you can choose a function that's used to calculate the view health state whenever there are changes in the view. The default choice is **minimum health states**. |
-| Arguments | The required arguments will vary depending on the chosen configuration function. |
+| Arguments | The required arguments will vary depending on the chosen configuration function, if any. For the default configuration function (`minimum health states`), the arguments are:
+* **minCriticalHealthStates** - Set to at least **1**. This is the number of CRITICAL \(red\) health states required for the view to report a CRITICAL health state.
+* **minDeviatingHealthStates** - Set to at least **1**. This is the number of DEVIATING \(orange\) health states required for the view to report a `DEVIATING` health state. |
+| Identifier | A unique reference for the view, helpful when you want to reference the view from an exported configuration, such as the exported configuration in a StackPack. |
 
 {% hint style="success" "self-hosted info" %}
 
-* You can build your own [view state configuration functions](../../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#view-health-state-configuration-function-minimum-health-states) to customize how the view health state is calculated.
 * Views can be given an optional identifier. [Identifiers](../../../configure/topology/identifiers.md) can be used to uniquely reference the view from exported configuration, such as the exported configuration in a StackPack.
 * Views can be [secured by a StackState administrator](about_views.md#secure-views-with-rbac).
 
@@ -37,7 +39,7 @@ In the **Save view as** dialog, the following options can be set:
 
 ### Reset a view
 
-When a custom view is created, all the filters, visualization options, view settings and the timeline configuration are saved on the view. This is helpful if you want to reset the custom view to its original state after you have made some changes to it.
+When a custom view is created, all the filters, visualization options, view settings and the timeline configuration are saved on the view. This is helpful if you want to reset the custom view to its original state after you have made some changes to it. Use the dropdown menu next to the **Save...** button on the top navigation bar and select **Reset view** to reset the view.
 
 ### Delete or edit a view
 
