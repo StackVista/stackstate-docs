@@ -14,6 +14,10 @@ By default, custom views will be visible to all users, these can be [secured by 
 
 ## Handling
 
+All the custom views can be found unde the **Views** entry in the main menu.
+
+If you frequently use a certain custom view, you can add it to the **starred views**. All the starred views are listed directly in the **Views** section of the main menu for quick access - you can recognize the starred views by the yellow star icon next to their name. To add or remove a custom view from the starred views, simply click the star icon next to its name.
+
 ### Create a view
 
 To create a new custom view, click the "Save view as..." blue button on the top navigation bar when you're on a kubernetes view or an explore view. To create a new view from a modified custom view, use the dropdown menu next to the button and select **Save View As**.
@@ -23,11 +27,10 @@ In the **Save view as** dialog, the following options can be set:
 | Field Name | Description |
 | :--- | :--- |
 | View name | The name of the view. |
+| Description | A short description for the view. It helps remembering the scope of the view. |
 | View health state enabled | Whether the view has a health state. If this is disabled, the health state, depicted by the colored circle next to the view name, will always be gray. When disabled, the StackState backend won't need to spend resources calculating a view health state each time the view changes. |
 | Configuration function | When view health state is enabled, you can choose a function that's used to calculate the view health state whenever there are changes in the view. The default choice is **minimum health states**. |
-| Arguments | The required arguments will vary depending on the chosen configuration function, if any. For the default configuration function (`minimum health states`), the arguments are:
-* **minCriticalHealthStates** - Set to at least **1**. This is the number of CRITICAL \(red\) health states required for the view to report a CRITICAL health state.
-* **minDeviatingHealthStates** - Set to at least **1**. This is the number of DEVIATING \(orange\) health states required for the view to report a `DEVIATING` health state. |
+| Arguments | The required arguments will vary depending on the chosen configuration function, if any. |
 | Identifier | A unique reference for the view, helpful when you want to reference the view from an exported configuration, such as the exported configuration in a StackPack. |
 
 {% hint style="success" "self-hosted info" %}
