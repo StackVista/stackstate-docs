@@ -19,6 +19,7 @@
 
 * [Monitors](use/alerting/k8s-monitors.md)
 * [Out of the box monitors for Kubernetes](use/alerting/kubernetes-monitors.md)
+* [Alerts](use/alerting/event-handlers.md)
 
 ## 🔍 Views
 
