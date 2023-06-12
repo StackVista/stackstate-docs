@@ -10,6 +10,8 @@ second: '(?:\b[A-Z][a-z]+ )+\(([A-Z]{3,5})\)'
 exceptions:
   - API
   - ASP
+  - AKS
+  - CRI
   - CLI
   - CPU
   - CSS
@@ -17,8 +19,10 @@ exceptions:
   - DEBUG
   - DOM
   - DPI
+  - EKS
   - FAQ
   - GCC
+  - GKE
   - GDB
   - GET
   - GPU
@@ -31,6 +35,7 @@ exceptions:
   - JAR
   - JSON
   - JSX
+  - KOPS
   - LESS
   - LLDB
   - NET
