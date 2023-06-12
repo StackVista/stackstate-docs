@@ -154,9 +154,9 @@ Set up an Amazon EKS integration to collect topology, events, logs, change and m
 | 1.21               | July 19, 2021      | February 15, 2023         |
 | 1.20               | May 18, 2021       | November 1, 2022          |
 
-### Supported Runtimes
+### Supported Runtime
 
-| Supported Runtimes |
+| Supported Runtime |
 |--------------------|
 | Docker             |
 | ContainerD         |
@@ -210,9 +210,9 @@ Set up a Google GKE integration to collect topology, events, logs, change and me
 | 1.23               | May 27, 2022       | July 31, 2023             |
 | 1.22               | April 5, 2022      | April 30, 2023            |
 
-### Supported Runtimes
+### Supported Runtime
 
-| Supported Runtimes |
+| Supported Runtime |
 |--------------------|
 | Docker             |
 | ContainerD         |
@@ -266,9 +266,9 @@ Set up a Azure AKS integration to collect topology, events, logs, change and met
 | 1.23               | April 26, 2022    | April 02, 2023           |
 | 1.22               | January 10, 2021  | December 04, 2022        |
 
-### Supported Runtimes
+### Supported Runtime
 
-| Supported Runtimes |
+| Supported Runtime |
 |--------------------|
 | Docker             |
 | ContainerD         |
@@ -324,9 +324,9 @@ Set up a KOPS integration to collect topology, events, logs, change and metrics 
 | Kubernetes 1.17               |
 | Kubernetes 1.16               |
 
-### Supported Runtimes
+### Supported Runtime
 
-| Supported Runtimes |
+| Supported Runtime |
 |--------------------|
 | Docker             |
 | ContainerD         |
@@ -382,9 +382,9 @@ Set up a Self-hosted integration to collect topology, events, logs, change and m
 | Kubernetes 1.17               |
 | Kubernetes 1.16               |
 
-### Supported Runtimes
+### Supported Runtime
 
-| Supported Runtimes |
+| Supported Runtime |
 |--------------------|
 | Docker             |
 | ContainerD         |

@@ -11,6 +11,7 @@ exceptions:
   - API
   - ASP
   - AKS
+  - CRI
   - CLI
   - CPU
   - CSS
