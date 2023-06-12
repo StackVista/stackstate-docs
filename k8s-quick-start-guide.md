@@ -119,7 +119,7 @@ To set up a StackState Openshift integration you need to have:
   * ClusterRole and ClusterRoleBinding are needed to grant StackState Agents permissions to access the Kubernetes API.
   * StackState Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
-### Set up a Openshift integration
+### Set up an Openshift integration
 
 {% hint style="warning" %}
 Before you begin, check the [prerequisites for Kubernetes](#prerequisites-for-openshift).
@@ -324,15 +324,17 @@ Set up a KOPS integration to collect topology, events, logs, change and metrics 
 
 ### Supported versions
 
-| Supported Kubernetes Version  |
-|-------------------------------|
-| Kubernetes 1.22               |
-| Kubernetes 1.21               |
-| Kubernetes 1.20               |
-| Kubernetes 1.19               |
-| Kubernetes 1.18               |
-| Kubernetes 1.17               |
-| Kubernetes 1.16               |
+| Supported Kubernetes Version |
+|------------------------------|
+| Kubernetes 1.24              |
+| Kubernetes 1.23              |
+| Kubernetes 1.22              |
+| Kubernetes 1.21              |
+| Kubernetes 1.20              |
+| Kubernetes 1.19              |
+| Kubernetes 1.18              |
+| Kubernetes 1.17              |
+| Kubernetes 1.16              |
 
 ### Supported runtime
 
@@ -382,15 +384,17 @@ Set up a Self-hosted integration to collect topology, events, logs, change and m
 
 ### Supported versions
 
-| Supported Kubernetes Version  |
-|-------------------------------|
-| Kubernetes 1.22               |
-| Kubernetes 1.21               |
-| Kubernetes 1.20               |
-| Kubernetes 1.19               |
-| Kubernetes 1.18               |
-| Kubernetes 1.17               |
-| Kubernetes 1.16               |
+| Supported Kubernetes Version |
+|------------------------------|
+| Kubernetes 1.24              |
+| Kubernetes 1.23              |
+| Kubernetes 1.22              |
+| Kubernetes 1.21              |
+| Kubernetes 1.20              |
+| Kubernetes 1.19              |
+| Kubernetes 1.18              |
+| Kubernetes 1.17              |
+| Kubernetes 1.16              |
 
 ### Supported runtime
 
