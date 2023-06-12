@@ -2,7 +2,7 @@
 description: StackState for Kubernetes troubleshooting
 ---
 
-# StackState Quick Start Guides
+# StackState quick start guides
 
 ## Overview
 
@@ -25,7 +25,7 @@ To integrate your cluster(s) with StackState you can follow one of these guides 
 
 Set up a Kubernetes integration to collect topology, events, logs, change and metrics data from a Kubernetes cluster and make this available in StackState.
 
-### Supported Versions
+### Supported versions
 
 | Supported Kubernetes Version |
 |------------------------------|
@@ -39,9 +39,9 @@ Set up a Kubernetes integration to collect topology, events, logs, change and me
 | Kubernetes 1.17              |
 | Kubernetes 1.16              |
 
-### Supported Runtimes
+### Supported Runtime
 
-| Supported Runtimes |
+| Supported Runtime |
 |--------------------|
 | Docker             |
 | ContainerD         |
@@ -85,7 +85,7 @@ To get data from a Kubernetes cluster into StackState, follow the steps describe
 
 Set up an Openshift integration to collect topology, events, logs, change and metrics data from a Openshift cluster and make this available in StackState.
 
-### Supported Versions
+### Supported versions
 
 | OpenShift Version | Supported Kubernetes Version | OpenShift End of Support |
 |-------------------|------------------------------|--------------------------|
@@ -99,9 +99,9 @@ Set up an Openshift integration to collect topology, events, logs, change and me
 | OpenShift 4.4     | Kubernetes 1.17              | February 24, 2021        |
 | OpenShift 4.3     | Kubernetes 1.16              | October 27, 2020         |
 
-### Supported Runtimes
+### Supported Runtime
 
-| Supported Runtimes |
+| Supported Runtime |
 |--------------------|
 | Docker             |
 | ContainerD         |
@@ -146,7 +146,7 @@ To get data from a Kubernetes cluster into StackState, follow the steps describe
 
 Set up an Amazon EKS integration to collect topology, events, logs, change and metrics data from an Amazon EKS cluster and make this available in StackState.
 
-### Supported Versions
+### Supported versions
 
 | Kubernetes version | Amazon EKS release | Amazon EKS End of Support |
 |--------------------|--------------------|---------------------------|
@@ -204,7 +204,7 @@ To get data from a Kubernetes cluster into StackState, follow the steps describe
 
 Set up a Google GKE integration to collect topology, events, logs, change and metrics data from an Google GKE cluster and make this available in StackState.
 
-### Supported Versions
+### Supported versions
 
 | Kubernetes Version | Google GKE release | Google GKE End of Support |
 |--------------------|--------------------|---------------------------|
@@ -263,7 +263,7 @@ To get data from a Kubernetes cluster into StackState, follow the steps describe
 
 Set up a Azure AKS integration to collect topology, events, logs, change and metrics data from an Azure AKS cluster and make this available in StackState.
 
-### Supported Versions
+### Supported versions
 
 | Kubernetes Version | Azure AKS release | Azure AKS End of Support |
 |--------------------|-------------------|--------------------------|
@@ -318,7 +318,7 @@ To get data from a Kubernetes cluster into StackState, follow the steps describe
 
 Set up a KOPS integration to collect topology, events, logs, change and metrics data from an KOPS cluster and make this available in StackState.
 
-### Supported Versions
+### Supported versions
 
 | Supported Kubernetes Version  |
 |-------------------------------|
@@ -376,7 +376,7 @@ To get data from a Kubernetes cluster into StackState, follow the steps describe
 
 Set up a Self-hosted integration to collect topology, events, logs, change and metrics data from an Self-hosted cluster and make this available in StackState.
 
-### Supported Versions
+### Supported versions
 
 | Supported Kubernetes Version  |
 |-------------------------------|
@@ -406,7 +406,7 @@ To set up a StackState Self-hosted integration you need to have:
     * ClusterRole and ClusterRoleBinding are needed to grant StackState Agents permissions to access the Kubernetes API.
     * StackState Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
-### Set up a Self-hosted integration
+### Set up a self-hosted integration
 
 {% hint style="warning" %}
 Before you begin, check the [prerequisites for Kubernetes](#prerequisites-for-amazon-eks).
