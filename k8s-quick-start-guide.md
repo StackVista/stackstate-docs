@@ -27,15 +27,17 @@ Set up a Kubernetes integration to collect topology, events, logs, change and me
 
 ### Supported Versions
 
-| Supported Kubernetes Version  |
-|-------------------------------|
-| Kubernetes 1.22               |
-| Kubernetes 1.21               |
-| Kubernetes 1.20               |
-| Kubernetes 1.19               |
-| Kubernetes 1.18               |
-| Kubernetes 1.17               |
-| Kubernetes 1.16               |
+| Supported Kubernetes Version |
+|------------------------------|
+| Kubernetes 1.24              |
+| Kubernetes 1.23              |
+| Kubernetes 1.22              |
+| Kubernetes 1.21              |
+| Kubernetes 1.20              |
+| Kubernetes 1.19              |
+| Kubernetes 1.18              |
+| Kubernetes 1.17              |
+| Kubernetes 1.16              |
 
 ### Supported Runtimes
 
@@ -85,15 +87,17 @@ Set up an Openshift integration to collect topology, events, logs, change and me
 
 ### Supported Versions
 
-| OpenShift Version | Supported Kubernetes Version |
-|-------------------|------------------------------|
-| OpenShift 4.9     | Kubernetes 1.22              |
-| OpenShift 4.8     | Kubernetes 1.21              |
-| OpenShift 4.7     | Kubernetes 1.20              |
-| OpenShift 4.6     | Kubernetes 1.19              |
-| OpenShift 4.5     | Kubernetes 1.18              |
-| OpenShift 4.4     | Kubernetes 1.17              |
-| OpenShift 4.3     | Kubernetes 1.16              |
+| OpenShift Version | Supported Kubernetes Version | OpenShift End of Support |
+|-------------------|------------------------------|--------------------------|
+| OpenShift 4.11    | Kubernetes 1.24              | February 10, 2024        |
+| OpenShift 4.10    | Kubernetes 1.23              | September 10, 2023       |
+| OpenShift 4.9     | Kubernetes 1.22              | April 18, 2023           |
+| OpenShift 4.8     | Kubernetes 1.21              | January 27, 2023         |
+| OpenShift 4.7     | Kubernetes 1.20              | August 24, 2022          |
+| OpenShift 4.6     | Kubernetes 1.19              | October 18, 2021         |
+| OpenShift 4.5     | Kubernetes 1.18              | July 27, 2021            |
+| OpenShift 4.4     | Kubernetes 1.17              | February 24, 2021        |
+| OpenShift 4.3     | Kubernetes 1.16              | October 27, 2020         |
 
 ### Supported Runtimes
 
@@ -146,13 +150,13 @@ Set up an Amazon EKS integration to collect topology, events, logs, change and m
 
 | Kubernetes version | Amazon EKS release | Amazon EKS End of Support |
 |--------------------|--------------------|---------------------------|
-| 1.26               | April 11, 2023     | June 2024                 |
-| 1.25               | February 22, 2023  | May 2024                  |
 | 1.24               | November 15, 2022  | January 2024              |
 | 1.23               | August 11, 2022    | October 11, 2023          |
 | 1.22               | April 4, 2022      | June 4, 2023              |
 | 1.21               | July 19, 2021      | February 15, 2023         |
 | 1.20               | May 18, 2021       | November 1, 2022          |
+| 1.19               | February 16, 2021  | August 1, 2022            |
+| 1.18               | October 13, 2020   | August 15, 2022           |
 
 ### Supported Runtime
 
@@ -204,11 +208,14 @@ Set up a Google GKE integration to collect topology, events, logs, change and me
 
 | Kubernetes Version | Google GKE release | Google GKE End of Support |
 |--------------------|--------------------|---------------------------|
-| 1.26               | June 14, 2023      | June 30, 2024             |
-| 1.25               | May 8, 2023        | February 29, 2024         |
 | 1.24               | August 12, 2022    | October 31, 2023          |
 | 1.23               | May 27, 2022       | July 31, 2023             |
 | 1.22               | April 5, 2022      | April 30, 2023            |
+| 1.21               | November 1, 2022   | January 31, 2023          |
+| 1.20               | December 1, 2021   | August 1, 2022            |
+| 1.19               | October 1, 2021    | June 1, 2022              |
+| 1.18               | August 1, 2021     | March 1, 2022             |
+| 1.17               | July 1, 2021       | November 1, 2021          |
 
 ### Supported Runtime
 
@@ -260,11 +267,10 @@ Set up a Azure AKS integration to collect topology, events, logs, change and met
 
 | Kubernetes Version | Azure AKS release | Azure AKS End of Support |
 |--------------------|-------------------|--------------------------|
-| 1.26               | April 18, 2023    | March 31, 2024           |
-| 1.25               | December 14, 2022 | December 31, 2023        |
 | 1.24               | August 17, 2022   | July 31, 2023            |
 | 1.23               | April 26, 2022    | April 02, 2023           |
 | 1.22               | January 10, 2021  | December 04, 2022        |
+| 1.21               | July 26, 2021     | July 31, 2022            |
 
 ### Supported Runtime
 
