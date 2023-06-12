@@ -86,6 +86,7 @@ To get data from a Kubernetes cluster into StackState, follow the steps describe
 Set up an Openshift integration to collect topology, events, logs, change and metrics data from a Openshift cluster and make this available in StackState.
 
 ### Supported versions
+[comment]: <> (https://access.redhat.com/support/policy/updates/openshift)
 
 | OpenShift Version | Supported Kubernetes Version | OpenShift End of Support |
 |-------------------|------------------------------|--------------------------|
@@ -147,6 +148,7 @@ To get data from a Kubernetes cluster into StackState, follow the steps describe
 Set up an Amazon EKS integration to collect topology, events, logs, change and metrics data from an Amazon EKS cluster and make this available in StackState.
 
 ### Supported versions
+[comment]: <> (https://endoflife.date/amazon-eks)
 
 | Kubernetes version | Amazon EKS release | Amazon EKS End of Support |
 |--------------------|--------------------|---------------------------|
@@ -205,6 +207,7 @@ To get data from a Kubernetes cluster into StackState, follow the steps describe
 Set up a Google GKE integration to collect topology, events, logs, change and metrics data from an Google GKE cluster and make this available in StackState.
 
 ### Supported versions
+[comment]: <> (https://endoflife.date/google-kubernetes-engine)
 
 | Kubernetes Version | Google GKE release | Google GKE End of Support |
 |--------------------|--------------------|---------------------------|
@@ -264,6 +267,7 @@ To get data from a Kubernetes cluster into StackState, follow the steps describe
 Set up a Azure AKS integration to collect topology, events, logs, change and metrics data from an Azure AKS cluster and make this available in StackState.
 
 ### Supported versions
+[comment]: <> (https://endoflife.date/azure-kubernetes-service)
 
 | Kubernetes Version | Azure AKS release | Azure AKS End of Support |
 |--------------------|-------------------|--------------------------|
