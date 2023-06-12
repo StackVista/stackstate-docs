@@ -39,9 +39,9 @@ Set up a Kubernetes integration to collect topology, events, logs, change and me
 | Kubernetes 1.17              |
 | Kubernetes 1.16              |
 
-### Supported Runtime
+### Supported runtime
 
-| Supported Runtime |
+| Supported runtime |
 |--------------------|
 | Docker             |
 | ContainerD         |
@@ -99,9 +99,9 @@ Set up an Openshift integration to collect topology, events, logs, change and me
 | OpenShift 4.4     | Kubernetes 1.17              | February 24, 2021        |
 | OpenShift 4.3     | Kubernetes 1.16              | October 27, 2020         |
 
-### Supported Runtime
+### Supported runtime
 
-| Supported Runtime |
+| Supported runtime |
 |--------------------|
 | Docker             |
 | ContainerD         |
@@ -158,9 +158,9 @@ Set up an Amazon EKS integration to collect topology, events, logs, change and m
 | 1.19               | February 16, 2021  | August 1, 2022            |
 | 1.18               | October 13, 2020   | August 15, 2022           |
 
-### Supported Runtime
+### Supported runtime
 
-| Supported Runtime |
+| Supported runtime |
 |--------------------|
 | Docker             |
 | ContainerD         |
@@ -217,9 +217,9 @@ Set up a Google GKE integration to collect topology, events, logs, change and me
 | 1.18               | August 1, 2021     | March 1, 2022             |
 | 1.17               | July 1, 2021       | November 1, 2021          |
 
-### Supported Runtime
+### Supported runtime
 
-| Supported Runtime |
+| Supported runtime |
 |--------------------|
 | Docker             |
 | ContainerD         |
@@ -272,9 +272,9 @@ Set up a Azure AKS integration to collect topology, events, logs, change and met
 | 1.22               | January 10, 2021  | December 04, 2022        |
 | 1.21               | July 26, 2021     | July 31, 2022            |
 
-### Supported Runtime
+### Supported runtime
 
-| Supported Runtime |
+| Supported runtime |
 |--------------------|
 | Docker             |
 | ContainerD         |
@@ -330,9 +330,9 @@ Set up a KOPS integration to collect topology, events, logs, change and metrics 
 | Kubernetes 1.17               |
 | Kubernetes 1.16               |
 
-### Supported Runtime
+### Supported runtime
 
-| Supported Runtime |
+| Supported runtime |
 |--------------------|
 | Docker             |
 | ContainerD         |
@@ -388,9 +388,9 @@ Set up a Self-hosted integration to collect topology, events, logs, change and m
 | Kubernetes 1.17               |
 | Kubernetes 1.16               |
 
-### Supported Runtime
+### Supported runtime
 
-| Supported Runtime |
+| Supported runtime |
 |--------------------|
 | Docker             |
 | ContainerD         |
