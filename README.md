@@ -4,7 +4,7 @@
 
 ### Get started
 
-Visit the [K8s quick start guide page](https://docs.stackstate.com/get-started/k8s-quick-start-guide).
+Visit the [Kubernetes quick start guide page](https://docs.stackstate.com/get-started/k8s-quick-start-guide).
 
 
 ## Can't find something?
