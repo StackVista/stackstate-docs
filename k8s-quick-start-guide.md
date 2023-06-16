@@ -172,7 +172,7 @@ Set up an Amazon EKS integration to collect topology, events, logs, change and m
 
 To set up a StackState Amazon EKS integration you need to have:
 
-* An up-and-running Amazon EKS Cluster on AWS.
+* An up-and-running Amazon EKS Cluster.
 * A recent version of Helm 3.
 * A user with the permission to `create privileged pods`, `ClusterRoles` and `ClusterRoleBindings`:
     * ClusterRole and ClusterRoleBinding are needed to grant StackState Agents permissions to access the Kubernetes API.
@@ -232,7 +232,7 @@ Set up a Google GKE integration to collect topology, events, logs, change and me
 
 To set up a StackState Google GKE integration you need to have:
 
-* An up-and-running Google GKE Cluster on AWS.
+* An up-and-running Google GKE Cluster.
 * A recent version of Helm 3.
 * A user with the permission to `create privileged pods`, `ClusterRoles` and `ClusterRoleBindings`:
     * ClusterRole and ClusterRoleBinding are needed to grant StackState Agents permissions to access the Kubernetes API.
@@ -288,7 +288,7 @@ Set up a Azure AKS integration to collect topology, events, logs, change and met
 
 To set up a StackState Azure AKS integration you need to have:
 
-* An up-and-running Azure AKS Cluster on AWS.
+* An up-and-running Azure AKS Cluster.
 * A recent version of Helm 3.
 * A user with the permission to `create privileged pods`, `ClusterRoles` and `ClusterRoleBindings`:
     * ClusterRole and ClusterRoleBinding are needed to grant StackState Agents permissions to access the Kubernetes API.
@@ -348,7 +348,7 @@ Set up a KOPS integration to collect topology, events, logs, change and metrics 
 
 To set up a StackState KOPS integration you need to have:
 
-* An up-and-running KOPS Cluster on AWS.
+* An up-and-running KOPS Cluster.
 * A recent version of Helm 3.
 * A user with the permission to `create privileged pods`, `ClusterRoles` and `ClusterRoleBindings`:
     * ClusterRole and ClusterRoleBinding are needed to grant StackState Agents permissions to access the Kubernetes API.
@@ -408,7 +408,7 @@ Set up a Self-hosted integration to collect topology, events, logs, change and m
 
 To set up a StackState Self-hosted integration you need to have:
 
-* An up-and-running Self-hosted Cluster on AWS.
+* An up-and-running Self-hosted Cluster.
 * A recent version of Helm 3.
 * A user with the permission to `create privileged pods`, `ClusterRoles` and `ClusterRoleBindings`:
     * ClusterRole and ClusterRoleBinding are needed to grant StackState Agents permissions to access the Kubernetes API.
