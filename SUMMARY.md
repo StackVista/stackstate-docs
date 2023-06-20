@@ -21,6 +21,11 @@
 * [Out of the box monitors for Kubernetes](use/alerting/kubernetes-monitors.md)
 * [Alerts](use/alerting/event-handlers.md)
 
+## 📈 Metrics
+
+* [Advanced](use/metrics/k8s-advanced.md)
+  * [Grafana Datasource](use/metrics/k8s-stackstate-grafana-datasource.md)
+
 ## 🔍 Views
 
 * [Kubernetes views](use/views/k8s-views.md)
@@ -36,4 +41,3 @@
   * [Metrics perspective](use/views/k8s-metrics-perspective.md)
   * [Traces perspective](use/views/k8s-traces-perspective.md)
 * [Timeline and time travel](use/stackstate-ui/k8sTs-timeline-time-travel.md)
-
