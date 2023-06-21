@@ -10,7 +10,7 @@ Using Service tokens it's possible to authenticate to StackState without having 
 
 ## Manage service tokens
 
-Service tokens can be managed via the [`sts` CLI](../../../setup/cli/cli-sts.md). The following commands are available:
+Service tokens can be managed via the `sts` CLI. The following commands are available:
 
 ```bash
 > sts service-token --help
@@ -47,10 +47,10 @@ This command takes the following command line arguments:
 | `--expiration` | The expiration date of the service token, the format is yyyy-MM-dd. The expiration is optional. |
 | `--roles` | A comma separated list of roles to assign to the service token |
 
-For example, the command below will create a service token with the name `my-service-token` and the role `stackstate-power-user`:
+For example, the command below will create a service token with the name `my-service-token` and the role `stackstate-k8s-troubleshooter`:
 
 ```sh
-> sts service-token create --name my-service-token --roles stackstate-power-user
+> sts service-token create --name my-service-token --roles stackstate-k8s-troubleshooter
 ✅ Service token created: svctok-aaaaa-bbbb-ccccc-ddddd
 ```
 
@@ -61,7 +61,7 @@ The ID, name, expiration date and roles of all created service tokens can be see
 ```bash
 > sts service-token list
 ID              | NAME             | EXPIRATION | ROLES
-107484341630693 | my-service-token |            | [stackstate-power-user]
+107484341630693 | my-service-token |            | [stackstate-k8s-troubleshooter]
 ```
 
 ### Delete service tokens
@@ -92,10 +92,10 @@ To use a service token to talk directly to the StackState API, add it to the hea
 
 * In the `Authorization` header:
     ```bash
-    > curl -X GET -H "Authorization: ApiKey <TOKEN>" http://localhost:8080/api/server/status
+    > curl -X GET -H "Authorization: ApiKey <TOKEN>" http://<tenant>.app.stackstate.io/api/server/status
     ```
 
 * In the `X-API-Key` header:
     ```bash
-    > curl -X GET -H "X-API-Key: <TOKEN>" http://localhost:8080/api/server/status
+    > curl -X GET -H "X-API-Key: <TOKEN>" http://<tenant>.app.stackstate.io/api/server/status
     ```

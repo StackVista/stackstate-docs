@@ -28,7 +28,7 @@ This will create a new role in StackState called `grafana` and grant it the `rea
 ✅ Service token created: svctok-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
-Learn more about [managing ServiceTokens](../security/k8s-service-tokens.md).
+Learn more about [managing ServiceTokens](/use/security/k8s-service-tokens.md).
 
 The returned ServiceToken can be used to authenticate with StackState. You can now add StackState as a datasource in Grafana.
 
