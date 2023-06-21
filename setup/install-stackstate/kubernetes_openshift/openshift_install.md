@@ -7,7 +7,7 @@ description: StackState Self-hosted v5.1.x
 ## Before you start
 
 {% hint style="info" %}
-Extra notes for installing on:
+Extra notes for installation:
 
 * **OpenShift clusters with limited permissions**: Read the [required permissions](required_permissions.md).
 * **Kubernetes**: Refer to the [Kubernetes installation instructions](kubernetes_install.md).
