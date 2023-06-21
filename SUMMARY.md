@@ -41,3 +41,7 @@
   * [Metrics perspective](use/views/k8s-metrics-perspective.md)
   * [Traces perspective](use/views/k8s-traces-perspective.md)
 * [Timeline and time travel](use/stackstate-ui/k8sTs-timeline-time-travel.md)
+
+## 🔐 Security
+
+* [Service Tokens](use/security/k8s-service-tokens.md)
