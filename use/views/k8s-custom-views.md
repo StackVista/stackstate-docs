@@ -6,9 +6,9 @@ description: StackState for Kubernetes troubleshooting
 
 ## Overview
 
-Whilst a [kubernetes view](k8s-views.md) acts as a starting point to explore a specific part of your IT landscape, and an [explore view](k8s-explore-views) allows you to investigate a subset of a particular view, a **custom view** provides a way for you to get back to any of these views. 
+Whilst a [kubernetes view](k8s-views.md) acts as a starting point to explore a specific part of your IT landscape, and an [explore view](k8s-explore-views.md) allows you to investigate a subset of a particular view, a **custom view** provides a way for you to get back to any of these views. 
 
-In other words, you can create a custom view by saving a [kubernetes view](k8s-views.md) or an [explore view](k8s-explore-views) with your own settings (filters, visualization options, view settings, timeline configuration) to bookmark a part of your topology that's of particular interest to you or your team.
+In other words, you can create a custom view by saving a [kubernetes view](k8s-views.md) or an [explore view](k8s-explore-views.md) with your own settings (filters, visualization options, view settings, timeline configuration) to bookmark a part of your topology that's of particular interest to you or your team.
 
 {% hint style="info" %}
 By default, custom views will be visible to all users, these can be secured by a **StackState administrator** if required.
