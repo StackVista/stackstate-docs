@@ -36,7 +36,7 @@ The returned ServiceToken can be used to authenticate with StackState. You can n
 
 With the created ServiceToken, you can now add StackState as a datasource in Grafana. To do this, go to the Grafana UI and navigate to the datasource configuration page. Click on the `Add data source` button and select `Prometheus` from the list of datasources.
 
-![Grafana new datasource](../../.gitbook/assets/gpfk8s/k8s-grafana-new-datasource.png)
+![Grafana new datasource](../../.gitbook/assets/k8s/k8s-grafana-new-datasource.png)
 
 On the datasource configuration page, enter the following configuration details:
 
