@@ -12,7 +12,7 @@ Before you can add StackState as a datasource in Grafana, you need to setup a Se
 
 You can do this via the StackState CLI:
 
-```bash
+```sh
 > sts rbac create-subject --subject grafana
 ✅ Created subject 'grafana'
 > sts rbac grant --subject grafana --permission read-metrics
@@ -23,7 +23,7 @@ read-metrics | system
 
 This will create a new role in StackState called `grafana` and grant it the `read-metrics` permission. You can then create a ServiceToken for this role:
 
-```bash
+```sh
 > sts service-token create --name grafana --roles grafana
 ✅ Service token created: svctok-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```

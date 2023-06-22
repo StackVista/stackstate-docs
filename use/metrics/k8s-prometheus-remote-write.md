@@ -6,7 +6,7 @@ description: StackState Kubernetes Troubleshooting
 
 When you have your own on-premise or self-hosted Prometheus running where metrics for your environment are aggregated, you can mirror these metrics in StackState. This will allow you to use StackState's powerful topology and correlation features to troubleshoot your Kubernetes environment without having to switch between tools.
 
-To make this possible, StackState exposes the Prometheus `remote_write` protocol as an endpoint. Using this endpoint you can configure your Prometheus instance to send metrics to StackState. The metrics are then automatically ingested and correlated with the rest of your environment. The following diagram shows how this works:
+To make this possible, StackState exposes the Prometheus `remote_write` protocol as an endpoint. Using this endpoint you can configure your Prometheus instance to send metrics to StackState. The metrics are then automatically ingested, and it will be possible to bind the metrics to the components observed by StackState. The following diagram shows how this works:
 
 ![Prometheus Remote Write](../../.gitbook/assets/k8s/k8s-prometheus-remotewrite.png)
 
