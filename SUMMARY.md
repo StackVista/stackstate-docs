@@ -25,6 +25,7 @@
 
 * [Advanced](use/metrics/k8s-advanced.md)
   * [Grafana Datasource](use/metrics/k8s-stackstate-grafana-datasource.md)
+  * [Prometheus remote_write](use/metrics/k8s-prometheus-remote-write.md)
 
 ## 🔍 Views
 

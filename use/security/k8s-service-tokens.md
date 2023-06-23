@@ -12,7 +12,7 @@ Using Service tokens it's possible to authenticate to StackState without having 
 
 Service tokens can be managed via the `sts` CLI. The following commands are available:
 
-```bash
+```sh
 > sts service-token --help
 Manage service tokens.
 
@@ -68,7 +68,7 @@ ID              | NAME             | EXPIRATION | ROLES
 
 A service token can be deleted using the `sts` CLI. Pass the ID of the service token as an argument. For example:
 
-```bash
+```sh
 > sts service-token delete 107484341630693
 ✅ Service token deleted: 107484341630693
 ```
@@ -82,8 +82,8 @@ Once created, a service token can be used to authenticate to StackState from a h
 
 A service token can be used for authentication with the new `sts` CLI.
 
-```bash
-> sts context --name <name> --service-token <TOKEN> --url https://<tenant-name>.app.stackstate.io
+```sh
+> sts context --name <name> --service-token <TOKEN> --url https://<tenant>.app.stackstate.io
 ```
 
 ### StackState APIs
@@ -91,11 +91,11 @@ A service token can be used for authentication with the new `sts` CLI.
 To use a service token to talk directly to the StackState API, add it to the header of the request in one of the following ways:
 
 * In the `Authorization` header:
-    ```bash
+    ```sh
     > curl -X GET -H "Authorization: ApiKey <TOKEN>" http://<tenant>.app.stackstate.io/api/server/status
     ```
 
 * In the `X-API-Key` header:
-    ```bash
+    ```sh
     > curl -X GET -H "X-API-Key: <TOKEN>" http://<tenant>.app.stackstate.io/api/server/status
     ```
