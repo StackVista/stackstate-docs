@@ -43,6 +43,10 @@
   * [Traces perspective](use/views/k8s-traces-perspective.md)
 * [Timeline and time travel](use/stackstate-ui/k8sTs-timeline-time-travel.md)
 
+## 🕵️ Agent
+* [Network configuration](setup/k8s-network-configuration.md)
+* [Using a custom registry](setup/agent/k8s-custom-registry.md)
+
 ## 🔐 Security
 
 * [Service Tokens](use/security/k8s-service-tokens.md)
