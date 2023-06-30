@@ -6,8 +6,8 @@ description: StackState for Kubernetes troubleshooting
 
 ## Overview
 
-When your StackState SaaS instance has been set up and configured, you will receive an email from StackState 
-with the required login details. This quick start guide will help you get started and get your own data into 
+When your StackState SaaS instance has been set up and configured, you will receive an email from StackState
+with the required login details. This quick start guide will help you get started and get your own data into
 your StackState SaaS instance.
 
 To integrate your cluster(s) with StackState you can follow one of these guides for your appropriate environment.
@@ -29,15 +29,13 @@ Set up a Kubernetes integration to collect topology, events, logs, change and me
 
 | Supported Kubernetes Version |
 |------------------------------|
+| Kubernetes 1.27              |
+| Kubernetes 1.26              |
+| Kubernetes 1.25              |
 | Kubernetes 1.24              |
 | Kubernetes 1.23              |
 | Kubernetes 1.22              |
 | Kubernetes 1.21              |
-| Kubernetes 1.20              |
-| Kubernetes 1.19              |
-| Kubernetes 1.18              |
-| Kubernetes 1.17              |
-| Kubernetes 1.16              |
 
 ### Supported runtime
 
@@ -73,7 +71,7 @@ To get data from a Kubernetes cluster into StackState, follow the steps describe
 
 2. In the StackState UI, open the main menu by clicking in the top left of the screen and go to `StackPacks` > `Integrations` > `Kubernetes`.
 3. Install a new instance of the Kubernetes StackPack:
-   * Specify a **Kubernetes Cluster Name** 
+   * Specify a **Kubernetes Cluster Name**
      * This name will be used to identify the cluster in StackState
    * Click **install**.
 4. Deploy the StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics on your Cluster using the helm command provided in the StackState UI after you have installed the StackPack.
@@ -93,12 +91,6 @@ Set up an Openshift integration to collect topology, events, logs, change and me
 | OpenShift 4.11    | Kubernetes 1.24              | February 10, 2024        |
 | OpenShift 4.10    | Kubernetes 1.23              | September 10, 2023       |
 | OpenShift 4.9     | Kubernetes 1.22              | April 18, 2023           |
-| OpenShift 4.8     | Kubernetes 1.21              | January 27, 2023         |
-| OpenShift 4.7     | Kubernetes 1.20              | August 24, 2022          |
-| OpenShift 4.6     | Kubernetes 1.19              | October 18, 2021         |
-| OpenShift 4.5     | Kubernetes 1.18              | July 27, 2021            |
-| OpenShift 4.4     | Kubernetes 1.17              | February 24, 2021        |
-| OpenShift 4.3     | Kubernetes 1.16              | October 27, 2020         |
 
 ### Supported runtime
 
@@ -135,7 +127,7 @@ To get data from a Kubernetes cluster into StackState, follow the steps describe
 
 2. In the StackState UI, open the main menu by clicking in the top left of the screen and go to `StackPacks` > `Integrations` > `Kubernetes`.
 3. Install a new instance of the Kubernetes StackPack:
-   * Specify a **Kubernetes Cluster Name** 
+   * Specify a **Kubernetes Cluster Name**
      * This name will be used to identify the cluster in StackState
    * Click **install**.
 4. Deploy the StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics on your Cluster using the helm command provided in the StackState UI after you have installed the StackPack.
@@ -152,6 +144,9 @@ Set up an Amazon EKS integration to collect topology, events, logs, change and m
 
 | Kubernetes version | Amazon EKS release | Amazon EKS End of Support |
 |--------------------|--------------------|---------------------------|
+| 1.27               | May 24, 2023       | July 2024                 |
+| 1.26               | April 11, 2023     | June 2024                 |
+| 1.25               | February 21, 2023  | May 2024                  |
 | 1.24               | November 15, 2022  | January 2024              |
 | 1.23               | August 11, 2022    | October 11, 2023          |
 | 1.22               | April 4, 2022      | June 4, 2023              |
@@ -211,14 +206,13 @@ Set up a Google GKE integration to collect topology, events, logs, change and me
 
 | Kubernetes Version | Google GKE release | Google GKE End of Support |
 |--------------------|--------------------|---------------------------|
+| 1.27               | June 15, 2023      | August 31, 2024           |
+| 1.26               | March 31, 2023     | May 31, 2024              |
+| 1.25               | December 14, 2022  | February 29, 2024         |
 | 1.24               | August 12, 2022    | October 31, 2023          |
 | 1.23               | May 27, 2022       | July 31, 2023             |
 | 1.22               | April 5, 2022      | April 30, 2023            |
 | 1.21               | November 1, 2022   | January 31, 2023          |
-| 1.20               | December 1, 2021   | August 1, 2022            |
-| 1.19               | October 1, 2021    | June 1, 2022              |
-| 1.18               | August 1, 2021     | March 1, 2022             |
-| 1.17               | July 1, 2021       | November 1, 2021          |
 
 ### Supported runtime
 
@@ -271,6 +265,8 @@ Set up a Azure AKS integration to collect topology, events, logs, change and met
 
 | Kubernetes Version | Azure AKS release | Azure AKS End of Support |
 |--------------------|-------------------|--------------------------|
+| 1.26               | April 18, 2023    | March 31, 2024           |
+| 1.25               | December 14, 2022 | December 31, 2023        |
 | 1.24               | August 17, 2022   | July 31, 2023            |
 | 1.23               | April 26, 2022    | April 02, 2023           |
 | 1.22               | January 10, 2021  | December 04, 2022        |
@@ -326,6 +322,8 @@ Set up a KOPS integration to collect topology, events, logs, change and metrics 
 
 | Supported Kubernetes Version |
 |------------------------------|
+| Kubernetes 1.26              |
+| Kubernetes 1.25              |
 | Kubernetes 1.24              |
 | Kubernetes 1.23              |
 | Kubernetes 1.22              |
@@ -386,6 +384,9 @@ Set up a Self-hosted integration to collect topology, events, logs, change and m
 
 | Supported Kubernetes Version |
 |------------------------------|
+| Kubernetes 1.27              |
+| Kubernetes 1.26              |
+| Kubernetes 1.25              |
 | Kubernetes 1.24              |
 | Kubernetes 1.23              |
 | Kubernetes 1.22              |
