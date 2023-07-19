@@ -46,6 +46,7 @@
 ## 🕵️ Agent
 * [Network configuration](setup/k8s-network-configuration.md)
 * [Using a custom registry](setup/agent/k8s-custom-registry.md)
+* [Request tracing](setup/agent/k8sTs-agent-request-tracing.md)
 
 ## 🔐 Security
 

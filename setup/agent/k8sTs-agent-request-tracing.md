@@ -1,0 +1,71 @@
+---
+description: StackState Kubernetes Troubleshooting
+---
+
+# Request Tracing
+
+## Observability through Load Balancers, Service Meshes and between Clusters
+
+StackState can observe connections between services and pods in different Clusters, or when the connections go through a Service Mesh or Load Balancer. Observing these connections is done through `request tracing`. Traced requests will result in connections in the [topology perspective](/use/views/k8s-topology-perspective.md), to provide insight in the dependencies across an application and help with finding the root cause of an incident.
+
+## How does it work
+
+Request tracing is done by injecting a unique header (the `X-Request-ID` header) into all HTTP traffic. This unique header is observed at both client and server through an eBPF probe installed with the StackState Agent. These observations are sent to StackState, which uses the observations to understand which clients and server are connected.
+
+The `X-Request-Id` headers are [injected](#enabling-the-trace-header-injection-sidecar) by a sidecar proxy that can be automatically injected by the StackState Agent. The sidecar gets injected by a [mutating webhook](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#mutatingadmissionwebhook), which injects the sidecar into every pod for which the `http-header-injector.stackstate.io/inject: enabled` annotation is defined. 
+
+It is also possible to add the `X-Request-Id` header if you application [already contains a proxy or LoadBalancer](#add-the-trace-header-id-to-an-existing-proxy), or through instrumenting your own code. Advantage of this is that the additional sidcar proxy is not needed.
+
+## Enabling the trace header injection sidecar
+
+Enabling trace header injection is a two-step process:
+
+ 1. Install the mutating webhook into the cluster by adding `--set http-header-injector-webhook.enabled=true` to the helm upgrade invocation when installing the StackState agent
+ 2. For every pod that has a http server, place the annotation `http-header-injector.stackstate.io/inject: enabled` to have the sidecar injected.
+
+{% hint style="warning" %}
+**Enabling the mutating webhook will only take effect upon pod restart**
+
+If the annotation is placed before the webhook is installed. Installing the webhook has no effect until the pods get restarted.
+{% endhint %}
+
+### Disabling trace header injection
+
+Disabling the trace header injection can be done with the reverse process:
+
+1. Remove the `http-header-injector.stackstate.io/inject: enabled` annotation from all pods.
+2. Redeploy the StackState Agent without the `--set http-header-injector-webhook.enabled=true` setting. 
+
+{% hint style="warning" %}
+**Disabling the mutating webhook will only take effect upon pod restart**
+
+If step 1 is skipped and only the mutating webhook is disabled, all pods need a restart for the sidecar to be removed. 
+{% endhint %}
+
+### Overhead
+
+Request tracing adds a small, fixed amount of CPU overhead for each HTTP request header that gets injected and observed. The exact amount is dependent on the system that it is ran on, so we advise to enable this feature first in an acceptance environment to observe the impact before moving to production. The sidecar proxy takes a minimum of 25Mb of memory per pod is deployed with, up to a maximum of 40Mb.   
+
+## Add the trace header id to an existing proxy
+
+To add the `X-Request-Id` header form an existing proxy, two properties are important:
+
+1. Each request/response pair has to get a unique id
+2. The `X-Request-Id` header should be added to both request and response, in order to be observed on both client and server
+
+### Add the trace header id in envoy
+
+In envoy, the `X-Request-Id` header can be enabled by setting `generate_request_id: true` and `always_set_request_id_in_response: true` for [http connections](https://www.envoyproxy.io/docs/envoy/latest/api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto)
+
+## Instrument your application 
+
+It is also possible to add the `X-Request-Id` header form either the client side to each request, or on the server side to each response. It is impolrtant to assure each request/response gets a unique `X-Request-Id` value. Also, the `X-Request-Id` requires that if an id is already present in a request, the response should contain that same id.
+
+## Supported systems/technologies
+
+- HTTP/1.0 and HTTP/1.1 with keepAlive
+- Trace header injection and trace observation on unencrypted traffic 
+- Trace observation for OpenSSL Encrypted traffic
+- Trace header injection alongside LinkerD
+- Any LoadBalancer that forwards the `X-Request-Id` header in requests and responses
+- Any cross-cluster networking solution that forwards the `X-Request-Id` header in requests and responses
