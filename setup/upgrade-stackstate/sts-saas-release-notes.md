@@ -1,5 +1,5 @@
 ---
-description: StackState SaaS
+description: StackState for Kubernetes troubleshooting Self-hosted
 ---
 
 # SaaS release notes

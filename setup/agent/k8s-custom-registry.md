@@ -1,5 +1,5 @@
 ---
-description: StackState K8s Troubleshooting
+description: StackState for Kubernetes troubleshooting
 ---
 
 # Install StackState Agent from custom image registry

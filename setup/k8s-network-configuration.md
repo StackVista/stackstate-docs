@@ -1,5 +1,5 @@
 ---
-description: StackState Kubernetes Troubleshooting
+description: StackState for Kubernetes troubleshooting Self-hosted
 ---
 
 # Networking configuration
