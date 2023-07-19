@@ -14,7 +14,7 @@ Request tracing is done by injecting a unique header (the `X-Request-ID` header)
 
 The `X-Request-Id` headers are [injected](#enabling-the-trace-header-injection-sidecar) by a sidecar proxy that can be automatically injected by the StackState Agent. The sidecar gets injected by a [mutating webhook](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#mutatingadmissionwebhook), which injects the sidecar into every pod for which the `http-header-injector.stackstate.io/inject: enabled` annotation is defined. 
 
-It is also possible to add the `X-Request-Id` header if you application [already contains a proxy or LoadBalancer](#add-the-trace-header-id-to-an-existing-proxy), or through instrumenting your own code. Advantage of this is that the additional sidcar proxy is not needed.
+It is also possible to add the `X-Request-Id` header if you application [already contains a proxy or LoadBalancer](#add-the-trace-header-id-to-an-existing-proxy), or through [instrumenting your own code](#instrument-your-application). Advantage of this is that the additional sidecar proxy is not needed.
 
 ## Enabling the trace header injection sidecar
 
@@ -44,22 +44,22 @@ If step 1 is skipped and only the mutating webhook is disabled, all pods need a 
 
 ### Overhead
 
-Request tracing adds a small, fixed amount of CPU overhead for each HTTP request header that gets injected and observed. The exact amount is dependent on the system that it is ran on, so we advise to enable this feature first in an acceptance environment to observe the impact before moving to production. The sidecar proxy takes a minimum of 25Mb of memory per pod is deployed with, up to a maximum of 40Mb.   
+Request tracing adds a small, fixed amount of CPU overhead for each HTTP request header that gets injected and observed. The exact amount is dependent on the system that it is ran on, so we advise to enable this feature first in an acceptance environment to observe the impact before moving to production. The sidecar proxy takes a minimum of 25Mb of memory per pod it is deployed with, up to a maximum of 40Mb.   
 
 ## Add the trace header id to an existing proxy
 
-To add the `X-Request-Id` header form an existing proxy, two properties are important:
+To add the `X-Request-Id` header from an existing proxy, two properties are important:
 
-1. Each request/response pair has to get a unique id
-2. The `X-Request-Id` header should be added to both request and response, in order to be observed on both client and server
+1. Each request/response pair has to get a unique id.
+2. The `X-Request-Id` header should be added to both request and response, in order to be observed on both client and server.
 
 ### Add the trace header id in envoy
 
 In envoy, the `X-Request-Id` header can be enabled by setting `generate_request_id: true` and `always_set_request_id_in_response: true` for [http connections](https://www.envoyproxy.io/docs/envoy/latest/api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto)
 
-## Instrument your application 
+## Instrument your application
 
-It is also possible to add the `X-Request-Id` header form either the client side to each request, or on the server side to each response. It is impolrtant to assure each request/response gets a unique `X-Request-Id` value. Also, the `X-Request-Id` requires that if an id is already present in a request, the response should contain that same id.
+It is also possible to add the `X-Request-Id` header form either the client side to each request, or on the server side to each response. It is important to assure each request/response gets a unique `X-Request-Id` value. Also, the `X-Request-Id` requires that if an id is already present in a request, the response should contain that same id.
 
 ## Supported systems/technologies
 
