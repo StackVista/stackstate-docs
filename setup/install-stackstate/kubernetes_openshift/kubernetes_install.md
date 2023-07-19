@@ -48,7 +48,7 @@ The `values.yaml` file is required to deploy StackState with Helm. It contains y
 **Before you continue:** Make sure you have the latest version of the Helm chart with `helm repo update`.
 {% endhint %}
 
-The `generate_values.sh` script in the [installation directory](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation) of the Helm chart will guide you through generating a `values.yaml` file that can be used to deploy StackState. You can run the `generate_values.sh` script in two ways:
+The `generate_values.sh` script in the [installation directory](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-k8s/installation) of the Helm chart will guide you through generating a `values.yaml` file that can be used to deploy StackState. You can run the `generate_values.sh` script in two ways:
 
 * **Interactive mode:** When the script is run without any arguments, it will guide you through the required configuration items.
 
@@ -101,7 +101,7 @@ helm upgrade \
   --namespace stackstate \
   --values values.yaml \
 stackstate \
-stackstate/stackstate
+stackstate/stackstate-k8s
 ```
 {% endtab %}
 {% tab title="Non-high availability setup" %}
@@ -121,7 +121,7 @@ helm upgrade \
   --values values.yaml \
   --values nonha_values.yaml \
 stackstate \
-stackstate/stackstate
+stackstate/stackstate-k8s
 ```
 {% endtab %}
 {% endtabs %}
@@ -158,10 +158,3 @@ Next steps are
 * Configure [ingress](ingress.md)
 * Install a [StackPack](../../../stackpacks/about-stackpacks.md) or two
 * Give your [co-workers access](../../../configure/security/authentication/).
-
-## Automatic Kubernetes support
-
-StackState has built-in support for Kubernetes by means of the [Kubernetes StackPack](../../../stackpacks/integrations/kubernetes.md). To get started quickly, the StackState installation can automate installation of this StackPack and the required Agent for the cluster that StackState itself will be installed on. This isn't required and can always be done later from the StackPacks page of the StackState UI for StackState's cluster or any other Kuberenetes cluster.
-
-The only required information is a name for the Kubernetes cluster that will distinguish it from the other Kubernetes clusters monitored by StackState. A good choice usually is the same name that is used in the kube context configuration. This will then automatically install the StackPack and install a Daemonset for the Agent and a deployment for the so-called cluster Agent. For the full details, read the [Kubernetes StackPack](../../../stackpacks/integrations/kubernetes.md) page.
-

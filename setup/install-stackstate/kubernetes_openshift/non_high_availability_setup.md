@@ -49,7 +49,8 @@ To deploy StackState in a non-high availability setup, you will need a `nonha_va
       components:
         ui:
           replicaCount: 1
-
+    victoria-metrics-1:
+      enabled: false
     zookeeper:
       replicaCount: 1
    ```

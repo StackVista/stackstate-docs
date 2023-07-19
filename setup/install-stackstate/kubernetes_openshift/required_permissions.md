@@ -8,9 +8,9 @@ description: StackState for Kubernetes troubleshooting Self-hosted
 
 All of StackState's own components can run without any extra permissions. However, to install StackState successfully, you need some additional privileges, or ensure that the requirements described in this page are met.
 
-## Autonomous Anomaly Detector \(AAD\)
+## Service-to-service authentication and authorization
 
-In order to run the [Autonomous Anomaly Detector](../../../stackpacks/add-ons/aad.md), or prepare your clsuter to run it, StackState needs to create a `ClusterRole` and two `ClusterRoleBinding` resources. Creating these cluster-wide resources is often prohibited for users that aren't a Kubernetes/OpenShift administrator.
+In order to authenticate and authorize communication between StackState services StackState uses Kubernetes service accounts. To be able to verify their validity and roles the helm chart creates a `ClusterRole` and a `ClusterRoleBinding` resources. Creating these cluster-wide resources is often prohibited for users that aren't a Kubernetes/OpenShift administrator. For that case the creation can be disabled and instead the roles and role bindings need to be [created manually](required_permissions.md#manually-create-cluster-wide-resources) by your cluster admin.
 
 ### Disable automatic creation of cluster-wide resources
 
@@ -21,15 +21,12 @@ The automatic creation of cluster-wide resources during installation of StackSta
 ```yaml
 cluster-role:
   enabled: false
-anomaly-detection:
-  cluster-role:
-    enabled: false
 ```
 {% endtab %}
 {% endtabs %}
 
 {% hint style="info" %}
-Note that if automatic creation of cluster-wide resources is disabled the Autonomous Anomaly Detector will NOT be able to authenticate against the running StackState installation unless you [manually create the cluster-wide resources](required_permissions.md#manually-create-cluster-wide-resources).
+If the creation of the cluster role and cluster role binding has been disabled please make sure to follow the instructions below to manually create them using the [instructions below](required_permissions.md#manually-create-cluster-wide-resources).
 {% endhint %}
 
 ### Manually create cluster-wide resources
@@ -72,9 +69,6 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: stackstate-api
-  namespace: stackstate
-- kind: ServiceAccount
-  name: anomaly-detection-sa
   namespace: stackstate
 ```
 {% endtab %}
@@ -208,7 +202,6 @@ elasticsearch:
 
 ## See also
 
-* [Autonomous Anomaly Detector](../../../stackpacks/add-ons/aad.md)
 * [Install StackState on Kubernetes](kubernetes_install.md)
 * [Install StackState on OpenShift](openshift_install.md)
 

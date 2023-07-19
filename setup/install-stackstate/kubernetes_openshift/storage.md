@@ -8,7 +8,7 @@ description: StackState for Kubernetes troubleshooting Self-hosted
 
 StackState doesn't specify a specific storage class on its PVC's \(persistent volume claims\) by default, for cloud providers like EKS and AKS this means the default storage class will be used.
 
-The defaults for those storage classes are typically to delete the PV \(persistent volume\) when the PVC is deleted. Note that even when running `helm delete` to remove a stackstate release the PVC's will remain present within the namespace and will be reused if a `helm install` is run in the same namespace with the same release name.
+The defaults for those storage classes are typically to delete the PV \(persistent volume\) when the PVC is deleted. However, even when running `helm delete` to remove a stackstate release the PVC's will remain present within the namespace and will be reused if a `helm install` is run in the same namespace with the same release name.
 
 To remove the PVC's either remove them manually with `kubectl delete pvc` or delete the entire namespace.
 

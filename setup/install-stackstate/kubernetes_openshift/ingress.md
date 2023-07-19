@@ -38,7 +38,7 @@ helm upgrade \
   --values "ingress_values.yaml" \
   --values "values.yaml" \
 stackstate \
-stackstate/stackstate
+stackstate/stackstate-k8s
 ```
 
 ## See also
