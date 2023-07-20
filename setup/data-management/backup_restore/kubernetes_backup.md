@@ -21,6 +21,7 @@ The following data will NOT be backed up:
 * Master node negotiations state stored in ZooKeeper - this runtime state would be incorrect when restored and will be automatically determined at runtime
 * Kubernetes configuration state and raw persistent volume state - this state can be rebuilt by re-installing StackState and restoring the backups.
 * Kubernetes logs - these are ephemeral.
+* Metrics
 
 ### Storage options
 
@@ -222,7 +223,7 @@ The indices for which a snapshot is created can be configured using the Helm val
 
 ## Restore backups and snapshots
 
-Scripts to list and restore backups and snapshots can be found in the [restore directory of the StackState Helm chart repository \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/restore). To use the scripts, download them from GitHub or checkout the repository.
+Scripts to list and restore backups and snapshots can be found in the [restore directory of the StackState Helm chart repository \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-k8s/restore). To use the scripts, download them from GitHub or checkout the repository.
 
 {% hint style="info" %}
 **Before you use the scripts, ensure that:**
@@ -403,7 +404,7 @@ To delete existing Elasticsearch indices so that a snapshot can be restored, fol
 ### Restore an Elasticsearch snapshot
 
 {% hint style="danger" %}
-**When a snapshot is restored, existing indices will NOT be overwritten.** Use the Elasticsearch [delete index API \(elastic.co\)](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/indices-delete-index.html) to remove them first. 
+**When a snapshot is restored, existing indices will NOT be overwritten.**
 
 See [delete Elasticsearch indices](kubernetes_backup.md#delete-elasticsearch-indices).
 {% endhint %}

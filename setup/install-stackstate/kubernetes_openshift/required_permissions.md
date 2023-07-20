@@ -34,7 +34,7 @@ If the creation of the cluster role and cluster role binding has been disabled p
 If you need to manually create the cluster-wide resources, ask your Kubernetes/OpenShift administrator to create the 3 resources below in the clsuter.
 
 {% hint style="info" %}
-Ensure that you specify the correct namespace for the bound `ServiceAccount` for both of the `ClusterRoleBinding` resources.
+Ensure that you specify the correct service account and namespace for the bound `ServiceAccount` for both of the `ClusterRoleBinding` resources. The example assumes the `stackstate` namespace is used, if some other namespace is used changed the namespace accordingly and also the service accounts referenced need to be changed to `<namespace>-stackstate-k8s-api`.
 {% endhint %}
 
 {% tabs %}
@@ -68,7 +68,7 @@ roleRef:
   name: system:auth-delegator
 subjects:
 - kind: ServiceAccount
-  name: stackstate-api
+  name: stackstate-stackstate-k8s-api
   namespace: stackstate
 ```
 {% endtab %}
@@ -87,7 +87,7 @@ roleRef:
   name: stackstate-authorization
 subjects:
 - kind: ServiceAccount
-  name: stackstate-api
+  name: stackstate-stackstate-k8s-api
   namespace: stackstate
 ```
 {% endtab %}

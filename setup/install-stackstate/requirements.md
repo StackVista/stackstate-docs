@@ -23,7 +23,7 @@ StackState can be installed on a Kubernetes or OpenShift cluster using the Helm 
 * **Azure Kubernetes Service (AKS):** 1.20 to 1.25
 * **OpenShift:** 4.8 to 4.10
 
-### Node sizing
+### Resource requirements
 
 For a standard, production, deployment, the StackState Helm chart will deploy backend services in a redundant setup with 3 instances of each service. The number of nodes required for environments with out-of-the-box settings are listed below, note that these may change based on system tuning:
 
@@ -107,8 +107,7 @@ For more details on configuring Ingress, have a look at the page [Configure Ingr
 
 It isn't recommended to set a ResourceQuota as this can interfere with resource requests. The resources required by StackState will vary according to the features used, configured resource limits and dynamic usage patterns, such as Deployment or DaemonSet scaling.
 
-If it's necessary to set a ResourceQuota for your implementation, the namespace resource limit should be set to match the node sizing requirements. For example, using the recommended node sizing for virtual machines \(6 nodes with `32GB memory`, `8 vCPUs`\), the namespace resource limit should be `6*32GB = 192GB` and `6*8 vCPUs = 48 vCPUs`.
-
+If it's necessary to set a ResourceQuota for your implementation, the namespace resource limit should be set to match the node [sizing requirements](requirements.md#resource-requirements).
 ## Client \(browser\)
 
 To use the StackState GUI, you must use one of the following web browsers:

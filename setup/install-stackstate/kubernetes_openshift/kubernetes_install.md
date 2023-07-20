@@ -155,6 +155,6 @@ StackState will now be available in your browser at `https://localhost:8080`. Lo
 
 Next steps are
 
-* Configure [ingress](ingress.md)
-* Install a [StackPack](../../../stackpacks/about-stackpacks.md) or two
+* [Expose StackState outside of the cluster](ingress.md)
+* [Start monitoring your Kubernetes clusters](../../../k8s-quick-start-guide.md)
 * Give your [co-workers access](../../../configure/security/authentication/).
