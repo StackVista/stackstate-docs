@@ -44,7 +44,7 @@
 * [Timeline and time travel](use/stackstate-ui/k8sTs-timeline-time-travel.md)
 
 ## 🕵️ Agent
-* [Network configuration](setup/k8s-network-configuration.md)
+* [Network configuration](setup/k8s-network-configuration-saas.md)
 * [Using a custom registry](setup/agent/k8s-custom-registry.md)
 
 ## 🚀 Self-hosted setup
@@ -57,16 +57,13 @@
     * [Non-high availability setup](setup/install-stackstate/kubernetes_openshift/non_high_availability_setup.md)
     * [Override default configuration](setup/install-stackstate/kubernetes_openshift/customize_config.md)
     * [Configure storage](setup/install-stackstate/kubernetes_openshift/storage.md)
-    * [Configure Ingress](setup/install-stackstate/kubernetes_openshift/ingress.md)
-    * [Install from custom image registry](setup/install-stackstate/kubernetes_openshift/install-from-custom-image-registry.md)
+    * [Exposing StackState outside of the cluster](setup/install-stackstate/kubernetes_openshift/ingress.md)
     * [Migrate from Linux install](setup/install-stackstate/kubernetes_openshift/migrate_from_linux.md)
   * [Initial run guide](setup/install-stackstate/initial_run_guide.md)
   * [Troubleshooting](setup/install-stackstate/troubleshooting.md)
 * [Upgrade StackState](setup/upgrade-stackstate/README.md)
   * [Steps to upgrade](setup/upgrade-stackstate/steps-to-upgrade.md)
   * [Version specific upgrade instructions](setup/upgrade-stackstate/version-specific-upgrade-instructions.md)
-  * [StackPack versions](setup/upgrade-stackstate/stackpack-versions.md)
-  * [StackState release notes](setup/upgrade-stackstate/sts-release-notes.md)
 * [StackState CLI](setup/cli/k8sTs-cli-sts.md)
 * [Data management](setup/data-management/README.md)
   * [Backup and Restore](setup/data-management/backup_restore/README.md)

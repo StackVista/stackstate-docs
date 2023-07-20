@@ -4,7 +4,7 @@ description: StackState for Kubernetes troubleshooting Self-hosted
 
 # Override default configuration
 
-A number of values can be set in the [StackState Helm chart](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate). For example, it's possible to customize the `tolerations` and `nodeSelectors` for each of the components. You can also add customized configuration and include environment variables
+A number of values can be set in the [StackState Helm chart](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-k8s). For example, it's possible to customize the `tolerations` and `nodeSelectors` for each of the components. You can also add customized configuration and include environment variables
 
 ## Custom configuration for StackState `api`
 

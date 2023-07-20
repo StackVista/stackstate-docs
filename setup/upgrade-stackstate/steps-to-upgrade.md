@@ -8,8 +8,6 @@ description: StackState for Kubernetes troubleshooting Self-hosted
 
 This document describes the upgrade procedure for StackState.
 
-For instructions on how to upgrade StackPacks, see [the StackPacks documentation](../../stackpacks/about-stackpacks.md#upgrade-a-stackpack).
-
 ## Before you upgrade
 
 When executing a StackState upgrade, be aware of the following:
@@ -59,62 +57,26 @@ A major upgrade consists of the following steps:
 
 ### Create a backup
 
-Before upgrading StackState it's recommended to back up your configuration and topology data.
-
-{% tabs %}
-{% tab title="Kubernetes" %}
-To create a backup on Kubernetes, see:
+Before upgrading StackState it's recommended to back up your configuration and topology data:
 
 * [Kubernetes backup](../data-management/backup_restore/kubernetes_backup.md)
 * [Configuration backup](../data-management/backup_restore/configuration_backup.md)
-* [Manually created topology backup](../data-management/backup_restore/manual_topology_backup.md)
-{% endtab %}
-
-{% tab title="Linux" %}
-To create a backup on Linux, see:
-
-* [Linux backup](../data-management/backup_restore/linux_backup.md)
-* [Configuration backup](../data-management/backup_restore/configuration_backup.md)
-* [Manually created topology backup](../data-management/backup_restore/manual_topology_backup.md)
-{% endtab %}
-{% endtabs %}
 
 {% hint style="info" %}
-Note that it won't be possible to restore the backup on the upgraded version of StackState. The StackState backup can only be restored in the StackState and StackPack versions prior to the upgrade.
-{% endhint %}
-
-### Uninstall StackPacks (optional)
-
-See [Uninstalling StackPacks](../../stackpacks/about-stackpacks.md#install-or-uninstall-a-stackpack) for more information.
-
-{% hint style="warning" %}
-When uninstalling StackPacks, the version of StackState prior to the upgrade must be used since this version can contain different installation logic from the new StackPack version.
+Note that it won't be possible to restore the backup on the upgraded version of StackState. The StackState backup can only be restored in the StackState version prior to the upgrade.
 {% endhint %}
 
 ### Upgrade StackState
 
-Instructions to upgrade a StackState Kubernetes or Linux setup can be found below.Be sure to check the release notes and any optional upgrade notes before running the upgrade.
+Be sure to check the release notes and any optional upgrade notes before running the upgrade.
 
 {% tabs %}
 
-{% tab title="Linux" %}
-
-1. Check the [version specific upgrade notes](version-specific-upgrade-instructions.md) for specific changes that need to be made for the new StackState version you will upgrade to.
-2. Download the upgrade file from [https://download.stackstate.com](https://download.stackstate.com).
-3. Depending on your platform, use one of the following commands to upgrade:
-   * **Fedora, RedHat, CentOS:**
-     * using RPM: `rpm -U <stackstate>.rpm`
-     * using yum: `yum localinstall <stackstate>.rpm`
-   * **Debian, Ubuntu:**
-     * using dpkg: `dpkg -i <stackstate>.deb`
-     * using apt: `apt-get upgrade <stackstate>.deb`
-{% endtab %}
-
 {% tab title="Kubernetes" %}
 
-2. Get the latest helm chart by running `helm repo update`.
-3. Check the [version specific upgrade notes](version-specific-upgrade-instructions.md) for all changes between your current version and the version that you will upgrade to. If there have been changes made to configuration items specified in your `values.yaml` file, the file should be updated accordingly.
-4. To upgrade, use the same helm command as for the [first time Kubernetes installation](../install-stackstate/kubernetes_openshift/kubernetes_install.md#deploy-stackstate-with-helm). The new helm chart will pull newer versions of Docker images and handle the upgrade.
+1. Get the latest helm chart by running `helm repo update`.
+2. Check the [version specific upgrade notes](version-specific-upgrade-instructions.md) for all changes between your current version and the version that you will upgrade to. If there have been changes made to configuration items specified in your `values.yaml` file, the file should be updated accordingly.
+3. To upgrade, use the same helm command as for the [first time Kubernetes installation](../install-stackstate/kubernetes_openshift/kubernetes_install.md#deploy-stackstate-with-helm). The new helm chart will pull newer versions of Docker images and handle the upgrade.
 {% endtab %}
 
 {% tab title="OpenShift" %}
@@ -127,10 +89,6 @@ Instructions to upgrade a StackState Kubernetes or Linux setup can be found belo
 
 {% endtabs %}
 
-### Install StackPacks (optional)
-
-See [Installing StackPacks](../../stackpacks/about-stackpacks.md#install-or-uninstall-a-stackpack) for more information.
-
 ### Verify the new installation
 
 Once StackState has been upgraded and started, verify that the new installation of StackState is reachable and that the application is running.
@@ -138,6 +96,5 @@ Once StackState has been upgraded and started, verify that the new installation 
 ## See also
 
 * [Manually upgrade a StackPack](../../stackpacks/about-stackpacks.md#upgrade-a-stackpack)
-* [StackPack versions shipped with each StackState release](stackpack-versions.md)
 * [Version-specific upgrade notes](version-specific-upgrade-instructions.md)
 
