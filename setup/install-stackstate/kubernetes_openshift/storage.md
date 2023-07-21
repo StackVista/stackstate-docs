@@ -56,6 +56,36 @@ zookeeper:
     storageClass: "standard"
     # size of persistent volume for each Zookeeper pod
     size: 50Gi
+
+victoria-metrics-0:
+  server:
+    persistentVolume:
+      storageClass: "standard"
+      
+stackstate:
+  components:
+    checks:
+      tmpToPVC:
+        volumeSize: 2Gi
+        storageClassName: "standard"
+    healthSync:
+      tmpToPVC:
+        volumeSize: 2Gi
+        storageClassName: "standard"
+    state:
+      tmpToPVC:
+        volumeSize: 2Gi
+        storageClassName: "standard"
+    sync:
+      tmpToPVC:
+        volumeSize: 2Gi
+        storageClassName: "standard"
+    vmagent:
+      persistence:
+        size: 10Gi
+        # not supported yet
+        storageClassName: "standard"
+
 ```
 {% endtab %}
 {% endtabs %}

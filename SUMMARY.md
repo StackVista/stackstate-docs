@@ -58,7 +58,6 @@
     * [Override default configuration](setup/install-stackstate/kubernetes_openshift/customize_config.md)
     * [Configure storage](setup/install-stackstate/kubernetes_openshift/storage.md)
     * [Exposing StackState outside of the cluster](setup/install-stackstate/kubernetes_openshift/ingress.md)
-    * [Migrate from Linux install](setup/install-stackstate/kubernetes_openshift/migrate_from_linux.md)
   * [Initial run guide](setup/install-stackstate/initial_run_guide.md)
   * [Troubleshooting](setup/install-stackstate/troubleshooting.md)
 * [Upgrade StackState](setup/upgrade-stackstate/README.md)
