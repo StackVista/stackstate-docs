@@ -14,7 +14,7 @@ Request tracing is done by injecting a unique header (the `X-Request-ID` header)
 
 The `X-Request-Id` headers are [injected](#enabling-the-trace-header-injection-sidecar) by a sidecar proxy that can be automatically injected by the StackState Agent. The sidecar gets injected by a [mutating webhook](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#mutatingadmissionwebhook), which injects the sidecar into every pod for which the `http-header-injector.stackstate.io/inject: enabled` annotation is defined. 
 
-It's also possible to add the `X-Request-Id` header if you application [already has a proxy or LoadBalancer](#add-the-trace-header-id-to-an-existing-proxy), or through [instrumenting your own code](#instrument-your-application). Advantage of this is that the extra sidecar proxy is not needed.
+It's also possible to add the `X-Request-Id` header if you application [already has a proxy or LoadBalancer](#add-the-trace-header-id-to-an-existing-proxy), or through [instrumenting your own code](#instrument-your-application). Advantage of this is that the extra sidecar proxy isn't needed.
 
 ## Enabling the trace header injection sidecar
 
@@ -59,7 +59,7 @@ In envoy, the `X-Request-Id` header can be enabled by setting `generate_request_
 
 ## Instrument your application
 
-It's also possible to add the `X-Request-Id` header form either the client side to each request, or on the server side to each response. It's important to ensure each request/response gets a unique `X-Request-Id` value. Also, the `X-Request-Id` requires that if an id is already present in a request, the response should contain that same ID.
+It's also possible to add the `X-Request-Id` header form either the client side to each request, or on the server side to each response. It's important to ensure each request/response gets a unique `X-Request-Id` value. Also, the `X-Request-Id` requires that if an ID is already present in a request, the response should contain that same ID.
 
 ## Supported systems/technologies
 
