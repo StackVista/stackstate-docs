@@ -19,7 +19,7 @@ Permissions are stored in StackGraph. This means that:
 
 There are two types of permission in StackState. **System permissions** scope user capabilities, such as access to settings, query execution and scripting. **View permissions** allow for CRUD operations on StackState Views, these can be granted for a specific view or for all views. For details of the permissions attached to each predefined role in StackState, see [RBAC roles - predefined roles](/setup/security/rbac/rbac_roles.md#predefined-roles)
 
-The following permissions are included in StackState v5.0:
+The following permissions are available in StackState:
 
 * `access-admin-api` -Access the administrator API.
 * `access-analytics` - Access the [Analytics](/use/stackstate-ui/analytics.md) page in the StackState UI.

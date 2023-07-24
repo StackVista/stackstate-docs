@@ -83,7 +83,6 @@
     * [Permissions](setup/security/rbac/rbac_permissions.md)
     * [Roles](setup/security/rbac/rbac_roles.md)
     * [Scopes](setup/security/rbac/rbac_scopes.md)
-    * [Subjects](setup/security/rbac/rbac_subjects.md)
   * [Self-signed certificates](setup/security/self-signed-certificates.md)
 
 
