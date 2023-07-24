@@ -119,7 +119,7 @@ helm upgrade --install \
    --set-string 'stackstate.apiKey'='<STACKSTATE_RECEIVER_API_KEY>' \
    --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
    --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
-   stackstate-agent stackstate/stackstate-agent
+   stackstate-agent stackstate/stackstate-k8s-agent
 ```
 {% endtab %}
 {% tab title="OpenShift" %}
@@ -132,7 +132,7 @@ helm upgrade --install \
 --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
 --set 'agent.scc.enabled'=true \
 --set 'kube-state-metrics.securityContext.enabled'=false \
-stackstate-agent stackstate/stackstate-agent
+stackstate-agent stackstate/stackstate-k8s-agent
 ```
 {% endtab %}
 {% endtabs %}
@@ -241,7 +241,7 @@ helm upgrade --install \
   --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
   --set-string 'stackstate.cluster.authToken'='<CLUSTER_AUTH_TOKEN>' \
   --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
-  stackstate-agent stackstate/stackstate-agent
+  stackstate-agent stackstate/stackstate-k8s-agent
 ```
 {% endtab %}
 {% tab title="OpenShift" %}
@@ -256,7 +256,7 @@ helm upgrade --install \
   --set 'agent.logLevel'='debug' \
   --set 'agent.scc.enabled'=true \
   --set 'kube-state-metrics.securityContext.enabled'=false \
-  stackstate-agent stackstate/stackstate-agent
+  stackstate-agent stackstate/stackstate-k8s-agent
 ```
 {% endtab %}
 {% endtabs %}
@@ -275,7 +275,7 @@ helm upgrade --install \
 --set-string 'stackstate.cluster.name'='<KUBERNETES_CLUSTER_NAME>' \
 --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
 --set-string 'agent.containerRuntime.customSocketPath'='<CUSTOM_SOCKET_PATH>' \
-stackstate-agent stackstate/stackstate-agent
+stackstate-agent stackstate/stackstate-k8s-agent
 ```
 
 ## Upgrade
@@ -303,7 +303,7 @@ helm upgrade --install \
   --set-string 'stackstate.cluster.authToken'='<CLUSTER_AUTH_TOKEN>' \
   --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
   --values values.yaml \
-  stackstate-agent stackstate/stackstate-agent
+  stackstate-agent stackstate/stackstate-k8s-agent
 ```
 {% endtab %}
 {% tab title="OpenShift" %}
@@ -319,7 +319,7 @@ helm upgrade --install \
   --set 'agent.scc.enabled'=true \
   --set 'kube-state-metrics.securityContext.enabled'=false \
   --values values.yaml \
-  stackstate-agent stackstate/stackstate-agent
+  stackstate-agent stackstate/stackstate-k8s-agent
 ```
 {% endtab %}
 {% endtabs %}

@@ -6,7 +6,7 @@ description: StackState for Kubernetes troubleshooting Self-hosted
 
 ## Overview
 
-Every user in StackState needs to have a subject and a set of [permissions](rbac_permissions.md) assigned; this combination is called a role. A role describes a group of users that can access a specific data set. StackState ships with four predefined roles and you can also create custom names and groups to match your needs.
+Every user in StackState needs to have a subject and a set of [permissions](rbac_permissions.md) assigned; this combination is called a role. A role describes a group of users that can access a specific data set. StackState ships with a set of predefined roles and you can also create roles to match your needs.
 
 ## Predefined roles
 
@@ -15,6 +15,7 @@ There are four roles predefined in StackState:
 * **Administrator** - has full access to all views and has all permissions, except for platform management.
 * **Platform Administrator** - has platform management permissions and access to all views.
 * **Power User** - typically granted to a user that needs to configure StackState for a team\(s\), but won't manage the entire StackState installation.
+* **Kubernetes Troubleshooter** - has all permissions required to use StackState for troubleshooting, including the ability to enable/disable monitors, create custom views and use the Cli.
 * **Guest** - has read-only access to StackState.
 
 The permissions assigned to each predefined StackState role can be found below. For details of the different permissions and how to manage them using the `stac` CLI, see [RBAC permissions](/setup/security/rbac/rbac_permissions.md)
@@ -153,8 +154,6 @@ update-visualization      | system
 
 In addition to the default predefined role names \(`stackstate-admin`, `stackstate-platform-admin`, `stackstate-power-user`, `stackstate-guest`\), which are always available, custom role names can be added that have the same permissions. Below is an example of how to do this for both Kubernetes and Linux installations.
 
-{% tabs %}
-{% tab title="Kubernetes" %}
 Include this YAML snippet in an `authentication.yaml` when customizing the authentication configuration to extend the default role names with these custom role names.
 
 ```yaml
@@ -176,30 +175,8 @@ helm upgrade \
   --values values.yaml \
   --values authentication.yaml \
 stackstate \
-stackstate/stackstate
+stackstate/stackstate-k8s
 ```
-{% endtab %}
-
-{% tab title="Linux" %}
-To extend the default role names with custom role names:
-
-1. Edit the existing keys in the `authorization` section of the configuration file `application_stackstate.conf`.
-2. Add custom roles using the syntax `xxxGroups = ${stackstate.authorization.xxxGroups} ["custom-role"]` as shown in the example below.
-
-   ```javascript
-   authorization {
-    guestGroups = ${stackstate.authorization.guestGroups} ["custom-guest-role"]
-    powerUserGroups = ${stackstate.authorization.powerUserGroups} ["custom-power-user-role"]
-    adminGroups = ${stackstate.authorization.adminGroups} ["custom-admin-role"]
-    platformAdminGroups = ${stackstate.authorization.platformAdminGroups} ["custom-platform-admin-role"]
-   }
-   ```
-
-3. Restart StackState for changes to take effect.
-
-   The list of roles will be extended to include the new, custom roles. The default roles will remain available \(stackstate-admin, stackstate-platform-admin, stackstate-guest and stackstate-power-user\).
-{% endtab %}
-{% endtabs %}
 
 ### Create custom roles and groups
 
@@ -208,10 +185,6 @@ The instructions below will take you through the process of setting up a new gro
 1. Subjects need two pieces of information: a subject name and a subject scope. Create a new subject - set its name to `stackstateManager` and set the scope to `'label = "StackState" AND type = "Business Application”’` as in the following example:
 
    ```text
-   # `stac` CLI:
-   stac subject save stackstateManager 'label = "StackState" AND type = "Business Application"'
-
-   # new `sts` CLI:
    sts rbac create-subject --subject stackstateManager --scope 'label = "StackState" AND type = "Business Application"'
    ```
 
@@ -222,10 +195,6 @@ The instructions below will take you through the process of setting up a new gro
 2. Configured subjects need permissions to access parts of the UI and to execute actions in it. StackState Manager role requires access to the specific view of business applications, and there is no need to grant any CRUD, or StackPack permissions - they won't be used in day-to-day work by any Manager. To grant permission to view the `Business Applications` view, follow the below example:
 
    ```text
-   # `stac` CLI:
-   stac permission grant stackstateManager access-view "Business Applications"
-
-   # new `sts` CLI:
    sts rbac grant --subject stackstateManager --resource "Business Applications" --permission access-view
    ```
 
@@ -235,23 +204,10 @@ The instructions below will take you through the process of setting up a new gro
 
 If your StackState instance is configured with a file-based authentication, then you need to add newly created subjects to the config file and enable authentication.
 
-1. In the `application_stackstate.conf` file locate the `authentication` block and change `enabled = false` to `enabled = true` as in the below example:
-
-   ```text
-      authentication {
-        enabled  = true
-        ...
-      }
-   ```
-
-2. Add new users and subjects to the `logins` table in the `application_stackstate.conf` as shown in the example below. Note that the default roles are always available \(`stackstate-admin`, `stackstate-platform-admin`, `stackstate-power-user` and `stackstate-guest`\)
+Add new users and subjects to the `logins` table in the `application_stackstate.conf` as shown in the example below. Note that the default roles are always available \(`stackstate-admin`, `stackstate-platform-admin`, `stackstate-power-user`, `stackstate-k8s-troubleshooter` and `stackstate-guest`\)
 
    ```text
     authentication {
-      enabled  = true
-
-      basicAuth = false
-
       # Amount of time to keep a session when a user doesn't log in
       sessionLifetime = 7d
 

@@ -139,7 +139,7 @@ Follow the steps below to configure StackState to create a bootstrap service tok
       --values values.yaml \
       --values authentication.yaml \
     stackstate \
-    stackstate/stackstate
+    stackstate/stackstate-k8s
     ```
 
 {% hint style="info" %}
@@ -151,37 +151,6 @@ Follow the steps below to configure StackState to create a bootstrap service tok
 {% endhint %}
 
 {% endtab %}
-{% tab title="Linux" %}
-
-To configure StackState to create a bootstrap service token on Linux, the following settings need to be added to the file `application_stackstate.conf`:
-
-```javascript
-authentication {
-  authServer {
-    authServerType = [ "serviceTokenAuthServer", ... ]
-
-    ...
-
-    serviceTokenAuthServer {
-      bootstrap {
-        token = "<random token>"
-        roles = [ "stackstate-power-user" ]
-        ttl = "24h"
-      }
-    }
-  }
-}
-```
-
-Follow the steps below to configure StackState to create a bootstrap service token:
-
-1. In `application_stackstate.conf` - add the bootstrap token:
-   * **token** - The token that will be created on the (initial) start of StackState.
-   * **roles** - An array of roles that will be assigned to the bootstrap token.`
-   * **ttl** - Optional. The time-to-live for the token, expressed as a duration string.
-2. Restart StackState to apply the changes.
-
-{% endtab %}
 {% endtabs %}
 
 ### List service tokens
@@ -190,30 +159,12 @@ The ID, name, expiration date and roles of all created service tokens can be see
 
 {% tabs %}
 {% tab title="CLI: sts" %}
-{% hint style="info" %}
-From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
-
-➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
-{% endhint %}
 
 ```bash
 > sts service-token list
 ID              | NAME             | EXPIRATION | ROLES
 107484341630693 | my-service-token |            | [stackstate-power-user]
 ```
-{% endtab %}
-{% tab title="CLI: stac (deprecated)" %}
-{% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
-
-The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
-
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
-{% endhint %}
-
-Command not available in the `stac` CLI, use the new `sts` CLI.
 {% endtab %}
 {% endtabs %}
 
@@ -223,29 +174,11 @@ A service token can be deleted using the new `sts` CLI. Pass the ID of the servi
 
 {% tabs %}
 {% tab title="CLI: sts" %}
-{% hint style="info" %}
-From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
-
-➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
-{% endhint %}
 
 ```bash
 > sts service-token delete 107484341630693
 ✅ Service token deleted: 107484341630693
 ```
-{% endtab %}
-{% tab title="CLI: stac (deprecated)" %}
-{% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
-
-The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
-
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
-{% endhint %}
-
-Command not available in the `stac` CLI, use the new `sts` CLI.
 {% endtab %}
 {% endtabs %}
 

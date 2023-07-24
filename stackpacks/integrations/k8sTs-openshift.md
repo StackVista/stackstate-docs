@@ -106,7 +106,7 @@ If an alternative kube-state-metrics pod \(i.e. Prometheus\) is installed, the d
    --set 'agent.scc.enabled'=true \
    --set 'kube-state-metrics.securityContext.enabled'=false \
    --values values.yaml \
-   stackstate-agent stackstate/stackstate-agent
+   stackstate-agent stackstate/stackstate-k8s-agent
    ```
 
 ### Status

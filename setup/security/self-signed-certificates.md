@@ -90,7 +90,7 @@ helm upgrade \
   --set-file 'stackstate.java.trustStore'=custom_cacerts \
   --set 'stackstate.java.trustStorePassword'=changeit \
 stackstate \
-stackstate/stackstate
+stackstate/stackstate-k8s
 ```
 
 {% hint style="info" %}
@@ -118,7 +118,7 @@ helm upgrade \
   --set 'stackstate.java.trustStoreBase64Encoded'=$(cat custom_cacerts | base64 -w0) \
   --set 'stackstate.java.trustStorePassword'=changeit \
 stackstate \
-stackstate/stackstate
+stackstate/stackstate-k8s
 ```
 
 {% endtab %}
@@ -134,7 +134,7 @@ helm upgrade \
   --set 'stackstate.java.trustStoreBase64Encoded'=$(cat custom_cacerts | base64) \
   --set 'stackstate.java.trustStorePassword'=changeit \
 stackstate \
-stackstate/stackstate
+stackstate/stackstate-k8s
 ```
 
 {% endtab %}

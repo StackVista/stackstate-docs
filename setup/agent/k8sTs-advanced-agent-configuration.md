@@ -127,7 +127,7 @@ helm upgrade --install \
 --set-string 'stackstate.apiKey=<STACKSTATE_RECEIVER_API_KEY>' \
 ... (set all custom fields)
 --values values.yaml
-stackstate-agent stackstate/stackstate-agent
+stackstate-agent stackstate/stackstate-k8s-agent
 ```
 
 {% endtab %}

@@ -4,7 +4,7 @@ description: StackState for Kubernetes troubleshooting Self-hosted
 
 # Role-based Access Control
 
-Role Based Access Control \(RBAC\) is a critical function for any Managed Service Provider \(MSP\) organization, but its use isn't limited to MSPs. Access Management helps you manage who has access to the specific topology elements, UI elements, and which APIs they can call.
+Access Management helps you manage who has access to the specific topology elements, UI elements, and which APIs they can call.
 
 RBAC is an authorization system that provides fine-grained access management of StackState resources, that provides a clean and easy way to audit user privileges and to fix identified issues with access rights.
 
@@ -12,9 +12,8 @@ RBAC is an authorization system that provides fine-grained access management of 
 
 Here are some examples of what you can do with RBAC:
 
-* Allow one user to have access to the Applications layer, and another one to have access to the Databases layer.
-* Allow a group of users to access Analytics in StackState.
-* Create a group for users with access to specific elements of the topology.
+* Allow one user to have access to the development cluster only, another one to both the production and development cluster and a third can access the development cluster and only 1 namespace in the production cluster.
+* Designate a small group of users as StackState administrators to setup and configure StackState, while giving all developers a troubleshooter role with limited configuration capability but access to view all topology, metrics, logs and events.
 
 ## What is a role in StackState?
 
