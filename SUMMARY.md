@@ -70,6 +70,22 @@
     * [Configuration backup](setup/data-management/backup_restore/configuration_backup.md)
   * [Data retention](setup/data-management/data_retention.md)
   * [Clear stored data](setup/data-management/clear_stored_data.md)
+* [Security](setup/security/README.md)
+  * [Authentication](setup/security/authentication/README.md)
+    * [Authentication options](setup/security/authentication/authentication_options.md)
+    * [File based](setup/security/authentication/file.md)
+    * [LDAP](setup/security/authentication/ldap.md)
+    * [Open ID Connect \(OIDC\)](setup/security/authentication/oidc.md)
+    * [KeyCloak](setup/security/authentication/keycloak.md)
+    * [Service tokens](setup/security/authentication/service_tokens.md)
+  * [RBAC](setup/security/rbac/README.md)
+    * [Role-based Access Control](setup/security/rbac/role_based_access_control.md)
+    * [Permissions](setup/security/rbac/rbac_permissions.md)
+    * [Roles](setup/security/rbac/rbac_roles.md)
+    * [Scopes](setup/security/rbac/rbac_scopes.md)
+    * [Subjects](setup/security/rbac/rbac_subjects.md)
+  * [Self-signed certificates](setup/security/self-signed-certificates.md)
+
 
 ## 🔐 Security
 

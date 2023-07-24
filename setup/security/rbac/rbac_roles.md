@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x
+description: StackState for Kubernetes troubleshooting Self-hosted
 ---
 
 # Roles
@@ -17,14 +17,14 @@ There are four roles predefined in StackState:
 * **Power User** - typically granted to a user that needs to configure StackState for a team\(s\), but won't manage the entire StackState installation.
 * **Guest** - has read-only access to StackState.
 
-The permissions assigned to each predefined StackState role can be found below. For details of the different permissions and how to manage them using the `stac` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md)
+The permissions assigned to each predefined StackState role can be found below. For details of the different permissions and how to manage them using the `stac` CLI, see [RBAC permissions](/setup/security/rbac/rbac_permissions.md)
 
 {% tabs %}
 {% tab title="Administrator" %}
 
 The Administrator role \(`stackstate-admin`\): has all permissions assigned, except for `access-admin-api`, which is assigned only to the Platform Administrator predefined role.
 
-Permissions assigned to the predefined Administrator role (`stackstate-admin`) are listed below, these were retrieved using the `sts` CLI. For details of the different permissions and how to manage them using the `sts` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md).
+Permissions assigned to the predefined Administrator role (`stackstate-admin`) are listed below, these were retrieved using the `sts` CLI. For details of the different permissions and how to manage them using the `sts` CLI, see [RBAC permissions](/setup/security/rbac/rbac_permissions.md).
 
 ```text
 $ ./sts rbac describe-permissions --subject stackstate-admin
@@ -69,7 +69,7 @@ upload-stackpacks           | system
 
 Platform Administrator \(`stackstate-platform-admin`\) is the only predefined role assigned the permission `access-admin-api`.
 
-Permissions assigned to the predefined Platform Administrator role (`stackstate-platform-admin`) are listed below, these were retrieved using the `sts` CLI. For details of the different permissions and how to manage them using the `sts` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md).
+Permissions assigned to the predefined Platform Administrator role (`stackstate-platform-admin`) are listed below, these were retrieved using the `sts` CLI. For details of the different permissions and how to manage them using the `sts` CLI, see [RBAC permissions](/setup/security/rbac/rbac_permissions.md).
 
 ```text
 ❯ ./sts rbac describe-permissions --subject stackstate-platform-admin
@@ -88,7 +88,7 @@ The Power User role \(`stackstate-power-user`\) has all Administrator permission
 * `update-permissions`
 * `upload-stackpacks`
 
-Permissions assigned to the predefined Power User role (`stackstate-power-user`) are listed below, these were retrieved using the `sts` CLI. For details of the different permissions and how to manage them using the `sts` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md).
+Permissions assigned to the predefined Power User role (`stackstate-power-user`) are listed below, these were retrieved using the `sts` CLI. For details of the different permissions and how to manage them using the `sts` CLI, see [RBAC permissions](/setup/security/rbac/rbac_permissions.md).
 
 ```text
 ❯ ./sts rbac describe-permissions --subject stackstate-power-user
@@ -129,7 +129,7 @@ update-visualization        | system
 
 The Guest role \(`stackstate-guest`\) has read-only access to StackState.
 
-Permissions assigned to the predefined Guest role are listed below, these were retrieved using the `sts` CLI. For details of the different permissions and how to manage them using the `sts` CLI, see [RBAC permissions](/configure/security/rbac/rbac_permissions.md).
+Permissions assigned to the predefined Guest role are listed below, these were retrieved using the `sts` CLI. For details of the different permissions and how to manage them using the `sts` CLI, see [RBAC permissions](/setup/security/rbac/rbac_permissions.md).
 
 ```text
 ❯ ./sts rbac describe-permissions --subject stackstate-guest

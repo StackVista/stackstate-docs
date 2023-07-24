@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x
+description: StackState for Kubernetes troubleshooting Self-hosted
 ---
 
 # Permissions
@@ -17,7 +17,7 @@ Permissions are stored in StackGraph. This means that:
 
 ## StackState permissions
 
-There are two types of permission in StackState. **System permissions** scope user capabilities, such as access to settings, query execution and scripting. **View permissions** allow for CRUD operations on StackState Views, these can be granted for a specific view or for all views. For details of the permissions attached to each predefined role in StackState, see [RBAC roles - predefined roles](/configure/security/rbac/rbac_roles.md#predefined-roles)
+There are two types of permission in StackState. **System permissions** scope user capabilities, such as access to settings, query execution and scripting. **View permissions** allow for CRUD operations on StackState Views, these can be granted for a specific view or for all views. For details of the permissions attached to each predefined role in StackState, see [RBAC roles - predefined roles](/setup/security/rbac/rbac_roles.md#predefined-roles)
 
 The following permissions are included in StackState v5.0:
 
@@ -49,7 +49,7 @@ The following permissions are included in StackState v5.0:
 * `manage-annotations` - Persist and fetch Anomaly annotations in StackState.
 * `manage-event-handlers` - Create or edit [event handlers](/use/events/manage-event-handlers.md).
 * `manage-monitors` - Create, delete and modify [monitors](/use/checks-and-monitors/monitors.md).
-* `manage-service-tokens`- Create/delete [Service Tokens](/configure/security/authentication/service_tokens.md) in StackState.
+* `manage-service-tokens`- Create/delete [Service Tokens](../security/authentication/service_tokens.md) in StackState.
 * `manage-stackpacks` - Install/upgrade/uninstall StackPacks.
 * `manage-star-view` - Add and remove [stars](/use/stackstate-ui/views/about_views.md#starred-views) from views in the StackState UI.
 * `manage-telemetry-streams` - [Create or edit new telemetry streams](/use/metrics/add-telemetry-to-element.md) for components in the StackState UI.

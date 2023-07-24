@@ -17,7 +17,7 @@ Queries created in the analytics environment can be used to investigate issues, 
 
 ## The analytics environment
 
-If your StackState user has the permission `access-analytics`, then you can access the analytics environment from the main menu. This will be available by default for all [power users and admins](../../configure/security/rbac/rbac_permissions.md). There are also places in the user interface where you can be directed to analytical environment if some data is available in the form of a query, a link will then say "Open in Analytics".
+If your StackState user has the permission `access-analytics`, then you can access the analytics environment from the main menu. This will be available by default for all [power users and admins](../../setup/security/rbac/rbac_permissions.md). There are also places in the user interface where you can be directed to analytical environment if some data is available in the form of a query, a link will then say "Open in Analytics".
 
 The analytics environment is divided into two sections:
 
