@@ -412,7 +412,9 @@ To set up a StackState Self-hosted integration you need to have:
 * An up-and-running Self-hosted Cluster.
 * A recent version of Helm 3.
 * A user with the permission to `create privileged pods`, `ClusterRoles` and `ClusterRoleBindings`:
-    * ClusterRole and ClusterRoleBinding are needed to grant StackState Agents permissions to access the Kubernetes API.
+    * ClusterRole and ClusterRoleBinding are needed to:
+      * Grant StackState Agents permissions to access the Kubernetes API
+      * Generate a secret for the mutating validation webhook which is part of [request tracing](/setup/agent/k8sTs-agent-request-tracing.md)
     * StackState Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
 ### Set up a self-hosted integration
