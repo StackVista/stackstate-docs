@@ -30,7 +30,7 @@ helm repo update
 {% hint style="info" %}
 For environments without internet access, also known as air-gapped environments, first follow [these extra instructions](./no_internet/download_prerequisites.md).
 
-Also make sure to follow the air-gapped instructions whenever those are present for a step.
+Also make sure to follow the air-gapped instalaltion instructions whenever those are present for a step.
 {% endhint %}
 
 1. [Create the namespace where StackState will be installed](kubernetes_install.md#create-namespace)
@@ -73,7 +73,7 @@ The script requires the following configuration items:
 | Configuration | Flag | Description                                                                                                                                                                                                                                                                                                                                                                                 |
 | :--- | :--- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Base URL | `-b` | The `<STACKSTATE_BASE_URL>`. The external URL for StackState that users and agents will use to connect. For example `https://stackstate.internal`. If you haven't decided on an Ingress configuration yet, use `http://localhost:8080`. This can be updated later in the generated file.                                                                                                    |
-| Username and password\*\* | `-u` `-p` | The username and password used by StackState to pull images from quay.io/stackstate repositories.                                                                                                                                                                                                                                                                                           |
+| Username and password\*\* | `-u` `-p` | The username and password used by StackState to pull images from quay.io/stackstate repositories. For air-gapped environments these need to be the username and password for the local docker registry. |
 | License key | `-l` | The StackState license key.                                                                                                                                                                                                                                                                                                                                                                 |
 | Admin API password | `-a` | The password for the admin API. Note that this API contains system maintenance functionality and should only be accessible by the maintainers of the StackState installation. You can omit this from the command line, the script will prompt for it.                                                                                                                                       |
 | Default password | `-d` | The password for the default user \(`admin`\) to access StackState's UI. You can omit this from the command line, the script will prompt for it.                                                                                                                                                                                                                                            |
@@ -86,6 +86,8 @@ Store the generated `values.yaml` file somewhere safe. You can reuse this file f
 ### Deploy StackState with Helm
 
 The recommended deployment of StackState is a production ready, high availability setup with many services running redundantly. If required, it's also possible to run StackState in a non-redundant setup, where each service has only a single replica. This setup is only recommended for a test environment.
+
+For air-gapped environments follow the instructions for the air-gapped installations.
 
 {% tabs %}
 {% tab title="High availability setup" %}
@@ -128,7 +130,7 @@ stackstate/stackstate-k8s
 {% endtab %}
 {% tab title="Air-gapped, high availability setup" %}
 
-To deploy StackState in a high availability setup on Kubernetes:
+To deploy StackState in a air-gapped, high availability setup on Kubernetes:
 
 1. Before you deploy:
    * [Follow these extra instructions for air-gapped installations](./no_internet/download_prerequisites.md).
@@ -148,7 +150,7 @@ stackstate/stackstate-k8s
 {% endtab %}
 {% tab title="Air-gapped, non-high availability setup" %}
 
-To deploy StackState in a non-high availability setup on Kubernetes:
+To deploy StackState in a air-gapped, non-high availability setup on Kubernetes:
 
 1. Before you deploy:
    * [Follow these extra instructions for air-gapped installations](./no_internet/download_prerequisites.md).
