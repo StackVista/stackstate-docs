@@ -15,7 +15,7 @@ The following data can be automatically backed up:
 * **Configuration and topology data** stored in StackGraph is backed up when the Helm value `backup.stackGraph.enabled` is set to `true`.
 * **Telemetry data** stored in StackState's Elasticsearch instance is backed up when the Helm value `backup.elasticsearch.enabled` is set to `true`.
 
-The following data will NOT be backed up:
+The following data will **not** be backed up:
 
 * In transit topology and telemetry updates stored in Kafka - these only have temporary value and would be of no use when a backup is restored
 * Master node negotiations state stored in ZooKeeper - this runtime state would be incorrect when restored and will be automatically determined at runtime
@@ -404,7 +404,7 @@ To delete existing Elasticsearch indices so that a snapshot can be restored, fol
 ### Restore an Elasticsearch snapshot
 
 {% hint style="danger" %}
-**When a snapshot is restored, existing indices will NOT be overwritten.**
+**When a snapshot is restored, existing indices will not be overwritten.**
 
 See [delete Elasticsearch indices](kubernetes_backup.md#delete-elasticsearch-indices).
 {% endhint %}

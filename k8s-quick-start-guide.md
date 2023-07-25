@@ -82,9 +82,9 @@ When running on a self-hosted air-gapped environment prepare the agent installat
 {% endhint %}
 ---
 
-# Openshift
+# OpenShift
 
-Set up an Openshift integration to collect topology, events, logs, change and metrics data from a Openshift cluster and make this available in StackState.
+Set up an OpenShift integration to collect topology, events, logs, change and metrics data from a OpenShift cluster and make this available in StackState.
 
 ### Supported versions
 [comment]: <> (https://access.redhat.com/support/policy/updates/openshift)
@@ -104,17 +104,17 @@ Set up an Openshift integration to collect topology, events, logs, change and me
 | CRI-O              |
 
 
-### Prerequisites for Openshift
+### Prerequisites for OpenShift
 
-To set up a StackState Openshift integration you need to have:
+To set up a StackState OpenShift integration you need to have:
 
-* An up-and-running Openshift Cluster.
+* An up-and-running OpenShift Cluster.
 * A recent version of Helm 3.
 * A user with the permission to `create privileged pods`, `ClusterRoles` and `ClusterRoleBindings`:
   * ClusterRole and ClusterRoleBinding are needed to grant StackState Agents permissions to access the Kubernetes API.
   * StackState Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
-### Set up an Openshift integration
+### Set up an OpenShift integration
 
 {% hint style="warning" %}
 Before you begin, check the [prerequisites for Kubernetes](#prerequisites-for-openshift).

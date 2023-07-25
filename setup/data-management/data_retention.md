@@ -92,7 +92,7 @@ The disk space available for Elasticsearch is configured via the `elasticsearch.
 
 **Note**: this is the disk space for each instance of ElasticSearch. For non-HA this is the total available disk space, but for HA there are 3 instances and a replication factor of 1. The end result is that the total available Elasticsearch storage will be `(250Gi * 3) / 2 = 375Gi`.
 
-There is a overall percentage configured via the `esDiskSpaceShare` for the diskspace available for logs (default 30%). The remaining disk space (default 70%) is available for events and traces. With the `CONFIG_FORCE_stackstate_receiver_k8sLogs_indexMaxAge` the retention for logs can be changed. To change any of these (or the other settings) simply override the relevant key in your values.yaml and [update StackState](./data_retention.md#update-stackstate). It is advised to only override the keys that are changed.
+There is a overall percentage configured via the `esDiskSpaceShare` for the diskspace available for logs (default 30%). The remaining disk space (default 70%) is available for events and traces. With the `CONFIG_FORCE_stackstate_receiver_k8sLogs_indexMaxAge` the retention for logs can be changed. To change any of these (or the other settings) simply override the relevant key in your values.yaml and [update StackState](./data_retention.md#update-stackstate). It's advised to only override the keys that are changed.
 
 The division of the remaining disk space between the different indexes for events and the traces index is determined by the rest of the configuration. There are 5 different indices, the first 4 (generic events, topology events, state events and sts events)  are for different kinds of events while the 5th (trace) is for traces. The different indexes each have 3 config settings described in the table below
 
@@ -138,7 +138,7 @@ For example, assuming the weights in the yaml shown above, but with 300Gi availa
 
 ## Retention of metrics
 
-StackState uses VictoriaMetrics to store metrics. It is configured with a default retention of 30 days. The helm chart allocates disk space and configures the retention period for the 1 or 2 Victoria metrics instances like this:
+StackState uses VictoriaMetrics to store metrics. It's configured with a default retention of 30 days. The helm chart allocates disk space and configures the retention period for the 1 or 2 Victoria metrics instances like this:
 
 ```
 victoria-metrics-0:
@@ -163,14 +163,14 @@ To change the retention period override both `retentionPeriod` keys with the sam
 
 ## Update StackState
 
-After making changes to the values.yaml StackState needs to be updated to apply those changes to the runtime. This may cause some short downtime while the services restart. To update StackState use the same command that was used during installation of StackState and make sure to include all the same configuration files including the one with the changes that were made:
+After making changes to the values.yaml StackState needs to be updated to apply those changes to the runtime. This may cause some short downtime while the services restart. To update StackState use the same command that was used during installation of StackState and make sure to include the same configuration files including the changes that have been made:
 
 * [Kubernetes](/setup/install-stackstate/kubernetes_openshift/kubernetes_install.md#deploy-stackstate-with-helm)
-* [Openshift](/setup/install-stackstate/kubernetes_openshift/openshift_install.md#deploy-stackstate-with-helm):
+* [OpenShift](/setup/install-stackstate/kubernetes_openshift/openshift_install.md#deploy-stackstate-with-helm):
 
 ## Resizing storage
 
-In most clusters it is possible to resize a persistent volume after it has been created and without interupting the operation of applications at all. However this cannot be done by simply changing the configured storage size in the values.yaml of the StackState Helm chart. Instead several steps are needed:
+In most clusters it's possible to resize a persistent volume after it has been created and without interrupting the operation of applications at all. However this cannot be done by simply changing the configured storage size in the values.yaml of the StackState Helm chart. Instead several steps are needed:
 
 1. Verify the used storage class can be resized
 2. Resize the volumes
@@ -195,11 +195,11 @@ Verify that the output contains this line:
 AllowVolumeExpansion:  True
 ```
 
-If this is not the case or if it is set to `False` please consult with your Kubernetes administrator if resizing is supported and can be enabled.
+If this is not the case or if it's set to `False` please consult with your Kubernetes administrator if resizing is supported and can be enabled.
 
 ### Resize the volumes
 
-The StackState Helm chart creates a stateful set, which has a template to create the persistent volume claim (PVC). This template is only used to create the PVC once, after that it won't be applied anymore and it is also not allowed to change it. So to make the PVC's bigger the PVC itself needs to be edited.
+The StackState Helm chart creates a stateful set, which has a template to create the persistent volume claim (PVC). This template is only used to create the PVC once, after that it won't be applied anymore and it's also not allowed to change it. So to make the PVC's bigger the PVC itself needs to be edited.
 
 To change the PVC size use the following commands.
 
@@ -216,10 +216,10 @@ kubectl get pvc --namespace stackstate
 
 ### Update values.yaml and apply the change
 
-The change made to the PVC will remain for the lifetime of the PVC, but whenever a clean install is done it will be lost. More importantly however, after resizing the PVC there is now a discrepancy between the cluster state and the definition of the desired state in the values.yaml. Therefore it is recommended to update the values.yaml as well. To circumvent the fact that this change is not allowed we first remove the stateful set (but keep the pods running) to re-create it with the new settings.
+The change made to the persistent volume claim (PVC) will remain for the lifetime of the PVC, but whenever a clean install is done it will be lost. More importantly however, after resizing the PVC there is now a discrepancy between the cluster state and the definition of the desired state in the values.yaml. Therefore it's recommended to update the values.yaml as well. To circumvent the fact that this change is not allowed we first remove the stateful set (but keep the pods running) to re-create it with the new settings.
 
 {% hint style="info" %}
-This step does not change the size of the PVC itself, so only doing this step will result in no changes at all to the running environment.
+This step doesn't change the size of the PVC itself, so only doing this step will result in no changes at all to the running environment.
 {% endhint %}
 
 First edit your values.yaml to update the volume size for the PVC's you've just resized. See the sections on [Metrics](data_retention.md#retention-of-metrics) or [Events and Logs](data_retention.md#retention-of-events-traces-and-logs).

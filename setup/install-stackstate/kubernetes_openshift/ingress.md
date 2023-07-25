@@ -6,9 +6,9 @@ description: StackState for Kubernetes troubleshooting Self-hosted
 
 ## Overview
 
-StackState can be exposed with a Kubernetes Ingress resource. The example on this page shows how to configure an nginx-ingress controller using [Helm for StackState running on Kubernetes](ingress.md#configure-ingress-via-the-stackstate-helm-chart). Alternatively this page documents which service/port combination to expose when using a different method of configuring ingress traffic.
+StackState can be exposed with a Kubernetes Ingress resource. The example on this page shows how to configure an nginx-ingress controller using [Helm for StackState running on Kubernetes](ingress.md#configure-ingress-via-the-stackstate-helm-chart). This page also documents which service/port combination to expose when using a different method of configuring ingress traffic.
 
-When observing the cluster that also hosts Stackstate, the agent traffic can be kept entirely within the cluster itself by [changing the agent configuration](./ingress.md#agents-in-the-same-cluster) during agent installation.
+When observing the cluster that also hosts StackState, the agent traffic can be kept entirely within the cluster itself by [changing the agent configuration](./ingress.md#agents-in-the-same-cluster) during agent installation.
 
 ## Configure ingress via the StackState Helm chart
 
@@ -29,7 +29,7 @@ ingress:
       secretName: tls-secret
 ```
 
-The thing that stands out in this file is the nginx annotation to increase the allowed `proxy-body-size` to `50m` \(larger than any expected request\). By default, nginx allows body sizes of maximum `1m`. StackState Agents and other data providers can sometimes send much larger requests. For this reason, you should make sure that the allowed body size is large enough, regardless of whether you are using nginx or another ingress controller. Make sure to update the `baseUrl` in the values file generated during initial installation, it will be used by StackState to generate convenient installation instructions for the agent.
+The thing that stands out in this file is the Nginx annotation to increase the allowed `proxy-body-size` to `50m` \(larger than any expected request\). By default, Nginx allows body sizes of maximum `1m`. StackState Agents and other data providers can sometimes send much larger requests. For this reason, you should make sure that the allowed body size is large enough, regardless of whether you are using Nginx or another ingress controller. Make sure to update the `baseUrl` in the values file generated during initial installation, it will be used by StackState to generate convenient installation instructions for the agent.
 
 Include the `ingress_values.yaml` file when you run the `helm upgrade` command to deploy StackState:
 
@@ -45,7 +45,7 @@ stackstate/stackstate-k8s
 
 ## Configure via external tools
 
-To make StackState accessible outside of the Kubernetes cluster it is installed in it is sufficient to route traffic to port `8080` of the `<namespace>-stackstate-k8s-router` service (the name starts with the namespace used to install StackState, but always ends in `stackstate-k8s-router`). The UI of StackState can be accessed directly under the root path of that service (i.e. `http://<namespace>-stackstate-k8s-router:8080`) while agents will use the `/receiver` path (`http://<namespace>-stackstate-k8s-router:8080/receiver`).
+To make StackState accessible outside of the Kubernetes cluster it's installed in, it's sufficient to route traffic to port `8080` of the `<namespace>-stackstate-k8s-router` service. The UI of StackState can be accessed directly under the root path of that service (i.e. `http://<namespace>-stackstate-k8s-router:8080`) while agents will use the `/receiver` path (`http://<namespace>-stackstate-k8s-router:8080/receiver`).
 
 Make sure to update the `baseUrl` in the values file generated during initial installation, it will be used by StackState to generate convenient installation instructions for the agent.
 
@@ -55,7 +55,7 @@ StackState itself doesn't use TLS encrypted traffic, TLS encryption is expected 
 
 ## Agents in the same cluster
 
-Agents that are deployed to the same cluster as StackState can of course use the external URL on which StackState is exposed, but it is also possible to configure the agent to directly connect to the StackState instance via the Kubernetes internal network only. To do that replace the value of the `'stackstate.url'` in the `helm install` command from the [Agent Kubernetes installation](../../../k8s-quick-start-guide.md) with the internal cluster URL for the router service (see also above): `http://<namespace>-stackstate-k8s-router.<namespace>.svc.cluster.local:8080/receiver/stsAgent` (the `<namespace>` sections need to be replaced with the namespace of StackState). 
+Agents that are deployed to the same cluster as StackState can of course use the external URL on which StackState is exposed, but it's also possible to configure the agent to directly connect to the StackState instance via the Kubernetes internal network only. To do that replace the value of the `'stackstate.url'` in the `helm install` command from the [Agent Kubernetes installation](../../../k8s-quick-start-guide.md) with the internal cluster URL for the router service (see also above): `http://<namespace>-stackstate-k8s-router.<namespace>.svc.cluster.local:8080/receiver/stsAgent` (the `<namespace>` sections need to be replaced with the namespace of StackState). 
 
 ## See also
 

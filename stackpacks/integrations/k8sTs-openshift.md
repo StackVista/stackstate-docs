@@ -335,7 +335,7 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 To uninstall the OpenShift StackPack, go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **OpenShift** screen and click **UNINSTALL**. All OpenShift StackPack specific configuration will be removed from StackState.
 
-See the Kubernetes Agent documentation for instructions on [how to uninstall the StackState Cluster Agent and the StackState Agent](/setup/agent/kubernetes-openshift.md#uninstall) from your Openshift cluster.
+See the Kubernetes Agent documentation for instructions on [how to uninstall the StackState Cluster Agent and the StackState Agent](/setup/agent/kubernetes-openshift.md#uninstall) from your OpenShift cluster.
 
 ## Release notes
 

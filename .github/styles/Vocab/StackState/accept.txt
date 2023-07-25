@@ -35,7 +35,11 @@ endtabs
 EVENT
 Event
 event
+Helm
+helm
 HIGH
+high
+GitHub
 IAM
 ITSM
 JIRA
@@ -54,6 +58,7 @@ Namespace
 NEW
 new
 New
+OpenShift
 playhead
 Playhead
 PostgreSQL
@@ -90,3 +95,4 @@ URL
 VIEW
 View
 view
+yaml

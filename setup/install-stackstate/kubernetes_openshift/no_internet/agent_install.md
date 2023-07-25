@@ -46,7 +46,7 @@ Download the `copy_images.sh` bash script from the [Agent Helm chart Github repo
 chmod +x copy_images.sh
 ```
 
-The script can copy images directly from StackState's Quay.io registry to your internal registry. If the internal registry is not accessible from a computer that has direct internet access an intermediate step is needed.
+The script can copy images directly from StackState's Quay.io registry to your internal registry. If the internal registry isn't accessible from a computer that has direct internet access an intermediate step is needed.
 
 {%tabs %}
 {% tab title="Copy direct to local registry" %} 
@@ -64,9 +64,9 @@ The script extracts all images from the Helm chart and copies the images to the 
 
 {% tab title="Copy indirect" %} 
 
-When it is not possible to directly copy the images to the internal registry the images can be listed using the `copy_images.sh` script. The best way to download, retag and copying the images to the internal registry depends on the exact circumstances.
+When it's impossible to directly copy the images to the internal registry the images can be listed using the `copy_images.sh` script. The best way to download, re-tag and copying the images to the internal registry depends on the exact circumstances.
 
-Here is an example way of working that uses the `copy_images.sh` script to produce a list of images and then uses bash scripting to download, retag and upload all images. Depending on the exact situation this may need be adapted.
+Here is an example way of working that uses the `copy_images.sh` script to produce a list of images and then uses bash scripting to download, re-tag and upload all images. Depending on the exact situation this may need be adapted.
 
 ```bash
 # Produce a list of all StackState images in the stackstate_agent_images.txt file
@@ -85,7 +85,7 @@ done < stackstate_agent_images.txt
 
 # Now copy images to the air-gapped environment, for example using scp or sftp. Also copy the stackstate_agent_images.txt file
 
-# On a computer inside the air-gapped environment load, retag and push the images, this uses registry.acme.com:5000 as the internal registry
+# On a computer inside the air-gapped environment load, re-tag and push the images, this uses registry.acme.com:5000 as the internal registry
 while read image; do
   name=$(echo "$image" | cut -d'/' -f3)
   target_image="registry.acme.com:5000/stackstate/$name"
