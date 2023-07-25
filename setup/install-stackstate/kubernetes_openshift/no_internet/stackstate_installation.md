@@ -2,14 +2,14 @@
 description: StackState for Kubernetes troubleshooting Self-hosted
 ---
 
-# Overview
+# Prepare air-gapped StackState deployment
 
 Installing in an air-gapped environment where there is no internet access available requires some extra preparation steps to make the StackState helm chart and docker images available in the air-gapped environment. 
 
-1. [Configure Helm on your local machine](./download_prerequisites.md#configure-helm)
-2. [Download and copy the StackState Helm chart](./download_prerequisites.md#download-and-copy-the-stackstate-helm-chart)
-3. [Copy the StackState docker images](./download_prerequisites.md#copy-the-stackstate-docker-images)
-4. [Prepare local docker registry configuration](./download_prerequisites.md#prepare-local-docker-registry-configuration)
+1. [Configure Helm on your local machine](./stackstate_installation.md#configure-helm)
+2. [Download and copy the StackState Helm chart](./stackstate_installation.md#download-and-copy-the-stackstate-helm-chart)
+3. [Copy the StackState docker images](./stackstate_installation.md#copy-the-stackstate-docker-images)
+4. [Prepare local docker registry configuration](./stackstate_installation.md#prepare-local-docker-registry-configuration)
 
 Note that step 2. requires a Docker registry to which all docker images required by StackState can be uploaded such that the Kubernetes cluster can pull the Docker images from it.
 
@@ -81,7 +81,7 @@ docker login quay.io
 mkdir images
 while read image; do
   name=$(echo "$image" | cut -d'/' -f3)
-  docker pull "$image"
+  docker pull --platform linux/amd64 "$image"
   docker save "$image" -o "images/${name}.tar"
 done < stackstate_images.txt
 
@@ -120,3 +120,7 @@ victoria-metrics-1:
     image:
       repository: registry.acme.com:5000/stackstate/victoria-metrics
 ```
+
+## See also
+
+* [Air-gapped agent installation](./agent_install.md)

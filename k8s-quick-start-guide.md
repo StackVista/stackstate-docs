@@ -77,6 +77,9 @@ To get data from a Kubernetes cluster into StackState, follow the steps describe
 4. Deploy the StackState Agent, Cluster Agent, Checks Agent and kube-state-metrics on your Cluster using the helm command provided in the StackState UI after you have installed the StackPack.
    * Once the Agents have been deployed, they will begin collecting data and push this to StackState
 
+{% hint style="warning" %}
+When running on a self-hosted air-gapped environment prepare the agent installation first with the [air-gapped instructions](setup/install-stackstate/kubernetes_openshift/no_internet/agent_install.md).
+{% endhint %}
 ---
 
 # Openshift

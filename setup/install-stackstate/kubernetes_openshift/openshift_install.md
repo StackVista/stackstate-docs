@@ -28,7 +28,7 @@ helm repo update
 ## Install StackState
 
 {% hint style="info" %}
-For environments without internet access, also known as air-gapped environments, first follow [these extra instructions](./no_internet/download_prerequisites.md).
+For environments without internet access, also known as air-gapped environments, first follow [these extra instructions](./no_internet/stackstate_installation.md).
 
 Also make sure to follow the air-gapped instalaltion instructions whenever those are present for a step.
 {% endhint %}
