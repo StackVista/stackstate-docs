@@ -25,8 +25,6 @@ The result of this configuration should produce a **clientId** and a **secret**.
 
 To configure StackState to use an OIDC authentication provider on Kubernetes, OIDC details and user role mapping needs to be added to the file `authentication.yaml`. For example:
 
-{% tabs %}
-{% tab title="authentication.yaml" %}
 ```yaml
 stackstate:
   authentication:
@@ -50,8 +48,6 @@ stackstate:
       admin: ["oidc-admin-role-for-stackstate"]
       platformAdmin: ["oidc-platform-admin-role-for-stackstate"]
 ```
-{% endtab %}
-{% endtabs %}
 
 Follow the steps below to configure StackState to authenticate using OIDC:
 

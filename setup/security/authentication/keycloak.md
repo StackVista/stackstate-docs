@@ -27,8 +27,6 @@ Before you can configure StackState to authenticate using KeyCloak, you need to 
 
 To configure StackState to authenticate using KeyCloak, KeyCloak details and user role mapping needs to be added to the file `authentication.yaml`. For example:
 
-{% tabs %}
-{% tab title="authentication.yaml" %}
 ```yaml
 stackstate:
   authentication:
@@ -51,8 +49,6 @@ stackstate:
       admin: ["keycloak-admin-role-for-stackstate"]
       platformAdmin: ["keycloak-platformadmin-role-for-stackstate"]
 ```
-{% endtab %}
-{% endtabs %}
 
 Follow the steps below to configure StackState to authenticate using KeyCloak:
 

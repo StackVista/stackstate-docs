@@ -82,26 +82,18 @@ StackState permissions can be managed using the `sts` CLI.
 
 List all permissions:
 
-{% tabs %}
-{% tab title="CLI: sts" %}
 
 ```text
 sts rbac list-permissions
 ```
-{% endtab %}
-{% endtabs %}
 
 ### Show granted permissions
 
 Show the permissions granted to a specific role.
 
-{% tabs %}
-{% tab title="CLI: sts" %}
 ```text
 sts rbac describe-permissions --subject [role-name]
 ```
-{% endtab %}
-{% endtabs %}
 
 ### Grant permissions
 
@@ -109,65 +101,45 @@ sts rbac describe-permissions --subject [role-name]
 
 Provide a subject with permission to open a view:
 
-{% tabs %}
-{% tab title="CLI: sts" %}
 
 ```text
 sts rbac grant --subject [role-name] --permission access-view --resource [view-name]
 ```
-{% endtab %}
-{% endtabs %}
 
 #### Allow a user to create \(save\) views
 
 Provide a subject with the system permission to create \(save\) views:
 
-{% tabs %}
-{% tab title="CLI: sts" %}
 ```text
 sts rbac grant --subject [role-name] --permission create-views
 ```
-{% endtab %}
-{% endtabs %}
 
 #### Allow a user to check StackState settings
 
 Provide a subject with the system permission to check StackState settings:
 
-{% tabs %}
-{% tab title="CLI: sts" %}
 
 ```text
 sts rbac grant --subject [role-name] --permission read-settings
 ```
-{% endtab %}
-{% endtabs %}
 
 #### Allow a user to add or edit event handlers
 
 Provide a subject with the system permission to add new event handlers and edit existing event handlers:
 
-{% tabs %}
-{% tab title="CLI: sts" %}
 
 ```text
 sts rbac grant --subject [role-name] --permission manage-event-handlers
 ```
-{% endtab %}
-{% endtabs %}
 
 ### Revoke permissions
 
 Revoke permissions for a subject to open a view:
 
-{% tabs %}
-{% tab title="CLI: sts" %}
 
 ```text
 sts rbac revoke --subject [role-name] --permission access-view --resource [view-name]
 ```
-{% endtab %}
-{% endtabs %}
 
 ## StackState UI with no permissions
 

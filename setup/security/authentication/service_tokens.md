@@ -108,9 +108,6 @@ Command not available in the `stac` CLI, use the new `sts` CLI.
 
 When installing StackState, it's possible to bootstrap it with a (temporary) service token. This allows for using the CLI without first interacting with StackState and obtaining an API token from the UI. In order to set this up, you can add the following snippet to the StackState configuration file:
 
-{% tabs %}
-{% tab title="Kubernetes" %}
-
 To configure StackState to create a bootstrap service token on Kubernetes, The following values need to be added to the file `authentication.yaml`. For example
 
 ```yaml
@@ -150,37 +147,25 @@ Follow the steps below to configure StackState to create a bootstrap service tok
 * The authentication configuration is stored as a Kubernetes secret.
 {% endhint %}
 
-{% endtab %}
-{% endtabs %}
-
 ### List service tokens
 
 The ID, name, expiration date and roles of all created service tokens can be seen using the new `sts` CLI. For example:
 
-{% tabs %}
-{% tab title="CLI: sts" %}
 
 ```bash
 > sts service-token list
 ID              | NAME             | EXPIRATION | ROLES
 107484341630693 | my-service-token |            | [stackstate-power-user]
 ```
-{% endtab %}
-{% endtabs %}
 
 ### Delete service tokens
 
 A service token can be deleted using the new `sts` CLI. Pass the ID of the service token as an argument. For example:
 
-{% tabs %}
-{% tab title="CLI: sts" %}
-
 ```bash
 > sts service-token delete 107484341630693
 ✅ Service token deleted: 107484341630693
 ```
-{% endtab %}
-{% endtabs %}
 
 ## Use service tokens
 
