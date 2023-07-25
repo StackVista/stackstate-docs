@@ -28,15 +28,15 @@ helm repo update
 ## Install StackState
 
 {% hint style="info" %}
-For environments without internet access, also known as air-gapped environments, first follow [these extra instructions](./no_internet/download_prerequisites.md).
-
-Also make sure to follow the air-gapped instructions whenever those are present for a step.
+This is the guide for installing in an air-gapped environment, i.e. an environment with no direct internet access from the cluster and the systems from which StackState is installed onto the cluster. Use the [normal installation guide](../kubernetes_install.md) to install on a cluster that does have internet access.
 {% endhint %}
 
-1. [Create the namespace where StackState will be installed](kubernetes_install.md#create-namespace)
-2. [Generate the `values.yaml` file](kubernetes_install.md#generate-values.yaml)
-3. [Deploy StackState with Helm](kubernetes_install.md#deploy-stackstate-with-helm)
-4. [Access the StackState UI](kubernetes_install.md#access-the-stackstate-ui)
+
+1. [Download the pre-requisites](./download_prerequisites.md)
+2. [Create the namespace where StackState will be installed](kubernetes_install.md#create-namespace)
+3. [Generate the `values.yaml` file](kubernetes_install.md#generate-values.yaml)
+4. [Deploy StackState with Helm](kubernetes_install.md#deploy-stackstate-with-helm)
+5. [Access the StackState UI](kubernetes_install.md#access-the-stackstate-ui)
 
 ### Create namespace
 
@@ -120,48 +120,6 @@ To deploy StackState in a non-high availability setup on Kubernetes:
 helm upgrade \
   --install \
   --namespace stackstate \
-  --values values.yaml \
-  --values nonha_values.yaml \
-stackstate \
-stackstate/stackstate-k8s
-```
-{% endtab %}
-{% tab title="Air-gapped, high availability setup" %}
-
-To deploy StackState in a high availability setup on Kubernetes:
-
-1. Before you deploy:
-   * [Follow these extra instructions for air-gapped installations](./no_internet/download_prerequisites.md).
-   * [Create the namespace where StackState will be installed](kubernetes_install.md#create-namespace)
-   * [Generate `values.yaml`](#generate-values.yaml)
-2. Deploy the latest StackState version to the `stackstate` namespace with the following command:
-
-```text
-helm upgrade \
-  --install \
-  --namespace stackstate \
-  --values local-docker-registry.yaml \
-  --values values.yaml \
-stackstate \
-stackstate/stackstate-k8s
-```
-{% endtab %}
-{% tab title="Air-gapped, non-high availability setup" %}
-
-To deploy StackState in a non-high availability setup on Kubernetes:
-
-1. Before you deploy:
-   * [Follow these extra instructions for air-gapped installations](./no_internet/download_prerequisites.md).
-   * [Create the namespace where StackState will be installed](kubernetes_install.md#create-namespace)
-   * [Generate `values.yaml`](#generate-values.yaml)
-   * [Create `nonha_values.yaml`](non_high_availability_setup.md)
-3. Deploy the latest StackState version to the `stackstate` namespace with the following command:
-
-```bash
-helm upgrade \
-  --install \
-  --namespace stackstate \
-  --values local-docker-registry.yaml \
   --values values.yaml \
   --values nonha_values.yaml \
 stackstate \
