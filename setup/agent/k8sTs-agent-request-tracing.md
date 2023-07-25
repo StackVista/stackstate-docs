@@ -12,7 +12,7 @@ StackState can observe connections between services and pods in different Cluste
 
 Request tracing is done by injecting a unique header (the `X-Request-ID` header) into all HTTP traffic. This unique header is observed at both client and server through an eBPF probe installed with the StackState Agent. These observations are sent to StackState, which uses the observations to understand which clients and server are connected.
 
-The `X-Request-Id` headers are [injected](#enabling-the-trace-header-injection-sidecar) by a sidecar proxy that can be automatically injected by the StackState Agent. The sidecar gets injected by a [mutating webhook](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#mutatingadmissionwebhook), which injects the sidecar into every pod for which the `http-header-injector.stackstate.io/inject: enabled` annotation is defined. 
+The `X-Request-Id` headers are [injected](#enabling-the-trace-header-injection-sidecar) by a sidecar proxy that can be automatically injected by the StackState Agent. The sidecar gets injected by a [mutating webhook](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#mutatingadmissionwebhook), which injects the sidecar into every pod for which the `http-header-injector.stackstate.io/inject: enabled` annotation is defined. Sidecar injection is not supported on OpenShift. 
 
 It's also possible to add the `X-Request-Id` header if you application [already has a proxy or LoadBalancer](#add-the-trace-header-id-to-an-existing-proxy), or through [instrumenting your own code](#instrument-your-application). Advantage of this is that the extra sidecar proxy isn't needed.
 
@@ -20,7 +20,7 @@ It's also possible to add the `X-Request-Id` header if you application [already 
 
 Enabling trace header injection is a two-step process:
 
- 1. Install the mutating webhook into the cluster by adding `--set http-header-injector-webhook.enabled=true` to the helm upgrade invocation when installing the StackState agent
+ 1. Install the mutating webhook into the cluster by adding `--set httpHeaderInjectorWebhook.enabled=true` to the helm upgrade invocation when installing the StackState agent
  2. For every pod that has a endpoint which processes http(s) requests, place the annotation `http-header-injector.stackstate.io/inject: enabled` to have the sidecar injected.
 
 {% hint style="warning" %}
@@ -34,7 +34,7 @@ If the annotation is placed before the webhook is installed. Installing the webh
 Disabling the trace header injection can be done with the reverse process:
 
 1. Remove the `http-header-injector.stackstate.io/inject: enabled` annotation from all pods.
-2. Redeploy the StackState Agent without the `--set http-header-injector-webhook.enabled=true` setting. 
+2. Redeploy the StackState Agent without the `--set httpHeaderInjectorWebhook.enabled=true` setting. 
 
 {% hint style="warning" %}
 **Disabling the mutating webhook will only take effect upon pod restart**
