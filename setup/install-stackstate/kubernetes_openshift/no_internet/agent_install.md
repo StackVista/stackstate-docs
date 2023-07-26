@@ -64,7 +64,7 @@ The script extracts all images from the Helm chart and copies the images to the 
 
 {% tab title="Copy indirect" %} 
 
-When it's impossible to directly copy the images to the internal registry the images can be listed using the `copy_images.sh` script. The best way to download, re-tag and copying the images to the internal registry depends on the exact circumstances.
+When it's impossible to directly copy the images to the internal registry the images can be listed using the `copy_images.sh` script. The best way to download, re-tag, and copy the images to the internal registry depends on the exact circumstances.
 
 Here is an example way of working that uses the `copy_images.sh` script to produce a list of images and then uses bash scripting to download, re-tag and upload all images. Depending on the exact situation this may need be adapted.
 
