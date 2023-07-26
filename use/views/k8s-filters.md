@@ -50,7 +50,7 @@ To filter the topology using basic filters, click the **Filters** menu in the to
 
 #### Advanced topology filters
 
-You can use the in-built [StackState Query Language \(STQL\)](../../develop/reference/stql_reference.md) to build an advanced topology filter that zooms in on a specific area of your topology.
+You can use the in-built [StackState Query Language \(STQL\)](../../develop/reference/k8sTs-stql_reference.md) to build an advanced topology filter that zooms in on a specific area of your topology.
 
 To filter the topology using an STQL query, click the **Filters** menu in the top right corner of the UI and select **Switch to STQL** under the **Topology** vertical tab.
 
