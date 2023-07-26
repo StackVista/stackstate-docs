@@ -222,7 +222,7 @@ stackstate:
       guest: ["ldap-guest-role"]
       powerUser: ["ldap-power-user-role"]
       admin: ["ldap-admin-role"]
-      troubleshooter: ["ldap-troubleshooter-role"] # not yet supported in the helm chart
+      k8sTroubleshooter: ["ldap-troubleshooter-role"]
       platformAdmin: ["ldap-platform-admin-role"]
 ```
 
@@ -283,7 +283,7 @@ stackstate:
           - access-view
           - save-view
           - delete-view
-          query: "label = 'kube_cluster_name:dev-test'" # Optional, leave out when the scope should be all topology, not yet supported in the Helm chart
+          topologyScope: "label = 'kube_cluster_name:dev-test'" # Optional, leave out when the scope should be all topology
 ```
 
 To use it in for your StackState installation \(or already running instance, note that it will restart the API\):
