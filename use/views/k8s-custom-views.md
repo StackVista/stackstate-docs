@@ -24,7 +24,7 @@ If you frequently use a certain custom view, you can add it to the **starred vie
 
 ### Create a view
 
-To create a new custom view, click the **Save view as...** blue button on the top navigation bar when you're on a [kubernetes view](k8s-views.md) or an [explore view](k8s-explore-views). To create a new view from a modified custom view, use the dropdown menu next to the button and select **Save view as...**.
+To create a new custom view, click the **Save view as...** blue button on the top navigation bar when you're on a [kubernetes view](k8s-views.md) or an [explore view](k8s-explore-views.md). To create a new view from a modified custom view, use the dropdown menu next to the button and select **Save view as...**.
 
 ![Edit view settings](../../.gitbook/assets/k8s/k8s-custom-view-edit-settings.png)
 
