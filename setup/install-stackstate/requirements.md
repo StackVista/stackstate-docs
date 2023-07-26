@@ -6,22 +6,18 @@ description: StackState for Kubernetes troubleshooting Self-hosted
 
 ## Overview
 
-This page details the requirements for all supported installations of StackState:
-
-* [Kubernetes and OpenShift](#kubernetes-and-openshift)
-* [Linux](#linux)
-
-Requirements for [networking](#networking) and the [StackState client \(browser\)](#client-browser) can be found at the bottom of the page.
+Requirements for [StackState client \(browser\)](#client-browser) can be found at the bottom of the page.
 
 ## Kubernetes and OpenShift
 
 ### Supported versions
 
 StackState can be installed on a Kubernetes or OpenShift cluster using the Helm charts provided by StackState. These Helm charts require Helm v3.x to install and are supported on:
-* **Kubernetes:** 1.20 to 1.25
-* **Amazon Elastic Kubernetes Service (EKS):** 1.20 to 1.25
-* **Azure Kubernetes Service (AKS):** 1.20 to 1.25
-* **OpenShift:** 4.8 to 4.10
+* **Kubernetes:** 1.21 to 1.27
+* **Amazon Elastic Kubernetes Service (EKS):** 1.20 to 1.27
+* **Azure Kubernetes Service (AKS):** 1.20 to 1.26
+* **Google Kubernetes Enginge (GKE):** 1.21 to 1.27
+* **OpenShift:** 4.9 to 4.11
 
 ### Resource requirements
 
