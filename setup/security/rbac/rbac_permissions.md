@@ -17,7 +17,7 @@ Permissions are stored in StackGraph. This means that:
 
 ## StackState permissions
 
-There are two types of permission in StackState. **System permissions** scope user capabilities, such as access to settings, query execution and scripting. **View permissions** allow for CRUD operations on StackState Views, these can be granted for a specific view or for all views. For details of the permissions attached to each predefined role in StackState, see [RBAC roles - predefined roles](/setup/security/rbac/rbac_roles.md#predefined-roles)
+There are two types of permission in StackState. **System permissions** scope user capabilities, such as access to settings, query execution and scripting. **View permissions** allow for CRUD operations on StackState Views, these can be granted for a specific view or for all views. For details of the permissions attached to each predefined role in StackState, see [predefined roles](/setup/security/rbac/rbac_roles.md#predefined-roles)
 
 The following permissions are available in StackState:
 
@@ -48,7 +48,7 @@ The following permissions are available in StackState:
 * `import-settings` - Import settings.
 * `manage-annotations` - Persist and fetch Anomaly annotations in StackState.
 * `manage-event-handlers` - Create or edit [event handlers](/use/events/manage-event-handlers.md).
-* `manage-monitors` - Create, delete and modify [monitors](/use/checks-and-monitors/monitors.md).
+* `manage-monitors` - Create, delete and change [monitors](/use/checks-and-monitors/monitors.md).
 * `manage-service-tokens`- Create/delete [Service Tokens](../security/authentication/service_tokens.md) in StackState.
 * `manage-stackpacks` - Install/upgrade/uninstall StackPacks.
 * `manage-star-view` - Add and remove [stars](/use/stackstate-ui/views/about_views.md#starred-views) from views in the StackState UI.
@@ -65,7 +65,7 @@ The following permissions are available in StackState:
   * Platform Administrator: -
   * Power User: `everything` (all views)
   * Guest: -
-* `update-permissions` - Grant/revoke permissions or modify subjects.
+* `update-permissions` - Grant/revoke permissions or change subjects.
 * `update-settings` - Update settings.
 * `update-visualization` - Change [visualization settings](/use/stackstate-ui/views/visualization_settings.md).
 * `upload-stackpacks` - Upload new \(versions of\) StackPacks.
@@ -99,7 +99,7 @@ sts rbac describe-permissions --subject [role-name]
 
 #### Allow a user to open a view
 
-Provide a subject with permission to open a view:
+Give a subject with permission to open a view:
 
 
 ```text
@@ -108,7 +108,7 @@ sts rbac grant --subject [role-name] --permission access-view --resource [view-n
 
 #### Allow a user to create \(save\) views
 
-Provide a subject with the system permission to create \(save\) views:
+Give a subject with the system permission to create \(save\) views:
 
 ```text
 sts rbac grant --subject [role-name] --permission create-views
@@ -116,7 +116,7 @@ sts rbac grant --subject [role-name] --permission create-views
 
 #### Allow a user to check StackState settings
 
-Provide a subject with the system permission to check StackState settings:
+Give a subject with the system permission to check StackState settings:
 
 
 ```text
@@ -125,7 +125,7 @@ sts rbac grant --subject [role-name] --permission read-settings
 
 #### Allow a user to add or edit event handlers
 
-Provide a subject with the system permission to add new event handlers and edit existing event handlers:
+Give a subject with the system permission to add new event handlers and edit existing event handlers:
 
 
 ```text

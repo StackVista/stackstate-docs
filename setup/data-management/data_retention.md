@@ -92,7 +92,7 @@ The disk space available for Elasticsearch is configured via the `elasticsearch.
 
 **Note**: this is the disk space for each instance of ElasticSearch. For non-HA this is the total available disk space, but for HA there are 3 instances and a replication factor of 1. The end result is that the total available Elasticsearch storage will be `(250Gi * 3) / 2 = 375Gi`.
 
-There is a overall percentage configured via the `esDiskSpaceShare` for the diskspace available for logs (default 30%). The remaining disk space (default 70%) is available for events and traces. With the `CONFIG_FORCE_stackstate_receiver_k8sLogs_indexMaxAge` the retention for logs can be changed. To change any of these (or the other settings) simply override the relevant key in your values.yaml and [update StackState](./data_retention.md#update-stackstate). It's advised to only override the keys that are changed.
+There is a overall percentage configured via the `esDiskSpaceShare` for the disk space available for logs (default 30%). The remaining disk space (default 70%) is available for events and traces. With the `CONFIG_FORCE_stackstate_receiver_k8sLogs_indexMaxAge` the retention for logs can be changed. To change any of these (or the other settings) simply override the relevant key in your values.yaml and [update StackState](./data_retention.md#update-stackstate). It's advised to only override the keys that are changed.
 
 The division of the remaining disk space between the different indexes for events and the traces index is determined by the rest of the configuration. There are 5 different indices, the first 4 (generic events, topology events, state events and sts events)  are for different kinds of events while the 5th (trace) is for traces. The different indexes each have 3 config settings described in the table below
 
@@ -170,13 +170,14 @@ After making changes to the values.yaml StackState needs to be updated to apply 
 
 ## Resizing storage
 
-In most clusters it's possible to resize a persistent volume after it has been created and without interrupting the operation of applications at all. However this cannot be done by simply changing the configured storage size in the values.yaml of the StackState Helm chart. Instead several steps are needed:
+In most clusters it's possible to resize a persistent volume after it has been created and without interrupting the operation of applications at all. However this can't be done by simply changing the configured storage size in the values.yaml of the StackState Helm chart. Instead several steps are needed:
 
 1. Verify the used storage class can be resized
 2. Resize the volumes
 3. Update values.yaml and apply change (optional but recommended)
 
-To resize the volume we use the Victoria Metrics storage as an example and we assume StackState is installed in the `stackstate` namespace, deviating from this may result in slightly different names for the resources. The volume is going to be resized to 500Gi.
+The examples below use the VictoriaMetrics storage as an example. StackState is installed in the `stackstate` namespace. The volume is going to be resized to 500Gi.
+
 ### Verify the storage class supports resizing
 
 Use the following `kubectl` commands to get the storage class used and check that the `allowVolumeExpansion` is set to true.
@@ -195,7 +196,7 @@ Verify that the output contains this line:
 AllowVolumeExpansion:  True
 ```
 
-If this is not the case or if it's set to `False` please consult with your Kubernetes administrator if resizing is supported and can be enabled.
+If the line is absent or if it's set to `False` please consult with your Kubernetes administrator if resizing is supported and can be enabled.
 
 ### Resize the volumes
 
@@ -207,7 +208,7 @@ To change the PVC size use the following commands.
 # Get the PVC's for StackState, allows us to check the current size and copy the name of the PVC to modify it with the next command
 kubectl get pvc --namespace stackstate
 
-# Patch the PVC's specified size, we change it to 500Gi
+# Patch the PVC's specified size, change it to 500Gi
 kubectl patch pvc server-volume-stackstate-victoria-metrics-0-0 -p '{"spec":{"resources": { "requests": { "storage": "500Gi" }}}}'
 
 # Get the PVC's again to verify if it was resized, depending on the provider this can take a while
@@ -216,7 +217,7 @@ kubectl get pvc --namespace stackstate
 
 ### Update values.yaml and apply the change
 
-The change made to the persistent volume claim (PVC) will remain for the lifetime of the PVC, but whenever a clean install is done it will be lost. More importantly however, after resizing the PVC there is now a discrepancy between the cluster state and the definition of the desired state in the values.yaml. Therefore it's recommended to update the values.yaml as well. To circumvent the fact that this change is not allowed we first remove the stateful set (but keep the pods running) to re-create it with the new settings.
+The change made to the persistent volume claim (PVC) will remain for the lifetime of the PVC, but whenever a clean install is done it will be lost. More importantly however, after resizing the PVC there is now a discrepancy between the cluster state and the definition of the desired state in the values.yaml. Therefore it's recommended to update the values.yaml as well. To circumvent the fact that this change is not allowed, first remove the stateful set (but keep the pods running) to re-create it with the new settings.
 
 {% hint style="info" %}
 This step doesn't change the size of the PVC itself, so only doing this step will result in no changes at all to the running environment.

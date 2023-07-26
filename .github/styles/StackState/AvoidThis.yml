@@ -12,5 +12,4 @@ swap:
   config: configuration
   Config: Configuration
   Openshift: OpenShift
-  github: GitHub
   Github: GitHub

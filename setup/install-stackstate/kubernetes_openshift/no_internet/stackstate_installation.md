@@ -11,7 +11,7 @@ Installing in an air-gapped environment, where there is no internet access avail
 3. [Copy the StackState docker images](./stackstate_installation.md#copy-the-stackstate-docker-images)
 4. [Prepare local docker registry configuration](./stackstate_installation.md#prepare-local-docker-registry-configuration)
 
-Note that step 2 requires a Docker registry that is available to the Kubernetes cluster and can store all StackState docker images.
+Note that step 2 requires a Docker registry that's available to the Kubernetes cluster and can store all StackState docker images.
 
 ## Configure Helm
 
@@ -102,7 +102,7 @@ done < stackstate_images.txt
 
 ## Prepare local Docker registry configuration
 
-In preparation for the installation of StackState create a `local-docker-registry.yaml` values file that will be used during the Helm installation of StackState. Include the following configuration in that file, replacing the `registry.acme.com:5000` with your internal docker registry where the docker images have been uploaded in the previous steps.
+In preparation for the installation of StackState create a `local-docker-registry.yaml` values file that will be used during the Helm installation of StackState. Include the following configuration in that file, replacing the `registry.acme.com:5000` with your internal docker registry where the docker images have been uploaded in the ealier steps.
 
 ```yaml
 global:

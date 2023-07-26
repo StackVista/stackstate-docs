@@ -18,7 +18,7 @@ There are four roles predefined in StackState:
 * **Kubernetes Troubleshooter** - has all permissions required to use StackState for troubleshooting, including the ability to enable/disable monitors, create custom views and use the Cli.
 * **Guest** - has read-only access to StackState.
 
-The permissions assigned to each predefined StackState role can be found below. For details of the different permissions and how to manage them using the `stac` CLI, see [RBAC permissions](/setup/security/rbac/rbac_permissions.md)
+The permissions assigned to each predefined StackState role can be found below. For details of the different permissions and how to manage them using the `stac` CLI, see [Role based access control (RBAC) permissions](/setup/security/rbac/rbac_permissions.md)
 
 {% tabs %}
 {% tab title="Administrator" %}
@@ -240,7 +240,7 @@ stackstate/stackstate-k8s
 
 ### Custom roles with custom scopes and permissions via the configuration file
 
-To set up a new role called `development-troubleshooter`, which will allow the same permissions as the normal troubleshooter role, but only for the `dev-test` cluster, include this YAML snippet in an `authentication.yaml`:
+To set up a new role called `development-troubleshooter`, which will allow the same permissions as the predefined troubleshooter role, but only for the `dev-test` cluster, include this YAML snippet in an `authentication.yaml`:
 
 ```yaml
 stackstate:
@@ -308,7 +308,7 @@ To set up a new role called `development-troubleshooter`, which will allow the s
    sts rbac create-subject --subject development-troubleshooter --scope 'label = "kube_cluster_name:dev-test"'
    ```
 
-   Please note that when passing an STQL query in a CLI command, all operators \(like `=`, `<`,`AND`, and so on\) need to be surrounded by spaces, as in the above example.
+   Please note that when passing an topology query in a CLI command, all operators \(like `=`, `<`,`AND`, and so on\) need to be surrounded by spaces, as in the above example.
 
 2. Configured subjects need permissions to access parts of the UI and to execute actions in it. To grant the same permissions as the troubleshooter role, follow the below example:
 

@@ -4,7 +4,7 @@ description: StackState for Kubernetes troubleshooting
 
 # Networking configuration
 
-StackState for Kubernetes Troubleshooting is a SaaS offering that is hosted in the cloud. To be able to communicate from your premises/cloud to our SaaS, the StackState Agent needs to be able to connect to the StackState SaaS Receiver API.
+StackState for Kubernetes Troubleshooting is a SaaS offering that's hosted in the cloud. To be able to communicate from your premises/cloud to the StackState SaaS, the StackState Agent needs to be able to connect to the StackState SaaS Receiver API.
 When your cluster is running in a private network, you might need to configure your network to allow the StackState Agent to connect to the StackState Receiver API, because your network configuration might disallow egress traffic to the internet. This page describes how to configure your network to allow to install the StackState Agent, as well as to allow the StackState Agent to communicate with the StackState Receiver API.
 
 {% hint style="info" %}

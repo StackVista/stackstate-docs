@@ -100,7 +100,7 @@ done < stackstate_agent_images.txt
 
 ## Customize the Helm command
 
-The StackState UI provides the exact commands to install the agent depending on the distribution but it assumes the internet is accessible. For air-gapped installations the command needs to be extended to use the local copy of the helm chart and to override the docker registry with the registry to which the images have been copied. If the local docker registry requires authentication a custom image pull secret can be provided.
+The StackState UI provides the exact commands to install the agent depending on the distribution but it assumes the internet is accessible. For air-gapped installations the command needs to be extended to use the local copy of the helm chart and to override the docker registry with the local registry. If the local docker registry requires authentication a custom image pull secret can be provided.
 
 {% tabs %}
 {% tab title="Registry without authentication" %}

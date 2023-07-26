@@ -4,7 +4,7 @@ description: StackState for Kubernetes troubleshooting Self-hosted
 
 # Authentication options
 
-Out of the box, StackState is configured with [file-based authentication](file.md) with a username and password [configured during installation](../../../setup/install-stackstate/initial_run_guide.md#default-username-and-password). This authenticates users against a file on the server. However, this isn't a production-ready setup.
+Out of the box, StackState is configured with [file-based authentication](file.md) with a username and password [configured during installation](../../../setup/install-stackstate/initial_run_guide.md#default-username-and-password). This authenticates users with a file on the server. However, this isn't a production-ready setup.
 
 For better security StackState can be configured to use exactly one of the following authentication mechanisms \(replacing the standard admin user\):
 
@@ -14,7 +14,7 @@ For better security StackState can be configured to use exactly one of the follo
 * [KeyCloak \(a specialized version of OIDC\)](keycloak.md)
 
 {% hint style="info" %}
-Authentication configuration is part of the Helm chart, any changes will automatically triger a restart of the pods requiring that.
+Authentication configuration is part of the Helm chart, any changes will automatically trigger a restart of the pods requiring that.
 {% endhint %}
 
 ## User roles
@@ -22,7 +22,7 @@ Authentication configuration is part of the Helm chart, any changes will automat
 When a user has been authenticated permissions for that user are usually assigned based of the roles the user has. The documentation for the specific authentication mechanisms also contain examples on how to map the roles or groups from the external systems to the 4 standard roles of StackState:
 
 * **Guest** - able to see information but make no changes.
-* **Kubernetes Troubleshooter** - able to see all information and see and modify monitors and metric configuration.
+* **Kubernetes Troubleshooter** - able to see all information and see and change monitors and metric configuration.
 * **Power User** - able to see and change all configuration and install StackPacks.
 * **Administrator** - able to see and change content of StackState. For example, see all configuration, install StackPacks, grant and revoke user permissions and upload \(new versions of\) StackPacks.
 * **Platform Administrator** - able to perform management of the StackState platform. For example, change data retention, clear the database, view logs and cache management.

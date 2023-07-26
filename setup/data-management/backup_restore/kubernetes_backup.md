@@ -404,7 +404,7 @@ To delete existing Elasticsearch indices so that a snapshot can be restored, fol
 ### Restore an Elasticsearch snapshot
 
 {% hint style="danger" %}
-**When a snapshot is restored, existing indices will not be overwritten.**
+**When a snapshot is restored, existing indices won't be overwritten.**
 
 See [delete Elasticsearch indices](kubernetes_backup.md#delete-elasticsearch-indices).
 {% endhint %}

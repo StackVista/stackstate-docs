@@ -39,6 +39,7 @@ Helm
 helm
 HIGH
 high
+github
 GitHub
 IAM
 ITSM
@@ -96,3 +97,4 @@ VIEW
 View
 view
 yaml
+YAML

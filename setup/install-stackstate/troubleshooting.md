@@ -27,8 +27,8 @@ Here is a quick guide for troubleshooting the startup of StackState:
    * The pod is unschedulable, there are nodes it would fit on, but those nodes have `taints` that the pod doesn not tolerate. To solve this more nodes can be added that don't have the taints, but StackState can also be [configured](kubernetes_openshift/customize_config.md#override-default-configuration) to tolerate certain taints and run on the tainted nodes.
 
    For pods with state `ImagePullBackOff` also check the exact error message, common causes are:
-   * Incorrect username/password used to pull the images
-   * The docker registry not being accessible
+   * An incorrect username/password used to pull the images
+   * Connecting to the docker registry failed, this can be due to authentication issues or connectivity issues (firewalls, air-gapped installations)
    * A typo in the overriden docker image registry URL
 
    To find out a more detailed cause for the `Pending`, `ImagePullBackOff` or `CrashLoopBackOff` states use this command:
@@ -37,7 +37,7 @@ Here is a quick guide for troubleshooting the startup of StackState:
    kubectl describe pod<pod-name>
    ```
    
-   The output contains an `event` section at the end which gives an indication of the problem in most cases. It also contains a `State` section for each container that has more details for termination of the container.
+   The output contains an `event` section at the end which usually contains the problem. It also has a `State` section for each container that has more details for termination of the container.
 
 3. [Check the logs](/configure/logging/README.md) for errors.
 4. Check the Knowledge base on the [StackState Support site](https://support.stackstate.com/).

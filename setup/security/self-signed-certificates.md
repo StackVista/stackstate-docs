@@ -6,7 +6,7 @@ description: StackState for Kubernetes troubleshooting Self-hosted
 
 ## Overview
 
-StackState has several points of interaction with external systems. For example, event handlers can call out to webhooks in other systems. With the default configuration, StackState won't be able to communicate with these systems if they're secured with TLS using a self-signed certificate or a certificate that isn't by default trusted by the JVM.
+StackState has several points of interaction with external systems. For example, event handlers can call out to webhooks in other systems. With the default configuration, StackState won't be able to communicate with these systems if they're secured with TLS using a self-signed certificate, or a certificate that isn't by default trusted by the JVM.
 
 To mitigate this, StackState allows configuration of a custom trust store.
 
@@ -74,7 +74,7 @@ If you don't have JVM installed on your computer, you can use a JVM Docker image
 
 ## Use a custom trust store
 
-The trust store and the password can be specified as values. The trust store can only be specified from the helm command line as it's a file. We specify the password value in the same way, but it could also be provided via a `values.yaml` file.
+The trust store and the password can be specified as values. The trust store can only be specified from the helm command line as it's a file. The password value is specified in the same way in the example, but it can also be provided via a `values.yaml` file.
 
 ```bash
 helm upgrade \

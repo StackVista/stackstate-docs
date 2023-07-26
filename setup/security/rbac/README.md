@@ -2,5 +2,5 @@
 description: StackState for Kubernetes troubleshooting Self-hosted
 ---
 
-# RBAC
+# Role based access control (RBAC)
 

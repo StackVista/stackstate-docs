@@ -10,7 +10,7 @@ All of StackState's own components can run without any extra permissions. Howeve
 
 ## Service-to-service authentication and authorization
 
-In order to authenticate and authorize communication between StackState services StackState uses Kubernetes service accounts. To be able to verify their validity and roles the helm chart creates a `ClusterRole` and a `ClusterRoleBinding` resources. Creating these cluster-wide resources is often prohibited for users that aren't a Kubernetes/OpenShift administrator. For that case the creation can be disabled and instead the roles and role bindings need to be [created manually](required_permissions.md#manually-create-cluster-wide-resources) by your cluster admin.
+To allow communication between StackState services StackState uses Kubernetes service accounts. To be able to verify their validity and roles the helm chart creates a `ClusterRole` and a `ClusterRoleBinding` resources. Creating these cluster-wide resources is often prohibited for users that aren't a Kubernetes/OpenShift administrator. For that case the creation can be disabled and instead the roles and role bindings need to be [created manually](required_permissions.md#manually-create-cluster-wide-resources) by your cluster admin.
 
 ### Disable automatic creation of cluster-wide resources
 
@@ -34,7 +34,7 @@ If the creation of the cluster role and cluster role binding has been disabled p
 If you need to manually create the cluster-wide resources, ask your Kubernetes/OpenShift administrator to create the 3 resources below in the clsuter.
 
 {% hint style="info" %}
-Ensure that you specify the correct service account and namespace for the bound `ServiceAccount` for both of the `ClusterRoleBinding` resources. The example assumes the `stackstate` namespace is used, if some other namespace is used changed the namespace accordingly and also the service accounts referenced need to be changed to `<namespace>-stackstate-k8s-api`.
+Verify that you specify the correct service account and namespace for the bound `ServiceAccount` for both of the `ClusterRoleBinding` resources. The example assumes the `stackstate` namespace is used, if some other namespace is used changed the namespace in the examples. Also the service accounts referenced need to be changed to `<namespace>-stackstate-k8s-api`.
 {% endhint %}
 
 {% tabs %}

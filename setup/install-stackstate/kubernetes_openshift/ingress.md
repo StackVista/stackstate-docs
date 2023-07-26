@@ -45,7 +45,7 @@ stackstate/stackstate-k8s
 
 ## Configure via external tools
 
-To make StackState accessible outside of the Kubernetes cluster it's installed in, it's sufficient to route traffic to port `8080` of the `<namespace>-stackstate-k8s-router` service. The UI of StackState can be accessed directly under the root path of that service (i.e. `http://<namespace>-stackstate-k8s-router:8080`) while agents will use the `/receiver` path (`http://<namespace>-stackstate-k8s-router:8080/receiver`).
+To make StackState accessible outside of the Kubernetes cluster it's installed in, it's enough to route traffic to port `8080` of the `<namespace>-stackstate-k8s-router` service. The UI of StackState can be accessed directly under the root path of that service (i.e. `http://<namespace>-stackstate-k8s-router:8080`) while agents will use the `/receiver` path (`http://<namespace>-stackstate-k8s-router:8080/receiver`).
 
 Make sure to update the `baseUrl` in the values file generated during initial installation, it will be used by StackState to generate convenient installation instructions for the agent.
 
