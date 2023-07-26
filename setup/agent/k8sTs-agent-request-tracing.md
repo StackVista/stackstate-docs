@@ -69,3 +69,24 @@ It's also possible to add the `X-Request-Id` header form either the client side 
 - Trace header injection alongside LinkerD
 - Any LoadBalancer that forwards the `X-Request-Id` header in requests and responses
 - Any cross-cluster networking solution that forwards the `X-Request-Id` header in requests and responses
+
+## Known Issues
+
+### No sidecar is injected for my pods
+
+To make sure you setup is ok, first validate the following steps were taken:
+- The `--set httpHeaderInjectorWebhook.enabled=true` flag was set during installation of the agent
+- The pod has `http-header-injector.stackstate.io/inject: enabled` set
+- The pod was restarted
+
+If this does not resolve the issue, the following could be the issue:
+
+#### Cluster networking policies
+
+The cluster can have networking policies setup, preventing the kubernetes control-plane apiserver from contacting the mutatingvalidationwebhook which injects the sidecar. To validate this, look at the logs of the kube-apiserver, which is either in the kube-system namespace or could be managed by your cloud provider. An error like the following should be found in those logs: 
+
+```
+Failed calling webhook, failing open stackstate-agent-http-header-injector-webhook.stackstate.io: failed calling webhook "stackstate-agent-http-header-injector-webhook.stackstate.io": failed to call webhook: Post "https://stackstate-agent-http-header-injector.monitoring.svc:8443/mutate?timeout=10s": context deadline exceeded
+```
+
+If this happens, be sure to adapt your cluster network policies such that the apiserver can reach the mutatingvalidationwebhook.
