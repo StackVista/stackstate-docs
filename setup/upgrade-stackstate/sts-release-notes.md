@@ -13,6 +13,22 @@ This page includes release notes for the StackState self-hosted product.
 
 ## StackState v5.1.x
 
+### v5.1.5
+
+**Improvements**
+
+- The chart supports Kubernetes up to 1.27
+
+**Breaking changes**
+
+- The Zookeeper Statefulset has to be deleted before running `helm upgrade`.
+
+```sh
+kubectl delete statefulset -l app.kubernetes.io/component=zookeeper -n stackstate --cascade=orphan
+```
+
+*Note: the command deletes Statefulset only, pods and pvc-s aren't affected. `helm upgrade` command creates a new Statefulset for Zookeeper and rolls out the Zookeeper pods.*
+
 ### v5.1.2
 
 **Improvements**
