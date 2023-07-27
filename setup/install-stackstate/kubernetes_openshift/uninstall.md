@@ -37,7 +37,7 @@ If you want to re-install StackState later and have the old data still available
 Removing the Persistent Volume Claims and/or the namespace will result in all data being lost that was stored in StackState.
 {% endhint %}
 
-To remove the namespace and with that the Persistent Volume Claims and their linked Persistent Volumes simply remove the entire namespace:
+To remove the namespace and with that, the Persistent Volume Claims and their linked Persistent Volumes simply remove the entire namespace:
 
 ```
 kubectl delete namespace stackstate
@@ -45,7 +45,7 @@ kubectl delete namespace stackstate
 
 When the command returns the namespace and all volumes will have been removed.
 
-To only remove the PVC's and keep the namespace run:
+To only remove the Persistent Volume Claims (PVCs) and keep the namespace run:
 
 ```
 kubectl delete pvc --all -n stackstate

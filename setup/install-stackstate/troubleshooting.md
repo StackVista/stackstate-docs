@@ -25,7 +25,7 @@ Here is a quick guide for troubleshooting the startup of StackState:
    Pods that are in `pending` state are usually an indication of a problem:
    * The pod is unschedulable due to lack of resources in the cluster. If a cluster auto-scaler is active it will often be able to resolve this automatically, otherwise manual intervention is needed to add more nodes to the cluster
    * The pod is unschedulable, there are nodes it would fit on, but those nodes have `taints` that the pod doesn not tolerate. To solve this more nodes can be added that don't have the taints, but StackState can also be [configured](kubernetes_openshift/customize_config.md#override-default-configuration) to tolerate certain taints and run on the tainted nodes.
-   * The pod is waiting for the Persistent Volumes (PVs) to be mounted. A cause can be that the StackState Helm chart doesn't specify a `storageClassName` but relies on the cluster having a default storage class. When there is no default for the cluster it is required to [specify a storage class](./kubernetes_openshift/storage.md) via the Helm values of StackState.
+   * The pod is waiting for the Persistent Volumes (PVs) to be mounted. A cause can be that the StackState Helm chart doesn't specify a `storageClassName` but relies on the cluster having a default storage class. When there is no default for the cluster it's required to [specify a storage class](./kubernetes_openshift/storage.md) via the Helm values of StackState.
 
    For pods with state `ImagePullBackOff` also check the exact error message, common causes are:
    * An incorrect username/password used to pull the images
