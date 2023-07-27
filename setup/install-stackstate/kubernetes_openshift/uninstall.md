@@ -45,6 +45,12 @@ kubectl delete namespace stackstate
 
 When the command returns the namespace and all volumes will have been removed.
 
+To only remove the PVC's and keep the namespace run:
+
+```
+kubectl delete pvc --all -n stackstate
+```
+
 ## Remove manually created resources
 
 {% hint style="info" %}
