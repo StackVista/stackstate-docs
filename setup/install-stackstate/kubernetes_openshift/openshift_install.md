@@ -294,7 +294,7 @@ Next steps are
 
 * [Expose StackState outside of the cluster](ingress.md)
 * [Start monitoring your Kubernetes clusters](../../../k8s-quick-start-guide.md)
-* Give your [co-workers access](../security/authentication/).
+* Give your [co-workers access](/setup/security/authentication/README.md).
 
 ## Manually create `SecurityContextConfiguration` objects
 
