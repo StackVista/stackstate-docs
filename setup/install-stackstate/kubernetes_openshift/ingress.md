@@ -49,6 +49,15 @@ To make StackState accessible outside of the Kubernetes cluster it's installed i
 
 Make sure to update the `baseUrl` in the values file generated during initial installation, it will be used by StackState to generate convenient installation instructions for the agent.
 
+{% hint style="info" %}
+When manually configuring an Nginx or similar HTTP server as reverse proxy make sure that it can proxy websockets as well. For Nginx this can be configured by including the following directives in the `location` directive:
+
+```text
+proxy_set_header Upgrade                 $http_upgrade;
+proxy_set_header Connection              "Upgrade";
+```
+{% endhint %}
+
 {% hint style="warning" %}
 StackState itself doesn't use TLS encrypted traffic, TLS encryption is expected to be handled by the ingress controller or external load balancers.
 {% endhint %}
