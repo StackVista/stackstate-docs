@@ -51,6 +51,13 @@ To only remove the Persistent Volume Claims (PVCs) and keep the namespace run:
 kubectl delete pvc --all -n stackstate
 ```
 
+On OpenShift the Helm chart also created a security context constraint (SCC). It is not cleaned up automatically by Helm but instead needs to be manually removed:
+
+```
+# The scc is always named stackstate-k8s-<namespace>
+oc delete scc stackstate-k8s-stackstate
+```
+
 ## Remove manually created resources
 
 {% hint style="info" %}

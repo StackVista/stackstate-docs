@@ -34,12 +34,11 @@ Also make sure to follow the air-gapped instalaltion instructions whenever those
 {% endhint %}
 
 1. [Create the project where StackState will be installed](openshift_install.md#create-project)
-2. [Generate the `values.yaml` file](openshift_install.md#generate-values.yaml)
-3. [Create the `openshift-values.yaml` file](openshift_install.md#create-openshift-values.yaml)
-4. [Automatically install the Cluster Agent for OpenShift](openshift_install.md#automatically-install-the-cluster-agent-for-openshift)
-5. [Deploy StackState with Helm](openshift_install.md#deploy-stackstate-with-helm)
-6. [Access the StackState UI](openshift_install.md#access-the-stackstate-ui)
-7. [Manually create `SecurityContextConfiguration` objects](openshift_install.md#manually-create-securitycontextconfiguration-objects)
+1. [Generate the `values.yaml` file](openshift_install.md#generate-values.yaml)
+1. [Create the `openshift-values.yaml` file](openshift_install.md#create-openshift-values.yaml)
+1. [Deploy StackState with Helm](openshift_install.md#deploy-stackstate-with-helm)
+1. [Access the StackState UI](openshift_install.md#access-the-stackstate-ui)
+1. [Manually create `SecurityContextConfiguration` objects](openshift_install.md#manually-create-securitycontextconfiguration-objects)
 
 ### Create project
 
@@ -100,17 +99,6 @@ backup:
   stackGraph:
     securityContext:
       enabled: false
-cluster-agent:
-  agent:
-    scc:
-      enabled: true
-  kube-state-metrics:
-    podAnnotations:
-      ad.stackstate.com/kube-state-metrics.check_names: '["kubernetes_state"]'
-      ad.stackstate.com/kube-state-metrics.init_configs: '[{}]'
-      ad.stackstate.com/kube-state-metrics.instances: '[{"kube_state_url":"http://%%host%%:%%port%%/metrics","labels_mapper":{"namespace":"kube_namespace" "label_deploymentconfig":"oshift_deployment_config","label_deployment":"oshift_deployment"},"label_joins":{"kube_pod_labels":{"label_to_match":"pod","labels_to_get":["label_deployment","label_deploymentconfig"]}}}]'
-    securityContext:
-      enabled: false
 stackstate:
   components:
     all:
@@ -122,9 +110,6 @@ stackstate:
     ui:
       securityContext:
         enabled: false
-anomaly-detection:
-  securityContext:
-    enabled: false
 elasticsearch:
   prometheus-elasticsearch-exporter:
     securityContext:
@@ -148,11 +133,6 @@ hbase:
   tephra:
     securityContext:
       enabled: false
-kafka:
-  podSecurityContext:
-    enabled: false
-  volumePermissions:
-    enabled: false
 kafkaup-operator:
   securityContext:
     enabled: false
@@ -162,6 +142,8 @@ minio:
 zookeeper:
   securityContext:
     enabled: false
+scc:
+  enabled: true
 ```
 
 ### Deploy StackState with Helm
@@ -179,8 +161,7 @@ To deploy StackState in a high availability setup on OpenShift:
    * [Create the project where StackState will be installed](openshift_install.md#create-project)
    * [Generate `values.yaml`](#generate-values.yaml)
    * [Create `openshift-values.yaml`](#create-openshift-values.yaml)
-   * If you want to automatically install the Cluster Agent for OpenShift, [create `agent-values.yaml`](#automatically-install-the-cluster-agent-for-openshift)
-4. Deploy the latest StackState version to the `stackstate` namespace with the following command:
+2. Deploy the latest StackState version to the `stackstate` namespace with the following command:
 
 ```text
 helm upgrade \
@@ -201,8 +182,7 @@ To deploy StackState in a non-high availability setup on OpenShift:
    * [Generate `values.yaml`](#generate-values.yaml)
    * [Create `openshift-values.yaml`](#create-openshift-values.yaml)
    * [Create `nonha_values.yaml`](/setup/install-stackstate/kubernetes_openshift/non_high_availability_setup.md)
-   * If you want to automatically install the Cluster Agent for OpenShift, [create `agent-values.yaml`](#automatically-install-the-cluster-agent-for-openshift)
-5. Deploy the latest StackState version to the `stackstate` namespace with the following command:
+2. Deploy the latest StackState version to the `stackstate` namespace with the following command:
 
 ```bash
 helm upgrade \
@@ -224,7 +204,6 @@ To deploy StackState in a high availability setup on OpenShift:
    * [Create the project where StackState will be installed](openshift_install.md#create-project)
    * [Generate `values.yaml`](#generate-values.yaml)
    * [Create `openshift-values.yaml`](#create-openshift-values.yaml)
-   * If you want to automatically install the Cluster Agent for OpenShift, [create `agent-values.yaml`](#automatically-install-the-cluster-agent-for-openshift)
 2. Deploy the latest StackState version to the `stackstate` namespace with the following command:
 
 ```text
@@ -247,7 +226,6 @@ To deploy StackState in a non-high availability setup on OpenShift:
    * [Generate `values.yaml`](#generate-values.yaml)
    * [Create `openshift-values.yaml`](#create-openshift-values.yaml)
    * [Create `nonha_values.yaml`](/setup/install-stackstate/kubernetes_openshift/non_high_availability_setup.md)
-   * If you want to automatically install the Cluster Agent for OpenShift, [create `agent-values.yaml`](#automatically-install-the-cluster-agent-for-openshift)
 5. Deploy the latest StackState version to the `stackstate` namespace with the following command:
 
 ```bash
@@ -299,6 +277,44 @@ Next steps are
 ## Manually create `SecurityContextConfiguration` objects
 
 If you can't use an administrator account to install StackState on OpenShift, ask your administrator to apply the below `SecurityContextConfiguration` objects.
+
+```yaml
+apiVersion: security.openshift.io/v1
+kind: SecurityContextConstraints
+metadata:
+  name: {{ template "common.fullname.short" . }}-{{ .Release.Namespace }}
+  labels:
+    {{- include "common.labels.standard" . | nindent 4 }}
+  annotations:
+    helm.sh/hook: pre-install
+    stackstate.io/note: "Ignored by helm uninstall, has to be deleted manually"
+fsGroup:
+  type: RunAsAny
+groups:
+- system:serviceaccounts:{{ .Release.Namespace }}
+runAsUser:
+  type: RunAsAny
+seLinuxContext:
+  type: MustRunAs
+supplementalGroups:
+  type: RunAsAny
+volumes:
+- configMap
+- downwardAPI
+- emptyDir
+- ephemeral
+- persistentVolumeClaim
+- projected
+- secret
+allowHostDirVolumePlugin: false
+allowHostIPC: false
+allowHostNetwork: false
+allowHostPID: false
+allowHostPorts: false
+allowPrivilegeEscalation: true
+allowPrivilegedContainer: false
+readOnlyRootFilesystem: false
+```
 
 ## See also
 

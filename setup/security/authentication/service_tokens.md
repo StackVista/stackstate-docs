@@ -10,7 +10,7 @@ Using Service tokens it's possible to authenticate to StackState without having 
 
 ## Manage service tokens
 
-Service tokens can be managed via the [new `sts` CLI](../../../setup/cli/cli-sts.md). The following commands are available:
+Service tokens can be managed via the [new `sts` CLI](/setup/cli/k8sTs-cli-sts.md). The following commands are available:
 
 ```bash
 > sts service-token --help
@@ -33,34 +33,9 @@ It's also possible to [set up a bootstrap service token](#set-up-a-bootstrap-ser
 
 To create a service token for an installed instance of StackState, you can use the new `sts` CLI.
 
-{% tabs %}
-{% tab title="CLI: sts" %}
-{% hint style="info" %}
-From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
-
-➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
-{% endhint %}
-
 ```sh
 sts service-token create
 ```
-{% endtab %}
-{% tab title="CLI: stac (deprecated)" %}
-{% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
-
-The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
-
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
-{% endhint %}
-
-Command not available in the `stac` CLI, use the new `sts` CLI.
-
-{% endtab %}
-{% endtabs %}
-
 
 {% hint style="info" %}
 Note that the service token will only be displayed once. It isn't possible to see the token again.
@@ -76,33 +51,11 @@ This command takes the following command line arguments:
 
 For example, the command below will create a service token with the name `my-service-token` and the role `stackstate-power-user`:
 
-{% tabs %}
-{% tab title="CLI: sts" %}
-{% hint style="info" %}
-From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
-
-➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
-{% endhint %}
 
 ```sh
 > sts service-token create --name my-service-token --roles stackstate-power-user
 ✅ Service token created: svctok-aaaaa-bbbb-ccccc-ddddd
 ```
-{% endtab %}
-{% tab title="CLI: stac (deprecated)" %}
-{% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
-
-The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
-
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
-{% endhint %}
-
-Command not available in the `stac` CLI, use the new `sts` CLI.
-{% endtab %}
-{% endtabs %}
 
 ### Set up a bootstrap service token
 
@@ -174,7 +127,7 @@ Once created, a service token can be used to authenticate to StackState from a h
 
 ### StackState `sts` CLI
 
-A service token can be used for authentication with the new `sts` CLI. It isn't possible to authenticate with service tokens using the `stac` CLI. For details, see the CLI documentation:
+A service token can be used for authentication with the `sts` CLI. For details, see the CLI documentation:
 
 * [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 * New `sts` CLI: [Authentication](/setup/cli/cli-sts.md#authentication)

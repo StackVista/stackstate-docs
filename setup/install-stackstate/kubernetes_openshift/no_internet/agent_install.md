@@ -105,7 +105,11 @@ The StackState UI provides the exact commands to install the agent depending on 
 {% tabs %}
 {% tab title="Registry without authentication" %}
 
-This example uses the command for the standard Kubernetes distribution to show how to use a local copy of the Helm chart and add the extra registry argument. Please make sure to use the command that corresponds with your Kubernetes distribution as provided in the StackState UI and apply the same modifications (this example uses `registry.acme.com:5000` as the registry):
+This example uses the command for the standard Kubernetes distribution to show how to use a local copy of the Helm chart and add the extra registry argument. Please make sure to use the command that corresponds with your Kubernetes distribution as provided in the StackState UI and apply the same modifications (this example uses `registry.acme.com:5000` as the registry).
+
+{% hint style="warning" %}
+This command is not the right command for your Kubernetes cluster. Instead, copy the command for your Kubernetes distribution from the installed Kubernetes StackPack in the UI. Then replace `stackstate-k8s/stackstate` with the `.tgz` file and add the image registry argument.
+{% endhint %}
 
 ```bash
 helm upgrade --install \
@@ -128,6 +132,10 @@ The modifications are:
 {% tab title="Registry with authentication" %}
 
 This example uses the command for the standard Kubernetes distribution to show how to use a local copy of the Helm chart and add the extra registry argument. Please make sure to use the command that corresponds with your Kubernetes distribution as provided in the StackState UI and apply the same modifications (this example uses `registry.acme.com:5000` as the registry):
+
+{% hint style="warning" %}
+This command is not the right command for your Kubernetes cluster. Instead, copy the command for your Kubernetes distribution from the installed Kubernetes StackPack in the UI. Then replace `stackstate-k8s/stackstate` with the `.tgz` file and add the image registry and pull secret arguments.
+{% endhint %}
 
 ```bash
 helm upgrade --install \
