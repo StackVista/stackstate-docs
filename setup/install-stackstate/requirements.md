@@ -88,7 +88,7 @@ For more details on the defaults used, see the page [Configure storage](/setup/i
 By default, the StackState Helm chart will deploy a router pod and service. This service's port `8080` is the only entry point that needs to be exposed via Ingress. You can access StackState without configuring Ingress by forwarding this port:
 
 ```text
-kubectl port-forward service/<helm-release-name>-stackstate-k8s-router 8080:8080
+kubectl port-forward service/<helm-release-name>-stackstate-k8s-router 8080:8080 --namespace stackstate
 ```
 
 When configuring Ingress, make sure to allow for large request body sizes \(50MB\) that may be sent occasionally by data sources like the StackState Agent or the AWS integration.

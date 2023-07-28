@@ -194,7 +194,7 @@ kubectl get pods --namespace stackstate
 When all pods are up, you can enable a port-forward:
 
 ```text
-kubectl port-forward service/stackstate-router 8080:8080 --namespace stackstate
+kubectl port-forward service/<helm-release-name>-stackstate-k8s-router 8080:8080 --namespace stackstate
 ```
 
 StackState will now be available in your browser at `https://localhost:8080`. Log in with the username `admin` and the default password provided in the `values.yaml` file.

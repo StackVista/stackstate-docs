@@ -26,10 +26,6 @@ global:
 elasticsearch:
   volumeClaimTemplate:
     storageClassName: "standard"
-      resources:
-        requests:
-            # size of volume for each Elasticsearch pod
-            storage: 250Gi
 
 victoria-metrics-0:
   server:
@@ -46,11 +42,10 @@ victoria-metrics-1:
 ```yaml
 elasticsearch:
   volumeClaimTemplate:
-    storageClassName: "standard"
-      resources:
-        requests:
-          # size of volume for each Elasticsearch pod
-          storage: 250Gi
+    resources:
+      requests:
+        # size of volume for each Elasticsearch pod
+        storage: 250Gi
 
 hbase:
   hdfs:
