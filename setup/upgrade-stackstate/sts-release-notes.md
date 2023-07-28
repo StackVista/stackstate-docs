@@ -13,7 +13,7 @@ This page includes release notes for the StackState self-hosted product.
 
 ## StackState v5.1.x
 
-### v5.1.5
+### v5.1.6
 
 **Improvements**
 
