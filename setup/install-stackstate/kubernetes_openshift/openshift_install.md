@@ -95,52 +95,8 @@ Because OpenShift has stricter security model than plain Kubernetes, all of the 
 
 Create a Helm values file `openshift-values.yaml` with the following content and store it next to the generated `values.yaml` file. This contains the values that are needed for an OpenShift deployment.
 ```yaml
-backup:
-  stackGraph:
-    securityContext:
-      enabled: false
-stackstate:
-  components:
-    all:
-      securityContext:
-        enabled: false
-    kafkaTopicCreate:
-      securityContext:
-        enabled: false
-    ui:
-      securityContext:
-        enabled: false
 elasticsearch:
-  prometheus-elasticsearch-exporter:
-    securityContext:
-      enabled: false
-  securityContext:
-    enabled: false
   sysctlInitContainer:
-    enabled: false
-hbase:
-  hdfs:
-    securityContext:
-      enabled: false
-    volumePermissions:
-      enabled: false
-  hbase:
-    securityContext:
-      enabled: false
-  console:
-    securityContext:
-      enabled: false
-  tephra:
-    securityContext:
-      enabled: false
-kafkaup-operator:
-  securityContext:
-    enabled: false
-minio:
-  securityContext:
-    enabled: false
-zookeeper:
-  securityContext:
     enabled: false
 scc:
   enabled: true
