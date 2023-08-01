@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState for Kubernetes troubleshooting Self-hosted
 ---
 
 # OpenShift install
@@ -27,13 +27,18 @@ helm repo update
 
 ## Install StackState
 
+{% hint style="info" %}
+For environments without internet access, also known as air-gapped environments, first follow [these extra instructions](./no_internet/stackstate_installation.md).
+
+Also make sure to follow the air-gapped instalaltion instructions whenever those are present for a step.
+{% endhint %}
+
 1. [Create the project where StackState will be installed](openshift_install.md#create-project)
-2. [Generate the `values.yaml` file](openshift_install.md#generate-values.yaml)
-3. [Create the `openshift-values.yaml` file](openshift_install.md#create-openshift-values.yaml)
-4. [Automatically install the Cluster Agent for OpenShift](openshift_install.md#automatically-install-the-cluster-agent-for-openshift)
-5. [Deploy StackState with Helm](openshift_install.md#deploy-stackstate-with-helm)
-6. [Access the StackState UI](openshift_install.md#access-the-stackstate-ui)
-7. [Manually create `SecurityContextConfiguration` objects](openshift_install.md#manually-create-securitycontextconfiguration-objects)
+1. [Generate the `values.yaml` file](openshift_install.md#generate-values.yaml)
+1. [Create the `openshift-values.yaml` file](openshift_install.md#create-openshift-values.yaml)
+1. [Deploy StackState with Helm](openshift_install.md#deploy-stackstate-with-helm)
+1. [Access the StackState UI](openshift_install.md#access-the-stackstate-ui)
+1. [Manually create `SecurityContextConfiguration` objects](openshift_install.md#manually-create-securitycontextconfiguration-objects)
 
 ### Create project
 
@@ -72,9 +77,9 @@ The `generate_values.sh` script in the [installation directory](https://github.c
 The script requires the following configuration options:
 
 | Configuration | Flag | Description                                                                                                                                                                                                                                                                              |
-| :--- | :--- |:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| :--- | :--- |:------|
 | Base URL | `-b` | The `<STACKSTATE_BASE_URL>`. The external URL for StackState that users and agents will use to connect. For example `https://stackstate.internal`. If you haven't decided on an Ingress configuration yet, use `http://localhost:8080`. This can be updated later in the generated file. |
-| Username and password\*\* | `-u` `-p` | The username and password used by StackState to pull images from quay.io/stackstate repositories.                                                                                                                                                                                        |
+| Username and password\*\* | `-u` `-p` | The username and password used by StackState to pull images from quay.io/stackstate repositories. For air-gapped environments these need to be the username and password for the local docker registry.|
 | License key | `-l` | The StackState license key.                                                                                                                                                                                                                                                              |
 | Admin API password | `-a` | The password for the admin API. Note that this API contains system maintenance functionality and should only be accessible by the maintainers of the StackState installation. You can omit this from the command line, the script will prompt for it.                                    |
 | Default password | `-d` | The password for the default user \(`admin`\) to access StackState's UI. You can omit this from the command line, the script will prompt for it.                                                                                                                                         |
@@ -90,127 +95,18 @@ Because OpenShift has stricter security model than plain Kubernetes, all of the 
 
 Create a Helm values file `openshift-values.yaml` with the following content and store it next to the generated `values.yaml` file. This contains the values that are needed for an OpenShift deployment.
 ```yaml
-backup:
-  stackGraph:
-    securityContext:
-      enabled: false
-cluster-agent:
-  agent:
-    scc:
-      enabled: true
-  kube-state-metrics:
-    podAnnotations:
-      ad.stackstate.com/kube-state-metrics.check_names: '["kubernetes_state"]'
-      ad.stackstate.com/kube-state-metrics.init_configs: '[{}]'
-      ad.stackstate.com/kube-state-metrics.instances: '[{"kube_state_url":"http://%%host%%:%%port%%/metrics","labels_mapper":{"namespace":"kube_namespace" "label_deploymentconfig":"oshift_deployment_config","label_deployment":"oshift_deployment"},"label_joins":{"kube_pod_labels":{"label_to_match":"pod","labels_to_get":["label_deployment","label_deploymentconfig"]}}}]'
-    securityContext:
-      enabled: false
-stackstate:
-  components:
-    all:
-      securityContext:
-        enabled: false
-    kafkaTopicCreate:
-      securityContext:
-        enabled: false
-    ui:
-      securityContext:
-        enabled: false
-anomaly-detection:
-  securityContext:
-    enabled: false
 elasticsearch:
-  prometheus-elasticsearch-exporter:
-    securityContext:
-      enabled: false
-  securityContext:
-    enabled: false
   sysctlInitContainer:
     enabled: false
-hbase:
-  hdfs:
-    securityContext:
-      enabled: false
-    volumePermissions:
-      enabled: false
-  hbase:
-    securityContext:
-      enabled: false
-  console:
-    securityContext:
-      enabled: false
-  tephra:
-    securityContext:
-      enabled: false
-kafka:
-  podSecurityContext:
-    enabled: false
-  volumePermissions:
-    enabled: false
-kafkaup-operator:
-  securityContext:
-    enabled: false
-minio:
-  securityContext:
-    enabled: false
-zookeeper:
-  securityContext:
-    enabled: false
-```
-
-### Automatically install the Cluster Agent for OpenShift
-
-StackState has built-in support for OpenShift by means of the [OpenShift StackPack](../../../stackpacks/integrations/openshift.md). To get started quickly, the StackState installation can automate installation of this StackPack and the required Agent for the cluster that StackState itself will be installed on. This isn't required and can always be done later from the StackPacks page of the StackState UI for StackState's cluster or any other OpenShift cluster.
-
-The only required information is a name for the OpenShift cluster that will distinguish it from the other OpenShift clusters monitored by StackState. A good choice usually is the same name that is used in the kube context configuration. This will then automatically install the StackPack and install a Daemonset for the Agent and a deployment for the so-called cluster Agent. For the full details, read the [OpenShift StackPack](../../../stackpacks/integrations/openshift.md) page.
-
-To automate this installation, the below values file can be added to the `helm install` command. The Agent chart needs to add specific OpenShift `SecurityContextConfiguration` objects to the OpenShift installation.
-
-If you're installing as an administrator on the OpenShift cluster, it's possible to automatically create this. You can configure this using the following configuration option in the values file:
-
-| Pod\(s\) | Config key | Description |
-| :--- | :--- | :--- |
-| The Agent that runs the Kubernetes checks | `cluster-agent.agent.scc.enabled` | This process needs to run a privileged container with direct access to the host\(network\) and volumes. |
-
-If you're not installing as an administrator, follow the instructions below to [first install the `SecurityContextConfiguration` objects in OpenShift](openshift_install.md#manually-create-securitycontextconfiguration-objects). Then ensure that you set the above configuration flag to `false`.
-
-The values file that automates the installation of the OpenShift StackPack and monitoring Agent is:
-
-```yaml
-stacktate:
-  stackpacks:
-    installed:
-      - name: openshift
-        configuration:
-          openshift_cluster_name: <CLUSTER_NAME>
-cluster-agent:
-  agent:
-    scc:
-      enabled: true
+scc:
   enabled: true
-  stackstate:
-    cluster:
-      name: <CLUSTER_NAME>
-      authToken: <RANDOM_TOKEN>
-  kube-state-metrics:
-    securityContext:
-      enabled: false
 ```
-
-Two placeholders in this file need to be given a value before this can be applied to the Helm installation:
-
-* `<CLUSTER_NAME>`: A name that StackState will use to identify the cluster
-* `<RANDOM_TOKEN>`: A 32 character random token. This can be generated by executing `head -c32 < /dev/urandom | md5sum  | cut -c-32`
-
-Save this as `agent-values.yaml` and add it to the `helm install` command to enable this feature.
 
 ### Deploy StackState with Helm
 
-The recommended deployment of StackState is a production ready, high availability setup with many services running redundantly. If required, it's also possible to run StackState in a non-redundant setup, where each service has only a single replica.
+The recommended deployment of StackState is a production ready, high availability setup with many services running redundantly. If required, it's also possible to run StackState in a non-redundant setup, where each service has only a single replica. This setup is only recommended for a test environment.
 
-{% hint style="info" %}
-The non-high availability setup is only suitable for situations that don't require high availability.
-{% endhint %}
+For air-gapped environments follow the instructions for the air-gapped installations.
 
 {% tabs %}
 {% tab title="High availability setup" %}
@@ -221,8 +117,7 @@ To deploy StackState in a high availability setup on OpenShift:
    * [Create the project where StackState will be installed](openshift_install.md#create-project)
    * [Generate `values.yaml`](#generate-values.yaml)
    * [Create `openshift-values.yaml`](#create-openshift-values.yaml)
-   * If you want to automatically install the Cluster Agent for OpenShift, [create `agent-values.yaml`](#automatically-install-the-cluster-agent-for-openshift)
-4. Deploy the latest StackState version to the `stackstate` namespace with the following command:
+2. Deploy the latest StackState version to the `stackstate` namespace with the following command:
 
 ```text
 helm upgrade \
@@ -231,7 +126,7 @@ helm upgrade \
   --values values.yaml \
   --values openshift-values.yaml \
 stackstate \
-stackstate/stackstate
+stackstate/stackstate-k8s
 ```
 {% endtab %}
 {% tab title="Non-high availability setup" %}
@@ -243,7 +138,50 @@ To deploy StackState in a non-high availability setup on OpenShift:
    * [Generate `values.yaml`](#generate-values.yaml)
    * [Create `openshift-values.yaml`](#create-openshift-values.yaml)
    * [Create `nonha_values.yaml`](/setup/install-stackstate/kubernetes_openshift/non_high_availability_setup.md)
-   * If you want to automatically install the Cluster Agent for OpenShift, [create `agent-values.yaml`](#automatically-install-the-cluster-agent-for-openshift)
+2. Deploy the latest StackState version to the `stackstate` namespace with the following command:
+
+```bash
+helm upgrade \
+  --install \
+  --namespace stackstate \
+  --values local-docker-registry.yaml \
+  --values values.yaml \
+  --values nonha_values.yaml \
+  --values openshift-values.yaml \
+stackstate \
+stackstate/stackstate-k8s
+```
+{% endtab %}
+{% tab title="Air-gapped, high availability setup" %}
+
+To deploy StackState in a high availability setup on OpenShift:
+
+1. Before you deploy:
+   * [Create the project where StackState will be installed](openshift_install.md#create-project)
+   * [Generate `values.yaml`](#generate-values.yaml)
+   * [Create `openshift-values.yaml`](#create-openshift-values.yaml)
+2. Deploy the latest StackState version to the `stackstate` namespace with the following command:
+
+```text
+helm upgrade \
+  --install \
+  --namespace stackstate \
+  --values local-docker-registry.yaml \
+  --values values.yaml \
+  --values openshift-values.yaml \
+stackstate \
+stackstate/stackstate-k8s
+```
+{% endtab %}
+{% tab title="Air-gapped, non-high availability setup" %}
+
+To deploy StackState in a non-high availability setup on OpenShift:
+
+1. Before you deploy:
+   * [Create the project where StackState will be installed](openshift_install.md#create-project)
+   * [Generate `values.yaml`](#generate-values.yaml)
+   * [Create `openshift-values.yaml`](#create-openshift-values.yaml)
+   * [Create `nonha_values.yaml`](/setup/install-stackstate/kubernetes_openshift/non_high_availability_setup.md)
 5. Deploy the latest StackState version to the `stackstate` namespace with the following command:
 
 ```bash
@@ -254,7 +192,7 @@ helm upgrade \
   --values nonha_values.yaml \
   --values openshift-values.yaml \
 stackstate \
-stackstate/stackstate
+stackstate/stackstate-k8s
 ```
 {% endtab %}
 {% endtabs %}
@@ -288,71 +226,50 @@ StackState will now be available in your browser at `https://localhost:8080`. Lo
 
 Next steps are
 
-* Configure [ingress](ingress.md)
-* Install a [StackPack](../../../stackpacks/about-stackpacks.md) or two
-* Give your [co-workers access](../../configure/security/authentication/).
+* [Expose StackState outside of the cluster](ingress.md)
+* [Start monitoring your Kubernetes clusters](../../../k8s-quick-start-guide.md)
+* Give your [co-workers access](/setup/security/authentication/README.md).
 
 ## Manually create `SecurityContextConfiguration` objects
 
 If you can't use an administrator account to install StackState on OpenShift, ask your administrator to apply the below `SecurityContextConfiguration` objects.
 
-### Cluster Agent
-
-If you want to monitor the OpenShift cluster using the [OpenShift StackPack](../../../stackpacks/integrations/openshift.md) and Cluster Agent, the below `SecurityContextConfiguration` needs to be applied:
-
 ```yaml
 apiVersion: security.openshift.io/v1
 kind: SecurityContextConstraints
 metadata:
-  name: stackstate-agent-scc
-allowHostDirVolumePlugin: true
-allowHostIPC: true
-allowHostNetwork: true
-allowHostPID: true
-allowHostPorts: true
-allowPrivilegeEscalation: true
-allowPrivilegedContainer: true
-allowedCapabilities: []
-allowedUnsafeSysctls:
-- '*'
-defaultAddCapabilities: null
+  name: {{ template "common.fullname.short" . }}-{{ .Release.Namespace }}
+  labels:
+    {{- include "common.labels.standard" . | nindent 4 }}
+  annotations:
+    helm.sh/hook: pre-install
+    stackstate.io/note: "Ignored by helm uninstall, has to be deleted manually"
 fsGroup:
-  type: MustRunAs
-groups: []
-priority: null
-readOnlyRootFilesystem: false
-requiredDropCapabilities: null
-runAsUser:
-  type: MustRunAsRange
-seLinuxContext:
   type: RunAsAny
-  seLinuxOptions:
-    user: "system_u"
-    role: "system_r"
-    type: "spc_t"
-    level: "s0"
-seccompProfiles: []
+groups:
+- system:serviceaccounts:{{ .Release.Namespace }}
+runAsUser:
+  type: RunAsAny
+seLinuxContext:
+  type: MustRunAs
 supplementalGroups:
   type: RunAsAny
-users:
 volumes:
-  - configMap
-  - downwardAPI
-  - emptyDir
-  - hostPath
-  - secret
-```
-
-Save this file as `agent-scc.yaml` and apply it as an administrator of the OpenShift cluster using the following command:
-
-```text
-oc apply -f agent-scc.yaml
-```
-
-After this file is applied, execute the following command as administrator to grant the service account access to this `SecurityContextConfiguration` object:
-
-```text
-> oc adm policy add-scc-to-user stackstate-agent-scc system:serviceaccount:stackstate:stackstate-agent-node-agent
+- configMap
+- downwardAPI
+- emptyDir
+- ephemeral
+- persistentVolumeClaim
+- projected
+- secret
+allowHostDirVolumePlugin: false
+allowHostIPC: false
+allowHostNetwork: false
+allowHostPID: false
+allowHostPorts: false
+allowPrivilegeEscalation: true
+allowPrivilegedContainer: false
+readOnlyRootFilesystem: false
 ```
 
 ## See also

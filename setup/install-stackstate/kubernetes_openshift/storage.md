@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState for Kubernetes troubleshooting Self-hosted
 ---
 
 # Configure storage
@@ -8,55 +8,97 @@ description: StackState Self-hosted v5.1.x
 
 StackState doesn't specify a specific storage class on its PVC's \(persistent volume claims\) by default, for cloud providers like EKS and AKS this means the default storage class will be used.
 
-The defaults for those storage classes are typically to delete the PV \(persistent volume\) when the PVC is deleted. Note that even when running `helm delete` to remove a stackstate release the PVC's will remain present within the namespace and will be reused if a `helm install` is run in the same namespace with the same release name.
+The defaults for those storage classes are typically to delete the PV \(persistent volume\) when the PVC is deleted. However, even when running `helm delete` to remove a stackstate release the PVC's will remain present within the namespace and will be reused if a `helm install` is run in the same namespace with the same release name.
 
 To remove the PVC's either remove them manually with `kubectl delete pvc` or delete the entire namespace.
 
 ## Customize storage
 
-You can customize the `storageClass` and `size` settings for different volumes in the Helm chart. The example values.yaml files provided in the [GitHub Helm chart repo](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation/examples) show how you can customize the `size` of volumes. The `storageClass` can be added in a similar fashion.
-
-In the example below, all services that store data are switched to rely on the storageClass named `standard` and not use the default storageClass configured for the clsuter:
+You can customize the `storageClass` and `size` settings for different volumes in the Helm chart. These example values files show how to change the storage class or the volume size. These can be merged to change both at the same time.
 
 {% tabs %}
-{% tab title="values.yaml" %}
+{% tab title="Changing storage class" %}
 ```yaml
+global:
+  # The storage class for most of the persistent volumes
+  storageClass: "standard"
+
 elasticsearch:
   volumeClaimTemplate:
     storageClassName: "standard"
-      resources:
-        requests:
-            # size of volume for each Elasticsearch pod
-            storage: 250Gi
+
+victoria-metrics-0:
+  server:
+    persistentVolume:
+      storageClass: "standard"
+victoria-metrics-1:
+  server:
+    persistentVolume:
+      storageClass: "standard"
+```
+{% endtab %}
+
+{% tab title="Changing volume size" %}
+```yaml
+elasticsearch:
+  volumeClaimTemplate:
+    resources:
+      requests:
+        # size of volume for each Elasticsearch pod
+        storage: 250Gi
 
 hbase:
   hdfs:
     datanode:
       persistence:
-        storageClass: "standard"
         # size of volume for HDFS data nodes
         size: 250Gi
 
     namenode:
       persistence:
-        storageClass: "standard"
         # size of volume for HDFS name nodes
         size: 20Gi
 
 
 kafka:
   persistence:
-    storageClass: "standard"
     # size of persistent volume for each Kafka pod
     size: 50Gi
 
 
 zookeeper:
   persistence:
-    storageClass: "standard"
     # size of persistent volume for each Zookeeper pod
     size: 50Gi
+
+victoria-metrics-0:
+  server:
+    persistentVolume:
+      size: 250Gi
+victoria-metrics-1:
+  server:
+    persistentVolume:
+      size: 250Gi
+
+stackstate:
+  components:
+    checks:
+      tmpToPVC:
+        volumeSize: 2Gi
+    healthSync:
+      tmpToPVC:
+        volumeSize: 2Gi
+    state:
+      tmpToPVC:
+        volumeSize: 2Gi
+    sync:
+      tmpToPVC:
+        volumeSize: 2Gi
+    vmagent:
+      persistence:
+        size: 10Gi
 ```
 {% endtab %}
+
 {% endtabs %}
 

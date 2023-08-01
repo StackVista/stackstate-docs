@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState for Kubernetes troubleshooting Self-hosted
 ---
 
 # LDAP
@@ -49,7 +49,7 @@ stackstate:
         # groupMemberKey: "member:1.2.840.113556.1.4.1941:"
 
     # map the groups from LDAP to the
-    # 4 standard subjects in StackState (guest, powerUser, admin and platformAdmin)
+    # standard subjects in StackState (guest, powerUser, admin and platformAdmin)
     roles:
       guest: ["ldap-guest-role-for-stackstate"]
       powerUser: ["ldap-power-user-role-for-stackstate"]
@@ -78,8 +78,6 @@ Follow the steps below to configure StackState to authenticate using LDAP:
 3. Store the file `authentication.yaml` together with the `values.yaml` from the StackState installation instructions.
 4. Run a Helm upgrade to apply the changes. If you are using SSL with custom certificates, the binary certificate files that should be used when connecting to LDAP should be set from the command line, use the command under **SSL with custom certificates**:
 
-{% tabs %}
-{% tab title="Plain LDAP or Secure LDAP" %}
 ```text
 helm upgrade \
   --install \
@@ -87,11 +85,9 @@ helm upgrade \
   --values values.yaml \
   --values authentication.yaml \
 stackstate \
-stackstate/stackstate
+stackstate/stackstate-k8s
 ```
-{% endtab %}
 
-{% tab title="SSL with custom certificates" %}
 **trustCertificates**
 
 ```bash
@@ -102,7 +98,7 @@ helm upgrade \
   --values authentication.yaml \
   --set-file stackstate.authentication.ldap.ssl.trustCertificates=./ldap-certificate.pem \
 stackstate \
-stackstate/stackstate
+stackstate/stackstate-k8s
 ```
 
 **trustStore**
@@ -115,10 +111,8 @@ helm upgrade \
   --values authentication.yaml \
   --set-file stackstate.authentication.ldap.ssl.trustStore=./ldap-cacerts \
 stackstate \
-stackstate/stackstate
+stackstate/stackstate-k8s
 ```
-{% endtab %}
-{% endtabs %}
 
 {% hint style="info" %}
 **Note:**
@@ -127,88 +121,6 @@ stackstate/stackstate
 * Include `authentication.yaml` on every `helm upgrade` run.
 * The authentication configuration is stored as a Kubernetes secret.
 {% endhint %}
-
-### Linux
-
-To configure StackState to authenticate using an LDAP authentication server on Linux, LDAP details and user role mapping needs to be added to the file `application_stackstate.conf`. For example:
-
-{% tabs %}
-{% tab title="application_stackstate.conf" %}
-```javascript
-authorization {
-  // map the groups from the LDAP to the
-  // 4 standard subjects in StackState (guest, powerUser, admin and platformAdmin)
-  // Please note! you have to use the syntax
-  // `<group>Groups = ${stackstate.authorization.<group>Groups} ["ldap-role"]`
-  // to extend the list of standard roles (stackstate-admin, stackstate-platform-admin, stackstate-guest, stackstate-power-user)
-  // with the ones from Ldap
-  guestGroups = ${stackstate.authorization.guestGroups} ["ldap-guest-role-for-stackstate"]
-  powerUserGroups = ${stackstate.authorization.powerUserGroups} ["ldap-powerUser-role-for-stackstate"]
-  adminGroups = ${stackstate.authorization.adminGroups} ["ldap-admin-role-for-stackstate"]
-  platformAdminGroups = ${stackstate.authorization.platformAdminGroups} ["ldap-platform-admin-role-for-stackstate"]
-}
-
-authentication {
-  authServer {
-    authServerType = [ "ldapAuthServer" ]
-
-    ldapAuthServer {
-      connection {
-        host = localhost
-        port = 8000
-        # ssl {
-        #    sslType = ssl
-        #    trustCertificatesPath = "/var/lib/ssl/sts-ldap.pem"
-        #    trustStorePath = "/var/lib/ssl/cacerts"
-        # }
-        bindCredentials {
-           dn = "cn=admin,ou=employees,dc=acme,dc=com"
-           password = "password"
-         }
-      }
-      userQuery {
-        parameters = [
-          { ou : employees }
-          { dc : acme }
-          { dc : com }
-        ]
-        usernameKey = cn
-        emailKey = mail
-      }
-      groupQuery {
-        parameters = [
-          { ou : groups }
-          { dc : acme }
-          { dc : com }
-        ]
-        rolesKey = cn
-        groupMemberKey = member
-        // to return all nested groups, use:
-        // groupMemberKey: "member:1.2.840.113556.1.4.1941:"
-      }
-    }
-  }
-}
-```
-{% endtab %}
-{% endtabs %}
-
-Follow the steps below to configure StackState to authenticate using LDAP:
-
-1. In `application_stackstate.conf` - add LDAP details \(see the example above\):
-   * **host** - The hostname of the LDAP server.
-   * **port** - The port the LDAP server is listening on.
-   * **sslType** - Optional. Omit if plain LDAP connection is used. The type of LDAP secure connection `ssl` \| `startTls`.
-   * **trustCertificatesPath** - optional, path to the trust store on the StackState server. Formats PEM, DER and PKCS7 are supported.
-   * **trustStorePath** - optional, path to a Java trust store on the StackState server. If both `trustCertificatesPath` and `trustStorePath` are specified, `trustCertificatesPath` takes precedence.
-   * **bindCredentials** - optional, used to authenticate StackState on the LDAP server if the LDAP server doesn't support anonymous LDAP searches.
-   * **userQuery and groupQuery parameters** - The set of parameters inside correspond to the base dn of your LDAP where users and groups can be found. The first one is used for authenticating users in StackState, while the second is used for retrieving the group of that user to determine if the user is an Administrator, Power User or a Guest.
-   * **usernameKey** - The name of the attribute that stores the username, value is matched against the username provided on the login screen.
-   * **emailKey** - The name of the attribute that's used as the email address in StackState.
-   * **rolesKey** - The name of the attribute that stores the group name.
-   * **groupMemberKey** - The name of the attribute that indicates whether a user is a member of a group. The constructed LDAP filter follows this pattern: `<groupMemberKey>=<user.dn>,ou=groups,dc=acme,dc=com`. To return all nested groups, use `groupMemberKey: "member:1.2.840.113556.1.4.1941:"`.
-2. In `application_stackstate.conf` - map the LDAP groups to the correct StackState groups using **guestGroups**, **powerUserGroups**, **adminGroups** and **platformAdminGroups** \(see the example above\). For details, see the [default StackState roles](../rbac/rbac_permissions.md#predefined-roles). More StackState roles can also be created, see the [RBAC documentation](../rbac/).
-3. Restart StackState to apply the changes.
 
 ## See also
 

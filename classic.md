@@ -18,7 +18,7 @@ Use StackState to troubleshoot your Kubernetes cluster.
 
 Use StackState Self-hosted to observe an extensive set of technologies that originate either in your own data centers or in the cloud.
 
-↗️ **[StackState Self-hosted v5.1 docs](https://docs.stackstate.com/latest.md) - latest release!**
+↗️ **[StackState Self-hosted v5.1 docs](https://docs.stackstate.com/v/5.1/) - latest release!**
 
 ↗️ [StackState Self-hosted v5.0 docs](https://docs.stackstate.com/v/5.0/)
 

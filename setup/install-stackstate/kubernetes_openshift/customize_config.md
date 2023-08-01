@@ -1,10 +1,10 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState for Kubernetes troubleshooting Self-hosted
 ---
 
 # Override default configuration
 
-A number of values can be set in the [StackState Helm chart](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate). For example, it's possible to customize the `tolerations` and `nodeSelectors` for each of the components. You can also add customized configuration and include environment variables
+A number of values can be set in the [StackState Helm chart](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-k8s). For example, it's possible to customize the `tolerations` and `nodeSelectors` for each of the components. You can also add customized configuration and include environment variables
 
 ## Custom configuration for StackState `api`
 
@@ -50,10 +50,12 @@ stackstate:
   components:
     api:
       extraEnv:
-        # Use 'secret:' to add configuration that should be stored as a secret
+        # The value for open env vars is defined on the deployment
         open:
-          CONFIG_FORCE_stackstate_api_authentication_forgotPasswordLink:
-          "https://www.stackstate.com/forgotPassword.html"
+          CONFIG_FORCE_stackstate_api_authentication_forgotPasswordLink: "https://www.stackstate.com/forgotPassword.html"
+        # The value for secret env vars is defined in a secret and referenced from the deployment
+        secret:
+          CONFIG_FORCE_stackstate_authentication_adminPassword: "d8e8fca2dc0f896fd7cb4cb0031ba249"
 ```
 {% endtab %}
 {% endtabs %}
@@ -62,6 +64,6 @@ stackstate:
 For the StackState `api` service, environment variables will override [custom configuration set using `config`](customize_config.md#custom-configuration-for-stackstate-api).
 {% endhint %}
 
-* Full details on the naming of all the different services can be found in the [StackState Helm chart readme](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate).
-* Find more details on [customizing authentication](../../../configure/security/authentication/).
+* Full details on the naming of all the different services can be found in the [StackState Helm chart readme](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-k8s).
+* Find more details on [customizing authentication](../../security/authentication/README.md).
 

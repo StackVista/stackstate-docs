@@ -1,18 +1,14 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState for Kubernetes troubleshooting Self-hosted
 ---
 
 # Self-signed certificates
 
 ## Overview
 
-StackState has several points of interaction with external systems. For example, event handlers can call out to webhooks in other systems while plugins can retrieve data from external systems like Splunk or Elasticsearch. With the default configuration, StackState won't be able to communicate with these systems if they're secured with TLS using a self-signed certificate or a certificate that isn't by default trusted by the JVM.
+StackState has several points of interaction with external systems. For example, event handlers can call out to webhooks in other systems. With the default configuration, StackState won't be able to communicate with these systems if they're secured with TLS using a self-signed certificate, or a certificate that isn't by default trusted by the JVM.
 
 To mitigate this, StackState allows configuration of a custom trust store.
-
-{% hint style="info" %}
-Note that self-signed certificates aren't compatible with the [StackState Azure integration](/stackpacks/integrations/azure.md).
-{% endhint %}
 
 ## Create a custom trust store
 
@@ -78,9 +74,7 @@ If you don't have JVM installed on your computer, you can use a JVM Docker image
 
 ## Use a custom trust store
 
-### Kubernetes
-
-For Kubernetes installations, the trust store and the password can be specified as values. The trust store can only be specified from the helm command line as it's a file. We specify the password value in the same way, but it could also be provided via a `values.yaml` file.
+The trust store and the password can be specified as values. The trust store can only be specified from the helm command line as it's a file. The password value is specified in the same way in the example, but it can also be provided via a `values.yaml` file.
 
 ```bash
 helm upgrade \
@@ -90,7 +84,7 @@ helm upgrade \
   --set-file 'stackstate.java.trustStore'=custom_cacerts \
   --set 'stackstate.java.trustStorePassword'=changeit \
 stackstate \
-stackstate/stackstate
+stackstate/stackstate-k8s
 ```
 
 {% hint style="info" %}
@@ -118,7 +112,7 @@ helm upgrade \
   --set 'stackstate.java.trustStoreBase64Encoded'=$(cat custom_cacerts | base64 -w0) \
   --set 'stackstate.java.trustStorePassword'=changeit \
 stackstate \
-stackstate/stackstate
+stackstate/stackstate-k8s
 ```
 
 {% endtab %}
@@ -134,28 +128,11 @@ helm upgrade \
   --set 'stackstate.java.trustStoreBase64Encoded'=$(cat custom_cacerts | base64) \
   --set 'stackstate.java.trustStorePassword'=changeit \
 stackstate \
-stackstate/stackstate
+stackstate/stackstate-k8s
 ```
 
 {% endtab %}
 {% endtabs %}
-
-### Linux
-
-For a Linux installation, the trust store and password need to be added to the JVM command line used to start the StackState server process.
-
-1. Copy the new trust store into `/opt/stackstate/etc`. 
-2. Edit \(or create if it doesn't yet exist\) the file `/opt/stackstate/etc/processmanager/processmanager-properties-overrides.conf` and add this line:
-
-   ```javascript
-    properties.sts-jvm-args = "-Djavax.net.ssl.trustStore=/opt/stackstate/etc/custom_cacerts -Djavax.net.ssl.trustStoreType=jks -Djavax.net.ssl.trustStorePassword=changeit"
-   ```
-
-3. Finally, restart StackState to use the new settings:
-
-   ```text
-    systemctl restart stackstate
-   ```
 
 ## Retrieve certificate via the browser
 

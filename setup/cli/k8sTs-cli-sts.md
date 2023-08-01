@@ -6,11 +6,9 @@ description: StackState for Kubernetes troubleshooting
 
 ## Overview
 
-The StackState `sts` CLI provides easy access to the functionality provided by the StackState APIs. It can be used for automate using StackState data, configure StackState and to develop StackPacks.
+The StackState `sts` CLI provides easy access to the functionality provided by the StackState APIs. It can be used for automation using StackState data, to configure StackState and to develop StackPacks.
 
 ## Install the `sts` CLI
-
-Follow the steps below to install the `sts` CLI:
 
 ### Windows
 

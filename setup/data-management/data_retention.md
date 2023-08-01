@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x
+description: StackState for Kubernetes troubleshooting Self-hosted
 ---
 
 # Data retention
@@ -10,250 +10,98 @@ StackState imposes data retention limits to save storage space and improve perfo
 
 ## Retention of topology graph data
 
-By default, topology graph data will be retained for 8 days. This works in a way that the latest state of topology graph will always be retained; only history older than 8 days will be removed. You can check and alter the configured retention period this using the StackState CLI.
-
-{% tabs %}
-{% tab title="CLI: sts" %}
-{% hint style="info" %}
-From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
-
-➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
-{% endhint %}
+By default, topology graph data will be retained for 30 days. This works in a way that the latest state of topology graph will always be retained; only history older than 30 days will be removed. You can check and alter the configured retention period this using the StackState CLI.
 
 ```shell
 $ sts graph retention
 ```
 
-{% endtab %}
-{% tab title="CLI: stac (deprecated)" %}
-{% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
-
-The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
-
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
-{% endhint %}
-
-```shell
-# Check the current retention period
-$ stac graph retention get-window
-```
-{% endtab %}
-{% endtabs %}
-
-In some cases, it may be useful to keep historical data for more than eight days.
-
-{% tabs %}
-{% tab title="CLI: sts" %}
-{% hint style="info" %}
-From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
-
-➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
-{% endhint %}
+In some cases, it may be useful to keep historical data for more than 30 days or to reduce it to less than 30 days to save on disk space.
 
 ```shell
 $ sts graph retention --set 10d
 ```
 
 \(note that the duration can be specified as a duration string\)
-{% endtab %}
-{% tab title="CLI: stac (deprecated)" %}
-{% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
-
-The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
-
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
-{% endhint %}
-
-```shell
-# Set the configured retention period to 10 days
-$ stac graph retention set-window --window 864000000
-```
-
-\(note that time value is provided in milliseconds - 10 days equals 864000000 milliseconds\)
-{% endtab %}
-{% endtabs %}
 
 Note that by adding more time to the data retention period, the amount of data stored is also going to grow and need more storage space. This may also affect the performance of the Views.
 
-After the new retention window is applied, you can schedule a new removal with this command:
-
-{% tabs %}
-{% tab title="CLI: sts" %}
-{% hint style="info" %}
-From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
-
-➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
-{% endhint %}
+After changing the retention period to a smaller window, you may end up with some data that's already expired and will wait there until the next scheduled cleanup. To schedule a cleanup soon after the new retention window is applied use this command:
 
 ```shell
-$ sts graph retenstion --set 10d --schedule-removal
+$ sts graph retention --set 10d --schedule-removal
 ```
 
-Command not currently available in the new `sts` CLI. Use the `stac` CLI.
-{% endtab %}
-{% tab title="CLI: stac (deprecated)" %}
-{% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
-
-The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
-
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
-{% endhint %}
-
-```shell
-# Schedule a new removal
-$ stac graph retention set-window --schedule-removal
-```
-{% endtab %}
-{% endtabs %}
-
-After changing the retention period to a smaller window, you may end up with some data that's already expired and will wait there until the next scheduled cleanup. To schedule an additional removal of expired data, use the following command:
+In some cases, for example a disk running full, it can be needed to force removal of data immediately. This will have an impact on performance and current activity on StackState so is better avoided. 
 
 Note that this may take some time to have an effect.
 
-{% tabs %}
-{% tab title="CLI: sts" %}
-
-{% hint style="info" %}
-From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
-
-➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
-{% endhint %}
-
 ```shell
-$ sts graph delete-expired-data
-```
-{% endtab %}
-{% tab title="CLI: stac (deprecated)" %}
-{% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
-
-The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
-
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
-{% endhint %}
-
-
-```shell
-# Schedule removal of expired data
-$ stac graph retention remove-expired-data
+$ sts graph delete-expired-data --immediately
 ```
 
-{% endtab %}
-{% endtabs %}
-
-However, if you would like to perform data deletion without having to wait for an additional scheduled cleanup, you can use `--immediately` argument:
-
-{% tabs %}
-{% tab title="CLI: sts" %}
-
-{% hint style="info" %}
-From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
-
-➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
-{% endhint %}
-
-```shell
-$ sts graph delete-expired-data --immediate
-```
-{% endtab %}
-{% tab title="CLI: stac (deprecated)" %}
-{% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
-
-The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
-
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
-{% endhint %}
-
-
-```shell
-# Remove expired data immediately
-$ stac graph retention remove-expired-data --immediately
-```
-{% endtab %}
-{% endtabs %}
-
-## Retention of events, metrics and traces
+## Retention of events, traces and logs
 
 ### StackState data store
 
-If you are using the event/metrics/traces store provided with StackState, your data will by default be retained for 30 days. In most cases, the default settings will be sufficient to store all indices for this amount of time.
+If you are using the event/logs store provided with StackState, your data will by default be retained for 30 days. In most cases, the default settings will be sufficient to store all indices for this amount of time.
 
 #### Configure disk space for Elasticsearch
 
-In some circumstances it may be necessary to adjust the disk space available to Elasticsearch and how it's allocated to each index group, for example if you anticipate a lot of data to arrive for a specific index.
+In some circumstances it may be necessary to adjust the disk space available to Elasticsearch and how it's allocated to each index group, for example if you anticipate a lot of data to arrive for a specific data type. 
 
-{% tabs %}
-{% tab title="Kubernetes" %}
-The settings can be adjusted by using environment variables to [override the default configuration](../install-stackstate/kubernetes_openshift/customize_config.md#environment-variables) of the parameters described below.
+Here is a snippet with the complete disk space and retention config for Elasticsearch, including the default values.
 
-Note that `elasticsearchDiskSpaceMB` will scale automatically based on the disk space available to Elasticsearch in Kubernetes.
-{% endtab %}
+```yaml
+elasticsearch:
+  volumeClaimTemplate:
+    resources:
+      requests:
+        storage: 250Gi
+stackstate:
+  components:
+    receiver:
+      esDiskSpaceShare: 30
+      extraEnv:
+        open: 
+          CONFIG_FORCE_stackstate_receiver_k8sLogs_indexMaxAge: "7 days"
+    e2es:
+      extraEnv:
+        open: 
+          CONFIG_FORCE_stackstate_kafkaGenericEventsToES_elasticsearch_index_splittingStrategy: days
+          CONFIG_FORCE_stackstate_kafkaGenericEventsToES_elasticsearch_index_maxIndicesRetained: "30"
+          CONFIG_FORCE_stackstate_kafkaGenericEventsToES_elasticsearch_index_diskSpaceWeight: "2"
+          CONFIG_FORCE_stackstate_kafkaTopologyEventsToES_elasticsearch_index_splittingStrategy: days
+          CONFIG_FORCE_stackstate_kafkaTopologyEventsToES_elasticsearch_index_maxIndicesRetained: "30"
+          CONFIG_FORCE_stackstate_kafkaTopologyEventsToES_elasticsearch_index_diskSpaceWeight: "2"
+          CONFIG_FORCE_stackstate_kafkaStateEventsToES_elasticsearch_index_splittingStrategy: days
+          CONFIG_FORCE_stackstate_kafkaStateEventsToES_elasticsearch_index_maxIndicesRetained: "30"
+          CONFIG_FORCE_stackstate_kafkaStateEventsToES_elasticsearch_index_diskSpaceWeight: "2"
+          CONFIG_FORCE_stackstate_kafkaStsEventsToES_elasticsearch_index_splittingStrategy: days
+          CONFIG_FORCE_stackstate_kafkaStsEventsToES_elasticsearch_index_maxIndicesRetained: "30"
+          CONFIG_FORCE_stackstate_kafkaStsEventsToES_elasticsearch_index_diskSpaceWeight: "2"
+    trace2es:
+      extraEnv:
+        open: 
+          CONFIG_FORCE_stackstate_kafkaTraceToES_elasticsearch_index_splittingStrategy: days
+          CONFIG_FORCE_stackstate_kafkaTraceToES_elasticsearch_index_maxIndicesRetained: "8"
+          CONFIG_FORCE_stackstate_kafkaTraceToES_elasticsearch_index_diskSpaceWeight: "6"
+```
 
-{% tab title="Linux" %}
-The settings can be adjusted in the file `/opt/stackstate/etc/kafka-to-es/application.conf` using the parameters described below.
-{% endtab %}
-{% endtabs %}
+The disk space available for Elasticsearch is configured via the `elasticsearch.volumeClaimTemplate.resources.requests.storage` key. To change this value after the initial installation some [extra steps are required](data_retention.md#resizing-storage).
+
+**Note**: this is the disk space for each instance of ElasticSearch. For non-HA this is the total available disk space, but for HA there are 3 instances and a replication factor of 1. The end result is that the total available Elasticsearch storage will be `(250Gi * 3) / 2 = 375Gi`.
+
+There is a overall percentage configured via the `esDiskSpaceShare` for the disk space available for logs (default 30%). The remaining disk space (default 70%) is available for events and traces. With the `CONFIG_FORCE_stackstate_receiver_k8sLogs_indexMaxAge` the retention for logs can be changed. To change any of these (or the other settings) simply override the relevant key in your values.yaml and [update StackState](./data_retention.md#update-stackstate). It's advised to only override the keys that are changed.
+
+The division of the remaining disk space between the different indexes for events and the traces index is determined by the rest of the configuration. There are 5 different indices, the first 4 (generic events, topology events, state events and sts events)  are for different kinds of events while the 5th (trace) is for traces. The different indexes each have 3 config settings described in the table below
+
 
 | Parameter | Default | Description |
 | :--- | :--- | :--- |
-| `elasticsearchDiskSpaceMB` | `400000` | The total disk space assigned to Elasticsearch in MB. The default setting is the recommended disk space for a StackState production setup \(400GB\). |
 | `splittingStrategy` | `"days"` | The frequency of creating new indices. Can be one of "none", "hours", "days", "months" or "years". If "none" is specified, only one index will be used. |
 | `maxIndicesRetained` | `30` | The number of indices that will be retained in each index group. Together with the `splittingStrategy` governs how long historical data will be kept in Elasticsearch. |
 | `diskSpaceWeight` | Varies per index group | Defines the share of disk space an index will get based on the total `elasticsearchDiskSpaceMB`. If set to `0` then no disk space will be allocated to the index. See the [disk space weight examples](data_retention.md#disk-space-weight-examples) below. |
-| `replicas` | Linux: `0` Kubernetes: `1` | The number of nodes that a single piece of data should be available on. Use for redundancy/high availability when more than one Elasticsearch node is available. |
-
-{% tabs %}
-{% tab title="Example application.conf" %}
-```json
-stackstate {
-  ...
-
-  // Total size of disk assigned to Elasticsearch in MB
-  elasticsearchDiskSpaceMB = 400000
-
-  ...
-
-  // For each index group:
-  // kafkaMetricsToES - the sts_metrics index
-  // kafkaMultiMetricsToES - the sts_multi_metrics index
-  // kafkaGenericEventsToES - the sts_generic_events index
-  // kafkaTopologyEventsToES - the sts_topology_events index
-  // kafkaStateEventsToES - the sts_state_events index
-  // kafkaStsEventsToES - the sts_events index
-  // kafkaTraceToES - the sts_trace_events index
-
-  kafkaMultiMetricsToES {
-    ...
-    elasticsearch {
-      index {
-        splittingStrategy = "days"
-        maxIndicesRetained = 30
-        refreshInterval = 1s
-        replicas = 0 // Default setup is single node
-        diskSpaceWeight = 1
-      }
-    ...
-    }
-  }
-  ...
-}
-```
-{% endtab %}
-{% endtabs %}
 
 #### Disk space weight examples
 
@@ -271,26 +119,120 @@ Setting `diskSpaceWeight` to 0 will result in no disk space being allocated to a
 ```
 
 **Distribute disk space unevenly across index groups**
-The available disk space \(the configured `elasticsearchDiskSpaceMB`\) will be allocated to index groups proportionally based on their configured `diskSpaceWeight`. Disk space will be allocated to each index group according to the formula below, this will then be shared between the indices in the index group:
+The available disk space will be allocated to index groups proportionally based on their configured `diskSpaceWeight`. Disk space will be allocated to each index group according to the formula below, this will then be shared between the indices in the index group:
 
 ```text
 # Total disk space allocated to an index group
 index_group_disk_space = (elasticsearchdiskSpaceMB * diskSpaceWeight / sum(diskSpaceWeights)
 ```
 
-For example, with `elasticsearchDiskSpaceMB = 300000`, disk space would be allocated to the index groups and indexes be as follows:
+For example, assuming the weights in the yaml shown above, but with 300Gi available in total for Elasticsearch the allocated disk space is as follows:
 
-| Parameter | Index group disk space |
-| :--- | :--- |
-| `kafkaMetricsToES.elasticsearch.index {` `diskSpaceWeight = 0` `maxIndicesRetained = 20` `}` | 0MB |
-| `kafkaMultiMetricsToES.elasticsearch.index {` `diskSpaceWeight = 1` `maxIndicesRetained = 20` `}` | 20,000MB or 300,000\*1/15 |
-| `kafkaGenericEventsToES.elasticsearch.index{` `diskSpaceWeight = 2` `maxIndicesRetained = 20` `}` | 40,000MB or 300,000\*2/15 |
-| `kafkaTopologyEventsToES.elasticsearch.index{` `diskSpaceWeight = 3` `maxIndicesRetained = 20` `}` | 60,000MB or 300,000\*3/15 |
-| `kafkaStateEventsToES.elasticsearch.index{` `diskSpaceWeight = 4` `maxIndicesRetained = 20` `}` | 80,000MB or 300,000\*4/15 |
-| `kafkaStsEventsToES.elasticsearch.index{` `diskSpaceWeight = 5` `maxIndicesRetained = 20` `}` | 100000MB or 300,000\*5/15 |
-| `kafkaTraceToES.elasticsearch.index{` `diskSpaceWeight = 0` `maxIndicesRetained = 20` `}` | 0MB |
+* 300 * 0.3 = 90Gi for logs
+* 300 * 0.7 = 210Gi for the other indexes, the total set of weights is 2 + 2 + 2 + 2 + 6 = 14
+  * Generic events: 210 / 14 * 2 = 30Gi
+  * Topology events: 210 / 14 * 2 = 30Gi
+  * State events: 210 / 14 * 2 = 30Gi
+  * Sts events: 210 / 14 * 2 = 30Gi
+  * Traces: 210 / 14 * 6 = 90Gi
 
-### External data store
+## Retention of metrics
 
-If you have configured your own data source to be accessed by StackState, the retention policy is determined by the metric/event store that you have connected.
+StackState uses VictoriaMetrics to store metrics. It's configured with a default retention of 30 days. The helm chart allocates disk space and configures the retention period for the 1 or 2 Victoria metrics instances like this:
 
+```
+victoria-metrics-0:
+  server:
+    persistentVolume:
+      size: 250Gi
+    retentionPeriod: 1 # month
+# For HA setups:
+victoria-metrics-1:
+  server:
+    persistentVolume:
+      size: 250Gi
+    retentionPeriod: 1 # month
+```
+
+To change the volume size after the initial installation some [extra steps are required](data_retention.md#resizing-storage).
+
+To change the retention period override both `retentionPeriod` keys with the same value in your custom values.yaml and [update StackState](./data_retention.md#update-stackstate):
+
+* The following optional suffixes are supported: h (hour), d (day), w (week), y (year). If no suffix is set the duration is in months.
+* Minimum retention period is 24h or 1 day.
+
+## Update StackState
+
+After making changes to the values.yaml StackState needs to be updated to apply those changes to the runtime. This may cause some short downtime while the services restart. To update StackState use the same command that was used during installation of StackState and make sure to include the same configuration files including the changes that have been made:
+
+* [Kubernetes](/setup/install-stackstate/kubernetes_openshift/kubernetes_install.md#deploy-stackstate-with-helm)
+* [OpenShift](/setup/install-stackstate/kubernetes_openshift/openshift_install.md#deploy-stackstate-with-helm):
+
+## Resizing storage
+
+In most clusters it's possible to resize a persistent volume after it has been created and without interrupting the operation of applications at all. However this can't be done by simply changing the configured storage size in the values.yaml of the StackState Helm chart. Instead several steps are needed:
+
+1. Verify the used storage class can be resized
+2. Resize the volumes
+3. Update values.yaml and apply change (optional but recommended)
+
+The examples below use the VictoriaMetrics storage as an example. StackState is installed in the `stackstate` namespace. The volume is going to be resized to 500Gi.
+
+### Verify the storage class supports resizing
+
+Use the following `kubectl` commands to get the storage class used and check that the `allowVolumeExpansion` is set to true.
+
+```bash
+# Get the PVC's for StackState
+kubectl get pvc --namespace stackstate
+
+# There is a storage class column in the output, copy it and use it to describe the storage class
+kubectl describe storageclass <storage-class-name>
+```
+
+Verify that the output contains this line:
+
+```
+AllowVolumeExpansion:  True
+```
+
+If the line is absent or if it's set to `False` please consult with your Kubernetes administrator if resizing is supported and can be enabled.
+
+### Resize the volumes
+
+The StackState Helm chart creates a stateful set, which has a template to create the persistent volume claim (PVC). This template is only used to create the PVC once, after that it won't be applied anymore and it's also not allowed to change it. So to make the PVC's bigger the PVC itself needs to be edited.
+
+To change the PVC size use the following commands.
+
+```bash
+# Get the PVC's for StackState, allows us to check the current size and copy the name of the PVC to modify it with the next command
+kubectl get pvc --namespace stackstate
+
+# Patch the PVC's specified size, change it to 500Gi
+kubectl patch pvc server-volume-stackstate-victoria-metrics-0-0 -p '{"spec":{"resources": { "requests": { "storage": "500Gi" }}}}'
+
+# Get the PVC's again to verify if it was resized, depending on the provider this can take a while
+kubectl get pvc --namespace stackstate
+```
+
+### Update values.yaml and apply the change
+
+The change made to the persistent volume claim (PVC) will remain for the lifetime of the PVC, but whenever a clean install is done it will be lost. More importantly however, after resizing the PVC there is now a discrepancy between the cluster state and the definition of the desired state in the values.yaml. Therefore it's recommended to update the values.yaml as well. To circumvent the fact that this change is not allowed, first remove the stateful set (but keep the pods running) to re-create it with the new settings.
+
+{% hint style="info" %}
+This step doesn't change the size of the PVC itself, so only doing this step will result in no changes at all to the running environment.
+{% endhint %}
+
+First edit your values.yaml to update the volume size for the PVC's you've just resized. See the sections on [Metrics](data_retention.md#retention-of-metrics) or [Events and Logs](data_retention.md#retention-of-events-traces-and-logs).
+
+Now remove the stateful set for the application(s) for which the storage has been changed:
+
+```bash
+# List all stateful sets, check that all are ready, if not please troubleshoot that first
+kubectl get statefulset --namespace stackstate
+
+# Delete the 
+kubectl delete statefulset --namespace stackstate stackstate-victoria-metrics-0 --cascade=orphan
+```
+
+Finally [update StackState](./data_retention.md#update-stackstate) with the new settings.
