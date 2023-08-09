@@ -1,0 +1,158 @@
+---
+description: StackState Kubernetes Troubleshooting
+---
+
+# Add metrics to components
+
+## Overview 
+
+StackState provides already many metrics by default on most types of components that represent Kubernetes resources. Extra metrics can be added to any set of components whenever needed. When adding metrics to components there are 2 options:
+
+1. The metrics are already collected by StackState but are not visualized on a component by default
+1. The metrics are not yet collected by StackState at all and therefore are not even available. yet
+
+For option 1 the steps below will instruct you how to create a metric binding which will configure StackState to add a specific metric to a specific set of components.
+
+In case of option 2 first make sure that the metrics are available in StackState, by sending them to StackState using the [Prometheus remote write protocol](./k8s-prometheus-remote-write.md). Only after that continue by adding the metrics to the desired components.
+
+## Steps
+
+Steps to create a metric binding:
+
+1. Write the outline of the metric binding
+2. Determine the topology query (STQL) to select the components
+3. Determine the PromQL query for the desired metric
+4. Bind the correct time serie to each component
+5. Create or update the metric binding in StackState
+
+The example used will be to add our own version of the `Replica counts` to all Kubernetes deployment components. Note that this is just an example, this metric binding already is offered by default in StackState.
+
+## Write the outline of the metric binding
+
+Copy this template of a metric binding and save it into a new YAML file to create your own, all the parts will be filled in completely after going through this guide.
+
+```
+_type: MetricBinding
+chartType: line
+enabled: true
+tags: {}
+unit: 
+name: 
+description: 
+priority: 
+identifier: urn:custom:metric-binding:...
+queries:
+  - expression:
+    alias:
+scope:
+```
+
+The fields in this template are:
+
+* `_type`: StackState needs to know this is a metric binding so, value always needs to be `MetricBinding`
+* `chartType`: StackState will support multiple chart types (`line`, `bar`, etc.), currently only `line` is supported
+* `enabled`: Set to `false` to keep the metric binding but not show it to users
+* `tags`: Will be used to organize metrics in the user interface, can be left empty using `{}`
+* `unit`: The unit of the values in the time series returned by the query or queries, used to render the Y-axis of the chart. See the [supported units](/develop/reference/k8sTs-chart-units.md) reference for all units.
+* `name`: The name for the metric binding
+* `description`: Optional description, displayed on-hover of the name
+* `priority`: One of `HIGH`, `MEDIUM`, or `LOW`. Main sort order for metrics on a component (in the order they are mentioned here), secondary sort order is the `name`.
+* `identifier`: A universal resource identifier (URN), used as the unique identifier of the metric binding. Must start with `urn:custom:metric-binding:`, the remainder is free-format as long as it is unique amongst all metric bindings.
+* `queries`: A list of queries to show in the chart for the metric binding (see also the following sections)
+* `scope`: The topology scope of the metric binding, a topology query that selects the components on which this metric binding will be shown.
+
+Fill in all the parts already known first (with the deployment replica counts as the example)
+
+```
+_type: MetricBinding
+chartType: line
+enabled: true
+tags: {}
+unit: short
+name: Replica counts
+priority: MEDIUM
+identifier: urn:custom:metric-binding:deployment-replica-counts
+queries:
+  - expression:
+    alias:
+scope:
+```
+
+The queries and scope section will be filled in the next steps. Note that the unit used is `short` which will simply render a numeric value, in case you're not yet sure about the unit of the metric leave it open until after determining the PromQL query.
+
+## Determine the topology query
+
+Use the Explore view of the [Topology perspective](/use/views/k8s-topology-perspective.md), http://<your-stackstate-instance>/#/views/explore, and select the components that need to show the new metric. Both the basic and advanced views can be used to make the selection. The most common fields to select topology on for metric bindings are `type` for the component type and `label` for selecting all the labels. For example for the deployments:
+
+```
+type = "deployment" and label = "stackpack:kubernetes"
+```
+
+The type filter selects all deployments, while the label filter selects only components created by the Kubernetes stackpack (label name is `stackpack` and label value is `kubernetes`). The latter can also be omitted to get the same result.
+
+Switch to the advanced mode to copy the resulting topology query and put it in the `scope` field of the metric binding.
+
+{% hint syle="info" %}
+Metric bindings only support the query filters, query functions like `withNeighborsOf` are not supported and cannot be used.
+{% endhint %}
+
+## Determine the PromQL query
+
+Go to the [metric explorer](/use/metrics/k8sTs-explore-metrics.md) of your StackState instance, http://<your-stackstate-instance>/#/metrics, and use it to query for the metric of interest. The explorer has auto-completion for metrics, labels, label values but also PromQL functions, and operators to help you out. Start with a short time range of, for example, an hour to get the best results.
+
+For the total number of replicas use the `kubernetes_state_deployment_replicas` metric. To make the charts shown for this metric representative for the time series data extend the query to do an aggregation using the `${__interval}` parameter:
+
+```
+max_over_time(kubernetes_state_deployment_replicas[${__interval}])
+```
+
+In this specific case use `max_over_time` to make sure the chart always shows the highest number of replicas at any given time. For longer time ranges this means that a short dip in replicas will not be shown, to emphasize the lowest number of replicas use `min_over_time` instead. 
+
+Copy the query now into the `expression` property of the the first (and at the moment only) entry in the `queries` field of the metric binding. Use `Total replicas` as an alias. This is the name that will show up in the chart legend.
+
+{% hint style="info" %}
+In StackState the size of the metric chart automatically determines the granularity of the metric shown in the chart. PromQL queries can adjusted to make optimal use of this behavior to get a representative chart for the metric. [Writing PromQL for charts](./k8s-writing-PromQL-for-charts.md) explains this in detail.
+{% endhint %}
+
+## Bind the correct time serie to each component
+
+The metric binding with all fields filled in looks like this now:
+
+```
+_type: MetricBinding
+chartType: line
+enabled: true
+tags: {}
+unit: short
+name: Replica counts
+priority: MEDIUM
+identifier: urn:custom:metric-binding:deployment-replica-counts
+queries:
+  - expression: max_over_time(kubernetes_state_deployment_replicas[${__interval}])
+    alias: Total replicas
+scope: type = "deployment" and label = "stackpack:kubernetes"
+```
+
+Creating it in StackState results and viewing the "Replica count` chart on a deployment component gives an unexpected chart with many lines (time series), while logically only 1 time serie was to be expected for each deployment:
+
+To fix this make the PromQL query specific for a component using information from the component. Filter on sufficient metric labels to select only the specific time serie for the component. This is the "binding" of the correct time serie to the component. In this case the query is modified to:
+
+```
+max_over_time(kubernetes_state_deployment_replicas{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}", kube_deployment="${name}"}[${__interval}])
+```
+
+The PromQL query now filters on 3 labels, `kube_cluster_name`, `kube_namespace` and `kube_deployment`. Instead of specifying an actual value for these labels a variable reference to fields of the component is used. In this case the labels `cluster-name` and `namespace` are used (referenced using `${tags.cluster-name}` and `${tags.namespace}`, further the component name is referenced with `${name}`.
+
+Supported variable references are:
+* Any component label, using `${tags.<label-name>}`
+* The component name, using `${name}`
+* The component domain, using `${domain}`
+* The component layer, using `${layer}`
+
+## Create or update the metric binding in StackState
+
+
+
+## Multiple lines (time series) in a chart
+
+Add multiple queries or a query that returns multiple time series for a single component.

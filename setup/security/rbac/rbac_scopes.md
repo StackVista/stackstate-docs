@@ -6,7 +6,7 @@ description: StackState for Kubernetes troubleshooting Self-hosted
 
 ## How do scopes work?
 
-The scope is an [STQL query](../../../develop/reference/stql_reference.md) that's added as a prefix to every query executed in StackState. Whenever a user wants to select a view or pass a query in StackState, this prefix query is executed as a part of the user's query. This limits the results accordingly to match the user's role.
+The scope is an [STQL query](../../../develop/reference/k8sTs-stql_reference.md) that's added as a prefix to every query executed in StackState. Whenever a user wants to select a view or pass a query in StackState, this prefix query is executed as a part of the user's query. This limits the results accordingly to match the user's role.
 
 Note: Please note that function calls like `withCauseOf` and `withNeighborsOf` aren't supported as they would not be performant in this context.
 
