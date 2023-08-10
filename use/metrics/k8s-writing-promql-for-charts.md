@@ -11,8 +11,8 @@ When StackState shows data in a chart it almost always needs to reduce or increa
 Guidelines for charts that represent the metric data in the best way possible:
 
 * Don't query for the raw metric but always aggregate over time (using `*_over_time` or `rate` functions).
-* Use the `${__interval}` parameter as the time interval for aggregations over time, it will automatically adjust with the resolution of the chart
-* Use the `${__rate_interval}` parameter as the time interval for `rate` aggergations, it will also automatically adjust with the resolution of the chart but takes into account specific behaviors of `rate`.
+* Use the `${__interval}` parameter as the range for aggregations over time, it will automatically adjust with the resolution of the chart
+* Use the `${__rate_interval}` parameter as the range for `rate` aggergations, it will also automatically adjust with the resolution of the chart but takes into account specific behaviors of `rate`.
 
 Applying an aggregation often means a trade-off is made on what behavior of a metric gets emphasized. For large time windows for example, `max_over_time` will show all peaks but may not show all troughs. While `min_over_time` does the exact opposite and `avg_over_time` will smooth out both peaks and troughs. To show this behavior here is an example metric binding using the CPU usage of pods, to see it in action copy it to a YAML file and use the [CLI to apply it](./k8s-add-metrics.md#create-or-update-the-metric-binding-in-stackstate) in your StackState (you can remove it later).
 
@@ -67,7 +67,7 @@ is automatically converted to ([playground example](https://play.stackstate.com/
 last_over_time(container_cpu_usage[1h]) /1000000000
 ```
 
-Often this behavior is not intended and it is better to decide for yourself what kind of aggregation is needed. Using different aggregation functions it is possible to emphasize certain behavior (at the cost of hiding other behavior). Is it more important to see peaks, troughs, a smooth chart ectc.? Then use the `${__interval}` parameter for the interval as it is automatically replaced with the `step` size used for the query. The result is that all the data points in the step are used ([playground example](https://play.stackstate.com/#/metrics?promql=max_over_time%28container_cpu_usage%7Bkube_namespace%3D%22sock-shop%22%2C%20pod_name%3D~%22carts.%2A%22%7D%5B%24%7B__interval%7D%5D%29%20%2F%201000000000&timeRange=LAST_7_DAYS), also try `min_over_time` or `avg_over_time` instead of max).
+Often this behavior is not intended and it is better to decide for yourself what kind of aggregation is needed. Using different aggregation functions it is possible to emphasize certain behavior (at the cost of hiding other behavior). Is it more important to see peaks, troughs, a smooth chart ectc.? Then use the `${__interval}` parameter for the range as it is automatically replaced with the `step` size used for the query. The result is that all the data points in the step are used ([playground example](https://play.stackstate.com/#/metrics?promql=max_over_time%28container_cpu_usage%7Bkube_namespace%3D%22sock-shop%22%2C%20pod_name%3D~%22carts.%2A%22%7D%5B%24%7B__interval%7D%5D%29%20%2F%201000000000&timeRange=LAST_7_DAYS), also try `min_over_time` or `avg_over_time` instead of max).
 
 The `${__interval}` parameter protects us from another issue. When the `step` size and therefore the `${__interval}` value, would shrink to a smaller size than the resolution of the stored metric data this would result in gaps in the chart ([playground example](https://play.stackstate.com/#/metrics?promql=avg_over_time%28container_cpu_usage%7Bkube_namespace%3D%22sock-shop%22%2C%20pod_name%3D~%22carts.%2A%22%7D%5B10s%5D%29%20%2F%201000000000)). Therefore `${__interval}` will never shrink smaller than the 2* the default scrape interval (default scrape interval is 30 seconds) of the StackState agent ([playground example](https://play.stackstate.com/#/metrics?promql=avg_over_time%28container_cpu_usage%7Bkube_namespace%3D%22sock-shop%22%2C%20pod_name%3D~%22carts.%2A%22%7D%5B%24%7B__interval%7D%5D%29%20%2F%201000000000)).
 
@@ -78,3 +78,12 @@ There are some excellent blog posts on the internet that explain this in more de
 * [Step and query range](https://www.robustperception.io/step-and-query_range/)
 * [What range should I use with rate()?](https://www.robustperception.io/what-range-should-i-use-with-rate/)
 * [Introduction of __rate_interval in Grafana](https://grafana.com/blog/2020/09/28/new-in-grafana-7.2-__rate_interval-for-prometheus-rate-queries-that-just-work/)
+
+## See also
+
+Some more resources on understanding PromQL queries:
+
+* [Anatomy of a PromQL Query](https://promlabs.com/blog/2020/06/18/the-anatomy-of-a-promql-query/)
+* [Selecting Data in PromQL](https://promlabs.com/blog/2020/07/02/selecting-data-in-promql/)
+* [How to join multiple metrics](https://iximiuz.com/en/posts/prometheus-vector-matching/)
+* [Aggregation over time](https://iximiuz.com/en/posts/prometheus-functions-agg-over-time/)

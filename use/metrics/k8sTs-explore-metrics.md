@@ -18,3 +18,7 @@ The query input field has auto-suggestions for metric names, label names and val
 * [PromQL documentation](https://prometheus.io/docs/prometheus/latest/querying/basics/)
 * [PromQL operators](https://prometheus.io/docs/prometheus/latest/querying/operators/)
 * [PromQL functions](https://prometheus.io/docs/prometheus/latest/querying/functions/)
+* [Anatomy of a PromQL Query](https://promlabs.com/blog/2020/06/18/the-anatomy-of-a-promql-query/)
+* [Selecting Data in PromQL](https://promlabs.com/blog/2020/07/02/selecting-data-in-promql/)
+* [How to join multiple metrics](https://iximiuz.com/en/posts/prometheus-vector-matching/)
+* [Aggregation over time](https://iximiuz.com/en/posts/prometheus-functions-agg-over-time/)
