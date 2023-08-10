@@ -84,6 +84,11 @@ To uninstall StackState Agent V2, see the [StackState Agent documentation](/setu
 
 ## Release notes
 
+**Agent V2 StackPack v4.5.2 (2022-06-10)**
+
+- Improvement: Added CPU throttled metrics for containers.
+
+
 **Agent V2 StackPack v4.5.1 (2022-04-08)**
 
 - Improvement: Added a Deprovisioning screen when uninstalling the StackState Agent V2 StackPack.

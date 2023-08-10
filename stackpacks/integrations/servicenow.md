@@ -190,8 +190,8 @@ For considerations and instructions on upgrading a StackPack, see [how to upgrad
 
 The ServiceNow check retrieves the following events data from ServiceNow:
 
-| Data | Description |
-| :--- | :--- |
+| Data            | Description                                                                                                                                                                                                                                                                    |
+| :-------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Change requests | The change requests retrieved can be [filtered using ServiceNow queries](servicenow.md#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) and will be visible in the StackState [Events Perspective](../../use/stackstate-ui/perspectives/events_perspective.md). |
 
 #### Metrics
@@ -208,10 +208,10 @@ The ServiceNow integration also understands StackState [common tags](../../confi
 
 The ServiceNow check retrieves the following topology data from the ServiceNow CMDB:
 
-| Data | Description |
-| :--- | :--- |
+| Data       | Description                                                                                                               |
+| :--------- | :------------------------------------------------------------------------------------------------------------------------ |
 | Components | CI types retrieved from the ServiceNow CMDB, see [filter retrieved CI types](servicenow.md#specify-ci-types-to-retrieve). |
-| Relations | Relations retrieved from the `cmdb_rel_ci` table. |
+| Relations  | Relations retrieved from the `cmdb_rel_ci` table.                                                                         |
 
 {% hint style="info" %}
 The ServiceNow integration understands StackState [common tags](../../configure/topology/tagging.md#common-tags). These StackState tags can be assigned to elements in ServiceNow to influence the way that the resulting topology is built in StackState. For example, by placing a component in a specific layer or domain.
@@ -225,12 +225,12 @@ The ServiceNow check doesn't retrieve any traces data.
 
 The ServiceNow user configured in StackState Agent V2 must have access to read the ServiceNow `TABLE` API. The specific table names and endpoints used in the StackState integration are described below. All named REST API endpoints use the HTTPS protocol for communication.
 
-| Table Name | REST API Endpoint |
-| :--- | :--- |
+| Table Name      | REST API Endpoint               |
+| :-------------- | :------------------------------ |
 | change\_request | `/api/now/table/change_request` |
-| cmdb\_ci | `/api/now/table/cmdb_ci` |
-| cmdb\_rel\_type | `/api/now/table/cmdb_rel_type` |
-| cmdb\_rel\_ci | `/api/now/table/cmdb_rel_ci` |
+| cmdb\_ci        | `/api/now/table/cmdb_ci`        |
+| cmdb\_rel\_type | `/api/now/table/cmdb_rel_type`  |
+| cmdb\_rel\_ci   | `/api/now/table/cmdb_rel_ci`    |
 
 {% hint style="info" %}
 Refer to the ServiceNow product documentation for details on [how to configure a ServiceNow user and assign roles](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/users_and_groups/task/t_CreateAUser.html).
@@ -270,11 +270,17 @@ To uninstall the ServiceNow StackPack and disable the ServiceNow check:
 
 ## Release notes
 
-**ServiceNow StackPack v5.3.1 \(2021-04-12\)**
+**ServiceNow StackPack v5.3.3 (2022-06-13)**
 
-**Improvement**
+- Improvement: Updated documentation
 
-* Common bumped from 2.5.0 to 2.5.1
+**ServiceNow StackPack v5.3.2 (2022-06-03)**
+
+- Improvement: Updated documentation
+
+**ServiceNow StackPack v5.3.1 (2021-04-12)**
+
+- Improvement: Common bumped from 2.5.0 to 2.5.1
 
 ## See also
 
