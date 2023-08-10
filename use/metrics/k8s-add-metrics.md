@@ -71,7 +71,7 @@ tags: {}
 unit: short
 name: Replica counts
 priority: MEDIUM
-identifier: urn:custom:metric-binding:deployment-replica-counts
+identifier: urn:custom:metric-binding:my-deployment-replica-counts
 queries:
   - expression:
     alias:
@@ -126,7 +126,7 @@ tags: {}
 unit: short
 name: Replica counts
 priority: MEDIUM
-identifier: urn:custom:metric-binding:deployment-replica-counts
+identifier: urn:custom:metric-binding:my-deployment-replica-counts
 queries:
   - expression: max_over_time(kubernetes_state_deployment_replicas[${__interval}])
     alias: Total replicas
@@ -166,9 +166,9 @@ nodes:
   unit: short
   name: Replica counts
   priority: MEDIUM
-  identifier: urn:custom:metric-binding:deployment-replica-counts
+  identifier: urn:custom:metric-binding:my-deployment-replica-counts
   queries:
-    - expression: max_over_time(kubernetes_state_deployment_replicas[${__interval}])
+    - expression: max_over_time(kubernetes_state_deployment_replicas{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}", kube_deployment="${name}"}[${__interval}])
       alias: Total replicas
   scope: type = "deployment" and label = "stackpack:kubernetes"
 ```
@@ -193,8 +193,63 @@ The `sts settings` command has more options, for example it can list all metric 
 sts settings list --type MetricBinding
 ```
 
+## Multiple time series in one chart
+
+There are 2 ways to get multiple time series in a single metric binding and therefore in a single chart:
+
+1. Write a PromQL query that returns multiple time series for a single component
+2. Add multiple PromQL queries to the metric binding
+
+For the first option an example is given in the [next section](./k8s-add-metrics.md#using-metric-labels-in-aliases). The second option can be very useful for comparing closely related metrics. Some typical use-cases:
+
+* Comparing total replicas vs desired and available
+* Resource usage: limits, requests and usage in a single chart
+
+To add more queries to a metric binding simply repeat [steps](./k8s-add-metrics.md#steps) 3. and 4. and add the query as an extra entry in the list of queries. For the deployment replica counts there are several related metrics that can be included in the same chart:
+
+```
+nodes:
+- _type: MetricBinding
+  chartType: line
+  enabled: true
+  tags: {}
+  unit: short
+  name: Replica counts
+  priority: MEDIUM
+  identifier: urn:custom:metric-binding:my-deployment-replica-counts
+  queries:
+    - expression: max_over_time(kubernetes_state_deployment_replicas{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}", kube_deployment="${name}"}[${__interval}])
+      alias: Total replicas
+    - expression: max_over_time(kubernetes_state_deployment_replicas_available{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}",  kube_deployment="${name}"}[${__interval}])
+      alias: Available - ${kube_cluster_name} - ${kube_namespace} - ${kube_deployment}
+    - expression: max_over_time(kubernetes_state_deployment_replicas_unavailable{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}",  kube_deployment="${name}"}[${__interval}])
+      alias: Unavailable - ${kube_cluster_name} - ${kube_namespace} - ${kube_deployment}
+    - expression: min_over_time(kubernetes_state_deployment_replicas_desired{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}",  kube_deployment="${name}"}[${__interval}])
+      alias: Desired - ${kube_cluster_name} - ${kube_namespace} - ${kube_deployment}
+  scope: type = "deployment" and label = "stackpack:kubernetes"
+```
+
+{% hint style="info" %}
+There is only 1 unit for a metric binding (it gets plotted on the y-axis of the chart), as a result you should only include queries that produce time series with the same unit. In some cases it might be possible to convert the unit. For example CPU usage might be reported in milli-cores or cores by different metrics, milli-cores can be converted in the query to cores by including `(<original-query> * 1000`.
+{% endhint %}
+
 ## Using metric labels in aliases
 
-## Multiple lines (time series) in a chart
+When a single query results in multiple time series per component, this will show as multiple lines in the chart, but they will all use the same alias. To be able to see the difference between the different time series the alias can include references to the metric labels using the `${label}` syntax. For example here is a metric binding for the "Container restarts" metric on a pod, note that a pod can have multiple containers:
 
-Add multiple queries or a query that returns multiple time series for a single component.
+```
+type: MetricBinding
+chartType: line
+enabled: true
+id: -1
+identifier: urn:custom:metric-binding:my-pod-restart-count
+name: Container restarts
+priority: MEDIUM
+queries:
+- alias: Restarts - ${container_name}
+  expression: max by (kube_cluster_name, kube_namespace, pod_name, container_name) (kubernetes_containers_restarts{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}", pod_name="${name}"})
+scope: (label = "stackpack:kubernetes" and type = "pod")
+unit: short
+```
+
+Note that the `alias` references the `container_name` label of the metric. Make sure the label is present on the query result, when the label is missing the `${container_name}` will be rendered as literal text to help troubleshooting.
