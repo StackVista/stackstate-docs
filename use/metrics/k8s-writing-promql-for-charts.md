@@ -75,7 +75,6 @@ Finally the `rate()` function requires at least 2 data points to be in the inter
 
 There are some excellent blog posts on the internet that explain this in more detail:
 
-* 
-
-## See also
-
+* [Step and query range](https://www.robustperception.io/step-and-query_range/)
+* [What range should I use with rate()?](https://www.robustperception.io/what-range-should-i-use-with-rate/)
+* [Introduction of __rate_interval in Grafana](https://grafana.com/blog/2020/09/28/new-in-grafana-7.2-__rate_interval-for-prometheus-rate-queries-that-just-work/)
