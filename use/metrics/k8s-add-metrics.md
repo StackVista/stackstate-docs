@@ -135,7 +135,9 @@ scope: type = "deployment" and label = "stackpack:kubernetes"
 
 Creating it in StackState results and viewing the "Replica count` chart on a deployment component gives an unexpected chart with many lines (time series), while logically only 1 time serie was to be expected for each deployment:
 
-To fix this make the PromQL query specific for a component using information from the component. Filter on sufficient metric labels to select only the specific time serie for the component. This is the "binding" of the correct time serie to the component. In this case the query is modified to:
+<todo add screenshot>
+
+To fix this make the PromQL query specific for a component using information from the component. Filter on sufficient metric labels to select only the specific time serie for the component. This is the "binding" of the correct time serie to the component. For anyone experienced in making Grafana dashboards this is very similar to parameterizing the dashboard and its queries. For the example modify the replicas query like this:
 
 ```
 max_over_time(kubernetes_state_deployment_replicas{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}", kube_deployment="${name}"}[${__interval}])
@@ -148,6 +150,8 @@ Supported variable references are:
 * The component name, using `${name}`
 * The component domain, using `${domain}`
 * The component layer, using `${layer}`
+
+<todo screenshot of chart and screenshot of labels>
 
 {% hint style="info" %}
 Like in this example the cluster name, namespace and a combination of the component type and name (in this example the metric label is only applicable for deployments) together are in most cases sufficient for selecting the metrics for a specific component from Kubernetes. Also the StackState agent will usually make these labels available on both metrics and components. 
@@ -192,6 +196,14 @@ The `sts settings` command has more options, for example it can list all metric 
 ```bash
 sts settings list --type MetricBinding
 ```
+
+Finally to delete a metric binding use
+
+```bash
+sts settings delete --ids <id>
+```
+
+The `<id>` in this command is not the identifier but the number in the `Id` column of the `sts settings list` output.
 
 ## Multiple time series in one chart
 
