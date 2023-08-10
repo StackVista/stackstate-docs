@@ -26,7 +26,7 @@
 * [Explore Metrics](use/metrics/k8sTs-explore-metrics.md)
 * [Advanced](use/metrics/k8s-advanced.md)
   * [Adding custom metrics to component](use/metrics/k8s-add-metrics.md)
-  * [How to write PromQL queries that result in nice charts](use/metrics/k8s-writing-promql-for-charts.md)
+  * [Writing PromQL queries for representative charts](use/metrics/k8s-writing-promql-for-charts.md)
   * [Grafana Datasource](use/metrics/k8s-stackstate-grafana-datasource.md)
   * [Prometheus remote_write](use/metrics/k8s-prometheus-remote-write.md)
 
@@ -51,7 +51,7 @@
 * [Using a custom registry](setup/agent/k8s-custom-registry.md)
 
 ## CLI
-* [Installation](setup/cli/k8sTs-cli-sts.md)
+* [StackState CLI](setup/cli/k8sTs-cli-sts.md)
 
 ## 🚀 Self-hosted setup
 * [Install StackState](setup/install-stackstate/README.md)

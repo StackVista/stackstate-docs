@@ -14,5 +14,5 @@ Charts show metrics data for the selected components in near real-time - data is
 
 ## Ordering
 
-Metric charts are ordered based on the priority of the associated telemetry stream. The priority of a stream can be configured in the [Telemetry Inspector](/use/metrics/browse-telemetry.md).
+Metric charts are ordered on priority and name. Both are configured on the [metric binding](/use/metrics/k8s-add-metrics.md).
 
