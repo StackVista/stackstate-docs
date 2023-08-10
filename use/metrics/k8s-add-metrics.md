@@ -29,7 +29,7 @@ The example used will be to add our own version of the `Replica counts` to all K
 
 ## Write the outline of the metric binding
 
-Copy this template of a metric binding and save it into a new YAML file to create your own, all the parts will be filled in completely after going through this guide.
+Use this template to create your own metric binding, all the parts will be filled in completely after going through this guide.
 
 ```
 _type: MetricBinding
@@ -141,7 +141,7 @@ To fix this make the PromQL query specific for a component using information fro
 max_over_time(kubernetes_state_deployment_replicas{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}", kube_deployment="${name}"}[${__interval}])
 ```
 
-The PromQL query now filters on 3 labels, `kube_cluster_name`, `kube_namespace` and `kube_deployment`. Instead of specifying an actual value for these labels a variable reference to fields of the component is used. In this case the labels `cluster-name` and `namespace` are used (referenced using `${tags.cluster-name}` and `${tags.namespace}`, further the component name is referenced with `${name}`.
+The PromQL query now filters on 3 labels, `kube_cluster_name`, `kube_namespace` and `kube_deployment`. Instead of specifying an actual value for these labels a variable reference to fields of the component is used. In this case the labels `cluster-name` and `namespace` are used, referenced using `${tags.cluster-name}` and `${tags.namespace}`. Further the component name is referenced with `${name}`.
 
 Supported variable references are:
 * Any component label, using `${tags.<label-name>}`
@@ -149,9 +149,51 @@ Supported variable references are:
 * The component domain, using `${domain}`
 * The component layer, using `${layer}`
 
+{% hint style="info" %}
+Like in this example the cluster name, namespace and a combination of the component type and name (in this example the metric label is only applicable for deployments) together are in most cases sufficient for selecting the metrics for a specific component from Kubernetes. Also the StackState agent will usually make these labels available on both metrics and components. 
+{% endhint %}
+
 ## Create or update the metric binding in StackState
 
+Use the StackState Cli to create the metric binding in StackState. First save the metric binding into a YAML file (`metric-bindings.yaml`), but put it in a list of `nodes` like this:
 
+```
+nodes:
+- _type: MetricBinding
+  chartType: line
+  enabled: true
+  tags: {}
+  unit: short
+  name: Replica counts
+  priority: MEDIUM
+  identifier: urn:custom:metric-binding:deployment-replica-counts
+  queries:
+    - expression: max_over_time(kubernetes_state_deployment_replicas[${__interval}])
+      alias: Total replicas
+  scope: type = "deployment" and label = "stackpack:kubernetes"
+```
+
+This format supports defining multiple metric bindings in the same file such that they can be created or updated with a single StackState cli command.
+
+Use the [StackState cli](/setup/cli/k8sTs-cli-sts.md) to create the metric binding:
+
+```bash
+sts settings apply -f metric-bindings.yaml
+```
+
+Verify the results in StackState by opening the metrics perspective for a deployment. If you're not satisified with the result simply modify the metric binding in the YAML file and run the command again to update it.
+
+{% hint style="warning" %}
+The identifier is used as the unique key of a metric binding. Changing the identifier will create a new metric binding instead of updating the existing one.
+{% endhint %}
+
+The `sts settings` command has more options, for example it can list all metric bindings:
+
+```bash
+sts settings list --type MetricBinding
+```
+
+## Using metric labels in aliases
 
 ## Multiple lines (time series) in a chart
 

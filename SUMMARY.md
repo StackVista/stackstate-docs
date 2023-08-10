@@ -50,6 +50,9 @@
 * [Network configuration](setup/k8s-network-configuration-saas.md)
 * [Using a custom registry](setup/agent/k8s-custom-registry.md)
 
+## CLI
+* [Installation](setup/cli/k8sTs-cli-sts.md)
+
 ## 🚀 Self-hosted setup
 * [Install StackState](setup/install-stackstate/README.md)
   * [Requirements](setup/install-stackstate/requirements.md)
@@ -70,7 +73,6 @@
 * [Air-gapped](setup/install-stackstate/kubernetes_openshift/no_internet/README.md)
   * [StackState air-gapped](setup/install-stackstate/kubernetes_openshift/no_internet/stackstate_installation.md)
   * [StackState Kubernetes Agent air-gapped](setup/install-stackstate/kubernetes_openshift/no_internet/agent_install.md)
-* [StackState CLI](setup/cli/k8sTs-cli-sts.md)
 * [Data management](setup/data-management/README.md)
   * [Backup and Restore](setup/data-management/backup_restore/README.md)
     * [Kubernetes backup](setup/data-management/backup_restore/kubernetes_backup.md)
