@@ -41,6 +41,7 @@ HIGH
 high
 github
 GitHub
+Grafana
 IAM
 ITSM
 JIRA
@@ -59,6 +60,7 @@ Namespace
 NEW
 new
 New
+OpenMetrics
 OpenShift
 playhead
 Playhead

@@ -154,7 +154,7 @@ Supported variable references are:
 ![Component Highlights page that shows the labels and component name (both highlighted in red)](../../.gitbook/assets/k8s/k8s-carts-highlights.png)
 
 {% hint style="info" %}
-The cluster name, namespace and a combination of the component type and name are ususally enough for selecting the metrics for a specific component from Kubernetes. These labels, or very similar labels, are usually available on most metrics and components.
+The cluster name, namespace and a combination of the component type and name are ususally enough for selecting the metrics for a specific component from Kubernetes. These labels, or similar labels, are usually available on most metrics and components.
 {% endhint %}
 
 ## Create or update the metric binding in StackState
@@ -203,7 +203,7 @@ Finally to delete a metric binding use
 sts settings delete --ids <id>
 ```
 
-The `<id>` in this command is not the identifier but the number in the `Id` column of the `sts settings list` output.
+The `<id>` in this command isn't the identifier but the number in the `Id` column of the `sts settings list` output.
 
 ## Other options
 
