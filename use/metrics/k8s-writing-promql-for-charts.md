@@ -49,11 +49,9 @@ nodes:
 After applying it open the metrics perspective for a pod in StackState (preferably a pod with some spikes and troughs in CPU usage), enlarge the chart using the icon in the top-right corner and play with the time window to see what the effects are (30 minutes vs 24 hours for example). 
 Note that when you don't make the decission on what aggregation to use StackState will automatically use the `last_over_time` aggregation, see also [Why?](./k8s-writing-promql-for-charts.md#why) for an explanation.
 
-This a chart for this metric binding for the last 30m, there are only a few lines in the chart visible because most timeseries are on top of each other:
-![Example of the different aggregations for 30m time window](../../.gitbook/assets/k8s/metric-aggregation-differences-30m.png)
+![The chart for this metric binding for the last 30m, there are only a few lines in the chart visible because most timeseries are on top of each other](../../.gitbook/assets/k8s/metric-aggregation-differences-30m.png)
 
-And the same chart, same component and same end time, but now for the last 24h shows, sometimes completely, different results for the different aggregations:
-![Example of the different aggregations for 24h time window](../../.gitbook/assets/k8s/metric-aggregation-differences-24h.png)
+![The same chart, same component and same end time, but now for the last 24h shows. It shows, sometimes completely, different results for the different aggregations](../../.gitbook/assets/k8s/metric-aggregation-differences-24h.png)
 
 ## Why?
 
