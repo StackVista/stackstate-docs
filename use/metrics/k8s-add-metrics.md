@@ -19,11 +19,11 @@ In case of option 2 first make sure that the metrics are available in StackState
 
 Steps to create a metric binding:
 
-1. Write the outline of the metric binding
-2. Determine the topology query (STQL) to select the components
-3. Determine the PromQL query for the desired metric
-4. Bind the correct time serie to each component
-5. Create or update the metric binding in StackState
+1. [Write the outline of the metric binding](#write-the-outline-of-the-metric-binding)
+2. [Determine the topology query (STQL) to select the components](#determine-the-topology-query)
+3. [Determine the PromQL query for the desired metric](#determine-the-promql-query)
+4. [Bind the correct time serie to each component](#bind-the-correct-time-serie-to-each-component)
+5. [Create or update the metric binding in StackState](#create-or-update-the-metric-binding-in-stackstate)
 
 The example used will be to add our own version of the `Replica counts` to all Kubernetes deployment components. Note that this is just an example, this metric binding already is offered by default in StackState.
 
@@ -205,11 +205,13 @@ sts settings delete --ids <id>
 
 The `<id>` in this command is not the identifier but the number in the `Id` column of the `sts settings list` output.
 
-## Multiple time series in one chart
+## More options
+
+### Multiple time series in one chart
 
 
 {% hint style="info" %}
-There is only 1 unit for a metric binding (it gets plotted on the y-axis of the chart), as a result you should only include queries that produce time series with the same unit. In some cases it might be possible to convert the unit. For example CPU usage might be reported in milli-cores or cores by different metrics, milli-cores can be converted in the query to cores by including `(<original-query> * 1000`.
+There is only 1 unit for a metric binding (it gets plotted on the y-axis of the chart), as a result you should only include queries that produce time series with the same unit. In some cases it might be possible to convert the unit. For example CPU usage might be reported in milli-cores or cores by different metrics, milli-cores can be converted in the query to cores by including `(<original-query>) * 1000`.
 {% endhint %}
 
 There are 2 ways to get multiple time series in a single metric binding and therefore in a single chart:
@@ -248,7 +250,7 @@ nodes:
 
 ![Metric binding with multiple metrics](../../.gitbook/assets/k8s/k8s-replica-counts-multiple-timeseries.png)
 
-## Using metric labels in aliases
+### Using metric labels in aliases
 
 When a single query results in multiple time series per component, this will show as multiple lines in the chart, but they will all use the same alias. To be able to see the difference between the different time series the alias can include references to the metric labels using the `${label}` syntax. For example here is a metric binding for the "Container restarts" metric on a pod, note that a pod can have multiple containers:
 
