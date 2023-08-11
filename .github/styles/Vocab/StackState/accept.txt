@@ -63,6 +63,7 @@ OpenShift
 playhead
 Playhead
 PostgreSQL
+PromQL
 SAVE
 Save
 save
