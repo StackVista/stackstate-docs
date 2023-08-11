@@ -50,7 +50,6 @@ After applying it open the metrics perspective for a pod in StackState (preferab
 Note that when you don't make the decission on what aggregation to use StackState will automatically use the `last_over_time` aggregation, see also [Why?](./k8s-writing-promql-for-charts.md#why) for an explanation.
 
 ![The chart for this metric binding for the last 30m, there are only a few lines in the chart visible because most timeseries are on top of each other](../../.gitbook/assets/k8s/metric-aggregation-differences-30m.png)
-
 ![The same chart, same component and same end time, but now for the last 24h shows. It shows, sometimes completely, different results for the different aggregations](../../.gitbook/assets/k8s/metric-aggregation-differences-24h.png)
 
 ## Why?
@@ -79,8 +78,8 @@ Try it for yourself on the [StackState playground](https://play.stackstate.com/#
 
 Often this behavior is not intended and it is better to decide for yourself what kind of aggregation is needed. Using different aggregation functions it is possible to emphasize certain behavior (at the cost of hiding other behavior). Is it more important to see peaks, troughs, a smooth chart ectc.? Then use the `${__interval}` parameter for the range as it is automatically replaced with the `step` size used for the query. The result is that all the data points in the step are used.
 
-![Very small, fixed, range](../../.gitbook/assets/k8s/k8s-metric-queries-small-range.png)
-![Automatic range that applies a lower limit](../../.gitbook/assets/k8s/k8s-metric-queries-interval-for-range.png)
+![A fixed range, shorter than the data resolution](../../.gitbook/assets/k8s/k8s-metric-queries-small-range.png)
+![Automatic range, based on step but with a lower limit](../../.gitbook/assets/k8s/k8s-metric-queries-interval-for-range.png)
 
 The `${__interval}` parameter protects us from another issue. When the `step` size and therefore the `${__interval}` value, would shrink to a smaller size than the resolution of the stored metric data this would result in gaps in the chart. 
 
