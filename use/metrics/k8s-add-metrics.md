@@ -135,7 +135,7 @@ scope: type = "deployment" and label = "stackpack:kubernetes"
 
 Creating it in StackState results and viewing the "Replica count` chart on a deployment component gives an unexpected chart with many lines (time series), while logically only 1 time serie was to be expected for each deployment:
 
-<todo add screenshot>
+![Metric binding without binding metric query with topology](../../.gitbook/assets/k8s/k8s-replica-counts-without-binding.png)
 
 To fix this make the PromQL query specific for a component using information from the component. Filter on sufficient metric labels to select only the specific time serie for the component. This is the "binding" of the correct time serie to the component. For anyone experienced in making Grafana dashboards this is very similar to parameterizing the dashboard and its queries. For the example modify the replicas query like this:
 
@@ -143,15 +143,19 @@ To fix this make the PromQL query specific for a component using information fro
 max_over_time(kubernetes_state_deployment_replicas{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}", kube_deployment="${name}"}[${__interval}])
 ```
 
+After adding the parameterized filters the resulting chart looks like this:
+![Metric binding](../../.gitbook/assets/k8s/k8s-replica-counts-with-binding.png)
+
 The PromQL query now filters on 3 labels, `kube_cluster_name`, `kube_namespace` and `kube_deployment`. Instead of specifying an actual value for these labels a variable reference to fields of the component is used. In this case the labels `cluster-name` and `namespace` are used, referenced using `${tags.cluster-name}` and `${tags.namespace}`. Further the component name is referenced with `${name}`.
 
 Supported variable references are:
 * Any component label, using `${tags.<label-name>}`
 * The component name, using `${name}`
-* The component domain, using `${domain}`
-* The component layer, using `${layer}`
 
-<todo screenshot of chart and screenshot of labels>
+These can all be found in the Highlights page of a component:
+![Component Highlights page with name and labels](../../.gitbook/assets/k8s/k8s-carts-highlights.png)
+
+
 
 {% hint style="info" %}
 Like in this example the cluster name, namespace and a combination of the component type and name (in this example the metric label is only applicable for deployments) together are in most cases sufficient for selecting the metrics for a specific component from Kubernetes. Also the StackState agent will usually make these labels available on both metrics and components. 
@@ -207,6 +211,11 @@ The `<id>` in this command is not the identifier but the number in the `Id` colu
 
 ## Multiple time series in one chart
 
+
+{% hint style="info" %}
+There is only 1 unit for a metric binding (it gets plotted on the y-axis of the chart), as a result you should only include queries that produce time series with the same unit. In some cases it might be possible to convert the unit. For example CPU usage might be reported in milli-cores or cores by different metrics, milli-cores can be converted in the query to cores by including `(<original-query> * 1000`.
+{% endhint %}
+
 There are 2 ways to get multiple time series in a single metric binding and therefore in a single chart:
 
 1. Write a PromQL query that returns multiple time series for a single component
@@ -241,9 +250,7 @@ nodes:
   scope: type = "deployment" and label = "stackpack:kubernetes"
 ```
 
-{% hint style="info" %}
-There is only 1 unit for a metric binding (it gets plotted on the y-axis of the chart), as a result you should only include queries that produce time series with the same unit. In some cases it might be possible to convert the unit. For example CPU usage might be reported in milli-cores or cores by different metrics, milli-cores can be converted in the query to cores by including `(<original-query> * 1000`.
-{% endhint %}
+![Metric binding with multiple metrics](../../.gitbook/assets/k8s/k8s-replica-counts-multiple-timeseries.png)
 
 ## Using metric labels in aliases
 

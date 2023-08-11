@@ -6,7 +6,7 @@ description: StackState Kubernetes Troubleshooting
 
 Execute any PromQL query using the metrics explorer. The query result is shown in a chart for the selected time range and in table form showing the last value for each time serie.
 
-<TODO add screenshot>
+![Metrics Explorer](../../.gitbook/assets/k8s/k8s-metrics-explorer.png)
 
 ## PromQL queries
 
