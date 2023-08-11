@@ -6,7 +6,7 @@ description: StackState for Kubernetes troubleshooting
 
 This page contains all units supported by charts. For every unit first the description of the unit is mentioned, followed by the name of the unit that should be used in the StackState APIs. For example to get a value displayed in "Scientific notation" use `sci` as the value for the unit in a metric binding.
 
-The rendering of the unit automatically adjusts to the size of the value. For example if the unit for a chart is `bytes` this means that the value is interpretted as `bytes(IEC)`. A value of `100` will be rendered as `100B`, but a value of `5242880` (`5*1024*1024`) will be shown as `5MiB`.
+The rendering of the unit automatically adjusts to the size of the value. For example if the unit for a chart is `bytes` the value is interpretted as `bytes(IEC)`. A value of `100` will be rendered as `100B`, but a value of `5242880` (`5*1024*1024`) will be shown as `5MiB`.
 
 ## Misc
 * None: none
