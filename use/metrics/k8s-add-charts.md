@@ -205,7 +205,7 @@ sts settings delete --ids <id>
 The `<id>` in this command isn't the identifier but the number in the `Id` column of the `sts settings list` output.
 
 {% hint style="info" %}
-The recommended way of working is to store metric bindings (and any other custom resources created in StackState) as YAML files in a Git repository. From there changes can be manually applied or it can be fully automated by using the StackState CLI in a CI/CD system like Github actions or Gitlab pipelines.
+The recommended way of working is to store metric bindings (and any other custom resources created in StackState) as YAML files in a Git repository. From there changes can be manually applied or it can be fully automated by using the StackState CLI in a CI/CD system like GitHub actions or GitLab pipelines.
 {% endhint %}
 
 ## Other options

@@ -12,7 +12,7 @@ When StackState shows data in a chart it almost always needs to change the resol
 * Use the `${__interval}` parameter as the range for aggregations over time, it will automatically adjust with the resolution of the chart
 * Use the `${__rate_interval}` parameter as the range for `rate` aggregations, it will also automatically adjust with the resolution of the chart but takes into account specific behaviors of `rate`.
 
-Applying an aggregation often means that a trade-off is made to emphasize certain patterns in metrics more than others. For exapmle, for large time windows `max_over_time` will show all peaks, but it won't show all troughs. While `min_over_time` does the exact opposite and `avg_over_time` will smooth out both peaks and troughs. To show this behavior, here is an example metric binding using the CPU usage of pods. To try it yourself, copy it to a YAML file and use the [CLI to apply it](./k8s-add-charts.md#create-or-update-the-metric-binding-in-stackstate) in your own StackState (you can remove it later).
+Applying an aggregation often means that a trade-off is made to emphasize certain patterns in metrics more than others. For example, for large time windows `max_over_time` will show all peaks, but it won't show all troughs. While `min_over_time` does the exact opposite and `avg_over_time` will smooth out both peaks and troughs. To show this behavior, here is an example metric binding using the CPU usage of pods. To try it yourself, copy it to a YAML file and use the [CLI to apply it](./k8s-add-charts.md#create-or-update-the-metric-binding-in-stackstate) in your own StackState (you can remove it later).
 
 ```
 nodes:

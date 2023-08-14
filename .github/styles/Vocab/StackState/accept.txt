@@ -41,6 +41,7 @@ HIGH
 high
 github
 GitHub
+GitLab
 Grafana
 IAM
 ITSM
