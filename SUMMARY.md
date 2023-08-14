@@ -44,6 +44,7 @@
   * [Events perspective](use/views/k8s-events-perspective.md)
   * [Metrics perspective](use/views/k8s-metrics-perspective.md)
   * [Traces perspective](use/views/k8s-traces-perspective.md)
+  * [Troubleshooting custom metric charts](/use/metrics/k8sTs-metrics-troubleshooting.md)
 * [Timeline and time travel](use/stackstate-ui/k8sTs-timeline-time-travel.md)
 
 ## 🕵️ Agent
