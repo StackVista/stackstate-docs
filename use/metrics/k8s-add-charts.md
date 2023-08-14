@@ -19,11 +19,11 @@ In case of option 2, first make sure that the metrics are available in StackStat
 
 Steps to create a metric binding:
 
-1. [Write the outline of the metric binding](./k8s-add-charts.md#write-the-outline-of-the-metric-binding)
-2. [Write the topology query (STQL) to select the components](./k8s-add-charts.md#determine-the-topology-query)
-3. [Write the PromQL query for the desired metric](./k8s-add-charts.md#determine-the-promql-query)
-4. [Bind the correct time series to each component](./k8s-add-charts.md#bind-the-correct-time-serie-to-each-component)
-5. [Create or update the metric binding in StackState](./k8s-add-charts.md#create-or-update-the-metric-binding-in-stackstate)
+1. [Write the outline of the metric binding](#write-the-outline-of-the-metric-binding)
+2. [Write the topology query (STQL) to select the components](#write-the-topology-query)
+3. [Write the PromQL query for the desired metric](#write-the-promql-query)
+4. [Bind the correct time series to each component](#bind-the-correct-time-series-to-each-component)
+5. [Create or update the metric binding in StackState](#create-or-update-the-metric-binding-in-stackstate)
 
 As an example the steps will add a metric binding for the `Replica counts`  of Kubernetes deployments. This is just an example, this metric binding already exists in StackState by default.
 

@@ -29,7 +29,8 @@
   * [Writing PromQL queries for representative charts](use/metrics/k8s-writing-promql-for-charts.md)
   * [Grafana Datasource](use/metrics/k8s-stackstate-grafana-datasource.md)
   * [Prometheus remote_write](use/metrics/k8s-prometheus-remote-write.md)
-
+  * [Troubleshooting custom charts](/use/metrics/k8sTs-metrics-troubleshooting.md)
+  * 
 ## 🔍 Views
 
 * [Kubernetes views](use/views/k8s-views.md)
@@ -44,7 +45,6 @@
   * [Events perspective](use/views/k8s-events-perspective.md)
   * [Metrics perspective](use/views/k8s-metrics-perspective.md)
   * [Traces perspective](use/views/k8s-traces-perspective.md)
-  * [Troubleshooting custom metric charts](/use/metrics/k8sTs-metrics-troubleshooting.md)
 * [Timeline and time travel](use/stackstate-ui/k8sTs-timeline-time-travel.md)
 
 ## 🕵️ Agent
