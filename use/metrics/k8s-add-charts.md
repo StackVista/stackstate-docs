@@ -2,18 +2,18 @@
 description: StackState Kubernetes Troubleshooting
 ---
 
-# Add metrics to components
+# Add custom charts to components
 
 ## Overview 
 
-StackState provides already many metrics by default on most types of components that represent Kubernetes resources. Extra metrics can be added to any set of components whenever needed. When adding metrics to components there are 2 options:
+StackState provides already many metric charts by default on most types of components that represent Kubernetes resources. Extra metric charts can be added to any set of components whenever needed. When adding metrics to components there are 2 options:
 
 1. The metrics are already collected by StackState but aren't visualized on a component by default
-1. The metrics aren't yet collected by StackState at all and therefore aren't even available. yet
+2. The metrics aren't yet collected by StackState at all and therefore aren't available yet
 
 For option 1 the steps below will instruct you how to create a metric binding which will configure StackState to add a specific metric to a specific set of components.
 
-In case of option 2 first make sure that the metrics are available in StackState, by sending them to StackState using the [Prometheus remote write protocol](./k8s-prometheus-remote-write.md). Only after that continue by adding the metrics to the desired components.
+In case of option 2, first make sure that the metrics are available in StackState, by sending them to StackState using the [Prometheus remote write protocol](./k8s-prometheus-remote-write.md). Only after that continue by adding charts for the metrics to the components.
 
 ## Steps
 
@@ -29,22 +29,23 @@ As an example the steps will add a metric binding for the `Replica counts`  of K
 
 ## Write the outline of the metric binding
 
-Use this template to create your own metric binding, all the parts will be filled in completely after going through this guide.
+Create a new YAML file called `metric-bindings.yaml` and add this YAML template to it to create your own metric binding. Open it in your favorite code editor to change it throughout this guide. At the end the StackState CLI will be used to create and update the metric bindings in StackState. 
 
 ```
-_type: MetricBinding
-chartType: line
-enabled: true
-tags: {}
-unit: 
-name: 
-description: 
-priority: 
-identifier: urn:custom:metric-binding:...
-queries:
-  - expression:
-    alias:
-scope:
+nodes:
+- _type: MetricBinding
+  chartType: line
+  enabled: true
+  tags: {}
+  unit: 
+  name: 
+  description: 
+  priority: 
+  identifier: urn:custom:metric-binding:...
+  queries:
+    - expression:
+      alias:
+  scope:
 ```
 
 The fields in this template are:
@@ -116,7 +117,7 @@ In StackState the size of the metric chart automatically determines the granular
 
 ## Bind the correct time series to each component
 
-The metric binding with all fields filled in looks like this now:
+The metric binding with all fields filled in:
 
 ```
 _type: MetricBinding
@@ -159,7 +160,7 @@ The cluster name, namespace and a combination of the component type and name are
 
 ## Create or update the metric binding in StackState
 
-Use the StackState CLI to create the metric binding in StackState. First save the metric binding into a YAML file (`metric-bindings.yaml`), but put it in a list of `nodes` like this:
+Use the StackState CLI to create the metric binding in StackState. Make sure the `metric-bindings.yaml` is saved and looks like this:
 
 ```
 nodes:
@@ -177,15 +178,13 @@ nodes:
   scope: type = "deployment" and label = "stackpack:kubernetes"
 ```
 
-This format supports defining many metric bindings in the same file such that they can be created or updated with a single StackState CLI command.
-
 Use the [StackState CLI](/setup/cli/k8sTs-cli-sts.md) to create the metric binding:
 
 ```bash
 sts settings apply -f metric-bindings.yaml
 ```
 
-Verify the results in StackState by opening the metrics perspective for a deployment. If you're not happy with the result simply change the metric binding in the YAML file and run the command again to update it.
+Verify the results in StackState by opening the metrics perspective for a deployment. If you're not happy with the result simply change the metric binding in the YAML file and run the command again to update it. The list of nodes supports adding many metric bindings. Simply add another metric binding entry to the YAML array using the same steps as before.
 
 {% hint style="warning" %}
 The identifier is used as the unique key of a metric binding. Changing the identifier will create a new metric binding instead of updating the existing one.
@@ -205,6 +204,10 @@ sts settings delete --ids <id>
 
 The `<id>` in this command isn't the identifier but the number in the `Id` column of the `sts settings list` output.
 
+{% hint style="info" %}
+The recommended way of working is to store metric bindings (and any other custom resources created in StackState) as YAML files in a Git repository. From there changes can be manually applied or it can be fully automated by using the StackState CLI in a CI/CD system like Github actions or Gitlab pipelines.
+{% endhint %}
+
 ## Other options
 
 ### More than 1 time series in a chart
@@ -218,12 +221,12 @@ There are 2 ways to get more than 1 time series in a single metric binding and t
 1. Write a PromQL query that returns multiple time series for a single component
 2. Add more PromQL queries to the metric binding
 
-For the first option an example is given in the [next section](./k8s-add-metrics.md#using-metric-labels-in-aliases). The second option can be useful for comparing related metrics. Some typical use-cases:
+For the first option an example is given in the [next section](./k8s-add-charts.md#using-metric-labels-in-aliases). The second option can be useful for comparing related metrics. Some typical use-cases:
 
 * Comparing total replicas vs desired and available
 * Resource usage: limits, requests and usage in a single chart
 
-To add more queries to a metric binding simply repeat [steps](./k8s-add-metrics.md#steps) 3. and 4. and add the query as an extra entry in the list of queries. For the deployment replica counts there are several related metrics that can be included in the same chart:
+To add more queries to a metric binding simply repeat [steps](./k8s-add-charts.md#steps) 3. and 4. and add the query as an extra entry in the list of queries. For the deployment replica counts there are several related metrics that can be included in the same chart:
 
 ```
 nodes:

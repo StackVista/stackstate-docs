@@ -14,5 +14,5 @@ Charts show metrics data for the selected components in near real-time - data is
 
 ## Ordering
 
-Metric charts are ordered on priority and name. Both are configured on the [metric binding](/use/metrics/k8s-add-metrics.md).
+Metric charts are ordered on priority and name. Both are configured on the [metric binding](/use/metrics/k8s-add-charts.md).
 

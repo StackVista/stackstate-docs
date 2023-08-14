@@ -25,7 +25,7 @@
 
 * [Explore Metrics](use/metrics/k8sTs-explore-metrics.md)
 * [Advanced](use/metrics/k8s-advanced.md)
-  * [Adding custom metrics to component](use/metrics/k8s-add-metrics.md)
+  * [Adding custom charts to components](use/metrics/k8s-add-charts.md)
   * [Writing PromQL queries for representative charts](use/metrics/k8s-writing-promql-for-charts.md)
   * [Grafana Datasource](use/metrics/k8s-stackstate-grafana-datasource.md)
   * [Prometheus remote_write](use/metrics/k8s-prometheus-remote-write.md)

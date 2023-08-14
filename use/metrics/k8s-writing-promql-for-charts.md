@@ -12,7 +12,7 @@ When StackState shows data in a chart it almost always needs to change the resol
 * Use the `${__interval}` parameter as the range for aggregations over time, it will automatically adjust with the resolution of the chart
 * Use the `${__rate_interval}` parameter as the range for `rate` aggregations, it will also automatically adjust with the resolution of the chart but takes into account specific behaviors of `rate`.
 
-Applying an aggregation often means that a trade-off is made to emphasize certain patterns in metrics more than others. For exapmle, for large time windows `max_over_time` will show all peaks, but it won't show all troughs. While `min_over_time` does the exact opposite and `avg_over_time` will smooth out both peaks and troughs. To show this behavior, here is an example metric binding using the CPU usage of pods. To try it yourself, copy it to a YAML file and use the [CLI to apply it](./k8s-add-metrics.md#create-or-update-the-metric-binding-in-stackstate) in your own StackState (you can remove it later).
+Applying an aggregation often means that a trade-off is made to emphasize certain patterns in metrics more than others. For exapmle, for large time windows `max_over_time` will show all peaks, but it won't show all troughs. While `min_over_time` does the exact opposite and `avg_over_time` will smooth out both peaks and troughs. To show this behavior, here is an example metric binding using the CPU usage of pods. To try it yourself, copy it to a YAML file and use the [CLI to apply it](./k8s-add-charts.md#create-or-update-the-metric-binding-in-stackstate) in your own StackState (you can remove it later).
 
 ```
 nodes:
@@ -31,7 +31,7 @@ nodes:
       alias: min_over_time dynamic interval
     - expression: sum(avg_over_time(container_cpu_usage{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}", pod_name="${name}"}[${__interval}])) by (kube_cluster_name, kube_namespace, pod_name) /1000000000
       alias: avg_over_time dynamic interval
-    - expression: sum(avg_over_time(container_cpu_usage{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}", pod_name="${name}"}[${__interval}])) by (kube_cluster_name, kube_namespace, pod_name) /1000000000
+    - expression: sum(last_over_time(container_cpu_usage{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}", pod_name="${name}"}[${__interval}])) by (kube_cluster_name, kube_namespace, pod_name) /1000000000
       alias: last_over_time dynamic interval
     - expression: sum(max_over_time(container_cpu_usage{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}", pod_name="${name}"}[1m])) by (kube_cluster_name, kube_namespace, pod_name) /1000000000
       alias: max_over_time 1m interval
@@ -39,7 +39,7 @@ nodes:
       alias: min_over_time 1m interval
     - expression: sum(avg_over_time(container_cpu_usage{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}", pod_name="${name}"}[1m])) by (kube_cluster_name, kube_namespace, pod_name) /1000000000
       alias: avg_over_time 1m interval
-    - expression: sum(avg_over_time(container_cpu_usage{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}", pod_name="${name}"}[1m])) by (kube_cluster_name, kube_namespace, pod_name) /1000000000
+    - expression: sum(last_over_time(container_cpu_usage{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}", pod_name="${name}"}[1m])) by (kube_cluster_name, kube_namespace, pod_name) /1000000000
       alias: last_over_time 1m interval
   scope: (label = "stackpack:kubernetes" and type = "pod")
 ```
@@ -59,7 +59,7 @@ First of all, why should you use an aggregation? It doesn't make sense to retrie
 
 When the steps become larger than the resolution of the collected data points, a decision needs to be made on how to summarize the data points of the 1 hour time range into a single value. When an aggregation over time is already specified in the query, it will be used to do that. However, if no aggregation is specified, or when the aggregation interval is smaller than the step, the `last_over_time` aggregation is used, with the `step` size as the interval. The result is that only the last data point for each hour is used to "summarize" the all data points in that hour.
 
-To summarize, when executing a PromQL query for a time range of 1 week with a step of 1 hour a query like this:
+To summarize, when executing a PromQL query for a time range of 1 week with a step of 1 hour this query:
 
 ```
 container_cpu_usage /1000000000
