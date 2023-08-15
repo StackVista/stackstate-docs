@@ -30,7 +30,7 @@
   * [Grafana Datasource](use/metrics/k8s-stackstate-grafana-datasource.md)
   * [Prometheus remote_write](use/metrics/k8s-prometheus-remote-write.md)
   * [Troubleshooting custom charts](/use/metrics/k8sTs-metrics-troubleshooting.md)
-  * 
+
 ## 🔍 Views
 
 * [Kubernetes views](use/views/k8s-views.md)
