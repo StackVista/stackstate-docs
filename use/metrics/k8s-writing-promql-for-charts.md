@@ -25,21 +25,21 @@ nodes:
   priority: HIGH
   identifier: urn:custom:metric-binding:pod-cpu-usage-a
   queries:
-    - expression: sum(max_over_time(container_cpu_usage{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}", pod_name="${name}"}[${__interval}])) by (kube_cluster_name, kube_namespace, pod_name) /1000000000
+    - expression: sum(max_over_time(container_cpu_usage{cluster_name="${tags.cluster-name}", namespace="${tags.namespace}", pod_name="${name}"}[${__interval}])) by (cluster_name, namespace, pod_name) /1000000000
       alias: max_over_time dynamic interval
-    - expression: sum(min_over_time(container_cpu_usage{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}", pod_name="${name}"}[${__interval}])) by (kube_cluster_name, kube_namespace, pod_name) /1000000000
+    - expression: sum(min_over_time(container_cpu_usage{cluster_name="${tags.cluster-name}", namespace="${tags.namespace}", pod_name="${name}"}[${__interval}])) by (cluster_name, namespace, pod_name) /1000000000
       alias: min_over_time dynamic interval
-    - expression: sum(avg_over_time(container_cpu_usage{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}", pod_name="${name}"}[${__interval}])) by (kube_cluster_name, kube_namespace, pod_name) /1000000000
+    - expression: sum(avg_over_time(container_cpu_usage{cluster_name="${tags.cluster-name}", namespace="${tags.namespace}", pod_name="${name}"}[${__interval}])) by (cluster_name, namespace, pod_name) /1000000000
       alias: avg_over_time dynamic interval
-    - expression: sum(last_over_time(container_cpu_usage{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}", pod_name="${name}"}[${__interval}])) by (kube_cluster_name, kube_namespace, pod_name) /1000000000
+    - expression: sum(last_over_time(container_cpu_usage{cluster_name="${tags.cluster-name}", namespace="${tags.namespace}", pod_name="${name}"}[${__interval}])) by (cluster_name, namespace, pod_name) /1000000000
       alias: last_over_time dynamic interval
-    - expression: sum(max_over_time(container_cpu_usage{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}", pod_name="${name}"}[1m])) by (kube_cluster_name, kube_namespace, pod_name) /1000000000
+    - expression: sum(max_over_time(container_cpu_usage{cluster_name="${tags.cluster-name}", namespace="${tags.namespace}", pod_name="${name}"}[1m])) by (cluster_name, namespace, pod_name) /1000000000
       alias: max_over_time 1m interval
-    - expression: sum(min_over_time(container_cpu_usage{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}", pod_name="${name}"}[1m])) by (kube_cluster_name, kube_namespace, pod_name) /1000000000
+    - expression: sum(min_over_time(container_cpu_usage{cluster_name="${tags.cluster-name}", namespace="${tags.namespace}", pod_name="${name}"}[1m])) by (cluster_name, namespace, pod_name) /1000000000
       alias: min_over_time 1m interval
-    - expression: sum(avg_over_time(container_cpu_usage{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}", pod_name="${name}"}[1m])) by (kube_cluster_name, kube_namespace, pod_name) /1000000000
+    - expression: sum(avg_over_time(container_cpu_usage{cluster_name="${tags.cluster-name}", namespace="${tags.namespace}", pod_name="${name}"}[1m])) by (cluster_name, namespace, pod_name) /1000000000
       alias: avg_over_time 1m interval
-    - expression: sum(last_over_time(container_cpu_usage{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}", pod_name="${name}"}[1m])) by (kube_cluster_name, kube_namespace, pod_name) /1000000000
+    - expression: sum(last_over_time(container_cpu_usage{cluster_name="${tags.cluster-name}", namespace="${tags.namespace}", pod_name="${name}"}[1m])) by (cluster_name, namespace, pod_name) /1000000000
       alias: last_over_time 1m interval
   scope: (label = "stackpack:kubernetes" and type = "pod")
 ```
@@ -71,7 +71,7 @@ is automatically converted to:
 last_over_time(container_cpu_usage[1h]) /1000000000
 ```
 
-Try it for yourself on the [StackState playground](https://play.stackstate.com/#/metrics?promql=last_over_time%28container_cpu_usage%7Bkube_namespace%3D%22sock-shop%22%2C%20pod_name%3D~%22carts.%2A%22%7D%5B%24%7B__interval%7D%5D%29%20%2F%201000000000&timeRange=LAST_7_DAYS).
+Try it for yourself on the [StackState playground](https://play.stackstate.com/#/metrics?promql=last_over_time%28container_cpu_usage%7Bnamespace%3D%22sock-shop%22%2C%20pod_name%3D~%22carts.%2A%22%7D%5B%24%7B__interval%7D%5D%29%20%2F%201000000000&timeRange=LAST_7_DAYS).
 
 ![Last over time](../../.gitbook/assets/k8s/k8s-metric-queries-for-chart-last-over-time.png)
 ![Max over time with fixed range](../../.gitbook/assets/k8s/k8s-metric-queries-for-chart-max-over-time-fixed-range.png)

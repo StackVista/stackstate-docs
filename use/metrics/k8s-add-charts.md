@@ -141,12 +141,12 @@ Creating it in StackState and viewing the "Replica count" chart on a deployment 
 To fix this make the PromQL query specific for a component using information from the component. Filter on enough metric labels to select only the specific time series for the component. This is the "binding" of the correct time series to the component. For anyone experienced in making Grafana dashboards this is similar to a dashboard with parameters that are used in queries on the dashboard. Let's change the query in the metric binding to this:
 
 ```
-max_over_time(kubernetes_state_deployment_replicas{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}", kube_deployment="${name}"}[${__interval}])
+max_over_time(kubernetes_state_deployment_replicas{cluster_name="${tags.cluster-name}", namespace="${tags.namespace}", deployment="${name}"}[${__interval}])
 ```
 
 ![After adding the parameterized filters the resulting chart looks as expected, only 1 time series for this component](../../.gitbook/assets/k8s/k8s-replica-counts-with-binding.png)
 
-The PromQL query now filters on 3 labels, `kube_cluster_name`, `kube_namespace` and `kube_deployment`. Instead of specifying an actual value for these labels a variable reference to fields of the component is used. In this case the labels `cluster-name` and `namespace` are used, referenced using `${tags.cluster-name}` and `${tags.namespace}`. Further the component name is referenced with `${name}`.
+The PromQL query now filters on 3 labels, `cluster_name`, `namespace` and `deployment`. Instead of specifying an actual value for these labels a variable reference to fields of the component is used. In this case the labels `cluster-name` and `namespace` are used, referenced using `${tags.cluster-name}` and `${tags.namespace}`. Further the component name is referenced with `${name}`.
 
 Supported variable references are:
 * Any component label, using `${tags.<label-name>}`
@@ -173,7 +173,7 @@ nodes:
   priority: MEDIUM
   identifier: urn:custom:metric-binding:my-deployment-replica-counts
   queries:
-    - expression: max_over_time(kubernetes_state_deployment_replicas{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}", kube_deployment="${name}"}[${__interval}])
+    - expression: max_over_time(kubernetes_state_deployment_replicas{cluster_name="${tags.cluster-name}", namespace="${tags.namespace}", deployment="${name}"}[${__interval}])
       alias: Total replicas
   scope: type = "deployment" and label = "stackpack:kubernetes"
 ```
@@ -239,14 +239,14 @@ nodes:
   priority: MEDIUM
   identifier: urn:custom:metric-binding:my-deployment-replica-counts
   queries:
-    - expression: max_over_time(kubernetes_state_deployment_replicas{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}", kube_deployment="${name}"}[${__interval}])
+    - expression: max_over_time(kubernetes_state_deployment_replicas{cluster_name="${tags.cluster-name}", namespace="${tags.namespace}", deployment="${name}"}[${__interval}])
       alias: Total replicas
-    - expression: max_over_time(kubernetes_state_deployment_replicas_available{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}",  kube_deployment="${name}"}[${__interval}])
-      alias: Available - ${kube_cluster_name} - ${kube_namespace} - ${kube_deployment}
-    - expression: max_over_time(kubernetes_state_deployment_replicas_unavailable{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}",  kube_deployment="${name}"}[${__interval}])
-      alias: Unavailable - ${kube_cluster_name} - ${kube_namespace} - ${kube_deployment}
-    - expression: min_over_time(kubernetes_state_deployment_replicas_desired{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}",  kube_deployment="${name}"}[${__interval}])
-      alias: Desired - ${kube_cluster_name} - ${kube_namespace} - ${kube_deployment}
+    - expression: max_over_time(kubernetes_state_deployment_replicas_available{cluster_name="${tags.cluster-name}", namespace="${tags.namespace}",  deployment="${name}"}[${__interval}])
+      alias: Available - ${cluster_name} - ${namespace} - ${deployment}
+    - expression: max_over_time(kubernetes_state_deployment_replicas_unavailable{cluster_name="${tags.cluster-name}", namespace="${tags.namespace}",  deployment="${name}"}[${__interval}])
+      alias: Unavailable - ${cluster_name} - ${namespace} - ${deployment}
+    - expression: min_over_time(kubernetes_state_deployment_replicas_desired{cluster_name="${tags.cluster-name}", namespace="${tags.namespace}",  deployment="${name}"}[${__interval}])
+      alias: Desired - ${cluster_name} - ${namespace} - ${deployment}
   scope: type = "deployment" and label = "stackpack:kubernetes"
 ```
 
@@ -265,10 +265,10 @@ identifier: urn:custom:metric-binding:my-pod-restart-count
 name: Container restarts
 priority: MEDIUM
 queries:
-- alias: Restarts - ${container_name}
-  expression: max by (kube_cluster_name, kube_namespace, pod_name, container_name) (kubernetes_containers_restarts{kube_cluster_name="${tags.cluster-name}", kube_namespace="${tags.namespace}", pod_name="${name}"})
+- alias: Restarts - ${container}
+  expression: max by (cluster_name, namespace, pod_name, container) (kubernetes_state_container_restarts{cluster_name="${tags.cluster-name}", namespace="${tags.namespace}", pod_name="${name}"})
 scope: (label = "stackpack:kubernetes" and type = "pod")
 unit: short
 ```
 
-Note that the `alias` references the `container_name` label of the metric. Make sure the label is present on the query result, when the label is missing the `${container_name}` will be rendered as literal text to help troubleshooting.
+Note that the `alias` references the `container` label of the metric. Make sure the label is present on the query result, when the label is missing the `${container}` will be rendered as literal text to help troubleshooting.
