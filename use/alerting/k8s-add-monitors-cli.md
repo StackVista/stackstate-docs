@@ -57,14 +57,14 @@ The fields in this template are:
 * `comparator`: Choose one of LTE/LT/GTE/GT to compare the threshold against the metric. Time series for which `<metric> <comparator> <threshold>` holds true will produce the failure state.   
 * `threshold`: A numeric threshold to compare against.
 * `failureState`: Either "CRITICAL" or "DEVIATING". "CRITICAL" will show as read in StackState and "DEVIATING" as orange, to denote different severity.
-* `urnTemplate`: A template to construct the urn of the component a result of the monitor will be [bound to](#bind-the-results-of-the-monitor-to-the-correct-component).  
+* `urnTemplate`: A template to construct the urn of the component a result of the monitor will be [bound to](#bind-the-results-of-the-monitor-to-the-correct-components).  
 * `titleTemplate`: A title for the result of a monitor. Because multiple monitor results can bind to the same component, it is possible to substitute time series labels using the `${my_label}` placeholder.
 * `description`: A description of the monitor.
 * `function`: A reference to the monitor function that will execute the monitor. Currently only `{{ get "urn:stackpack:kubernetes-v2:shared:monitor-function:threshold"  }}` is supported.
 * `identifier`: An identifier of the form `urn:custom:monitor:....` which uniquely identifies the monitor when updating its configuration.
 * `intervalSeconds`: The interval at which the monitor executes. For regular real-time metric 30 seconds is advised. For longer-running analytical metric queries a bigger interval wis recommended.
 * `name`: The name of the monitor
-* `remediationHint`: A description of what the user can do when the monitor fails. The format is markdown, with optionally use of handlebars variables to customize the hint based on time series or other data ([more explanation below](#write-the-remediationhint)). 
+* `remediationHint`: A description of what the user can do when the monitor fails. The format is markdown, with optionally use of handlebars variables to customize the hint based on time series or other data ([more explanation below](#write-the-remediation-hint)). 
 * `status`: Either "DISABLED" or "ENABLED". Determines whether the monitor will run or not.
 * `tags`: Add tags to the monitor to help organize them in the monitors overview of your StackState instance, http://your-stackstate-instance/#/monitors
 
