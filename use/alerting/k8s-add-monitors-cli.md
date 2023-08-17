@@ -65,7 +65,7 @@ The fields in this template are:
 * `intervalSeconds`: The interval at which the monitor executes. For regular real-time metric 30 seconds is advised. For longer-running analytical metric queries a bigger interval is recommended.
 * `name`: The name of the monitor
 * `remediationHint`: A description of what the user can do when the monitor fails. The format is markdown, with optionally use of handlebars variables to customize the hint based on time series or other data ([more explanation below](#write-the-remediation-hint)). 
-* `status`: Either "DISABLED" or "ENABLED". Determines whether the monitor will run or not.
+* `status`: Either `"DISABLED"` or `"ENABLED"`. Determines whether the monitor will run or not.
 * `tags`: Add tags to the monitor to help organize them in the monitors overview of your StackState instance, http://your-StackState-instance/#/monitors
 
 For example, this could be the start for a monitor which monitors the available replicas of a deployment:
@@ -99,7 +99,7 @@ The `urnTemplate` and `remediationHint` will be filled in the next steps.
 
 The results of a monitor need to be bound to components in StackState, to be visible and usable. The result of a monitor is bound to a component using the component `identifiers`. Each component in StackState has one or more identifiers that uniquely identify the component. To bind a result of a monitor to a component, it's required to provide the `urnTemplate`. The `urnTemplate` substitutes the labels in the time series of the monitor result into the template, producing an identifier matching a component. This is best illustrated with the example:
 
-The metric that is used in this example is the `kubernetes_state_deployment_replicas_available` metric. Run the metric in the metric explorer to observe what labels are available on the time series:
+The metric that's used in this example is the `kubernetes_state_deployment_replicas_available` metric. Run the metric in the metric explorer to observe what labels are available on the time series:
 
 ![The available replicas in the metric explorer](../../.gitbook/assets/k8s/available-replicas-metric-inspector.png)
 
@@ -109,7 +109,7 @@ Because the metric is observed on deployments, it's most logical to bind the mon
 
 1. In the UI, navigate to the `deployments` view and select a single deployment.
 1. Open the `Topology` view, and click the deployment component.
-1. When expanding the `Properties` fold to the right of the screen, the identifiers will show after hoovering as shown below:
+1. When expanding the `Properties` in the right panel of the screen, the identifiers will show after hovering as shown below:
 
 ![Finding a component identifier](../../.gitbook/assets/k8s/component-identifier.png)
 
@@ -121,7 +121,7 @@ The identifier is shown as `urn:kubernetes:/preprod-dev.preprod.stackstate.io:ca
   ...
 ```
 
-[To verify](#verifying-the-results-of-a-monitor)) whether the `urnTemplate` is correct, is explained further below.
+[To verify](#verifying-the-results-of-a-monitor) whether the `urnTemplate` is correct, is explained further below.
 
 ## Write the remediation hint
 
@@ -162,7 +162,7 @@ To delete a monitor use
 sts monitor delete --id <id>
 ```
 
-To edit a monitor use, edit the original of the monitor that was applied, and apply again. Or there is a `sts monitor edit` command to edit the configured monitor in the StackState instance directly:
+To edit a monitor, edit the original of the monitor that was applied, and apply again. Or there is a `sts monitor edit` command to edit the configured monitor in the StackState instance directly:
 
 ```bash
 sts monitor edit --id <id>
