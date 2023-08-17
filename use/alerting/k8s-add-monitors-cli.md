@@ -97,7 +97,7 @@ The `urnTemplate` and `remediationHint` will be filled in the next steps.
 
 ## Bind the results of the monitor to the correct components
 
-The results of a monitor need to be bound to components in StackState, in order to be visible and usable. The result of a monitor is bound to a component using the component `identifiers`. Each component in StackState has one or more identifiers that uniquely identify the component. To bind a result of a monitor to a component, it's required to provide the `urnTemplate`, which substitutes the labels in the time series of the monitor result into the template, producing an identifier matching a component. This is best illustrated with the example:
+The results of a monitor need to be bound to components in StackState, to be visible and usable. The result of a monitor is bound to a component using the component `identifiers`. Each component in StackState has one or more identifiers that uniquely identify the component. To bind a result of a monitor to a component, it's required to provide the `urnTemplate`. The `urnTemplate` substitutes the labels in the time series of the monitor result into the template, producing an identifier matching a component. This is best illustrated with the example:
 
 In this example we make a monitor for the `kubernetes_state_deployment_replicas_available` metric. Run the metric in the metric explorer to observe what labels are available on the time series:
 
@@ -191,7 +191,7 @@ Go to the monitor overview page (http://your-StackState-instance/#/monitors) and
 
 ### Verify the binding of the monitor
 
-Observe whether the monitor is producing a result on one of the components that it is meant to monitor for. If the monitor does not show up, follow [these steps](#the-result-of-the-monitor-isnt-showing-on-a-component) to remedy.
+Observe whether the monitor is producing a result on one of the components that it's meant to monitor for. If the monitor doesn't show up, follow [these steps](#the-result-of-the-monitor-isnt-showing-on-a-component) to remedy.
 
 ## Common issues
 
