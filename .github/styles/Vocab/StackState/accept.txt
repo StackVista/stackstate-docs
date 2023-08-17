@@ -20,6 +20,7 @@ check
 CLEAR
 Clear
 clear
+CLI
 CLIs
 component
 Component
@@ -97,6 +98,7 @@ Subviews
 TLS
 tooltip
 URL
+urnTemplate
 VIEW
 View
 view

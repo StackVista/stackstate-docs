@@ -66,7 +66,7 @@ The fields in this template are:
 * `name`: The name of the monitor
 * `remediationHint`: A description of what the user can do when the monitor fails. The format is markdown, with optionally use of handlebars variables to customize the hint based on time series or other data ([more explanation below](#write-the-remediation-hint)). 
 * `status`: Either "DISABLED" or "ENABLED". Determines whether the monitor will run or not.
-* `tags`: Add tags to the monitor to help organize them in the monitors overview of your StackState instance, http://your-stackstate-instance/#/monitors
+* `tags`: Add tags to the monitor to help organize them in the monitors overview of your StackState instance, http://your-StackState-instance/#/monitors
 
 For example, this could be the start for a monitor which monitors the available replicas of a deployment:
 
@@ -97,15 +97,15 @@ The `urnTemplate` and `remediationHint` will be filled in the next steps.
 
 ## Bind the results of the monitor to the correct components
 
-The results of a monitor need to be bound to components in StackState, in order to be visible and usable. The result of a monitor is bound to a component using the component `identifiers`. Each component in StackState has one or more identifiers that uniquely identify the component. To bind a result of a monitor to a component, it is required to provide the `urnTemplate`, which substitutes the labels in the time series of the monitor result into the template, producing an identifier matching a component. This is best illustrated with the example:
+The results of a monitor need to be bound to components in StackState, in order to be visible and usable. The result of a monitor is bound to a component using the component `identifiers`. Each component in StackState has one or more identifiers that uniquely identify the component. To bind a result of a monitor to a component, it's required to provide the `urnTemplate`, which substitutes the labels in the time series of the monitor result into the template, producing an identifier matching a component. This is best illustrated with the example:
 
 In this example we make a monitor for the `kubernetes_state_deployment_replicas_available` metric. Run the metric in the metric explorer to observe what labels are available on the time series:
 
 ![The available replicas in the metric explorer](../../.gitbook/assets/k8s/available-replicas-metric-inspector.png)
 
-In the above table it is shown the metric has labels like `cluster_name`, `namespace` and `deployment`.
+In the above table it's shown the metric has labels like `cluster_name`, `namespace` and `deployment`.
 
-Because the metric is observed on deployments, it is most logical to bind the monitor results to deployment components. To do this, it is required to understand how the identifiers for deployments are constructed:
+Because the metric is observed on deployments, it's most logical to bind the monitor results to deployment components. To do this, it's required to understand how the identifiers for deployments are constructed:
 
 1. In the UI, navigate to the `deployments` view and select a single deployment.
 1. Open the `Topology` view, and click the deployment component.
@@ -113,7 +113,7 @@ Because the metric is observed on deployments, it is most logical to bind the mo
 
 ![Finding a component identifier](../../.gitbook/assets/k8s/component-identifier.png)
 
-The identifier is shown as `urn:kubernetes:/preprod-dev.preprod.stackstate.io:calico-system:deployment/calico-typha`. This shows that the identifier is constructed based on the cluster name, namespace and deployment name. Knowing this, it is now possible to construct the `urnTemplate`:
+The identifier is shown as `urn:kubernetes:/preprod-dev.preprod.stackstate.io:calico-system:deployment/calico-typha`. This shows that the identifier is constructed based on the cluster name, namespace and deployment name. Knowing this, it's now possible to construct the `urnTemplate`:
 
 ```
   ...
@@ -125,7 +125,7 @@ The identifier is shown as `urn:kubernetes:/preprod-dev.preprod.stackstate.io:ca
 
 ## Write the remediation hint
 
-The remediation hint is there to help users find the cause of an issue when a monitor fires. The remediation hint is written in [markdown](https://en.wikipedia.org/wiki/Markdown). It is also possible to use the labels that were on the time series of the monitor result using a handlebars template, as in the following example:
+The remediation hint is there to help users find the cause of an issue when a monitor fires. The remediation hint is written in [markdown](https://en.wikipedia.org/wiki/Markdown). It's also possible to use the labels that were on the time series of the monitor result using a handlebars template, as in the following example:
 
 ```
   ...
@@ -162,7 +162,7 @@ To delete a monitor use
 sts monitor delete --id <id>
 ```
 
-To edit a monitor use, edit the original of the monitor that was applied, and apply again. Alternatively there is a `sts monitor edit` command to edit the configured monitor in the StackState instance directly:
+To edit a monitor use, edit the original of the monitor that was applied, and apply again. Or there is a `sts monitor edit` command to edit the configured monitor in the StackState instance directly:
 
 ```bash
 sts monitor edit --id <id>
@@ -172,7 +172,7 @@ The `<id>` in this command isn't the identifier but the number in the `Id` colum
 
 ## Enable or disable the monitor
 
-A monitor can be enabled or disabled. Enabled means the monitor will run as normal, disabled means it will suppress all output. Use the following commands to enable/disable:
+A monitor can be enabled or disabled. Enabled means the monitor will produce results, disabled means it will suppress all output. Use the following commands to enable/disable:
 
 ```bash
 sts monitor enable/disable --id <id>
@@ -184,18 +184,18 @@ It is good practice to, after a monitor is made, validate whether it produces th
 
 ### Verify the execution of the monitor
 
-Go to the monitor overview page (http://your-stackstate-instance/#/monitors) and find your monitor.
+Go to the monitor overview page (http://your-StackState-instance/#/monitors) and find your monitor.
 
 1. Verify the `Status` column is in `Enabled` state. If the monitor is in `Disabled` state, [enable it](#enable-or-disable-the-monitor). If the status is in `Error` state, follow the steps below [to debug](#the-monitor-is-showing-an-error-in-the-monitor-status-overview).
-1. Verify you see the expected amount of states in the `Clear`/`Deviating`/`Critical` column. If the number of states is significantly lower or higher than the amount of components you meant to monitor, the promql query might be giving too many results.
+1. Verify you see the expected amount of states in the `Clear`/`Deviating`/`Critical` column. If the number of states is significantly lower or higher than the amount of components you meant to monitor, the PromQL query might be giving too many results.
 
 ### Verify the binding of the monitor
 
-Observe whether the monitor is producing a result on one of the components that it is meant to monitor for. If the monitor does not show up, follow [these steps](#the-result-of-the-monitor-is-not-showing-on-a-component) to remedy.
+Observe whether the monitor is producing a result on one of the components that it is meant to monitor for. If the monitor does not show up, follow [these steps](#the-result-of-the-monitor-isnt-showing-on-a-component) to remedy.
 
 ## Common issues
 
-### The result of the monitor is not showing on a component
+### The result of the monitor isn't showing on a component
 
 First check if the monitor is actually [producing results](#verify-the-execution-of-the-monitor). If this is the case but the monitor results do not show up on the components, there might be a problem with the binding. First use the following command to verify:
 
@@ -203,7 +203,7 @@ First check if the monitor is actually [producing results](#verify-the-execution
 sts monitor status --id <id>
 ```
 
-If the output contains `Monitor health states with identifier which has no matching topology element (<nr>): ....`, this shows that the `urnTemplate` may not generate an identifier matching the topology. To remedy this [revisit your urnTemplate](#bind-the-results-of-the-monitor-to-the-correct-components).  
+If the output has `Monitor health states with identifier which has no matching topology element (<nr>): ....`, this shows that the `urnTemplate` may not generate an identifier matching the topology. To remedy this [revisit your urnTemplate](#bind-the-results-of-the-monitor-to-the-correct-components).  
 
 ### The monitor is showing an error in the monitor status overview
 
@@ -213,4 +213,4 @@ Get the status of the monitor through the CLI
 sts monitor status --id <id>
 ```
 
-The section `Monitor Stream errors:` will show the errors happening on the monitor and provide further help. 
+The section `Monitor Stream errors:` will show the errors happening on the monitor and offer further help. 
