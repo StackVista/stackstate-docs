@@ -125,7 +125,7 @@ The identifier is shown as `urn:kubernetes:/preprod-dev.preprod.stackstate.io:ca
 
 ## Write the remediation hint
 
-The remediation hint is there to help users find the cause of an issue when a monitor fires. The remediation hint is written in [markdown](https://en.wikipedia.org/wiki/Markdown). It's also possible to use the labels that were on the time series of the monitor result using a handlebars template, as in the following example:
+The remediation hint is there to help users find the cause of an issue when a monitor fires. The remediation hint is written in [markdown](https://en.wikipedia.org/wiki/Markdown). It's also possible to use the labels that are on the time series of the monitor result using a handlebars template, as in the following example:
 
 ```
   ...
