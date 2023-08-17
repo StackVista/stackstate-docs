@@ -6,7 +6,7 @@ description: StackState Kubernetes Troubleshooting
 
 ## Overview 
 
-StackState provides [monitors out of the box](/use/alerting/k8s-monitors.md), which provide monitoring on common issues that can occur in a Kubernetes cluster. It is also possible to configure custom monitors for the metrics collected by StackState or application metrics ingested [from prometheus](/use/metrics/k8s-prometheus-remote-write.md).
+StackState provides [monitors out of the box](/use/alerting/k8s-monitors.md), which provide monitoring on common issues that can occur in a Kubernetes cluster. It's also possible to configure custom monitors for the metrics collected by StackState or application metrics ingested [from Prometheus](/use/metrics/k8s-prometheus-remote-write.md).
 
 ## Steps
 
@@ -19,7 +19,7 @@ Steps to create a monitor:
 1. [Verify the monitor produces the expected result](#verifying-the-results-of-a-monitor)
 1. [Common issues](#common-issues)
 
-As an example the steps will add a monitor for the `Replica counts`  of Kubernetes deployments.
+As an example the steps will add a monitor for the `Replica counts` of Kubernetes deployments.
 
 ## Write the outline of the monitor
 
@@ -58,11 +58,11 @@ The fields in this template are:
 * `threshold`: A numeric threshold to compare against.
 * `failureState`: Either "CRITICAL" or "DEVIATING". "CRITICAL" will show as read in StackState and "DEVIATING" as orange, to denote different severity.
 * `urnTemplate`: A template to construct the urn of the component a result of the monitor will be [bound to](#bind-the-results-of-the-monitor-to-the-correct-components).  
-* `titleTemplate`: A title for the result of a monitor. Because multiple monitor results can bind to the same component, it is possible to substitute time series labels using the `${my_label}` placeholder.
+* `titleTemplate`: A title for the result of a monitor. Because multiple monitor results can bind to the same component, it's possible to substitute time series labels using the `${my_label}` placeholder.
 * `description`: A description of the monitor.
 * `function`: A reference to the monitor function that will execute the monitor. Currently only `{{ get "urn:stackpack:kubernetes-v2:shared:monitor-function:threshold"  }}` is supported.
 * `identifier`: An identifier of the form `urn:custom:monitor:....` which uniquely identifies the monitor when updating its configuration.
-* `intervalSeconds`: The interval at which the monitor executes. For regular real-time metric 30 seconds is advised. For longer-running analytical metric queries a bigger interval wis recommended.
+* `intervalSeconds`: The interval at which the monitor executes. For regular real-time metric 30 seconds is advised. For longer-running analytical metric queries a bigger interval is recommended.
 * `name`: The name of the monitor
 * `remediationHint`: A description of what the user can do when the monitor fails. The format is markdown, with optionally use of handlebars variables to customize the hint based on time series or other data ([more explanation below](#write-the-remediation-hint)). 
 * `status`: Either "DISABLED" or "ENABLED". Determines whether the monitor will run or not.
@@ -99,7 +99,7 @@ The `urnTemplate` and `remediationHint` will be filled in the next steps.
 
 The results of a monitor need to be bound to components in StackState, to be visible and usable. The result of a monitor is bound to a component using the component `identifiers`. Each component in StackState has one or more identifiers that uniquely identify the component. To bind a result of a monitor to a component, it's required to provide the `urnTemplate`. The `urnTemplate` substitutes the labels in the time series of the monitor result into the template, producing an identifier matching a component. This is best illustrated with the example:
 
-In this example we make a monitor for the `kubernetes_state_deployment_replicas_available` metric. Run the metric in the metric explorer to observe what labels are available on the time series:
+The metric that is used in this example is the `kubernetes_state_deployment_replicas_available` metric. Run the metric in the metric explorer to observe what labels are available on the time series:
 
 ![The available replicas in the metric explorer](../../.gitbook/assets/k8s/available-replicas-metric-inspector.png)
 
@@ -180,7 +180,7 @@ sts monitor enable/disable --id <id>
 
 ## Verifying the results of a monitor
 
-It is good practice to, after a monitor is made, validate whether it produces the expected result. The following steps can be taken:
+It's good practice to, after a monitor is made, validate whether it produces the expected result. The following steps can be taken:
 
 ### Verify the execution of the monitor
 

@@ -44,6 +44,7 @@ github
 GitHub
 GitLab
 Grafana
+GTE
 IAM
 ITSM
 JIRA
@@ -52,6 +53,7 @@ LIVE
 Live
 live
 LOW
+LTE
 metricStream
 MetricStream
 monitor
