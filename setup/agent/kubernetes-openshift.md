@@ -535,7 +535,7 @@ Logs for the Agent can be found in the `agent` pod, where the StackState Agent i
 By default, the log level of the Agent is set to `INFO`. To assist in troubleshooting, the Agent log level can be set to `DEBUG`. This will enable verbose logging and all errors encountered will be reported in the Agent log files.
 
 * To set the log level to `DEBUG` for an Agent running on Kubernetes or OpenShift, set `'agent.logLevel'='debug'` in the helm command when deploying the Agent.
-* To also include the topology/telemetry payloads sent to StackState in the Agent log, set `--set-string 'global.extraEnv.open.STS_LOG_PAYLOADS'='true'`.
+* To also include the payloads sent to StackState in the Agent log, set `--set-string 'global.extraEnv.open.STS_LOG_PAYLOADS'='true'`.
 
 For example:
 
@@ -548,27 +548,16 @@ helm upgrade --install \
    --set-string 'stackstate.url'='<STACKSTATE_RECEIVER_API_ADDRESS>' \
    --set-string 'global.extraEnv.open.STS_LOG_PAYLOADS'='true' \
    --set 'agent.logLevel'='debug' \
-   stackstate-agent stackstate/stackstate-agent
+   stackstate-k8s-agent stackstate/stackstate-k8s-agent
 ```
 
 ## Support knowledge base
 
 Troubleshooting steps for any known issues can be found in the [StackState support knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=agent).
 
-# Uninstall
-
-To uninstall the StackState Cluster Agent and the StackState Agent from your Kubernetes or OpenShift cluster, run a Helm uninstall:
-
-```text
-helm uninstall <release_name> --namespace <namespace>
-
-# If you used the standard install command provided when you installed the StackPack
-helm uninstall stackstate-agent --namespace stackstate
-```
-
 # See also
 
-* [StackState Agent Helm Chart documentation \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-agent)
+* [StackState Agent Helm Chart documentation \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-k8s-agent)
 * [About the StackState Agent](about-stackstate-agent.md)
 * [Advanced Agent configuration](advanced-agent-configuration.md)
 * [Kubernetes StackPack](../../stackpacks/integrations/kubernetes.md)

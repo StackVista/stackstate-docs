@@ -23,9 +23,13 @@
 
 ## 📈 Metrics
 
+* [Explore Metrics](use/metrics/k8sTs-explore-metrics.md)
 * [Advanced](use/metrics/k8s-advanced.md)
+  * [Adding custom charts to components](use/metrics/k8s-add-charts.md)
+  * [Writing PromQL queries for representative charts](use/metrics/k8s-writing-promql-for-charts.md)
   * [Grafana Datasource](use/metrics/k8s-stackstate-grafana-datasource.md)
   * [Prometheus remote_write](use/metrics/k8s-prometheus-remote-write.md)
+  * [Troubleshooting custom charts](/use/metrics/k8sTs-metrics-troubleshooting.md)
 
 ## 🔍 Views
 
@@ -47,6 +51,9 @@
 * [Network configuration](setup/k8s-network-configuration-saas.md)
 * [Using a custom registry](setup/agent/k8s-custom-registry.md)
 
+## CLI
+* [StackState CLI](setup/cli/k8sTs-cli-sts.md)
+
 ## 🚀 Self-hosted setup
 * [Install StackState](setup/install-stackstate/README.md)
   * [Requirements](setup/install-stackstate/requirements.md)
@@ -67,7 +74,6 @@
 * [Air-gapped](setup/install-stackstate/kubernetes_openshift/no_internet/README.md)
   * [StackState air-gapped](setup/install-stackstate/kubernetes_openshift/no_internet/stackstate_installation.md)
   * [StackState Kubernetes Agent air-gapped](setup/install-stackstate/kubernetes_openshift/no_internet/agent_install.md)
-* [StackState CLI](setup/cli/k8sTs-cli-sts.md)
 * [Data management](setup/data-management/README.md)
   * [Backup and Restore](setup/data-management/backup_restore/README.md)
     * [Kubernetes backup](setup/data-management/backup_restore/kubernetes_backup.md)
@@ -95,4 +101,5 @@
 * [Service Tokens](use/security/k8s-service-tokens.md)
 
 ## Reference
-* [StackState Query Language \(STQL\)](develop/reference/k8sTs-stql_reference.md)
+* [StackState Query Language \(STQL\)](/develop/reference/k8sTs-stql_reference.md)
+* [Chart units](/develop/reference/k8sTs-chart-units.md)

@@ -41,6 +41,8 @@ HIGH
 high
 github
 GitHub
+GitLab
+Grafana
 IAM
 ITSM
 JIRA
@@ -59,10 +61,12 @@ Namespace
 NEW
 new
 New
+OpenMetrics
 OpenShift
 playhead
 Playhead
 PostgreSQL
+PromQL
 SAVE
 Save
 save
