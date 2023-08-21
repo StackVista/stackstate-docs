@@ -20,6 +20,7 @@ check
 CLEAR
 Clear
 clear
+CLI
 CLIs
 component
 Component
@@ -43,6 +44,7 @@ github
 GitHub
 GitLab
 Grafana
+GTE
 IAM
 ITSM
 JIRA
@@ -51,6 +53,7 @@ LIVE
 Live
 live
 LOW
+LTE
 metricStream
 MetricStream
 monitor
@@ -97,6 +100,7 @@ Subviews
 TLS
 tooltip
 URL
+urnTemplate
 VIEW
 View
 view
