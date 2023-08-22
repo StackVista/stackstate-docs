@@ -47,9 +47,14 @@ Login Succeeded
 
 The images listed below are used in the StackState Agent Helm Chart:
 
+- [quay.io/stackstate/container-tools](https://quay.io/stackstate/container-tools)
+- [quay.io/stackstate/generic-sidecar-injector](https://quay.io/stackstate/generic-sidecar-injector)
+- [quay.io/stackstate/http-header-injector-proxy-init](https://quay.io/stackstate/http-header-injector-proxy-init)
+- [quay.io/stackstate/http-header-injector-proxy](https://quay.io/stackstate/http-header-injector-proxy)
 - [quay.io/stackstate/stackstate-k8s-agent](https://quay.io/repository/stackstate/stackstate-k8s-agent)
 - [quay.io/stackstate/stackstate-k8s-process-agent](https://quay.io/repository/stackstate/stackstate-k8s-process-agent)
 - [quay.io/stackstate/stackstate-k8s-cluster-agent](https://quay.io/repository/stackstate/stackstate-k8s-cluster-agent)
+
 
 ## Configuring the Helm Chart to use a custom registry
 
@@ -65,8 +70,8 @@ For example:
 ```yaml
 global:
   imageRegistry: 57413481473.dkr.ecr.eu-west-1.amazonaws.com
-all:
-  image:
-    pullSecretUsername: johndoe
-    pullSecretPassword: my_secret-p@ssw0rd
+  imagePullCredentials:
+    default:
+      username: johndoe
+      password: my_secret-p@ssw0rd
 ```
