@@ -39,7 +39,7 @@ nodes:
     urnTemplate: "urn:kubernetes:/${kube_cluster_name}:${namespace}:service/${endpoint}"
     titleTemplate: 
   description: 
-  function: {{ get "urn:stackpack:kubernetes-v2:shared:monitor-function:threshold"  }}
+  function: {{ get "urn:stackpack:common:monitor-function:threshold"  }}
   identifier: urn:custom:monitor:...
   intervalSeconds: 30
   name: 

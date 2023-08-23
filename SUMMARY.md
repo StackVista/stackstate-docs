@@ -22,6 +22,7 @@
 * [Alerts](use/alerting/event-handlers.md)
 * [Advanced](use/metrics/k8s-advanced.md)
   * [Add a monitor using the CLI](use/alerting/k8s-add-monitors-cli.md)
+  * [Override monitor arguments](use/alerting/k8s-override-monitor-arguments.md)
 
 ## 📈 Metrics
 
