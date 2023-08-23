@@ -57,6 +57,39 @@ To add the `X-Request-Id` header from an existing proxy, two properties are impo
 
 In envoy, the `X-Request-Id` header can be enabled by setting `generate_request_id: true` and `always_set_request_id_in_response: true` for [http connections](https://www.envoyproxy.io/docs/envoy/latest/api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto)
 
+### Add the trace header id in Istio
+
+An [Envoy Filter](https://istio.io/latest/docs/reference/config/networking/envoy-filter/) can be used to set the trace header for Envoy.
+
+Use `kubectl` to apply the following definition to the Kubernetes cluster,
+
+```yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: EnvoyFilter
+metadata:
+  name: responsed-x-request-id-always
+  namespace: istio-system
+spec:
+  configPatches:
+    - applyTo: NETWORK_FILTER
+      match:
+        context: ANY
+        listener:
+          filterChain:
+            filter:
+              name: envoy.filters.network.http_connection_manager
+      patch:
+        operation: MERGE
+        value:
+          typed_config:
+            '@type': >-
+              type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager
+            always_set_request_id_in_response: true
+            generate_request_id: true
+            preserve_external_request_id: true
+  priority: 0
+```
+
 ## Instrument your application
 
 It's also possible to add the `X-Request-Id` header form either the client side to each request, or on the server side to each response. It's important to ensure each request/response gets a unique `X-Request-Id` value. Also, the `X-Request-Id` requires that if an ID is already present in a request, the response should contain that same ID.
