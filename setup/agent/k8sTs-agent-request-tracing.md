@@ -14,7 +14,7 @@ Request tracing is done by injecting a unique header (the `X-Request-ID` header)
 
 The `X-Request-Id` headers are [injected](#enabling-the-trace-header-injection-sidecar) by a sidecar proxy that can be automatically injected by the StackState Agent. The sidecar gets injected by a [mutating webhook](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#mutatingadmissionwebhook), which injects the sidecar into every pod for which the `http-header-injector.stackstate.io/inject: enabled` annotation is defined. Sidecar injection is not supported on OpenShift. 
 
-It's also possible to add the `X-Request-Id` header if you application [already has a proxy or LoadBalancer](#add-the-trace-header-id-to-an-existing-proxy), or through [instrumenting your own code](#instrument-your-application). Advantage of this is that the extra sidecar proxy isn't needed.
+It's also possible to add the `X-Request-Id` header if your application [already has a proxy or LoadBalancer](#add-the-trace-header-id-to-an-existing-proxy), is deployed to an [Istio service mesh](#add-the-trace-header-id-with-envoy-filter) enabled Kubernetes cluster or through [instrumenting your own code](#instrument-your-application). Advantage of this is that the extra sidecar proxy isn't needed.
 
 ## Enabling the trace header injection sidecar
 
@@ -56,6 +56,42 @@ To add the `X-Request-Id` header from an existing proxy, two properties are impo
 ### Add the trace header id in envoy
 
 In envoy, the `X-Request-Id` header can be enabled by setting `generate_request_id: true` and `always_set_request_id_in_response: true` for [http connections](https://www.envoyproxy.io/docs/envoy/latest/api-v3/extensions/filters/network/http_connection_manager/v3/http_connection_manager.proto)
+
+## Istio
+
+An [Envoy Filter](https://istio.io/latest/docs/reference/config/networking/envoy-filter/) can be used to set the trace header for Envoy.
+
+### Add the trace header id with envoy filter
+
+Use `kubectl` to apply the following definition to the Kubernetes cluster,
+
+```yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: EnvoyFilter
+metadata:
+  name: responsed-x-request-id-always
+  namespace: istio-system
+spec:
+  configPatches:
+    - applyTo: NETWORK_FILTER
+      match:
+        context: ANY
+        listener:
+          filterChain:
+            filter:
+              name: envoy.filters.network.http_connection_manager
+      patch:
+        operation: MERGE
+        value:
+          typed_config:
+            '@type': >-
+              type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager
+            always_set_request_id_in_response: true
+            generate_request_id: true
+            preserve_external_request_id: true
+  priority: 0
+```
+
 
 ## Instrument your application
 
