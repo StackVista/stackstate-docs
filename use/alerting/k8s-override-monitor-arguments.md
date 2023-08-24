@@ -6,13 +6,14 @@ description: StackState Kubernetes Troubleshooting
 
 ## Overview
 
-StackState provides [monitors out of the box](/use/alerting/k8s-monitors.md), which provide monitoring on common issues that can occur in a Kubernetes cluster. Those monitors work with certain default arguments that suit most of the use cases but sometimes we need to adapt its behaviour by overriding some of such default arguments  like `threshold` or `failureState`.
+StackState provides [monitors out of the box](/use/alerting/k8s-monitors.md), which provide monitoring on common issues that can occur in a Kubernetes cluster. Those monitors work with certain default arguments that suit most of the use cases but sometimes there's need to adapt its behaviour by overriding some of such default arguments like `threshold` or `failureState`.
 The mechanism to declare the overrides is via kubernetes resource annotations that denote to which monitor and component they should apply. For example we could override the `failureState` for the `Available service endpoints` monitor for a specific service where we want to signal a `CRITICAL` state when it fails rather than the default `DEVIATING`.
 
 ## How to
 
-* [How to build an override annotation](#how-to-build-an-override-annotation)
+* [Build an override annotation](#build-an-override-annotation)
 * [What monitors allow overriding arguments?](#what-monitor-allows-overriding)
+* [Build an override for a custom monitor](#build-an-override-for-a-custom-monitor)
 
 As an example the steps will override the arguments for the `Available service endpoints` monitor of Kubernetes HTTP services.
 
@@ -57,3 +58,23 @@ The full annotation then would look like
 * [Node PID Pressure](/use/alerting/kubernetes-monitors.md#node-pid-pressure)
 * [Node Readiness](/use/alerting/kubernetes-monitors.md#node-readiness)
 * [Out of memory for containers](/use/alerting/kubernetes-monitors.md#out-of-memory-for-containers)
+
+## Build an override for a custom monitor
+
+Any custom threshold monitor created using the guide at [Add a threshold monitor to components using the CLI](/use/alerting/k8s-add-monitors-cli.md) is suitable to override arguments, as [the example shows](/use/alerting/k8s-add-monitors-cli.md#write-the-outline-of-the-monitor) an identifier for a custom monitor is structured as `urn:custom:monitor:{monitorShortName}`and the override annotation key for such an identifier is expected to be
+```bash
+monitor.custom.stackstate.io/${monitorShortName}
+```
+The example uses the identifier `urn:custom:monitor:deployment-has-replicas` therefore the annotation key would be
+```bash
+monitor.custom.stackstate.io/deployment-has-replicas
+```
+And the full annotation would look like
+```bash
+    monitor.custom.stackstate.io/deployment-has-replicas: |-
+      {
+        "threshold": 0.0,
+        "failureState": "CRITICAL"
+        "enabled": true
+      }
+```
