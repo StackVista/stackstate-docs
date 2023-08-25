@@ -36,7 +36,7 @@ nodes:
     comparator: 
     threshold: 
     failureState: 
-    urnTemplate: "urn:kubernetes:/${kube_cluster_name}:${namespace}:service/${endpoint}"
+    urnTemplate:
     titleTemplate: 
   description: 
   function: {{ get "urn:stackpack:kubernetes-v2:shared:monitor-function:threshold"  }}
