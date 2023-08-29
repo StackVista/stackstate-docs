@@ -10,10 +10,20 @@ This section describes the out-of-the-box monitors delivered with StackState. Mo
 
 ## Out of the box Kubernetes monitors
 
-### Available service endpoints 
+### Available service endpoints
 
 It is important to ensure that your services are available and accessible to users. To monitor this, StackState has set up a check that verifies if a service has at least one endpoint available. Endpoints are network addresses that enable communication between different components in a distributed system, and they need to be available for the service to function properly.
 If there is an occurrence of zero endpoints available within the last 10 minutes, the monitor will remain deviating, indicating that there may be an issue with the service that needs to be addressed.
+Allows [Override Monitor arguments](/use/alerting/k8s-override-monitor-arguments.md)
+
+### Daemonset desired replicas
+
+It is important that the desired number of replicas for a Daemonset is being met. Daemonsets are used to manage a set of pods that need to run on all or a subset of nodes in a cluster, ensuring that a copy of the pod is running on each node that meets the specified criteria. This is useful for tasks such as logging, monitoring, and other cluster-level tasks that need to be executed on every node in the cluster. To monitor this, StackState has set up a check that verifies if the available replicas match the desired number of replicas. This check will only be applied to DaemonSets that have a desired number of replicas greater than zero. - If the number of available replicas is less than the desired number, the monitor will signal a DEVIATING health state, indicating that there may be an issue with the StatefulSet. - If the number of available replicas is zero, the monitor will signal a CRITICAL health state, indicating that the StatefulSet is not functioning at all. To understand the full monitor definition check the details.
+
+### Deployment desired replicas
+
+It is important that the desired number of replicas for a Deployments is being met. Deployments are used to manage the deployment and scaling of a set of identical Pods in a Kubernetes cluster. By ensuring that the desired number of replicas is running and available, Deployments can help maintain the availability and reliability of a Kubernetes application or service. To monitor this, StackState has set up a check that verifies if the available replicas match the desired number of replicas. This check will only be applied to Deployments that have a desired number of replicas greater than zero. - If the number of available replicas is less than the desired number, the monitor will signal a DEVIATING health state, indicating that there may be an issue with the Deployments. - If the number of available replicas is zero, the monitor will signal a CRITICAL health state, indicating that the StatefulSet is not functioning at all. To understand the full monitor definition check the details.
+
 
 ### HTTP - 5xx error ratio
 
@@ -34,12 +44,33 @@ It is important to monitor the usage of Persistent Volume Claims (PVCs) in your 
 It is important to monitor the usage of Persistent Volume Claims (PVCs) in your Kubernetes cluster over time. PVCs are used to store data that needs to persist beyond the lifetime of a container, and it's crucial to ensure that they have enough space to store the data.
 To track this, StackState set up a check that uses linear prediction to forecast the Kubernetes volume usage trend over a 4-day period. If the trend indicates that the PVCs will run out of space within this time frame, you will receive a notification, allowing you to take action to prevent data loss or downtime.
 
+### Node Disk Pressure
+
+Node disk pressure refers to a situation where the disks connected to a node experience excessive strain. While encountering node disk pressure is unlikely due to Kubernetes' built-in preventive measures, it can still occur sporadically. There are two primary reasons why node disk pressure may arise. The first reason relates to Kubernetes failing to clean up unused images. Under normal circumstances, Kubernetes regularly checks for and deletes any images that are not in use. Therefore, this is an uncommon cause of node disk pressure, but it should be acknowledged. The more probable issue involves the accumulation of logs. In Kubernetes, logs are typically saved in two scenarios: when containers are running and when the most recently exited container's logs are retained for troubleshooting purposes. This approach aims to strike a balance between preserving important logs and discarding unnecessary ones over time. However, if a long-running container generates an extensive volume of logs, they may accumulate to the point where they overload the node disk's capacity. To understand the full monitor definition check the details.
+Allows [Override Monitor arguments](/use/alerting/k8s-override-monitor-arguments.md)
+
+### Node Memory Pressure
+
+Node memory pressure refers to a situation where the memory resources on a Kubernetes node are excessively strained. While encountering node memory pressure is uncommon due to Kubernetes' built-in resource management mechanisms, it can still occur under specific circumstances. There are two primary reasons why node memory pressure may arise. The first reason is related to misconfigured or insufficient resource requests and limits for containers running on the node. Kubernetes relies on resource requests and limits to allocate and manage resources effectively. If containers are not accurately configured with their memory requirements, they may consume more memory than expected, leading to node memory pressure. The second reason involves the presence of memory-intensive applications or processes. Certain workloads or applications may have higher memory demands, resulting in increased memory utilization on the node. If multiple pods or containers with substantial memory requirements are scheduled on the same node without proper resource allocation, it can cause memory pressure. To mitigate node memory pressure, it is crucial to review and adjust resource requests and limits for containers, ensuring they align with the actual memory needs of the applications. Monitoring and optimizing memory usage within the applications themselves can also help reduce memory consumption. Additionally, consider horizontal pod autoscaling to dynamically scale the number of pods based on memory utilization. Regular monitoring, analysis of memory-related metrics, and proactive allocation of memory resources can help maintain a healthy memory state on Kubernetes nodes. It's essential to understand the specific requirements of your workloads and adjust resource allocation accordingly to prevent memory pressure and ensure optimal performance.
+Allows [Override Monitor arguments](/use/alerting/k8s-override-monitor-arguments.md)
+
+### Node PID Pressure
+
+Node PID pressure occurs when the available process identification (PID) resources on a Kubernetes node are excessively strained. The first reason is related to misconfigured or insufficient resource requests and limits for containers running on the node. Kubernetes relies on accurate resource requests and limits to effectively allocate and manage resources. If containers are not configured correctly with their PID requirements, they may consume more PIDs than expected, resulting in node PID pressure. The second reason is the presence of PID-intensive applications or processes. Some workloads or applications have higher demands for process identification, leading to increased PID utilization on the node. If multiple pods or containers with significant PID requirements are scheduled on the same node without proper resource allocation, it can cause PID pressure. To address node PID pressure, it is important to review and adjust resource requests and limits for containers to ensure they align with the actual PID needs of the applications. Monitoring and optimizing PID usage within the applications themselves can also help reduce PID consumption. Additionally, considering horizontal pod autoscaling can dynamically scale the number of pods based on PID utilization. Regular monitoring, analysis of PID-related metrics, and proactive allocation of PID resources are crucial for maintaining a healthy state of PID usage on Kubernetes nodes. It is essential to understand the specific requirements of your workloads and adjust resource allocation accordingly to prevent PID pressure and ensure optimal performance.
+Allows [Override Monitor arguments](/use/alerting/k8s-override-monitor-arguments.md)
+
+### Node Readiness
+
+Check if the Node is up and running as expected.
+Allows [Override Monitor arguments](/use/alerting/k8s-override-monitor-arguments.md)
+
 ### Out of memory for containers
 
 It is important to ensure that the containers running in your Kubernetes cluster have enough memory to function properly. Out-of-memory (OOM) conditions can cause containers to crash or become unresponsive, leading to restarts and potential data loss.
 To monitor for these conditions, StackState set up a check that detects and reports OOM events in the containers running in the cluster. This check will help you identify any containers that are running out of memory and allow you to take action to prevent issues before they occur.
+Allows [Override Monitor arguments](/use/alerting/k8s-override-monitor-arguments.md)
 
-### Pod Readiness 
+### Pod Ready State  
 
 Checks if a Pod that has been scheduled is running and ready to receive traffic within the expected amount of time.
 
@@ -72,6 +103,10 @@ To monitor this, StackState has set up a check that verifies if the available re
 - If the number of available replicas is less than the desired number, the monitor will signal a DEVIATING health state, indicating that there may be an issue with the StatefulSet.
 - If the number of available replicas is zero, the monitor will signal a CRITICAL health state, indicating that the StatefulSet is not functioning at all.
 
+
+### Unschedulable Node
+
+If you encounter a "NodeNotSchedulable" event in Kubernetes, it means that the Kubernetes scheduler was unable to place a pod on a specific node due to some constraints or issues with the node. This event occurs when the scheduler cannot find a suitable node to run the pod according to its resource requirements and other constraints.
 
 ## See also
 
