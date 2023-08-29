@@ -54,6 +54,7 @@
 * [Network configuration](setup/k8s-network-configuration-saas.md)
 * [Using a custom registry](setup/agent/k8s-custom-registry.md)
 * [Request tracing](setup/agent/k8sTs-agent-request-tracing.md)
+  * [Certificates for sidecar injection](setup/agent/k8sTs-agent-request-tracing-certificates.md)
 
 ## CLI
 * [StackState CLI](setup/cli/k8sTs-cli-sts.md)

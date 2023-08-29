@@ -20,7 +20,7 @@ It's also possible to add the `X-Request-Id` header if your application [already
 
 Enabling trace header injection is a two-step process:
 
- 1. Install the mutating webhook into the cluster by adding `--set httpHeaderInjectorWebhook.enabled=true` to the helm upgrade invocation when installing the StackState agent
+ 1. Install the mutating webhook into the cluster by adding `--set httpHeaderInjectorWebhook.enabled=true` to the helm upgrade invocation when installing the StackState agent. By default the sidecar injector generates its own self-signed certificate, requiring cluster roles to install these into the cluster. It is also possible to [manage your own certificates](/setup/agent/k8sTs-agent-request-tracing-certificates.md) in a more restricted environment.
  2. For every pod that has a endpoint which processes http(s) requests, place the annotation `http-header-injector.stackstate.io/inject: enabled` to have the sidecar injected.
 
 {% hint style="warning" %}
