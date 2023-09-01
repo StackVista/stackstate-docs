@@ -16,6 +16,13 @@ It is important to ensure that your services are available and accessible to use
 If there is an occurrence of zero endpoints available within the last 10 minutes, the monitor will remain deviating, indicating that there may be an issue with the service that needs to be addressed.
 Allows [Override Monitor arguments](/use/alerting/k8s-override-monitor-arguments.md)
 
+### Cpu limits resourcequota
+
+Users create resources (pods, services, etc.) in the namespace, and the quota system tracks usage to ensure it does not exceed hard resource limits for Cpu defined in a ResourceQuota The monitor will alert when the total Cpu limits in the namespace gets to 90% or more of the established by the quota. Each `resourcequota` in the namespace produces a monitor health state.
+
+### Cpu requests resourcequota
+Users create resources (pods, services, etc.) in the namespace, and the quota system tracks usage to ensure it does not exceed hard resource requests for Cpu defined in a ResourceQuota The monitor will alert when the total Cpu requests in the namespace gets to 90% or more of the established by the quota. Each `resourcequota` in the namespace produces a monitor health state.
+
 ### Daemonset desired replicas
 
 It is important that the desired number of replicas for a Daemonset is being met. Daemonsets are used to manage a set of pods that need to run on all or a subset of nodes in a cluster, ensuring that a copy of the pod is running on each node that meets the specified criteria. This is useful for tasks such as logging, monitoring, and other cluster-level tasks that need to be executed on every node in the cluster. To monitor this, StackState has set up a check that verifies if the available replicas match the desired number of replicas. This check will only be applied to DaemonSets that have a desired number of replicas greater than zero. - If the number of available replicas is less than the desired number, the monitor will signal a DEVIATING health state, indicating that there may be an issue with the StatefulSet. - If the number of available replicas is zero, the monitor will signal a CRITICAL health state, indicating that the StatefulSet is not functioning at all. To understand the full monitor definition check the details.
@@ -43,6 +50,12 @@ It is important to monitor the usage of Persistent Volume Claims (PVCs) in your 
 
 It is important to monitor the usage of Persistent Volume Claims (PVCs) in your Kubernetes cluster over time. PVCs are used to store data that needs to persist beyond the lifetime of a container, and it's crucial to ensure that they have enough space to store the data.
 To track this, StackState set up a check that uses linear prediction to forecast the Kubernetes volume usage trend over a 4-day period. If the trend indicates that the PVCs will run out of space within this time frame, you will receive a notification, allowing you to take action to prevent data loss or downtime.
+
+### Memory limits resourcequota
+Users create resources (pods, services, etc.) in the namespace, and the quota system tracks usage to ensure it does not exceed hard resource limits for memory defined in a ResourceQuota The monitor will alert when the total memory limits in the namespace gets to 90% or more of the established by the quota. Each `resourcequota` in the namespace produces a monitor health state.
+
+### Memory requests resourcequota
+Users create resources (pods, services, etc.) in the namespace, and the quota system tracks usage to ensure it does not exceed hard resource requests for memory defined in a ResourceQuota The monitor will alert when the total memory requests in the namespace gets to 90% or more of the established by the quota. Each `resourcequota` in the namespace produces a monitor health state.
 
 ### Node Disk Pressure
 
