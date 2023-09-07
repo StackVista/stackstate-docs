@@ -20,19 +20,21 @@
 * [Monitors](use/alerting/k8s-monitors.md)
 * [Out of the box monitors for Kubernetes](use/alerting/kubernetes-monitors.md)
 * [Alerts](use/alerting/event-handlers.md)
-* [Advanced](use/metrics/k8s-advanced.md)
+* [Customize](use/alerting/k8s-customize.md)
   * [Add a monitor using the CLI](use/alerting/k8s-add-monitors-cli.md)
   * [Override monitor arguments](use/alerting/k8s-override-monitor-arguments.md)
 
 ## 📈 Metrics
 
 * [Explore Metrics](use/metrics/k8sTs-explore-metrics.md)
-* [Advanced](use/metrics/k8s-advanced.md)
+* [Custom charts](use/metrics/k8s-custom-charts.md)
   * [Adding custom charts to components](use/metrics/k8s-add-charts.md)
   * [Writing PromQL queries for representative charts](use/metrics/k8s-writing-promql-for-charts.md)
+  * [Troubleshooting custom charts](/use/metrics/k8sTs-metrics-troubleshooting.md)
+* [Advanced Metrics](use/metrics/k8s-advanced.md)
   * [Grafana Datasource](use/metrics/k8s-stackstate-grafana-datasource.md)
   * [Prometheus remote_write](use/metrics/k8s-prometheus-remote-write.md)
-  * [Troubleshooting custom charts](/use/metrics/k8sTs-metrics-troubleshooting.md)
+
 
 ## 🔍 Views
 
