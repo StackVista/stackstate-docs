@@ -18,10 +18,10 @@ Allows [Override Monitor arguments](/use/alerting/k8s-override-monitor-arguments
 
 ### Cpu limits resourcequota
 
-Users create resources (pods, services, etc.) in the namespace, and the quota system tracks usage to ensure it does not exceed hard resource limits for Cpu defined in a ResourceQuota The monitor will alert when the total Cpu limits in the namespace gets to 90% or more of the established by the quota. Each `resourcequota` in the namespace produces a monitor health state.
+Users create resources (pods, services, etc.) in the namespace, and the quota system tracks usage to ensure it does not exceed hard resource limits for Cpu defined in a ResourceQuota. The monitor will alert when the total Cpu limits in the namespace gets to 90% or more of the established by the quota. Each `resourcequota` in the namespace produces a monitor health state.
 
 ### Cpu requests resourcequota
-Users create resources (pods, services, etc.) in the namespace, and the quota system tracks usage to ensure it does not exceed hard resource requests for Cpu defined in a ResourceQuota The monitor will alert when the total Cpu requests in the namespace gets to 90% or more of the established by the quota. Each `resourcequota` in the namespace produces a monitor health state.
+Users create resources (pods, services, etc.) in the namespace, and the quota system tracks usage to ensure it does not exceed hard resource requests for Cpu defined in a ResourceQuota. The monitor will alert when the total Cpu requests in the namespace gets to 90% or more of the established by the quota. Each `resourcequota` in the namespace produces a monitor health state.
 
 ### Daemonset desired replicas
 
@@ -52,10 +52,10 @@ It is important to monitor the usage of Persistent Volume Claims (PVCs) in your 
 To track this, StackState set up a check that uses linear prediction to forecast the Kubernetes volume usage trend over a 4-day period. If the trend indicates that the PVCs will run out of space within this time frame, you will receive a notification, allowing you to take action to prevent data loss or downtime.
 
 ### Memory limits resourcequota
-Users create resources (pods, services, etc.) in the namespace, and the quota system tracks usage to ensure it does not exceed hard resource limits for memory defined in a ResourceQuota The monitor will alert when the total memory limits in the namespace gets to 90% or more of the established by the quota. Each `resourcequota` in the namespace produces a monitor health state.
+Users create resources (pods, services, etc.) in the namespace, and the quota system tracks usage to ensure it does not exceed hard resource limits for memory defined in a ResourceQuota. The monitor will alert when the total memory limits in the namespace gets to 90% or more of the established by the quota. Each `resourcequota` in the namespace produces a monitor health state.
 
 ### Memory requests resourcequota
-Users create resources (pods, services, etc.) in the namespace, and the quota system tracks usage to ensure it does not exceed hard resource requests for memory defined in a ResourceQuota The monitor will alert when the total memory requests in the namespace gets to 90% or more of the established by the quota. Each `resourcequota` in the namespace produces a monitor health state.
+Users create resources (pods, services, etc.) in the namespace, and the quota system tracks usage to ensure it does not exceed hard resource requests for memory defined in a ResourceQuota. The monitor will alert when the total memory requests in the namespace gets to 90% or more of the established by the quota. Each `resourcequota` in the namespace produces a monitor health state.
 
 ### Node Disk Pressure
 
