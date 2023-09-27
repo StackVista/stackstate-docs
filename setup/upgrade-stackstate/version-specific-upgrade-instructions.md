@@ -21,6 +21,16 @@ This page provides specific instructions and details of any required manual step
 {% tabs %}
 {% tab title="Kubernetes" %}
 
+#### v5.1.6
+
+The Zookeeper dependency of StackState has been upgraded. Before running `helm upgrade` the Zookeeper Statefulset has to be deleted.
+
+```sh
+kubectl delete statefulset -l app.kubernetes.io/component=zookeeper -n stackstate --cascade=orphan
+```
+
+*Note: the command deletes Statefulset only, pods and pvc-s aren't affected. The `helm upgrade` command creates a new Statefulset for Zookeeper and rolls out the Zookeeper pods.*
+
 #### v5.1.0
 * The node sizing requirements for deploying the StackState platform have changed slightly. Check the [requirements to deploy StackState on Kubernetes or OpenShift](/setup/install-stackstate/requirements.md#node-sizing).
 * A new `stackstate/stackstate-agent` helm chart is available to deploy the StackState Agent, Checks Agent, Node Agent and kube_state_metrics on Kubernetes and OpenShift clusters. Some values have been renamed in the new chart.
