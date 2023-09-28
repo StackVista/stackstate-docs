@@ -23,6 +23,7 @@ Submit HTTP get request.
 * `.timeout(time: Duration)` - make the request timeout after [time](time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
 * `.header(name: String, value: String)` - specify the header.
+* `.noProxy()` - even when a proxy is configured don't use it for this request.
 
 ### Return type
 
@@ -50,6 +51,7 @@ Submit HTTP put request.
 * `.timeout(time: Duration)` - make the request timeout after [time](time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
 * `.header(name: String, value: String)` - specify the header.
+* `.noProxy()` - even when a proxy is configured don't use it for this request.
 * `.contentType(contentType: String)` -  specify the content type, for example "application/text".
 * `.textRequest(text: String)` - specify the text of the request.
 * `.jsonRequest(json: Goovy.lang.Closures)` - specify the JSON of the request. This will wrap the given closure with a [JsonBuilder](http://docs.groovy-lang.org/latest/html/documentation/core-domain-specific-languages.html#_jsonbuilder).
@@ -67,6 +69,7 @@ Http.put("http://http_server:8080/api")
   .timeout("30s")
   .param("name", "value")
   .header("name", "value")
+  .noProxy()
   .contentType("application/text")
   .textRequest("{'property', 'value'}")
   .jsonResponse()
@@ -85,6 +88,7 @@ Submit HTTP post request.
 * `.timeout(time: Duration)` - make the request timeout after [time](time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
 * `.header(name: String, value: String)` - specify the header.
+* `.noProxy()` - even when a proxy is configured don't use it for this request.
 * `.contentType(contentType: String)` -  specify the content type, for example "application/text".
 * `.textRequest(text: String)` - specify the text of the request.
 * `.jsonRequest(json: Goovy.lang.Closures)` - specify the JSON of the request. This will wrap the given closure with a [JsonBuilder](http://docs.groovy-lang.org/latest/html/documentation/core-domain-specific-languages.html#_jsonbuilder).
@@ -124,6 +128,7 @@ Submit HTTP delete request.
 * `.timeout(time: Duration)` - make the request timeout after [time](time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
 * `.header(name: String, value: String)` - specify the header.
+* `.noProxy()` - even when a proxy is configured don't use it for this request.
 
 ### Return type
 
@@ -168,6 +173,7 @@ Submit HTTP patch request.
 * `.timeout(time: Duration)` - make the request timeout after [time](time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
 * `.header(name: String, value: String)` - specify the header.
+* `.noProxy()` - even when a proxy is configured don't use it for this request.
 * `.contentType(contentType: String)` -  specify the content type, for example "application/text".
 * `.textRequest(text: String)` - specify the text of the request.
 * `.jsonRequest(json: Goovy.lang.Closures)` - specify the JSON of the request. This will wrap the given closure with a [JsonBuilder](http://docs.groovy-lang.org/latest/html/documentation/core-domain-specific-languages.html#_jsonbuilder).
@@ -200,6 +206,7 @@ Submit HTTP head request.
 
 * `.timeout(time: Duration)` - make the request timeout after [time](time.md) has elapsed.
 * `.param(name: String, value: String)` - specify the query.
+* `.noProxy()` - even when a proxy is configured don't use it for this request.
 * `.header(name: String, value: String)` - specify the header.
 
 ### Return type

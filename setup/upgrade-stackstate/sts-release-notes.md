@@ -13,11 +13,53 @@ This page includes release notes for the StackState self-hosted product.
 
 ## StackState v5.1.x
 
+# 5.1.10
+
+
+## Improvements
+
+- Made security updates to the os-components in the helm-chart containers. STAC-20160
+
+
+## Bug fixes
+
+- Improve sandboxing of Groovy scripts by disallowing specific AST transformations. STAC-20140
+
+# 5.1.9
+
+
+## Improvements
+
+- Adds support for `noProxy()` option on the script HTTP API. STAC-20143
+
+# 5.1.8
+
+
+## Bug fixes
+
+- Fix data migration in StackState 5.1.7 that would fail due to a time out in certain cases. STAC-20063
+
+# 5.1.7
+
+
+## Improvements
+
+- Updated sandbox security configuration to allow using java.net.URLEncoder on async scripts. STAC-20032
+
+
+## Bug fixes
+
+- Fix data migration in StackState 5.1.6 that would fail due to a time out in certain cases. STAC-20026
+
+
 ### v5.1.6
 
-**Improvements**
 
-- The chart supports Kubernetes up to 1.27
+## Improvements
+
+- Support K8s up to 1.27. STAC-19825
+- the Kafka chart has been upgraded from  14.8.1 to 15.5.1. STAC-19825
+- the Zookepeer chart has been upgraded from 5.16.0 to 8.1.2
 
 **Breaking changes**
 
@@ -28,6 +70,43 @@ kubectl delete statefulset -l app.kubernetes.io/component=zookeeper -n stackstat
 ```
 
 *Note: the command deletes Statefulset only, pods and pvc-s aren't affected. `helm upgrade` command creates a new Statefulset for Zookeeper and rolls out the Zookeeper pods.*
+
+
+## Bug fixes
+
+- Setting a "dummy" region for the AWS S3 CDK to prevent the backup scripts from querying the metadata endpoint. STAC-19577
+- Avoid premature loading components with a health state requested on a query before applying all other filters. STAC-19406
+- Fixed issue that prevented saving changes to synchronisation settings in specific situations. STAC-17916
+
+# 5.1.5
+
+Skipped, use 5.1.6 instead.
+
+# 5.1.4
+
+
+## Bug fixes
+
+- Incremental initialization for the synchronization and state propagation processes in order to avoid time outs. STAC-19700
+
+# 5.1.3
+
+
+## Improvements
+
+- The StackState Helm Chart supports providing a bootstrap service token. STAC-17014
+
+
+## Bug fixes
+
+- Fixed issue where StackState would not start up when specifying a bootstrap Service token in the configuration. STAC-18843
+- Top metrics of a component now correctly display the unit of measurement. STAC-18670
+
+
+## Security improvements
+
+- Fixed security issue in StackState Helm chart the ingress configuration did not mark session cookies as secured. STAC-18751
+- Upgraded glob-parent to 5.1.2 patching the CVE-2020-28469 vulnerability. STAC-17101
 
 ### v5.1.2
 
