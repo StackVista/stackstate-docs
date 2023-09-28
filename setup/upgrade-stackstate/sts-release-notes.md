@@ -13,6 +13,18 @@ This page includes release notes for the StackState self-hosted product.
 
 ## StackState v5.1.x
 
+# 5.1.10
+
+
+## Improvements
+
+- Made security updates to the os-components in the helm-chart containers. STAC-20160
+
+
+## Bug fixes
+
+- Improve sandboxing of Groovy scripts by disallowing specific AST transformations. STAC-20140
+
 # 5.1.9
 
 
