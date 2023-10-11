@@ -46,13 +46,17 @@ The full annotation then would look like
     monitor.kubernetes-v2.stackstate.io/service-available-endpoint: |-
       {
         "threshold": 0.0,
-        "failureState": "CRITICAL"
+        "failureState": "CRITICAL",
         "enabled": true
       }
 ```
 
 ## What monitors allow overriding arguments?
 * [Available service endpoints](/use/alerting/kubernetes-monitors.md#available-service-endpoints)
+* [Cpu limits resourcequota](/use/alerting/kubernetes-monitors.md#cpu-limits-resourcequota)
+* [Cpu requests resourcequota](/use/alerting/kubernetes-monitors.md#cpu-requests-resourcequota)
+* [Memory limits resourcequota](/use/alerting/kubernetes-monitors.md#memory-limits-resourcequota)
+* [Memory requests resourcequota](/use/alerting/kubernetes-monitors.md#memory-requests-resourcequota)
 * [Node Disk Pressure](/use/alerting/kubernetes-monitors.md#node-disk-pressure)
 * [Node Memory Pressure](/use/alerting/kubernetes-monitors.md#node-memory-pressure)
 * [Node PID Pressure](/use/alerting/kubernetes-monitors.md#node-pid-pressure)
