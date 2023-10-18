@@ -13,6 +13,7 @@ The Kubernetes setup for StackState has a built-in backup and restore mechanism 
 The following data can be automatically backed up:
 
 * **Configuration and topology data** stored in StackGraph is backed up when the Helm value `backup.stackGraph.enabled` is set to `true`.
+* **Metrics** stored in StackState's Victoria Metrics instance(s) is backed up when the Helm value `victoria-metrics-0.backup.enabled` and `victoria-metrics-1.backup.enabled` are set to `true`.
 * **Telemetry data** stored in StackState's Elasticsearch instance is backed up when the Helm value `backup.elasticsearch.enabled` is set to `true`.
 
 The following data will **not** be backed up:
@@ -21,11 +22,10 @@ The following data will **not** be backed up:
 * Master node negotiations state stored in ZooKeeper - this runtime state would be incorrect when restored and will be automatically determined at runtime
 * Kubernetes configuration state and raw persistent volume state - this state can be rebuilt by re-installing StackState and restoring the backups.
 * Kubernetes logs - these are ephemeral.
-* Metrics
 
 ### Storage options
 
-StackGraph and Elasticsearch backups are sent to an instance of [MinIO \(min.io\)](https://min.io/), which is automatically started by the `stackstate` Helm chart when automatic backups are enabled. MinIO is an object storage system with the same API as AWS S3. It can store its data locally or act as a gateway to [AWS S3 \(min.io\)](https://docs.min.io/docs/minio-gateway-for-s3.html), [Azure BLob Storage \(min.io\)](https://docs.min.io/docs/minio-gateway-for-azure.html) and other systems.
+Backups are sent to an instance of [MinIO \(min.io\)](https://min.io/), which is automatically started by the `stackstate` Helm chart when automatic backups are enabled. MinIO is an object storage system with the same API as AWS S3. It can store its data locally or act as a gateway to [AWS S3 \(min.io\)](https://docs.min.io/docs/minio-gateway-for-s3.html), [Azure BLob Storage \(min.io\)](https://docs.min.io/docs/minio-gateway-for-azure.html) and other systems.
 
 The built-in MinIO instance can be configured to store the backups in three locations:
 
@@ -57,6 +57,12 @@ backup:
     bucketName: AWS_STACKGRAPH_BUCKET
   elasticsearch:
     bucketName: AWS_ELASTICSEARCH_BUCKET
+victoria-metrics-0:
+  backup:
+    bucketName: AWS_VICTORIA_METRICS_BUCKET
+victoria-metrics-1:
+  backup:
+    bucketName: AWS_VICTORIA_METRICS_BUCKET
 minio:
   accessKey: YOUR_ACCESS_KEY
   secretKey: YOUR_SECRET_KEY
@@ -71,7 +77,7 @@ Replace the following values:
   * YOUR_ACCESS_KEY should contain 5 to 20 alphanumerical characters.
   * YOUR_SECRET_KEY should contain 8 to 40 alphanumerical characters.
 * `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` are the AWS credentials for the IAM user that has access to the S3 buckets where the backups will be stored. See below for the permission policy that needs to be attached to that user.
-* `AWS_STACKGRAPH_BUCKET` and `AWS_ELASTICSEARCH_BUCKET` are the names of the S3 buckets where the backups should be stored. Note: The names of AWS S3 buckets are global across the whole of AWS, therefore the S3 buckets with the default name \(`sts-elasticsearch-backup` and `sts-stackgraph-backup`\) will probably not be available.
+* `AWS_STACKGRAPH_BUCKET`, `AWS_ELASTICSEARCH_BUCKET` and `AWS_VICTORIA_METRICS_BUCKET` are the names of the S3 buckets where the backups should be stored. Note: The names of AWS S3 buckets are global across the whole of AWS, therefore the S3 buckets with the default name \(`sts-elasticsearch-backup`, `sts-stackgraph-backup` and `sts-victoria-metrics-backup` \) will probably not be available.
 
 The IAM user identified by `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` must be configured with the following permission policy to access the S3 buckets:
 
@@ -88,7 +94,8 @@ The IAM user identified by `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` must be configu
             ],
             "Resource": [
                 "arn:aws:s3:::AWS_STACKGRAPH_BUCKET",
-                "arn:aws:s3:::AWS_ELASTICSEARCH_BUCKET"
+                "arn:aws:s3:::AWS_ELASTICSEARCH_BUCKET",
+                "arn:aws:s3:::AWS_VICTORIA_METRICS_BUCKET"
             ]
         },
         {
@@ -101,7 +108,8 @@ The IAM user identified by `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` must be configu
             ],
             "Resource": [
                 "arn:aws:s3:::AWS_STACKGRAPH_BUCKET/*",
-                "arn:aws:s3:::AWS_ELASTICSEARCH_BUCKET/*"
+                "arn:aws:s3:::AWS_ELASTICSEARCH_BUCKET/*",
+                "arn:aws:s3:::AWS_VICTORIA_METRICS_BUCKET/*"
             ]
         }
     ]
@@ -127,7 +135,7 @@ Replace the following values:
 * `AZURE_STORAGE_ACCOUNT_NAME` - the [Azure storage account name \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal) 
 * `AZURE_STORAGE_ACCOUNT_KEY` - the [Azure storage account key \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage?tabs=azure-portal) where the backups should be stored.
 
-The StackGraph and Elasticsearch backups are stored in BLOB containers called `sts-stackgraph-backup` and `sts-elasticsearch-backup` respectively. These names can be changed by setting the Helm values `backup.stackGraph.bucketName` and `backup.elasticsearch.bucketName` respectively.
+The StackGraph, Elasticsearch and Victoria Metrics backups are stored in BLOB containers called `sts-stackgraph-backup`, `sts-elasticsearch-backup` and `sts-victoria-metrics-backup` respectively. These names can be changed by setting the Helm values `backup.stackGraph.bucketName`, `backup.elasticsearch.bucketName`, `victoria-metrics-0.backup.bucketName` and `victoria-metrics-1.backup.bucketName` respectively.
 
 ### Kubernetes storage
 
@@ -180,6 +188,49 @@ The backup schedule can be configured using the Helm value `backup.stackGraph.sc
 By default, the StackGraph backups are kept for 30 days. As StackGraph backups are full backups, this can require a lot of storage.
 
 The backup retention delta can be configured using the Helm value `backup.stackGraph.scheduled.backupRetentionTimeDelta`, specified in [Python timedelta format \(python.org\)](https://docs.python.org/3/library/datetime.html#timedelta-objects).
+
+## Metrics \(Victoria Metrics\)
+
+{% hint style="danger" %}
+Victoria Metrics use incremental backups without versioning of a bucket, it means that the new backup **replaces completely the previous one**.
+
+You **HAVE TO AVOID** the following situations:
+- mount an empty volume to `/storage` directory of Victoria Metrics instances
+- delete the `/storage` directory or files inside from Victoria Metrics instances
+The next (empty) backup will override the previous one and all data will be lost. 
+{% endhint %}
+
+Metrics \(Victoria Metrics\) use instant snapshots to store data in incremental backups. Many instances of Victoria Metrics can store backups to the same bucket, each of them will be stored in separated directory. All files located in the directory should be treated as a single whole and can only be moved, copied or deleted as a whole.
+
+{% hint style="info" %}
+High Available deployments should be deployed with two instances of Victoria Metrics. Backups are enabled/configured independently for each of them.
+
+The following code snippets/commands are provided for the first instance of Victoria Metric `victoria-metrics-0`. To backup/configure the second instance you should use `victoria-metrics-1`
+{% endhint %}
+
+### Enable scheduled backups
+
+Backups of Victoria Metrics are disabled by default. To enabled scheduled Victoria Metrics backups, set the Helm value `victoria-metrics-0.backup.enabled` to `true`.
+
+{% hint style="warning" %}
+Victoria Metrics backups requires to [enable backups](#enable-backups).
+{% endhint %}
+
+### Enable restores
+
+Restore functionality of Victoria Metrics are disabled by default. To enabled restore functionality of Victoria Metrics, set the Helm value `victoria-metrics-0.restore.enabled` to `true`.
+
+{% hint style="warning" %}
+Victoria Metrics restore functionality requires to [enable backups](#enable-backups).
+{% endhint %}
+
+### Backup schedule
+
+By default, the Victoria Metrics backups are created every 1h:
+- `victoria-metrics-0` - 25 minutes past the hour
+- `victoria-metrics-1` - 35 minutes past the hour
+
+The backup schedule can be configured using the Helm value `victoria-metrics-0.backup.bucketName` according [cronexpr format](https://github.com/aptible/supercronic/tree/master/cronexpr)
 
 ## Telemetry data \(Elasticsearch\)
 
@@ -235,6 +286,7 @@ Scripts to list and restore backups and snapshots can be found in the [restore d
     1. `backup.enabled` is set to `true`.
     2. `backup.stackGraph.restore.enabled` isn't set to `false` \(to access StackGraph backups\).
     3. `backup.elasticsearch.restore.enabled` isn't set to `false` \(to access Elasticsearch snapshots\).
+    4. `victoria-metrics-0.restore.enabled` or `victoria-metrics-1.restore.enabled` isn't set to `false` \(to access Victoria Metrics snapshots\).
 {% endhint %}
 
 ### List StackGraph backups
@@ -320,6 +372,77 @@ ERROR com.stackvista.graph.migration.Restore - Restore isn't possible in a non e
 {% hint style="info" %}
 Lines that starts with `WARNING:` are expected. They're generated by Groovy running in JDK 11 and can be ignored.
 {% endhint %}
+
+### List Victoria Metrics backups
+
+To list the Victoria Metrics backups, execute the following command:
+
+```bash
+./restore/list-victoria-metrics-backups.sh
+```
+
+The output should look like this:
+
+```bash
+job.batch/victoria-metrics-list-backups-20231016t125557 created
+Waiting for job to start...
+Waiting for job to start...
+=== Fetching timestamps of last completed incremental backups
+victoria-metrics-0: "Mon, 16 Oct 2023 10:25:05 GMT"
+
+An error occurred (404) when calling the HeadObject operation: Not Found
+Unexpected status code 255
+===
+job.batch "victoria-metrics-list-backups-20231016t125557" deleted
+```
+
+{% hint style="info" %}
+The command may print a message with 404 HTTP status code (Not Found) and print `Unexpected status code ...` - it means the backup probably doesn't exist for one of Victoria Metrics instances.
+{% endhint %}
+
+### Restore a Victoria Metrics backup
+
+{% hint style="warning" %}
+**Restore functionality always overrides data. You must be careful to avoid the unexpected loss of existing data.**
+{% endhint %}
+
+{% hint style="warning" %}
+**Restore functionality requires to stop an instance of Victoria Metric while the process.** 
+
+All new metrics will be cached by `vmagent` while the restore process, please ensure the `vmagent` has enough memory to cache metrics.
+{% endhint %}
+
+To restore a Victoria Metrics backup, select an instance name and pass it as the first parameter in the following command:
+
+```bash
+./restore/restore-victoria-metrics-backup.sh victoria-metrics-0
+```
+
+The output should look like this:
+
+```bash
+=== Scaling down the Victoria Metrics instance
+statefulset.apps/stackstate-victoria-metrics-0 scaled
+=== Allowing pods to terminate
+=== Starting restore job
+job.batch/victoria-metrics-restore-backup-20231017t092607 created
+=== Restore job started. Follow the logs with the following command:
+kubectl logs --follow job/victoria-metrics-restore-backup-20231017t092607
+=== After the job has completed clean up the job and scale up the Victoria Metrics instance pods again with the following commands:
+kubectl delete job victoria-metrics-restore-backup-20231017t092607
+kubectl scale statefulsets stackstate-victoria-metrics-0 --replicas=1
+```
+
+Then follow logs to check the job status
+```
+2023-10-17T07:26:42.564Z	info	VictoriaMetrics/lib/backup/actions/restore.go:194	restored 53072307269 bytes from backup in 0.445 seconds; deleted 639118752 bytes; downloaded 1204539 bytes
+2023-10-17T07:26:42.564Z	info	VictoriaMetrics/app/vmrestore/main.go:64	gracefully shutting down http server for metrics at ":8421"
+2023-10-17T07:26:42.564Z	info	VictoriaMetrics/app/vmrestore/main.go:68	successfully shut down http server for metrics in 0.000 seconds
+```
+
+After completion (**ensure if the backup has been restored successfully**), it's needed to follow commands printed by the earlier command:
+- delete the restore job
+- scale up the Victoria Metrics instance
 
 ### List Elasticsearch snapshots
 
