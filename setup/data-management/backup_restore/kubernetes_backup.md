@@ -13,7 +13,7 @@ The Kubernetes setup for StackState has a built-in backup and restore mechanism 
 The following data can be automatically backed up:
 
 * **Configuration and topology data** stored in StackGraph is backed up when the Helm value `backup.stackGraph.enabled` is set to `true`.
-* **Metrics** stored in StackState's Victoria Metrics instance(s) is backed up when the Helm value `victoria-metrics-0.backup.enabled` or `victoria-metrics-1.backup.enabled` is set to `true`.
+* **Metrics** stored in StackState's Victoria Metrics instance(s) is backed up when the Helm value `victoria-metrics-0.backup.enabled` and `victoria-metrics-1.backup.enabled` are set to `true`.
 * **Telemetry data** stored in StackState's Elasticsearch instance is backed up when the Helm value `backup.elasticsearch.enabled` is set to `true`.
 
 The following data will **not** be backed up:
@@ -25,7 +25,7 @@ The following data will **not** be backed up:
 
 ### Storage options
 
-StackGraph and Elasticsearch backups are sent to an instance of [MinIO \(min.io\)](https://min.io/), which is automatically started by the `stackstate` Helm chart when automatic backups are enabled. MinIO is an object storage system with the same API as AWS S3. It can store its data locally or act as a gateway to [AWS S3 \(min.io\)](https://docs.min.io/docs/minio-gateway-for-s3.html), [Azure BLob Storage \(min.io\)](https://docs.min.io/docs/minio-gateway-for-azure.html) and other systems.
+Backups are sent to an instance of [MinIO \(min.io\)](https://min.io/), which is automatically started by the `stackstate` Helm chart when automatic backups are enabled. MinIO is an object storage system with the same API as AWS S3. It can store its data locally or act as a gateway to [AWS S3 \(min.io\)](https://docs.min.io/docs/minio-gateway-for-s3.html), [Azure BLob Storage \(min.io\)](https://docs.min.io/docs/minio-gateway-for-azure.html) and other systems.
 
 The built-in MinIO instance can be configured to store the backups in three locations:
 
@@ -135,7 +135,7 @@ Replace the following values:
 * `AZURE_STORAGE_ACCOUNT_NAME` - the [Azure storage account name \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal) 
 * `AZURE_STORAGE_ACCOUNT_KEY` - the [Azure storage account key \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage?tabs=azure-portal) where the backups should be stored.
 
-The StackGraph, Elasticsearch and Victoria Metrics backups are stored in BLOB containers called `sts-stackgraph-backup`, `sts-elasticsearch-backup`, `sts-victoria-metrics-backup` and `victoria-metrics-[01].backup.bucketName` respectively. These names can be changed by setting the Helm values `backup.stackGraph.bucketName`, `backup.elasticsearch.bucketName`, `victoria-metrics-0.backup.bucketName` and `victoria-metrics-1.backup.bucketName` respectively.
+The StackGraph, Elasticsearch and Victoria Metrics backups are stored in BLOB containers called `sts-stackgraph-backup`, `sts-elasticsearch-backup` and `sts-victoria-metrics-backup` respectively. These names can be changed by setting the Helm values `backup.stackGraph.bucketName`, `backup.elasticsearch.bucketName`, `victoria-metrics-0.backup.bucketName` and `victoria-metrics-1.backup.bucketName` respectively.
 
 ### Kubernetes storage
 
@@ -192,7 +192,7 @@ The backup retention delta can be configured using the Helm value `backup.stackG
 ## Metrics \(Victoria Metrics\)
 
 {% hint style="danger" %}
-Victoria Metrics uses incremental backups without versioning of a bucket, it means that the new backup **replaces completely the previous one**.
+Victoria Metrics use incremental backups without versioning of a bucket, it means that the new backup **replaces completely the previous one**.
 
 You **HAVE TO AVOID** the following situations:
 - mount an empty volume to `/storage` directory of Victoria Metrics instances
@@ -200,7 +200,7 @@ You **HAVE TO AVOID** the following situations:
 The next (empty) backup will override the previous one and all data will be lost. 
 {% endhint %}
 
-Metrics \(Victoria Metrics\) uses instant snapshots to store data in incremental backups. Many instances of Victoria Metrics can store backups to the same bucket, each of them will be stored in separated directory. All files located in the directory should be treated as a single whole and can only be moved, copied or deleted as a whole.
+Metrics \(Victoria Metrics\) use instant snapshots to store data in incremental backups. Many instances of Victoria Metrics can store backups to the same bucket, each of them will be stored in separated directory. All files located in the directory should be treated as a single whole and can only be moved, copied or deleted as a whole.
 
 {% hint style="info" %}
 High Available deployments should be deployed with two instances of Victoria Metrics. Backups are enabled/configured independently for each of them.
