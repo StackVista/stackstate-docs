@@ -48,7 +48,7 @@ If you are using the event/logs store provided with StackState, your data will b
 
 #### Configure disk space for Elasticsearch
 
-In some circumstances it may be necessary to adjust the disk space available to Elasticsearch and how it's allocated to each logs, events and traces, for example if you anticipate a lot of data to arrive for a specific data type. 
+In some circumstances it may be necessary to adjust the disk space available to Elasticsearch and how it's allocated to logs, events and traces, for example if you anticipate a lot of data to arrive for a specific data type. 
 
 Here is a snippet with the complete disk space and retention config for Elasticsearch, including the default values.
 
