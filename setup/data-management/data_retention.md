@@ -48,7 +48,7 @@ If you are using the event/logs store provided with StackState, your data will b
 
 #### Configure disk space for Elasticsearch
 
-In some circumstances it may be necessary to adjust the disk space available to Elasticsearch and how it's allocated to each index group, for example if you anticipate a lot of data to arrive for a specific data type. 
+In some circumstances it may be necessary to adjust the disk space available to Elasticsearch and how it's allocated to logs, events and traces, for example if you anticipate a lot of data to arrive for a specific data type. 
 
 Here is a snippet with the complete disk space and retention config for Elasticsearch, including the default values.
 
@@ -61,80 +61,24 @@ elasticsearch:
 stackstate:
   components:
     receiver:
-      esDiskSpaceShare: 30
-      extraEnv:
-        open: 
-          CONFIG_FORCE_stackstate_receiver_k8sLogs_indexMaxAge: "7 days"
+      esDiskSpaceShare: 70
+      # Number of days to keep the logs data on Es
+      retention: 7
     e2es:
-      extraEnv:
-        open: 
-          CONFIG_FORCE_stackstate_kafkaGenericEventsToES_elasticsearch_index_splittingStrategy: days
-          CONFIG_FORCE_stackstate_kafkaGenericEventsToES_elasticsearch_index_maxIndicesRetained: "30"
-          CONFIG_FORCE_stackstate_kafkaGenericEventsToES_elasticsearch_index_diskSpaceWeight: "2"
-          CONFIG_FORCE_stackstate_kafkaTopologyEventsToES_elasticsearch_index_splittingStrategy: days
-          CONFIG_FORCE_stackstate_kafkaTopologyEventsToES_elasticsearch_index_maxIndicesRetained: "30"
-          CONFIG_FORCE_stackstate_kafkaTopologyEventsToES_elasticsearch_index_diskSpaceWeight: "2"
-          CONFIG_FORCE_stackstate_kafkaStateEventsToES_elasticsearch_index_splittingStrategy: days
-          CONFIG_FORCE_stackstate_kafkaStateEventsToES_elasticsearch_index_maxIndicesRetained: "30"
-          CONFIG_FORCE_stackstate_kafkaStateEventsToES_elasticsearch_index_diskSpaceWeight: "2"
-          CONFIG_FORCE_stackstate_kafkaStsEventsToES_elasticsearch_index_splittingStrategy: days
-          CONFIG_FORCE_stackstate_kafkaStsEventsToES_elasticsearch_index_maxIndicesRetained: "30"
-          CONFIG_FORCE_stackstate_kafkaStsEventsToES_elasticsearch_index_diskSpaceWeight: "2"
+      esDiskSpaceShare: 30
+      # Number of days to keep the events data on Es
+      retention: 30
     trace2es:
-      extraEnv:
-        open: 
-          CONFIG_FORCE_stackstate_kafkaTraceToES_elasticsearch_index_splittingStrategy: days
-          CONFIG_FORCE_stackstate_kafkaTraceToES_elasticsearch_index_maxIndicesRetained: "8"
-          CONFIG_FORCE_stackstate_kafkaTraceToES_elasticsearch_index_diskSpaceWeight: "6"
+      esDiskSpaceShare: 0
+      # Number of days to keep the traces data on Es
+      retention: 7
+      enabled: false
 ```
 
 The disk space available for Elasticsearch is configured via the `elasticsearch.volumeClaimTemplate.resources.requests.storage` key. To change this value after the initial installation some [extra steps are required](data_retention.md#resizing-storage).
 
 **Note**: this is the disk space for each instance of ElasticSearch. For non-HA this is the total available disk space, but for HA there are 3 instances and a replication factor of 1. The end result is that the total available Elasticsearch storage will be `(250Gi * 3) / 2 = 375Gi`.
-
-There is a overall percentage configured via the `esDiskSpaceShare` for the disk space available for logs (default 30%). The remaining disk space (default 70%) is available for events and traces. With the `CONFIG_FORCE_stackstate_receiver_k8sLogs_indexMaxAge` the retention for logs can be changed. To change any of these (or the other settings) simply override the relevant key in your values.yaml and [update StackState](./data_retention.md#update-stackstate). It's advised to only override the keys that are changed.
-
-The division of the remaining disk space between the different indexes for events and the traces index is determined by the rest of the configuration. There are 5 different indices, the first 4 (generic events, topology events, state events and sts events)  are for different kinds of events while the 5th (trace) is for traces. The different indexes each have 3 config settings described in the table below
-
-
-| Parameter | Default | Description |
-| :--- | :--- | :--- |
-| `splittingStrategy` | `"days"` | The frequency of creating new indices. Can be one of "none", "hours", "days", "months" or "years". If "none" is specified, only one index will be used. |
-| `maxIndicesRetained` | `30` | The number of indices that will be retained in each index group. Together with the `splittingStrategy` governs how long historical data will be kept in Elasticsearch. |
-| `diskSpaceWeight` | Varies per index group | Defines the share of disk space an index will get based on the total `elasticsearchDiskSpaceMB`. If set to `0` then no disk space will be allocated to the index. See the [disk space weight examples](data_retention.md#disk-space-weight-examples) below. |
-
-#### Disk space weight examples
-
-Use the `diskSpaceWeight` configuration parameter to adjust how available disk space is allocated across Elasticsearch index groups. This is helpful if, for example, you expect a lot of data to arrive in a single index. Below are some examples of disk space weight configuration.
-
-{% hint style="info" %}
-Note that increasing the total limit or the `diskSpaceWeight` will increase the amount of data that can be stored in each index. If the total value of metrics received is too high, it could affect telemetry stream performance due to increased metrics processing time.
-{% endhint %}
-
-**Allocate no disk space to an index group**
-Setting `diskSpaceWeight` to 0 will result in no disk space being allocated to an index group. For example, if you aren't going to use traces, then you can stop reserving disk space for this index group and make it available to other index groups with the setting:
-
-```text
- kafkaTraceToES.elasticsearch.index.diskSpaceWeight = 0
-```
-
-**Distribute disk space unevenly across index groups**
-The available disk space will be allocated to index groups proportionally based on their configured `diskSpaceWeight`. Disk space will be allocated to each index group according to the formula below, this will then be shared between the indices in the index group:
-
-```text
-# Total disk space allocated to an index group
-index_group_disk_space = (elasticsearchdiskSpaceMB * diskSpaceWeight / sum(diskSpaceWeights)
-```
-
-For example, assuming the weights in the yaml shown above, but with 300Gi available in total for Elasticsearch the allocated disk space is as follows:
-
-* 300 * 0.3 = 90Gi for logs
-* 300 * 0.7 = 210Gi for the other indexes, the total set of weights is 2 + 2 + 2 + 2 + 6 = 14
-  * Generic events: 210 / 14 * 2 = 30Gi
-  * Topology events: 210 / 14 * 2 = 30Gi
-  * State events: 210 / 14 * 2 = 30Gi
-  * Sts events: 210 / 14 * 2 = 30Gi
-  * Traces: 210 / 14 * 6 = 90Gi
+Based on the `esDiskSpaceShare` and `retention` a portion of the Elasticsearch disk space is reserved for each data type.
 
 ## Retention of metrics
 
