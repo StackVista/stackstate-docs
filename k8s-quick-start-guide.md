@@ -29,6 +29,7 @@ Set up a Kubernetes integration to collect topology, events, logs, change and me
 
 | Supported Kubernetes Version |
 |------------------------------|
+| Kubernetes 1.28              |
 | Kubernetes 1.27              |
 | Kubernetes 1.26              |
 | Kubernetes 1.25              |
@@ -147,6 +148,7 @@ Set up an Amazon EKS integration to collect topology, events, logs, change and m
 
 | Kubernetes version | Amazon EKS release | Amazon EKS End of Support |
 |--------------------|--------------------|---------------------------|
+| 1.28               | September 26, 2023 | November 01, 2024         |
 | 1.27               | May 24, 2023       | July 2024                 |
 | 1.26               | April 11, 2023     | June 2024                 |
 | 1.25               | February 21, 2023  | May 2024                  |
@@ -268,6 +270,8 @@ Set up a Azure AKS integration to collect topology, events, logs, change and met
 
 | Kubernetes Version | Azure AKS release | Azure AKS End of Support |
 |--------------------|-------------------|--------------------------|
+| 1.28               | November, 2023    | November, 2024           |
+| 1.27               | August 16, 2023   | July 31, 2024            |
 | 1.26               | April 18, 2023    | March 31, 2024           |
 | 1.25               | December 14, 2022 | December 31, 2023        |
 | 1.24               | August 17, 2022   | July 31, 2023            |
@@ -325,6 +329,8 @@ Set up a KOPS integration to collect topology, events, logs, change and metrics 
 
 | Supported Kubernetes Version |
 |------------------------------|
+| Kubernetes 1.28              |
+| Kubernetes 1.27              |
 | Kubernetes 1.26              |
 | Kubernetes 1.25              |
 | Kubernetes 1.24              |
@@ -387,6 +393,7 @@ Set up a Self-hosted integration to collect topology, events, logs, change and m
 
 | Supported Kubernetes Version |
 |------------------------------|
+| Kubernetes 1.28              |
 | Kubernetes 1.27              |
 | Kubernetes 1.26              |
 | Kubernetes 1.25              |
