@@ -36,13 +36,13 @@ To enable the OpenMetrics integration and begin collecting metrics data from an 
           ad.stackstate.com/<CONTAINER_NAME>.check_names: '["openmetrics"]'
           ad.stackstate.com/<CONTAINER_NAME>.init_configs: '[{}]'
           ad.stackstate.com/<CONTAINER_NAME>.instances: |
-           `[ 
-             {
-               "prometheus_url": "http://%%host%%:<METRICS_PORT>/<METRICS_PATH>",
-               "namespace": "<METRICS_NAMESPACE>", 
-               "metrics": ["*"] 
-             } 
-           ]'
+            [ 
+              {
+                "prometheus_url": "http://%%host%%:<METRICS_PORT>/<METRICS_PATH>",
+                "namespace": "<METRICS_NAMESPACE>", 
+                "metrics": ["*"] 
+              } 
+            ]
       ...
       # This already exists in the pod spec, the container name needs to match the container that is exposing the openmetrics endpoint
       spec:
