@@ -74,6 +74,8 @@
     * [Exposing StackState outside of the cluster](setup/install-stackstate/kubernetes_openshift/ingress.md)
   * [Initial run guide](setup/install-stackstate/initial_run_guide.md)
   * [Troubleshooting](setup/install-stackstate/troubleshooting.md)
+* [Configure StackState](setup/confiug-stackstate/README.md)
+  * [Slack notifications](setup/configure-stackstate/slack-notifications.md)
 * [Upgrade StackState](setup/upgrade-stackstate/README.md)
   * [Steps to upgrade](setup/upgrade-stackstate/steps-to-upgrade.md)
   * [Version-specific upgrade instructions](setup/upgrade-stackstate/version-specific-upgrade-instructions.md)
