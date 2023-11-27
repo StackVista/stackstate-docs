@@ -27,6 +27,8 @@ Go to the [Slack API page](https://api.slack.com/apps) and click on the **Create
 * Verify that the URL is correct and that the "bot scopes" listed are `channels:join, channels:read, chat:write, groups:read` and click the create button to create the app.
 * On the "Basic information" page of the App it is possible to change the icon (in the Display information section), you can replace it with, for example, the [StackState logo](/resources/logo/stackstate-logo.png)
 
+{% include "/resources/logo/stackstate-logo.png" %}
+
 {% code title="Slack app manifest for StackState, make sure to replace the `redirect_urls` with the URL of your StackState instance." overflow="wrap" %}
 ```json
 {
