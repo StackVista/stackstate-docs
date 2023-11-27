@@ -25,11 +25,9 @@ Go to the [Slack API page](https://api.slack.com/apps) and click on the **Create
 * Select the workspace you want to send notifications to and click next.
 * Copy the contents of the Slack app manifest below and paste it into the text area. Make sure to replace the values in `redirect_urls` with the URL(s) of your StackState instance. Click next.
 * Verify that the URL is correct and that the "bot scopes" listed are `channels:join, channels:read, chat:write, groups:read` and click the create button to create the app.
-* On the "Basic information" page of the App it is possible to change the icon (in the Display information section), you can replace it with, for example, the [StackState logo](/resources/logo/stackstate-logo.png)
+* On the "Basic information" page of the App it is possible to change the icon (in the Display information section), you can replace it with, for example, the StackState logo: <figure><img width="30" height="30" src="/resources/logo/stackstate-logo.png" alt="The StackState Logo"></figure>.
 
-{% include "/resources/logo/stackstate-logo.png" %}
-
-{% code title="Slack app manifest for StackState, make sure to replace the `redirect_urls` with the URL of your StackState instance." overflow="wrap" %}
+{% code title="Slack app manifest for StackState" overflow="wrap" %}
 ```json
 {
     "display_information": {
