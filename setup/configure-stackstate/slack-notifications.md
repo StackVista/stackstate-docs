@@ -25,7 +25,7 @@ Go to the [Slack API page](https://api.slack.com/apps) and click on the **Create
 * Select the workspace you want to send notifications to and click next.
 * Copy the contents of the Slack app manifest below and paste it into the text area. Make sure to replace the values in `redirect_urls` with the URL(s) of your StackState instance. Click next.
 * Verify that the URL is correct and that the "bot scopes" listed are `channels:join, channels:read, chat:write, groups:read` and click the create button to create the app.
-* On the "Basic information" page of the App it is possible to change the icon (in the Display information section), you can replace it with, for example, the StackState logo <img src="../../resources/logo/stackstate-logo.png" alt="StackState logo" data-size="line">.
+* On the "Basic information" page of the App it's possible to change the icon (in the Display information section), you can replace it with, for example, the StackState logo <img src="../../resources/logo/stackstate-logo.png" alt="StackState logo" data-size="line">.
 
 {% code title="Slack app manifest for StackState" overflow="wrap" %}
 ```json
@@ -78,6 +78,6 @@ stackstate:
           CONFIG_FORCE_stackstate_notifications_channels_slack_authentication_clientSecret: "<app client secret>"
 ```
 
-The `<app client id>` and `<app client secret>` values can be found in the "App credentials" section on the "Basic Information" page of the Slack app you created. Apply these configuration changes by running the same Helm command used during installation of StackState ([for Kubernetes](/setup/install-stackstate/kubernetes_openshift/kubernetes_install.md#deploy-stackstate-with-helm) or [Openshift](/setup/install-stackstate/kubernetes_openshift/openshift_install.md#deploy-stackstate-with-helm)).
+The `<app client id>` and `<app client secret>` values can be found in the "App credentials" section on the "Basic Information" page of the Slack app you created. Apply these configuration changes by running the same Helm command used during installation of StackState ([for Kubernetes](/setup/install-stackstate/kubernetes_openshift/kubernetes_install.md#deploy-stackstate-with-helm) or [OpenShift](/setup/install-stackstate/kubernetes_openshift/openshift_install.md#deploy-stackstate-with-helm)).
 
 You're now ready to use the Slack notification channel!
