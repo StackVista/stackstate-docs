@@ -194,10 +194,12 @@ The backup retention delta can be configured using the Helm value `backup.stackG
 {% hint style="danger" %}
 Victoria Metrics use incremental backups without versioning of a bucket, it means that the new backup **replaces completely the previous one**.
 
-You **HAVE TO AVOID** the following situations:
+In case you run into one of the following situations:
 - mount an empty volume to `/storage` directory of Victoria Metrics instances
 - delete the `/storage` directory or files inside from Victoria Metrics instances
-The next (empty) backup will override the previous one and all data will be lost. 
+
+The next (empty) backup created will be labeled with a new version and the previous one, before the volume was emptied, will be preserved.
+Both backups will be from that moment on [listed as available for restore](#list-victoria-metrics-backups). 
 {% endhint %}
 
 Metrics \(Victoria Metrics\) use instant snapshots to store data in incremental backups. Many instances of Victoria Metrics can store backups to the same bucket, each of them will be stored in separated directory. All files located in the directory should be treated as a single whole and can only be moved, copied or deleted as a whole.
@@ -388,17 +390,13 @@ job.batch/victoria-metrics-list-backups-20231016t125557 created
 Waiting for job to start...
 Waiting for job to start...
 === Fetching timestamps of last completed incremental backups
-victoria-metrics-0: "Mon, 16 Oct 2023 10:25:05 GMT"
+victoria-metrics-0 victoria-metrics-0-20231128160000 "Wed, 29 Nov 2023 07:36:00 GMT"
+victoria-metrics-0 victoria-metrics-0-20231129092200 "Wed, 29 Nov 2023 10:56:00 GMT"
 
-An error occurred (404) when calling the HeadObject operation: Not Found
-Unexpected status code 255
 ===
 job.batch "victoria-metrics-list-backups-20231016t125557" deleted
 ```
-
-{% hint style="info" %}
-The command may print a message with 404 HTTP status code (Not Found) and print `Unexpected status code ...` - it means the backup probably doesn't exist for one of Victoria Metrics instances.
-{% endhint %}
+where you can see the Victoria metrics instance, the specific backup version and the last time a backup was completed.
 
 ### Restore a Victoria Metrics backup
 
@@ -412,10 +410,10 @@ The command may print a message with 404 HTTP status code (Not Found) and print 
 All new metrics will be cached by `vmagent` while the restore process, please ensure the `vmagent` has enough memory to cache metrics.
 {% endhint %}
 
-To restore a Victoria Metrics backup, select an instance name and pass it as the first parameter in the following command:
+To restore a Victoria Metrics backup, select an instance name and a backup version and pass them as parameters in the following command:
 
 ```bash
-./restore/restore-victoria-metrics-backup.sh victoria-metrics-0
+./restore/restore-victoria-metrics-backup.sh victoria-metrics-0 victoria-metrics-0-20231128160000
 ```
 
 The output should look like this:
