@@ -8,6 +8,12 @@ description: StackState for Kubernetes troubleshooting Self-hosted
 
 StackState can authenticate using KeyCloak as an authentication provider, you will need to configure both StackState and KeyCloak to be able to talk to each other. The following sections describe the respective setups.
 
+## Authentication flow
+
+When using Keycloak as an authentication provider, StackState will use OIDC (OpenID Connect) to authenticate users. The following diagram describes the authentication flow.
+
+![Keycloak authentication flow](../../../.gitbook/assets/k8s/keycloak-flow.png)
+
 ## Configure KeyCloak
 
 Before you can configure StackState to authenticate using KeyCloak, you need to add a new client configuration to the KeyCloak Authentication Server. The necessary settings for the client are:
