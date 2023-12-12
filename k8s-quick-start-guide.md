@@ -92,6 +92,7 @@ Set up an OpenShift integration to collect topology, events, logs, change and me
 
 | OpenShift Version | Supported Kubernetes Version | OpenShift End of Support |
 |-------------------|------------------------------|--------------------------|
+| OpenShift 4.12    | Kubernetes 1.25              | July 17, 2024            |
 | OpenShift 4.11    | Kubernetes 1.24              | February 10, 2024        |
 | OpenShift 4.10    | Kubernetes 1.23              | September 10, 2023       |
 | OpenShift 4.9     | Kubernetes 1.22              | April 18, 2023           |
