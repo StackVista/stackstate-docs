@@ -63,11 +63,13 @@ To link to any perspective (e.g. "hightlights", "topology", "events", "metrics")
 
 `[highlight page](/#/components/\{{ componentUrnForUrl \}})`
 
-```[topology](/#/components/{{ componentUrnForUrl }}/topology```
+```
+[topology](/#/components/{{ componentUrnForUrl }}/topology)
+```
 
-`[events](/#/components/{{ componentUrnForUrl }}/events`
+`[events](/#/components/{{ componentUrnForUrl }}/events)`
 
-`[metrics](/#/components/{{ componentUrnForUrl }}/metrics`
+`[metrics](/#/components/{{ componentUrnForUrl }}/metrics)`
 
 
 ### In-page links
