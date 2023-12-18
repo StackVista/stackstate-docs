@@ -76,7 +76,7 @@ StackState Agent v2.19.x is supported to monitor the following versions of Kuber
   * Kubernetes 1.16 - 1.24
   * EKS (with Kubernetes 1.16 - 1.24)
 * OpenShift:
-  * OpenShift 4.9 - 4.12
+  * OpenShift 4.9 - 4.14
 * Default networking
 * Container runtime:
   * Docker
