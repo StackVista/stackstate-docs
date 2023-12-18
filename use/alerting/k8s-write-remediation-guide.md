@@ -25,7 +25,7 @@ StackState provides [monitors out of the box](/use/alerting/k8s-monitors.md), wh
     - inline formatted examples
 - If there are open ends (there might be different causes which are still unknown), provide guidance for escalating the issue. E.g. provide the user with a support link/ number, etc.
 
-## Example remediation guide
+## Remediation guide example
 
 ```
 When a Kubernetes container has errors, it can enter into a state called CrashLoopBackOff, where Kubernetes attempts to restart the container to resolve the issue. The container will continue to restart until the problem is resolved.Take the following steps to diagnose the problem:
@@ -55,26 +55,30 @@ Look at the pod age in the "About" section on the [Pod highlight page](/#/compon
 2. If the "Age" and the time that the monitor was triggered are in close proximity then take a look at the most recent deployment by clicking on [Show last change](/#/components/\{{ componentUrnForUrl \}}#lastChange).
 ```
 
-## Dynamic content
+## Inserting links
 
-Ovidiu continues writing here
 
-**Dynamic links**
+**Deep links**
+To link to any perspective (e.g. "hightlights", "topology", "events", "metrics") of the current resource, use the following syntax:
 
-Go to the [highlight page](/#/components/\{{ componentUrnForUrl \}})
+`[highlight page](/#/components/\{{ componentUrnForUrl \}})`
 
-Go to the [topology](/#/components/{{ componentUrnForUrl }}/topology
+`[topology](/#/components/{{ componentUrnForUrl }}/topology`
 
-Go to the [events](/#/components/{{ componentUrnForUrl }}/events
+`[events](/#/components/{{ componentUrnForUrl }}/events`
 
-Go to the [metrics](/#/components/{{ componentUrnForUrl }}/metrics
+`[metrics](/#/components/{{ componentUrnForUrl }}/metrics`
 
-**Contextual actions**
 
-Inspect the [logs](/#/components/\{{ componentUrnForUrl \}}#logs) of all the containers in this pod.
+**In-page links**
+To link to any additional data (e.g. "show logs", "show last change", "show status", "show configuration") on the current resource, use the following syntax:
 
-Show the [last change](/#/components/\{{ componentUrnForUrl \}}#lastChange)
+`[logs](/#/components/\{{ componentUrnForUrl \}}#logs)`
 
-Show the [status](/#/components/\{{ componentUrnForUrl \}}#status)
+`[last change](/#/components/\{{ componentUrnForUrl \}}#lastChange)`
 
-Show the [configuration](/#/components/\{{ componentUrnForUrl \}}#configuration)
+`[status](/#/components/\{{ componentUrnForUrl \}}#status)`
+
+`[configuration](/#/components/\{{ componentUrnForUrl \}}#configuration)`
+
+
