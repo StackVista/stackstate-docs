@@ -8,6 +8,12 @@ description: StackState for Kubernetes troubleshooting Self-hosted
 
 StackState can authenticate using KeyCloak as an authentication provider, you will need to configure both StackState and KeyCloak to be able to talk to each other. The following sections describe the respective setups.
 
+## Authentication flow
+
+When using Keycloak as an authentication provider, StackState will use OIDC (OpenID Connect) to authenticate users. The following diagram describes the authentication flow.
+
+![Keycloak authentication flow](../../../.gitbook/assets/k8s/keycloak-flow.png)
+
 ## Configure KeyCloak
 
 Before you can configure StackState to authenticate using KeyCloak, you need to add a new client configuration to the KeyCloak Authentication Server. The necessary settings for the client are:
@@ -37,6 +43,8 @@ stackstate:
       clientId: stackstate
       secret: "8051a2e4-e367-4631-a0f5-98fc9cdc564d"
       jwsAlgorithm: RS256
+      # scope is optional. By default `openid`, `profile` and `email` are requested
+      # scope: ["openid", "profile", "email"] 
       # jwtClaims:
       #   usernameField: preferred_username
       #   groupsField: roles
@@ -49,6 +57,11 @@ stackstate:
       admin: ["keycloak-admin-role-for-stackstate"]
       platformAdmin: ["keycloak-platformadmin-role-for-stackstate"]
 ```
+
+{% hint style="info" %}
+**Note:**
+By default when authenticating a user the request to KeyCloak specifies a default scope of `openid profile email` if a custom scope has not been specified on the configuration. Verify the `Client scopes` on your KeyCloak instance to be sure that the default scope is correct or you need a custom one.
+{% endhint %}
 
 Follow the steps below to configure StackState to authenticate using KeyCloak:
 
