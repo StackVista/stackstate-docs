@@ -17,7 +17,7 @@ StackState can be installed on a Kubernetes or OpenShift cluster using the Helm 
 * **Amazon Elastic Kubernetes Service (EKS):** 1.20 to 1.27
 * **Azure Kubernetes Service (AKS):** 1.20 to 1.26
 * **Google Kubernetes Engine (GKE):** 1.21 to 1.27
-* **OpenShift:** 4.9 to 4.12
+* **OpenShift:** 4.9 to 4.14
 
 ### Resource requirements
 
