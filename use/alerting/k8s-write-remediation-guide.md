@@ -9,32 +9,26 @@ description: StackState Kubernetes Troubleshooting
 StackState provides [monitors out of the box](/use/alerting/k8s-monitors.md), which provide monitoring on common issues that can occur in a Kubernetes cluster. These monitors also contain out of the box remediation guides which are meant to guide users in accurately troubleshooting issues. They are created using the best practices and community knowledge. Follow the indications on this page to learn how to write an effective remediation guide yourself.
 
 ## Guidelines 
-Provide step by step instructions to guide a user in solving the issue detected by this monitor.
 
-Try to provide step by step instructions.
+- Provide step by step instructions to guide a user into solving the issue detected by the monitor;
+- Make sure the instructions are ordered by the most likely cause(s).
+- If possible, include links to relevant data and/or resources to speed up the investigation.
+- Keep it short and on point:
+    - Avoid over explaining - add links to supporting documentation if that's the case;
+    - Avoid using a table of contents and similar content blocks;
+    - Avoid having a summary of the same content;
+- Try to format the guide in a structured way. Use:
+    - bullet points
+    - numbering
+    - short sentences
+    - paragraphs
+    - inline formatted examples
+- If there are open ends (there might be different causes which are still unknown), provide guidance for escalating the issue. E.g. provide the user with a support link/ number, etc.
 
-Make sure the most likely cause is the first instructions, end so on.
+## Example remediation guide
 
-If possible include links to get to the conclusions as fast as possible.
-
-Try to format the guide in a structures way using:
-
-- bullet points
-- numbering
-- short sentences
-- paragraphs
-- inline formatted examples
-
-Avoid boilerplate like a table of contents since users want to follow the instructions while reading as less a possible.
-
-Avoid over explanation of why things are happening, provide the evidence and links to supporting documentation if possible so the guide is short and to the point.
-
-- If there are open ends (there might be difference causes which are still unknown) provide guidance for escalation of the issue. E.g. provide the user with a support link/ number, etc.
-
-## Example
-`
-When a Kubernetes container has errors, it can enter into a state called CrashLoopBackOff, where Kubernetes attempts to restart the container to resolve the issue.
-The container will continue to restart until the problem is resolved.Take the following steps to diagnose the problem:
+```
+When a Kubernetes container has errors, it can enter into a state called CrashLoopBackOff, where Kubernetes attempts to restart the container to resolve the issue. The container will continue to restart until the problem is resolved.Take the following steps to diagnose the problem:
 
 ### Pod Events
 
@@ -59,7 +53,7 @@ Search for hints in the logs by:
 Look at the pod age in the "About" section on the [Pod highlight page](/#/components/\{{ componentUrnForUrl \}}) to identify any recent deployments that might have caused the issue
 1. The "Age" is shown in the "About" section on the left side of the screen
 2. If the "Age" and the time that the monitor was triggered are in close proximity then take a look at the most recent deployment by clicking on [Show last change](/#/components/\{{ componentUrnForUrl \}}#lastChange).
-`
+```
 
 ## Dynamic content
 
