@@ -56,6 +56,7 @@ Look at the pod age in the "About" section on the [Pod highlight page](/#/compon
 ```
 
 ## Inserting links
+The syntax we use is different for "deep links" vs "in-page links". The "deep links" will redirect the user from the current page, whilst the "in-page links" will keep the user on the same page.
 
 
 ### Deep links
@@ -64,15 +65,12 @@ To link to any perspective (e.g. "hightlights", "topology", "events", "metrics")
 ```
 [highlight page](/#/components/\{{ componentUrnForUrl \}})
 ```
-
 ```
 [topology](/#/components/{{ componentUrnForUrl }}/topology)
 ```
-
 ```
 [events](/#/components/{{ componentUrnForUrl }}/events)
 ```
-
 ```
 [metrics](/#/components/{{ componentUrnForUrl }}/metrics)
 ```
@@ -84,15 +82,12 @@ To link to any additional data (e.g. "show logs", "show last change", "show stat
 ```
 [logs](/#/components/\{{ componentUrnForUrl \}}#logs)
 ```
-
 ```
 [last change](/#/components/\{{ componentUrnForUrl \}}#lastChange)
 ```
-
 ```
 [status](/#/components/\{{ componentUrnForUrl \}}#status)
 ```
-
 ```
 [configuration](/#/components/\{{ componentUrnForUrl \}}#configuration)
 ```
