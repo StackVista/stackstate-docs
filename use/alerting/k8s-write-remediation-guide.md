@@ -58,19 +58,19 @@ Look at the pod age in the "About" section on the [Pod highlight page](/#/compon
 ## Inserting links
 
 
-**Deep links**
+### Deep links
 To link to any perspective (e.g. "hightlights", "topology", "events", "metrics") of the current resource, use the following syntax:
 
 `[highlight page](/#/components/\{{ componentUrnForUrl \}})`
 
-`[topology](/#/components/{{ componentUrnForUrl }}/topology`
+```[topology](/#/components/{{ componentUrnForUrl }}/topology```
 
 `[events](/#/components/{{ componentUrnForUrl }}/events`
 
 `[metrics](/#/components/{{ componentUrnForUrl }}/metrics`
 
 
-**In-page links**
+### In-page links
 To link to any additional data (e.g. "show logs", "show last change", "show status", "show configuration") on the current resource, use the following syntax:
 
 `[logs](/#/components/\{{ componentUrnForUrl \}}#logs)`
