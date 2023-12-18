@@ -15,7 +15,7 @@ Monitors are accompanied by remediation guides specific to the resource on which
 Monitor results are shown in two places:
 
 1. On highlight pages of all resources to immediately see what is going on and how to remediate it.
-On the right-hand side panel if you select an element in the topology to give you a quick indication of issues for that component.
+2. On the right-hand side panel if you select an element in the topology to give you a quick indication of issues for that component.
 
 ## Remediation guides
 

@@ -23,6 +23,7 @@
 * [Customize](use/alerting/k8s-customize.md)
   * [Add a monitor using the CLI](use/alerting/k8s-add-monitors-cli.md)
   * [Override monitor arguments](use/alerting/k8s-override-monitor-arguments.md)
+  * [Write a remediation guide](use/alerting/k8s-write-remediation-guide.md)
 
 ## 📈 Metrics
 
