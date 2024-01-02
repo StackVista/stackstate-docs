@@ -25,7 +25,7 @@ Finally select "Add channel". The webhook channel will appear on the right. To t
 
 The Webhook channel sends data as HTTP POST requests. The endpoint and payload are documented in an [OpenAPI specification](https://github.com/StackVista/stackstate-openapi/tree/master/spec_webhook).
 
-### Example payload for an open notification request
+### Example payload for a notification open request
 
 ```
 {
@@ -76,7 +76,17 @@ The Webhook channel sends data as HTTP POST requests. The endpoint and payload a
 }
 ```
 
-### Exampe payload for a close notification request
+The sections in the `open` payload are:
+
+1. Component: the StackState component that the notification applies to. This includes the components name, identifier, type, and tags. It also contains a link to the StackState UI that will open the component at the time of the health state change
+2. Event: the event that triggered this notification. It can either be of type `open` or `close` (see next section). An `open` state means that the monitor is still in a critical (or deviating) state for the specified component. A `close` state means that the monitor was open before but that the issue has been resolved. The state and triggered time are included. Also included is a `title` which is a short description of the problem as provided by the monitor, it is the same title shown in the highlights page of the component, this can be different and more detailed than the monitor name.
+3. Monitor: the monitor that triggered the notification. Next to the monitor name, tags and identifier also a link is included. The link will open the monitor in the StackState UI.
+4. Notification configuration: The notification configuration for this notification. Includes a name, identifier and link. The link will open the notification configuration in the StackState UI.
+5. notificationId: A unique identifier for this notification. See also the [Notification life cycle](#notification-life-cycle)
+6. Metadata: It is possible to specify metadata on a webhook channel. The metadata is one-to-one reproduced here as a set of key/value pairs.
+
+
+### Exampe payload for a notification close request
 
 ```
 {
@@ -125,13 +135,32 @@ The Webhook channel sends data as HTTP POST requests. The endpoint and payload a
 }
 ```
 
+The sections in the `close` payload are the same as in the `open` payload except for the `event`. The `type` is now `close` and there is only a `reason` field indicating why the notification was closed. The value in this field is an enum, the [OpenAPI specification](https://github.com/StackVista/stackstate-openapi/tree/master/spec_webhook) documents the possible values.
+
+## Notification life cycle
+
+As can be seen from the payload each notification is uniquely identified by its `notificationId`. It is possible, even common, to receive multiple messages for the same notification, but they will always follow the life cycle of a notification.
+
+A notification is first created when a monitor state changes to deviating or critical (whether deviating is applicable depends on the [notification settings](../configure.md#configure-when-to-notify)). A message with event type `open` is sent to the webhook.
+
+A notification can be updated when the `state` or the `title` in the event change. Changes to the component and other parts of the message will be included but on their own they won't trigger an update. A notification update also sends a message with event type `open` to the webhook. The message will have the same `notificationId` which can be used to update the data in the external system (instead of creating a new notification).
+
+Finally a notification is closed when the monitor state changes back to a non-critical (or deviating) state. A message with event type `close` is sent to the webhook. This is also the last time that the specific `notificationId` is used.
+
+Note that a notification can be both opened and closed for different reasons than a health state change:
+* A tag is added to a component or monitor. This can cause some critical monitor health state to suddenly match the selection criteria in a notification configuration and corresponding notifications will be opened.
+* For the same reason removal of a tag from a component or monitor can close a notification even though the health state is still critical.
+* Changes to the notification configuration itself can also result in many new notifications being opened or closed.
+
 ## Validate the requests
 
 The secret token specified in the channel configuration is included in the webhook requests in the  `X-StackState-Webhook-Token` header. Your webhook endpoint can check the value to verify the requests is legitimate.
 
 ## Retries
 
-The webhook channel will retry requests until it receives a status 200 OK response (the body in the response is ignored).
+The webhook channel will retry requests for a notification until it receives a status 200 OK response (the body in the response is ignored). If the webhook fails to process the message (for example because a database is unreachable right at the time) it can simply respond with a 500 status code. StackState will re-send the same message within a few seconds in the hope that the issue has been resolved now.
+
+If a notification was updated or closed the old message will however be discarded and the new, updated, message will be send and again retried until it succeeds.
 
 ## Example webhook
 
@@ -165,7 +194,7 @@ The URL for your webhook must be accessible by StackState, so a localhost addres
 
 The example doesn't authenticate the request, which can be added by verifying the value of the [token header](#validate-the-requests).
 
-Instead of using manually written Python it is also possible to use the [OpenAPI specification](https://github.com/StackVista/stackstate-openapi/tree/master/spec_webhook) for the webhook to generate a server implemenation in any of the languages supported by the [OpenAPI generators](https://openapi-generator.tech/).
+Instead of implenting this by hand it is also possible to use the [OpenAPI specification](https://github.com/StackVista/stackstate-openapi/tree/master/spec_webhook) for the webhook to generate a server implemenation in any of the languages supported by the [OpenAPI generators](https://openapi-generator.tech/).
 
 ## Related
 

@@ -24,6 +24,7 @@
   * [Notification channels](use/alerting/notifications/channels/README.md)
     * [Slack](use/alerting/notifications/channels/slack.md)
     * [Webhook](use/alerting/notifications/channels/webhook.md)
+  * [Troubleshooting](use/alerting/notifications/troubleshooting.md)
 * [Customize](use/alerting/k8s-customize.md)
   * [Add a monitor using the CLI](use/alerting/k8s-add-monitors-cli.md)
   * [Override monitor arguments](use/alerting/k8s-override-monitor-arguments.md)
