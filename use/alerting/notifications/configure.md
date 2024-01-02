@@ -22,14 +22,14 @@ You can check if the desired notification already exists. If not create a new on
 
 Configure the notification:
 
-1. Name - Choose a name that's short but still describes what the intent is of this notification. It's mostly useful for your own reference in the notifications overview
+1. Name - Choose a name that's short but still describes what the intent is of this notification. It is for your own reference in the notifications overview.
 2. Status - The notification can be disabled temporarily in case it's not yet needed, turns out to be too noisy etc.
-3. Notify when - A critical health state always triggers a notification, but optionally also deviating states can be included
-4. Scope - In the example health states for all monitors and all components will be sent, this can be reduced by selecting 1 or more of the filters in the [scope](#scopes) section.
+3. Notify when - A critical health state always triggers a notification, but optionally also deviating states can be included.
+4. Scope - In the example health states for all monitors on pods in the default Kubernetes namespace will be sent. Use the available  filters in the [scope](#scopes) section to change this selection.
 
 ### Scope
 
-There are 4 possible scope filters. By default a notification will be sent for each critical (and optionally deviating) health state. The filters are used to reduce this. A health state will only result in a notification when it matches all filters.
+There are 4 possible scope filters. By default a notification will be sent for each critical (and optionally deviating) health state. The filters are used to limit this scope. A health state will only result in a notification when it matches all filters.
 
 * Monitors: Select 1 or more specific monitors. Notifications will only be sent for health states of the selected monitors.
 * Monitor tags: Select 1 or more monitor tags. Notifications will only be sent for health states of monitors that have at least one of the selected tags.
