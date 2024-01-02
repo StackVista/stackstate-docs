@@ -131,7 +131,42 @@ The secret token specified in the channel configuration is included in the webho
 
 ## Retries
 
+The webhook channel will retry requests until it receives a status 200 OK response (the body in the response is ignored).
 
 ## Example webhook
 
-A simple example webhook implementation (our debug webhook?) or even simpler, just a Python webserver that parses the json and logs it and completely ignore the OpenAPI spec (not strictly needed for Python).
+To test how webhooks work you can use this simply Python script that starts an HTTP server and writes the received payload to standard out.
+
+1. Save this Python script as `webhook.py`:
+```python
+from http.server import HTTPServer, BaseHTTPRequestHandler
+import json
+import sys
+
+class WebhookHTTPRequestHandler(BaseHTTPRequestHandler):
+
+    def do_POST(self):
+        content_len = int(self.headers.get('content-length', 0))
+        notification = json.loads(self.rfile.read(content_len))
+        print("Notification received: ", json.dumps(notification, indent = 2))
+        self.send_response(200)
+        self.end_headers()
+
+httpd = HTTPServer(('', int(sys.argv[1])), WebhookHTTPRequestHandler)
+httpd.serve_forever()
+```
+2. Run the webhook server on an unused port (for example 8000): `python3 webhook.py 8000`
+3. Configure the webhook in StackState with the URL for your webhook server `http://webhook.example.com:8000`
+4. Click `test` on the webhook channel
+
+{% hint style="info" %}
+The URL for your webhook must be accessible by StackState, so a localhost address or a local ip-address won't be sufficient.
+{% endhint %}
+
+The example doesn't authenticate the request, which can be added by verifying the value of the [token header](#validate-the-requests).
+
+Instead of using manually written Python it is also possible to use the [OpenAPI specification](https://github.com/StackVista/stackstate-openapi/tree/master/spec_webhook) for the webhook to generate a server implemenation in any of the languages supported by the [OpenAPI generators](https://openapi-generator.tech/).
+
+## Related
+
+* [Troubleshooting](../troubleshooting.md)

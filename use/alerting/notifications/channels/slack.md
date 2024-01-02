@@ -36,7 +36,7 @@ Finally click the "Add channel" button. This adds the channel to the list of cha
 
 When a notification is opened a new Slack message is created. This message will be updated for changes, usually only when the health state changes. In the thread for the message every change will show up as a message as well. Finally, when the notification is closed the Slack message is updated again (now the bar that shows the health state is grey) and a final message is added to the Slack thread that describes why the notification was closed.
 
-![A Slack message with its thread for a closed notification](/.gitbook/assets/k8s/notifications-slack-message-example.png)
+<figure><img width="75%" src="/.gitbook/assets/k8s/notifications-slack-message-example.png" alt="Slack thread example"><figcaption><p>A Slack message with its thread for a closed notification</p></figcaption></figure>
 
 ## Related
 
