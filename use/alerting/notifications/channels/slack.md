@@ -12,7 +12,7 @@ To send notifications to Slack follow these steps:
 2. [Select a Slack channel to sent the notifications to](#select-a-slack-channel)
 3. [Add and test the channel](#and-the-channel-and-test-it)
 
-### Connect Slack Workspace
+### Connect Slack workspace
 
 Click on the "Choose workspace" button. This will open a Slack webpage where StackState asks for permission to list channels and send messages to Slack channels. Make sure that in the top-right corner you have the desired Slack workspace selected.
 
@@ -25,7 +25,7 @@ Click "Allow" to continue.
 Back in StackState you can now select a Slack channel from the list. Select the channel where the notification messages need to be sent.
 
 {% hint style="info" %}
-Private channels will not be listed automatically. To select a private channel first invite the StackState bot into the private channel by sending a Slack message in the channel that mentions the bot `@StackState` and selecting "Invite them". Now the channel will become available in the list.
+Private channels won't be listed automatically. To select a private channel first invite the StackState bot into the private channel by sending a Slack message in the channel that mentions the bot `@StackState` and selecting "Invite them." Now the channel will become available in the list.
 {% endhint %}
 
 ## And the channel and test it

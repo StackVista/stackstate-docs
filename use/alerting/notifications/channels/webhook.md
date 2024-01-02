@@ -4,7 +4,7 @@ description: StackState Kubernetes Troubleshooting
 
 # Webhook
 
-Webhooks are custom HTTP callbacks that you define and run. They can take any action needed whenever a notification is opened or closed, for example by creating a ticket in a ticketing system that is not supported natively by StackState or by simply writing the notifiation message payloads to an S3 bucket for future reference.
+Webhooks are custom HTTP callbacks that you define and run. They can take any action needed whenever a notification is opened or closed. For example by creating a ticket in a ticketing system that's not supported natively by StackState. Or by simply writing the notification messages to an S3 bucket for future reference.
 
 The webhook channel sends the notifications data as [JSON over HTTP](#webhook-requests-and-payload).
 
@@ -14,9 +14,9 @@ The webhook channel sends the notifications data as [JSON over HTTP](#webhook-re
 
 To configure a webhook complete the fields:
 
-1. URL - enter the URL of the webhook endpoint. The URL must be percent-encoded if it contains special characters.
+1. URL - enter the URL of the webhook endpoint. The URL must be percent-encoded if it has special characters.
 2. Secret token - a secret token that StackState will include in every request to [validate it](#validate-the-requests)
-3. Metadata - add additional key/value pairs that are included in the payload. This can be used when the same endpoint handles multiple StackState webhooks and needs some extra information
+3. Metadata - add extra key/value pairs that are included in the payload. This can be used when the same endpoint handles multiple StackState webhooks and needs some extra information
 4. Enable SSL verification - (default on) enable SSL certificate validation. Only disable when using self-signed certificates or certificate authorities not supported by StackState
 
 Finally select "Add channel". The webhook channel will appear on the right. To test that the webhook works send a test message by clicking the "Test" button.
@@ -78,15 +78,15 @@ The Webhook channel sends data as HTTP POST requests. The endpoint and payload a
 
 The sections in the `open` payload are:
 
-1. Component: the StackState component that the notification applies to. This includes the components name, identifier, type, and tags. It also contains a link to the StackState UI that will open the component at the time of the health state change
+1. Component: the StackState component that the notification applies to. This includes the components name, identifier, type, and tags. It also has a link to the StackState UI that will open the component at the time of the health state change
 2. Event: the event that triggered this notification. It can either be of type `open` or `close` (see next section). An `open` state means that the monitor is still in a critical (or deviating) state for the specified component. A `close` state means that the monitor was open before but that the issue has been resolved. The state and triggered time are included. Also included is a `title` which is a short description of the problem as provided by the monitor, it is the same title shown in the highlights page of the component, this can be different and more detailed than the monitor name.
 3. Monitor: the monitor that triggered the notification. Next to the monitor name, tags and identifier also a link is included. The link will open the monitor in the StackState UI.
 4. Notification configuration: The notification configuration for this notification. Includes a name, identifier and link. The link will open the notification configuration in the StackState UI.
-5. notificationId: A unique identifier for this notification. See also the [Notification life cycle](#notification-life-cycle)
-6. Metadata: It is possible to specify metadata on a webhook channel. The metadata is one-to-one reproduced here as a set of key/value pairs.
+5. notification id: A unique identifier for this notification. See also the [Notification life cycle](#notification-life-cycle)
+6. Metadata: It's possible to specify metadata on a webhook channel. The metadata is one-to-one reproduced here as a set of key/value pairs.
 
 
-### Exampe payload for a notification close request
+### Example payload for a notification close request
 
 ```
 {
@@ -139,7 +139,7 @@ The sections in the `close` payload are the same as in the `open` payload except
 
 ## Notification life cycle
 
-As can be seen from the payload each notification is uniquely identified by its `notificationId`. It is possible, even common, to receive multiple messages for the same notification, but they will always follow the life cycle of a notification.
+As can be seen from the payload each notification is uniquely identified by its `notificationId`. It's possible, even common, to receive more than one message for the same notification, but they will always be sent according to this life cycle.
 
 A notification is first created when a monitor state changes to deviating or critical (whether deviating is applicable depends on the [notification settings](../configure.md#configure-when-to-notify)). A message with event type `open` is sent to the webhook.
 
@@ -148,7 +148,7 @@ A notification can be updated when the `state` or the `title` in the event chang
 Finally a notification is closed when the monitor state changes back to a non-critical (or deviating) state. A message with event type `close` is sent to the webhook. This is also the last time that the specific `notificationId` is used.
 
 Note that a notification can be both opened and closed for different reasons than a health state change:
-* A tag is added to a component or monitor. This can cause some critical monitor health state to suddenly match the selection criteria in a notification configuration and corresponding notifications will be opened.
+* A tag is added to a component or monitor. This can cause some critical monitor health state to match the selection criteria in a notification configuration and corresponding notifications will be opened.
 * For the same reason removal of a tag from a component or monitor can close a notification even though the health state is still critical.
 * Changes to the notification configuration itself can also result in many new notifications being opened or closed.
 
@@ -189,12 +189,12 @@ httpd.serve_forever()
 4. Click `test` on the webhook channel
 
 {% hint style="info" %}
-The URL for your webhook must be accessible by StackState, so a localhost address or a local ip-address won't be sufficient.
+The URL for your webhook must be accessible by StackState, so a localhost address or a local ip-address won't be enough.
 {% endhint %}
 
 The example doesn't authenticate the request, which can be added by verifying the value of the [token header](#validate-the-requests).
 
-Instead of implenting this by hand it is also possible to use the [OpenAPI specification](https://github.com/StackVista/stackstate-openapi/tree/master/spec_webhook) for the webhook to generate a server implemenation in any of the languages supported by the [OpenAPI generators](https://openapi-generator.tech/).
+Instead of implenting this by hand it's also possible to use the [OpenAPI specification](https://github.com/StackVista/stackstate-openapi/tree/master/spec_webhook) to generate a server implementation in any of the languages supported by the [OpenAPI generators project](https://openapi-generator.tech/).
 
 ## Related
 
