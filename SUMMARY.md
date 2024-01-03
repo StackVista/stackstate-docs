@@ -19,7 +19,12 @@
 
 * [Monitors](use/alerting/k8s-monitors.md)
 * [Out of the box monitors for Kubernetes](use/alerting/kubernetes-monitors.md)
-* [Alerts](use/alerting/event-handlers.md)
+* [Notifications](use/alerting/notifications/README.md)
+  * [Configure notifications](use/alerting/notifications/configure.md)
+  * [Notification channels](use/alerting/notifications/channels/README.md)
+    * [Slack](use/alerting/notifications/channels/slack.md)
+    * [Webhook](use/alerting/notifications/channels/webhook.md)
+  * [Troubleshooting](use/alerting/notifications/troubleshooting.md)
 * [Customize](use/alerting/k8s-customize.md)
   * [Add a monitor using the CLI](use/alerting/k8s-add-monitors-cli.md)
   * [Override monitor arguments](use/alerting/k8s-override-monitor-arguments.md)
