@@ -47,5 +47,3 @@ In general StackState sends two types of messages for notifications:
 
 1. An `open` message when a health state goes to Critical or Deviating. This message can be repeated when there are changes in the health state
 2. A `close` message when the health state isn't Critical or Deviating anymore or when for other reasons (the component disappeared, the monitor was removed, etc.) the notification isn't active anymore.
-
-Each channel has an interpretation of these messages most fitting for the channel.

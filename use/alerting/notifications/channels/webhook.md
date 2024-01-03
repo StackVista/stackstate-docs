@@ -82,7 +82,7 @@ The sections in the `open` payload are:
 2. Event: the event that triggered this notification. It can either be of type `open` or `close` (see next section). An `open` state means that the monitor is still in a critical (or deviating) state for the specified component. A `close` state means that the monitor was open before but that the issue has been resolved. The state and triggered time are included. Also included is a `title` which is a short description of the problem as provided by the monitor, it is the same title shown in the highlights page of the component, this can be different and more detailed than the monitor name.
 3. Monitor: the monitor that triggered the notification. Next to the monitor name, tags and identifier also a link is included. The link will open the monitor in the StackState UI.
 4. Notification configuration: The notification configuration for this notification. Includes a name, identifier and link. The link will open the notification configuration in the StackState UI.
-5. notification id: A unique identifier for this notification. See also the [Notification life cycle](#notification-life-cycle)
+5. Notification id: A unique identifier for this notification. See also the [Notification life cycle](#notification-life-cycle)
 6. Metadata: It's possible to specify metadata on a webhook channel. The metadata is one-to-one reproduced here as a set of key/value pairs.
 
 
