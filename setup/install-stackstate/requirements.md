@@ -21,65 +21,38 @@ StackState can be installed on a Kubernetes or OpenShift cluster using the Helm 
 
 ### Resource requirements
 
-For a standard, production, deployment, the StackState Helm chart will deploy backend services in a redundant setup with 3 instances of each service. The number of nodes required for environments with out-of-the-box settings are listed below, note that these may change based on system tuning:
+There are different installation options available for StackState. It is possible to install StackState either in a High-Availability (HA) or single instance (non-HA) setup. The non-HA setup is recommended for testing purposes only. For production environments, it is recommended to install StackState in a HA setup. For a standard, production, deployment, the StackState Helm chart will deploy many services in a redundant setup with 3 instances of each service.
 
-{% tabs %}
-{% tab title="Recommended setup" %}
+In the table below you can find the resource requirements for the different installation options. For the HA setup you can find different installation profiles depending on the size of the environment being observed.
 
-{% hint style="info" %}
-The recommended requirements include spare CPU/Memory capacity to ensure smooth application rolling update.
-{% endhint %}
+| | non-HA | HA - small profile | HA - default profile |
+| --- | --- | --- | --- |
+| **CPU Requests** | 11 | 14,5 | 16,5 |
+| **CPU Limits** | 31,5 | 50 | 50 |
+| **Memory Requests** | 55Gi | 67Gi | 87Gi |
+| **Memory Limits** | 55Gi | 89Gi | 92Gi |
 
-Requirements for the recommended high availability setup with backups enabled:
-
-* Node requirements: minimum 8 vCPUs, minimum 32GB memory
-* Total of 25 vCPUs available for StackState
-* Total of 120 GB memory available for StackState
-* Total of 2 TB disk space for data storing services (doesn't include disk space required for backups)
-
-{% endtab %}
-
-{% tab title="Minimal setup" %}
-Requirements for the minimal high availability setup with backups enabled:
-
-* Node requirements: minimum 8 vCPUs, minimum 32GB memory
-* Total of 18 vCPUs available for StackState
-* Total of 98 GB memory available for StackState
-* Total of 2 TB disk space for data storing services (doesn't include disk space required for backups)
-
-{% endtab %}
-
-{% tab title="Non-high availability setup" %}
-Optionally, a [non-high availability setup](/setup/install-stackstate/kubernetes_openshift/non_high_availability_setup.md) can be configured which has the requirements listed below.
-
-**Recommended setup**
+These are just the upper and lower bounds of the resources that can be consumed by StackState in the different installation options. The actual resource usage will depend on the features used, configured resource limits and dynamic usage patterns, such as Deployment or DaemonSet scaling. For our Self-hosted customers, we recommend to start with the default requirements and monitor the resource usage of the StackState components.
 
 {% hint style="info" %}
-The recommended requirements include spare CPU/Memory capacity to ensure smooth application rolling update.
+The minimum requirements do not include spare CPU/Memory capacity to ensure smooth application rolling updates.
 {% endhint %}
 
-Requirements for the recommended non-high availability setup:
-
-* Node requirements: minimum 8 vCPUs, minimum 32GB memory
-* Total of 21 vCPUs available for StackState
-* Total of 60 GB memory available for StackState
-* Total of 950 GB disk space for data storing services
-
-**Minimal setup**
-
-Requirements for the minimal non-high availability setup:
-
-* Node requirements: minimum 8 vCPUs, minimum 32GB memory
-* Total of 14 vCPUs available for StackState
-* Total of 60 GB memory available for StackState
-* Total of 950 GB disk space for data storing services
-
-{% endtab %}
-{% endtabs %}
+For installation of StackState please follow the installation instructions provided below:
+- [Kubernetes](/setup/install-stackstate/kubernetes_openshift/kubernetes_install.md)
+- [OpenShift](/setup/install-stackstate/kubernetes_openshift/openshift_install.md)
+- [Non-high availability setup](/setup/install-stackstate/kubernetes_openshift/non_high_availability_setup.md)
+- [Small profile setup](/setup/install-stackstate/kubernetes_openshift/small_profile_setup.md)
 
 ### Storage
 
 StackState uses persistent volume claims for the services that need to store data. The default storage class for the cluster will be used for all services unless this is overridden by values specified on the command line or in a `values.yaml` file. All services come with a pre-configured volume size that should be good to get you started, but can be customized later using variables as required.
+
+For our different installation profiles, the following are the defaulted storage requirements:
+
+| | non-HA | HA - small profile | HA - default profile |
+| --- | --- | --- | --- |
+| **Storage requirement** | 950GB | 2TB | 2TB |
 
 For more details on the defaults used, see the page [Configure storage](/setup/install-stackstate/kubernetes_openshift/storage.md).
 
@@ -100,6 +73,7 @@ For more details on configuring Ingress, have a look at the page [Configure Ingr
 It isn't recommended to set a ResourceQuota as this can interfere with resource requests. The resources required by StackState will vary according to the features used, configured resource limits and dynamic usage patterns, such as Deployment or DaemonSet scaling.
 
 If it's necessary to set a ResourceQuota for your implementation, the namespace resource limit should be set to match the node [sizing requirements](requirements.md#resource-requirements).
+
 ## Client \(browser\)
 
 To use the StackState GUI, you must use one of the following web browsers:
