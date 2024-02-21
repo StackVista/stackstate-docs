@@ -42,6 +42,9 @@
   * [Prometheus remote_write](use/metrics/k8s-prometheus-remote-write.md)
   * [OpenMetrics](use/metrics/open-metrics.md)
 
+## 📑 Logs
+* [Explore Logs](use/logs/k8sTs-explore-logs.md)
+* [Log Shipping](use/logs/k8sTs-log-shipping.md)
 
 ## 🔍 Views
 
