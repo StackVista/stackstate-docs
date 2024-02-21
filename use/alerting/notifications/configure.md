@@ -42,6 +42,7 @@ StackState can send notifications to different external systems via channels. Su
 
 * [Slack](channels/slack.md) - Send notifications to Slack
 * [Webhook](channels/webhook.md) - Send notifications to a webhook, the webhook endpoint can translate the StackState payload into any custom third-party API needed
+* [Opsgenie](channels/opsgenie.md) - Send notifications to OpsGenie
 
 In general StackState sends two types of messages for notifications:
 
