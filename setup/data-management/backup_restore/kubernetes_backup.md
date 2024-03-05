@@ -354,9 +354,9 @@ To delete existing Elasticsearch indices so that a snapshot can be restored, fol
 1. Stop indexing - scale down all `*2es` deployments to 0:
 
    ```bash
-   kubectl scale --replicas=0 deployment/e2es
-   kubectl scale --replicas=0 deployment/mm2es
-   kubectl scale --replicas=0 deployment/trace2es
+   kubectl scale --replicas=0 deployment/stackstate-e2es
+   kubectl scale --replicas=0 deployment/stackstate-mm2es
+   kubectl scale --replicas=0 deployment/stackstate-trace2es
    ```
 
 2. Open a port-forward to the Elasticsearch master:
@@ -447,7 +447,7 @@ The indices restored are listed in the output, as well as the number of failed a
 After the indices have been restored, scale up all `*2es` deployments:
 
    ```bash
-   kubectl scale --replicas=1 deployment/e2es
-   kubectl scale --replicas=1 deployment/mm2es
-   kubectl scale --replicas=1 deployment/trace2es
+   kubectl scale --replicas=1 deployment/stackstate-e2es
+   kubectl scale --replicas=1 deployment/stackstate-mm2es
+   kubectl scale --replicas=1 deployment/stackstate-trace2es
    ```
