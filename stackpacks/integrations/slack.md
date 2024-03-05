@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState SaaS
 ---
 
 # Slack StackPack
@@ -8,7 +8,6 @@ description: StackState Self-hosted v5.1.x
 
 The Slack StackPack allows you to receive event notifications in Slack channels. The StackPack installs a number of event handler functions that can be used when [adding an event handler](/use/events/manage-event-handlers.md#add-event-handler) to a view in StackState.
 
-Slack is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
 
 ![Slack StackPack](/.gitbook/assets/stackpack-slack.svg)
 
@@ -35,8 +34,13 @@ Note that you will need to [create a Slack Webhook \(slack.com\)](https://api.sl
 When a new version of the Slack StackPack is available in your instance of StackState, you will be prompted to upgrade in the StackState UI on the page **StackPacks** > **Integrations** > **Slack**. 
 
 {% hint style="success" "self-hosted info" %}
-    
-For an overview of recent StackPack updates, check the [StackPack versions](/setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release.
+
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+        
+For an overview of recent StackPack updates, check the StackPack versions shipped with each StackState release.
 {% endhint %}
 
 ## Integration details
@@ -74,5 +78,4 @@ Before you uninstall the Slack StackPack, all event handlers that have been conf
 * [Manage event handlers](/use/events/manage-event-handlers.md)
 * [Event notifications](/use/events/event-notifications.md)
 * [Problem notifications](/use/problem-analysis/problem_notifications.md)
-* [Event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md "StackState Self-Hosted only")
 * [Create a Slack Webhook\(slack.com\)](https://api.slack.com/messaging/webhooks)

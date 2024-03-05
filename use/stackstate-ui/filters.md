@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState SaaS
 ---
 
 # Filters
@@ -31,7 +31,12 @@ The main way to filter topology is using the available basic filters. When you s
 
 {% hint style="success" "self-hosted info" %}
 
-You can define [custom labels](../../configure/topology/tagging.md) to make searching for information easier.
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
+You can define custom labels to make searching for information easier.
 {% endhint %}
 
 To filter the topology using basic filters, click the **View Filters** button on the left and select **Basic** under **Filter Topology**. 
@@ -108,7 +113,12 @@ layer = "applications"
 
 {% hint style="success" "self-hosted info" %}
 
-If required, you can [manually configure the topology filtering limit](/configure/topology/topology-filtering-limits.md). 
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
+If required, you can manually configure the topology filtering limit. 
 {% endhint %}
 
 ## Filter Events

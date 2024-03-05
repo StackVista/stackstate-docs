@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState SaaS
 ---
 
 # Using Templated STJ and STY
@@ -14,10 +14,7 @@ This table described which variant is used where:
 
 | Functionality                                                                                                      | STJ | STY |
 |:-------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| [Topology synchronization templates](/configure/topology/sync.md#template-functions "StackState Self-Hosted only") |  ✅  |  -  |
-| [StackPack settings](/develop/developer-guides/stackpack/develop_stackpacks.md "StackState Self-Hosted only")      |  -  |  ✅  |
 | [Monitor definitions](/develop/developer-guides/monitors/create-custom-monitors.md)                                |  -  |  ✅  |
-| [Backup/restore for settings](/setup/data-management/backup_restore/ "StackState Self-Hosted only")                |  -  |  ✅  |       
 
 ## Handlebars syntax
 
@@ -147,7 +144,4 @@ StackState adds a number of function to the handlebars syntax. You can use these
 ## See also
 
 * [StackState template functions](template_functions.md)
-* [Synchronization framework](/configure/topology/sync.md#template-functions "StackState Self-Hosted only")
-* [StackPacks](/develop/developer-guides/stackpack/develop_stackpacks.md "StackState Self-Hosted only")
 * [Create custom monitors](/develop/developer-guides/monitors/create-custom-monitors.md)
-* [Backup/Restore](/setup/data-management/backup_restore/ "StackState Self-Hosted only")

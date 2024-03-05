@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState SaaS
 ---
 
 # Telemetry streams
@@ -27,12 +27,15 @@ In StackState, telemetry streams need to be linked to elements \(components or r
 
 {% hint style="success" "self-hosted info" %}
 
-Telemetry streams can also be defined in templates and attached automatically to elements when they're imported by a synchronization. Read how to [add telemetry during topology synchronization](../../configure/telemetry/telemetry_synchronized_topology.md).
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
+Telemetry streams can also be defined in templates and attached automatically to elements when they're imported by a synchronization. Read how to add telemetry during topology synchronization.
 {% endhint %}
 
 ## See also
 
 * [Add a health check based on telemetry streams available in StackState](../checks-and-monitors/add-a-health-check.md)
 * [Add a telemetry stream to an element](add-telemetry-to-element.md)
-* [Use templates to add telemetry streams to your own integrations](../../configure/telemetry/telemetry_synchronized_topology.md "StackState Self-Hosted only")
-* [Check functions](../../develop/developer-guides/custom-functions/check-functions.md "StackState Self-Hosted only")

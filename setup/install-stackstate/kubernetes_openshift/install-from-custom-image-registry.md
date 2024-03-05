@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState SaaS
 ---
 
 # Install from custom image registry
@@ -25,7 +25,6 @@ The install script `copy_images.sh` must be run on an Intel x86_64 machine. It i
    * **StackState image registry** - `docker login quay.io` - use the username and password provided by StackState.
    * **Custom image registry** - `docker login --username <USERNAME>  <CUSTOM_REGISTRY_ADDRESS>`
 3. Download the relevant script and use this to copy all images used by the Helm chart to the custom registry. Note that you will first need to make the downloaded script executable:
-   * **StackState:** [stackstate/installation/copy_images.sh \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation "StackState Self-Hosted only")
    * **StackState Agent:** [stackstate-agent/installation/copy_images.sh \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-agent/installation/copy_images.sh)
    * For example: 
 
@@ -89,6 +88,11 @@ The install script `copy_images.sh` must be run on an Intel x86_64 machine. It i
 
 {% hint style="success" "self-hosted info" %}
 
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
 The images listed below are used in StackState v5.1.2:
 
 - quay.io/stackstate/container-tools:1.1.4

@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState SaaS
 ---
 
 # AWS
@@ -19,7 +19,6 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 * [VPC FlowLogs](#configure-vpc-flowlogs) are retrieved once a minute from the configured S3 bucket. Private network traffic inside VPCs is analysed to create relations between EC2 and RDS database components in StackState.
 * Communication between NodeJS Lambda functions and the AWS services that they communicate with is monitored using [OpenTelemetry traces](#traces).
 
-AWS is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
 
 ## Setup
 
@@ -520,7 +519,11 @@ The following labels will be added to imported AWS topology in StackState:
 
 {% hint style="success" "self-hosted info" %}
 
-Note that topology with the label `stackpack:aws` was imported by the [AWS \(legacy\) integration](/stackpacks/integrations/aws/aws-legacy.md "StackState Self-Hosted only").
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
 
 {% endhint %}
 
@@ -666,7 +669,6 @@ Find out how to [uninstall using a specific AWS profile or an IAM role \(docs.aw
 
 * [Use and set up OpenTelemetry for NodeJS](/stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md)
 * [AWS policies](aws-policies.md)
-* [StackState AWS \(legacy\) integration](aws-legacy.md "StackState Self-Hosted only")
 * [Working with AWS CloudFormation StackSets \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/what-is-cfnstacksets.html)
 * [Uninstall using a specific AWS profile or an IAM role \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html)
 

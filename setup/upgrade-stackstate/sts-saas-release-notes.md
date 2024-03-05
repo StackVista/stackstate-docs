@@ -36,7 +36,6 @@ The StackState v5.1 release delivers brand-new features and enhancements that he
 * Improvements to our probable cause calculation
 * Many additions to the right panel to always have information in the context of where you are looking.
 
-The StackState v5.1 release is the last release containing the `stac` CLI. The new `sts` CLI replaces the `stac` CLI in all upcoming versions of StackState. For details see [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only").
 
 **Improvements**
 

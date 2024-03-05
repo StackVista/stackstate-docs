@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState SaaS
 ---
 
 # About events
@@ -18,7 +18,12 @@ StackState generates events internally and also receives events from integration
 
 {% hint style="success" "self-hosted info" %}
 
-You can also use the StackState CLI or an HTTP POST to [send events to StackState](/configure/telemetry/send_events.md).
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
+You can also use the StackState CLI or an HTTP POST to send events to StackState.
 {% endhint %}
 
 ### Internally generated events

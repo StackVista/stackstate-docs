@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState SaaS
 ---
 
 # Add a health check
@@ -57,7 +57,12 @@ Check functions are scripts that take streaming telemetry as an input, check the
 
 {% hint style="success" "self-hosted info" %}
 
-* You can [create a custom check function](../../develop/developer-guides/custom-functions/check-functions.md) to customize how StackState assigns a health state to a metric stream.
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
+* You can create a custom check function to customize how StackState assigns a health state to a metric stream.
 * Details of the available check functions can be found in the StackState UI, go to **Settings** &gt; **Check functions**.
 {% endhint %}
 
@@ -71,7 +76,12 @@ The `Autonomous metric stream anomaly detection` health check reacts to anomaly 
 
 {% hint style="success" "self-hosted info" %}
 
-You can [synchronize existing health checks](../../configure/health/health-synchronization.md) from an external monitoring system and add them to StackState topology elements.
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
+You can synchronize existing health checks from an external monitoring system and add them to StackState topology elements.
 
 {% endhint %}
 
@@ -80,6 +90,3 @@ You can [synchronize existing health checks](../../configure/health/health-synch
 * [Anomaly health checks](anomaly-health-checks.md)
 * [Add a telemetry stream to an element](../metrics/add-telemetry-to-element.md)
 * [Add an event notification](/use/events/manage-event-handlers.md#add-event-handler)
-* [Custom check functions](../../develop/developer-guides/custom-functions/check-functions.md "StackState Self-Hosted only")
-* [Custom monitor functions](../../develop/developer-guides/custom-functions/monitor-functions.md "StackState Self-Hosted only")
-* [Synchronize external health data](../../configure/health/health-synchronization.md "StackState Self-Hosted only")

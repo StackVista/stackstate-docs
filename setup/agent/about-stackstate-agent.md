@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState SaaS
 ---
 
 # About StackState Agent V2
@@ -80,49 +80,24 @@ Deployment instructions, commands to work with StackState Agent V2 and other pla
 
 StackState Agent connects to the StackState Receiver API at the configured `<STACKSTATE_RECEIVER_API_ADDRESS>`.
 
-{% tabs %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="Kubernetes" %}[](http://not.a.link "StackState Self-Hosted only")
-For StackState running on Kubernetes or OpenShift, the `<STACKSTATE_RECEIVER_API_ADDRESS>` is by default:[](http://not.a.link "StackState Self-Hosted only")
 
-`https://<STACKSTATE_BASE_URL>/receiver/stsAgent`[](http://not.a.link "StackState Self-Hosted only")
 
-The `<STACKSTATE_BASE_URL>` is set during StackState installation. For details see [Kubernetes install - configuration parameters](../install-stackstate/kubernetes_openshift/kubernetes_install.md#generate-values.yaml "StackState Self-Hosted only").
-{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 
-{% tab title="Linux" %}[](http://not.a.link "StackState Self-Hosted only")
-For StackState running on Linux, the `<STACKSTATE_RECEIVER_API_ADDRESS>` is by default:[](http://not.a.link "StackState Self-Hosted only")
 
-`https://<STACKSTATE_RECEIVER_BASE_URL>/stsAgent`[](http://not.a.link "StackState Self-Hosted only")
 
-The `<STACKSTATE_RECEIVER_BASE_URL>` is set during StackState installation. For details see [Linux install - configuration parameters](../install-stackstate/linux/install_stackstate.md#configuration-options-required-during-install "StackState Self-Hosted only").
 
-{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="StackState SaaS" %}[](http://not.a.link "StackState Self-Hosted only")
 For the StackState SaaS product, the StackState Receiver API address will be provided on the StackState UI Agent V2 StackPack page after the StackPack has been installed.
 
-[➡️ Go to the StackState SaaS product documentation](https://docs.stackstate.com/v/stackstate-saas/ "StackState Self-Hosted only")
-{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 
 #### Receiver API key
 
 StackState Agent requires the StackState Receiver API key to communicate with the StackState Receiver API.
 
-{% tabs %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="Kubernetes" %}[](http://not.a.link "StackState Self-Hosted only")
-For StackState running on Kubernetes, the Receiver API Key is set during installation. For details see [StackState Kubernetes install - configuration parameters](../install-stackstate/kubernetes_openshift/kubernetes_install.md#generate-values-yaml "StackState Self-Hosted only")
 
-{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 
-{% tab title="Linux" %}[](http://not.a.link "StackState Self-Hosted only")
-For StackState running on Linux, the Receiver API Key is set during installation. For details see [StackState Linux install - configuration parameters](../install-stackstate/linux/install_stackstate.md#configuration-options-required-during-install "StackState Self-Hosted only") 
 
-{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="StackState SaaS" %}[](http://not.a.link "StackState Self-Hosted only")
 For the StackState SaaS product, the StackState Receiver API key will be provided on the StackState UI Agent StackPack page after the StackPack has been installed.
 
-[➡️ Go to the StackState SaaS product documentation](https://docs.stackstate.com/v/stackstate-saas/ "StackState Self-Hosted only")
-{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
 {% endtabs %}
 
 ### Troubleshooting
@@ -149,4 +124,3 @@ Release notes for StackState Agent V2 can be found on GitHub at: [https://github
 
 * [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md)
 * [StackState integrations](../../stackpacks/integrations/)
-* [StackState Agent V1 \(legacy\)](agent-v1.md "StackState Self-Hosted only")

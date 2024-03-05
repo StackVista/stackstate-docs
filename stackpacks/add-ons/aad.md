@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState SaaS
 ---
 
 # Autonomous Anomaly Detector
@@ -59,7 +59,12 @@ To enable improvement of the AAD, users can add feedback to reported anomalies. 
 
 {% hint style="success" "self-hosted info" %}
 
-Use the StackState CLI to [export anomaly feedback](/configure/anomaly-detection/export-anomaly-feedback.md) ready to send to StackState.
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
+Use the StackState CLI to export anomaly feedback ready to send to StackState.
 
 {% endhint %}
 
@@ -73,10 +78,7 @@ The feedback sent to StackState consists of:
 
 ## Installation
     
-### Prerequisites[](http://not.a.link "StackState Self-Hosted only")
 
-* The AAD StackPack can only be installed within a [Kubernetes setup](../../setup/install-stackstate/kubernetes_openshift/ "StackState Self-Hosted only"). Please make sure that this is supported by your StackState installation.
-* If you aren't sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://support.stackstate.com/hc/en-us "StackState Self-Hosted only").
 
 ### Install the AAD StackPack
 
@@ -103,7 +105,12 @@ You can't directly control the stream selected, but you can steer the metric str
 
 {% hint style="success" "self-hosted info" %}
 
-Know what the AAD is working on. [The status UI of the AAD](/configure/anomaly-detection/aad-status-ui.md) provides various metrics and indicators, including details of what the AAD is currently doing.
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
+Know what the AAD is working on. The status UI of the AAD provides various metrics and indicators, including details of what the AAD is currently doing.
 {% endhint %}
 
 ### How fast are anomalies detected?

@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState SaaS
 ---
 
 # AWS ECS
@@ -8,7 +8,6 @@ description: StackState Self-hosted v5.1.x
 
 Get topology and telemetry information from an Amazon Elastic Container Service \(ECS\) cluster.
 
-AWS ECS is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
 
 ## Functionality
 
@@ -57,7 +56,6 @@ When used in conjunction with one of our language specific trace clients to allo
       ...
 ```
 
-For example, using the [StackState Java Trace Client](../java-apm.md "StackState Self-Hosted only").
 
 
 #### Advanced Agent configurations

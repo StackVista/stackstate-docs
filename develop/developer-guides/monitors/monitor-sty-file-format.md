@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x
+description: StackState SaaS
 ---
 
 # Monitor STY file format
@@ -55,7 +55,6 @@ An important field of the monitor node is the `identifier` - it is a unique valu
 
 `urn : <prefix> : monitor : <unique-monitor-identification>`
 
-* The `<prefix>` is described in more detail in [topology identifiers](../../../configure/topology/identifiers.md "StackState Self-Hosted only").
 * The `<unique-monitor-identification>` is user-definable and free-form.
 
 ### function
@@ -66,33 +65,24 @@ Monitor functions are scripts that accept 4T data as input, check the data based
 
 You can list the available monitor functions using the CLI command:
 
-{% tabs %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: sts" %}[](http://not.a.link "StackState Self-Hosted only")
 ```
 sts settings list --type MonitorFunction
 ```
 
-From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.[](http://not.a.link "StackState Self-Hosted only")
 
-➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: stac (deprecated)" %}[](http://not.a.link "StackState Self-Hosted only")
-`stac graph list MonitorFunction`[](http://not.a.link "StackState Self-Hosted only")
 
-⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.** [](http://not.a.link "StackState Self-Hosted only")
 
-The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
 
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
 
-{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
 
 {% hint style="success" "self-hosted info" %}
 
-You can [create custom monitor function](../custom-functions/monitor-functions.md) to customize how StackState processes 4T data.
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
+You can create custom monitor function to customize how StackState processes 4T data.
 
 {% endhint %}
 
@@ -194,7 +184,6 @@ Monitor functions that utilize telemetry tend to be parameterized with the exact
 
 As an example, a PromQL query such as `sum by (host, pod) (http_request_rate)` uses `sum` as the aggregation function and specifies the labels `host` and `pod` for grouping.  The `step` size determines the interval between data points and the `start` time determines how many historic data points are available.
 
-➡️ [Learn more about the Telemetry script API](/develop/reference/scripting/script-apis/telemetry.md "StackState Self-Hosted only")
 
 {% tabs %}
 {% tab title="Monitor STY definition" %}
@@ -296,7 +285,6 @@ The monitor run interval determines how often a monitor logic will be executed. 
 ## See also
 
 * [Create a custom monitor](create-custom-monitors.md)
-* [Monitor functions](/develop/developer-guides/custom-functions/monitor-functions.md "StackState Self-Hosted only")
 * [Manage monitors](/use/checks-and-monitors/manage-monitors.md)
 * [Using STY](/develop/reference/stackstate-templating/using_stackstate_templating.md)
   [STY Reference](/develop/reference/stackstate-templating/template_functions.md)

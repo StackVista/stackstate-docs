@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x
+description: StackState SaaS
 ---
 
 # Monitors
@@ -48,15 +48,18 @@ Details of the monitor functions provided by StackPacks can be found in [the Sta
 
 {% hint style="success" "self-hosted info" %}
 
-You can [create a custom monitor function](../../develop/developer-guides/custom-functions/monitor-functions.md) to customize how StackState processes the 4T data.
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
+You can create a custom monitor function to customize how StackState processes the 4T data.
 
 {% endhint %}
 
 ## See also
 
 * [Manage monitors](manage-monitors.md)
-* [Health Synchronization](/configure/health/health-synchronization.md "StackState Self-Hosted only")
 * [StackState Template YAML \(STyY\)](../../develop/reference/stackstate-templating/)
 * [StackState `sts` CLI](../../setup/cli/cli-sts.md)
-* [Identifiers](../../configure/topology/identifiers.md "StackState Self-Hosted only")
 * [Checks](checks.md)

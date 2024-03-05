@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState SaaS
 ---
 
 # Problem notifications
@@ -18,7 +18,12 @@ To send a notification when problem events are generated:
 
 {% hint style="success" "self-hosted info" %}
 
-You can create a [custom event handler function](../../develop/developer-guides/custom-functions/event-handler-functions.md) to trigger actions or send notifications to systems other than Slack in response to problem events.
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
+You can create a custom event handler function to trigger actions or send notifications to systems other than Slack in response to problem events.
 {% endhint %}
 
 ## See also
@@ -27,4 +32,3 @@ You can create a [custom event handler function](../../develop/developer-guides/
 * [Problem navigation](problem_investigation.md)
 * [Problem lifecycle](problem-lifecycle.md)
 * [Manage Event Handlers](/use/events/manage-event-handlers.md)
-* [Event handler functions](../../develop/developer-guides/custom-functions/event-handler-functions.md "StackState Self-Hosted only")

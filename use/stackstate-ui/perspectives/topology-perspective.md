@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState SaaS
 ---
 
 # Topology Perspective
@@ -43,7 +43,12 @@ Actions can be used to expand the topology selection to show all dependencies fo
 
 {% hint style="success" "self-hosted info" %}
 
-You can configure [component actions](../../../configure/topology/component_actions.md) in the **Settings** page or create [custom component actions](../../../develop/developer-guides/custom-functions/component-actions.md).
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
+You can configure component actions in the **Settings** page or create custom component actions.
 {% endhint %}
 
 A list of the available **Actions** is included in the right panel details tab when you select a component - **Component details**. Actions are also listed in the component context menu, which is displayed when you hover the mouse pointer over a component.
@@ -113,7 +118,12 @@ If there are components with [telemetry streams](../../metrics/telemetry_streams
 
 {% hint style="success" "self-hosted info" %}
 
-You can configure or develop your own [propagation functions](../../../develop/developer-guides/custom-functions/propagation-functions.md).
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
+You can configure or develop your own propagation functions.
 {% endhint %}
 
 It's possible that a view can contain components that have a `DEVIATING` propagated health state caused by a component that's not included in the view itself. The Topology Perspective allows you to configure whether the view should be expanded to automatically show root cause components that are outside the currently displayed view:

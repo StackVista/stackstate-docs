@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState SaaS
 ---
 
 # 💠 StackState Agent V2
@@ -8,7 +8,6 @@ description: StackState Self-hosted v5.1.x
 
 The StackState Agent V2 StackPack works with [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) to synchronize topology, metrics, events and traces data from external systems with StackState. A number of integrations are automatically enabled when the StackState Agent V2 StackPack is installed, however, integration with some systems will require an additional StackPack and configuration.
 
-StackState Agent V2 is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
 
 ## Setup
 
@@ -24,17 +23,8 @@ Install the StackState Agent V2 StackPack from the StackState UI **StackPacks** 
 
 The integrations included in the StackState Agent V2 StackPack are listed below. Refer to the integration pages to find configuration details for each integration:
 
-* [Apache TomCat](apache-tomcat.md "StackState Self-Hosted only")
 * [AWS ECS](aws/aws-ecs.md)
 * [AWS Xray](aws/aws-x-ray.md)
-* [DotNet APM](dotnet-apm.md "StackState Self-Hosted only")
-* [Java APM](java-apm.md "StackState Self-Hosted only")
-* [JMX](jmx.md "StackState Self-Hosted only")
-* [MySQL](mysql.md "StackState Self-Hosted only")
-* [OpenMetrics](openmetrics.md "StackState Self-Hosted only")
-* [PostgreSQL](postgresql.md "StackState Self-Hosted only")
-* [Static Health](static_health.md "StackState Self-Hosted only")  
-* [WMI](wmi.md "StackState Self-Hosted only")
 
 ### Status
 
@@ -46,7 +36,12 @@ When a new version of the StackState Agent V2 StackPack is available in your ins
 
 {% hint style="success" "self-hosted info" %}
 
-For an overview of recent StackPack updates, check the [StackPack versions](/setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release.
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
+For an overview of recent StackPack updates, check the StackPack versions shipped with each StackState release.
 {% endhint %}
 
 To upgrade StackState Agent V2, see the [StackState Agent documentation](/setup/agent/).
@@ -117,7 +112,5 @@ To uninstall StackState Agent V2, see the [StackState Agent documentation](/setu
 * Improvement: Supported additional identifiers for Disk component
 
 
-## See also [](http://not.a.link "StackState Self-Hosted only")
 
-* [StackState Agent documentation](/setup/agent/ "StackState Self-Hosted only")
 

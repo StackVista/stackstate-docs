@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState SaaS
 ---
 
 # Configure the view health
@@ -30,7 +30,12 @@ View health state is calculated by a **view state configuration function**. To c
 
 {% hint style="success" "self-hosted info" %}
 
-* Create your own [custom View Health State Configuration functions](../../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md).
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
+* Create your own custom View Health State Configuration functions.
 * Details of the available configuration functions are available in the StackState UI, go to **Settings** &gt; **Functions** &gt; **View Health State Configuration Functions**.
 {% endhint %}
 
@@ -56,12 +61,15 @@ The **MINIMUM HEALTH STATES** view health state configuration function calculate
 
 {% hint style="success" "self-hosted info" %}
 
-Use the **MINIMUM HEALTH STATES** view health state configuration as a starting point to [create a custom view health state configuration function](../../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#create-a-custom-view-health-state-configuration-function).
+**StackState Self-Hosted**
+
+Extra information for the [StackState Self-Hosted product](https://docs.stackstate.com/):
+
+    
+Use the **MINIMUM HEALTH STATES** view health state configuration as a starting point to create a custom view health state configuration function.
 {% endhint %}
 
 ## See also
 
 * [Add a health check](../../checks-and-monitors/add-a-health-check.md)
 * [Send event notifications when a health state changes](/use/events/manage-event-handlers.md)
-* [Customize the view state configuration](../../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md "StackState Self-Hosted only")
-* [Create a custom view health state configuration function](../../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#create-a-custom-view-health-state-configuration-function "StackState Self-Hosted only")

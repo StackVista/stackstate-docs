@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState SaaS
 ---
 
 # Set up traces
@@ -22,7 +22,4 @@ When the StackState Agent V2 StackPack is installed, you can configure integrati
 
 * The [AWS X-ray integration](../../stackpacks/integrations/aws/aws-x-ray.md) collects tracing information from the in-built AWS distributed tracing system.
 * The [OpenTelemetry integration](../../stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md) adds topology and telemetry information from AWS Lambdas to traces.
-* The [DotNet APM integration](../../stackpacks/integrations/dotnet-apm.md "StackState Self-Hosted only") enables instrumentation for DotNet applications and sends traces back to StackState.
-* The [Java APM integration](../../stackpacks/integrations/java-apm.md "StackState Self-Hosted only") enables tracing support for Java JVM based systems.
-* The [Traefik integration](../../stackpacks/integrations/traefik.md "StackState Self-Hosted only") adds topology and telemetry information from Traefik to traces.
 
