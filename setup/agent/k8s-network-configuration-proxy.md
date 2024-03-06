@@ -4,7 +4,7 @@ The StackState Kubernetes Agent allows you to configure HTTP or HTTPS proxy sett
 
 ## Proxy for communication with StackState
 
-To configure the agent to proxy connections to the StackState backend, you can use either Helm configuration or environment variables.
+To configure the agent to proxy connections to the StackState backend, you can use Helm configuration.
 
 ### Helm Configuration
 
@@ -40,22 +40,3 @@ To configure the agent to proxy connections to the StackState backend, you can u
     ```bash
     helm install stackstate-k8s-agent stackstate/stackstate-k8s-agent --set global.skipSslValidation=true
     ```
-
-### Environment Variables
-
-The Helm chart provides a method to inject environment variables into the Agent pods. Follow these steps:
-
-1. Open your Helm chart `values.yaml` file.
-
-2. Set the following configurations under `global.extraEnv.open`:
-
-    ```yaml
-    global:
-        extraEnv:
-          open:
-            STS_PROXY_HTTPS: "https://proxy.example.com:8080"
-            STS_PROXY_HTTP: "http://proxy.example.com:8080"
-            STS_SKIP_SSL_VALIDATION: "true"
-    ```
-
-This configuration sets both HTTPS and HTTP proxies to the specified URLs (`https://proxy.example.com:8080` for HTTPS and `http://proxy.example.com:8080` for HTTP) and skips SSL validation.
