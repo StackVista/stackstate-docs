@@ -1,6 +1,6 @@
 # Configuring StackState Kubernetes Agent to Proxy Connections
 
-The StackState Kubernetes Agent allows you to configure HTTP or HTTPS proxy settings for the connections it initiates. This can be set up follows:
+The StackState Kubernetes Agent allows you to configure HTTP or HTTPS proxy settings for the connections it initiates.
 
 ## Proxy for communication with StackState
 
