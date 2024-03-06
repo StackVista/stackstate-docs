@@ -1,16 +1,10 @@
 # Configuring StackState Kubernetes Agent to Proxy Connections
 
-The StackState Kubernetes Agent allows you to configure HTTP or HTTPS proxy settings for the connections it initiates. This can be set up in two ways:
+The StackState Kubernetes Agent allows you to configure HTTP or HTTPS proxy settings for the connections it initiates. This can be set up follows:
 
-1. **Proxy for communication with StackState only:**
-   - In this mode, the agent only proxies connections made to the StackState backend.
+## Proxy for communication with StackState
 
-2. **Proxy for all Agent communication:**
-   - Here, the agent proxies all connections it initiates.
-
-## 1. Proxy for communication with StackState only
-
-To configure the agent to proxy connections only to the StackState backend, you can use either Helm configuration or environment variables.
+To configure the agent to proxy connections to the StackState backend, you can use either Helm configuration or environment variables.
 
 ### Helm Configuration
 
@@ -65,27 +59,3 @@ The Helm chart provides a method to inject environment variables into the Agent 
     ```
 
 This configuration sets both HTTPS and HTTP proxies to the specified URLs (`https://proxy.example.com:8080` for HTTPS and `http://proxy.example.com:8080` for HTTP) and skips SSL validation.
-
-## 2. Proxy for all Agent communication
-
-To configure the agent to proxy all connections it initiates, use environment variables.
-
-### Environment Variables
-
-The Helm chart provides a method to inject environment variables into the Agent pods. Follow these steps:
-
-1. Open your Helm chart `values.yaml` file.
-
-2. Set the following configurations under `global.extraEnv.open`:
-
-    ```yaml
-    global:
-        extraEnv:
-          open:
-            HTTP_PROXY: "https://proxy.example.com:8080"
-            HTTPS_PROXY: "https://proxy.example.com:8080"
-            STS_SKIP_SSL_VALIDATION: "true"
-    ```
-
-This configuration sets both HTTP and HTTPS proxies to the specified URL (`https://proxy.example.com:8080`) and skips SSL validation.
-
