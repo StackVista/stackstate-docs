@@ -87,6 +87,14 @@ Allows [Override Monitor arguments](/use/alerting/k8s-override-monitor-arguments
 
 Checks if a Pod that has been scheduled is running and ready to receive traffic within the expected amount of time.
 
+### Pod span duration
+
+Monitors the duration of the server and consumer spans. When the 95th percentile of the duration is greater than the threshold (default 5000ms) the monitor has a Deviating state. This monitor supports overriding settings via [monitor argument overrides](/use/alerting/k8s-override-monitor-arguments.md).
+
+### Pod span error ratio
+
+Monitors the percentage of the server and consumer spans that have an error status. If the percentage of error spans exceeds the threshold (default 5) the monitor has a Deviating state. This monitor supports overriding settings via [monitor argument overrides](/use/alerting/k8s-override-monitor-arguments.md).
+
 ### Pods in Waiting State
 
 If a pod is within a waiting state and contains a reason of CreateContainerConfigError, CreateContainerError, CrashLoopBackOff, or ImagePullBackOff it will be seen as deviating.
@@ -107,6 +115,14 @@ Additionally, the health state of the ReplicaSet will propagate to the Deploymen
 It is important to monitor the restarts for each container in a Kubernetes cluster. Containers can restart for a variety of reasons, including issues with the application or the infrastructure.
 To ensure that the application is running smoothly, StackState has set up a monitor that tracks the number of container restarts over a 10-minute period. If there are more than 3 restarts during this time frame, the container's health state will be set to DEVIATING, indicating that there may be an issue that needs to be investigated.
 
+### Service span duration
+
+Monitors the duration of the server and consumer spans. When the 95th percentile of the duration is greater than the threshold (default 5000ms) the monitor has a Deviating state. This monitor supports overriding settings via [monitor argument overrides](/use/alerting/k8s-override-monitor-arguments.md).
+
+### Service span error ratio
+
+Percentage of server and consumer spans that are in an error state for a Kubernetes service. This monitor supports overriding settings via [monitor argument overrides](/use/alerting/k8s-override-monitor-arguments.md).
+      
 ### Statefulset desired replicas
 
 It is important that the desired number of replicas for a StatefulSet is being met. StatefulSets are used to manage stateful applications and require a specific number of replicas to function properly.
