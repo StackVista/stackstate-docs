@@ -37,7 +37,7 @@
 * [Custom charts](use/metrics/k8s-custom-charts.md)
   * [Adding custom charts to components](use/metrics/k8s-add-charts.md)
   * [Writing PromQL queries for representative charts](use/metrics/k8s-writing-promql-for-charts.md)
-  * [Troubleshooting custom charts](/use/metrics/k8sTs-metrics-troubleshooting.md)
+  * [Troubleshooting custom charts](use/metrics/k8sTs-metrics-troubleshooting.md)
 * [Advanced Metrics](use/metrics/k8s-advanced.md)
   * [Grafana Datasource](use/metrics/k8s-stackstate-grafana-datasource.md)
   * [Prometheus remote_write](use/metrics/k8s-prometheus-remote-write.md)
@@ -123,5 +123,5 @@
 * [Service Tokens](use/security/k8s-service-tokens.md)
 
 ## Reference
-* [StackState Query Language \(STQL\)](/develop/reference/k8sTs-stql_reference.md)
-* [Chart units](/develop/reference/k8sTs-chart-units.md)
+* [StackState Query Language \(STQL\)](develop/reference/k8sTs-stql_reference.md)
+* [Chart units](develop/reference/k8sTs-chart-units.md)
