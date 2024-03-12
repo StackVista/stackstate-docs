@@ -6,13 +6,13 @@ description: StackState for Kubernetes troubleshooting
 
 ## Overview
 
-The **Filters** menu on the top right corner of the view UI allows you to filter the components (topology), events and traces displayed in a view. Once applied, the filters will affect the content of all the perspectives in a view.
+The **Filters** menu on the top right corner of the view UI allows you to filter the components (topology) and events displayed in a view. Once applied, the filters will affect the content of all the perspectives in a view.
 
 ![View filters](../../.gitbook/assets/k8s/k8s-filters.png)
 
 ## Filter topology
 
-Topology filters can be used to select a sub-set of topology components to be shown in any one of the available perspectives. Whilst the events and the traces filters are the same for all the view types, the topology filters depend on the type of view you are in. Read more:
+Topology filters can be used to select a sub-set of topology components to be shown in any one of the available perspectives. While the events filter is the same for all the view types, the topology filters depend on the type of view you are in. Read more:
 
 * [Topology filters on Kubernetes views](k8s-filters.md#topology-filters-on-kubernetes-views)
 * [Topology filters on other view types](k8s-filters.md#topology-filters-on-other-view-types)
@@ -120,14 +120,3 @@ The following event filters are available:
 | **Tags** | Relevant event properties will be added as tags when an event is retrieved from an external system. For example `status:open` or `status:production`. This can help to identify events relevant to a specific problem or environment.                                                                                                                                           |
 
 ![Events filters](../../.gitbook/assets/k8s/k8s-filters-events.png)
-
-## Filter traces
-
-Traces shown in the [Traces Perspective](perspectives/traces-perspective.md) can be filtered based on two properties of the spans they contain:
-
-* Span types
-* Span tags
-
-For example, if you filter the trace list for all spans of type `database`, this will return all traces that have at least one span whose type is `database`.
-
-![Traces filters](../../.gitbook/assets/k8s/k8s-filters-traces.png)

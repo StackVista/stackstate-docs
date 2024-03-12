@@ -20,12 +20,14 @@ The image below illustrates this action.
 
 The trace filters allow you to refine the traces displayed based on span status (Error, Ok or Unset), parent type (External, Internal or Root) and duration.
 
-In addition to these filters, the traces perspective shows traces matching the **Time Window** selected in the timeline control at the bottom of the StackState UI. Adjust the time window to show only traces from that time.
+In addition to these filters, the traces match the **Time Window** selected in the timeline control at the bottom of the StackState UI.
+Adjust the time window to show only traces from that time.
 
-## Traces and topology
+## Span details
 
-In StackState, a [view](k8s-view-structure.md) shows you a sub-selection of your IT infrastructure for a particular resource type.
-Applications that have been instrumented with OpenTelemetry can push their traces and metrics.
+In StackState, a [view](k8s-view-structure.md) shows you a sub-selection of your IT infrastructure for a particular Kubernetes resource.
+The traces perspective shows the spans related to the resource, along with their descendants and (on request) parents.
+As a descendant span can originate from an other resource, it is possible to navigate to it from the span details.
 
 ![A descendant span details](../../.gitbook/assets/k8s/k8s-traces-perspective-span-details.png)
 
