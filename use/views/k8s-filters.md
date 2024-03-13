@@ -39,7 +39,7 @@ The main way to filter topology is using the available basic filters. When you s
 | Filter | Description |
 | :--- | :--- |
 | Layers, Domains, Environments and Component types | Filter by the component details included when components are imported or created. |
-| Component health | Only include components with the named [health state](../concepts/health-state.md) as reported by the associated health check. |
+| Component health | Only include components with the named health state as reported by the associated health check. |
 | Component labels | Only include components with a specific label. |
 | Include components | Components named here will be included in the topology **in addition to** the components returned from other filters. |
 
@@ -72,14 +72,14 @@ You can switch between basic and advanced filtering by selecting **Switch to bas
 
 It's always possible to switch from basic to advanced filtering. The selected basic filters will be converted directly to an STQL query. For simple queries it's also possible to switch from advanced to basic filtering, however, some advanced queries aren't compatible with basic filters. 
 
-➡️ [Learn more about the compatibility of basic and advanced topology filters](/develop/reference/stql_reference.md#compatibility-basic-and-advanced-filters)
+➡️ [Learn more about the compatibility of basic and advanced topology filters](/develop/reference/k8sTs-stql_reference.md#compatibility-basic-and-advanced-filters)
 
 #### Other filters
 
 The advanced filters listed below are compatible with basic filtering, but can't be set or adjusted as a basic filter.
 
-* **withNeighborsOf** - when an advanced filter includes the function [withNeighborsOf](/develop/reference/stql_reference.md#withneighborsof), the number of components whose neighbors are queried for is shown in the **Other filters** box. To be compatible with basic filtering, a `withNeighborsOf` function must be joined to other filters using an `OR` operator.
-* **identifier** - when an advanced filter selects components by [identifier](/develop/reference/stql_reference.md#filters), the number of component identifiers queried is reported in the **Other filters** box. To be compatible with basic filtering, an `identifier` filter must be specified and joined to other filters using the operator `OR identifier IN (...)`.
+* **withNeighborsOf** - when an advanced filter includes the function [withNeighborsOf](/develop/reference/k8sTs-stql_reference.md#withneighborsof), the number of components whose neighbors are queried for is shown in the **Other filters** box. To be compatible with basic filtering, a `withNeighborsOf` function must be joined to other filters using an `OR` operator.
+* **identifier** - when an advanced filter selects components by [identifier](/develop/reference/k8sTs-stql_reference.md#filters), the number of component identifiers queried is reported in the **Other filters** box. To be compatible with basic filtering, an `identifier` filter must be specified and joined to other filters using the operator `OR identifier IN (...)`.
 
 The **Other filters** box in the basic topology filters lists all these advanced filters and the number of affected components.
 
@@ -108,13 +108,13 @@ layer = "applications"
 
 ## Filter events
 
-The **View Filters** panel on the left of the StackState UI can be used to filter the events shown in the [Events Perspective](perspectives/events_perspective.md). They're also included in the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**.
+The **View Filters** panel on the left of the StackState UI can be used to filter the events shown in the [Events Perspective](k8s-events-perspective.md). They're also included in the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**.
 
 The following event filters are available:
 
 | Filter | Description                                                                                                                                                                                                                                                                                                                                                                      |
 | :--- |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Category** | Show only events from one or more [categories](perspectives/events_perspective.md#event-category).                                                                                                                                                                                                                                                                              |
+| **Category** | Show only events from one or more [categories](k8s-events-perspective.md#event-category).                                                                                                                                                                                                                                                                              |
 | **Type** | Click the **Type** filter box to open a list of all event types that have been generated for the currently filtered components in the current time window. You can select one or more event types to refine the events displayed.                                                                                                                                               |
 | **Source** | Events can be generated by StackState or retrieved from an external source system, such as Kubernetes or ServiceNow, by an integration. Click the **Source** filter box to open a list of all source systems for events that have been generated for the currently filtered components in the current time window. Select one or more source systems to see only those events.  |
 | **Tags** | Relevant event properties will be added as tags when an event is retrieved from an external system. For example `status:open` or `status:production`. This can help to identify events relevant to a specific problem or environment.                                                                                                                                           |

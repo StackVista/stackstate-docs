@@ -69,14 +69,6 @@ To enable the OpenMetrics integration and begin collecting metrics data from an 
 {% endtab %}
 {% endtabs %}
 
-### Validation
-
-{% tabs %}
-{% tab title="Kubernetes, OpenShift" %}
-Follow the instructions on the Kubernetes Agent page to [track the status of the OpenMetrics check](/setup/agent/kubernetes-openshift.md#agent-check-status)
-{% endtab %}
-{% endtabs %}
-
 ## Data collected
 
 ### Metrics

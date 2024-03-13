@@ -285,5 +285,5 @@ readOnlyRootFilesystem: false
 
 * [Create a `nonha_values.yaml` file](/setup/install-stackstate/kubernetes_openshift/non_high_availability_setup.md)
 * [Create a `small_values.yaml` file](/setup/install-stackstate/kubernetes_openshift/small_profile_setup.md)
-* For other configuration and management options, refer to the Kubernetes documentation - [manage a StackState Kubernetes installation](kubernetes_install/)
+* For other configuration and management options, refer to the Kubernetes documentation - [manage a StackState Kubernetes installation](kubernetes_install.md)
 

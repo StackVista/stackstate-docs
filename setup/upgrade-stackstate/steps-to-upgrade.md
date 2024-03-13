@@ -34,10 +34,10 @@ If you are upgrading to a new **minor** StackState release or a **maintenance** 
 
 A minor upgrade consists of the following steps:
 
-1. [Create a backup](steps-to-upgrade.md#create-a-backup)
-2. [Upgrade StackState](steps-to-upgrade.md#upgrade-stackstate)
-3. [Verify the new installation](steps-to-upgrade.md#verify-the-new-installation)
-4. [Check if any installed StackPacks require an upgrade](stackpack-versions.md)
+1. [Create a backup](#create-a-backup)
+2. [Upgrade StackState](#upgrade-stackstate)
+3. [Verify the new installation](#verify-the-new-installation)
+4. Check if any installed StackPacks require an upgrade
 
 ### Major StackState release
 

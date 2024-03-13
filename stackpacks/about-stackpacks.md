@@ -8,15 +8,7 @@ description: StackState Self-hosted v5.1.x
 
 StackPacks extend StackState functionality and offer automated integration with external systems. They can be easily installed and uninstalled from the StackPacks page in StackState.
 
-There are two types of StackPack - Add-ons and Integrations. The available StackPack add-ons and integrations can be found on the **StackPacks** page in the StackState UI. You can also find details on these pages:
-
-* [Add-ons](add-ons/) extend the functionality of StackState.
-* [Integrations](integrations/) allow deep integrations with various external services. These may come with a companion integration that translates data from the external system to data that StackState understands.
-
-{% hint style="success" "self-hosted info" %}
-
-A full list of the StackPacks shipped with each supported version of StackState is available on the [StackPack versions](../setup/upgrade-stackstate/stackpack-versions.md) page.
-{% endhint %}
+There are two types of StackPack - Add-ons and Integrations. The available StackPack add-ons and integrations can be found on the **StackPacks** page in the StackState UI.
 
 ## Install or uninstall a StackPack
 
@@ -44,11 +36,6 @@ When a StackPack is upgraded, **any changes made to configuration items from tha
 {% endhint %}
 
 If a new StackPack version is available, an alert will be displayed on the StackState UI StackPack page and you will have the option to view the upgrade details and read the release notes. If the new release is a minor upgrade from the currently installed version, you can also upgrade the StackPack from here.
-
-{% hint style="success" "self-hosted info" %}
-
-A full list of the StackPacks shipped with each supported version of StackState is available on the [StackPack versions](../setup/upgrade-stackstate/stackpack-versions.md) page.
-{% endhint %}
 
 ### New minor StackPack version
 

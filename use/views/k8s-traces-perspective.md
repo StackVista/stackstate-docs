@@ -44,4 +44,4 @@ The selected time interval can be reset by clicking later.
 
 ## Time Travel
 
-When using the Traces Perspective, just like in other perspectives, you can either be in live mode or [time travel to the past](../timeline-time-travel.md#time-travel).
+When using the Traces Perspective, just like in other perspectives, you can either be in live mode or [time travel to the past](../stackstate-ui/k8sTs-timeline-time-travel.md#time-travel).
