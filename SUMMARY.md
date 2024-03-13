@@ -44,8 +44,13 @@
   * [OpenMetrics](use/metrics/open-metrics.md)
 
 ## 📑 Logs
+
 * [Explore Logs](use/logs/k8sTs-explore-logs.md)
 * [Log Shipping](use/logs/k8sTs-log-shipping.md)
+
+## 🔭 Traces
+
+* [Explore Traces](use/traces/k8sTs-explore-traces.md)
 
 ## 🔍 Views
 
