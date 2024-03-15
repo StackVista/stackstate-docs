@@ -137,6 +137,30 @@ To monitor this, StackState has set up a check that verifies if the available re
 
 If you encounter a "NodeNotSchedulable" event in Kubernetes, it means that the Kubernetes scheduler was unable to place a pod on a specific node due to some constraints or issues with the node. This event occurs when the scheduler cannot find a suitable node to run the pod according to its resource requirements and other constraints.
 
+### Aggregated health state of a Cluster
+
+Cluster doesn't have any health itself. But a cluster is build from few components, some of them are critical to normal operation. The monitor aggregates states of these components:
+- all pods in 'kube-system' namespace
+- all nodes
+and then takes the most critical health state.
+
+### Aggregated health state of a DaemonSet
+
+The monitor aggregates states of all children Pods and then returns the most critical health state.
+
+### Aggregated health state of a Deployment
+
+The monitor aggregates states of all children ReplicaSets and then returns the most critical health state. ReplicaSets have
+the similar Monitor, so eventually this one aggregates health states of all children ReplicaSets and Pods.
+
+### Aggregated health state of a ReplicaSet
+
+The monitor aggregates states of all children Pods and then returns the most critical health state.
+
+### Aggregated health state of a StatefulSet
+
+The monitor aggregates states of all children Pods and then returns the most critical health state.
+
 ## See also
 
 * [Monitors](/use/alerting/k8s-monitors.md)
