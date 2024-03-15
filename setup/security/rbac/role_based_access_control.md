@@ -17,7 +17,7 @@ Here are some examples of what you can do with RBAC:
 
 ## What's a role in StackState?
 
-A role in StackState is a combination of a [configured subject](rbac_subjects.md) and a set of [permissions](rbac_permissions.md). Process of setting up a role in StackState is described in [How to set up roles](rbac_roles.md).
+A role in StackState is a combination of a configured subject and a set of [permissions](rbac_permissions.md). Process of setting up a role in StackState is described in [How to set up roles](rbac_roles.md).
 
 ## More on RBAC configuration
 

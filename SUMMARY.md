@@ -37,15 +37,20 @@
 * [Custom charts](use/metrics/k8s-custom-charts.md)
   * [Adding custom charts to components](use/metrics/k8s-add-charts.md)
   * [Writing PromQL queries for representative charts](use/metrics/k8s-writing-promql-for-charts.md)
-  * [Troubleshooting custom charts](/use/metrics/k8sTs-metrics-troubleshooting.md)
+  * [Troubleshooting custom charts](use/metrics/k8sTs-metrics-troubleshooting.md)
 * [Advanced Metrics](use/metrics/k8s-advanced.md)
   * [Grafana Datasource](use/metrics/k8s-stackstate-grafana-datasource.md)
   * [Prometheus remote_write](use/metrics/k8s-prometheus-remote-write.md)
   * [OpenMetrics](use/metrics/open-metrics.md)
 
 ## 📑 Logs
+
 * [Explore Logs](use/logs/k8sTs-explore-logs.md)
 * [Log Shipping](use/logs/k8sTs-log-shipping.md)
+
+## 🔭 Traces
+
+* [Explore Traces](use/traces/k8sTs-explore-traces.md)
 
 ## 🔍 Views
 
@@ -60,6 +65,7 @@
   * [Topology perspective](use/views/k8s-topology-perspective.md)
   * [Events perspective](use/views/k8s-events-perspective.md)
   * [Metrics perspective](use/views/k8s-metrics-perspective.md)
+  * [Traces perspective](use/views/k8s-traces-perspective.md)
 * [Timeline and time travel](use/stackstate-ui/k8sTs-timeline-time-travel.md)
 
 ## 🕵️ Agent
@@ -86,8 +92,10 @@
     * [Exposing StackState outside of the cluster](setup/install-stackstate/kubernetes_openshift/ingress.md)
   * [Initial run guide](setup/install-stackstate/initial_run_guide.md)
   * [Troubleshooting](setup/install-stackstate/troubleshooting.md)
+    * [Logs](configure/logging/kubernetes-logs.md)
 * [Configure StackState](setup/confiug-stackstate/README.md)
   * [Slack notifications](setup/configure-stackstate/slack-notifications.md)
+  * [Stackpacks](stackpacks/about-stackpacks.md)
 * [Upgrade StackState](setup/upgrade-stackstate/README.md)
   * [Steps to upgrade](setup/upgrade-stackstate/steps-to-upgrade.md)
   * [Version-specific upgrade instructions](setup/upgrade-stackstate/version-specific-upgrade-instructions.md)
@@ -122,5 +130,5 @@
 * [Service Tokens](use/security/k8s-service-tokens.md)
 
 ## Reference
-* [StackState Query Language \(STQL\)](/develop/reference/k8sTs-stql_reference.md)
-* [Chart units](/develop/reference/k8sTs-chart-units.md)
+* [StackState Query Language \(STQL\)](develop/reference/k8sTs-stql_reference.md)
+* [Chart units](develop/reference/k8sTs-chart-units.md)

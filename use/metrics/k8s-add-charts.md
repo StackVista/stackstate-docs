@@ -112,7 +112,7 @@ In this specific case use `max_over_time` to make sure the chart always shows th
 Copy the query into the `expression` property of the first entry in the `queries` field of the metric binding. Use `Total replicas` as an alias. This is the name that will show in the chart legend.
 
 {% hint style="info" %}
-In StackState the size of the metric chart automatically determines the granularity of the metric shown in the chart. PromQL queries can adjusted to make optimal use of this behavior to get a representative chart for the metric. [Writing PromQL for charts](./k8s-writing-PromQL-for-charts.md) explains this in detail.
+In StackState the size of the metric chart automatically determines the granularity of the metric shown in the chart. PromQL queries can adjusted to make optimal use of this behavior to get a representative chart for the metric. [Writing PromQL for charts](./k8s-writing-promql-for-charts.md) explains this in detail.
 {% endhint %}
 
 ## Bind the correct time series to each component

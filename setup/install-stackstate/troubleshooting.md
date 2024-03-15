@@ -40,7 +40,7 @@ Here is a quick guide for troubleshooting the startup of StackState:
    
    The output contains an `event` section at the end which usually contains the problem. It also has a `State` section for each container that has more details for termination of the container.
 
-3. [Check the logs](/configure/logging/README.md) for errors.
+3. [Check the logs](/configure/logging/kubernetes-logs.md) for errors.
 4. Check the Knowledge base on the [StackState Support site](https://support.stackstate.com/).
 
 ## Known issues

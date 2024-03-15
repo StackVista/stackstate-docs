@@ -18,7 +18,7 @@ Click on the Legend button (?) in the bottom right of the screen (just below the
 
 ## Components
 
-The Topology Perspective shows the filtered components and relations in a selected [view](k8s-view-structure.md). Components that have one or more health checks configured will report a calculated [health state](../../concepts/health-state.md).
+The Topology Perspective shows the filtered components and relations in a selected [view](k8s-view-structure.md). Components that have one or more [monitors](../../use/alerting/k8s-monitors.md) configured will report a calculated health state.
 
 * Select a component to display [detailed component information](/use/concepts/components.md#component-details) in the right panel details tab - **Component details**.
 * Hover over a component to open the [component context menu](#component-context-menu).
