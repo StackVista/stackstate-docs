@@ -23,6 +23,11 @@ The trace filters allow you to refine the traces displayed based on span status 
 In addition to these filters, the traces match the **Time Window** selected in the timeline control at the bottom of the StackState UI.
 Adjust the time window to show only traces from that time.
 
+### Filtering the duration
+
+As shown in the second screenshot, it is possible to select a duration interval for the span Duration by brushing the histogram.
+Zooming out can be achieved by clearing all filters, or by brushing the entire range.
+
 ## Span details
 
 In StackState, a [view](k8s-view-structure.md) shows you a sub-selection of your IT infrastructure for a particular Kubernetes resource.
@@ -35,12 +40,8 @@ The two images above illustrate these concepts by showing a checkout service who
 You can see an example of a trace and its spans for a request to place an order.
 A descendant span has been highlighted and its details are shown, including links to components that are related to it.
 
-## Zooming in and out
-
-As shown in the second screenshot, it is possible to select a duration interval for the span Duration by brushing the histogram.
-Zooming out can be achieved by clearing all filters, or by brushing the entire range.
-Similarly brushing a trace will zoom in on a particular time interval.
-The selected time interval can be reset by clicking later.
+Similarly brushing a trace will zoom in on a particular time section of the trace.
+The selection can be reset by clicking later.
 
 ## Time Travel
 
