@@ -2,19 +2,25 @@
 description: StackState Self-hosted v5.1.x 
 ---
 
-# 💠 StackState Agent V2
+# 💠 StackState Agent V3
 
 ## Overview
 
-The StackState Agent V2 StackPack works with [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) to synchronize topology, metrics, events and traces data from external systems with StackState. A number of integrations are automatically enabled when the StackState Agent V2 StackPack is installed, however, integration with some systems will require an additional StackPack and configuration.
+The StackState Agent V2 StackPack works with [StackState Agent V3](../../setup/agent/about-stackstate-agent.md) to synchronize topology, metrics, events and traces data from external systems with StackState. A number of integrations are automatically enabled when the StackState Agent V2 StackPack is installed, however, integration with some systems will require an additional StackPack and configuration.
 
 StackState Agent V2 is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
+
+## Note on StackPack V2 and Agent V3
+
+The StackState Agent V3 has been released with feature parity and full backwards-compatibility with the StackState Agent V2 StackPack.  Agent V2 has been sunsetted, and no new features will be added to it.  The core difference between V2 and V3 is the bundled Python runtime,  and therefore Python support for custom StackPacks and integrations.
+
+Please note that V3 refers only to the agent, and V2 is the version of the Agent StackPack.  The StackState Agent V2 StackPack is compatible with StackState Agent V3.
 
 ## Setup
 
 ### Prerequisites
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to StackState and any system you will integrate with.
+* [StackState Agent V3](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to StackState and any system you will integrate with.
 
 ### Install
 
@@ -49,13 +55,13 @@ When a new version of the StackState Agent V2 StackPack is available in your ins
 For an overview of recent StackPack updates, check the [StackPack versions](/setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release.
 {% endhint %}
 
-To upgrade StackState Agent V2, see the [StackState Agent documentation](/setup/agent/).
+To upgrade StackState Agent V3, see the [StackState Agent documentation](/setup/agent/).
 
 ## Integration details
 
 ### Data retrieved
 
-When installed and running, StackState Agent V2 will synchronize the following data with StackState from the host it's running on:
+When installed and running, StackState Agent V3 will synchronize the following data with StackState from the host it's running on:
 
 Linux:
 
@@ -80,7 +86,7 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 Uninstall the StackState Agent V2 StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen.
 
-To uninstall StackState Agent V2, see the [StackState Agent documentation](/setup/agent/).
+To uninstall StackState Agent V3, see the [StackState Agent documentation](/setup/agent/).
 
 ## Release notes
 

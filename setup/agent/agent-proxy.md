@@ -101,7 +101,7 @@ docker run -d \
  -e HOST_PROC="/host/proc" \
  -e HTTP_PROXY="http://example.com:1234" \
  -e HTTPS_PROXY="https://example.com:1234" \
- docker.io/stackstate/stackstate-agent-2:latest
+ quay.io/stackstate/stackstate-agent:latest
 ```
 
 **Docker compose**
@@ -165,7 +165,7 @@ To configure a proxy for an Agent running on Windows, add the required environme
 
 ## Proxy for communication with StackState only
 
-A proxy can be configured to be used only for communication between StackState Agent V2 and StackState. This can be set up either by using environment variables or by updating the Agent configuration file.
+A proxy can be configured to be used only for communication between StackState Agent V3 and StackState. This can be set up either by using environment variables or by updating the Agent configuration file.
 
 ### Environment variables
 
@@ -246,7 +246,7 @@ docker run -d \
  -e HOST_PROC="/host/proc" \
  -e STS_PROXY_HTTP="http://example.com:1234" \
  -e STS_PROXY_HTTPS="https://example.com:1234" \
- docker.io/stackstate/stackstate-agent-2:latest
+ quay.io/stackstate/stackstate-agent:latest
 ```
 
 **Docker compose**

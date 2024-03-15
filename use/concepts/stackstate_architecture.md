@@ -34,9 +34,9 @@ You can optionally install the [StackState CLI](/setup/cli) to control your Stac
 
 ## Open source
 
-### StackState Agent V2
+### StackState Agent V3
 
-StackState Agent V2 is open source and available on GitHub:
+StackState Agent V3 is open source and available on GitHub:
 
 * Agent - [https://github.com/StackVista/stackstate-agent](https://github.com/StackVista/stackstate-agent)
 * Agent integrations - [https://github.com/StackVista/stackstate-agent-integrations](https://github.com/StackVista/stackstate-agent-integrations)
