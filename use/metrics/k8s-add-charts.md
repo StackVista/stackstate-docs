@@ -46,6 +46,16 @@ nodes:
     - expression:
       alias:
   scope:
+  layout:
+    weight:
+    layouts:
+      - pespective: Metrics
+        tab: 
+          name: 
+          weight:
+        section: 
+          name:
+          weight:
 ```
 
 The fields in this template are:
@@ -57,10 +67,11 @@ The fields in this template are:
 * `unit`: The unit of the values in the time series returned by the query or queries, used to render the Y-axis of the chart. See the [supported units](/develop/reference/k8sTs-chart-units.md) reference for all units.
 * `name`: The name for the metric binding
 * `description`: Optional description, displayed on-hover of the name
-* `priority`: One of `HIGH`, `MEDIUM`, or `LOW`. Main sort order for metrics on a component (in the order they're mentioned here), secondary sort order is the `name`.
+* `priority`: [Deprecated] One of `HIGH`, `MEDIUM`, or `LOW`. Main sort order for metrics on a component (in the order they're mentioned here), secondary sort order is the `name`.
 * `identifier`: A URN (universal resource identifier), used as the unique identifier of the metric binding. It must start with `urn:custom:metric-binding:`, the remainder is free-format as long as it's unique amongst all metric bindings.
 * `queries`: A list of queries to show in the chart for the metric binding (see also the following sections)
 * `scope`: The topology scope of the metric binding, a topology query that selects the components on which this metric binding will be shown.
+* `layout`: How to groups charts on different perspective views, e.g. on [Metrics perspective](../../use/stackstate-ui/perspectives/metrics-perspective.md)
 
 Fill in all the parts already known first (with the deployment replica counts as the example)
 
@@ -272,3 +283,32 @@ unit: short
 ```
 
 Note that the `alias` references the `container` label of the metric. Make sure the label is present on the query result, when the label is missing the `${container}` will be rendered as literal text to help troubleshooting.
+
+### Layouts
+
+Each component can be associated with various technologies or protocols such as k8s, networking, runtime environments (e.g., JVM), protocols (HTTP, AMQP), etc. 
+Consequently, a multitude of different metrics can be displayed for each component. For easier readability, StackState can organize these charts into tabs and sections.
+To display a chart (`MetricBinding`) within a specific tab or section, you need to configure the layout property. 
+Any MetricsBinding without a specified layout will be displayed in a tab and section named `Other`.
+
+Here is an example configuration:
+```
+layout:
+  weight: 100
+  layouts:
+    - perspective: Metrics
+      tab:
+        name: AMQP
+        weight: 150
+      section:
+        name: Performance
+        weight: 300
+```
+
+Fields:
+- `layout.weight` - This represents the weight of the chart within sections. The charts are sorted in ascending order by weight, followed by alphabetical order.
+- `layout.layouts` -  (array) This allows each chart to be added to multiple views (perspectives).
+- `layout.layouts.perspective` - This is the type of perspective to display the chart. Currently, only the `Metrics` perspective is supported. 
+  - `Metrics` - display on [Metrics perspective](../../use/stackstate-ui/perspectives/metrics-perspective.md)
+- `layout.layouts.tab` - This indicates the tab `name` and its `weight`. Tabs are sorted ascending by weight (the lowest one from all `MetricBinding`), followed by alphabetical order.
+- `layout.layouts.section` - This is the section `name` and its `weight`. Sections are sorted alphabetically.
