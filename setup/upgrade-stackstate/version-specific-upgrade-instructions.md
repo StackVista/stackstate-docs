@@ -36,7 +36,7 @@ kubectl delete statefulset -l app.kubernetes.io/component=zookeeper -n stackstat
 * A new `stackstate/stackstate-agent` helm chart is available to deploy the StackState Agent, Checks Agent, Node Agent and kube_state_metrics on Kubernetes and OpenShift clusters. Some values have been renamed in the new chart.
   * The old `stackstate/cluster-agent` chart is being deprecated and will no longer be supported. 
   * If you were using the old `stackstate/cluster-agent` helm chart, you should [review and update your values.yaml file](/setup/agent/kubernetes-openshift.md#upgrade-helm-chart) before deploying with the new chart.
-* All Splunk checks can now run on Agent V2. If you have any Splunk checks running on Agent V1 (legacy) (Splunk Metrics, Splunk Events or Splunk Topology V1), you should [upgrade to Agent V2 and migrate any checks configured to run on Agent V1 \(legacy\)](/setup/agent/migrate-agent-v1-to-v2/).Agent V1 (legacy) and will be deprecated in a future release of StackState.
+* All Splunk checks can now run on Agent V3. If you have any Splunk checks running on Agent V1 (legacy) (Splunk Metrics, Splunk Events or Splunk Topology V1), you should [upgrade to Agent V2 and migrate any checks configured to run on Agent V1 \(legacy\)](/setup/agent/migrate-agent-v1-to-v2/).Agent V1 (legacy) and will be deprecated in a future release of StackState.
 
 {% endtab %}
 {% tab title="Linux" %}

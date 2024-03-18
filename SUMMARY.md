@@ -35,7 +35,7 @@
   * [StackPack versions](setup/upgrade-stackstate/stackpack-versions.md)
   * [StackState release notes](setup/upgrade-stackstate/sts-release-notes.md)
 * [StackState Agent](setup/agent/README.md)
-  * [About StackState Agent V2](setup/agent/about-stackstate-agent.md)
+  * [About StackState Agent V3](setup/agent/about-stackstate-agent.md)
   * [Docker](setup/agent/docker.md)
   * [Kubernetes / OpenShift](setup/agent/kubernetes-openshift.md)
   * [Linux](setup/agent/linux.md)

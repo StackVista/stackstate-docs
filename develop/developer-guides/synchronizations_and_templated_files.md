@@ -41,7 +41,7 @@ Preparing a templated file is a process that requires some configuration of Stac
 
 ### 1. Prepare a check in StackState Agent
 
-The first step is to prepare a check using the Agent V2 StackPack. This step allows for getting data from synchronizations that you configure in the next steps. Find out more about [Agent V2 checks](../../setup/agent/about-stackstate-agent.md).
+The first step is to prepare a check using the Agent V2 StackPack. This step allows for getting data from synchronizations that you configure in the next steps. Find out more about [Agent V3 checks](../../setup/agent/about-stackstate-agent.md).
 
 ### 2. Install Custom Synchronization StackPack
 
@@ -50,7 +50,7 @@ To install this StackPack go to StackState's StackPacks section and locate the "
 * Instance type \(source identifier\) - this is the identifier for the resource that you want to integrate with StackState, for example, AWS, Azure and Zabbix.
 * Instance URL - The URL of the instance the data is being reported for.
 
-When the above information is provided click the "Install" button and if Agent V2 checks are working you should start to see the topology coming in for your integration and the "Custom Synchronization" should become enabled.
+When the above information is provided click the "Install" button and if Agent V3 checks are working you should start to see the topology coming in for your integration and the "Custom Synchronization" should become enabled.
 
 ### 3. Configure Layers, Domains, and Environments
 
@@ -98,7 +98,7 @@ Synchronizations are defined by a data source and several mappings from the exte
 
 #### Step 1
 
-We recommend that you change the `Synchronization Name` and add a `Description` if needed. There is no action required on `Plugin`, it uses the `Sts` plugin to synchronize data from StackState Agent V2.
+We recommend that you change the `Synchronization Name` and add a `Description` if needed. There is no action required on `Plugin`, it uses the `Sts` plugin to synchronize data from StackState Agent V3.
 
 #### Step 2
 

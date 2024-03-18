@@ -7,22 +7,22 @@ description: StackState Self-hosted v5.1.x
 ## Overview
 
 {% hint style="info" %}
-**StackState Agent V2**
+**StackState Agent V3**
 {% endhint %}
 
-StackState Agent V2 can run in a Docker container. The Agent collects data from the host where it's running and can be configured to integrate with external systems. Retrieved data is pushed to StackState, to work with this data the [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md) must be installed in your StackState instance. For details of the data retrieved and available integrations, see the [StackPack integration documentation](../../stackpacks/integrations/).
+StackState Agent V3 can run in a Docker container. The Agent collects data from the host where it's running and can be configured to integrate with external systems. Retrieved data is pushed to StackState, to work with this data the [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md) must be installed in your StackState instance. For details of the data retrieved and available integrations, see the [StackPack integration documentation](../../stackpacks/integrations/).
 
 In Docker Swarm mode, the StackState Swarm Agent can be deployed on the manager node to retrieve topology data for the cluster.
 
 ## Monitoring
 
-StackState Agent V2 will retrieve topology and metrics data from the host that it's running on. In [Docker swarm mode](#docker-swarm-mode), StackState Cluster Agent running on the manager node will synchronize data for a Docker cluster. For details, see the [data retrieved](#data-retrieved).
+StackState Agent V3 will retrieve topology and metrics data from the host that it's running on. In [Docker swarm mode](#docker-swarm-mode), StackState Cluster Agent running on the manager node will synchronize data for a Docker cluster. For details, see the [data retrieved](#data-retrieved).
 
 ## Setup
 
 ### Single container
 
-To start a single Docker container with StackState Agent V2, run the command below.
+To start a single Docker container with StackState Agent V3, run the command below.
 
 * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
 * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
@@ -51,13 +51,13 @@ docker run -d \
     -e STS_APM_ENABLED="true" \
     -e HOST_PROC="/host/proc" \
     -e HOST_SYS="/host/sys" \
-    docker.io/stackstate/stackstate-agent-2:2.19.1
+    quay.io/stackstate/stackstate-agent:3.0.0
 ```
 {% endcode %}
 
 ### Docker compose
 
-To run StackState Agent V2 with Docker compose:
+To run StackState Agent V3 with Docker compose:
 
 1. Add the following configuration to the compose file on each node where the Agent will run.
    * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
@@ -67,7 +67,7 @@ To run StackState Agent V2 with Docker compose:
    {% code lineNumbers="true" %}
    ```bash
    stackstate-agent:
-    image: docker.io/stackstate/stackstate-agent-2:2.19.1
+    image: quay.io/stackstate/stackstate-agent:3.0.0
     network_mode: "host"
     pid: "host"
     privileged: true
@@ -99,7 +99,7 @@ To run StackState Agent V2 with Docker compose:
 
 ### Docker swarm mode
 
-In Docker Swarm mode, the StackState Cluster Agent can be deployed on the manager node to retrieve basic topology data \(services, containers and the relations between them\). To retrieve full data, StackState Agent V2 must also be deployed on each node as a [Docker compose setup](docker.md#docker-compose).
+In Docker Swarm mode, the StackState Cluster Agent can be deployed on the manager node to retrieve basic topology data \(services, containers and the relations between them\). To retrieve full data, StackState Agent V3 must also be deployed on each node as a [Docker compose setup](docker.md#docker-compose).
 
 To run StackState Swarm Agent in Docker Swarm mode:
 
@@ -112,7 +112,7 @@ To run StackState Swarm Agent in Docker Swarm mode:
    {% code lineNumbers="true" %}
    ```bash
    stackstate-agent:
-       image: docker.io/stackstate/stackstate-swarm-agent:2.19.1
+       image: quay.io/stackstate/stackstate-swarm-agent:2.19.1
        deploy:
          placement:
            constraints: [ node.role == manager ]
@@ -138,7 +138,7 @@ To run StackState Swarm Agent in Docker Swarm mode:
    ```
 
 {% hint style="info" %}
-Running the StackState Swarm Agent in Docker Swarm mode will collect basic topology data from the cluster. To retrieve more data, including telemetry, StackState Agent V2 must also be installed on each node in the Swarm cluster as a [Docker compose setup](docker.md#docker-compose).
+Running the StackState Swarm Agent in Docker Swarm mode will collect basic topology data from the cluster. To retrieve more data, including telemetry, StackState Agent V3 must also be installed on each node in the Swarm cluster as a [Docker compose setup](docker.md#docker-compose).
 {% endhint %}
 
 ### Upgrade
@@ -173,7 +173,7 @@ For example, the Agent Docker configuration below includes a volume with a check
 {% code lineNumbers="true" %}
 ```bash
 stackstate-agent:
-    image: docker.io/stackstate/stackstate-agent-2:2.19.1
+    image: quay.io/stackstate/stackstate-agent:3.0.0
     network_mode: "host"
     pid: "host"
     privileged: true
@@ -286,7 +286,7 @@ For example:
 {% code lineNumbers="true" %}
 ```bash
 stackstate-agent:
-  image: docker.io/stackstate/stackstate-agent-2:2.19.1
+  image: quay.io/stackstate/stackstate-agent:3.0.0
   network_mode: "host"
   pid: "host"
   privileged: true

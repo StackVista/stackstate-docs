@@ -7,14 +7,14 @@ description: StackState Self-hosted v5.1.x
 {% hint style="warning" %}
 **Agent V1 (legacy) will be deprecated in a future release of StackState.** 
 
-If you are still running Agent V1 (legacy), it's advised that you upgrade to Agent V2 and migrate all checks to run on Agent V2.
+If you are still running Agent V1 (legacy), it's advised that you upgrade to Agent V2 or V3 and migrate all checks to run on Agent V2 / V3.
 
 ➡️ [Migrate Agent V1 (legacy) to Agent V2](/setup/agent/migrate-agent-v1-to-v2/)
 {% endhint %}
 
 ## Overview
 
-Prior to StackState v5.1, Agent V1 (legacy) was used to run checks that connect to [Splunk](/stackpacks/integrations/splunk/splunk_stackpack.md) to retrieve metrics and events data. From StackState v5.1, all Agent checks run on [StackState Agent V2](about-stackstate-agent.md).
+Prior to StackState v5.1, Agent V1 (legacy) was used to run checks that connect to [Splunk](/stackpacks/integrations/splunk/splunk_stackpack.md) to retrieve metrics and events data. From StackState v5.1, all Agent checks run on [StackState Agent V3](about-stackstate-agent.md).
 
 StackState Agent V1 (legacy) is open source: [View the source code on GitHub](https://github.com/StackVista/sts-agent).
 
@@ -23,7 +23,7 @@ StackState Agent V1 (legacy) is open source: [View the source code on GitHub](ht
 {% hint style="warning" %}
 **Agent V1 (legacy) will be deprecated in a future release of StackState.** 
 
-It's advised that you install Agent V2 and migrate all checks to run on Agent V2.
+It's advised that you install Agent V2 or V3 and migrate all checks to run on Agent V2 / V3.
 
 ➡️ [Migrate Agent V1 (legacy) to Agent V2](/setup/agent/migrate-agent-v1-to-v2/)
 {% endhint %}
@@ -172,6 +172,6 @@ If you are still having trouble, contact our support team on the [StackState sup
 
 ## See also
 
-* [StackState Agent V2](/setup/agent/about-stackstate-agent.md)
+* [StackState Agent V3](/setup/agent/about-stackstate-agent.md)
 * [Migrate Agent V1 \(lecacy\) to Agent V2](/setup/agent/migrate-agent-v1-to-v2/)
 

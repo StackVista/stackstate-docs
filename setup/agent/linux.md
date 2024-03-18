@@ -7,14 +7,14 @@ description: StackState Self-hosted v5.1.x
 ## Overview
 
 {% hint style="info" %}
-**StackState Agent V2**
+**StackState Agent V3**
 {% endhint %}
 
-StackState Agent V2 can be installed on Linux systems running CentOS, Debian, Fedora, RedHat or Ubuntu. The Agent collects data from the host where it's running and can be configured to integrate with external systems. Retrieved data is pushed to StackState, to work with this data the [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md) must be installed in your StackState instance. For details of the data retrieved and available integrations, see the [StackPack integration documentation](../../stackpacks/integrations/).
+StackState Agent V3 can be installed on Linux systems running CentOS, Debian, Fedora, RedHat or Ubuntu. The Agent collects data from the host where it's running and can be configured to integrate with external systems. Retrieved data is pushed to StackState, to work with this data the [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md) must be installed in your StackState instance. For details of the data retrieved and available integrations, see the [StackPack integration documentation](../../stackpacks/integrations/).
 
 ## Monitoring
 
-StackState Agent V2 will synchronize the following data with StackState from the Linux host it's running on:
+StackState Agent V3 will synchronize the following data with StackState from the Linux host it's running on:
 
 * Hosts, processes and containers.
 * Telemetry for hosts, processes and containers.
@@ -39,7 +39,7 @@ StackState Agent is tested to run on the Linux versions listed below with 64bit 
 
 ### Install
 
-StackState Agent V2 is installed using an install script.
+StackState Agent V3 is installed using an install script.
 
 * [Online install](linux.md#online-install) - If you have access to the internet on the machine where the Agent will be installed. 
 * [Offline install](linux.md#offline-install) - If you **don't** have access to the internet on the machine where the Agent will be installed.
@@ -98,7 +98,7 @@ STS_INSTALL_NO_REPO=yes \
 
 ### Upgrade
 
-To upgrade StackState Agent V2 on your system, stop the `stackstate-agent` service and upgrade using `yum` or `apt-get`. To upgrade offline, download the Agent installer package \(DEB or RPM package\) and copy this to the host where it will be installed - see step 2 in the [offline install instructions](linux.md#offline-install).
+To upgrade StackState Agent V3 on your system, stop the `stackstate-agent` service and upgrade using `yum` or `apt-get`. To upgrade offline, download the Agent installer package \(DEB or RPM package\) and copy this to the host where it will be installed - see step 2 in the [offline install instructions](linux.md#offline-install).
 
 {% tabs %}
 {% tab title="yum" %}
@@ -134,15 +134,15 @@ sudo apt-get upgrade <agent_installer_package>.deb
 
 ### Agent configuration
 
-The StackState Agent V2 configuration is located in the file `/etc/stackstate-agent/stackstate.yaml`. The `<STACKSTATE_RECEIVER_API_KEY>` and `<STACKSTATE_BASE_URL>` specified during installation will be added here by the install script. No further configuration should be required, however, a number of advanced configuration options are available.
+The StackState Agent V3 configuration is located in the file `/etc/stackstate-agent/stackstate.yaml`. The `<STACKSTATE_RECEIVER_API_KEY>` and `<STACKSTATE_BASE_URL>` specified during installation will be added here by the install script. No further configuration should be required, however, a number of advanced configuration options are available.
 
 ### Advanced Agent configuration
 
-StackState Agent V2 can be configured to reduce data production, tune the process blacklist, or turn off specific features when not needed. The required settings are described in detail on the page [advanced Agent configuration](advanced-agent-configuration.md).
+StackState Agent V3 can be configured to reduce data production, tune the process blacklist, or turn off specific features when not needed. The required settings are described in detail on the page [advanced Agent configuration](advanced-agent-configuration.md).
 
 ### Integration configuration
 
-The Agent can be configured to run checks that integrate with external systems. Configuration files for integrations run through StackState Agent V2 can be found in the directory `/etc/stackstate-agent/conf.d/`. Each integration has its own configuration file that's used by the associated Agent check.
+The Agent can be configured to run checks that integrate with external systems. Configuration files for integrations run through StackState Agent V3 can be found in the directory `/etc/stackstate-agent/conf.d/`. Each integration has its own configuration file that's used by the associated Agent check.
 
 Documentation for the available StackState integrations, including configuration details can be found on the [StackPacks &gt; Integrations pages](../../stackpacks/integrations/).
 
@@ -158,7 +158,7 @@ Commands require elevated privileges.
 
 ### Start, stop or restart the Agent
 
-To manually start, stop or restart StackState Agent V2:
+To manually start, stop or restart StackState Agent V3:
 
 ```text
 # with systemctl
@@ -174,7 +174,7 @@ sudo service stackstate-agent restart
 
 ### Status and information
 
-To check if StackState Agent V2 is running and receive information about the Agent's state:
+To check if StackState Agent V3 is running and receive information about the Agent's state:
 
 ```text
 # with systemctl
