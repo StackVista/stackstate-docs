@@ -12,10 +12,10 @@ SolarWinds is a [StackState curated integration](/stackpacks/integrations/about_
 
 ![Data flow](../../.gitbook/assets/stackpack-solarwinds.svg)
 
-* Agent V2 connects to the configured [SolarWinds API](solarwinds.md#rest-api-endpoints) \(default via TCP port 17778\).
+* Agent V3 connects to the configured [SolarWinds API](solarwinds.md#rest-api-endpoints) \(default via TCP port 17778\).
 * Nodes, interfaces and connections are retrieved from the SolarWinds instance.
 * Node and interface Health status is retrieved from the SolarWinds instance and translated to StackState values.
-* Agent V2 pushes [retrieved data](solarwinds.md#data-retrieved) to StackState.
+* Agent V3 pushes [retrieved data](solarwinds.md#data-retrieved) to StackState.
 * StackState translates incoming nodes, interfaces and connections into topology components and relations.
 
 ## Setup
@@ -24,7 +24,7 @@ SolarWinds is a [StackState curated integration](/stackpacks/integrations/about_
 
 To set up the SolarWinds integration you will need to have:
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to both SolarWinds \(default via TCP port 17778\) and StackState.
+* [StackState Agent V3](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to both SolarWinds \(default via TCP port 17778\) and StackState.
 * A running SolarWinds instance with correctly configured Network Performance Monitor \(NPM\) and User Device Tracker (UDT) modules. For details see [retrieved topology data](#topology).
 * A SolarWinds user with access to the required [API endpoints](solarwinds.md#rest-api-endpoints).
   * The lowest access level is sufficient.
@@ -46,7 +46,7 @@ Install the SolarWinds StackPack from the StackState UI **StackPacks** &gt; **In
 
 ### Configure
 
-To enable the SolarWinds check and begin collecting data from SolarWinds, add the following configuration to StackState Agent V2:
+To enable the SolarWinds check and begin collecting data from SolarWinds, add the following configuration to StackState Agent V3:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/solarwinds.d/conf.yaml` to include details of your SolarWinds instance:
 
@@ -73,7 +73,7 @@ To enable the SolarWinds check and begin collecting data from SolarWinds, add th
 2. Set the following filters:
    * **solarwinds\_domain** - The name of a SolarWinds custom property that will be used to select nodes from SolarWinds to include in the StackState dataset.
    * **solarwinds\_domain\_values** - A list of values used by the SolarWinds custom property specified in `solarwinds_domain`. Used to select the correct nodes for inclusion. Any node in SolarWinds that has one of these values set will be included in the data collection. Each value in this list will be represented as a separate domain in StackState.
-3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+3. [Restart StackState Agent V3](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 4. Once the Agent has restarted, wait for data to be collected from SolarWinds and sent to StackState.
 
 ### Status
@@ -94,7 +94,7 @@ For considerations and instructions on upgrading a StackPack, see [how to upgrad
 
 ### REST API endpoints
 
-The SolarWinds user configured in StackState Agent V2 must have read access to the SolarWinds API \(default for all user accounts\). No additional authorization needs to be set for this account in the SolarWinds system.
+The SolarWinds user configured in StackState  must have read access to the SolarWinds API \(default for all user accounts\). No additional authorization needs to be set for this account in the SolarWinds system.
 
 Refer to the SolarWinds product documentation for details on how to [Manage Orion Web Console user accounts in the Orion Platform \(documentation.solarwinds.com\)](https://documentation.solarwinds.com/en/success_center/orionplatform/content/core-managing-web-accounts-sw1724.htm).
 
@@ -184,7 +184,7 @@ To uninstall the SolarWinds StackPack and disable the Dynatrace check:
     mv solarwinds.d/conf.yaml solarwinds.d/conf.yaml.bak
    ```
 
-3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+3. [Restart StackState ](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 
 ## Release notes
 
@@ -192,7 +192,7 @@ The [SolarWinds StackPack release notes](https://github.com/StackVista/stackpack
 
 ## See also
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md)
+* [StackState ](../../setup/agent/about-stackstate-agent.md)
 * [Secrets management](https://docs.stackstate.com/configure/security/secrets_management)
 * [SolarWinds StackPack \(github.com\)](https://github.com/StackVista/stackpack-solarwinds)  
 * [StackState Agent integrations - SolarWinds \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/solarwinds)  

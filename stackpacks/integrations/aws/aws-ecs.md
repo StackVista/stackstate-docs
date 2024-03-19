@@ -12,7 +12,7 @@ AWS ECS is a [StackState core integration](/stackpacks/integrations/about_integr
 
 ## Functionality
 
-StackState Agent V2 provides the following functionality:
+StackState Agent V3 provides the following functionality:
 
 * Reporting hosts, processes, and containers
 * Reporting all network connections between processes / containers including network traffic telemetry
@@ -35,7 +35,7 @@ aws ecs register-task-definition --cli-input-json file://path/to/stackstate-agen
 
 The Agent should be loaded on one container on each EC2 instance. The way to achieve this is to run Agent as a [Daemon Service \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html#service_scheduler_daemon).
 
-Schedule a Daemon Service in AWS using StackState Agent V2 ECS Task:
+Schedule a Daemon Service in AWS using StackState Agent V3 ECS Task:
 
 1. Log in to the AWS console and navigate to the ECS Clusters section. Select the cluster you run the Agent on.
 2. Create a new service by clicking the **Create** button under Services.

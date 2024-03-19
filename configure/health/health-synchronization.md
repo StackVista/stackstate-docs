@@ -15,7 +15,7 @@ The StackState Receiver API will automatically receive and process all incoming 
 Details on how to ingest health data can be found on the following pages:
 
 * [Ingest health data through the StackState Receiver API](send-health-data/send-health-data.md)
-* [Create an Agent check to ingest health data using StackState Agent V2](../../develop/developer-guides/agent_check/how_to_develop_agent_checks.md)
+* [Create an Agent check to ingest health data using StackState Agent V3](../../develop/developer-guides/agent_check/how_to_develop_agent_checks.md)
 
 ## Health synchronization pipeline
 

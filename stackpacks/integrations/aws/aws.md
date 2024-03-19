@@ -10,7 +10,7 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 
 ![Data flow](../../../.gitbook/assets/stackpack-aws-v2.svg)
 
-* StackState Agent V2 collects all service responses from the target AWS account.
+* StackState Agent V3 collects all service responses from the target AWS account.
 * Topology is updated in real time:
   * Once an hour, all services are queried to gain a full point-in-time snapshot of resources.
   * Once a minute, Cloudtrail and Eventbridge events are read to find changes to resources.
@@ -27,7 +27,7 @@ AWS is a [StackState core integration](/stackpacks/integrations/about_integratio
 
 To set up the StackState AWS integration, you need to have:
 
-* [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md) installed on a machine which can connect to both AWS and StackState.
+* [StackState Agent V3](../../../setup/agent/about-stackstate-agent.md) installed on a machine which can connect to both AWS and StackState.
 * AWS CLI version 2.0.4 or later is installed on the environment where StackState is running.
 * The following AWS accounts:
   * At least one target AWS account that will be monitored.
@@ -140,7 +140,7 @@ For more information on how to use StackSets, check the AWS documentation on [wo
 
 ### Install the AWS StackPack
 
-Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details, these will be used to configure the StackPack instance within StackState and for StackState to query live telemetry from the AWS account. To create topology in StackState, you will also need to configure the AWS check on StackState Agent V2.
+Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details, these will be used to configure the StackPack instance within StackState and for StackState to query live telemetry from the AWS account. To create topology in StackState, you will also need to configure the AWS check on StackState Agent V3.
 
 * **Role ARN** - the ARN of the IAM Role created by the cloudFormation stack. For example, `arn:aws:iam::<account id>:role/StackStateAwsIntegrationRole` where `<account id>` is the 12-digit AWS account ID being monitored. 
 * **External ID** - a shared secret that StackState will present when assuming a role. Use the same value across all AWS accounts. For example, `uniquesecret!1`
@@ -149,7 +149,7 @@ Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrati
 
 ### Configure the AWS check
 
-To enable the AWS check and begin collecting topology and log data from AWS, add the configuration below to StackState Agent V2.
+To enable the AWS check and begin collecting topology and log data from AWS, add the configuration below to StackState Agent V3.
 
 {% tabs %}
 {% tab title="Agent on Kubernetes" %}

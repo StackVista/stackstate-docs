@@ -18,14 +18,14 @@ SCOM is a [StackState curated integration](/stackpacks/integrations/about_integr
 
 The StackState SCOM API integration sends requests to the SCOM API to retrieve topology data and events.
 
-* Agent V2 connects to the configured [SCOM API](scom.md#rest-api-endpoints).
+*  connects to the configured [SCOM API](scom.md#rest-api-endpoints).
 * Topology data and events for the configured criteria are retrieved from SCOM.
-* Agent V2 pushes [retrieved data](scom.md#data-retrieved) to StackState.
+* Agent V3 pushes [retrieved data](scom.md#data-retrieved) to StackState.
 * StackState translates incoming SCOM topology data into components and relations. Incoming events are used to determine component health state and publish SCOM alerts in StackState.
 
 #### When to choose API integration
 
-The SCOM API integration produces a clean topology in StackState by allowing you to specify the topology to collect. You can run the SCOM check from any StackState Agent V2 as long as it can connect to both the SCOM API and StackState.
+The SCOM API integration produces a clean topology in StackState by allowing you to specify the topology to collect. You can run the SCOM check from any StackState Agent V3 as long as it can connect to both the SCOM API and StackState.
 
 Retrieving a large topology can require a high number of API requests, this can take time and may place some stress on your SCOM system. The size of topology you can retrieve may also be limited by the number of requests possible. To avoid this, use the SCOM PowerShell integration.
 {% endtab %}
@@ -35,15 +35,15 @@ Retrieving a large topology can require a high number of API requests, this can 
 
 The StackState SCOM PowerShell integration runs PowerShell scripts on the SCOM box to retrieve topology data and events.
 
-* PowerShell scripts in Agent V2 collect topology data and events from SCOM.
-* Agent V2 pushes [retrieved data](scom.md#data-retrieved) to StackState.
+* PowerShell scripts in Agent V3 collect topology data and events from SCOM.
+* Agent V3 pushes [retrieved data](scom.md#data-retrieved) to StackState.
 * StackState translates incoming SCOM topology data into components and relations. Incoming events are used to determine component health state and publish SCOM alerts in StackState.
 
 #### When to choose PowerShell integration
 
 The PowerShell integration retrieves all SCOM topology data quickly without placing strain on your SCOM system. As a result, there is no limit on the size of topology that can be retrieved.
 
-The PowerShell integration scripts must be run by an instance of StackState Agent V2 installed on the same box as SCOM and will always retrieve all topology data. This might be undesirable or confusing when viewed in StackState. If you would like to specify a criteria for the data to be retrieved or need to run the integration from a StackState Agent installed elsewhere, you should use the SCOM API integration.
+The PowerShell integration scripts must be run by an instance of StackState Agent V3 installed on the same box as SCOM and will always retrieve all topology data. This might be undesirable or confusing when viewed in StackState. If you would like to specify a criteria for the data to be retrieved or need to run the integration from a StackState Agent installed elsewhere, you should use the SCOM API integration.
 {% endtab %}
 {% endtabs %}
 
@@ -55,7 +55,7 @@ The PowerShell integration scripts must be run by an instance of StackState Agen
 {% tab title="API integration" %}
 To set up the StackState SCOM API integration, you need to have:
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) must be installed on any machine that can connect to both SCOM and StackState.
+* [StackState Agent V3](../../setup/agent/about-stackstate-agent.md) must be installed on any machine that can connect to both SCOM and StackState.
 * A running SCOM instance \(version 1806 or 2019\).
 * A SCOM user with the role **Operations Manager Read-Only Operators**.
 {% endtab %}
@@ -63,7 +63,7 @@ To set up the StackState SCOM API integration, you need to have:
 {% tab title="PowerShell integration" %}
 To set up the StackState SCOM PowerShell integration, you need to have:
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) must be installed on the same machine running SCOM.
+* [StackState Agent V3](../../setup/agent/about-stackstate-agent.md) must be installed on the same machine running SCOM.
 * A running SCOM instance \(version 1806 or 2019\).
 {% endtab %}
 {% endtabs %}
@@ -78,7 +78,7 @@ Install the SCOM StackPack from the StackState UI **StackPacks** &gt; **Integrat
 
 {% tabs %}
 {% tab title="API integration" %}
-To enable the SCOM check and begin collecting data from SCOM, add the following configuration to StackState Agent V2:
+To enable the SCOM check and begin collecting data from SCOM, add the following configuration to StackState Agent V3:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/scom.d/conf.yaml` to include details of your SCOM instance:
    * **hostip** - SCOM IP.
@@ -107,7 +107,7 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
        max_number_of_requests: 10000   # default 10000
        criteria : "(FullName LIKE 'Microsoft.Windows.Computer:%')" # an Operations Manager Data Query
      ```
-2. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+2. [Restart StackState Agent V3](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 
 #### Specify the components to retrieve data for
 
@@ -138,7 +138,7 @@ As two API requests are required to retrieve data for each component and each de
 {% endtab %}
 
 {% tab title="PowerShell integration" %}
-To enable the SCOM check and begin collecting data from SCOM, add the following configuration to StackState Agent V2 running on the same box as your SCOM instance:
+To enable the SCOM check and begin collecting data from SCOM, add the following configuration to StackState Agent V3 running on the same box as your SCOM instance:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/scom.d/conf.yaml` to include details of your SCOM instance:
    * **integration mode** - to use the PowerShell integration, set to `powershell`.
@@ -151,7 +151,7 @@ To enable the SCOM check and begin collecting data from SCOM, add the following 
      instances:
      - integration_mode: powershell    # api or powershell, default api
      ```
-2. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+2. [Restart StackState Agent V3](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 {% endtab %}
 {% endtabs %}
 
@@ -167,7 +167,7 @@ sudo stackstate-agent status
 
 ### API connectivity \(API integration only\)
 
-To check connectivity between StackState Agent V2 and the SCOM API, open the [StackState Agent log file](../../setup/agent/about-stackstate-agent.md) and search for the SCOM `Connection Status Code`. Connection status is reported as an HTTP status code - `200` is a good connection, other codes show a problem with connectivity.
+To check connectivity between StackState Agent V3 and the SCOM API, open the [StackState Agent log file](../../setup/agent/about-stackstate-agent.md) and search for the SCOM `Connection Status Code`. Connection status is reported as an HTTP status code - `200` is a good connection, other codes show a problem with connectivity.
 
 ```text
 (scom.py:118) | Connection Status Code 200
@@ -231,7 +231,7 @@ To uninstall the SCOM StackPack and disable the SCOM check:
     mv scom.d/conf.yaml scom.d/conf.yaml.bak
    ```
 
-3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+3. [Restart StackState Agent V3](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 
 ## Release notes
 
@@ -241,7 +241,7 @@ To uninstall the SCOM StackPack and disable the SCOM check:
 
 ## See also
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md)
+* [StackState Agent V3](../../setup/agent/about-stackstate-agent.md)
 * [Secrets management in StackState](../../configure/security/secrets_management.md)
 * [StackState Agent integrations - SCOM \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/scom)
 * [Operations Manager API reference \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/rest/api/operationsmanager/)

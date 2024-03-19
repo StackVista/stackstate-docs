@@ -22,7 +22,7 @@ SAP is a [community integration](/stackpacks/integrations/about_integrations.md#
 
 To set up the StackState SAP integration you need to have:
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a single machine that can connect to both your SAP Instance and StackState.
+* [StackState Agent V3](../../setup/agent/about-stackstate-agent.md) installed on a single machine that can connect to both your SAP Instance and StackState.
 * A running SAP instance.
 
 ### Networking requirements
@@ -40,7 +40,7 @@ Install the SAP StackPack from the StackState UI **StackPacks** > **Integrations
 
 ### Configure
 
-To enable the SAP check and begin collecting data from your SAP host instance, add the following configuration to StackState Agent V2:
+To enable the SAP check and begin collecting data from your SAP host instance, add the following configuration to StackState Agent V3:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/sap.d/conf.yaml`:
    * Include details of your SAP instance:
@@ -68,7 +68,7 @@ To enable the SAP check and begin collecting data from your SAP host instance, a
          cert: /path/to/cert.pem   # <certificate_path>
          keyfile: /path/to/key.pem # <keyfile_path>
      ```
-2. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to publish the configuration changes.
+2. [Restart StackState ](../../setup/agent/about-stackstate-agent.md#deployment) to publish the configuration changes.
 3. Once the Agent is restarted, wait for the Agent to collect data and send it to StackState.
 
 ## Integration details

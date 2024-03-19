@@ -16,11 +16,11 @@ Static Health is a [StackState curated integration](/stackpacks/integrations/abo
 
 To set up the Static Health integration you will need to have:
 
-* StackState [Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to StackState.
+* StackState [](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to StackState.
 
 ### Configure
 
-To configure StackState Agent V2 to read CSV health files:
+To configure StackState  to read CSV health files:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/static_health.d/conf.yaml` to include the following details:
    * **type** - set to `csv` for parsing CSV typed files.
@@ -35,7 +35,7 @@ To configure StackState Agent V2 to read CSV health files:
       health_file: /path/to/health.csv
       delimiter: ';'
      ```
-2. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+2. [Restart StackState ](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 3. Once the Agent has restarted, wait for the Agent to collect data from the specified [health CSV file](static_health.md#csv-file-format) and send it to StackState.
 
 {% hint style="info" %}
@@ -68,7 +68,7 @@ check_2,Another example check,clear,urn:component/some_component,This is going w
 
 ### Delimiter
 
-The delimiter used in the CSV file can be specified when you [configure the Static Health check](static_health.md#configure) on StackState Agent V2.
+The delimiter used in the CSV file can be specified when you [configure the Static Health check](static_health.md#configure) on StackState Agent V3.
 
 ## See also
 

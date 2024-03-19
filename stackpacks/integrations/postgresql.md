@@ -17,7 +17,7 @@ PostgreSQL is a [StackState curated integration](/stackpacks/integrations/about_
 
 ### Installation
 
-The PostgreSQL check is included in the [Agent V2 StackPack](agent.md). To start gathering your PostgreSQL metrics and logs, install the Agent V2 first.
+The PostgreSQL check is included in the [Agent V2 StackPack](agent.md). To start gathering your PostgreSQL metrics and logs, install the  first.
 
 ### Configuration
 
@@ -64,7 +64,7 @@ When it prompts for a password, enter the one used in the first command.
 | **`password`** | No | The password for the user account. |
 | **`dbname`** | No | The name of the database you want to monitor. |
 | **`ssl`** | No | Defaults to `False`. Indicates whether to use an SSL connection. |
-| **`use_psycopg2`** | No | Defaults to `False`. Setting this option to `True` forces StackState Agent V2 to collect PostgreSQL metrics using `psycopg2` instead of `pg8000`. Note: `pyscopg2` doesn't support SSL connections. |
+| **`use_psycopg2`** | No | Defaults to `False`. Setting this option to `True` forces StackState  to collect PostgreSQL metrics using `psycopg2` instead of `pg8000`. Note: `pyscopg2` doesn't support SSL connections. |
 | **`tags`** | No | A list of tags applied to all metrics collected. Tags may be simple strings or key-value pairs. |
 | **`relations`** | No | By default, all schemas are included. Add specific schemas here to collect metrics for schema relations. Each relation generates 10 metrics and an additional 10 metrics per index. |
 | **`collect_function_metrics`** | No | Collect metrics regarding PL/pgSQL functions from `pg_stat_user_functions`. |
@@ -104,7 +104,7 @@ PostgreSQL default logging is to `stderr` and logs don't include detailed inform
   #log_destination = 'eventlog'
   ```
 
-* Collecting logs is disabled by default in StackState Agent V2, enable it in `stackstate.yaml`:
+* Collecting logs is disabled by default in StackState , enable it in `stackstate.yaml`:
 
   ```text
   logs_enabled: true

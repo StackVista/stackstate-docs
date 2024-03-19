@@ -47,7 +47,7 @@ For integrations that run through StackState Agent, StackState Agent is a good p
 
 ### StackState Receiver
 
-The StackState Receiver receives JSON data from StackState Agent V2.
+The StackState Receiver receives JSON data from StackState Agent V3.
 
 - Check the StackState Receiver logs for JSON deserialization errors.
 

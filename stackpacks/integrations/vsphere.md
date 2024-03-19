@@ -21,11 +21,11 @@ VMWare vSphere is a [StackState core integration](/stackpacks/integrations/about
 
 The VMware StackPack collects all topology data for the components and relations between them as well as telemetry and events.
 
-* StackState Agent V2 connects to the configured VMWare vSphere instance:
+* StackState Agent V3 connects to the configured VMWare vSphere instance:
   * Topology data and tags are retrieved for the configured resources.
   * Metrics data is retrieved for the configured resources.
   * The Agent watches the vCenter Event Manager for events related to the configured resources.
-* StackState Agent V2 pushes retrieved data and events to StackState:
+* StackState Agent V3 pushes retrieved data and events to StackState:
   * [Topology data](vsphere.md#topology) is translated into components and relations.
   * [Tags](vsphere.md#tags) defined in VMWare vSphere are added to components and relations in StackState. Any defined StackState tags are used by StackState when the topology is retrieved.
   * [Metrics data](vsphere.md#metrics) is automatically mapped to associated components and relations in StackState.
@@ -37,7 +37,7 @@ The VMware StackPack collects all topology data for the components and relations
 
 To set up the StackState VMWare vSphere integration, you need to have:
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a single machine with HTTPS connection to both vSphere vCenter and StackState. 
+* [StackState ](../../setup/agent/about-stackstate-agent.md) installed on a single machine with HTTPS connection to both vSphere vCenter and StackState. 
 * A running vSphere vCenter instance.
 
 ### Install
@@ -69,7 +69,7 @@ To enable the VMWare vSphere check and begin collecting data from your vSphere v
        password: <password>
      ```
 2. If required, you can customise the integration using the [advanced configuration options](vsphere.md#advanced-configuration).
-3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to publish the configuration changes.
+3. [Restart StackState ](../../setup/agent/about-stackstate-agent.md#deployment) to publish the configuration changes.
 4. Once the Agent has restarted, wait for the Agent to collect the data and send it to StackState.
 
 #### Advanced configuration
@@ -179,7 +179,7 @@ To uninstall the VMWare vSphere StackPack and disable the VMWare vSphere check:
     mv vsphere.d/conf.yaml vsphere.d/conf.yaml.bak
    ```
 
-3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+3. [Restart StackState ](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 
 ## Release notes
 
@@ -197,7 +197,7 @@ To uninstall the VMWare vSphere StackPack and disable the VMWare vSphere check:
 
 ## See also
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) 
+* [StackState ](../../setup/agent/about-stackstate-agent.md) 
 * [Secrets management](../../configure/security/secrets_management.md)
 * [StackState Agent integrations - VMWare vSphere \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/vsphere)
 * [Example VMWare vSphere check configuration file \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/vsphere/conf.yaml.example)

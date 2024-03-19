@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-To begin tracing applications written in any language, first make sure to have StackState Agent V2 installed and configured. The .NET Tracer runs in-process to instrument your applications and sends traces from your application to StackState Agent V2.
+To begin tracing applications written in any language, first make sure to have StackState Agent V3 installed and configured. The .NET Tracer runs in-process to instrument your applications and sends traces from your application to StackState .
 
 DotNet APM is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 

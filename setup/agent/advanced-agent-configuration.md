@@ -6,15 +6,15 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-A number of advanced configuration options are available for StackState Agent V2. These can be set either in the `stackstate.yaml` configuration file \(Linux and Windows\) or using environment variables \(Docker, Kubernetes and OpenShift\).
+A number of advanced configuration options are available for StackState Agent V3. These can be set either in the `stackstate.yaml` configuration file \(Linux and Windows\) or using environment variables \(Docker, Kubernetes and OpenShift\).
 
 ## Reduce data production
 
-The StackState Agent V2 collection interval can be configured. This will reduce the amount of data produced by the Agent.
+The StackState Agent V3 collection interval can be configured. This will reduce the amount of data produced by the Agent.
 
 {% tabs %}
 {% tab title="Kubernetes, OpenShift" %}
-To configure the collection interval of the Kubernetes and system level integrations, create a `values.yaml` file with the below contents and specify this when you install/upgrade StackState Agent V2. In this `values.yaml` example, the `min_collection_interval` has been set to double the default setting. This should result in a noticeable drop in the amount of data produced. If required, you can increase the interval further, however, the aim should be to find a balance between the frequency of data collection and the amount of data received by StackState: 
+To configure the collection interval of the Kubernetes and system level integrations, create a `values.yaml` file with the below contents and specify this when you install/upgrade StackState Agent V3. In this `values.yaml` example, the `min_collection_interval` has been set to double the default setting. This should result in a noticeable drop in the amount of data produced. If required, you can increase the interval further, however, the aim should be to find a balance between the frequency of data collection and the amount of data received by StackState: 
 
 {% code lineNumbers="true" %}
 ```yaml
@@ -203,13 +203,13 @@ The Agent can be configured to use a proxy for HTTP and HTTPS requests. For deta
 
 ## Blacklist and inclusions
 
-Processes reported by StackState Agent V2 can optionally be filtered using a blacklist. Using this in conjunction with inclusion rules will allow otherwise excluded processes to be included.
+Processes reported by StackState Agent V3 can optionally be filtered using a blacklist. Using this in conjunction with inclusion rules will allow otherwise excluded processes to be included.
 
 The blacklist is specified as a list of regex patterns. Inclusions override the blacklist patterns, these are used to include processes that consume a lot of resources. Each inclusion type specifies an amount of processes to report as the top resource using processes. For `top_cpu` and `top_mem` a threshold must first be met, meaning that a process needs to consume a higher percentage of resources than the specified threshold before it's reported.
 
 {% tabs %}
 {% tab title="Docker, Kubernetes, OpenShift" %}
-To specify a blacklist or inclusions, set the associated environment variables and restart StackState Agent V2.
+To specify a blacklist or inclusions, set the associated environment variables and restart StackState Agent V3.
 
 | Environment variable | Description |
 | :--- | :--- |
@@ -223,7 +223,7 @@ To specify a blacklist or inclusions, set the associated environment variables a
 {% endtab %}
 
 {% tab title="Linux, Windows" %}
-To specify a blacklist or inclusions, edit the below settings in the Agent configuration file `stackstate.yaml` and restart StackState Agent V2.
+To specify a blacklist or inclusions, edit the below settings in the Agent configuration file `stackstate.yaml` and restart StackState Agent V3.
 
 * **Linux** - `/etc/stackstate-agent/stackstate.yaml`
 * **Windows** - `C:\ProgramData\StackState\stackstate.yaml`
@@ -276,7 +276,7 @@ Certain features of the Agent can optionally be turned off if they aren't needed
 
 {% tabs %}
 {% tab title="Docker, Kubernetes, OpenShift" %}
-To disable a feature, set the associated environment variable and restart StackState Agent V2.
+To disable a feature, set the associated environment variable and restart StackState Agent V3.
 
 | Environment variable | Description |
 | :--- | :--- |
@@ -286,7 +286,7 @@ To disable a feature, set the associated environment variable and restart StackS
 {% endtab %}
 
 {% tab title="Linux, Windows" %}
-To disable a feature, edit the below settings in the Agent configuration file `stackstate.yaml` and restart StackState Agent V2.
+To disable a feature, edit the below settings in the Agent configuration file `stackstate.yaml` and restart StackState Agent V3.
 
 * **Linux** - `/etc/stackstate-agent/stackstate.yaml`
 * **Windows** - `C:\ProgramData\StackState\stackstate.yaml`

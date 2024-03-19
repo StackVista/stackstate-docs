@@ -21,7 +21,7 @@ Set up an AWS integration to collect topology, events and metrics data from your
 To set up a StackState AWS integration you need to have:
 
 * At least one target AWS account that will be monitored.
-* An AWS account for StackState Agent V2 to use when retrieving data from the target AWS accounts. It's recommended to use a separate shared account for this and not use any of the accounts that will be monitored by StackState, but this isn't required.
+* An AWS account for StackState Agent V3 to use when retrieving data from the target AWS accounts. It's recommended to use a separate shared account for this and not use any of the accounts that will be monitored by StackState, but this isn't required.
     * If StackState Agent will run within an AWS environment: The EC2 instance can have an IAM role attached to it. The Agent will then use this role by default.
     * The IAM role must have the following IAM policy. This policy grants the IAM principal permission to assume the role created in each target AWS account.
 ```
@@ -51,11 +51,11 @@ To get data from an AWS environment into StackState, follow the steps described 
    * Specify:
      * **Role ARN** - the ARN of the IAM Role created by the cloudFormation stack. For example, `arn:aws:iam::<account id>:role/StackStateAwsIntegrationRole` where `<account id>` is the 12-digit AWS account ID that is being monitored. 
      * **External ID** - a shared secret that StackState will present when assuming a role. Use the same value across all AWS accounts. For example, `uniquesecret!1`
-     * **AWS Access Key ID** - The Access Key ID of the IAM user used by StackState Agent V2. If the StackState instance is running within AWS, enter the value `use-role` and the instance will authenticate using the attached IAM role. 
-     * **AWS Secret Access Key** - The Secret Access Key of the IAM user used by StackState Agent V2. If the StackState instance is running within AWS, enter the value `use-role` and the instance will authenticate using the attached IAM role.
+     * **AWS Access Key ID** - The Access Key ID of the IAM user used by StackState Agent V3. If the StackState instance is running within AWS, enter the value `use-role` and the instance will authenticate using the attached IAM role. 
+     * **AWS Secret Access Key** - The Secret Access Key of the IAM user used by StackState Agent V3. If the StackState instance is running within AWS, enter the value `use-role` and the instance will authenticate using the attached IAM role.
    * Click **INSTALL**.
-4. [Install StackState Agent V2](/setup/agent/about-stackstate-agent.md#deployment) on a machine which can connect to both AWS and StackState.
-5. [Configure the AWS check](/stackpacks/integrations/aws/aws.md#configure-the-aws-check) on StackState Agent V2.
+4. [Install StackState Agent V3](/setup/agent/about-stackstate-agent.md#deployment) on a machine which can connect to both AWS and StackState.
+5. [Configure the AWS check](/stackpacks/integrations/aws/aws.md#configure-the-aws-check) on StackState Agent V3.
    * Once the check has been configured and the Agent restarted, wait for data to be collected from AWS and sent to StackState.
 
 ➡️ [Learn more about the StackState AWS integration](/stackpacks/integrations/aws/aws.md)
