@@ -152,7 +152,7 @@ Restart the Agent to start sending MySQL metrics to StackState.
             Compress
      }
      ```
-2. Collecting logs is disabled by default in StackState Agent V2, so you need to enable it in `stackstate.yaml`:
+2. Collecting logs is disabled by default in StackState Agent V3, so you need to enable it in `stackstate.yaml`:
 
    ```text
     logs_enabled: true

@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.1.x
 
 The JMX integration collects metrics from applications that expose [JMX](http://www.oracle.com/technetwork/java/javase/tech/javamanagement-140525.html) metrics.
 
-A lightweight Java plugin named JMXFetch is called by StackState Agent V2 to connect to the MBean Server and to collect these metrics. This plugin sends metrics to StackState Agent V2 using the Stsstatsd server running within the Agent. This functionality is also leveraged in the integrations for ActiveMQ, Cassandra, Solr, and Tomcat.
+A lightweight Java plugin named JMXFetch is called by StackState Agent V3 to connect to the MBean Server and to collect these metrics. This plugin sends metrics to StackState Agent V3 using the Stsstatsd server running within the Agent. This functionality is also leveraged in the integrations for ActiveMQ, Cassandra, Solr, and Tomcat.
 
 JMXFetch also sends service checks that report on the status of your monitored instances.
 
@@ -24,7 +24,7 @@ The Java/JMX check is included in the [Agent V2 StackPack](agent.md).
 
 Make sure you can open a [JMX remote connection](http://docs.oracle.com/javase/1.5.0/docs/guide/management/agent.html).
 
-StackState Agent V2 requires a remote connection to connect to the JVM, even when the two are on the same host.
+StackState Agent V3 requires a remote connection to connect to the JVM, even when the two are on the same host.
 
 ### Configuration
 

@@ -18,7 +18,7 @@ Nagios is a [StackState curated integration](/stackpacks/integrations/about_inte
 
 The following prerequisites need to be met:
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) must be installed on a single machine which can connect to Nagios and StackState.
+* [StackState ](../../setup/agent/about-stackstate-agent.md) must be installed on a single machine which can connect to Nagios and StackState.
 * A Nagios instance must be running.
 
 ## Configuration
@@ -53,7 +53,7 @@ To enable the Nagios check and begin collecting data from your Nagios instance:
        collect_host_performance_data: True      # default is False
        collect_service_performance_data: True   # default is False
      ```
-2. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to publish the configuration changes.
+2. [Restart StackState ](../../setup/agent/about-stackstate-agent.md#deployment) to publish the configuration changes.
 3. Once the Agent is restarted, wait for the Agent to collect data and send it to StackState.
 
 ## Permissions for Nagios files

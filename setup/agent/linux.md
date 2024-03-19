@@ -240,7 +240,7 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 ## Uninstall
 
-To uninstall StackState Agent V2 from your system, stop the `stackstate-agent` service and remove it using `yum` or `apt-get`.
+To uninstall StackState Agent V3 from your system, stop the `stackstate-agent` service and remove it using `yum` or `apt-get`.
 
 {% tabs %}
 {% tab title="yum" %}
@@ -268,9 +268,9 @@ sudo apt-get remove stackstate-agent
 
 ## See also
 
-* [About StackState Agent V2](about-stackstate-agent.md)
+* [About StackState Agent V3](about-stackstate-agent.md)
 * [Advanced Agent configuration](advanced-agent-configuration.md)  
 * [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md)
 * [StackPack integration documentation](../../stackpacks/integrations/)
-* [StackState Agent V2 \(github.com\)](https://github.com/StackVista/stackstate-agent)
+* [StackState Agent V3 \(github.com\)](https://github.com/StackVista/stackstate-agent)
 
