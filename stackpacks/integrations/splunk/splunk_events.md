@@ -7,7 +7,7 @@ description: StackState Self-hosted v5.1.x
 ## Overview
 
 {% hint style="info" %}
-This page describes the Splunk Events check running on StackState Agent V2. 
+This page describes the Splunk Events check running on StackState Agent V3. 
 
 If you are currently running the Splunk Events check on Agent V1 (legacy), it's advised that you migrate to Agent V2.
 

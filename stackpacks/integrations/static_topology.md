@@ -17,7 +17,7 @@ Static Topology is a [StackState curated integration](/stackpacks/integrations/a
 To set up the StackState Static Topology integration, you need to have:
 
 * A correctly formatted [component CSV file](#component-csv-file) and [relation CSV file](#relation-csv-file).
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to StackState.
+* [StackState Agent V3](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to StackState.
 
 ### Install
 
@@ -26,11 +26,11 @@ Install the Static Topology StackPack from the StackState UI **StackPacks** > **
 * **Path to component CSV file** - the CSV file to read component data from.
 * **Path to relation CSV file** - the CSV file to read relation data from.
 
-The CSV files should follow the [Static Topology CSV file specification](#csv-file-specification) and be available in a location where StackState Agent can read them, for example `/etc/stackstate-agent/conf.d/`. StackState Agent V2 runs as system user/group `stackstate-agent`.
+The CSV files should follow the [Static Topology CSV file specification](#csv-file-specification) and be available in a location where StackState Agent can read them, for example `/etc/stackstate-agent/conf.d/`. StackState Agent V3 runs as system user/group `stackstate-agent`.
 
 ### Configure
 
-To enable the Static Topology check and begin collecting topology data from the configured CSV files, add the following configuration to StackState Agent V2:
+To enable the Static Topology check and begin collecting topology data from the configured CSV files, add the following configuration to StackState Agent V3:
 
 {% hint style="info" %}
 Example Agent configuration file for Static Topology: [conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/static_topology/stackstate_checks/static_topology/data/conf.yaml.example)

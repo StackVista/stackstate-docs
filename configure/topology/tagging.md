@@ -45,7 +45,7 @@ Tags may be assigned using any \(or all\) of the following methods.
 
 ### Configuration Files
 
-The hostname \(tag key `host`\) is assigned automatically by StackState Agent V2. To customize the hostname, use the Agent configuration file, `stackstate.yaml`:
+The hostname \(tag key `host`\) is assigned automatically by StackState Agent V3. To customize the hostname, use the Agent configuration file, `stackstate.yaml`:
 
 ```yaml
 # Set the hostname (default: auto-detected)
@@ -54,7 +54,7 @@ The hostname \(tag key `host`\) is assigned automatically by StackState Agent V2
 hostname: mymachine.mydomain
 ```
 
-The Agent configuration file \(`stackstate.yaml`\) is also used to set host tags which apply to all data forwarded by StackState Agent V2 \(see YAML formats below\).
+The Agent configuration file \(`stackstate.yaml`\) is also used to set host tags which apply to all data forwarded by StackState Agent V3 \(see YAML formats below\).
 
 Tags for the integrations installed with the Agent are configured via YAML files located in the **conf.d** directory of the Agent install.
 

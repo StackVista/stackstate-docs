@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.1.x
 
 The new AWS integration available from StackState v4.4 is an entirely new StackPack that replaces the old AWS \(legacy\) StackPack. The AWS \(legacy\) StackPack has now been deprecated, and it's advised that you migrate your StackState AWS integration to use the new AWS StackPack.
 
-In the new AWS integration, topology data is collected using StackState Agent V2. Within StackState, each installed AWS StackPack instance can now be used to collect data from all regions in a single account.
+In the new AWS integration, topology data is collected using StackState Agent V3. Within StackState, each installed AWS StackPack instance can now be used to collect data from all regions in a single account.
 
 ## Migrate from AWS \(legacy\)
 
@@ -16,12 +16,12 @@ The best way to start using the new AWS integration is to migrate one AWS accoun
 
 To migrate AWS accounts from the AWS \(legacy\) StackPack to the new AWS StackPack:
 
-1. Install [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md) on a machine that can connect to both AWS and StackState.
+1. Install [StackState Agent V3](../../../setup/agent/about-stackstate-agent.md) on a machine that can connect to both AWS and StackState.
 2. For each region that you will migrate, [deploy an AWS CloudFormation stack](aws.md#deploy-the-aws-cloudformation-stack).
 3. For the account to be migrated, [install an AWS StackPack instance](aws.md#install-the-aws-stackpack).
-4. Configure the [StackState Agent V2 AWS check](aws.md#configure-the-aws-check) with the `role_arn` and the `regions` associated with the account.
+4. Configure the [StackState Agent V3 AWS check](aws.md#configure-the-aws-check) with the `role_arn` and the `regions` associated with the account.
 5. For the account and regions being migrated, [uninstall all related instances of the AWS \(legacy\) StackPack](aws-legacy.md#uninstall).
-6. [Restart StackState Agent V2](../../../setup/agent/about-stackstate-agent.md) to apply the configuration changes and enable the updated AWS check.
+6. [Restart StackState Agent V3](../../../setup/agent/about-stackstate-agent.md) to apply the configuration changes and enable the updated AWS check.
 7. Once the Agent has restarted, wait for data to be collected from AWS and sent to StackState.
 8. Repeat steps 2 to 7 for each account you want to migrate.
 

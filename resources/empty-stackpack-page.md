@@ -17,7 +17,7 @@ The ??? StackPack creates a synchronization between a ??? instance and StackStat
 
 To set up the ??? integration you will need to have:
 
-* [StackState Agent V2](agent.md) installed on a machine that can connect to both ??? and StackState.
+* [StackState Agent V3](agent.md) installed on a machine that can connect to both ??? and StackState.
 * A running ??? instance.
 * ???
 
@@ -30,7 +30,7 @@ Install the ??? StackPack from the StackState UI **StackPacks** &gt; **Integrati
 
 ### Configure
 
-To enable the ??? check and begin collecting data from ???, add the following configuration to StackState Agent V2:
+To enable the ??? check and begin collecting data from ???, add the following configuration to StackState Agent V3:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/???/conf.yaml` to include details of your ??? instance:
    * **???** - ???.
@@ -123,5 +123,5 @@ To uninstall the ??? StackPack and disable the Dynatrace check:
 
 ## See also
 
-* [StackState Agent V2](/setup/agent/about-stackstate-agent.md)
+* [StackState Agent V3](/setup/agent/about-stackstate-agent.md)
 
