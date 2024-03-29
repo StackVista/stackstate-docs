@@ -78,7 +78,8 @@
 ## 🔭 Open Telemetry
 * [Getting started](setup/otel/getting-started.md)
 * [Open telemetry collector](setup/otel/collector.md)
-* [Instrumentation](setup/otel/instrumenation/README.md)
+* [Instrumentation](setup/otel/instrumentation/README.md)
+  * [Exporter config](setup/otel/instrumentation/sdk-exporter-config.md)
   * [Java](setup/otel/instrumenation/java.md)
   * [Javascript](setup/otel/instrumenation/javascript.md)
   * [.NET](setup/otel/instrumenation/dot-net.md)
