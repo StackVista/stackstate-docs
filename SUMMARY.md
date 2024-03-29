@@ -75,6 +75,14 @@
 * [Request tracing](setup/agent/k8sTs-agent-request-tracing.md)
   * [Certificates for sidecar injection](setup/agent/k8sTs-agent-request-tracing-certificates.md)
 
+## 🔭 Open Telemetry
+* [Getting started](setup/otel/getting-started.md)
+* [Open telemetry collector](setup/otel/collector.md)
+* [Instrumentation](setup/otel/instrumenation/README.md)
+  * [Java](setup/otel/instrumenation/java.md)
+  * [Javascript](setup/otel/instrumenation/javascript.md)
+  * [.NET](setup/otel/instrumenation/dot-net.md)
+  
 ## CLI
 * [StackState CLI](setup/cli/k8sTs-cli-sts.md)
 
