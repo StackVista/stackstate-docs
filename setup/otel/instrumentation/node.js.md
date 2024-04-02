@@ -19,12 +19,12 @@ npm install --save @opentelemetry/auto-instrumentations-node
 node --require @opentelemetry/auto-instrumentations-node/register app.js
 ```
 3. Deploy your application with the extra environment variables [to configure the service name and exporter endpoint](./sdk-exporter-config.md).
-3. [Verify](./verify.md) StackState is receiving traces and/or metrics
+4. [Verify](./verify.md) StackState is receiving traces and/or metrics
 
 For more details please refer to the [Open Telemetry documentation](https://opentelemetry.io/docs/languages/js/automatic/). 
 
 {% hint style="warning" %}
-At the moment the auto instrumentation as described here, configured via environment variables, only supports traces. To enable metrics code changes are needed. Please follow the instructions in the [Open Telemetry documentation](https://opentelemetry.io/docs/languages/js/exporters/#usage-with-nodejs).
+The auto instrumentation, configured via environment variables, only supports traces. At least until this [Open Telemetry issue](https://github.com/open-telemetry/opentelemetry-js/issues/4551) is resolved. To enable metrics from the automatic instrumentation code changes are needed. Please follow the instructions in the [Open Telemetry documentation](https://opentelemetry.io/docs/languages/js/exporters/#usage-with-nodejs) to make these changes. 
 {% endhint %}
 
 ## Manual instrumentation
