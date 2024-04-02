@@ -5,7 +5,7 @@ description: StackState Kubernetes Troubleshooting
 
 ## Automatic instrumentation
 
-Automatic instrumentation with Java uses a Java agent JAR that can be attached to any Java 8+ application. It dynamically injects bytecode to capture telemetry from many [popular libraries and frameworks](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/main/docs/supported-libraries.md). It can be used to capture telemetry data at the “edges” of an app or service, such as inbound requests, outbound HTTP calls, database calls, and so on.
+Automatic instrumentation for Java uses a Java agent JAR that can be attached to any Java 8+ application. It dynamically injects bytecode to capture telemetry from many [popular libraries and frameworks](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/main/docs/supported-libraries.md). It can be used to capture telemetry data at the “edges” of an app or service, such as inbound requests, outbound HTTP calls, database calls, and so on.
 
 Automatic instrumentation does not require any modifications of the application. To set it up follow these steps:
 
@@ -15,6 +15,7 @@ Automatic instrumentation does not require any modifications of the application.
 java -javaagent:/path/to/opentelemetry-javaagent.jar -jar myapp.jar
 ```
 3. Deploy your application with the extra environment variables [to configure the service name and exporter endpoint](./sdk-exporter-config.md).
+4. [Verify](./verify.md) StackState is receiving traces and/or metrics
 
 For more details please refer to the [Open Telemetry documentation](https://opentelemetry.io/docs/languages/java/automatic/). 
 
@@ -29,5 +30,3 @@ To capture that data you need to modify your application.
 There is detailed documentation for this on the [Open Telemetry Java SDK doc pages](https://opentelemetry.io/docs/languages/java/instrumentation/). 
 
 Make sure you use the the OTLP exporter (this is the default) and [auto-configuration](https://opentelemetry.io/docs/languages/java/instrumentation/#autoconfiguration). When deploying the application the service name and exporter are [configured via environment variables](./sdk-exporter-config.md).
-
-

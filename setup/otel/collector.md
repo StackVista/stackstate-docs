@@ -21,14 +21,14 @@ For StackState integration, it's simple: StackState offers an OTLP endpoint usin
 
 To install and configure the collector for usage with StackState we'll use the [Open Telemetry Collector helm chart](https://opentelemetry.io/docs/kubernetes/helm/collector/) and add the configuration needed for StackState:
 
-1. Configure the collector
+1. [Configure the collector](#configure-the-collector)
    1. helm chart configuration
    2. generating metrics from traces
    3. sending the data to StackState
    4. combine it all together in pipelines
-2. Create a Kubernetes secret with the StackState API key
-3. Deploy the collector
-4. Configure your instrumented applicatins to send telemetry to the collector
+2. [Create a Kubernetes secret for the StackState API key](#create-secret-for-the-api-key)
+3. [Deploy the collector](#deploy-the-collector)
+4. [Configure your instrumented applicatins to send telemetry to the collector](#configure-applications)
 
 ### Configure the collector
 
@@ -96,9 +96,10 @@ config:
 ```
 {% end code %}
 
-#### 
+TODO: Detailed explanation of the different sections
+TODO: Include tail sampling for spans by default?
 
-### Create API key secret
+### Create secret for the API key
 
 The collector needs a Kubernetes secret with the StackState API key. Create that in the same namespace (here we are using the `open-telemetry` namespace) where the collector will be installed (replace `<stackstate-api-key>` with your API key):
 
@@ -130,24 +131,7 @@ helm upgrade --install opentelemetry-collector open-telemetry/opentelemetry-coll
 
 The collector as it is configured now is ready to receive and send telemetry data. The only thing left to do is to update the SDK configuration for your applications to send their telemetry via the collector to the agent.
 
-Update the Kubernetes manifests for your applications such that the instrumented containers have the `OTEL_EXPORTER_OTLP_ENDPOINT` environment variable set.
-
-For instrumentations that support gRPC:
-
-```yaml
-  env:
-  - name: OTEL_EXPORTER_OTLP_ENDPOINT
-    value: http://opentelemetry-collector.open-telemetry.svc.cluster.local:4317
-```
-
-For instrumentations that only support HTTP use port 4318 instead of 4317:
-
-```yaml
-  env:
-  - name: OTEL_EXPORTER_OTLP_ENDPOINT
-    value: http://opentelemetry-collector.open-telemetry.svc.cluster.local:4318
-```
-
+Use the [generic configuration for the SDKs](./instrumentation/sdk-exporter-config.md) to export data to the collector. Follow the [language specific instrumentation instructions](./instrumentation/README.md) to enable the SDK for your applications.
 
 ## Related resources
 

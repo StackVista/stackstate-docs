@@ -18,6 +18,8 @@ spec:
       value: http://opentelemetry-collector.open-telemetry.svc.cluster.local:4317
     - name: OTEL_SERVICE_NAME
       value: <the-service-name>
+    - name: OTEL_EXPORTER_OTLP_PROTOCOL
+      value: grpc
 ...
 ```
 
@@ -34,3 +36,18 @@ spec:
           apiVersion: v1
           fieldPath: metadata.labels['app.kubernetes.io/component']
 ```
+
+## gRPC vs HTTP
+
+OTLP, the Open Telemetry Protocol, supports gRPC and protobuf over HTTP. Some SDKs also support JSON over HTTP. In the previous section the exporter protocol is set to `gRPC`, this usually gives the best performance and is the default for many SDKs. However, in some cases it may be problematic:
+
+* Some firewalls are not setup to handle gRPC
+* (reverse) proxies and load balancers may not support gRPC without additional configuration
+* gRPC's long-lived connections may cause problems when load-balancing.
+
+To switch to HTTP instead of gRPC change the protocol to `http` *and* use port `4318`. 
+
+To summarize, use HTTP in case gRPC is given problems:
+
+* `grpc` protocol uses port `4317`
+* `http` protocol uses port `4318`
