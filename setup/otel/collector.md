@@ -33,7 +33,7 @@ To install and configure the collector for usage with StackState we'll use the [
 ### Configure the collector
 
 Here is the full values file needed, continue reading below the file for an explanation of the different parts. Or skip ahead to the next step, but make sure to replace:
-* `<your-stackstate-host>` with the hostname of your StackState, for example `play.stackstate.com`.
+* `<your-stackstate-host>` with the OTLP endpoint of your StackState. If, for example, you access StackState on `play.stackstate.com` the OTLP endpoint is `otlp-play.stackstate.com`. So simply prefixing `otlp-` to the normal StackState url will do.
 * `<your-cluster-name>` with the cluster name you configured in StackState, the same cluster name used when installing the StackState agent.
 
 {% code title="otel-collector.yaml" lineNumbers="true" %}
@@ -63,7 +63,7 @@ config:
     resource:
       attributes:
       - key: k8s.cluster.name
-        action: upsert # Update or insert, some instrumentations add their own cluster name which may be different
+        action: upsert
         value: <your-cluster-name>
       - key: service.instance.id
         from_attribute: k8s.pod.uid
@@ -88,15 +88,45 @@ config:
       traces:
         receivers: [otlp]
         processors: [filter/dropMissingK8sAttributes, memory_limiter, resource, batch]
-        exporters: [debug, spanmetrics, otlp/trafficmirror]
+        exporters: [debug, spanmetrics, otlp/stackstate]
       metrics:
         receivers: [otlp, spanmetrics, prometheus]
         processors: [memory_limiter, resource, batch]
-        exporters: [debug, otlp/trafficmirror]
+        exporters: [debug, otlp/stackstate]
 ```
 {% end code %}
 
-TODO: Detailed explanation of the different sections
+The `config` section customizes the collector config itself and is discussed in the next section. The other parts are:
+
+* `extraEnvsFrom`: Sets environment variables from the specified secret, in the next step this secret is created for storing the StackState API key
+* `mode`: Run the collector as a Kubernetes deployment, when to use the other modes is discussed [here](https://opentelemetry.io/docs/kubernetes/helm/collector/).
+* `ports`: Used to enable the metrics port such that the collector can scrape its own metrics
+* `presets`: Used to enable the default configuration for adding Kubernetes metadata as attributes, this includes Kubernetes labels and metadat like namespace, pod, deployment etc. Enabling the metadata also introduces the cluster role and role binding mentioned in the pre-requisites.
+
+#### Configuration
+
+The `service` section determines what components of the collector are enabled. The configuration for those components comes from the other sections (extensions, receivers, connectors, processors and exporters). The `extensions` section enables:
+* `health_check`, doesn't need additional configuration but adds an endpoint for Kubernetes liveness and readiness probes
+* `bearertokenauth`, this extension adds an authentication header to each request with the StackState API key. In its configuration we can see it is getting the StackState API key from the environment variable `API_KEY`.
+
+The `pipelines` section defines pipelines for the 3 possible types of data. Here we disable the `logs` pipeline, StackState doesn't support that yet. 
+
+For both traces and metrics a pipeline is defined. The metrics pipeline defines:
+* `receivers`, to receive metrics from instrumented applications (via the OTLP protocol, `otlp`), from spans (the `spanmetrics` connector) and by scraping Prometheus endpoints (the `prometheus` receiver). The latter is configured by default in the collector Helm chart to scrape the collectors own metrics
+* `processors`: The `memory_limiter` helps to prevent out-of-memory errors. The `batch` processor helps better compress the data and reduce the number of outgoing connections required to transmit the data. The `resource` processor adds additional resource attributes (discussed separately)
+* `exporters`: The `debug` exporter simply logs to stdout which helps when troubleshooting. The `otlp/stackstate` exporter sends telemetry data to StackState using the OTLP protocol. It is configured to use the bearertokenauth extension for authentication to send data to the StackState OTLP endpoint.
+
+For traces the pipeline looks very similar:
+* `receivers`: Only receives traces from instrumented applications over OTLP
+* `processors`: All the same processors are used as for metrics, but additionally a `filter/dropMissingK8sAttributes` is included. This filter is configured to remove all trace spans for which no complete set of Kubernetes metadata could be added. StackState needs the Kubernetes attributes, so spans without these attributes are not needed.
+* `exporters`: Again the same exporters as for metrics but also the `spanmetrics` connector appears as an exporter. Connectors can be used to generate one data type from another, in this case metrics from spans (`duration` and `calls`). It is configured to not report time series anymore when no spans have been observed for 5 minutes.
+
+The `resource` processor is also configured for both metrics and traces. It adds extra resource attributes:
+
+* The `k8s.cluster.name` is added by providing the cluster name in the configuration. StackState needs the cluster name and Open Telemetry does not have a consistent way of determining it. Because some SDKs, in some environments, provide a cluster name that does not match what StackState expects the cluster name is an `upsert` (overwrites any pre-existing value).
+* The `service.instance.id` is added based on the pod uid. It is recommended to always provide a service instance id, and the pod uid is an easy way to get a unique identifier if the SDKs don't provide one.
+
+TODO: Prefix span metrics and update stackpacks see related Jira ticket STAC-21018
 TODO: Include tail sampling for spans by default?
 
 ### Create secret for the API key
@@ -109,8 +139,13 @@ kubectl create secret generic open-telemetry-collector \
     --from-literal=API_KEY='<stackstate-api-key>' 
 ```
 
-TODO: Where to get the api key?
+You can find the API key for StackState on the Kubernetes Stackpack installation screen:
 
+1. Open StackState
+2. Navigate to StackPacks and select the Kubernetes StackPack
+3. Open one of the installed instances
+4. Scroll down to the first set of installation instructions. It shows the API key as `STACKSTATE_RECEIVER_API_KEY` in text and as `'stackstate.apiKey'` in the command.
+  
 ### Deploy the collector
 
 To deploy the collector first make sure you have the Open Telmetry helm charts repository configured:

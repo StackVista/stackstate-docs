@@ -11,3 +11,5 @@ TODO: write up in more detail
    - Collector -> StackState
  - Collector can send data to StackState? URL correct and accessible? Should be different endpoint than agent receiver
  - Collector has correct api key? No 403/401 responses logged?
+ - Telemetry for pods using host networking not showing up
+ - No trace data? Can k8sattributes be added correctly? Check log file
