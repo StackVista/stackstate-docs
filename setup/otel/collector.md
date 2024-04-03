@@ -126,9 +126,6 @@ The `resource` processor is also configured for both metrics and traces. It adds
 * The `k8s.cluster.name` is added by providing the cluster name in the configuration. StackState needs the cluster name and Open Telemetry does not have a consistent way of determining it. Because some SDKs, in some environments, provide a cluster name that does not match what StackState expects the cluster name is an `upsert` (overwrites any pre-existing value).
 * The `service.instance.id` is added based on the pod uid. It is recommended to always provide a service instance id, and the pod uid is an easy way to get a unique identifier if the SDKs don't provide one.
 
-TODO: Prefix span metrics and update stackpacks see related Jira ticket STAC-21018
-TODO: Include tail sampling for spans by default?
-
 ### Create secret for the API key
 
 The collector needs a Kubernetes secret with the StackState API key. Create that in the same namespace (here we are using the `open-telemetry` namespace) where the collector will be installed (replace `<stackstate-api-key>` with your API key):
