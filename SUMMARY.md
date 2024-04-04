@@ -81,7 +81,7 @@
 * [Instrumentation](setup/otel/instrumentation/README.md)
   * [Generic Exporter configuration](setup/otel/instrumentation/sdk-exporter-config.md)
   * [Java](setup/otel/instrumentation/java.md)
-  * [Javascript](setup/otel/instrumentation/javascript.md)
+  * [Node.js](setup/otel/instrumentation/node.js.md)
   * [.NET](setup/otel/instrumentation/dot-net.md)
   * [Verify the results](setup/otel/instrumentation/verify.md)
 * [Troubleshooting](setup/otel/troubleshooting.md)
