@@ -80,9 +80,9 @@
 * [Open telemetry collector](setup/otel/collector.md)
 * [Instrumentation](setup/otel/instrumentation/README.md)
   * [Generic Exporter configuration](setup/otel/instrumentation/sdk-exporter-config.md)
-  * [Java](setup/otel/instrumenation/java.md)
-  * [Javascript](setup/otel/instrumenation/javascript.md)
-  * [.NET](setup/otel/instrumenation/dot-net.md)
+  * [Java](setup/otel/instrumentation/java.md)
+  * [Javascript](setup/otel/instrumentation/javascript.md)
+  * [.NET](setup/otel/instrumentation/dot-net.md)
   * [Verify the results](setup/otel/instrumentation/verify.md)
 * [Troubleshooting](setup/otel/troubleshooting.md)
   
