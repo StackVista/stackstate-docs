@@ -31,3 +31,7 @@ To capture that data you need to modify your application.
 There is detailed documentation for this on the [Open Telemetry Java SDK doc pages](https://opentelemetry.io/docs/languages/java/instrumentation/). 
 
 Make sure you use the the OTLP exporter (this is the default) and [auto-configuration](https://opentelemetry.io/docs/languages/java/instrumentation/#autoconfiguration). When deploying the application the service name and exporter are [configured via environment variables](./sdk-exporter-config.md).
+
+## Metrics in StackState
+
+For some Java  metrics, for example garbage collector metrics, StackState has defined charts on the related components. For Kubernetes the charts are available on the pods. It is possible to [add charts for more metrics](/use/metrics/k8s-add-charts.md), this works for metrics from automatic instrumentation but also for application specific metrics from manual instrumentation.
