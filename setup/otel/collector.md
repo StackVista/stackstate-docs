@@ -1,3 +1,4 @@
+---
 description: StackState Kubernetes Troubleshooting
 ---
 
@@ -13,7 +14,7 @@ For StackState integration, it's simple: StackState offers an OTLP endpoint usin
 
 ## Pre-requisites
 
-1. A Kubernetes cluster with an application that is [instrumented with Open Telemetry](./instrumentation/README.md)
+1. A Kubernetes cluster with an application that is [instrumented with Open Telemetry](./languages/README.md)
 2. An API key for StackState
 3. Permissions to deploy the open telemetry collector in a namespace on the cluster (i.e. create resources like deployments and configmaps in a namespace). To be able to enrich the data with Kubernetes attributes permission is needed to create a [cluster role](https://github.com/open-telemetry/opentelemetry-helm-charts/blob/main/charts/opentelemetry-collector/templates/clusterrole.yaml) and role binding.
 
@@ -33,7 +34,7 @@ To install and configure the collector for usage with StackState we'll use the [
 ### Configure the collector
 
 Here is the full values file needed, continue reading below the file for an explanation of the different parts. Or skip ahead to the next step, but make sure to replace:
-* `<your-stackstate-host>` with the OTLP endpoint of your StackState. If, for example, you access StackState on `play.stackstate.com` the OTLP endpoint is `otlp-play.stackstate.com`. So simply prefixing `otlp-` to the normal StackState url will do.
+* `<otlp-stackstate-endpoint>` with the OTLP endpoint of your StackState. If, for example, you access StackState on `play.stackstate.com` the OTLP endpoint is `otlp-play.stackstate.com`. So simply prefixing `otlp-` to the normal StackState url will do.
 * `<your-cluster-name>` with the cluster name you configured in StackState, the same cluster name used when installing the StackState agent.
 
 {% code title="otel-collector.yaml" lineNumbers="true" %}
@@ -58,7 +59,7 @@ config:
     otlp/stackstate:
       auth:
         authenticator: bearertokenauth
-      endpoint: <your-stackstate-host>:443
+      endpoint: <otlp-stackstate-endpoint>:443
   processors:
     resource:
       attributes:
@@ -79,6 +80,7 @@ config:
   connectors:
     spanmetrics:
       metrics_expiration: 5m
+      namespace: otel_span
   service:
     extensions:
       - health_check
@@ -119,7 +121,7 @@ For both traces and metrics a pipeline is defined. The metrics pipeline defines:
 For traces the pipeline looks very similar:
 * `receivers`: Only receives traces from instrumented applications over OTLP
 * `processors`: All the same processors are used as for metrics, but additionally a `filter/dropMissingK8sAttributes` is included. This filter is configured to remove all trace spans for which no complete set of Kubernetes metadata could be added. StackState needs the Kubernetes attributes, so spans without these attributes are not needed.
-* `exporters`: Again the same exporters as for metrics but also the `spanmetrics` connector appears as an exporter. Connectors can be used to generate one data type from another, in this case metrics from spans (`duration` and `calls`). It is configured to not report time series anymore when no spans have been observed for 5 minutes.
+* `exporters`: Again the same exporters as for metrics but also the `spanmetrics` connector appears as an exporter. Connectors can be used to generate one data type from another, in this case metrics from spans (`otel_span_duration` and `otel_span_calls`). It is configured to not report time series anymore when no spans have been observed for 5 minutes. StackState expects the span metrics to be prefixed with `otel_span_`, which is taken care of by the `namespace` configuration.
 
 The `resource` processor is also configured for both metrics and traces. It adds extra resource attributes:
 
@@ -163,7 +165,7 @@ helm upgrade --install opentelemetry-collector open-telemetry/opentelemetry-coll
 
 The collector as it is configured now is ready to receive and send telemetry data. The only thing left to do is to update the SDK configuration for your applications to send their telemetry via the collector to the agent.
 
-Use the [generic configuration for the SDKs](./instrumentation/sdk-exporter-config.md) to export data to the collector. Follow the [language specific instrumentation instructions](./instrumentation/README.md) to enable the SDK for your applications.
+Use the [generic configuration for the SDKs](./languages/sdk-exporter-config.md) to export data to the collector. Follow the [language specific instrumentation instructions](./languages/README.md) to enable the SDK for your applications.
 
 ## Related resources
 

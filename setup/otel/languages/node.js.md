@@ -1,3 +1,4 @@
+---
 description: StackState Kubernetes Troubleshooting
 ---
 
@@ -24,7 +25,7 @@ node --require @opentelemetry/auto-instrumentations-node/register app.js
 For more details please refer to the [Open Telemetry documentation](https://opentelemetry.io/docs/languages/js/automatic/). 
 
 {% hint style="warning" %}
-The auto instrumentation, configured via environment variables, only supports traces. At least until this [Open Telemetry issue](https://github.com/open-telemetry/opentelemetry-js/issues/4551) is resolved. To enable metrics from the automatic instrumentation code changes are needed. Please follow the instructions in the [Open Telemetry documentation](https://opentelemetry.io/docs/languages/js/exporters/#usage-with-nodejs) to make these changes. 
+The auto instrumentation configured via environment variables only supports traces until this [Open Telemetry issue](https://github.com/open-telemetry/opentelemetry-js/issues/4551) is resolved. To enable metrics from the automatic instrumentation code changes are needed. Please follow the instructions in the [Open Telemetry documentation](https://opentelemetry.io/docs/languages/js/exporters/#usage-with-nodejs) to make these changes. 
 {% endhint %}
 
 ## Manual instrumentation

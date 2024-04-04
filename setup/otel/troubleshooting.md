@@ -1,3 +1,4 @@
+---
 description: StackState Kubernetes Troubleshooting
 ---
 
@@ -32,10 +33,10 @@ If the collector needs to send data through a proxy or a firewall it can be that
     otlp-http/stackstate:
       auth:
         authenticator: bearertokenauth
-      endpoint: <your-stackstate-host>:4318
+      endpoint: <otlp-http-stackstate-endpoint>:4318
 ```
 
-TODO: This needs to be supported!
+Here `<otlp-http-stackstate-endpoint>` is similar to the `<otlp-stackstate-endpoint>`, but instead of a `otlp-` prefix it has `otlp-http-` prefix, for example `otlp-http-play.stackstate.com`.
 
 ## The instrumented application cannot send data to the collector
 
@@ -48,15 +49,15 @@ If the SDK logs network connection timeouts it can be that either there is a mis
 
 ### The language SDK doesn't support gRPC
 
-Not all language SDKs have support for gRPC. If OTLP over gRPC is not supported it is best to switch to OTLP over HTTP. The [SDK exporter config](./instrumentation/sdk-exporter-config.md#grpc-vs-http) describes how to make this switch.
+Not all language SDKs have support for gRPC. If OTLP over gRPC is not supported it is best to switch to OTLP over HTTP. The [SDK exporter config](./languages/sdk-exporter-config.md#grpc-vs-http) describes how to make this switch.
 
 ### The language SDK uses the wrong port
 
-Using the wrong port usually appears as connection errors but can also show up as network connections being unexpectedly closed. Make sure the SDK exporter is using the right port when sending data. See the [SDK exporter config](./instrumentation/sdk-exporter-config.md#grpc-vs-http).
+Using the wrong port usually appears as connection errors but can also show up as network connections being unexpectedly closed. Make sure the SDK exporter is using the right port when sending data. See the [SDK exporter config](./languages/sdk-exporter-config.md#grpc-vs-http).
 
 ### Some proxies and firewalls don't work well with gRPC 
 
-If the collector needs to send data through a proxy or a firewall it can be that they either block the traffic completely or possibly drop some parts of the gRPC messages or unexpectedly drop the long-lived gRPC connection completely. The [SDK exporter config](./instrumentation/sdk-exporter-config.md#grpc-vs-http) describes how to switch from gRPC to use HTTP instead. 
+If the collector needs to send data through a proxy or a firewall it can be that they either block the traffic completely or possibly drop some parts of the gRPC messages or unexpectedly drop the long-lived gRPC connection completely. The [SDK exporter config](./languages/sdk-exporter-config.md#grpc-vs-http) describes how to switch from gRPC to use HTTP instead. 
 
 ## Kubernetes pods with hostNetwork enabled
 

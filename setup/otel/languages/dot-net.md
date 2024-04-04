@@ -1,10 +1,8 @@
+---
 description: StackState Kubernetes Troubleshooting
 ---
 
-# # Instrumenting .NETdescription: StackState Kubernetes Troubleshooting
----
-
-# Instrumenting .KFG Applications
+# .NET Applications
 
 ## Automatic instrumentation
 
@@ -51,3 +49,5 @@ To capture that data you need to modify your application.
 There is detailed documentation for this on the [Open Telemetry .NET SDK doc pages](https://opentelemetry.io/docs/languages/net/instrumentation/). 
 
 Make sure you use the the OTLP exporter (this is the default) and [auto-configuration](https://opentelemetry.io/docs/languages/java/instrumentation/#autoconfiguration). When deploying the application the service name and exporter are [configured via environment variables](./sdk-exporter-config.md).
+
+## 

@@ -1,7 +1,8 @@
+---
 description: StackState Kubernetes Troubleshooting
 ---
 
-# Instrumenting Java Applications
+# Java Applications
 
 ## Automatic instrumentation
 
