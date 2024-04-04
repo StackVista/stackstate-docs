@@ -13,7 +13,7 @@ For StackState integration, it's simple: StackState offers an OTLP endpoint usin
 
 ## Pre-requisites
 
-1. A Kubernetes cluster with an application that is [instrumented with Open Telemetry](setup/otel/instrumentation/README.md)
+1. A Kubernetes cluster with an application that is [instrumented with Open Telemetry](./instrumentation/README.md)
 2. An API key for StackState
 3. Permissions to deploy the open telemetry collector in a namespace on the cluster (i.e. create resources like deployments and configmaps in a namespace). To be able to enrich the data with Kubernetes attributes permission is needed to create a [cluster role](https://github.com/open-telemetry/opentelemetry-helm-charts/blob/main/charts/opentelemetry-collector/templates/clusterrole.yaml) and role binding.
 
