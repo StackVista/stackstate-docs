@@ -86,7 +86,6 @@ config:
       - health_check
       - bearertokenauth
     pipelines:
-      logs: {}
       traces:
         receivers: [otlp]
         processors: [filter/dropMissingK8sAttributes, memory_limiter, resource, batch]
@@ -111,9 +110,7 @@ The `service` section determines what components of the collector are enabled. T
 * `health_check`, doesn't need additional configuration but adds an endpoint for Kubernetes liveness and readiness probes
 * `bearertokenauth`, this extension adds an authentication header to each request with the StackState API key. In its configuration, we can see it is getting the StackState API key from the environment variable `API_KEY`.
 
-The `pipelines` section defines pipelines for the 3 possible types of data. Here we disable the `logs` pipeline, StackState doesn't support that yet. 
-
-For both traces and metrics a pipeline is defined. The metrics pipeline defines:
+The `pipelines` section defines pipelines for the traces and metrics. The metrics pipeline defines:
 * `receivers`, to receive metrics from instrumented applications (via the OTLP protocol, `otlp`), from spans (the `spanmetrics` connector) and by scraping Prometheus endpoints (the `prometheus` receiver). The latter is configured by default in the collector Helm chart to scrape the collectors own metrics
 * `processors`: The `memory_limiter` helps to prevent out-of-memory errors. The `batch` processor helps better compress the data and reduce the number of outgoing connections required to transmit the data. The `resource` processor adds additional resource attributes (discussed separately)
 * `exporters`: The `debug` exporter simply logs to stdout which helps when troubleshooting. The `otlp/stackstate` exporter sends telemetry data to StackState using the OTLP protocol. It is configured to use the bearertokenauth extension for authentication to send data to the StackState OTLP endpoint.
