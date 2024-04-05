@@ -19,4 +19,4 @@ To check that StackState is receiving metrics:
 2. Open the metrics explorer from the menu
 3. Search for the metrics exposed by your application
 
-If there are still no metrics after 5 minutes something is likely mis-configured. See [troubelshooting](../troubleshooting.md) for help.
+If there are still no metrics after 5 minutes something is likely mis-configured. See [troubleshooting](../troubleshooting.md) for help.

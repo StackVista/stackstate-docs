@@ -10,7 +10,7 @@ Automatic instrumentation for .NET can automatically capture traces and metrics 
 
 Automatic instrumentation does not require any modifications of the application. To set it up follow these steps:
 
-1. Download the [glibc](https://github.com/open-telemetry/opentelemetry-dotnet-instrumentation/releases/latest/download/opentelemetry-dotnet-instrumentation-linux-glibc.zip) or [musl](https://github.com/open-telemetry/opentelemetry-dotnet-instrumentation/releases/latest/download/opentelemetry-dotnet-instrumentation-linux-musl.zip) version of the instrumentation libraries (musl for Alpine, glibc for most other docker images) from the [Releases](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases) of the opentelemetry-dotnet-instrumentation repository. Unzip the files and include them in your applications docker image in a directory, here we use `/autoinstrumentation`.
+1. Download the [glibc](https://github.com/open-telemetry/opentelemetry-dotnet-instrumentation/releases/latest/download/opentelemetry-dotnet-instrumentation-linux-glibc.zip) or [musl](https://github.com/open-telemetry/opentelemetry-dotnet-instrumentation/releases/latest/download/opentelemetry-dotnet-instrumentation-linux-musl.zip) version of the instrumentation libraries (musl for Alpine, glibc for most other docker images) from the [Releases](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases) of the opentelemetry-dotnet-instrumentation repository. Unzip the files and include them in your application docker image in a directory, here we use `/autoinstrumentation`.
 2. Set the following env vars, here we do it via the `env` of the container in the Kubernetes pod spec:
 ```yaml
 env: 
@@ -40,7 +40,7 @@ For more details please refer to the [Open Telemetry documentation](https://open
 
 ## Manual instrumentation
 
-Manual instrumentation can be used when you need metrics, traces or logs from parts of the code that are not supported by the auto instrumentation. For example unsupported libraries, in-house code or business level metrics. 
+Manual instrumentation can be used when you need metrics, traces or logs from parts of the code that are not supported by the auto instrumentation. For example unsupported libraries, in-house code or business-level metrics. 
 
 To capture that data you need to modify your application. 
 1. Include the Open Telemetry SDK as a dependency
@@ -48,8 +48,8 @@ To capture that data you need to modify your application.
 
 There is detailed documentation for this on the [Open Telemetry .NET SDK doc pages](https://opentelemetry.io/docs/languages/net/instrumentation/). 
 
-Make sure you use the the OTLP exporter (this is the default) and [auto-configuration](https://opentelemetry.io/docs/languages/java/instrumentation/#autoconfiguration). When deploying the application the service name and exporter are [configured via environment variables](./sdk-exporter-config.md).
+Make sure you use the OTLP exporter (this is the default) and [auto-configuration](https://opentelemetry.io/docs/languages/java/instrumentation/#autoconfiguration). When deploying the application the service name and exporter are [configured via environment variables](./sdk-exporter-config.md).
 
 ## Metrics in StackState
 
-For some .NET  metrics, for example garbage collector metrics, StackState has defined charts on the related components. For Kubernetes the charts are available on the pods. It is possible to [add charts for more metrics](/use/metrics/k8s-add-charts.md), this works for metrics from automatic instrumentation but also for application specific metrics from manual instrumentation.
+For some .NET  metrics, for example, garbage collector metrics, StackState has defined charts on the related components. For Kubernetes,the charts are available on the pods. It is possible to [add charts for more metrics](/use/metrics/k8s-add-charts.md), this works for metrics from automatic instrumentation but also for application-specific metrics from manual instrumentation.

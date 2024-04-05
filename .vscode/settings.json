@@ -10,5 +10,8 @@
   "cSpell.words": [
     "kots",
     "kubernetes"
-  ]
+  ],
+  "files.watcherExclude": {
+    "**/target": true
+  }
 }

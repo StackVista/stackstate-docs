@@ -103,13 +103,13 @@ The `config` section customizes the collector config itself and is discussed in 
 * `extraEnvsFrom`: Sets environment variables from the specified secret, in the next step this secret is created for storing the StackState API key
 * `mode`: Run the collector as a Kubernetes deployment, when to use the other modes is discussed [here](https://opentelemetry.io/docs/kubernetes/helm/collector/).
 * `ports`: Used to enable the metrics port such that the collector can scrape its own metrics
-* `presets`: Used to enable the default configuration for adding Kubernetes metadata as attributes, this includes Kubernetes labels and metadat like namespace, pod, deployment etc. Enabling the metadata also introduces the cluster role and role binding mentioned in the pre-requisites.
+* `presets`: Used to enable the default configuration for adding Kubernetes metadata as attributes, this includes Kubernetes labels and metadata like namespace, pod, deployment etc. Enabling the metadata also introduces the cluster role and role binding mentioned in the pre-requisites.
 
 #### Configuration
 
 The `service` section determines what components of the collector are enabled. The configuration for those components comes from the other sections (extensions, receivers, connectors, processors and exporters). The `extensions` section enables:
 * `health_check`, doesn't need additional configuration but adds an endpoint for Kubernetes liveness and readiness probes
-* `bearertokenauth`, this extension adds an authentication header to each request with the StackState API key. In its configuration we can see it is getting the StackState API key from the environment variable `API_KEY`.
+* `bearertokenauth`, this extension adds an authentication header to each request with the StackState API key. In its configuration, we can see it is getting the StackState API key from the environment variable `API_KEY`.
 
 The `pipelines` section defines pipelines for the 3 possible types of data. Here we disable the `logs` pipeline, StackState doesn't support that yet. 
 
@@ -118,17 +118,17 @@ For both traces and metrics a pipeline is defined. The metrics pipeline defines:
 * `processors`: The `memory_limiter` helps to prevent out-of-memory errors. The `batch` processor helps better compress the data and reduce the number of outgoing connections required to transmit the data. The `resource` processor adds additional resource attributes (discussed separately)
 * `exporters`: The `debug` exporter simply logs to stdout which helps when troubleshooting. The `otlp/stackstate` exporter sends telemetry data to StackState using the OTLP protocol. It is configured to use the bearertokenauth extension for authentication to send data to the StackState OTLP endpoint.
 
-For traces the pipeline looks very similar:
-* `receivers`: Only receives traces from instrumented applications over OTLP
+For traces, the pipeline looks very similar:
+* `receivers: Only receive traces from instrumented applications over OTLP
 * `processors`: All the same processors are used as for metrics, but additionally a `filter/dropMissingK8sAttributes` is included. This filter is configured to remove all trace spans for which no complete set of Kubernetes metadata could be added. StackState needs the Kubernetes attributes, so spans without these attributes are not needed.
-* `exporters`: Again the same exporters as for metrics but also the `spanmetrics` connector appears as an exporter. Connectors can be used to generate one data type from another, in this case metrics from spans (`otel_span_duration` and `otel_span_calls`). It is configured to not report time series anymore when no spans have been observed for 5 minutes. StackState expects the span metrics to be prefixed with `otel_span_`, which is taken care of by the `namespace` configuration.
+* `exporters`: Again the same exporters as for metrics but also the `spanmetrics` connector appears as an exporter. Connectors can be used to generate one data type from another, in this case, metrics from spans (`otel_span_duration` and `otel_span_calls`). It is configured to not report time series anymore when no spans have been observed for 5 minutes. StackState expects the span metrics to be prefixed with `otel_span_`, which is taken care of by the `namespace` configuration.
 
 The `resource` processor is also configured for both metrics and traces. It adds extra resource attributes:
 
 * The `k8s.cluster.name` is added by providing the cluster name in the configuration. StackState needs the cluster name and Open Telemetry does not have a consistent way of determining it. Because some SDKs, in some environments, provide a cluster name that does not match what StackState expects the cluster name is an `upsert` (overwrites any pre-existing value).
 * The `service.instance.id` is added based on the pod uid. It is recommended to always provide a service instance id, and the pod uid is an easy way to get a unique identifier if the SDKs don't provide one.
 
-### Create secret for the API key
+### Create a secret for the API key
 
 The collector needs a Kubernetes secret with the StackState API key. Create that in the same namespace (here we are using the `open-telemetry` namespace) where the collector will be installed (replace `<stackstate-api-key>` with your API key):
 
@@ -147,13 +147,13 @@ You can find the API key for StackState on the Kubernetes Stackpack installation
   
 ### Deploy the collector
 
-To deploy the collector first make sure you have the Open Telmetry helm charts repository configured:
+To deploy the collector first make sure you have the Open Telemetry helm charts repository configured:
 
 ```bash
 helm repo add open-telemetry https://open-telemetry.github.io/opentelemetry-helm-charts
 ```
 
-Now install the collector, using configuration defined in the previous steps:
+Now install the collector, using the configuration defined in the previous steps:
 
 ```bash
 helm upgrade --install opentelemetry-collector open-telemetry/opentelemetry-collector \
@@ -165,7 +165,7 @@ helm upgrade --install opentelemetry-collector open-telemetry/opentelemetry-coll
 
 The collector as it is configured now is ready to receive and send telemetry data. The only thing left to do is to update the SDK configuration for your applications to send their telemetry via the collector to the agent.
 
-Use the [generic configuration for the SDKs](./languages/sdk-exporter-config.md) to export data to the collector. Follow the [language specific instrumentation instructions](./languages/README.md) to enable the SDK for your applications.
+Use the [generic configuration for the SDKs](./languages/sdk-exporter-config.md) to export data to the collector. Follow the [language-specific instrumentation instructions](./languages/README.md) to enable the SDK for your applications.
 
 ## Related resources
 

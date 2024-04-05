@@ -15,7 +15,7 @@ Automatic instrumentation does not require any modifications of the application.
 npm install --save @opentelemetry/api
 npm install --save @opentelemetry/auto-instrumentations-node
 ```
-2. Update the command that starts your application to load the Java agent, either by updating the docker image entry-point or command or by updating the `command` in the Kubernetes manifest for your application. Add `--require @opentelemetry/auto-instrumentations-node/register`:
+2. Update the command that starts your application to load the Java agent, either by updating the docker image entry point or command or by updating the `command` in the Kubernetes manifest for your application. Add `--require @opentelemetry/auto-instrumentations-node/register`:
 ```bash
 node --require @opentelemetry/auto-instrumentations-node/register app.js
 ```
@@ -30,7 +30,7 @@ The auto instrumentation configured via environment variables only supports trac
 
 ## Manual instrumentation
 
-Manual instrumentation can be used when you need metrics, traces or logs from parts of the code that are not supported by the auto instrumentation. For example unsupported libraries, in-house code or business level metrics. 
+Manual instrumentation can be used when you need metrics, traces or logs from parts of the code that are not supported by the auto instrumentation. For example unsupported libraries, in-house code or business-level metrics. 
 
 To capture that data you need to modify your application. 
 1. Include the Open Telemetry SDK as a dependency
@@ -38,4 +38,4 @@ To capture that data you need to modify your application.
 
 There is detailed documentation for this on the [Open Telemetry Javascript SDK doc pages](https://opentelemetry.io/docs/languages/js/instrumentation/). 
 
-Make sure you use the the OTLP exporter and to configure the exporter endpoint correctly from the code. See also the [Open Telemetry documentation](https://opentelemetry.io/docs/languages/js/exporters/#usage-with-nodejs). Assuming you set up the exporter as [documented](../collector.md) the endpoint that needs to be configured is `http://opentelemetry-collector.open-telemetry.svc.cluster.local:4317`, using gRPC. See also [gRPC vs HTTP](./sdk-exporter-config.md#grpc-vs-http) in case gRPC is problematic.
+Make sure you use the OTLP exporter and configure the exporter endpoint correctly from the code. See also the [Open Telemetry documentation](https://opentelemetry.io/docs/languages/js/exporters/#usage-with-nodejs). Assuming you set up the exporter as [documented](../collector.md) the endpoint that needs to be configured is `http://opentelemetry-collector.open-telemetry.svc.cluster.local:4317`, using gRPC. See also [gRPC vs HTTP](./sdk-exporter-config.md#grpc-vs-http) in case gRPC is problematic.

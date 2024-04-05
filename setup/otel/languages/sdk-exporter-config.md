@@ -24,7 +24,7 @@ spec:
 ...
 ```
 
-The endpoint specified in the example assumes the collector was installed using the defaults from [the installation guide](../collector.md). It uses port `4317` which uses the `gRPC` version of the OTLP protocol. Some instrumentations only support HTTP, in that case use port `4318`.
+The endpoint specified in the example assumes the collector was installed using the defaults from [the installation guide](../collector.md). It uses port `4317` which uses the `gRPC` version of the OTLP protocol. Some instrumentations only support HTTP, in that case, use port `4318`.
 
 The service name can also be derived from Kubernetes labels that may already be present. For example like this:
 ```yaml
@@ -40,7 +40,7 @@ spec:
 
 ## gRPC vs HTTP
 
-OTLP, the Open Telemetry Protocol, supports gRPC and protobuf over HTTP. Some SDKs also support JSON over HTTP. In the previous section the exporter protocol is set to `gRPC`, this usually gives the best performance and is the default for many SDKs. However, in some cases it may be problematic:
+OTLP, the Open Telemetry Protocol, supports gRPC and protobuf over HTTP. Some SDKs also support JSON over HTTP. In the previous section, the exporter protocol is set to `gRPC`, this usually gives the best performance and is the default for many SDKs. However, in some cases it may be problematic:
 
 * Some firewalls are not setup to handle gRPC
 * (reverse) proxies and load balancers may not support gRPC without additional configuration
