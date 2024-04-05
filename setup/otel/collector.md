@@ -64,26 +64,29 @@ config:
     tail_sampling:
       decision_wait: 10s
       policies:
-      - name: all-errors
-        type: status_code
-        status_code: 
-          status_codes: [ ERROR ]
-      - name: slow-traces
-        type: latency
-        latency:
-          threshold_ms: 1000
-      - name: sample-of-remaining-traces
-        type: and
-        and:
-          and_sub_policy:
-          - name: percentage-of-traces
-            type: probabilistic
-            probabilistic: 
-              sampling_percentage: 5
-          - name: rate-limited
-            type: rate_limiting
-            rate_limiting:
-              spans_per_second: 100
+      - name: rate-limited-composite
+        type: composite
+        composite:
+          max_total_spans_per_second: 500
+          policy_order: [errors, slow-traces, rest]
+          composite_sub_policy:
+          - name: errors
+            type: status_code
+            status_code: 
+              status_codes: [ ERROR ]
+          - name: slow-traces
+            type: latency
+            latency:
+              threshold_ms: 1000
+          - name: rest
+            type: always_sample
+          rate_allocation:
+          - policy: errors
+            percent: 33
+          - policy: slow-traces
+            percent: 33
+          - policy: rest
+            percent: 34
     resource:
       attributes:
       - key: k8s.cluster.name
