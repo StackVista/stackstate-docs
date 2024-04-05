@@ -61,6 +61,29 @@ config:
         authenticator: bearertokenauth
       endpoint: <otlp-stackstate-endpoint>:443
   processors:
+    tail_sampling:
+      decision_wait: 10s
+      policies:
+      - name: all-errors
+        type: status_code
+        status_code: 
+          status_codes: [ ERROR ]
+      - name: slow-traces
+        type: latency
+        latency:
+          threshold_ms: 1000
+      - name: sample-of-remaining-traces
+        type: and
+        and:
+          and_sub_policy:
+          - name: percentage-of-traces
+            type: probabilistic
+            probabilistic: 
+              sampling_percentage: 5
+          - name: rate-limited
+            type: rate_limiting
+            rate_limiting:
+              spans_per_second: 100
     resource:
       attributes:
       - key: k8s.cluster.name
@@ -81,15 +104,30 @@ config:
     spanmetrics:
       metrics_expiration: 5m
       namespace: otel_span
+    routing/traces:
+      # default_pipelines: [traces/spanmetrics, traces/sampling]
+      error_mode: ignore
+      match_once: false
+      table: 
+      - statement: route()
+        pipelines: [traces/sampling, traces/spanmetrics]
   service:
     extensions:
       - health_check
       - bearertokenauth
     pipelines:
-      traces:
+      traces/in:
         receivers: [otlp]
         processors: [filter/dropMissingK8sAttributes, memory_limiter, resource, batch]
-        exporters: [debug, spanmetrics, otlp/stackstate]
+        exporters: [routing/traces]
+      traces/spanmetrics:
+        receivers: [routing/traces]
+        processors: []
+        exporters: [spanmetrics]
+      traces/sampling:
+        receivers: [routing/traces]
+        processors: [tail_sampling]
+        exporters: [debug, otlp/stackstate]
       metrics:
         receivers: [otlp, spanmetrics, prometheus]
         processors: [memory_limiter, resource, batch]
