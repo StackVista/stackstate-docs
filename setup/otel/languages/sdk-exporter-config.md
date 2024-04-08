@@ -8,7 +8,7 @@ All SDKs, regardless of the language, use the same basic configuration for defin
 
 These can be configured by setting environment variables for your instrumented application. 
 
-In Kubernetes set these 2 environment variables in the manifest for your workload (replace `<the-service-name>` with a name for your application service):
+In Kubernetes set these environment variables in the manifest for your workload (replace `<the-service-name>` with a name for your application service):
 
 ```yaml
 ...

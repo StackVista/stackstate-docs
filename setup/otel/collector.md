@@ -4,7 +4,7 @@ description: StackState Kubernetes Troubleshooting
 
 # Open Telemetry Collector
 
-The OpenTelemetry Collector offers a vendor-agnostic implementation of how to receive, process and export telemetry data. Applications instrumented with Open Telemetry SDKs can use the collector to send telemetry data to StackState (traces and metrics). 
+The OpenTelemetry Collector offers a vendor-agnostic implementation to receive, process and export telemetry data. Applications instrumented with Open Telemetry SDKs can use the collector to send telemetry data to StackState (traces and metrics). 
 
 Your applications, when set up with OpenTelemetry SDKs, can use the collector to send telemetry data, like traces and metrics, straight to StackState. The collector is set up to receive this data by default via OTLP, the native open telemetry protocol. It can also receive data in other formats provided by other instrumentation SDKs like Jaeger and Zipkin for traces, and Influx and Prometheus for metrics.
 
@@ -116,7 +116,7 @@ The `pipelines` section defines pipelines for the traces and metrics. The metric
 * `exporters`: The `debug` exporter simply logs to stdout which helps when troubleshooting. The `otlp/stackstate` exporter sends telemetry data to StackState using the OTLP protocol. It is configured to use the bearertokenauth extension for authentication to send data to the StackState OTLP endpoint.
 
 For traces, the pipeline looks very similar:
-* `receivers: Only receive traces from instrumented applications over OTLP
+* `receivers`: Only receive traces from instrumented applications over OTLP
 * `processors`: All the same processors are used as for metrics, but additionally a `filter/dropMissingK8sAttributes` is included. This filter is configured to remove all trace spans for which no complete set of Kubernetes metadata could be added. StackState needs the Kubernetes attributes, so spans without these attributes are not needed.
 * `exporters`: Again the same exporters as for metrics but also the `spanmetrics` connector appears as an exporter. Connectors can be used to generate one data type from another, in this case, metrics from spans (`otel_span_duration` and `otel_span_calls`). It is configured to not report time series anymore when no spans have been observed for 5 minutes. StackState expects the span metrics to be prefixed with `otel_span_`, which is taken care of by the `namespace` configuration.
 
