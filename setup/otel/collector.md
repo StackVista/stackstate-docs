@@ -37,6 +37,14 @@ Here is the full values file needed, continue reading below the file for an expl
 * `<otlp-stackstate-endpoint>` with the OTLP endpoint of your StackState. If, for example, you access StackState on `play.stackstate.com` the OTLP endpoint is `otlp-play.stackstate.com`. So simply prefixing `otlp-` to the normal StackState url will do.
 * `<your-cluster-name>` with the cluster name you configured in StackState, the same cluster name used when installing the StackState agent.
 
+{% hint style="warning" %}
+The Kubernetes attributes and the span metrics namespace are required for StackState to provide full functionality.
+{% endhint %}
+
+{% hint style="info" %}
+The suggested configuration includes tail sampling for traces. Sampling can be fully customized and, depending on your applications and the volume of traces, it may be needed to [change this configuration](#trace-sampling). For example an increase (or decrease) in `max_total_spans_per_second`. It is highly recommended to keep sampling enabled to keep resource usage and cost under control.
+{% endhint %}
+
 {% code title="otel-collector.yaml" lineNumbers="true" %}
 ```yaml
 extraEnvsFrom:
@@ -61,6 +69,32 @@ config:
         authenticator: bearertokenauth
       endpoint: <otlp-stackstate-endpoint>:443
   processors:
+    tail_sampling:
+      decision_wait: 10s
+      policies:
+      - name: rate-limited-composite
+        type: composite
+        composite:
+          max_total_spans_per_second: 500
+          policy_order: [errors, slow-traces, rest]
+          composite_sub_policy:
+          - name: errors
+            type: status_code
+            status_code: 
+              status_codes: [ ERROR ]
+          - name: slow-traces
+            type: latency
+            latency:
+              threshold_ms: 1000
+          - name: rest
+            type: always_sample
+          rate_allocation:
+          - policy: errors
+            percent: 33
+          - policy: slow-traces
+            percent: 33
+          - policy: rest
+            percent: 34
     resource:
       attributes:
       - key: k8s.cluster.name
@@ -81,6 +115,12 @@ config:
     spanmetrics:
       metrics_expiration: 5m
       namespace: otel_span
+    routing/traces:
+      error_mode: ignore
+      match_once: false
+      table: 
+      - statement: route()
+        pipelines: [traces/sampling, traces/spanmetrics]
   service:
     extensions:
       - health_check
@@ -88,14 +128,22 @@ config:
     pipelines:
       traces:
         receivers: [otlp]
-        processors: [filter/dropMissingK8sAttributes, memory_limiter, resource, batch]
-        exporters: [debug, spanmetrics, otlp/stackstate]
+        processors: [filter/dropMissingK8sAttributes, memory_limiter, resource]
+        exporters: [routing/traces]
+      traces/spanmetrics:
+        receivers: [routing/traces]
+        processors: []
+        exporters: [spanmetrics]
+      traces/sampling:
+        receivers: [routing/traces]
+        processors: [tail_sampling, batch]
+        exporters: [debug, otlp/stackstate]
       metrics:
         receivers: [otlp, spanmetrics, prometheus]
         processors: [memory_limiter, resource, batch]
         exporters: [debug, otlp/stackstate]
 ```
-{% end code %}
+{% endcode %}
 
 The `config` section customizes the collector config itself and is discussed in the next section. The other parts are:
 
@@ -115,15 +163,41 @@ The `pipelines` section defines pipelines for the traces and metrics. The metric
 * `processors`: The `memory_limiter` helps to prevent out-of-memory errors. The `batch` processor helps better compress the data and reduce the number of outgoing connections required to transmit the data. The `resource` processor adds additional resource attributes (discussed separately)
 * `exporters`: The `debug` exporter simply logs to stdout which helps when troubleshooting. The `otlp/stackstate` exporter sends telemetry data to StackState using the OTLP protocol. It is configured to use the bearertokenauth extension for authentication to send data to the StackState OTLP endpoint.
 
-For traces, the pipeline looks very similar:
-* `receivers`: Only receive traces from instrumented applications over OTLP
-* `processors`: All the same processors are used as for metrics, but additionally a `filter/dropMissingK8sAttributes` is included. This filter is configured to remove all trace spans for which no complete set of Kubernetes metadata could be added. StackState needs the Kubernetes attributes, so spans without these attributes are not needed.
-* `exporters`: Again the same exporters as for metrics but also the `spanmetrics` connector appears as an exporter. Connectors can be used to generate one data type from another, in this case, metrics from spans (`otel_span_duration` and `otel_span_calls`). It is configured to not report time series anymore when no spans have been observed for 5 minutes. StackState expects the span metrics to be prefixed with `otel_span_`, which is taken care of by the `namespace` configuration.
+For traces, there are 3 pipelines that are connected:
+* `traces`: The pipeline that receives traces from SDKs (via the `otlp` receiver) and does the initial processing using the same processors as for metrics. It exports into a router which routes all spans to both other traces pipelines. This setup makes it possible to calculate span metrics for all spans while applying sampling to the traces that are exported.
+* `traces/spanmetrics`: Use the `spanmetrics` connector as an exporter to generate metrics from the spans  (`otel_span_duration` and `otel_span_calls`). It is configured to not report time series anymore when no spans have been observed for 5 minutes. StackState expects the span metrics to be prefixed with `otel_span_`, which is taken care of by the `namespace` configuration.
+* `traces/sampling`: The pipeline that exports traces to StackState using the OTLP protocol, but uses the tail sampling processor to make the trace volume that is sent to StackState predictable to keep the cost predictable as well. Sampling is discussed in a [separate section](#trace-sampling).
 
-The `resource` processor is also configured for both metrics and traces. It adds extra resource attributes:
+The `resource` processor is configured for both metrics and traces. It adds extra resource attributes:
 
 * The `k8s.cluster.name` is added by providing the cluster name in the configuration. StackState needs the cluster name and Open Telemetry does not have a consistent way of determining it. Because some SDKs, in some environments, provide a cluster name that does not match what StackState expects the cluster name is an `upsert` (overwrites any pre-existing value).
 * The `service.instance.id` is added based on the pod uid. It is recommended to always provide a service instance id, and the pod uid is an easy way to get a unique identifier if the SDKs don't provide one.
+
+#### Trace Sampling
+
+It is highly recommended to use sampling for traces:
+
+* To manage resource usage by only processing and storing the most relevant traces
+* To manage costs and have predictable costs
+* To reduce noise and focus on the important traces only, for example by filtering out health checks
+
+There are 2 approaches for sampling, head sampling and tail sampling. This [Open Telemetry docs page](https://opentelemetry.io/docs/concepts/sampling/) discusses the pros and cons of both approaches in detail. The collector configuration provided here uses tail sampling to support these requirements:
+
+1. Have predictable cost by having a predictable trace volume
+2. Have a large sample of all errors
+3. Have a large sample of all slow traces
+4. Have a sample of all other traces to see the normal application behavior
+
+Criteria 2 and 3 can only be fulfilled by tail sampling. Let's look at the sampling policies used in the configuration of the tail sampler now:
+
+* There is only one top-level policy, it is a `composite` policy. It uses a rate limit, allowing at most 500 traces per second, giving a predictable trace volume. It uses other policies as sub-policies to make the actual sampling decissions.
+* The `errors` policy is of type `status_code` and is configured to only sample traces that contain errors. 33% of the rate limit is reserved for errors, via the `rate_allocation` section of the composite policy.
+* The `slow-traces` policy is of type `latency` and filters all traces slower than 1 second. 33% of the rate limits is reserved for the slow traces.
+* The `rest` policy is of the `always_sample` type. It will sample all traces until it hits the rate limit enforced by the composite policy, which is 34% of the total rate limit of 500 traces.
+
+There are many more policies available that can be added to the configuration when needed. For example, it is possible to filter traces based on certain attributes (only for a specific application or customer). The tail sampler can also be replaced with the probabilistic sampler. For all configuration options please use the documentation of these processors:
+* [Tail sampling](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/tailsamplingprocessor)
+* [Probabilistic sampling](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/probabilisticsamplerprocessor)
 
 ### Create a secret for the API key
 
@@ -171,3 +245,4 @@ The Open Telemetry documentation provides much more details on the configuration
 - Open Telemetry Collector configuration: https://opentelemetry.io/docs/collector/configuration/
 - Kubernetes installation of the collector: https://opentelemetry.io/docs/kubernetes/helm/collector/
 - Using the Kubernetes operator instead of the collector Helm chart: https://opentelemetry.io/docs/kubernetes/operator/
+- Open Telemetry sampling: https://opentelemetry.io/blog/2022/tail-sampling/
