@@ -4,9 +4,11 @@ description: StackState Kubernetes Troubleshooting
 
 # Java Applications
 
+The Java SDK supports instrumenting applications on the JVM. As a result it not only supports Java but also other JVM languages like Kotlin and Scala.
+
 ## Automatic instrumentation
 
-Automatic instrumentation for Java uses a Java agent JAR that can be attached to any Java 8+ application. It dynamically injects bytecode to capture telemetry from many [popular libraries and frameworks](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/main/docs/supported-libraries.md). It can be used to capture telemetry data at the “edges” of an app or service, such as inbound requests, outbound HTTP calls, database calls, and so on.
+Automatic instrumentation for Java uses a Java agent JAR that can be attached to any Java 8+ application. It dynamically injects bytecode to capture telemetry from many [popular libraries and frameworks](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/main/docs/supported-libraries.md), including several Kotlin and Scala libraries. It can be used to capture telemetry data at the “edges” of an app or service, such as inbound requests, outbound HTTP calls, database calls, and so on.
 
 Automatic instrumentation does not require any modifications of the application. To set it up follow these steps:
 

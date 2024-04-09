@@ -15,7 +15,7 @@ Automatic instrumentation does not require any modifications of the application.
 npm install --save @opentelemetry/api
 npm install --save @opentelemetry/auto-instrumentations-node
 ```
-2. Update the command that starts your application to load the Java agent, either by updating the docker image entry point or command or by updating the `command` in the Kubernetes manifest for your application. Add `--require @opentelemetry/auto-instrumentations-node/register`:
+2. Update the command that starts your application to load the SDK, either by updating the docker image entry point or command or by updating the `command` in the Kubernetes manifest for your application. Add `--require @opentelemetry/auto-instrumentations-node/register`:
 ```bash
 node --require @opentelemetry/auto-instrumentations-node/register app.js
 ```
