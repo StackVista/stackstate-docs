@@ -37,6 +37,14 @@ Here is the full values file needed, continue reading below the file for an expl
 * `<otlp-stackstate-endpoint>` with the OTLP endpoint of your StackState. If, for example, you access StackState on `play.stackstate.com` the OTLP endpoint is `otlp-play.stackstate.com`. So simply prefixing `otlp-` to the normal StackState url will do.
 * `<your-cluster-name>` with the cluster name you configured in StackState, the same cluster name used when installing the StackState agent.
 
+{% hint style="warning" %}
+Without Kubernetes attributes and the span metrics namespace StackState will not provide full functionality.
+{% endhint %}
+
+{% hint style="info" %}
+The suggested configuration includes tail sampling for traces. Sampling can be fully customized and, depending on your applications and the volume of traces, it may be needed to [change this configuration](#trace-sampling). For example an increase (or decrease) in `max_total_spans_per_second`. Note that it is highly recommended to keep sampling enabled to keep resource usage and cost under control.
+{% endhint %}
+
 {% code title="otel-collector.yaml" lineNumbers="true" %}
 ```yaml
 extraEnvsFrom:
