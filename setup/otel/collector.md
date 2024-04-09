@@ -143,7 +143,7 @@ config:
         processors: [memory_limiter, resource, batch]
         exporters: [debug, otlp/stackstate]
 ```
-{% end code %}
+{% endcode %}
 
 The `config` section customizes the collector config itself and is discussed in the next section. The other parts are:
 
