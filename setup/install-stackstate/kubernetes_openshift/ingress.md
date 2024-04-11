@@ -43,6 +43,40 @@ stackstate \
 stackstate/stackstate-k8s
 ```
 
+## Configure Ingress Rule for Open Telemetry Traces via the StackState Helm chart
+
+The StackState Helm chart exposes an `opentelemetry-collector` service in its values where a dedicated `ingress` can be created. This is disabled by default. The ingress needed for `opentelemetry-collector` purposed needs to support GRPC protocol. The example below shows how to use the Helm chart to configure an nginx-ingress controller with GRPC and  TLS encryption enabled. Note that setting up the controller itself and the certificates is beyond the scope of this document.
+
+To configure the `opentelemetry-collector` ingress for StackState, create a file `ingress_otel_values.yaml` with contents like below. Replace `MY_DOMAIN` with your own domain \(that's linked with your ingress controller\) and set the correct name for the `tls-secret`. Consult the documentation of your ingress controller for the correct annotations to set. All fields below are optional, for example, if no TLS will be used, omit that section but be aware that StackState also doesn't encrypt the traffic.
+
+```text
+ingress:
+  enabled: true
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    nginx.ingress.kubernetes.io/backend-protocol: GRPC
+  hosts:
+    - host: stackstate.MY_DOMAIN
+  tls:
+    - hosts:
+        - stackstate.MY_DOMAIN
+      secretName: tls-secret
+```
+
+The thing that stands out in this file is the Nginx annotation to increase the allowed `proxy-body-size` to `50m` \(larger than any expected request\). By default, Nginx allows body sizes of maximum `1m`. StackState Agents and other data providers can sometimes send much larger requests. For this reason, you should make sure that the allowed body size is large enough, regardless of whether you are using Nginx or another ingress controller. Make sure to update the `baseUrl` in the values file generated during initial installation, it will be used by StackState to generate convenient installation instructions for the agent.
+
+Include the `ingress_otel_values.yaml` file when you run the `helm upgrade` command to deploy StackState:
+
+```text
+helm upgrade \
+  --install \
+  --namespace "stackstate" \
+  --values "ingress_otel_values.yaml" \
+  --values "values.yaml" \
+stackstate \
+stackstate/stackstate-k8s
+```
+
 ## Configure via external tools
 
 To make StackState accessible outside of the Kubernetes cluster it's installed in, it's enough to route traffic to port `8080` of the `<namespace>-stackstate-k8s-router` service. The UI of StackState can be accessed directly under the root path of that service (i.e. `http://<namespace>-stackstate-k8s-router:8080`) while agents will use the `/receiver` path (`http://<namespace>-stackstate-k8s-router:8080/receiver`).
