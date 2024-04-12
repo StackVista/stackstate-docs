@@ -139,6 +139,7 @@
 ## 🔐 Security
 
 * [Service Tokens](use/security/k8s-service-tokens.md)
+* [Ingestion API Keys](use/security/k8s-ingestion-api-keys.md)
 
 ## Reference
 * [StackState Query Language \(STQL\)](develop/reference/k8sTs-stql_reference.md)
