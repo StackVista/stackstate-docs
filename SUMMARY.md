@@ -72,6 +72,7 @@
 * [Network configuration](setup/k8s-network-configuration-saas.md)
   * [Proxy Configuration](setup/agent/k8s-network-configuration-proxy.md)
 * [Using a custom registry](setup/agent/k8s-custom-registry.md)
+* [Custom Secret Management](setup/agent/k8s-custom-secrets-setup.md)
 * [Request tracing](setup/agent/k8sTs-agent-request-tracing.md)
   * [Certificates for sidecar injection](setup/agent/k8sTs-agent-request-tracing-certificates.md)
 
