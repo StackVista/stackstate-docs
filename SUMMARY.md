@@ -52,6 +52,15 @@
 
 * [Explore Traces](use/traces/k8sTs-explore-traces.md)
 
+## 📖 Health
+* [Health synchronization](configure/health/health-synchronization.md)
+* [Send health data over HTTP](configure/health/send-health-data/README.md)
+  * [Send health data](configure/health/send-health-data/send-health-data.md)
+  * [Repeat Snapshots JSON](configure/health/send-health-data/repeat_snapshots.md)
+  * [Repeat States JSON](configure/health/send-health-data/repeat_states.md)
+  * [Transactional Increments JSON](configure/health/send-health-data/transactional_increments.md)
+* [Debug health synchronization](configure/health/debug-health-sync.md)
+
 ## 🔍 Views
 
 * [Kubernetes views](use/views/k8s-views.md)
@@ -104,7 +113,7 @@
   * [Initial run guide](setup/install-stackstate/initial_run_guide.md)
   * [Troubleshooting](setup/install-stackstate/troubleshooting.md)
     * [Logs](configure/logging/kubernetes-logs.md)
-* [Configure StackState](setup/confiug-stackstate/README.md)
+* [Configure StackState](setup/configure-stackstate/README.md)
   * [Slack notifications](setup/configure-stackstate/slack-notifications.md)
   * [Stackpacks](stackpacks/about-stackpacks.md)
 * [Upgrade StackState](setup/upgrade-stackstate/README.md)
