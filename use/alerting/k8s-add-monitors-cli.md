@@ -23,7 +23,7 @@ As an example the steps will add a monitor for the `Replica counts` of Kubernete
 
 ## Write the outline of the monitor
 
-Create a new YAML file called `monitor.yaml` and add this YAML template to it to create your own metric binding. Open it in your favorite code editor to change it throughout this guide. At the end the StackState CLI will be used to create and update the monitor in StackState.
+Create a new YAML file called `monitor.yaml` and add this YAML template to it to create your own monitor. Open it in your favorite code editor to change it throughout this guide. At the end the StackState CLI will be used to create and update the monitor in StackState.
 
 ```
 nodes:
