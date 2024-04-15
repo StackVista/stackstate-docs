@@ -4,6 +4,10 @@ description: StackState Kubernetes Troubleshooting
 
 # Health synchronization
 
+This section describes the advanced topic of synchronizing custom health data from different monitoring systems to StackState.
+This topic is mostly interesting for engineers who want to make a custom integration with an existing monitoring system.
+For out of the box monitors you can look [here](/use/alerting/kubernetes-monitors.md).
+
 ## Overview
 
 Health synchronization adds existing health checks from external monitoring systems to StackState topology elements. Health data is calculated in the external monitoring system using its own data and rules, then automatically synchronized and attached to the associated topology elements in StackState.
@@ -105,7 +109,7 @@ An external monitor allows to attach the health states to components and to show
 Every `ExternalMonitor` payload has the following details:
 
 * `_type`: StackState needs to know this is a monitor so, value always needs to be `ExternalMonitor`
-* `healthStreamUrn`: This field needs to match the `urn` that is sent as part of the [Health Payloa](./send-health-data/repeat_snapshots#json-property-health).
+* `healthStreamUrn`: This field needs to match the `urn` that is sent as part of the [Health Payload](/configure/health/send-health-data/repeat_snapshots.md#json-property-health).
 * `description`: A description of the external monitor.
 * `identifier`: An identifier of the form `urn:custom:external-monitor:....` which uniquely identifies the external monitor when updating its configuration.
 * `name`: The name of the external monitor
@@ -139,6 +143,5 @@ ExternalMonitor | 150031117290020 | urn:custom:external-monitor:heartbeat | Exte
 
 ## See also
 
-* [Add a health check based on telemetry available in StackState](../../use/checks-and-monitors/add-a-health-check.md)
 * [JSON health payload](/configure/health/send-health-data/send-health-data.md#json-health-payload)
 
