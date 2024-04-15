@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Kubernetes Troubleshooting 
 ---
 
 # Send health data over HTTP
 
 ## Overview
 
-StackState can synchronize health information from your own data sources either via HTTP or the [StackState CLI](/setup/cli/README.md).
+StackState can synchronize health information from your own data sources either via HTTP or the [StackState CLI](../../../setup/cli/k8sTs-cli-sts.md).
 
 ## StackState Receiver API
 
@@ -63,7 +63,5 @@ StackState accepts health data based on a chosen [consistency model](/configure/
 
 ## See also
 
-* [Install the StackState CLI](/setup/cli)
-* [Send topology data over HTTP](/configure/topology/send-topology-data.md)
-* [Send telemetry data over HTTP](/configure/telemetry/send_metrics.md)
+* [Install the StackState CLI](../../../setup/cli/k8sTs-cli-sts.md)
 

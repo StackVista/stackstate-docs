@@ -1,8 +1,12 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: StackState Kubernetes Troubleshooting
 ---
 
 # Health synchronization
+
+This section describes the advanced topic of synchronizing custom health data from different monitoring systems to StackState.
+This topic is mostly interesting for engineers who want to make a custom integration with an existing monitoring system.
+For out of the box monitors you can look [here](/use/alerting/kubernetes-monitors.md).
 
 ## Overview
 
@@ -15,7 +19,7 @@ The StackState Receiver API will automatically receive and process all incoming 
 Details on how to ingest health data can be found on the following pages:
 
 * [Ingest health data through the StackState Receiver API](send-health-data/send-health-data.md)
-* [Create an Agent check to ingest health data using StackState Agent V2](../../develop/developer-guides/agent_check/how_to_develop_agent_checks.md)
+
 
 ## Health synchronization pipeline
 
@@ -23,7 +27,7 @@ The health synchronization framework works as follows:
 
 * Health data is sent to StackState and ingested via the Receiver API.
 * StackState topology elements related to the ingested health checks are identified and bound based on:
-  * the [topology identifiers](../topology/sync.md#id-extraction) obtained during topology synchronization.
+  * the topology identifiers obtained during topology synchronization.
   * the `topologyElementIdentifier` from the ingested [health payload](send-health-data/send-health-data.md#json-health-payload).
 * StackState keeps track of changes to both topology elements and health checks to maintain up-to-date information.
 
@@ -81,11 +85,63 @@ The expire interval can be used to configure sub streams in the health synchroni
 
 ### Check State
 
-The health check state is calculated by an external monitoring system and includes all information required to attach it to a topology element. Once attached to a topology element, the health check state contributes to the [element's own health state](/use/concepts/health-state.md#element-own-health-state).
+The health check state is calculated by an external monitoring system and includes all information required to attach it to a topology element. In order to be able to materialize and attach it to a component it requires to attribute the health state to a particular monitor in this case an [ExternalMonitor](#external-monitor).
+
+Once attached to a topology element, the health check state contributes to the element's own health state. 
+
+### External Monitor
+
+An external monitor allows to attach the health states to components and to show a remediationHint on the StackState highlight pages. This resource needs to be created via the [StackState CLI](../../setup/cli/k8sTs-cli-sts.md) or as part of a stackpack. Here is an example of an externa monitor:
+
+```
+    {
+      "_type": "ExternalMonitor",
+      "healthStreamUrn": "urn:health:kubernetes:external-health",
+      "description": "Monitored by external tool.",
+      "identifier": "urn:custom:external-monitor:heartbeat",
+      "name": "External Monitor Heartbeat",
+      "remediationHint": "",
+      "tags": [
+        "heartbeat"
+      ]
+    }
+```
+Every `ExternalMonitor` payload has the following details:
+
+* `_type`: StackState needs to know this is a monitor so, value always needs to be `ExternalMonitor`
+* `healthStreamUrn`: This field needs to match the `urn` that is sent as part of the [Health Payload](/configure/health/send-health-data/repeat_snapshots.md#json-property-health).
+* `description`: A description of the external monitor.
+* `identifier`: An identifier of the form `urn:custom:external-monitor:....` which uniquely identifies the external monitor when updating its configuration.
+* `name`: The name of the external monitor
+* `remediationHint`: A description of what the user can do when the monitor fails. The format is markdown. 
+* `tags`: Add tags to the monitor to help organize them in the monitors overview of your StackState instance, http://your-StackState-instance/#/monitors
+
+Here is an example of how to create an `External Monitor` using the [StackState CLI](../../setup/cli/k8sTs-cli-sts.md)
+* Create a new YAML file called `externalMonitor.yaml` and add this YAML template to it to create your own external monitor.
+```
+nodes:
+- _type: ExternalMonitor
+  healthStreamUrn: urn:health:sourceId:streamId
+  description: Monitored by external tool.
+  identifier: urn:custom:external-monitor:heartbeat
+  name: External Monitor Heartbeat
+  remediationHint: |-
+    To remedy this issue with the deployment {{ labels.deployment }}, consider taking the following steps:
+    
+    1. Look at the logs of the pods created by the deployment
+  tags:
+    - heartbeat
+```
+* Use the cli to create the external monitor
+```bash
+sts settings apply -f externalMonitor.yaml 
+✅ Applied 1 setting node(s).                                                                                                                                                                                                               
+
+TYPE            | ID              | IDENTIFIER                            | NAME                      
+ExternalMonitor | 150031117290020 | urn:custom:external-monitor:heartbeat | External Monitor Heartbeat
+```
 
 ## See also
 
-* [Add a health check based on telemetry available in StackState](../../use/checks-and-monitors/add-a-health-check.md)
 * [JSON health payload](/configure/health/send-health-data/send-health-data.md#json-health-payload)
-* [Topology synchronization](../topology/send-topology-data.md)
 

@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x
+description: StackState Kubernetes Troubleshooting
 ---
 
 # Debug health synchronization
@@ -415,4 +415,4 @@ For example a `SubStreamStopWithoutStart` will be closed once the health synchro
 
 ## See also
 
-* [Install the StackState CLI](/setup/cli/README.md)
+* [Install the StackState CLI](../../../setup/cli/k8sTs-cli-sts.md)
