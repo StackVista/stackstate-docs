@@ -35,7 +35,7 @@ To install and configure the collector for usage with StackState we'll use the [
 
 Here is the full values file needed, continue reading below the file for an explanation of the different parts. Or skip ahead to the next step, but make sure to replace:
 * `<otlp-stackstate-endpoint>` with the OTLP endpoint of your StackState. If, for example, you access StackState on `play.stackstate.com` the OTLP endpoint is `otlp-play.stackstate.com`. So simply prefixing `otlp-` to the normal StackState url will do.
-* `<your-cluster-name>` with the cluster name you configured in StackState, the same cluster name used when installing the StackState agent.
+* `<your-cluster-name>` with the cluster name you configured in StackState. **This must be the same cluster name used when installing the StackState agent**. Using a differnt cluster name will result in an empty traces perspective for Kubernetes components.
 
 {% hint style="warning" %}
 The Kubernetes attributes and the span metrics namespace are required for StackState to provide full functionality.
