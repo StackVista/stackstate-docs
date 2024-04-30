@@ -13,6 +13,15 @@ There are a lot of configuration options but more importantly, every (Kubernetes
 
 The error(s) in the logs usually give a good indication of the problem. We list the most common causes for Open Telemetry data not being available for some or all of your instrumented applications. If the problem is not listed here you can also look at the [language-specific SDK documentation](https://opentelemetry.io/docs/languages/) or the [collector documentation](https://opentelemetry.io/docs/collector/troubleshooting/) from Open Telemetry.
 
+## Use the same Kubernetes cluster name
+
+Make sure you use the same Kubernetes cluster name for the same cluster when:
+* Installing the Open Telemetry Collector
+* Installing the StackState agent
+* Installing the Kubernetes StackPack
+
+When different names are used for the same cluster StackState will not be able to match the data from Open Telemetry with the data from the StackState agent and the traces perspective will remain empty.
+
 ## The collector cannot send data to StackState
 
 ### StackState's OTLP endpoint and API key are misconfigured
