@@ -103,6 +103,8 @@ Because OpenShift has stricter security model than plain Kubernetes, all of the 
 Create a Helm values file `openshift-values.yaml` with the following content and store it next to the generated `values.yaml` file. This contains the values that are needed for an OpenShift deployment.
 ```yaml
 elasticsearch:
+  prometheus-elasticsearch-exporter:
+    podSecurityContext: ""
   sysctlInitContainer:
     enabled: false
 scc:
@@ -286,4 +288,3 @@ readOnlyRootFilesystem: false
 * [Create a `nonha_values.yaml` file](/setup/install-stackstate/kubernetes_openshift/non_high_availability_setup.md)
 * [Create a `small_values.yaml` file](/setup/install-stackstate/kubernetes_openshift/small_profile_setup.md)
 * For other configuration and management options, refer to the Kubernetes documentation - [manage a StackState Kubernetes installation](kubernetes_install.md)
-
