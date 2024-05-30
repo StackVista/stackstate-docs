@@ -29,6 +29,8 @@ Set up a Kubernetes integration to collect topology, events, logs, change and me
 
 | Supported Kubernetes Version |
 |------------------------------|
+| Kubernetes 1.30              |
+| Kubernetes 1.29              |
 | Kubernetes 1.28              |
 | Kubernetes 1.27              |
 | Kubernetes 1.26              |
@@ -40,11 +42,11 @@ Set up a Kubernetes integration to collect topology, events, logs, change and me
 
 ### Supported runtime
 
-| Supported runtime |
-|--------------------|
-| Docker             |
-| ContainerD         |
-| CRI-O              |
+| Supported runtime   |
+|---------------------|
+| Docker              |
+| ContainerD          |
+| CRI-O               |
 
 ### Prerequisites for Kubernetes
 
@@ -99,11 +101,11 @@ Set up an OpenShift integration to collect topology, events, logs, change and me
 
 ### Supported runtime
 
-| Supported runtime |
-|--------------------|
-| Docker             |
-| ContainerD         |
-| CRI-O              |
+| Supported runtime   |
+|---------------------|
+| Docker              |
+| ContainerD          |
+| CRI-O               |
 
 
 ### Prerequisites for OpenShift
@@ -146,24 +148,27 @@ Set up an Amazon EKS integration to collect topology, events, logs, change and m
 
 ### Supported versions
 [comment]: <> (https://endoflife.date/amazon-eks)
+[comment]: <> (https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html#kubernetes-release-calendar)
 
-| Kubernetes version | Amazon EKS release | Amazon EKS End of Support |
-|--------------------|--------------------|---------------------------|
-| 1.28               | September 26, 2023 | November 01, 2024         |
-| 1.27               | May 24, 2023       | July 2024                 |
-| 1.26               | April 11, 2023     | June 2024                 |
-| 1.25               | February 21, 2023  | May 2024                  |
-| 1.24               | November 15, 2022  | January 2024              |
-| 1.23               | August 11, 2022    | October 11, 2023          |
-| 1.22               | April 4, 2022      | June 4, 2023              |
-| 1.21               | July 19, 2021      | February 15, 2023         |
-| 1.20               | May 18, 2021       | November 1, 2022          |
-| 1.19               | February 16, 2021  | August 1, 2022            |
-| 1.18               | October 13, 2020   | August 15, 2022           |
+| Kubernetes version | Amazon EKS release | Amazon EKS End of Support | Amazon EKS End of Extended Support |
+|--------------------|--------------------|---------------------------|------------------------------------|
+| 1.30               | May 23, 2024       | July 23, 2025             | July 23, 2026                      |
+| 1.29               | January 23, 2024   | March 23, 2025            | March 23, 2026                     |
+| 1.28               | September 26, 2023 | November 01, 2024         | November 26, 2025                  |
+| 1.27               | May 24, 2023       | July 2024                 | July 24, 2025                      |
+| 1.26               | April 11, 2023     | June 2024                 | June 11, 2025                      |
+| 1.25               | February 21, 2023  | May 2024                  | May 1, 2025                        |
+| 1.24               | November 15, 2022  | January 2024              | January 31, 2025                   |
+| 1.23               | August 11, 2022    | October 11, 2023          | October 11, 2024                   |
+| 1.22               | April 4, 2022      | June 4, 2023              | September 1, 2024                  |
+| 1.21               | July 19, 2021      | February 15, 2023         | July 15, 2024                      |
+| 1.20               | May 18, 2021       | November 1, 2022          | N/A                                |
+| 1.19               | February 16, 2021  | August 1, 2022            | N/A                                |
+| 1.18               | October 13, 2020   | August 15, 2022           | N/A                                |
 
 ### Supported runtime
 
-| Supported runtime |
+| Supported runtime  |
 |--------------------|
 | Docker             |
 | ContainerD         |
@@ -209,20 +214,20 @@ Set up a Google GKE integration to collect topology, events, logs, change and me
 
 ### Supported versions
 [comment]: <> (https://endoflife.date/google-kubernetes-engine)
+[comment]: <> (https://cloud.google.com/kubernetes-engine/docs/release-schedule)
 
 | Kubernetes Version | Google GKE release | Google GKE End of Support |
 |--------------------|--------------------|---------------------------|
-| 1.27               | June 15, 2023      | August 31, 2024           |
-| 1.26               | March 31, 2023     | May 31, 2024              |
-| 1.25               | December 14, 2022  | February 29, 2024         |
-| 1.24               | August 12, 2022    | October 31, 2023          |
-| 1.23               | May 27, 2022       | July 31, 2023             |
-| 1.22               | April 5, 2022      | April 30, 2023            |
-| 1.21               | November 1, 2022   | January 31, 2023          |
+| 1.30               | June, 2024         | August 15, 2025           |
+| 1.29               | January 25, 2024   | March 21, 2025            |
+| 1.28               | December 4, 2023   | February 4, 2025          |
+| 1.27               | June 14, 2023      | August 31, 2024           |
+| 1.26               | April 14, 2023     | June 30, 2024             |
+
 
 ### Supported runtime
 
-| Supported runtime |
+| Supported runtime  |
 |--------------------|
 | Docker             |
 | ContainerD         |
@@ -264,25 +269,21 @@ To get data from a Kubernetes cluster into StackState, follow the steps describe
 
 # Azure AKS
 
-Set up a Azure AKS integration to collect topology, events, logs, change and metrics data from an Azure AKS cluster and make this available in StackState.
+Set up an Azure AKS integration to collect topology, events, logs, change and metrics data from an Azure AKS cluster and make this available in StackState.
 
 ### Supported versions
 [comment]: <> (https://endoflife.date/azure-kubernetes-service)
 
 | Kubernetes Version | Azure AKS release | Azure AKS End of Support |
 |--------------------|-------------------|--------------------------|
-| 1.28               | November, 2023    | November, 2024           |
+| 1.30               | June 2024         | Not known when published |
+| 1.29               | March 18, 2024    | Jan 31, 2025             |
+| 1.28               | November 7, 2023  | November 30, 2024        |
 | 1.27               | August 16, 2023   | July 31, 2024            |
-| 1.26               | April 18, 2023    | March 31, 2024           |
-| 1.25               | December 14, 2022 | December 31, 2023        |
-| 1.24               | August 17, 2022   | July 31, 2023            |
-| 1.23               | April 26, 2022    | April 02, 2023           |
-| 1.22               | January 10, 2021  | December 04, 2022        |
-| 1.21               | July 26, 2021     | July 31, 2022            |
 
 ### Supported runtime
 
-| Supported runtime |
+| Supported runtime  |
 |--------------------|
 | Docker             |
 | ContainerD         |
@@ -330,6 +331,8 @@ Set up a KOPS integration to collect topology, events, logs, change and metrics 
 
 | Supported Kubernetes Version |
 |------------------------------|
+| Kubernetes 1.30              |
+| Kubernetes 1.29              |
 | Kubernetes 1.28              |
 | Kubernetes 1.27              |
 | Kubernetes 1.26              |
@@ -346,11 +349,11 @@ Set up a KOPS integration to collect topology, events, logs, change and metrics 
 
 ### Supported runtime
 
-| Supported runtime |
-|--------------------|
-| Docker             |
-| ContainerD         |
-| CRI-O              |
+| Supported runtime   |
+|---------------------|
+| Docker              |
+| ContainerD          |
+| CRI-O               |
 
 ### Prerequisites for KOPS
 
@@ -394,6 +397,8 @@ Set up a Self-hosted integration to collect topology, events, logs, change and m
 
 | Supported Kubernetes Version |
 |------------------------------|
+| Kubernetes 1.30              |
+| Kubernetes 1.29              |
 | Kubernetes 1.28              |
 | Kubernetes 1.27              |
 | Kubernetes 1.26              |
@@ -410,11 +415,11 @@ Set up a Self-hosted integration to collect topology, events, logs, change and m
 
 ### Supported runtime
 
-| Supported runtime |
-|--------------------|
-| Docker             |
-| ContainerD         |
-| CRI-O              |
+| Supported runtime   |
+|---------------------|
+| Docker              |
+| ContainerD          |
+| CRI-O               |
 
 ### Prerequisites for Self-hosted
 
