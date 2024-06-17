@@ -15,6 +15,7 @@ The following data can be automatically backed up:
 * **Configuration and topology data** stored in StackGraph is backed up when the Helm value `backup.stackGraph.enabled` is set to `true`.
 * **Metrics** stored in StackState's Victoria Metrics instance(s) is backed up when the Helm value `victoria-metrics-0.backup.enabled` and `victoria-metrics-1.backup.enabled` are set to `true`.
 * **Telemetry data** stored in StackState's Elasticsearch instance is backed up when the Helm value `backup.elasticsearch.enabled` is set to `true`.
+* **OpenTelemetry data** stored in StackState's ClickHouse instance is backed up when the Helm value `clickhouse.backup.enabled` is set to `true`.
 
 The following data will **not** be backed up:
 
@@ -63,6 +64,10 @@ victoria-metrics-0:
 victoria-metrics-1:
   backup:
     bucketName: AWS_VICTORIA_METRICS_BUCKET
+clickhouse:
+  backup:
+    enabled: true
+    bucketName: AWS_CLICKHOUSE_BUCKET
 minio:
   accessKey: YOUR_ACCESS_KEY
   secretKey: YOUR_SECRET_KEY
@@ -77,7 +82,7 @@ Replace the following values:
   * YOUR_ACCESS_KEY should contain 5 to 20 alphanumerical characters.
   * YOUR_SECRET_KEY should contain 8 to 40 alphanumerical characters.
 * `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` are the AWS credentials for the IAM user that has access to the S3 buckets where the backups will be stored. See below for the permission policy that needs to be attached to that user.
-* `AWS_STACKGRAPH_BUCKET`, `AWS_ELASTICSEARCH_BUCKET` and `AWS_VICTORIA_METRICS_BUCKET` are the names of the S3 buckets where the backups should be stored. Note: The names of AWS S3 buckets are global across the whole of AWS, therefore the S3 buckets with the default name \(`sts-elasticsearch-backup`, `sts-stackgraph-backup` and `sts-victoria-metrics-backup` \) will probably not be available.
+* `AWS_STACKGRAPH_BUCKET`, `AWS_ELASTICSEARCH_BUCKET`, `AWS_VICTORIA_METRICS_BUCKET` and `AWS_CLICKHOUSE_BUCKET` are the names of the S3 buckets where the backups should be stored. Note: The names of AWS S3 buckets are global across the whole of AWS, therefore the S3 buckets with the default name \(`sts-elasticsearch-backup`, `sts-stackgraph-backup`, `sts-victoria-metrics-backup` and `sts-clickhouse-backup` \) will probably not be available.
 
 The IAM user identified by `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` must be configured with the following permission policy to access the S3 buckets:
 
@@ -95,7 +100,8 @@ The IAM user identified by `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` must be configu
             "Resource": [
                 "arn:aws:s3:::AWS_STACKGRAPH_BUCKET",
                 "arn:aws:s3:::AWS_ELASTICSEARCH_BUCKET",
-                "arn:aws:s3:::AWS_VICTORIA_METRICS_BUCKET"
+                "arn:aws:s3:::AWS_VICTORIA_METRICS_BUCKET",
+                "arn:aws:s3:::AWS_CLICKHOUSE_BUCKET"
             ]
         },
         {
@@ -109,7 +115,8 @@ The IAM user identified by `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` must be configu
             "Resource": [
                 "arn:aws:s3:::AWS_STACKGRAPH_BUCKET/*",
                 "arn:aws:s3:::AWS_ELASTICSEARCH_BUCKET/*",
-                "arn:aws:s3:::AWS_VICTORIA_METRICS_BUCKET/*"
+                "arn:aws:s3:::AWS_VICTORIA_METRICS_BUCKET/*",
+                "arn:aws:s3:::AWS_CLICKHOUSE_BUCKET/*"
             ]
         }
     ]
@@ -135,7 +142,7 @@ Replace the following values:
 * `AZURE_STORAGE_ACCOUNT_NAME` - the [Azure storage account name \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal) 
 * `AZURE_STORAGE_ACCOUNT_KEY` - the [Azure storage account key \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage?tabs=azure-portal) where the backups should be stored.
 
-The StackGraph, Elasticsearch and Victoria Metrics backups are stored in BLOB containers called `sts-stackgraph-backup`, `sts-elasticsearch-backup` and `sts-victoria-metrics-backup` respectively. These names can be changed by setting the Helm values `backup.stackGraph.bucketName`, `backup.elasticsearch.bucketName`, `victoria-metrics-0.backup.bucketName` and `victoria-metrics-1.backup.bucketName` respectively.
+The StackGraph, Elasticsearch and Victoria Metrics backups are stored in BLOB containers called `sts-stackgraph-backup`, `sts-elasticsearch-backup`, `sts-victoria-metrics-backup`, `sts-clickhouse-backup` respectively. These names can be changed by setting the Helm values `backup.stackGraph.bucketName`, `backup.elasticsearch.bucketName`, `victoria-metrics-0.backup.bucketName`, `victoria-metrics-1.backup.bucketName` and `clickhouse.backup.bucketName` respectively.
 
 ### Kubernetes storage
 
@@ -232,7 +239,45 @@ By default, the Victoria Metrics backups are created every 1h:
 - `victoria-metrics-0` - 25 minutes past the hour
 - `victoria-metrics-1` - 35 minutes past the hour
 
-The backup schedule can be configured using the Helm value `victoria-metrics-0.backup.bucketName` according [cronexpr format](https://github.com/aptible/supercronic/tree/master/cronexpr)
+The backup schedule can be configured using the Helm value `victoria-metrics-0.backup.scheduled.schedule` according [cronexpr format](https://github.com/aptible/supercronic/tree/master/cronexpr)
+
+## OpenTelemetry \(ClickHouse\)
+
+ClickHouse uses both incremental and full backups. By default, full backups are executed daily at 00:45 am, and incremental backups are performed every hour. Each backup creates a new directory, old backups (directories) are deleted automatically. All files located in a backup directory should be treated as a single whole and can only be moved, copied or deleted as a whole. We recommend to uses `clickhouse-backup` tool to manage backups. The tool is available on the `stackstate-clickhouse-shard0-0` Pod.
+
+### Enable scheduled backups
+
+Backups of the ClickHouse are disabled by default. To enabled scheduled ClickHouse backups, set the Helm value `clickhouse.backup.enabled` to `true`.
+
+{% hint style="warning" %}
+ClickHouse backups requires to [enable backups](#enable-backups).
+{% endhint %}
+
+### Enable restores
+
+Restore functionality of the ClickHouse are disabled by default. To enabled restore functionality of the ClickHouse, set the Helm value `clickhouse.restore.enabled` to `true`.
+
+{% hint style="warning" %}
+ClickHouse restore functionality requires to [enable backups](#enable-backups).
+{% endhint %}
+
+### Backup schedule
+
+By default, the ClickHouse backups are created:
+- Full Backup - at 00:45 every day
+- Incremental Backup - 45 minutes past the hour (from 3 am to 12 am)
+
+{% hint style="warning" %}
+Backups struggle with parallel execution. If a second backup starts before the first one completes, it will disrupt the first backup. Therefore, it's crucial to avoid parallel execution. For instance, the first incremental backup should be executed three hours after the full one.
+{% endhint %}
+
+The backup schedule can be configured using the Helm value `clickhouse.backup.scheduled.full_schedule` and `clickhouse.backup.scheduled.incremental_schedule` according [cronexpr format](https://github.com/aptible/supercronic/tree/master/cronexpr)
+
+### Backup retention
+
+By default, the tooling keeps last 308 backups (full and incremental) what is equal to ~14 days.
+
+The backup retention can be configured using the Helm value `clickhouse.backup.config.keep_remote`.
 
 ## Telemetry data \(Elasticsearch\)
 
@@ -441,6 +486,80 @@ Then follow logs to check the job status
 After completion (**ensure if the backup has been restored successfully**), it's needed to follow commands printed by the earlier command:
 - delete the restore job
 - scale up the Victoria Metrics instance
+
+### List ClickHouse backups
+
+{% hint style="info" %}
+The following script needs permission to execute the `kubectl exec` command.
+{% endhint %}
+
+To list ClickHouse backups, execute the following command:
+
+```bash
+./restore/list-clickhouse-backups.sh
+```
+
+The output should look like this:
+
+```bash
+full_2024-06-17T18-50-00          34.41KiB   17/06/2024 18:50:00   remote                                      tar, regular
+incremental_2024-06-17T18-51-00   7.29KiB    17/06/2024 18:51:00   remote   +full_2024-06-17T18-50-00          tar, regular
+incremental_2024-06-17T18-54-00   7.29KiB    17/06/2024 18:54:00   remote   +incremental_2024-06-17T18-51-00   tar, regular
+incremental_2024-06-17T18-57-00   7.29KiB    17/06/2024 18:57:00   remote   +incremental_2024-06-17T18-54-00   tar, regular
+full_2024-06-17T19-00-00          26.41KiB   17/06/2024 19:00:00   remote                                      tar, regular
+incremental_2024-06-17T19-00-00   6.52KiB    17/06/2024 19:00:00   remote   +incremental_2024-06-17T18-57-00   tar, regular
+incremental_2024-06-17T19-03-00   25.37KiB   17/06/2024 19:03:00   remote   +incremental_2024-06-17T19-00-00   tar, regular
+incremental_2024-06-17T19-06-00   7.29KiB    17/06/2024 19:06:00   remote   +incremental_2024-06-17T19-03-00   tar, regular
+```
+where is printed:
+- name, the name started with `full_` - it is a full backup, `incremental_` - it is an incremental backup 
+- size,
+- creation date,
+- `remote` - a backup is upload to a remote storage like S3
+- parent backup - used by incremental backups
+- format and compression
+
+### Restore a ClickHouse backup
+
+{% hint style="warning" %}
+**Restore functionality always overrides data (all tables in the `otel` database). You must be careful to avoid the unexpected loss of existing data.**
+{% endhint %}
+
+{% hint style="info" %}
+The following script needs permission to execute the `kubectl exec` command.
+{% endhint %}
+
+{% hint style="warning" %}
+**Restore functionality requires stopping all producers (like OpenTelemetry exporters). The script scales the StatefulSet down and then back up afterward.**
+{% endhint %}
+
+
+To restore a ClickHouse backup, select a backup version and pass them as a parameter in the following command:
+
+```bash
+./restore/restore-clickhouse-backup.sh incremental_2024-06-17T18-57-00
+```
+
+The output should look like this:
+
+```bash
+...
+2024/06/17 19:14:19.509498  info download object_disks start backup=incremental_2024-06-17T19-06-00 operation=restore_data table=otel.otel_traces_trace_id_ts_mv
+2024/06/17 19:14:19.509530  info download object_disks finish backup=incremental_2024-06-17T19-06-00 duration=0s operation=restore_data size=0B table=otel.otel_traces_trace_id_ts_mv
+2024/06/17 19:14:19.509549  info done                      backup=incremental_2024-06-17T19-06-00 duration=0s operation=restore_data progress=12/12 table=otel.otel_traces_trace_id_ts_mv
+2024/06/17 19:14:19.509574  info done                      backup=incremental_2024-06-17T19-06-00 duration=66ms operation=restore_data
+2024/06/17 19:14:19.509591  info done                      backup=incremental_2024-06-17T19-06-00 duration=167ms operation=restore version=2.5.13
+2024/06/17 19:14:19.509684  info clickhouse connection closed logger=clickhouse
+Data restored
+```
+
+{% hint style="info" %}
+**Error: error can't create table …. code: 57, message: Directory for table data store/…/ already exists**
+
+ClickHouse does not permanently delete tables when the `DROP DATABASE/TABLE ...` command is executed. Instead, the database is marked as deleted and will be permanently removed after 8 minutes. This delay provides additional time to undo the operation. More details can be found at [UNDROP TABLE](https://clickhouse.com/docs/en/sql-reference/statements/undrop). If you attempt to restore data during this period, it will fail and produce the aforementioned error. Available solutions:
+- wait 8 minutes (check table `select * from system.dropped_tables;` )
+- configure `database_atomic_delay_before_drop_table_sec`
+{% endhint %}
 
 ### List Elasticsearch snapshots
 
