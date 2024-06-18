@@ -23,6 +23,7 @@
   * [Configure notifications](use/alerting/notifications/configure.md)
   * [Notification channels](use/alerting/notifications/channels/README.md)
     * [Slack](use/alerting/notifications/channels/slack.md)
+    * [Teams](use/alerting/notifications/channels/teams.md)
     * [Webhook](use/alerting/notifications/channels/webhook.md)
     * [Opsgenie](use/alerting/notifications/channels/opsgenie.md)
   * [Troubleshooting](use/alerting/notifications/troubleshooting.md)
