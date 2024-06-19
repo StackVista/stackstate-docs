@@ -151,6 +151,9 @@
 * [Service Tokens](use/security/k8s-service-tokens.md)
 * [Ingestion API Keys](use/security/k8s-ingestion-api-keys.md)
 
+## ☁️ SaaS
+* [User Management](saas/user-management.md)
+
 ## Reference
 * [StackState Query Language \(STQL\)](develop/reference/k8sTs-stql_reference.md)
 * [Chart units](develop/reference/k8sTs-chart-units.md)

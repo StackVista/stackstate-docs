@@ -163,6 +163,7 @@ redirects:
   use/perspectives/event-perspective: ./use/stackstate-ui/perspectives/events_perspective.md
   use/perspectives/filters: ./use/stackstate-ui/filters.md
   use/perspectives: ./use/concepts/perspectives.md
+  saas/user-management: ./saas/user-management.md
 
 # 4.2 docs
 
