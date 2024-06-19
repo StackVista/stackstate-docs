@@ -1,5 +1,5 @@
 ---
-description: StackState Kubernetes Troubleshooting
+description: StackState
 ---
 
 # Writing PromQL queries for representative charts

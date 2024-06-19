@@ -1,5 +1,5 @@
 ---
-description: StackState for Kubernetes troubleshooting Self-hosted
+description: StackState Self-hosted
 ---
 
 # Initial run guide

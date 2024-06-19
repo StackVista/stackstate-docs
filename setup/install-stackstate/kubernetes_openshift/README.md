@@ -1,5 +1,5 @@
 ---
-description: StackState Kubernetes Troubleshooting Self-hosted
+description: StackState Self-hosted
 ---
 
 # Kubernetes install

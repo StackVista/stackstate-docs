@@ -1,5 +1,5 @@
 ---
-description: StackState for Kubernetes troubleshooting
+description: StackState
 ---
 # Changes
 

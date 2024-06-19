@@ -1,5 +1,5 @@
 ---
-description: StackState for Kubernetes troubleshooting Self-hosted
+description: StackState Self-hosted
 ---
 
 # Install from custom image registry

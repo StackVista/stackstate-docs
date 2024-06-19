@@ -1,5 +1,5 @@
 ---
-description: StackState for Kubernetes troubleshooting Self-hosted
+description: StackState Self-hosted
 ---
 
 # Override default configuration
