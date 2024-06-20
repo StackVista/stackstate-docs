@@ -6,9 +6,9 @@ description: StackState for Kubernetes troubleshooting
 
 Users of the SaaS tenants (StackState instances) are managed with [Keycloak](https://www.keycloak.org/). Each customer (tenant) has a dedicated Keycloak realm. A link to the Keycloak console is sent in the welcome message when a user is created.
 
-There are two levels of user management permissions: **Basic** and **Advanced**.
+There are two levels of user management permissions: **Basic** (default) and **Advanced**.
 
-- **Basic**: Allows users to add new users and add them to Keycloak groups.
+- **Basic** (default): Allows users to add new users and add them to Keycloak groups.
 - **Advanced**: Allows users to manage an entire Keycloak realm (configuring Identity Providers, Authentication/Authorization options, etc.).  **Available to the paid users only.**
 
 
@@ -41,11 +41,11 @@ To **add a new user** click the `Add user` button. Enter the necessary user info
 
 ![Keycloak Create User](../.gitbook/assets/keycloak_create_user.png)
 
-#### Editing user's details
+#### Updating user details
 
 To **edit user details**, select the user by clicking on Username.
   - Change the details as needed.
-  - Set one or more `Required user actions`, for example, to force the user to update password or configure OTP.
+  - Set one or more `Required user actions`, for example, to force users to update password or configure OTP.
   - Press "Save" button when done.
 
 ![Keycloak Update User](../.gitbook/assets/keycloak_update_user.png)
@@ -53,7 +53,7 @@ To **edit user details**, select the user by clicking on Username.
 #### Deleting a user
 To **delete one or more users**, select the required users and press `Delete user` button.
 
-### Change Group Membership
+### Group Membership
 
 - Log in to the Keycloak Admin Console.
 - In the `Groups` section, search for the group you want to manage.
@@ -144,9 +144,10 @@ Please avoid modifying the mentioned resources, as well as the default realm's c
 
 ![Login page](../.gitbook/assets/keycloak_login_page.png)
 
+- Sign in with `Azure` Identity Provider.
 - If everything is configured correctly you should be logged into the tenant with the default StackState role, `stackstate-guest`.
 
-#### Mapping Azure Active Directory role to Stackstate role
+#### Mapping Active Directory role to Stackstate role
 
 This guide assumes an Azure Identity Provider was added as described earlier.
 
