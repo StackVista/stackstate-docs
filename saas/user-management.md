@@ -21,11 +21,11 @@ The predefined Keycloak groups:
 
 - **realm-admin**: Members of this group can log in to the Keycloak realm console and perform operations allowed by their user management mode (Basic or Advanced).
 
-- **stackstate-k8s-troubleshooter**: Users in this group are assigned the `stackstate-k8s-troubleshooter` Keycloak client role, which maps to the StackState role with the same name. The role grants regular Stackstate permissions.
+- **stackstate-k8s-troubleshooter**: Users in this group are assigned the `stackstate-k8s-troubleshooter` Keycloak client role, which maps to the StackState role with the same name. The role grants regular StackState permissions.
 
-- **stackstate-k8s-admin**: Users in this group are assigned the `stackstate-k8s-admin` Keycloak client role, which maps to the StackState role with the same name. The role grants privileged Stackstate permissions.
+- **stackstate-k8s-admin**: Users in this group are assigned the `stackstate-k8s-admin` Keycloak client role, which maps to the StackState role with the same name. The role grants privileged StackState permissions.
 
-## Basic User Management
+## Basic user management
 
 - Log in to Keycloak Admin Console.
 
@@ -36,9 +36,9 @@ The predefined Keycloak groups:
 
 #### Adding a new user
 To **add a new user** click the `Add user` button. Enter the necessary user information (Username, Email, First Name, Last Name).
-- Leave `Required users actions` empty.
-- Add the user to the required groups.
-- Click Save. The welcome message with the sign-up link and the links to the Saas tenant, Keycloak Admin and Account consoles are emailed to the user.
+- leave `Required users actions` empty.
+- add the user to the required groups.
+- click `Save`. The welcome message with the sign-up link and the links to the SaaS tenant, Keycloak Admin and Account consoles are emailed to the user.
 - **To activate the account, which includes email confirmation and the password reset, the user must follow the sign-up link.**
 
 ![Keycloak Create User](../.gitbook/assets/keycloak_create_user.png)
@@ -47,15 +47,15 @@ To **add a new user** click the `Add user` button. Enter the necessary user info
 
 To **edit user details**, select the user by clicking on Username.
   - Change the details as needed.
-  - Set one or more `Required user actions`, for example, to force users to update password or configure OTP.
-  - Press "Save" button when done.
+  - Set one or more `Required user actions`, for example, to force users to update password or configure one time passwords.
+  - Press `Save` button when done.
 
 ![Keycloak Update User](../.gitbook/assets/keycloak_update_user.png)
 
 #### Deleting a user
 To **delete one or more users**, select the required users and press `Delete user` button.
 
-### Group Membership
+### Group membership
 
 - Log in to the Keycloak Admin Console.
 - In the `Groups` section, search for the group you want to manage.
@@ -63,7 +63,7 @@ To **delete one or more users**, select the required users and press `Delete use
 - To add a new group member, press the `Add Member` button and select the required users.
 - To delete users from the group, select the users from the list, then from the menu that at the same line as the `Add member` button marked as "⋮", select `Leave group`.
 
-## Advanced User Management
+## Advanced user management
 
 In Advanced User Management, users have full administrative permissions within their Keycloak realm. They can configure authentication, authorization, external identity providers, and more.
 
@@ -73,7 +73,7 @@ Refer to [the official Keycloak documentation](https://www.keycloak.org/docs/22.
 
 A Keycloak realm comes with the initial configuration:
 
-- An OIDC client integrated with a Saas tenant.
+- An OIDC client integrated with a SaaS tenant.
   - A set of Keycloak client roles that map to StackState built-in roles.
     - `stackstate-k8s-troubleshooter`
     - `stackstate-k8s-admin`
@@ -95,7 +95,7 @@ Please avoid modifying the mentioned resources, as well as the default realm's c
 
 - The user must be a member of the `realm-admin` Keycloak group.
 - Permissions to create `App registrations` in [the Azure portal](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
-- An ID of the Active Directory group to grant permissions to Stackstate. (found in the [Groups section of the Azure portal](https://portal.azure.com/#view/Microsoft_AAD_IAM/GroupsManagementMenuBlade/~/AllGroups)).
+- An ID of the Active Directory group to grant permissions to StackState. (found in the [Groups section of the Azure portal](https://portal.azure.com/#view/Microsoft_AAD_IAM/GroupsManagementMenuBlade/~/AllGroups)).
 
 #### Creating an App Registration in Azure
 
@@ -129,7 +129,7 @@ Please avoid modifying the mentioned resources, as well as the default realm's c
 - Note `Redirect URI`, which is needed to complete the App registration.
 - Press `Add`.
 - Scroll to the bottom the page and set `Sync mode` to `Force`.
-- Click Save to finalize the provider configuration.
+- Click `Save` to finalize the provider configuration.
 
 #### Finalizing App registration
 
@@ -151,7 +151,7 @@ Please avoid modifying the mentioned resources, as well as the default realm's c
 - Sign in with `Azure` Identity Provider.
 - If everything is configured correctly you should be logged into the tenant with the default StackState role, `stackstate-guest`.
 
-#### Mapping Active Directory role to Stackstate role
+#### Mapping Active Directory role to StackState role
 
 This guide assumes an Azure Identity Provider was added as described earlier.
 
@@ -165,4 +165,4 @@ This guide assumes an Azure Identity Provider was added as described earlier.
 - Click `Save` to store the mapper settings.
 - Log in to the StackState tenant to verify if the stackstate-k8s-troubleshooter StackState role has been granted to your user. You should see additional items in the menu such as Monitors, Stackpacks, etc.
 
-![Stackstate menu for stackstate-k8s-troublshooter](../.gitbook/assets/keycloak_stackstate-k8s-troublshooter.png)
+![StackState menu for stackstate-k8s-troubleshooter](../.gitbook/assets/keycloak_stackstate-k8s-troublshooter.png)

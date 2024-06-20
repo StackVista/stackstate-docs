@@ -151,7 +151,7 @@
 * [Service Tokens](use/security/k8s-service-tokens.md)
 * [Ingestion API Keys](use/security/k8s-ingestion-api-keys.md)
 
-## ☁️ SaaS
+## ☁️ Saas
 * [User Management](saas/user-management.md)
 
 ## Reference
