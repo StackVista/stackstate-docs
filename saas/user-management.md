@@ -27,7 +27,7 @@ The predefined Keycloak groups:
 
 - Log in to Keycloak Admin Console.
 
-![Keycloak Admin Console](../.gitbook/assets/keycloak_admin_console.png)
+![Keycloak Admin Console in Basic Mode](../.gitbook/assets/keycloak_admin_console.png)
 
 ### Manage users
 - In the left-hand menu, select `Users` under the `Manage` section.
@@ -64,7 +64,9 @@ To **delete one or more users**, select the required users and press `Delete use
 ## Advanced User Management
 
 In Advanced User Management, users have full administrative permissions within their Keycloak realm. They can configure authentication, authorization, external identity providers, and more.
-![Keycloak Update User](../.gitbook/assets/keycloak_advanced_mode.png)
+
+![Keycloak Admin Console in Advanced mode](../.gitbook/assets/keycloak_advanced_mode.png)
+
 Refer to [the official Keycloak documentation](https://www.keycloak.org/docs/22.0.5/server_admin/index.html) for more details.
 
 A Keycloak realm comes with the initial configuration:
@@ -101,11 +103,11 @@ Please avoid modifying the mentioned resources, as well as the default realm's c
 - Note the `Application (client) ID` for the created app registration; it will be used later to configure a Keycloak Identity Provider. *The value of the secret is shown only once just after creation.*
 - Press `Add a certificate or secret` and create a client secret. Note the value for the created secret; it will be used later to configure a Keycloak Identity Provider.
 
-![Azure App Registration2](../.gitbook/assets/keycloak_azure_app_registration-2.png)
+![Create secret for Azure App Registration ](../.gitbook/assets/keycloak_azure_app_registration-2.png)
 
 - From the `App registration` page go to `Endpoints` and note the `OpenID Connect metadata document` link; it will be used later to configure a Keycloak Identity Provider.
 
-![Azure App Endpoint](../.gitbook/assets/keylcoak_azure_app_endpoint.png)
+![Azure App Discovery Endpoint](../.gitbook/assets/keylcoak_azure_app_endpoint.png)
 
 - Go to the Manifest section and ensure that the `groupMembershipClaims` setting of the App registration is set to `All`. This is required to map Active Directory Groups to the Keycloak Groups/Roles.
 
@@ -129,12 +131,12 @@ Please avoid modifying the mentioned resources, as well as the default realm's c
 
 - Return to the `App Registration` section of the Azure portal and click `Add a Redirect URI`
 
-![Azure App Finalizing](../.gitbook/assets/keycloak_finalizing_app_registration.png)
+![Configuring Redirect URI for Azure App](../.gitbook/assets/keycloak_finalizing_app_registration.png)
 
 - Click `Add a platform` and select `Web` from the right-hand frame.
 - Enter the Redirect URI from the Keycloak Identity Provider's configuration and click `Configure`.
 
-![Azure App Finalizing2](../.gitbook/assets/keycloak_finalizing_app_registration-2.png)
+![Configuring Redirect URI for Azure App](../.gitbook/assets/keycloak_finalizing_app_registration-2.png)
 
 #### Verifying Keycloak Identity Provider
 
@@ -153,9 +155,9 @@ This guide assumes an Azure Identity Provider was added as described earlier.
 - Navigate to the  `Mappers` tab and press `Add mapper`.
 - Fill in the details as shown in the screenshot. For the Claim Value use the ID (⚠️ not a name) of the Active Directory Group.
 
-![IdP Mapper](../.gitbook/assets/keycloak_idp_group_mapper.png)
+![Keycloak Identity Mapper](../.gitbook/assets/keycloak_idp_group_mapper.png)
 
 - Click `Save` to store the mapper settings.
 - Log in to the StackState tenant to verify if the stackstate-k8s-troubleshooter StackState role has been granted to your user. You should see additional items in the menu such as Monitors, Stackpacks, etc.
 
-![Stackstate-k8s-troubleshooter](../.gitbook/assets/keycloak_stackstate-k8s-troublshooter.png)
+![Stackstate menu for stackstate-k8s-troublshooter](../.gitbook/assets/keycloak_stackstate-k8s-troublshooter.png)
