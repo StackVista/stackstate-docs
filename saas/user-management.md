@@ -8,15 +8,16 @@ Users of the SaaS tenants (StackState instances) are managed with [Keycloak](htt
 
 There are two levels of user management permissions: **Basic** and **Advanced**.
 
-- **Basic**: Allows users to add new users and assign them built-in StackState roles.
+- **Basic**: Allows users to add new users and add them to Keycloak groups.
 - **Advanced**: Allows users to manage an entire Keycloak realm (configuring Identity Providers, Authentication/Authorization options, etc.).  **Available to the paid users only.**
 
 
 All SaaS tenants start with **Basic** mode. Paid customers can request an upgrade to **Advanced** mode by filing a support ticket to [help@stackstate.zendesk.com](mailto:help@stackstate.zendesk.com).
-Users who are members of the `realm-admin` Keycloak group receive a link to the Keycloak Admin Console in the welcome message.
-A SaaS tenant is integrated with Keycloak via an OIDC client. StackState redirects users to Keycloak for authentication. Users are expected to be members of one or more Keycloak groups.
+Users who are members of the `realm-admin` Keycloak group receive a link to the Keycloak Admin Console in the welcome message. 
 
-There are predefined Keycloak groups:
+StackState redirects users to Keycloak for authentication. Users are expected to be members of one or more Keycloak groups.
+
+The predefined Keycloak groups:
 
 - **realm-admin**: Members of this group can log in to the Keycloak realm console and perform operations allowed by their user management mode (Basic or Advanced).
 
@@ -24,24 +25,33 @@ There are predefined Keycloak groups:
 
 ## Basic User Management
 
-### Manage users
-
 - Log in to Keycloak Admin Console.
+
 ![Keycloak Admin Console](../.gitbook/assets/keycloak_admin_console.png)
+
+### Manage users
 - In the left-hand menu, select `Users` under the `Manage` section.
-- To **add a new user** click the `Add user` button.
+
+#### Adding a new user
+To **add a new user** click the `Add user` button. Enter the necessary user information (Username, Email, First Name, Last Name).
+- Leave `Required users actions` empty.
+- Add the user to the required groups.
+- Click Save. The welcome message with the sign-up link and the links to the Saas tenant, Keycloak Admin and Account consoles are emailed to the user.
+- **To activate the account, which includes email confirmation and the password reset, the user must follow the sign-up link.**
+
 ![Keycloak Create User](../.gitbook/assets/keycloak_create_user.png)
-  - Fill in the necessary user information (Username, Email, First Name, Last Name).
-  - Leave `Required users actions` empty.
-  - Add the user to the required groups.
-  - Click Save. The welcome message with the sign-up link and the links to the Saas tenant, Keycloak Admin and Account consoles are emailed to the user.
-  - **To activate the account, which includes email confirmation and the password reset, the user must follow the sign-up link.**
-- To **edit user details**, select the user by clicking on Username.
-![Keycloak Update User](../.gitbook/assets/keycloak_update_user.png)
+
+#### Editing user's details
+
+To **edit user details**, select the user by clicking on Username.
   - Change the details as needed.
   - Set one or more `Required user actions`, for example, to force the user to update password or configure OTP.
   - Press "Save" button when done.
-- To **delete one or more users**, select the required users and press `Delete user` button.
+
+![Keycloak Update User](../.gitbook/assets/keycloak_update_user.png)
+
+#### Deleting a user
+To **delete one or more users**, select the required users and press `Delete user` button.
 
 ### Change Group Membership
 
@@ -54,6 +64,7 @@ There are predefined Keycloak groups:
 ## Advanced User Management
 
 In Advanced User Management, users have full administrative permissions within their Keycloak realm. They can configure authentication, authorization, external identity providers, and more.
+![Keycloak Update User](../.gitbook/assets/keycloak_advanced_mode.png)
 Refer to [the official Keycloak documentation](https://www.keycloak.org/docs/22.0.5/server_admin/index.html) for more details.
 
 A Keycloak realm comes with the initial configuration:
@@ -78,19 +89,26 @@ Please avoid modifying the mentioned resources, as well as the default realm's c
 
 - The user must be a member of the `realm-admin` Keycloak group.
 - Permissions to create `App registrations` in [the Azure portal](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade).
-- An ID, which is usually in UUID formet, of the Active Directory group to grant permissions to Stackstate. (found in the [Groups section of the Azure portal](https://portal.azure.com/#view/Microsoft_AAD_IAM/GroupsManagementMenuBlade/~/AllGroups)).
+- An ID of the Active Directory group to grant permissions to Stackstate. (found in the [Groups section of the Azure portal](https://portal.azure.com/#view/Microsoft_AAD_IAM/GroupsManagementMenuBlade/~/AllGroups)).
 
 #### Creating an App Registration in Azure
 
 - Log in to [the Azure portal](https://portal.azure.com) and proceed to [App registrations](https://portal.azure.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
 - Press `New registration`, fill in the name of the registration, select `Accounts in this organizational directory only` and leave all other fields as is.
+
 ![Azure App Registration](../.gitbook/assets/keycloak_azure_app_registration.png)
+
 - Note the `Application (client) ID` for the created app registration; it will be used later to configure a Keycloak Identity Provider. *The value of the secret is shown only once just after creation.*
 - Press `Add a certificate or secret` and create a client secret. Note the value for the created secret; it will be used later to configure a Keycloak Identity Provider.
+
 ![Azure App Registration2](../.gitbook/assets/keycloak_azure_app_registration-2.png)
+
 - From the `App registration` page go to `Endpoints` and note the `OpenID Connect metadata document` link; it will be used later to configure a Keycloak Identity Provider.
+
 ![Azure App Endpoint](../.gitbook/assets/keylcoak_azure_app_endpoint.png)
+
 - Go to the Manifest section and ensure that the `groupMembershipClaims` setting of the App registration is set to `All`. This is required to map Active Directory Groups to the Keycloak Groups/Roles.
+
 ![Azure App Manifest](../.gitbook/assets/keycloak_app_registration_manifest.png)
 
 #### Adding an Identity Provider to Keycloak
@@ -99,7 +117,9 @@ Please avoid modifying the mentioned resources, as well as the default realm's c
 - In the left-hand menu, select `Identity providers` under the `Configure` section.
 - Choose `OpenID Connect v1.0`.
 - Fill in the `Display name` as required, and input the `Client ID`, `Client Secret`, and `Discovery endpoint` with the data from the App registration notes.
+
 ![Keycloak Identity Provider](../.gitbook/assets/keycloak_identity_provider.png)
+
 - Note `Redirect URI`, which is needed to complete the App registration.
 - Press `Add`.
 - Scroll to the bottom the page and set `Sync mode` to `Force`.
@@ -108,15 +128,20 @@ Please avoid modifying the mentioned resources, as well as the default realm's c
 #### Finalizing App registration
 
 - Return to the `App Registration` section of the Azure portal and click `Add a Redirect URI`
+
 ![Azure App Finalizing](../.gitbook/assets/keycloak_finalizing_app_registration.png)
+
 - Click `Add a platform` and select `Web` from the right-hand frame.
 - Enter the Redirect URI from the Keycloak Identity Provider's configuration and click `Configure`.
+
 ![Azure App Finalizing2](../.gitbook/assets/keycloak_finalizing_app_registration-2.png)
 
 #### Verifying Keycloak Identity Provider
 
 - Open your tenant URL in a browser. The Login page should now include an option to sign in with the configured IdentityProvider. *If you have already logged into the tenant you must log out first.*
+
 ![Login page](../.gitbook/assets/keycloak_login_page.png)
+
 - If everything is configured correctly you should be logged into the tenant with the default StackState role, `stackstate-guest`.
 
 #### Mapping Azure Active Directory role to Stackstate role
@@ -124,10 +149,13 @@ Please avoid modifying the mentioned resources, as well as the default realm's c
 This guide assumes an Azure Identity Provider was added as described earlier.
 
 - Log in to the Keycloak Admin console.
-- In the left-hand menu, select `Identity providers` under the `Configure` section and choose the Azure IdentityProvider.
+- In the left-hand menu, select `Identity providers` under the `Configure` section and choose the `Azure` Identity Provider.
 - Navigate to the  `Mappers` tab and press `Add mapper`.
 - Fill in the details as shown in the screenshot. For the Claim Value use the ID (⚠️ not a name) of the Active Directory Group.
+
 ![IdP Mapper](../.gitbook/assets/keycloak_idp_group_mapper.png)
+
 - Click `Save` to store the mapper settings.
 - Log in to the StackState tenant to verify if the stackstate-k8s-troubleshooter StackState role has been granted to your user. You should see additional items in the menu such as Monitors, Stackpacks, etc.
+
 ![Stackstate-k8s-troubleshooter](../.gitbook/assets/keycloak_stackstate-k8s-troublshooter.png)
