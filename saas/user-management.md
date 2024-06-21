@@ -9,7 +9,7 @@ Users of the SaaS tenants (StackState instances) are managed with [Keycloak](htt
 There are two levels of user management permissions: **Basic** (default) and **Advanced**.
 
 - **Basic** (default): Allows users to add new users and add them to Keycloak groups.
-- **Advanced**: Allows users to manage an entire Keycloak realm (configuring Identity Providers, Authentication/Authorization options, etc.).  **Available to the paid users only.**
+- **Advanced**: Allows users to manage an entire Keycloak realm (configuring Identity Providers, Authentication/Authorization options, etc.).  **Available for Enterprise Edition only.**
 
 All SaaS tenants start with **Basic** mode. Paid customers can request an upgrade to **Advanced** mode by filing a support ticket to [help@stackstate.zendesk.com](mailto:help@stackstate.zendesk.com).
 Users who are members of the `realm-admin` Keycloak group receive a link to the Keycloak Admin Console in the welcome message.
