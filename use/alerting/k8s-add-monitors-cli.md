@@ -1,5 +1,5 @@
 ---
-description: StackState
+description: StackState v6.0
 ---
 
 # Add a threshold monitor to components using the CLI

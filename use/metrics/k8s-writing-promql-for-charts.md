@@ -1,5 +1,5 @@
 ---
-description: StackState
+description: StackState v6.0
 ---
 
 # Writing PromQL queries for representative charts
