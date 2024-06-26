@@ -1,5 +1,5 @@
 ---
-description: StackState for Kubernetes troubleshooting
+description: StackState v6.0
 ---
 
 # Supported units for charts

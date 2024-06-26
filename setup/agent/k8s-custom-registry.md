@@ -1,5 +1,5 @@
 ---
-description: StackState for Kubernetes troubleshooting
+description: StackState v6.0
 ---
 
 # Install StackState Agent from custom image registry

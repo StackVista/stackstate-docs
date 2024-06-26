@@ -1,6 +1,6 @@
 # Table of contents
 
-* [StackState for K8s troubleshooting docs!](README.md)
+* [StackState docs!](README.md)
 * [Docs for all StackState products](classic.md)
 
 ## 🚀 Get started

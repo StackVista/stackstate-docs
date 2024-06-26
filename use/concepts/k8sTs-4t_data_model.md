@@ -1,5 +1,5 @@
 ---
-description: StackState Kubernetes Troubleshooting
+description: StackState v6.0
 ---
 
 # The 4T data model

@@ -1,5 +1,5 @@
 ---
-description: StackState Kubernetes Troubleshooting 
+description: StackState 
 ---
 
 # Send health data over HTTP

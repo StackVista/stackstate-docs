@@ -1,14 +1,14 @@
 ---
-description: StackState for Kubernetes troubleshooting
+description: StackState v6.0
 ---
 
 # Kubernetes views
 
 ## Overview
 
-StackState for Kubernetes Troubleshooting has deep knowledge of Kubernetes and its components. After installation of the StackState agent in your cluster, it will then automatically detect and visualize the topology of your Kubernetes applications. This includes the Kubernetes resources that make up your application, such as deployments, pods, services, and ingress. It will also automatically detect and visualize the topology of your Kubernetes infrastructure that makes up your cluster, such as nodes, namespaces, and persistent volumes.
+StackState has deep knowledge of Kubernetes and its components. After installation of the StackState agent in your cluster, it will then automatically detect and visualize the topology of your Kubernetes applications. This includes the Kubernetes resources that make up your application, such as deployments, pods, services, and ingress. It will also automatically detect and visualize the topology of your Kubernetes infrastructure that makes up your cluster, such as nodes, namespaces, and persistent volumes.
 
-StackState for Kubernetes Troubleshooting has dedicated overviews and highlights pages for the following Kubernetes native resources:
+StackState has dedicated overviews and highlights pages for the following Kubernetes native resources:
 
 ![Kubernetes views](../../.gitbook/assets/k8s/k8s-menu.png)
 
