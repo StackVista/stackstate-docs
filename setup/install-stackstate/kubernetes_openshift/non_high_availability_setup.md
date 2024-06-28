@@ -53,6 +53,8 @@ To deploy StackState in a non-high availability setup, you will need a `nonha_va
     enabled: false
   zookeeper:
     replicaCount: 1
+  clickhouse:
+    replicaCount: 1
   ```
 
 2. Continue with the instructions to deploy StackState with Helm:
