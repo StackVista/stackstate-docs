@@ -13,10 +13,10 @@ Requirements for [StackState client \(browser\)](#client-browser) can be found a
 ### Supported versions
 
 StackState can be installed on a Kubernetes or OpenShift cluster using the Helm charts provided by StackState. These Helm charts require Helm v3.x to install and are supported on:
-* **Kubernetes:** 1.21 to 1.27
-* **Amazon Elastic Kubernetes Service (EKS):** 1.26 to 1.27
-* **Azure Kubernetes Service (AKS):** 1.27 to 1.27
-* **Google Kubernetes Engine (GKE):** 1.26 to 1.27
+* **Kubernetes:** 1.21 to 1.28
+* **Amazon Elastic Kubernetes Service (EKS):** 1.26 to 1.28
+* **Azure Kubernetes Service (AKS):** 1.27 to 1.28
+* **Google Kubernetes Engine (GKE):** 1.26 to 1.28
 * **OpenShift:** 4.9 to 4.14
 
 ### Resource requirements
