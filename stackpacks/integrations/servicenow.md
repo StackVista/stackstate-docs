@@ -12,9 +12,9 @@ ServiceNow is a [StackState core integration](/stackpacks/integrations/about_int
 
 ![Data flow](../../.gitbook/assets/stackpack-servicenow.svg)
 
-* Agent V2 connects to the configured [ServiceNow API](servicenow.md#rest-api-endpoints).
+* Agent V3 connects to the configured [ServiceNow API](servicenow.md#rest-api-endpoints).
 * CIs and dependencies for the configured CI types are retrieved from the ServiceNow CMDB \(default all\). Change request events are retrieved in the same run.
-* Agent V2 pushes [retrieved data](servicenow.md#data-retrieved) to StackState:
+* Agent V3 pushes [retrieved data](servicenow.md#data-retrieved) to StackState:
    * CIs and dependencies are translated into [topology components and relations](#topology). 
    * [Tags](#tags) defined in ServiceNow are added to components and relations in StackState. Any defined StackState tags are used by StackState when the topology is retrieved.
    * Change requests are attached to the associated elements as [events](#events) and listed in the StackState Events Perspective.
@@ -25,7 +25,7 @@ ServiceNow is a [StackState core integration](/stackpacks/integrations/about_int
 
 To set up the StackState ServiceNow integration, you need to have:
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to both ServiceNow \(via HTTPS\) and StackState.
+* [StackState Agent V3](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to both ServiceNow \(via HTTPS\) and StackState.
 * A running ServiceNow instance.
 * A ServiceNow user with access to the required [ServiceNow API endpoints](servicenow.md#rest-api-endpoints).
 
@@ -38,7 +38,7 @@ Install the ServiceNow StackPack from the StackState UI **StackPacks** &gt; **In
 
 ### Configure
 
-To enable the ServiceNow check and begin collecting data from ServiceNow, add the following configuration to StackState Agent V2:
+To enable the ServiceNow check and begin collecting data from ServiceNow, add the following configuration to StackState Agent V3:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/servicenow.d/conf.yaml` to include details of your ServiceNow instance:
    * **url** - The REST API URL, uses HTTPS protocol for communication.
@@ -75,7 +75,7 @@ To enable the ServiceNow check and begin collecting data from ServiceNow, add th
    * Use queries to [filter change requests retrieved](servicenow.md#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) from ServiceNow \(default all\).
    * Use queries to [filter the CI types retrieved](servicenow.md#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) \(default all\).
    * [Specify the CI types](servicenow.md#specify-ci-types-to-retrieve) that should be retrieved \(default all\).
-3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+3. [Restart StackState Agent V3](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 4. Once the Agent has restarted, wait for the Agent to collect data from ServiceNow and send it to StackState.
 
 #### Use ServiceNow queries to filter retrieved events and CI types
@@ -110,7 +110,7 @@ To enable the ServiceNow check and begin collecting data from ServiceNow, add th
    ...
    ```
 
-5. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+5. [Restart StackState Agent V3](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 
 #### Specify CI types to retrieve
 
@@ -166,7 +166,7 @@ By default, all available ServiceNow CI types will be sent to StackState. If you
         #        - cmdb_ci_network_adapter
    ```
 
-3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+3. [Restart StackState ](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 
 ### Status
 
@@ -190,8 +190,8 @@ For considerations and instructions on upgrading a StackPack, see [how to upgrad
 
 The ServiceNow check retrieves the following events data from ServiceNow:
 
-| Data | Description |
-| :--- | :--- |
+| Data            | Description                                                                                                                                                                                                                                                                    |
+| :-------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Change requests | The change requests retrieved can be [filtered using ServiceNow queries](servicenow.md#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) and will be visible in the StackState [Events Perspective](../../use/stackstate-ui/perspectives/events_perspective.md). |
 
 #### Metrics
@@ -208,10 +208,10 @@ The ServiceNow integration also understands StackState [common tags](../../confi
 
 The ServiceNow check retrieves the following topology data from the ServiceNow CMDB:
 
-| Data | Description |
-| :--- | :--- |
+| Data       | Description                                                                                                               |
+| :--------- | :------------------------------------------------------------------------------------------------------------------------ |
 | Components | CI types retrieved from the ServiceNow CMDB, see [filter retrieved CI types](servicenow.md#specify-ci-types-to-retrieve). |
-| Relations | Relations retrieved from the `cmdb_rel_ci` table. |
+| Relations  | Relations retrieved from the `cmdb_rel_ci` table.                                                                         |
 
 {% hint style="info" %}
 The ServiceNow integration understands StackState [common tags](../../configure/topology/tagging.md#common-tags). These StackState tags can be assigned to elements in ServiceNow to influence the way that the resulting topology is built in StackState. For example, by placing a component in a specific layer or domain.
@@ -223,14 +223,14 @@ The ServiceNow check doesn't retrieve any traces data.
 
 ### REST API endpoints
 
-The ServiceNow user configured in StackState Agent V2 must have access to read the ServiceNow `TABLE` API. The specific table names and endpoints used in the StackState integration are described below. All named REST API endpoints use the HTTPS protocol for communication.
+The ServiceNow user configured in StackState  must have access to read the ServiceNow `TABLE` API. The specific table names and endpoints used in the StackState integration are described below. All named REST API endpoints use the HTTPS protocol for communication.
 
-| Table Name | REST API Endpoint |
-| :--- | :--- |
+| Table Name      | REST API Endpoint               |
+| :-------------- | :------------------------------ |
 | change\_request | `/api/now/table/change_request` |
-| cmdb\_ci | `/api/now/table/cmdb_ci` |
-| cmdb\_rel\_type | `/api/now/table/cmdb_rel_type` |
-| cmdb\_rel\_ci | `/api/now/table/cmdb_rel_ci` |
+| cmdb\_ci        | `/api/now/table/cmdb_ci`        |
+| cmdb\_rel\_type | `/api/now/table/cmdb_rel_type`  |
+| cmdb\_rel\_ci   | `/api/now/table/cmdb_rel_ci`    |
 
 {% hint style="info" %}
 Refer to the ServiceNow product documentation for details on [how to configure a ServiceNow user and assign roles](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/users_and_groups/task/t_CreateAUser.html).
@@ -266,19 +266,25 @@ To uninstall the ServiceNow StackPack and disable the ServiceNow check:
     mv servicenow.d/conf.yaml servicenow.d/conf.yaml.bak
    ```
 
-3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+3. [Restart StackState ](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 
 ## Release notes
 
-**ServiceNow StackPack v5.3.1 \(2021-04-12\)**
+**ServiceNow StackPack v5.3.3 (2022-06-13)**
 
-**Improvement**
+- Improvement: Updated documentation
 
-* Common bumped from 2.5.0 to 2.5.1
+**ServiceNow StackPack v5.3.2 (2022-06-03)**
+
+- Improvement: Updated documentation
+
+**ServiceNow StackPack v5.3.1 (2021-04-12)**
+
+- Improvement: Common bumped from 2.5.0 to 2.5.1
 
 ## See also
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) 
+* [StackState ](../../setup/agent/about-stackstate-agent.md) 
 * [Secrets management](../../configure/security/secrets_management.md)
 * [StackState Agent integrations - ServiceNow \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/servicenow)
 * [How to configure a ServiceNow user and assign roles \(servicenow.com\)](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/users_and_groups/task/t_CreateAUser.html)

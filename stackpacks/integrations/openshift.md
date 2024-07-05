@@ -60,7 +60,7 @@ If the Agent StackPack isn't already installed, this will be automatically insta
 
 For the OpenShift integration to retrieve topology, events and metrics data, you will need to have the following installed on your OpenShift cluster:
 
-* StackState Agent V2 on each node in the cluster
+* StackState Agent V3 on each node in the cluster
 * StackState Cluster Agent on one node
 * StackState Checks Agent on one node
 * kube-state-metrics
@@ -71,7 +71,7 @@ For the OpenShift integration to retrieve topology, events and metrics data, you
 To integrate with other services, a separate instance of the [StackState Agent](../../setup/agent/about-stackstate-agent.md) should be deployed on a standalone VM. It isn't currently possible to configure a StackState Agent deployed on an OpenShift cluster with checks that integrate with other services.
 {% endhint %}
 
-### Configure kube-state-metrics
+### Configure kube-state-metrics (stackstate/stackstate-agent helm chart versions prior to and including version 3.3.0)
 
 The kubernetes\_state check is responsible for gathering metrics from kube-state-metrics and sending them to StackState. The kubernetes\_state check runs in the [StackState Checks Agent](../../setup/agent/kubernetes-openshift.md#checks-agent) by default and is configured in the [StackState Cluster Agent](../../setup/agent/kubernetes-openshift.md#cluster-agent).
 
@@ -107,6 +107,13 @@ If an alternative kube-state-metrics pod \(i.e. Prometheus\) is installed, the d
    --values values.yaml \
    stackstate-agent stackstate/stackstate-agent
    ```
+
+### Configure kube-state-metrics (stackstate/stackstate-agent helm chart versions later than and including version 3.5.0)
+
+The kube\_state\_metrics Python integration has been deprecated and removed in favour of the kube\_state\_core check.  The key difference lies in the deployment of the helm chart.  There is no longer a need for running a kube\_state\_state\_metrics pod, as the kube\_state\_core check is now part of the StackState Agent.
+The kube\_state\_core check queries the relevant Kubernetes api endpoints directly, and sends the metrics to StackState, without the need for a separate kube-state-metrics pod.  It is therefore also no longer required to set a value for the kubeStateMetrics.url in the values.yaml file.
+
+If an alternative kube-state-metrics pod \(i.e. Prometheus\) is installed, it can remain and will not be affected by the agent deployment.
 
 ### Status
 

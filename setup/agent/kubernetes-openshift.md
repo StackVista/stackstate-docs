@@ -5,17 +5,17 @@ description: StackState Self-hosted v5.1.x
 # Overview
 
 {% hint style="info" %}
-**StackState Agent V2**
+**StackState Agent V3**
 {% endhint %}
 
 To retrieve topology, events and metrics data from a Kubernetes or OpenShift cluster, you will need to have the following installed in the cluster:
 
-* StackState Agent V2 on each node in the cluster
+* StackState Agent V3 on each node in the cluster
 * StackState Cluster Agent on one node
 * StackState Checks Agent on one node
 * kube-state-metrics
 
-To integrate with other services, a separate instance of StackState Agent V2 should be deployed on a standalone VM.
+To integrate with other services, a separate instance of StackState Agent V3 should be deployed on a standalone VM.
 
 # StackState Agent types
 
@@ -35,7 +35,7 @@ To integrate with other services, a separate instance of the StackState Agent sh
 
 ## Agent
 
-StackState Agent V2 is deployed as a DaemonSet with one instance **on each node** in the cluster:
+StackState Agent V3 is deployed as a DaemonSet with one instance **on each node** in the cluster:
 
 * Host information is retrieved from the Kubernetes or OpenShift API.
 * Container information is collected from the Docker daemon.
@@ -43,7 +43,7 @@ StackState Agent V2 is deployed as a DaemonSet with one instance **on each node*
 
 ## Checks Agent
 
-The StackState Checks Agent is an additional StackState Agent V2 pod that will run the cluster checks that are configured on the [StackState Cluster Agent](#cluster-agent).
+The StackState Checks Agent is an additional StackState Agent V3 pod that will run the cluster checks that are configured on the [StackState Cluster Agent](#cluster-agent).
 
 The following checks can be configured to run as a cluster check:
 
@@ -68,17 +68,17 @@ Cluster checks configured here are run by the deployed [StackState Checks Agent]
 
 ## Supported Kubernetes versions
 
-StackState Agent v2.19.x is supported to monitor the following versions of Kubernetes or OpenShift:
+StackState Agent v3.0.x is supported to monitor the following versions of Kubernetes or OpenShift:
 
 * Kubernetes:
-  * Kubernetes 1.16 - 1.24
-  * EKS (with Kubernetes 1.16 - 1.24)
+  * Kubernetes 1.16 - 1.28
+  * EKS (with Kubernetes 1.16 - 1.28)
 * OpenShift:
-  * OpenShift 4.3 - 4.11
+  * OpenShift 4.3 - 4.12
 * Default networking
 * Container runtime:
-  * Docker
-  * containerd
+  * Docker - removed in Kubernetes 1.24
+  * containerd - default from Kubernetes 1.24
   * CRI-O
 
 ## Install
@@ -490,7 +490,7 @@ clusterAgent:
 
 ## Advanced Agent configuration
 
-StackState Agent V2 can be configured to reduce data production, tune the process blacklist, or turn off specific features when not needed. The required settings are described in detail on the page [advanced Agent configuration](advanced-agent-configuration.md).
+StackState Agent V3 can be configured to reduce data production, tune the process blacklist, or turn off specific features when not needed. The required settings are described in detail on the page [advanced Agent configuration](advanced-agent-configuration.md).
 
 ## External integration configuration
 

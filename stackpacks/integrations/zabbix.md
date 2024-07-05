@@ -14,7 +14,7 @@ Zabbix is a [StackState curated integration](/stackpacks/integrations/about_inte
 
 The following prerequisites need to be met:
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) must be installed on a single machine which can connect to Zabbix and StackState.
+* [StackState Agent V3](../../setup/agent/about-stackstate-agent.md) must be installed on a single machine which can connect to Zabbix and StackState.
 * A Zabbix instance must be running.
 
 **NOTE**: Zabbix versions 3, 4 and 5 are supported.
@@ -41,7 +41,7 @@ To enable the Zabbix check and begin collecting data from your Zabbix instance:
        username: <username> # Admin
        password: <password> # zabbix
      ```
-2. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to publish the configuration changes.
+2. [Restart StackState Agent V3](../../setup/agent/about-stackstate-agent.md#deployment) to publish the configuration changes.
 3. Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
 
 ## Release notes

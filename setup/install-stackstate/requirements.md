@@ -19,8 +19,8 @@ Requirements for [networking](#networking) and the [StackState client \(browser\
 
 StackState can be installed on a Kubernetes or OpenShift cluster using the Helm charts provided by StackState. These Helm charts require Helm v3.x to install and are supported on:
 
-* **Amazon Elastic Kubernetes Service (EKS):** 1.20 to 1.22
-* **Azure Kubernetes Service (AKS):** 1.20 to 1.23
+* **Amazon Elastic Kubernetes Service (EKS):** 1.21 to 1.28
+* **Azure Kubernetes Service (AKS):** 1.20 to 1.28
 * **OpenShift:** 4.8 to 4.10
 
 ### Node sizing

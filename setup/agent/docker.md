@@ -7,22 +7,22 @@ description: StackState Self-hosted v5.1.x
 ## Overview
 
 {% hint style="info" %}
-**StackState Agent V2**
+**StackState Agent V3**
 {% endhint %}
 
-StackState Agent V2 can run in a Docker container. The Agent collects data from the host where it's running and can be configured to integrate with external systems. Retrieved data is pushed to StackState, to work with this data the [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md) must be installed in your StackState instance. For details of the data retrieved and available integrations, see the [StackPack integration documentation](../../stackpacks/integrations/).
+StackState Agent V3 can run in a Docker container. The Agent collects data from the host where it's running and can be configured to integrate with external systems. Retrieved data is pushed to StackState, to work with this data the [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md) must be installed in your StackState instance. For details of the data retrieved and available integrations, see the [StackPack integration documentation](../../stackpacks/integrations/).
 
 In Docker Swarm mode, the StackState Swarm Agent can be deployed on the manager node to retrieve topology data for the cluster.
 
 ## Monitoring
 
-StackState Agent V2 will retrieve topology and metrics data from the host that it's running on. In [Docker swarm mode](#docker-swarm-mode), StackState Cluster Agent running on the manager node will synchronize data for a Docker cluster. For details, see the [data retrieved](#data-retrieved).
+StackState Agent V3 will retrieve topology and metrics data from the host that it's running on. In [Docker swarm mode](#docker-swarm-mode), StackState Cluster Agent running on the manager node will synchronize data for a Docker cluster. For details, see the [data retrieved](#data-retrieved).
 
 ## Setup
 
 ### Single container
 
-To start a single Docker container with StackState Agent V2, run the command below.
+To start a single Docker container with StackState Agent V3, run the command below.
 
 * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
 * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
@@ -51,13 +51,13 @@ docker run -d \
     -e STS_APM_ENABLED="true" \
     -e HOST_PROC="/host/proc" \
     -e HOST_SYS="/host/sys" \
-    docker.io/stackstate/stackstate-agent-2:2.19.1
+    quay.io/stackstate/stackstate-agent:3.0.0
 ```
 {% endcode %}
 
 ### Docker compose
 
-To run StackState Agent V2 with Docker compose:
+To run StackState Agent V3 with Docker compose:
 
 1. Add the following configuration to the compose file on each node where the Agent will run.
    * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
@@ -67,7 +67,7 @@ To run StackState Agent V2 with Docker compose:
    {% code lineNumbers="true" %}
    ```bash
    stackstate-agent:
-    image: docker.io/stackstate/stackstate-agent-2:2.19.1
+    image: quay.io/stackstate/stackstate-agent:3.0.0
     network_mode: "host"
     pid: "host"
     privileged: true
@@ -99,7 +99,7 @@ To run StackState Agent V2 with Docker compose:
 
 ### Docker swarm mode
 
-In Docker Swarm mode, the StackState Cluster Agent can be deployed on the manager node to retrieve basic topology data \(services, containers and the relations between them\). To retrieve full data, StackState Agent V2 must also be deployed on each node as a [Docker compose setup](docker.md#docker-compose).
+In Docker Swarm mode, the StackState Cluster Agent can be deployed on the manager node to retrieve basic topology data \(services, containers and the relations between them\). To retrieve full data, StackState Agent V3 must also be deployed on each node as a [Docker compose setup](docker.md#docker-compose).
 
 To run StackState Swarm Agent in Docker Swarm mode:
 
@@ -112,7 +112,7 @@ To run StackState Swarm Agent in Docker Swarm mode:
    {% code lineNumbers="true" %}
    ```bash
    stackstate-agent:
-       image: docker.io/stackstate/stackstate-swarm-agent:2.19.1
+       image: quay.io/stackstate/stackstate-swarm-agent:2.19.1
        deploy:
          placement:
            constraints: [ node.role == manager ]
@@ -138,12 +138,12 @@ To run StackState Swarm Agent in Docker Swarm mode:
    ```
 
 {% hint style="info" %}
-Running the StackState Swarm Agent in Docker Swarm mode will collect basic topology data from the cluster. To retrieve more data, including telemetry, StackState Agent V2 must also be installed on each node in the Swarm cluster as a [Docker compose setup](docker.md#docker-compose).
+Running the StackState Swarm Agent in Docker Swarm mode will collect basic topology data from the cluster. To retrieve more data, including telemetry, StackState Agent V3 must also be installed on each node in the Swarm cluster as a [Docker compose setup](docker.md#docker-compose).
 {% endhint %}
 
 ### Upgrade
 
-To upgrade StackState Agent V2 running inside a Docker container.
+To upgrade StackState Agent V3 running inside a Docker container.
 
 1. Stop the running container and remove it.
 
@@ -158,22 +158,22 @@ docker container rm stackstate-agent
 
 ### Agent configuration
 
-The StackState Agent V2 configuration is located in the file `/etc/stackstate-agent/stackstate.yaml`. The configuration file contains the `STS_API_KEY` and `STS_STS_URL` environment variables set when the Docker command is run. No further configuration should be required, however, a number of advanced configuration options are available.
+The StackState Agent V3 configuration is located in the file `/etc/stackstate-agent/stackstate.yaml`. The configuration file contains the `STS_API_KEY` and `STS_STS_URL` environment variables set when the Docker command is run. No further configuration should be required, however, a number of advanced configuration options are available.
 
 ### Advanced Agent configuration
 
-StackState Agent V2 can be configured to reduce data production, tune the process blacklist, or turn off specific features when not needed. The required settings are described in detail on the page [advanced Agent configuration](advanced-agent-configuration.md).
+StackState Agent V3 can be configured to reduce data production, tune the process blacklist, or turn off specific features when not needed. The required settings are described in detail on the page [advanced Agent configuration](advanced-agent-configuration.md).
 
 ### External integration configuration
 
-StackState Agent V2 can be configured to run checks that integrate with external systems. Each integration has its own configuration file that's used by the associated Agent check. Configuration files for integrations that will run through StackState Agent V2 in Docker should be added as a volume to the directory `/etc/stackstate-agent/conf.d/` when the container is started.
+StackState Agent V3 can be configured to run checks that integrate with external systems. Each integration has its own configuration file that's used by the associated Agent check. Configuration files for integrations that will run through StackState Agent V3 in Docker should be added as a volume to the directory `/etc/stackstate-agent/conf.d/` when the container is started.
 
 For example, the Agent Docker configuration below includes a volume with a check configuration file for the ServiceNow integration:
 
 {% code lineNumbers="true" %}
 ```bash
 stackstate-agent:
-    image: docker.io/stackstate/stackstate-agent-2:2.19.1
+    image: quay.io/stackstate/stackstate-agent:3.0.0
     network_mode: "host"
     pid: "host"
     privileged: true
@@ -200,7 +200,7 @@ The Agent can be configured to use a proxy for HTTP and HTTPS requests. For deta
 
 ### Self-Signed Certificates
 
-If StackState Agent V2 will run checks that are configured to use self-signed certificates for HTTPs requests, override the `CURL_CA_BUNDLE` environment variable:
+If StackState Agent V3 will run checks that are configured to use self-signed certificates for HTTPs requests, override the `CURL_CA_BUNDLE` environment variable:
 
 ```text
   CURL_CA_BUNDLE = ""
@@ -208,7 +208,7 @@ If StackState Agent V2 will run checks that are configured to use self-signed ce
 
 ### Traces
 
-StackState Agent V2 can be configured to collect traces via a [StackState tracing integration](../../configure/traces/set-up-traces.md#2-configure-tracing-integrations). If the Agent will be used in conjunction with a language specific trace client, make sure to configure your app to use the host’s PID namespace:
+StackState Agent V3 can be configured to collect traces via a [StackState tracing integration](../../configure/traces/set-up-traces.md#2-configure-tracing-integrations). If the Agent will be used in conjunction with a language specific trace client, make sure to configure your app to use the host’s PID namespace:
 
 ```text
   service:
@@ -221,7 +221,7 @@ StackState Agent V2 can be configured to collect traces via a [StackState tracin
 
 ### Start or stop the Agent
 
-To start, stop or restart StackState Agent V2, start or stop the container it's running in:
+To start, stop or restart StackState Agent V3, start or stop the container it's running in:
 
 ```text
 # Start container
@@ -259,13 +259,13 @@ To troubleshoot the Agent, try to [check the Agent status](docker.md#status) or 
 
 ### Log files
 
-Docker logs for the StackState Agent V2 container can be followed using the command:
+Docker logs for the StackState Agent V3 container can be followed using the command:
 
 ```text
 docker logs -f stackstate-agent
 ```
 
-Inside the running container, StackState Agent V2 logs are in the following files:
+Inside the running container, StackState Agent V3 logs are in the following files:
 
 * `/var/log/stackstate-agent/agent.log`
 * `/var/log/stackstate-agent/process-agent.log`
@@ -286,7 +286,7 @@ For example:
 {% code lineNumbers="true" %}
 ```bash
 stackstate-agent:
-  image: docker.io/stackstate/stackstate-agent-2:2.19.1
+  image: quay.io/stackstate/stackstate-agent:3.0.0
   network_mode: "host"
   pid: "host"
   privileged: true
@@ -321,7 +321,7 @@ Troubleshooting steps for any known issues can be found in the [StackState suppo
 
 ## Uninstall
 
-To uninstall StackState Agent V2, stop the Docker container it's running in and remove it.
+To uninstall StackState Agent V3, stop the Docker container it's running in and remove it.
 
 ```text
 docker stop stackstate-agent
@@ -332,7 +332,7 @@ docker container rm stackstate-agent
 
 ### Topology
 
-StackState Agent V2 will retrieve the following topology data from the host that it's running on:
+StackState Agent V3 will retrieve the following topology data from the host that it's running on:
 
 * Hosts, processes and containers
 * Network connections between processes/containers/services 
@@ -345,7 +345,7 @@ In [Docker swarm mode](#docker-swarm-mode), StackState Cluster Agent running on 
 
 ### Metrics
 
-StackState Agent V2 will retrieve the metrics listed below for containers. Telemetry for hosts and processes, as well as network traffic telemetry for network connections between processes/containers/services will also be retrieved.
+StackState Agent V3 will retrieve the metrics listed below for containers. Telemetry for hosts and processes, as well as network traffic telemetry for network connections between processes/containers/services will also be retrieved.
 
 **Metrics for containers**
 
@@ -370,8 +370,8 @@ The list below shows the container metrics that are provided by default. Additio
 
 ## See also
 
-* [About StackState Agent V2](about-stackstate-agent.md)
+* [About StackState Agent V3](about-stackstate-agent.md)
 * [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md)
 * [StackPack integration documentation](../../stackpacks/integrations/)
-* [StackState Agent V2 \(github.com\)](https://github.com/StackVista/stackstate-agent)
+* [StackState Agent V3 \(github.com\)](https://github.com/StackVista/stackstate-agent)
 

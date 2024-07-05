@@ -6,7 +6,7 @@ description: StackState Self-hosted v5.1.x
 
 ## Overview
 
-StackState Agent V2 can be configured to retrieve metrics from an OpenMetrics endpoint and push these to StackState.
+StackState  can be configured to retrieve metrics from an OpenMetrics endpoint and push these to StackState.
 
 OpenMetrics is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
@@ -18,7 +18,7 @@ The OpenMetrics check is included in the [Agent V2 StackPack](/stackpacks/integr
 
 ### Configuration
 
-To enable the OpenMetrics integration and begin collecting metrics data from an OpenMetrics endpoint, the OpenMetrics check must be configured on StackState Agent V2. The check configuration provides all details required for the Agent to connect to your OpenMetrics endpoint and retrieve the available metrics.
+To enable the OpenMetrics integration and begin collecting metrics data from an OpenMetrics endpoint, the OpenMetrics check must be configured on StackState . The check configuration provides all details required for the Agent to connect to your OpenMetrics endpoint and retrieve the available metrics.
 
 {% tabs %}
 {% tab title="Kubernetes, OpenShift" %}
@@ -36,13 +36,13 @@ To enable the OpenMetrics integration and begin collecting metrics data from an 
           ad.stackstate.com/<CONTAINER_NAME>.check_names: '["openmetrics"]'
           ad.stackstate.com/<CONTAINER_NAME>.init_configs: '[{}]'
           ad.stackstate.com/<CONTAINER_NAME>.instances: |
-           `[ 
-             {
-               "prometheus_url": "http://%%host%%:<METRICS_PORT>/<METRICS_PATH>",
-               "namespace": "<METRICS_NAMESPACE>", 
-               "metrics": ["*"] 
-             } 
-           ]'
+            [ 
+              {
+                "prometheus_url": "http://%%host%%:<METRICS_PORT>/<METRICS_PATH>",
+                "namespace": "<METRICS_NAMESPACE>", 
+                "metrics": ["*"] 
+              } 
+            ]
       ...
       # This already exists in the pod spec, the container name needs to match the container that is exposing the openmetrics endpoint
       spec:
@@ -76,7 +76,7 @@ Example OpenMetrics Agent check configuration file:
 [openmetrics/conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/openmetrics/stackstate_checks/openmetrics/data/conf.yaml.example)
 {% endhint %}
 
-1. Edit the StackState Agent V2 configuration file `/etc/stackstate-agent/conf.d/openmetrics.d/conf.yaml` to include details of the OpenMetrics endpoint and the metrics to be retrieved.
+1. Edit the StackState  configuration file `/etc/stackstate-agent/conf.d/openmetrics.d/conf.yaml` to include details of the OpenMetrics endpoint and the metrics to be retrieved.
    - **prometheus_url** - the URL exposing metrics in the OpenMetrics format
    - **namespace** - the namespace to be prepended to all metrics.
    - **metrics** - a list of metrics to be fetched from the OpenMetrics endpoint at `prometheus_url`. Either a string representing the metric name or a mapping to rename the metric`<EXPOSED_METRIC>:<SENT_METRIC>`. This list should contain at least one metric.
@@ -133,7 +133,7 @@ Example OpenMetrics Agent check configuration file:
    - **ssl_private_key** - required if the certificate linked in `ssl_cert` doesn't include the private key. Note that the private key to your local certificate must be unencrypted.
    - **ssl_ca_cert** - the path to the trusted CA used for generating custom certificates.
    - **extra_headers** - a list of additional HTTP headers to send in queries to the OpenMetrics endpoint. Can be combined with autodiscovery template variables. For example, `"Authorization: Bearer %%env_TOKEN%%"`.
-3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+3. [Restart StackState Agent V3](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 4. Once the Agent has restarted, wait for the Agent to collect data from the OpenMetrics endpoint and send it to StackState.
 
 {% endtab %}

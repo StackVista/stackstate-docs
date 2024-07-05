@@ -4,7 +4,7 @@ description: StackState Self-hosted v5.1.x
 
 # How to develop Agent checks
 
-This document covers how to create your first check with Agent V2 Check API. Following topics are covered in this document: the Agent directory structure, configuring your check, writing your first check, sending topology, metrics, events, and service checks as well as how to add external python dependencies and putting it all together.
+This document covers how to create your first check with Agent V3 Check API. Following topics are covered in this document: the Agent directory structure, configuring your check, writing your first check, sending topology, metrics, events, and service checks as well as how to add external python dependencies and putting it all together.
 
 ## Installing Agent V2 StackPack
 
@@ -363,7 +363,7 @@ The service check can produce the following states:
 
 ### Add Python Dependencies
 
-Sometimes your check may require some external dependencies. To solve this problem StackState Agent V2 is shipped with python and pip embedded. When installing the dependencies needed by your custom check you should use the embedded pip to do so. This executable for pip can be found here:
+Sometimes your check may require some external dependencies. To solve this problem StackState Agent V3 is shipped with python and pip embedded. When installing the dependencies needed by your custom check you should use the embedded pip to do so. This executable for pip can be found here:
 
 For Linux, you should find it at:
 
@@ -395,7 +395,7 @@ C:\Program Files\StackState\StackState Agent\embedded\agent.exe check <CHECK_NAM
 
 This executes your check once and displays the results.
 
-Once you are happy with the result of your check, you can restart the StackState Agent V2 service and your check will be scheduled alongside the other Agent checks.
+Once you are happy with the result of your check, you can restart the StackState Agent V3 service and your check will be scheduled alongside the other Agent checks.
 
 For Linux:
 

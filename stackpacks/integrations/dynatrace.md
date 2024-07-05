@@ -12,10 +12,10 @@ Dynatrace is a [StackState core integration](/stackpacks/integrations/about_inte
 
 ![Data flow](../../.gitbook/assets/stackpack-dynatrace.svg)
 
-* Agent V2 connects to the configured [Dynatrace API](dynatrace.md#rest-api-endpoints) to retrieve data:
+* Agent V3 connects to the configured [Dynatrace API](dynatrace.md#rest-api-endpoints) to retrieve data:
   * If a Dynatrace topology check is configured, Topology and Smartscape data is retrieved
   * If a Dynatrace health check is configured, events data is retrieved.
-* Agent V2 pushes [retrieved data](dynatrace.md#data-retrieved) to StackState.
+* Agent V3 pushes [retrieved data](dynatrace.md#data-retrieved) to StackState.
     * [Topology data](dynatrace.md#topology) is translated into components and relations. 
     * [Tags](dynatrace.md#tags) defined in Dynatrace are added to components and relations in StackState. Any defined StackState tags are used by StackState when the topology is retrieved.
     * [Events](dynatrace.md#events) are available in the StackState Events Perspective. They're also included in the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**..
@@ -26,7 +26,7 @@ Dynatrace is a [StackState core integration](/stackpacks/integrations/about_inte
 
 To set up the Dynatrace integration you will need to have:
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to both Dynatrace and StackState.
+* [StackState Agent V3](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to both Dynatrace and StackState.
 * A running Dynatrace instance.
 * A [Dynatrace API Token](#dynatrace-api-token) with access to read the Smartscape Topology and Events.
 
@@ -49,7 +49,7 @@ To enable the Dynatrace integration, two Dynatrace checks need to be configured.
 If only the Dynatrace topology check is enabled, no Dynatrace events data will be available in StackState and components will be reported with a green (CLEAR) health state. To enable retrieval of events data from Dynatrace, you should also enable the [Dynatrace health check](#dynatrace-health-check).
 {% endhint %}
 
-To enable the Dynatrace topology check and begin collecting topology data from Dynatrace, add the following configuration to StackState Agent V2:
+To enable the Dynatrace topology check and begin collecting topology data from Dynatrace, add the following configuration to StackState Agent V3:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/dynatrace_topology.d/conf.yaml` to include details of your Dynatrace instance:
    * **url** - the base URL of the Dynatrace instance.
@@ -96,7 +96,7 @@ To enable the Dynatrace topology check and begin collecting topology data from D
    - **custom_device_fields** - The Custom Device property fields that should be used.
    - **custom_device_ip** - Use IP address to generate Custom Device identifiers. Set to `False` if there are multiple Custom Devices using the same IP to prevent incorrect merging of Custom Device components. Default `True`. Requires Agent V2.17 or later. 
    - **tags** - custom tags appended to all components, useful for filtering.
-4. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+4. [Restart StackState Agent V3](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 5. Once the Agent has restarted, wait for data to be collected from Dynatrace and sent to StackState.
 
 #### Dynatrace Health Check
@@ -105,7 +105,7 @@ To enable the Dynatrace topology check and begin collecting topology data from D
 If only the Dynatrace health check is enabled, no Dynatrace topology data will be available in StackState. Events data will be retrieved from Dynatrace, but there will be no components or relations available in StackState to map this to. To enable retrieval of topology data from Dynatrace, you should also enable the [Dynatrace topology check](#dynatrace-topology-check).
 {% endhint %}
 
-To enable the Dynatrace health check and begin collecting events from Dynatrace, add the following configuration to StackState Agent V2:
+To enable the Dynatrace health check and begin collecting events from Dynatrace, add the following configuration to StackState Agent V3:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/dynatrace_health.d/conf.yaml` to include details of your Dynatrace instance:
    * **url** - the base URL of the Dynatrace instance.
@@ -141,12 +141,12 @@ To enable the Dynatrace health check and begin collecting events from Dynatrace,
    - **relative_time** - The relative timeframe for retrieving topology.
    - **events_bootstrap_days** - How many days in the past to collect events on the first run.
    - **events_process_limit** - Maximum number of events to process each run.
-3. [Restart StackState Agent V2](https://l.stackstate.com/ui-stackpack-restart-agent) to apply the configuration changes.
+3. [Restart StackState Agent V3](https://l.stackstate.com/ui-stackpack-restart-agent) to apply the configuration changes.
 4.Once the Agent has restarted, wait for data to be collected from Dynatrace and sent to StackState.
 
 #### Dynatrace API token
 
-The API Token configured in StackState Agent V2 must have the permission **Access problems and event feed, metrics, and topology** \(API value `DataExport`\). Note that this token must be generated by an admin Dynatrace user in Settings > Integrations > Dynatrace API. For details, see [Dynatrace API token permissions \(dynatrace.com\)](https://www.dynatrace.com/support/help/dynatrace-api/basics/dynatrace-api-authentication#token-permissions).
+The API Token configured in StackState Agent V3 must have the permission **Access problems and event feed, metrics, and topology** \(API value `DataExport`\) and **Grants access to GET requests of the Monitored entities and Custom tags APIs** \(API value `entities.read`\). Note that this token must be generated by an admin Dynatrace user in Settings > Integrations > Dynatrace API. For details, see [Dynatrace API token permissions \(dynatrace.com\)](https://www.dynatrace.com/support/help/dynatrace-api/basics/dynatrace-api-authentication#token-permissions).
 
 You can check if the generated token is working using the curl command:
 
