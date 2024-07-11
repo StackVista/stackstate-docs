@@ -47,8 +47,9 @@ The following permissions are available in StackState:
 * `export-settings` - Export settings.
 * `import-settings` - Import settings.
 * `manage-annotations` - Persist and fetch Anomaly annotations in StackState.
-* `manage-event-handlers` - Create or edit [event handlers](/use/events/manage-event-handlers.md).
+* `manage-ingestion-api-keys` - Manage [API keys](/use/security/k8s-ingestion-api-keys.md) for data ingestion.
 * `manage-monitors` - Create, delete and change [monitors](/use/checks-and-monitors/monitors.md).
+* `manage-notifications` - Create, delete, and modify [notifications](/use/alerting/notifications/configure.md).
 * `manage-service-tokens`- Create/delete [Service Tokens](../security/authentication/service_tokens.md) in StackState.
 * `manage-stackpacks` - Install/upgrade/uninstall StackPacks.
 * `manage-star-view` - Add and remove [stars](/use/stackstate-ui/views/about_views.md#starred-views) from views in the StackState UI.
@@ -59,16 +60,20 @@ The following permissions are available in StackState:
 * `read-settings` - Access the Settings page in the StackState UI.
 * `read-stackpacks`
 * `read-telemetry-streams` - Access the telemetry data for components in the StackState UI
+* `read-traces` - Read and access trace data.
 * `run-monitors` - Execute a [monitor](/use/checks-and-monitors/monitors.md) and make it run periodically.
 * `save-view`- A **view permission**. Update a specific view \(when granted on a view\) or all views \(when granted on `everything`\). Granted on the following views for predefined StackState roles:
   * Administrator: `everything` (all views)
   * Platform Administrator: -
   * Power User: `everything` (all views)
   * Guest: -
+* `unlock-node` - Unlock [locked configuration items](/stackpacks/about-stackpacks.md#locked-configuration-items).
 * `update-permissions` - Grant/revoke permissions or change subjects.
 * `update-settings` - Update settings.
 * `update-visualization` - Change [visualization settings](/use/stackstate-ui/views/visualization_settings.md).
 * `upload-stackpacks` - Upload new \(versions of\) StackPacks.
+* `view-monitors` - View monitor configurations.
+* `view-notifications` - View notification settings.
 
 ## Manage permissions
 
@@ -146,4 +151,3 @@ sts rbac revoke --subject [role-name] --permission access-view --resource [view-
 Below is an example of how the StackState UI would look for a user without any permissions:
 
 ![No permissions](../../../.gitbook/assets/noperm.png)
-
