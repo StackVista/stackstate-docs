@@ -28,3 +28,9 @@ stackstate:
 ```
 
 This will use port `587` on the SMTP server and uses the `STARTTLS` command to establish a secure connection.
+To use a different port, it can be specified explicitly:
+
+```yaml
+stackstate.components.all.extraEnv.open:
+  CONFIG_FORCE_stackstate_email_server_port: 465
+```
