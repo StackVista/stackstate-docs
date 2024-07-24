@@ -86,3 +86,22 @@ Once created, an Ingestion API Key can be used to authenticate:
 The StackState agent requires an API key for communication, historically known as the Receiver API Key. StackState now offers two options for authentication:
 - Receiver API Key: This key is typically generated during the initial installation of your StackState instance,
 - Ingestion API Key: You can create Ingestion API Keys using the StackState CLI (STS). These keys offer expiration dates, requiring periodic rotation for continued functionality.
+
+### OTel Collector
+
+When using the StackState collector, you'll need to include an `Authorization` header in your configuration. The collector accepts either a Receiver API Key or an Ingestion API Key for authentication. 
+The following code snippet provides an example configuration:
+```yaml
+  extensions:
+    bearertokenauth:
+      scheme: StackState
+      token: "${env:API_KEY}"
+  
+  ...
+  
+  exporters:
+    otlp/stackstate:
+      auth:
+        authenticator: bearertokenauth
+      endpoint: <otlp-stackstate-endpoint>:443
+```

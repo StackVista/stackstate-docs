@@ -147,7 +147,7 @@ config:
 
 The `config` section customizes the collector config itself and is discussed in the next section. The other parts are:
 
-* `extraEnvsFrom`: Sets environment variables from the specified secret, in the next step this secret is created for storing the StackState API key
+* `extraEnvsFrom`: Sets environment variables from the specified secret, in the next step this secret is created for storing the StackState API key (Receiver / [Ingestion API Key](../../use/security/k8s-ingestion-api-keys.md))
 * `mode`: Run the collector as a Kubernetes deployment, when to use the other modes is discussed [here](https://opentelemetry.io/docs/kubernetes/helm/collector/).
 * `ports`: Used to enable the metrics port such that the collector can scrape its own metrics
 * `presets`: Used to enable the default configuration for adding Kubernetes metadata as attributes, this includes Kubernetes labels and metadata like namespace, pod, deployment etc. Enabling the metadata also introduces the cluster role and role binding mentioned in the pre-requisites.
@@ -209,13 +209,24 @@ kubectl create secret generic open-telemetry-collector \
     --from-literal=API_KEY='<stackstate-api-key>' 
 ```
 
+StackState supports two types of keys:
+- Receiver API Key
+- Ingestion API Key
+
+#### Receiver API Key
+
 You can find the API key for StackState on the Kubernetes Stackpack installation screen:
 
 1. Open StackState
 2. Navigate to StackPacks and select the Kubernetes StackPack
 3. Open one of the installed instances
 4. Scroll down to the first set of installation instructions. It shows the API key as `STACKSTATE_RECEIVER_API_KEY` in text and as `'stackstate.apiKey'` in the command.
-  
+
+#### Ingestion API Key
+
+StackState supports creating multiple Ingestion Keys. This allows you to assign a unique key to each OpenTelemetry Collector for better security and access control.
+For instructions on generating an Ingestion API Key, refer to the [documentation page](../../use/security/k8s-ingestion-api-keys.md).
+
 ### Deploy the collector
 
 To deploy the collector first make sure you have the Open Telemetry helm charts repository configured:
