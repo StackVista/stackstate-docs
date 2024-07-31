@@ -8,18 +8,20 @@ description: StackState v6.0
 
 To send notifications to Slack follow these steps:
 
-1. [Create an Incoming Webhook for your Teams channel](#create-webhook-for-channel)
-3. [Add and test the channel](#add-and-test-the-channel)
+1. [Create a Power Automate Flow](#create-a-power-automate-flow)
+2. [Add and test the channel](#add-and-test-the-channel)
 
-### Create webhook for channel
+### Create a Power Automate Flow
 
-In Teams, add the "Incoming Webhook" app to the channel you want to use for notifications.
+In Teams, create a new Flow from the "Webhook" template.
+![Create Flow from Webhook template](/.gitbook/assets/k8s/notifications-teams-webhook-template.png)
 
-![Add Incoming Webhook to channel](/.gitbook/assets/k8s/add-webhook-app.png)
+Select the Team and Channel you want the notification pasted to and save the flow.
 
-Create the webhook and copy the URL that is created
+Edit the flow and click the "When a Teams webhook request is received" box.  
+Copy the HTTP URL parameter.
 
-![Configure Webhook](/.gitbook/assets/k8s/configure-webhook-for-teams-channel.png)
+![Select URL from Flow](/.gitbook/assets/k8s/notifications-teams-select-url.png)
 
 {% hint style="info" %}
 
