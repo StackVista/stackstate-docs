@@ -226,17 +226,17 @@ To enable Single sign-on with your own authentication provider please see here.
 ## Frequently asked questions & Observations:
 1. Is it mandatory to install a StackState agent before proceeding with adding the UI extension?
    * No this is not mandatory, the UI extension can be installed independent.
-   1. Is it mandatory to install StackState Server before we proceed with UI extensions?
+1. Is it mandatory to install StackState Server before we proceed with UI extensions?
    * Yes this is not mandatory since you need to provide a StackState endpoint in the configuration
 1. Can we install StackState on a local cluster or on a downstream cluster?
    * Both options are possible.
-   1. To monitor the downstream clusters, should we install the StackState agent from the app store or add a new instance from the StackState UI?
+1. To monitor the downstream clusters, should we install the StackState agent from the app store or add a new instance from the StackState UI?
    * Both options are possible depending on users preference.
    
 ## Open Issues
 1. When you uninstall and reinstall the UI extensions for Observability, we noticed that service token is not deleted and is reused upon reinstallation. Whenever we uninstall the extensions, service token should be removed.
    * This information should be deleted when the UI extensions are uninstalled.
-   1. After the extensions are installed, the StackState UI opens in the same tab as the Rancher UI.
+1. After the extensions are installed, the StackState UI opens in the same tab as the Rancher UI.
    * You can use shift-click to open in a new tab, this will become the default behaviour
 1. The SUSE Rancher Prime - Observability Extension is only supported on 2.8.x versions and not yet on the 2.9.x version.
    * Support for 2.9.x will be available soon.
