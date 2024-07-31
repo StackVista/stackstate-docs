@@ -7,7 +7,7 @@
 
 * [Quick start guide](k8s-quick-start-guide.md)
 * [StackState walk-through](k8s-getting-started.md)
-* [SUSE Ranger Prime](k8s-suse-ranger-prime.md)
+* [SUSE Ranger Prime](k8s-suse-rancher-prime.md)
 
 ## 🦮 Guided troubleshooting
 
