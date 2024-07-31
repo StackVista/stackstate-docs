@@ -45,7 +45,8 @@ This is the on-prem hosted server part of the installation. It contains a set of
 - Metrics (VictoriaMetrics)
 - Traces (ClickHouse)
 - Logs (ElasticSearch)
-- Next to this, it contains a set of services for all the observability tasks. e.g. Notifications, State management, Monitoring, etc.
+
+Next to this, it contains a set of services for all the observability tasks. e.g. Notifications, State management, Monitoring, etc.
 
 #### StackState Agent
 
@@ -94,8 +95,6 @@ After meeting the prerequisites you can proceed with the installation. The insta
 For reference _this is the non-HA setup to observe up-to 50 upstream worker Nodes_. For the HA setup see the link above.
 
 Command to generate helm chart values file:
-
-helm_template.sh
 
 {% code title="helm_template.sh" lineNumbers="true" %}
 ```text
@@ -226,18 +225,18 @@ To enable Single sign-on with your own authentication provider please see here.
 
 ## Frequently asked questions & Observations:
 1. Is it mandatory to install a StackState agent before proceeding with adding the UI extension?
-   1. No this is not mandatory, the UI extension can be installed independent.
-1. Is it mandatory to install StackState Server before we proceed with UI extensions?
-   1. Yes this is not mandatory since you need to provide a StackState endpoint in the configuration
+   * No this is not mandatory, the UI extension can be installed independent.
+   1. Is it mandatory to install StackState Server before we proceed with UI extensions?
+   * Yes this is not mandatory since you need to provide a StackState endpoint in the configuration
 1. Can we install StackState on a local cluster or on a downstream cluster?
-   1. Both options are possible.
-1. To monitor the downstream clusters, should we install the StackState agent from the app store or add a new instance from the StackState UI?
-   1. Both options are possible depending on users preference.
+   * Both options are possible.
+   1. To monitor the downstream clusters, should we install the StackState agent from the app store or add a new instance from the StackState UI?
+   * Both options are possible depending on users preference.
    
 ## Open Issues
 1. When you uninstall and reinstall the UI extensions for Observability, we noticed that service token is not deleted and is reused upon reinstallation. Whenever we uninstall the extensions, service token should be removed.
-   1. This information should be deleted when the UI extensions are uninstalled.
-1. After the extensions are installed, the StackState UI opens in the same tab as the Rancher UI.
-   1. You can use shift-click to open in a new tab, this will become the default behaviour
+   * This information should be deleted when the UI extensions are uninstalled.
+   1. After the extensions are installed, the StackState UI opens in the same tab as the Rancher UI.
+   * You can use shift-click to open in a new tab, this will become the default behaviour
 1. The SUSE Rancher Prime - Observability Extension is only supported on 2.8.x versions and not yet on the 2.9.x version.
-   1. Support for 2.9.x will be available soon.
+   * Support for 2.9.x will be available soon.
