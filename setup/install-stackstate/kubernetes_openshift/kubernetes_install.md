@@ -101,6 +101,12 @@ For air-gapped environments follow the instructions for the air-gapped installat
 
 To deploy StackState in a high availability setup on Kubernetes:
 
+```text
+Please note that high availability is the default configuration, no addition values are needed.  Should you wish 
+to deploy a non-ha configuration, the configuration values that are required additionally is available, see the tab
+labelled "Non-high availability setup".
+```
+
 1. Before you deploy:
    * [Create the namespace where StackState will be installed](kubernetes_install.md#create-namespace)
    * [Generate `values.yaml`](#generate-values.yaml)
