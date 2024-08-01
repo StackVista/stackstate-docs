@@ -94,8 +94,10 @@ After meeting the prerequisites you can proceed with the installation. The insta
 
 You can now follow the instruction below for a HA or NON-HA setup.
 
-### Get the helm chart
 
+### Installing a default HA setup for up to 250 Nodes
+
+1. Get the helm chart
 {% code title="helm_repot.sh" lineNumbers="true" %}
 ```text
 helm repo add rancher-prime-observability helm-rancher-prime.stackstate.io
@@ -104,9 +106,7 @@ helm repo update
 {% endcode %}
 
 
-### Installing a default HA setup for up to 250 Nodes
-
-1. Command to generate helm chart values file:
+2. Command to generate helm chart values file:
 
 {% code title="helm_template.sh" lineNumbers="true" %}
 ```text
@@ -120,7 +120,7 @@ helm template \
 ```    
 {% endcode %}
 
-2. Deploy the StackState helm chart with the generated values:
+3Deploy the StackState helm chart with the generated values:
 
 {% code title="helm_deploy.sh" lineNumbers="true" %}
 ```text
@@ -135,7 +135,15 @@ helm upgrade --install \
 
 ### Installing a NON-HA setup for up to 50 Nodes
 
-1. Command to generate helm chart values file:
+1. Get the helm chart
+   {% code title="helm_repot.sh" lineNumbers="true" %}
+```text
+helm repo add rancher-prime-observability helm-rancher-prime.stackstate.io
+helm repo update
+```    
+{% endcode %}
+
+2. Command to generate helm chart values file:
 
 {% code title="helm_template.sh" lineNumbers="true" %}
 ```text
@@ -149,7 +157,7 @@ helm template \
 ```    
 {% endcode %}
 
-2. Create a second values file for the non-ha setup, named nonha_values.yaml with the following content:
+3. Create a second values file for the non-ha setup, named nonha_values.yaml with the following content:
 
 
 {% code title="nonha_values.yaml" lineNumbers="true" %}
@@ -197,7 +205,7 @@ clickhouse:
 ```
 {% endcode %}
 
-3. Deploy the StackState helm chart with the generated values, as well as the non-ha configuration values:
+4. Deploy the StackState helm chart with the generated values, as well as the non-ha configuration values:
 
 {% code title="helm_deploy.sh" lineNumbers="true" %}
 ```text
