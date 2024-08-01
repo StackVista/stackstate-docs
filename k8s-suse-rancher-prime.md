@@ -8,7 +8,7 @@ description: StackState v6.0
 
 This page describes how to install SUSE Rancher Prime - Observability during the Tech Preview phase on-premise.
 
-SUSE Rancher Prime - Observability, formally known as StackState can be used for Observability of your Kubernetes clusters and their workloads.
+SUSE Rancher Prime - Observability, formerly known as StackState can be used for Observability of your Kubernetes clusters and their workloads.
 During the Tech Preview phase we only offer 2 on-prem installations which can support up-to 50 (non-HA) or up-to 250 (HA) worker Nodes.
 
 The Tech Preview phase is expected  is expected to last at least 30 days. After the Tech Preview phase a GA version will be made available for SUSE Rancher Prime customers. There is no guarantee that the Tech Preview will be compatible from a feature or upgrade perspective with the GA version.
