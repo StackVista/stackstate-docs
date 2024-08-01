@@ -92,9 +92,21 @@ If you created the cluster using Rancher Manager and would like to run the provi
 
 After meeting the prerequisites you can proceed with the installation. The installation is NOT YET AVAILABLE from the app store. Instead, you can install StackState via the downstream or upstream kubectl shell of the cluster. For more information see here.
 
-For reference _this is the non-HA setup to observe up-to 50 upstream worker Nodes_. For the HA setup see the link above.
+You can now follow the instruction below for a HA or NON-HA setup.
 
-Command to generate helm chart values file:
+### Get the helm chart
+
+{% code title="helm_repot.sh" lineNumbers="true" %}
+```text
+helm repo add rancher-prime-observability helm-rancher-prime.stackstate.io
+helm repo update
+```    
+{% endcode %}
+
+
+### Installing a default HA setup for up to 250 Nodes
+
+1. Command to generate helm chart values file:
 
 {% code title="helm_template.sh" lineNumbers="true" %}
 ```text
@@ -103,12 +115,41 @@ helm template \
     --set baseUrl='<baseURL>' \
     --set pullSecret.username='trial' \
     --set pullSecret.password='trial' \
-    sts-values \
-    stackstate/stackstate-values > values.yaml
+    prime-observability-values \
+    rancher-prime-observability/stackstate-values > values.yaml
 ```    
 {% endcode %}
 
-Create a second values file for the non-ha setup, named nonha_values.yaml with the following content:
+2. Deploy the StackState helm chart with the generated values:
+
+{% code title="helm_deploy.sh" lineNumbers="true" %}
+```text
+helm upgrade --install \
+    --namespace stackstate \
+    --create-namespace \
+    --values values.yaml \
+    prime-observability \
+    rancher-prime-observability/stackstate-k8s
+```
+{% endcode %}
+
+### Installing a NON-HA setup for up to 50 Nodes
+
+1. Command to generate helm chart values file:
+
+{% code title="helm_template.sh" lineNumbers="true" %}
+```text
+helm template \
+    --set license='<licenseKey>' \
+    --set baseUrl='<baseURL>' \
+    --set pullSecret.username='trial' \
+    --set pullSecret.password='trial' \
+    prime-observability-values \
+    rancher-prime-observability/stackstate-values > values.yaml
+```    
+{% endcode %}
+
+2. Create a second values file for the non-ha setup, named nonha_values.yaml with the following content:
 
 
 {% code title="nonha_values.yaml" lineNumbers="true" %}
@@ -156,7 +197,7 @@ clickhouse:
 ```
 {% endcode %}
 
-Command to deploy the StackState helm chart with the recently-generated values, as well as the non-ha configuration values:
+3. Deploy the StackState helm chart with the generated values, as well as the non-ha configuration values:
 
 {% code title="helm_deploy.sh" lineNumbers="true" %}
 ```text
@@ -165,8 +206,8 @@ helm upgrade --install \
     --create-namespace \
     --values values.yaml \
     --values nonha_values.yaml \
-    stackstate \
-    stackstate/stackstate-k8s
+    prime-observability \
+    rancher-prime-observability/stackstate-k8s
 ```
 {% endcode %}
 
