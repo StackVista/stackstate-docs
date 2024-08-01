@@ -120,7 +120,7 @@ helm template \
 ```    
 {% endcode %}
 
-3Deploy the StackState helm chart with the generated values:
+3. Deploy the StackState helm chart with the generated values:
 
 {% code title="helm_deploy.sh" lineNumbers="true" %}
 ```text
