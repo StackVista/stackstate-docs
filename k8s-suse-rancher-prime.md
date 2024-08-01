@@ -125,7 +125,7 @@ helm template \
 {% code title="helm_deploy.sh" lineNumbers="true" %}
 ```text
 helm upgrade --install \
-    --namespace stackstate \
+    --namespace prime-observability \
     --create-namespace \
     --values values.yaml \
     prime-observability \
@@ -210,7 +210,7 @@ clickhouse:
 {% code title="helm_deploy.sh" lineNumbers="true" %}
 ```text
 helm upgrade --install \
-    --namespace stackstate \
+    --namespace prime-observability \
     --create-namespace \
     --values values.yaml \
     --values nonha_values.yaml \
