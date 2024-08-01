@@ -98,7 +98,7 @@ You can now follow the instruction below for a HA or NON-HA setup.
 ### Installing a default HA setup for up to 250 Nodes
 
 1. Get the helm chart
-{% code title="helm_repot.sh" lineNumbers="true" %}
+{% code title="helm_repo.sh" lineNumbers="true" %}
 ```text
 helm repo add rancher-prime-observability helm-rancher-prime.stackstate.io
 helm repo update
@@ -136,7 +136,7 @@ helm upgrade --install \
 ### Installing a NON-HA setup for up to 50 Nodes
 
 1. Get the helm chart
-   {% code title="helm_repot.sh" lineNumbers="true" %}
+   {% code title="helm_repo.sh" lineNumbers="true" %}
 ```text
 helm repo add rancher-prime-observability helm-rancher-prime.stackstate.io
 helm repo update
