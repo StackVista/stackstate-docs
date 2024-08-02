@@ -90,7 +90,7 @@ If you created the cluster using Rancher Manager and would like to run the provi
 ![Rancher](/.gitbook/assets/k8s/prime/rancher_cluster_dashboard.png)
 
 
-After meeting the prerequisites you can proceed with the installation. The installation is NOT YET AVAILABLE from the app store. Instead, you can install StackState via the downstream or upstream kubectl shell of the cluster. For more information see here.
+After meeting the prerequisites you can proceed with the installation. The installation is NOT YET AVAILABLE from the app store. Instead, you can install StackState via the downstream or upstream kubectl shell of the cluster.
 
 You can now follow the instruction below for a HA or NON-HA setup.
 
@@ -270,7 +270,7 @@ There are two ways to install the StackState Agen: via the Rancher UI or directl
 1. After you install the StackState Agent, the cluster can be seen within the StackState UI as well as the _SUSE Rancher - Observability UI extension_.
 
 ## Single Sign On
-To enable Single sign-on with your own authentication provider please see here.
+To enable Single sign-on with your own authentication provider please [see here](/self-hosted-setup/security/authentication).
 
 ## Frequently asked questions & Observations:
 1. Is it mandatory to install a StackState agent before proceeding with adding the UI extension?
@@ -289,3 +289,4 @@ To enable Single sign-on with your own authentication provider please see here.
    * You can use shift-click to open in a new tab, this will become the default behaviour
 1. The SUSE Rancher Prime - Observability Extension is only supported on 2.8.x versions and not yet on the 2.9.x version.
    * Support for 2.9.x will be available soon.
+1. On RKE(1) The Node Agent does not start process-agent with Ubuntu 20.04.6 LTS worker nodes it fails with a message `failed to create network tracer`
