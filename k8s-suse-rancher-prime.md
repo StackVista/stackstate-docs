@@ -252,7 +252,7 @@ sts service-token create --name my-service-token --roles stackstate-power-user
 
 
 ## Installing the StackState Agent
-There are two ways to install the StackState Agen: via the Rancher UI or directly via helm, as mentioned in the instructions of the StackPack page.
+There are two ways to install the StackState Agent: via the Rancher UI or directly via helm, as mentioned in the instructions of the StackPack page.
 
 ### Install the StackState Agent from the Rancher UI:
 
@@ -270,7 +270,7 @@ There are two ways to install the StackState Agen: via the Rancher UI or directl
 1. After you install the StackState Agent, the cluster can be seen within the StackState UI as well as the _SUSE Rancher - Observability UI extension_.
 
 ## Single Sign On
-To enable Single sign-on with your own authentication provider please [see here](/self-hosted-setup/security/authentication).
+To enable Single sign-on with your own authentication provider please [see here](setup/security/authentication/authentication_options.md).
 
 ## Frequently asked questions & Observations:
 1. Is it mandatory to install a StackState agent before proceeding with adding the UI extension?
