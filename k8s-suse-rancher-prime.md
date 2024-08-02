@@ -128,7 +128,7 @@ helm upgrade --install \
     --namespace prime-observability \
     --create-namespace \
     --values values.yaml \
-    prime-observability \
+    prime-observe \
     rancher-prime-observability/stackstate-k8s
 ```
 {% endcode %}
@@ -214,7 +214,7 @@ helm upgrade --install \
     --create-namespace \
     --values values.yaml \
     --values nonha_values.yaml \
-    prime-observability \
+    prime-observe \
     rancher-prime-observability/stackstate-k8s
 ```
 {% endcode %}
@@ -243,7 +243,7 @@ Use the default Helm option and add the **Index URL**: http://stackvista.github.
 ### Obtain a service token:
 1. Log into the StackState instance.
 1. From the top left corner, select CLI.
-1. Note the API token and install stack state cli on your local.
+1. Note the API token and install StackState cli on your local machine.
 1. Create a service token by running
 
 {% hint style="info" %}
