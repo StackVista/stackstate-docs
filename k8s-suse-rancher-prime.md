@@ -100,7 +100,7 @@ You can now follow the instruction below for a HA or NON-HA setup.
 1. Get the helm chart
 {% code title="helm_repo.sh" lineNumbers="true" %}
 ```text
-helm repo add rancher-prime-observability helm-rancher-prime.stackstate.io
+helm repo add rancher-prime-observability https://helm-rancher-prime.stackstate.io
 helm repo update
 ```    
 {% endcode %}
@@ -138,7 +138,7 @@ helm upgrade --install \
 1. Get the helm chart
    {% code title="helm_repo.sh" lineNumbers="true" %}
 ```text
-helm repo add rancher-prime-observability helm-rancher-prime.stackstate.io
+helm repo add rancher-prime-observability https://helm-rancher-prime.stackstate.io
 helm repo update
 ```    
 {% endcode %}
