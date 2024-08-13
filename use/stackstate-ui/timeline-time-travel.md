@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Timeline and time travel
 
 ## Overview
 
-The timeline at the bottom of the StackState UI allows you to travel back in time to the state of the topology at a specific point in the past. You can then navigate through all telemetry available for the selected topology snapshot. Health and events charts in the timeline give an overview of the state of the topology during the selected telemetry interval.
+The timeline at the bottom of the Rancher Observability UI allows you to travel back in time to the state of the topology at a specific point in the past. You can then navigate through all telemetry available for the selected topology snapshot. Health and events charts in the timeline give an overview of the state of the topology during the selected telemetry interval.
 
 ![Timeline](../../.gitbook/assets/v51_timeline.png)
 
@@ -14,7 +14,7 @@ The timeline at the bottom of the StackState UI allows you to travel back in tim
 
 ### Telemetry interval
 
-The telemetry interval specifies the time window for which events, metrics and traces are available in the StackState perspectives. It runs from left to right on the timeline.
+The telemetry interval specifies the time window for which events, metrics and traces are available in the Rancher Observability perspectives. It runs from left to right on the timeline.
 
 ![Telemetry interval](../../.gitbook/assets/v51_telemetry_interval.png)
 
@@ -24,7 +24,7 @@ The selected telemetry interval can be either relative \(live mode\), or set to 
 
 {% hint style="info" %}
 * The telemetry interval can be a maximum of 6 months. 
-* When a custom telemetry interval is set for the telemetry interval, StackState will pause the [topology time](timeline-time-travel.md#topology-time) and enter [time travel mode](timeline-time-travel.md#time-travel).
+* When a custom telemetry interval is set for the telemetry interval, Rancher Observability will pause the [topology time](timeline-time-travel.md#topology-time) and enter [time travel mode](timeline-time-travel.md#time-travel).
 {% endhint %}
 
 The telemetry interval can be set in the following ways:
@@ -53,7 +53,7 @@ You can [configure the default telemetry interval](/configure/telemetry/custom_t
 
 ### Topology time
 
-The topology and all telemetry displayed in StackState are based on a snapshot of the IT infrastructure. The moment from which this snapshot is taken is specified by the topology time. By default, StackState is in live mode with the topology time set to the current time. You can [time travel](timeline-time-travel.md#time-travel) to a previous state of the topology by selecting a custom topology time.
+The topology and all telemetry displayed in Rancher Observability are based on a snapshot of the IT infrastructure. The moment from which this snapshot is taken is specified by the topology time. By default, Rancher Observability is in live mode with the topology time set to the current time. You can [time travel](timeline-time-travel.md#time-travel) to a previous state of the topology by selecting a custom topology time.
 
 ![Topology time](../../.gitbook/assets/v51_topology_time.png)
 
@@ -124,7 +124,7 @@ A single click on the timeline will move the playhead to this point in time, and
 
 ## Time travel
 
-In each of the StackState perspectives, you can either be in live mode or in the past. In live mode, StackState will constantly poll for new data. When you time travel through topology or telemetry, you are effectively working with a snapshot of your infrastructure. The data available is based on two selections:
+In each of the Rancher Observability perspectives, you can either be in live mode or in the past. In live mode, Rancher Observability will constantly poll for new data. When you time travel through topology or telemetry, you are effectively working with a snapshot of your infrastructure. The data available is based on two selections:
 
 * [Topology time](timeline-time-travel.md#topology-time) - a specific moment in time for which you want to fetch a snapshot of your IT infrastructure.
 * [Telemetry interval](timeline-time-travel.md#telemetry-interval) - the time range for which you want to see telemetry and traces.
@@ -132,10 +132,10 @@ In each of the StackState perspectives, you can either be in live mode or in the
 Let's imagine a concrete scenario:
 
 * You received an event notification saying that your payment processing application isn't able to process any payments right now, and your customers aren't being served.
-* In StackState, you can go to the moment in time when the components that make up the CRITICAL path of payment processing turned to a CRITICAL state. That moment corresponds to the point in time for which you will fetch the snapshot of your IT infrastructure - the topology time.
+* In Rancher Observability, you can go to the moment in time when the components that make up the CRITICAL path of payment processing turned to a CRITICAL state. That moment corresponds to the point in time for which you will fetch the snapshot of your IT infrastructure - the topology time.
 * You can then select to see the hours that preceded that moment to fetch the telemetry that will hopefully point you to the root cause of your problem - the telemetry interval.
 
-StackState will enter time travel mode whenever a custom topology time is selected, the **Pause** button is clicked, or a custom telemetry interval is set for the telemetry interval. When StackState is in time travel mode:
+Rancher Observability will enter time travel mode whenever a custom topology time is selected, the **Pause** button is clicked, or a custom telemetry interval is set for the telemetry interval. When Rancher Observability is in time travel mode:
 
 * You are effectively working with a snapshot of your infrastructure.
 * Telemetry is available for components that were part of the topology at the selected topology time only.

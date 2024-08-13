@@ -1,33 +1,33 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Traefik
 
-The StackState Agent V2 Traefik integration provides the following functionality:
+The Rancher Observability Agent V2 Traefik integration provides the following functionality:
 
 * Reporting Traefik frontends and backends as topology elements.  
 * Reporting all network connections between services, including network traffic telemetry.
 
-Traefik is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
+Traefik is a [Rancher Observability curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
 ## Setup
 
 ### Installation
 
-The StackState Traefik integration is included in the [Agent V2 StackPack](agent.md). Currently, this integration supports tracing of Traefik requests using the Datadog tracing backend supported by Traefik.
+The Rancher Observability Traefik integration is included in the [Agent V2 StackPack](agent.md). Currently, this integration supports tracing of Traefik requests using the Datadog tracing backend supported by Traefik.
 
 ### Configuration
 
-Configure your Traefik instance to report [Datadog tracing data](https://doc.traefik.io/traefik/observability/tracing/datadog/) to StackState Agent V2. Your Traefik.toml configuration file must include the following parameters:
+Configure your Traefik instance to report [Datadog tracing data](https://doc.traefik.io/traefik/observability/tracing/datadog/) to Rancher Observability Agent V2. Your Traefik.toml configuration file must include the following parameters:
 
 ```text
 # Tracing definition
 [tracing]
-  # Use the Datadog backend to send the Datadog Tracing format to StackState Agent
+  # Use the Datadog backend to send the Datadog Tracing format to Rancher Observability Agent
   backend = "datadog"
 
-  # Component name used for your Traefik instance in StackState
+  # Component name used for your Traefik instance in Rancher Observability
   serviceName = "traefik"
 
   # Span name limit allows for name truncation in case of very long Frontend/Backend names
@@ -35,7 +35,7 @@ Configure your Traefik instance to report [Datadog tracing data](https://doc.tra
   spanNameLimit = 100
 
   [tracing.datadog]
-    # StackState Agent Host Port instructs reporter to send spans to StackState Agent V2 at this address
+    # Rancher Observability Agent Host Port instructs reporter to send spans to Rancher Observability Agent V2 at this address
     localAgentHostPort = "agentHost:8126"
 
     # Applies a shared tag in a form of source:traefik to all the spans of the trace
@@ -44,7 +44,7 @@ Configure your Traefik instance to report [Datadog tracing data](https://doc.tra
 
 ### Integrate with Java traces
 
-When using Traefik in conjunction with one of our language specific trace clients, for example, [StackState Java Trace Client - Java APM](java-apm.md) it's important to note that you should use the `backend` name of your Traefik service as the `service-name` for the trace client to allow automatic merging of the service components within StackState.
+When using Traefik in conjunction with one of our language specific trace clients, for example, [Rancher Observability Java Trace Client - Java APM](java-apm.md) it's important to note that you should use the `backend` name of your Traefik service as the `service-name` for the trace client to allow automatic merging of the service components within Rancher Observability.
 
 For example, for the following `Traefik.toml`:
 
@@ -71,7 +71,7 @@ or for a similar docker-compose configuration:
 ```text
   stackstate-demo-app:
     image: stackstate-demo-app:latest
-    pid: "host" # use pid:"host" to ensure pid's match with processes reported by the StackState process Agent
+    pid: "host" # use pid:"host" to ensure pid's match with processes reported by the Rancher Observability process Agent
     ports:
       - '8081-8091:8081'
     depends_on:
@@ -90,7 +90,7 @@ or for a similar docker-compose configuration:
 
 ## Troubleshooting
 
-To verify whether the StackState Trace Agent has received traces, set the logging level to debug and check the `trace-agent.log`:
+To verify whether the Rancher Observability Trace Agent has received traces, set the logging level to debug and check the `trace-agent.log`:
 
 {% tabs %}
 {% tab title="stackstate.yaml" %}
@@ -100,7 +100,7 @@ log_level: debug
 {% endtab %}
 {% endtabs %}
 
-In Docker or Kubernetes, set the following environment variable for the StackState Agent
+In Docker or Kubernetes, set the following environment variable for the Rancher Observability Agent
 
 ```text
 STS_LOG_LEVEL: "DEBUG"

@@ -1,16 +1,16 @@
 ---
-description: StackState v6.0
+description: Rancher Observability v6.0
 ---
 
 # Explore metrics
 
-You can find the metrics explorer at the bottom of the StackState main menu. Use it to execute any PromQL query and visualize the resulting time series. The query result is shown in a chart for the selected time range and in a table that shows the last value together with the labels for the time series.
+You can find the metrics explorer at the bottom of the Rancher Observability main menu. Use it to execute any PromQL query and visualize the resulting time series. The query result is shown in a chart for the selected time range and in a table that shows the last value together with the labels for the time series.
 
 ![Metrics Explorer](../../.gitbook/assets/k8s/k8s-metrics-explorer.png)
 
 ## PromQL queries
 
-The query input field has auto-suggestions for metric names, label names and values, and supported PromQL functions. See the Prometheus documentation for a complete [PromQL guide and reference](https://prometheus.io/docs/prometheus/latest/querying/basics/). StackState also adds 2 default parameters that can be used in any query: `${__interval}` and `${__rate_interval}`. They can be used to scale the aggregation interval automatically with the chart resolution ([more details](/use/metrics/k8s-writing-promql-for-charts.md)).
+The query input field has auto-suggestions for metric names, label names and values, and supported PromQL functions. See the Prometheus documentation for a complete [PromQL guide and reference](https://prometheus.io/docs/prometheus/latest/querying/basics/). Rancher Observability also adds 2 default parameters that can be used in any query: `${__interval}` and `${__rate_interval}`. They can be used to scale the aggregation interval automatically with the chart resolution ([more details](/use/metrics/k8s-writing-promql-for-charts.md)).
 
 ## See also
 

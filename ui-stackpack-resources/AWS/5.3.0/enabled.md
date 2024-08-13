@@ -4,13 +4,13 @@ Congratulations! The AWS StackPack is configured correctly. Data is being receiv
 
 ### What's next?
 
-Now that StackState is receiving data from your AWS instance, you can see your topology in the StackState AWS views:
+Now that Rancher Observability is receiving data from your AWS instance, you can see your topology in the Rancher Observability AWS views:
 
 - **AWS - \[instance_name\] - All** - includes all resources retrieved from AWS by the StackPack instance.
 - **AWS - \[instance_name\] - Infrastructure** - includes only Networking, Storage and Machines resources retrieved from AWS by the StackPack instance.
 - **AWS - \[instance_name\] - Serverless** - includes only S3 buckets, lambdas and application load balancers retrieved from AWS by the StackPack instance.
 
-Components retrieved from AWS will have an additional action available in the component context menu and in the right panel **Selection details** tab when a component has been selected to show its detailed information. This provides a deep link through to the relevant AWS console at the correct point. For example, in the StackState Topology Perspective: 
+Components retrieved from AWS will have an additional action available in the component context menu and in the right panel **Selection details** tab when a component has been selected to show its detailed information. This provides a deep link through to the relevant AWS console at the correct point. For example, in the Rancher Observability Topology Perspective: 
 
 - Components of type aws-subnet have the action **Go to Subnet console**, which links directly to this component in the AWS Subnet console.
 - Components of type ec2-instance have the action **Go to EC2 console**, which links directly to this component in the EC2 console.
@@ -19,22 +19,22 @@ Find out more in the [AWS StackPack documentation](https://l.stackstate.com/ui-a
 
 ## Troubleshooting
 
-Troubleshooting steps can be found in the StackState support Knowledge base guide to [troubleshoot the StackState AWS StackPack](https://l.stackstate.com/ui-aws-support-kb).
+Troubleshooting steps can be found in the Rancher Observability support Knowledge base guide to [troubleshoot the Rancher Observability AWS StackPack](https://l.stackstate.com/ui-aws-support-kb).
 
 ## Uninstall
 
-To uninstall the StackState AWS StackPack, click the *Uninstall* button from the StackState UI **StackPacks** &gt; **Integrations**  &gt; **AWS** screen. This will remove all AWS specific configuration in StackState. 
+To uninstall the Rancher Observability AWS StackPack, click the *Uninstall* button from the Rancher Observability UI **StackPacks** &gt; **Integrations**  &gt; **AWS** screen. This will remove all AWS specific configuration in Rancher Observability. 
 
-Once the AWS StackPack has been uninstalled, you will need to manually uninstall the StackState AWS Cloudformation stacks from the AWS account being monitored. To execute the manual uninstall follow these steps:
+Once the AWS StackPack has been uninstalled, you will need to manually uninstall the Rancher Observability AWS Cloudformation stacks from the AWS account being monitored. To execute the manual uninstall follow these steps:
 
 1. Use the following AWS policy files to give correct permissions to uninstall:
 
-   * **Uninstall a full install** - [StackStateIntegrationPolicyUninstall.json](/api/stackpack/aws/resources/{{stackPackVersion}}/StackStateIntegrationPolicyUninstall.json)
-   * **Uninstall a minimal install** - [StackStateIntegrationPolicyTopoCronUninstall.json](/api/stackpack/aws/resources/{{stackPackVersion}}/StackStateIntegrationPolicyTopoCronUninstall.json)
+   * **Uninstall a full install** - [Rancher ObservabilityIntegrationPolicyUninstall.json](/api/stackpack/aws/resources/{{stackPackVersion}}/Rancher ObservabilityIntegrationPolicyUninstall.json)
+   * **Uninstall a minimal install** - [Rancher ObservabilityIntegrationPolicyTopoCronUninstall.json](/api/stackpack/aws/resources/{{stackPackVersion}}/Rancher ObservabilityIntegrationPolicyTopoCronUninstall.json)
 
 2. Download the manual installation zip file and extract it: [stackstate-aws-manual-installation-{{stackPackVersion}}.zip](/api/stackpack/aws/resources/{{stackPackVersion}}/stackstate-aws-manual-installation-{{stackPackVersion}}.zip)
 
-3. Make sure the AWS CLI is configured with the proper account and has the default region set to the region that should be monitored by StackState. For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://l.stackstate.com/ui-aws-cli-configure-role).
+3. Make sure the AWS CLI is configured with the proper account and has the default region set to the region that should be monitored by Rancher Observability. For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://l.stackstate.com/ui-aws-cli-configure-role).
 
 4. From the command line, run the below command to deprovision all resources related to the StackPack instance:
 ```
@@ -57,9 +57,9 @@ These environment variables have the same names used by the AWS_CLI utility and 
 
 ## Reinstall the AWS Cloudformation stacks
 
-The StackState AWS Cloudformation stacks are deployed on your AWS account to enable topology monitoring. In case these have been uninstalled, they can be reinstalled using the instructions provided below. There are two options for StackState monitoring:
+The Rancher Observability AWS Cloudformation stacks are deployed on your AWS account to enable topology monitoring. In case these have been uninstalled, they can be reinstalled using the instructions provided below. There are two options for Rancher Observability monitoring:
 
-* [**Full install**](#full-install) - picks up all changes to AWS resources and pushes these to StackState.
+* [**Full install**](#full-install) - picks up all changes to AWS resources and pushes these to Rancher Observability.
 * [**Minimal install**](#minimal-install) - picks up changes at a configured interval only.
 
 ### Full install
@@ -74,11 +74,11 @@ A full installation will install the following CloudFormation Stacks:
 
 Follow the steps below to complete a full install:
 
-1. Use the following AWS policy file to give correct permissions to install the lambdas: [StackStateIntegrationPolicyInstall.json](/api/stackpack/aws/resources/{{stackPackVersion}}/StackStateIntegrationPolicyInstall.json)
+1. Use the following AWS policy file to give correct permissions to install the lambdas: [Rancher ObservabilityIntegrationPolicyInstall.json](/api/stackpack/aws/resources/{{stackPackVersion}}/Rancher ObservabilityIntegrationPolicyInstall.json)
 
 2. Download the manual installation zip file and extract it: [stackstate-aws-manual-installation-{{stackPackVersion}}.zip](/api/stackpack/aws/resources/{{stackPackVersion}}/stackstate-aws-manual-installation-{{stackPackVersion}}.zip)
 
-3. Make sure that the AWS CLI is configured with the proper account and has the default region set to the region that should be monitored by StackState. For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://l.stackstate.com/ui-aws-cli-configure-role).
+3. Make sure that the AWS CLI is configured with the proper account and has the default region set to the region that should be monitored by Rancher Observability. For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://l.stackstate.com/ui-aws-cli-configure-role).
 
 4. From the command line, run the command:
     ```
@@ -101,18 +101,18 @@ These environment variables have the same names used by the AWS_CLI utility and 
 
 ### Minimal install
 
-The minimal installation is useful when less permissions are available. This installs only the `stackstate-topo-cron` Cloudformation stack, which means StackState's topology will only get a full topology update every hour. Updates between the hour aren't sent to StackState. 
+The minimal installation is useful when less permissions are available. This installs only the `stackstate-topo-cron` Cloudformation stack, which means Rancher Observability's topology will only get a full topology update every hour. Updates between the hour aren't sent to Rancher Observability. 
 
 Follow the steps below to complete a minimal install:
 
 1. Use one of the following AWS policy files to give correct permissions to install the lambdas:
 
-    * **Minimal install** - [StackStateIntegrationPolicyTopoCronInstall.json](/api/stackpack/aws/resources/{{stackPackVersion}}/StackStateIntegrationPolicyTopoCronInstall.json)
-    * **Minimal set of policies** - [StackStateIntegrationPolicyTopoCronMinimal.json](/api/stackpack/aws/resources/{{stackPackVersion}}/StackStateIntegrationPolicyTopoCronMinimal.json) (S3 bucket and role are provided by user)
+    * **Minimal install** - [Rancher ObservabilityIntegrationPolicyTopoCronInstall.json](/api/stackpack/aws/resources/{{stackPackVersion}}/Rancher ObservabilityIntegrationPolicyTopoCronInstall.json)
+    * **Minimal set of policies** - [Rancher ObservabilityIntegrationPolicyTopoCronMinimal.json](/api/stackpack/aws/resources/{{stackPackVersion}}/Rancher ObservabilityIntegrationPolicyTopoCronMinimal.json) (S3 bucket and role are provided by user)
 
 2. Download the manual installation zip file and extract it: [stackstate-aws-manual-installation-{{stackPackVersion}}.zip](/api/stackpack/aws/resources/{{stackPackVersion}}/stackstate-aws-manual-installation-{{stackPackVersion}}.zip)
 
-3. Make sure the AWS CLI is configured with the proper account and has the default region set to the region that should be monitored by StackState. For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://l.stackstate.com/ui-aws-cli-configure-role).
+3. Make sure the AWS CLI is configured with the proper account and has the default region set to the region that should be monitored by Rancher Observability. For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://l.stackstate.com/ui-aws-cli-configure-role).
  
 4. From the command line, run the command:
     ```

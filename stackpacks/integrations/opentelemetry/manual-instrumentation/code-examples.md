@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted v5.1.x
+description: Rancher Observability Self-hosted v5.1.x
 ---
 
-# Manual instrumentation mappings for StackState
+# Manual instrumentation mappings for Rancher Observability
 
 ## Overview
 
-Below is a code snippet showing the basics required to send custom instrumentation to StackState.
+Below is a code snippet showing the basics required to send custom instrumentation to Rancher Observability.
 
 We will create two components.
 
@@ -17,7 +17,7 @@ And we want a [relationship between the database and table](/stackpacks/integrat
 the [health state propagates](/stackpacks/integrations/opentelemetry/manual-instrumentation/span-health.md) up to the database if something is wrong with the table.
 
 This is where your best judgment will come into play; best would be to play around with the parent spans, child spans, etc., and see
-what result do you receive on StackState.
+what result do you receive on Rancher Observability.
 
 ## Example: JavaScript and NodeJS
 
@@ -27,9 +27,9 @@ The following example implements a solution that crates the above-mentioned comp
 
 To set up a OpenTelemetry manual instrumentations, you need to have:
 
-* [StackState Agent](/setup/agent/about-stackstate-agent.md) v2.17 (or later)
-* [Traces enabled](/setup/agent/advanced-agent-configuration.md#enable-traces) on StackState Agent. If traces aren't enabled on the Agent, OpenTelemetry won't generate any data.
-* The [Agent StackPack](/stackpacks/integrations/agent.md) should be installed in StackState.
+* [Rancher Observability Agent](/setup/agent/about-stackstate-agent.md) v2.17 (or later)
+* [Traces enabled](/setup/agent/advanced-agent-configuration.md#enable-traces) on Rancher Observability Agent. If traces aren't enabled on the Agent, OpenTelemetry won't generate any data.
+* The [Agent StackPack](/stackpacks/integrations/agent.md) should be installed in Rancher Observability.
 
 For NodeJS and Javascript, we aren't explaining the setup to get to this point but rather the code example and libraries that was used.
 
@@ -39,16 +39,16 @@ You should install the following npm libraries using npm or yarn
 - [@opentelemetry/sdk-trace-base](https://www.npmjs.com/package/@opentelemetry/sdk-trace-base)
 - [@opentelemetry/exporter-trace-otlp-proto](https://www.npmjs.com/package/@opentelemetry/exporter-trace-otlp-proto)
 
-### What the StackState Agent expects
+### What the Rancher Observability Agent expects
 
-The StackState Agent expects you to send the [following keys in every single span](/stackpacks/integrations/opentelemetry/manual-instrumentation/tracer-and-span-mappings.md):
+The Rancher Observability Agent expects you to send the [following keys in every single span](/stackpacks/integrations/opentelemetry/manual-instrumentation/tracer-and-span-mappings.md):
 - `trace.perspective.name`
 - `service.name`
 - `service.type`
 - `service.identifier`
 - `resource.name`
 
-***The most important part to remember is*** that the StackState Agent only accept the data in a [Protobuf Format](https://developers.google.com/protocol-buffers), Our examples below will
+***The most important part to remember is*** that the Rancher Observability Agent only accept the data in a [Protobuf Format](https://developers.google.com/protocol-buffers), Our examples below will
 use this format but if you do attempt to write something from scratch remember that this is a requirement.
 
 In this NodeJs / Javascript example, The protobuf module responsible for handling Protobuf is the following line:
@@ -68,14 +68,14 @@ import { OTLPTraceExporter as OTLPTraceProtoExporter } from '@opentelemetry/expo
 ### 2 - Core definitions
 Now let's define a few values that we will use within the OpenTelemetry API code.
 
-The first one will be where your StackState Trace Agent lives in the following format: `http://<host>:<trace port>/open-telemetry`
+The first one will be where your Rancher Observability Trace Agent lives in the following format: `http://<host>:<trace port>/open-telemetry`
 
 ```javascript
 // If you are using a env variable you can access the variable by using process.env.ENV_VARIABLE_NAME
 const stsTraceAgentOpenTelemetryEndpoint = "http://localhost:8126/open-telemetry"
 ```
 
-The second part is OpenTelemetry tracer definitions. StackState uses these to determine what type of interpretation will be used for
+The second part is OpenTelemetry tracer definitions. Rancher Observability uses these to determine what type of interpretation will be used for
 your trace. You need to specify the following:
 
 ```javascript
@@ -132,7 +132,7 @@ rdsDatabase.setAttribute('resource.name', 'AWS RDS');
 
 Example of how the parent component will look like if you create the with the above code
 
-![Parent Component after StackState received the trace](../../../../.gitbook/assets/v51_otel_example_parent.png)
+![Parent Component after Rancher Observability received the trace](../../../../.gitbook/assets/v51_otel_example_parent.png)
 
 ---
 
@@ -166,7 +166,7 @@ rdsDatabaseTable.setAttribute('resource.name', 'AWS RDS');
 
 Example of how the child component will look like if you create the with the above code, and the relation to the parent
 
-![Parent Component after StackState received the trace](../../../../.gitbook/assets/v51_otel_example_child.png)
+![Parent Component after Rancher Observability received the trace](../../../../.gitbook/assets/v51_otel_example_child.png)
 
 
 ---
@@ -177,7 +177,7 @@ When you are done with a Span for example you have written into the database tab
 You need to close the spans in the opposite order in which you opened them
 For example we started with the database and then the database table, thus we need to close the database table span first then the database span.
 
-***NB: If you don't close your spans in the correct order then Trace will still be sent to StackState but, there might be a missing span, thus showing the incomplete data in StackState.***
+***NB: If you don't close your spans in the correct order then Trace will still be sent to Rancher Observability but, there might be a missing span, thus showing the incomplete data in Rancher Observability.***
 
 ```javascript
 // First we close the table span
@@ -192,10 +192,10 @@ rdsDatabase.end();
 ### 7 - Flush the data
 This step isn't always required, but good to know about. Sometimes a script might attempt to end before the actual span was sent away.
 
-A good example of this will be a Lambda execution, StackState will never receive the data as the execution stopped the second the Lambda was done. To get past this
-you can force flush the Trace Provider to definitely makes sure that StackState received the trace.
+A good example of this will be a Lambda execution, Rancher Observability will never receive the data as the execution stopped the second the Lambda was done. To get past this
+you can force flush the Trace Provider to definitely makes sure that Rancher Observability received the trace.
 
-If you don't use the following code and don't see your value in StackState this might be the issue.
+If you don't use the following code and don't see your value in Rancher Observability this might be the issue.
 
 ```javascript
 // NB: Optional Flush
@@ -217,11 +217,11 @@ import * as openTelemetry from '@opentelemetry/api';
 import { BasicTracerProvider, BatchSpanProcessor } from '@opentelemetry/sdk-trace-base';
 import { OTLPTraceExporter as OTLPTraceProtoExporter } from '@opentelemetry/exporter-trace-otlp-proto';
 
-// Change this variable to point to your StackState Trace Agent followed by the port and path
+// Change this variable to point to your Rancher Observability Trace Agent followed by the port and path
 // If you are using an env variable you can access the variable by using process.env.ENV_VARIABLE_NAME
 const stsTraceAgentOpenTelemetryEndpoint = process.env.OTEL_EXPORTER_OTLP_TRACES_ENDPOINT
 
-// The tracer identifier to allow StackState to identify this instrumentation.
+// The tracer identifier to allow Rancher Observability to identify this instrumentation.
 // The name and version below should not be changed
 const tracerIdentifier = {
     name: "@opentelemetry/instrumentation-stackstate",
@@ -275,8 +275,8 @@ rdsDatabaseTable.setAttribute('resource.name', 'AWS RDS');
 // For example we started with the parent and then the child, thus we need to close the child first
 // and then the parent span
 
-// NB: If you don't close your spans in the correct order then then Trace will still be sent to StackState but,
-// there might be a missing span, thus showing the incomplete data in StackState.
+// NB: If you don't close your spans in the correct order then then Trace will still be sent to Rancher Observability but,
+// there might be a missing span, thus showing the incomplete data in Rancher Observability.
 rdsDatabaseTable.end();
 rdsDatabase.end();
 

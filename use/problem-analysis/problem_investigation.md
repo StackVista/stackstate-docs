@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Investigate a problem
 
 ## Overview
 
-Unhealthy components in a view are grouped into [problems](about-problems.md) based on how they're connected in the topology. When StackState identifies a problem, this will be reported in the right panel under **Problems**.
+Unhealthy components in a view are grouped into [problems](about-problems.md) based on how they're connected in the topology. When Rancher Observability identifies a problem, this will be reported in the right panel under **Problems**.
 
 * The **View summary** and **Subview summary** tabs list all problems that impact components in the current view or subview. 
 * The **Component details** tab lists all problems that involve the selected component. 
@@ -31,7 +31,7 @@ Click **INVESTIGATE IN SUBVIEW** to open all components in a problem in a dedica
 
 ## Probable causes
 
-For each reported problem, StackState will list all events that are likely to have contributed to unhealthy state changes in the problem. These could be events of type **Anomaly**, **Element properties changed** or **Version changed** that occurred within the [problem time window](about-problems.md#time-window-of-a-problem) and relate to components in the problem. If no relevant probable cause events are available in StackState, the list will be empty.
+For each reported problem, Rancher Observability will list all events that are likely to have contributed to unhealthy state changes in the problem. These could be events of type **Anomaly**, **Element properties changed** or **Version changed** that occurred within the [problem time window](about-problems.md#time-window-of-a-problem) and relate to components in the problem. If no relevant probable cause events are available in Rancher Observability, the list will be empty.
 
 ### Anomaly events
 
@@ -61,7 +61,7 @@ Version changed events are generated whenever the `version` property of a compon
 
 ## Problem subview
 
-A problem subview is a temporary StackState view. The filters applied to a problem subview return all components related to the problem root cause and any contributing causes within the [problem time window](about-problems.md#time-window-of-a-problem). This is a larger set of components than would be shown by selecting to show the [full root cause tree](../stackstate-ui/perspectives/topology-perspective.md#show-root-cause). The following components will be included:
+A problem subview is a temporary Rancher Observability view. The filters applied to a problem subview return all components related to the problem root cause and any contributing causes within the [problem time window](about-problems.md#time-window-of-a-problem). This is a larger set of components than would be shown by selecting to show the [full root cause tree](../stackstate-ui/perspectives/topology-perspective.md#show-root-cause). The following components will be included:
 
 * **Root cause** - Each problem has a single root cause. This is the unhealthy component at the bottom of the dependency chain.
 * **Contributing cause** - A problem can contain any number of contributing causes. These are all of the unhealthy components in the problem, other than the root cause.
@@ -69,9 +69,9 @@ A problem subview is a temporary StackState view. The filters applied to a probl
   * Upstream healthy dependencies of the root cause or one of the contributing causes.
   * Downstream healthy components with an unhealthy [propagated state](/use/concepts/health-state.md#element-propagated-health-state) that originates from either the root cause or one of the contributing causes.
 
-Within a problem subview, you have access to all perspectives containing data specific to the problem time window and the involved components. The applied filters can be adjusted, but it isn't possible to save the subview. You can share the problem subview with other StackState users, including any modifications you have made, as a link.
+Within a problem subview, you have access to all perspectives containing data specific to the problem time window and the involved components. The applied filters can be adjusted, but it isn't possible to save the subview. You can share the problem subview with other Rancher Observability users, including any modifications you have made, as a link.
 
-To exit the Problem Subview, click the view name in the top bar of the StackState UI.
+To exit the Problem Subview, click the view name in the top bar of the Rancher Observability UI.
 
 ![Breadcrumbs with view name](../../.gitbook/assets/v51_problem_subview_breadcrumb.png)
 

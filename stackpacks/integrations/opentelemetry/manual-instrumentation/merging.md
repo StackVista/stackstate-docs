@@ -1,22 +1,22 @@
 ---
-description: StackState Self-hosted v5.1.x
+description: Rancher Observability Self-hosted v5.1.x
 ---
 
 # Merging components
 
 ## Overview
 
-StackState can merge components from a custom instrumentation with pre-existing components. You can use this to:
+Rancher Observability can merge components from a custom instrumentation with pre-existing components. You can use this to:
 - Add extra attributes to pre-existing components.
 - Create custom relations for pre-existing components. 
 - Influence the propagation of health state. For details, see the page [Span health state](span-health.md).
 
-StackState will merge components with the [same identifier](#component-identifier). After merging, the original component will [inherit all properties](#merging-inheritance) from the component that merged with it. The component that was merged will no longer be visible.
+Rancher Observability will merge components with the [same identifier](#component-identifier). After merging, the original component will [inherit all properties](#merging-inheritance) from the component that merged with it. The component that was merged will no longer be visible.
 
 {% hint style="info" %}
 **Important to know when merging:**
 
-When a custom instrumentation is merged with a pre-existing StackState component, it might seem that custom instrumentation component disappeared; it did not. All properties of the custom instrumentation component are inherited by the component with which it merges.
+When a custom instrumentation is merged with a pre-existing Rancher Observability component, it might seem that custom instrumentation component disappeared; it did not. All properties of the custom instrumentation component are inherited by the component with which it merges.
 {% endhint %}
 
 ## Merging inheritance
@@ -39,10 +39,10 @@ This is the same for the health checks and telemetry on the right side.
 
 ![Topology Perspective - Component Merged Health State](../../../../.gitbook/assets/v51_otel_merge_attempt_health.png)
 
-Now let's see the result after merging our child component with the pre-existing StackState component.
+Now let's see the result after merging our child component with the pre-existing Rancher Observability component.
 
 Let's look at the `identifiers` and `labels` again. As you can see in the image below the
-`identifiers` stayed the same but the `labels` merged, This StackState merged component now contain the values from both.
+`identifiers` stayed the same but the `labels` merged, This Rancher Observability merged component now contain the values from both.
 
 ![Topology Perspective - Labels and Identifiers After Merge](../../../../.gitbook/assets/v51_otel_after_merge_labels.png)
 
@@ -52,7 +52,7 @@ The same can be seen in the health checks and telemetry. You will notice that th
 
 ## Component identifier
 
-If two components in StackState have the same `identifier`, StackState will merge those two components.
+If two components in Rancher Observability have the same `identifier`, Rancher Observability will merge those two components.
 
 For example, if you select a component and click on the `SHOW ALL PROPERTIES` button on the right panel
 

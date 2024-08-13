@@ -1,36 +1,36 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Static Topology
 
 ## Overview
 
-The Static Topology StackPack reads topology information from an [external CSV file](#csv-file-specification) and synchronizes the data with StackState.
+The Static Topology StackPack reads topology information from an [external CSV file](#csv-file-specification) and synchronizes the data with Rancher Observability.
 
-Static Topology is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
+Static Topology is a [Rancher Observability curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
 ## Setup
 
 ### Prerequisites
 
-To set up the StackState Static Topology integration, you need to have:
+To set up the Rancher Observability Static Topology integration, you need to have:
 
 * A correctly formatted [component CSV file](#component-csv-file) and [relation CSV file](#relation-csv-file).
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to StackState.
+* [Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to Rancher Observability.
 
 ### Install
 
-Install the Static Topology StackPack from the StackState UI **StackPacks** > **Integrations** screen. You will need to enter the following details:
+Install the Static Topology StackPack from the Rancher Observability UI **StackPacks** > **Integrations** screen. You will need to enter the following details:
 
 * **Path to component CSV file** - the CSV file to read component data from.
 * **Path to relation CSV file** - the CSV file to read relation data from.
 
-The CSV files should follow the [Static Topology CSV file specification](#csv-file-specification) and be available in a location where StackState Agent is able to read them, for example `/etc/stackstate-agent/conf.d/`. StackState Agent V2 runs as system user/group `stackstate-agent`.
+The CSV files should follow the [Static Topology CSV file specification](#csv-file-specification) and be available in a location where Rancher Observability Agent is able to read them, for example `/etc/stackstate-agent/conf.d/`. Rancher Observability Agent V2 runs as system user/group `stackstate-agent`.
 
 ### Configure
 
-To enable the Static Topology check and begin collecting topology data from the configured CSV files, add the following configuration to StackState Agent V2:
+To enable the Static Topology check and begin collecting topology data from the configured CSV files, add the following configuration to Rancher Observability Agent V2:
 
 {% hint style="info" %}
 Example Agent configuration file for Static Topology: [conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/static_topology/stackstate_checks/static_topology/data/conf.yaml.example)
@@ -62,8 +62,8 @@ Example Agent configuration file for Static Topology: [conf.yaml.example \(githu
 ```yaml
 agent check static_topology
 ```
-5.[Restart the StackState Agent\(s\)](/setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
-6.Once the Agent has restarted, wait for the Agent to collect data from the CSV files and send it to StackState.   
+5.[Restart the Rancher Observability Agent\(s\)](/setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+6.Once the Agent has restarted, wait for the Agent to collect data from the CSV files and send it to Rancher Observability.   
 
 ### Status
 
@@ -93,9 +93,9 @@ The component CSV file has details of components. The file should contain a head
 * `id` - The component's unique identifier.
 * `name` - The component's name.
 * `type` - The component type. For example, VM, datastore or rack.
-* `domain` \(Optional\) - The StackState domain where the component should be visualized.
-* `layer` \(Optional\) - The StackState layer in where the component should be visualized.
-* `environment` \(Optional\) - The StackState environment in where the component should be visualized.
+* `domain` \(Optional\) - The Rancher Observability domain where the component should be visualized.
+* `layer` \(Optional\) - The Rancher Observability layer in where the component should be visualized.
+* `environment` \(Optional\) - The Rancher Observability environment in where the component should be visualized.
 * All other fields will be added as metadata on the component
 
 {% hint style="info" %}

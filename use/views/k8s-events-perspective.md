@@ -1,5 +1,5 @@
 ---
-description: StackState v6.0
+description: Rancher Observability v6.0
 ---
 
 # Events Perspective
@@ -48,4 +48,4 @@ For example:
 ## See also
 
 * [Filtering data](k8s-filters.md)
-* [Working with StackState views](k8s-view-structure.md)
+* [Working with Rancher Observability views](k8s-view-structure.md)

@@ -1,18 +1,18 @@
 ---
-description: StackState Self-hosted
+description: Rancher Observability Self-hosted
 ---
 
 # Configuration backup
 
 ## Overview
 
-StackState configuration can be exported and imported. The import/export functionality can be used to automate the installation process or for backup purposes. An export and import can be made in the settings page of StackState's user interface by using the buttons 'Export Model' and 'Import Model'.
+Rancher Observability configuration can be exported and imported. The import/export functionality can be used to automate the installation process or for backup purposes. An export and import can be made in the settings page of Rancher Observability's user interface by using the buttons 'Export Model' and 'Import Model'.
 
 ## Export configuration
 
-An export of the StackState configuration can be obtained from the StackState UI, the [StackState CLI](../../cli/k8sTs-cli-sts.md) or using curl commands. 
+An export of the Rancher Observability configuration can be obtained from the Rancher Observability UI, the [Rancher Observability CLI](../../cli/k8sTs-cli-sts.md) or using curl commands. 
 
-### StackState CLI
+### Rancher Observability CLI
 
 {% hint style="info" %}
 Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack configuration won't be included in the export.
@@ -34,7 +34,7 @@ sts settings describe --file <PATH_TO_FILE.sty>
 Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack configuration won't be included in the export.
 {% endhint %}
 
-To export configuration using curl, follow the steps below. The `<api-token>` used for authorization is available on the **CLI** page in the StackState UI main menu:
+To export configuration using curl, follow the steps below. The `<api-token>` used for authorization is available on the **CLI** page in the Rancher Observability UI main menu:
 
 ```text
 # Do actual request
@@ -45,31 +45,31 @@ curl -X POST \
   "http://<HOST>/api/export?timeoutSeconds=300" > export.sty
 ```
 
-### StackState UI
+### Rancher Observability UI
 
 {% hint style="info" %}
 Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack configuration won't be included in the export.
 {% endhint %}
 
-To export configuration from the StackState UI:
+To export configuration from the Rancher Observability UI:
 
 1. Go to **Settings** &gt; **Import/Export** &gt; **Export Settings**
 2. Click the button **STS-EXPORT-ALL**.
 
-![Export configuration from the StackState UI](../../../.gitbook/assets/v51_export_configuration.png)
+![Export configuration from the Rancher Observability UI](../../../.gitbook/assets/v51_export_configuration.png)
 
 ## Import configuration
 
-### StackState CLI
+### Rancher Observability CLI
 
 {% hint style="info" %}
 * Import is intended to be a one-off action - importing multiple times might result in duplicate configuration entries. This behavior applies to importing nodes without any identifier. 
 * Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack won't be included in configuration export files - **all configuration items will be unlocked after import**.
 {% endhint %}
 
-To import StackState configuration using the `sts` CLI, follow the steps below.
+To import Rancher Observability configuration using the `sts` CLI, follow the steps below.
 
-Before import, clear the StackState configuration by following the instructions at [clear stored data](/setup/data-management/clear_stored_data.md). 
+Before import, clear the Rancher Observability configuration by following the instructions at [clear stored data](/setup/data-management/clear_stored_data.md). 
 
 ```text
 sts settings apply --file <PATH_TO_FILE.sty>
@@ -82,11 +82,11 @@ sts settings apply --file <PATH_TO_FILE.sty>
 * Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack won't be included in configuration export files - **all configuration items will be unlocked after import**.
 {% endhint %}
 
-To import StackState configuration using curl with authentication, follow the steps below.
+To import Rancher Observability configuration using curl with authentication, follow the steps below.
 
-Before import, clear the StackState configuration by following the instructions at [clear stored data](/setup/data-management/clear_stored_data.md). 
+Before import, clear the Rancher Observability configuration by following the instructions at [clear stored data](/setup/data-management/clear_stored_data.md). 
 
-The `<api-token>` can be found on the **CLI** page in the StackState UI main menu.
+The `<api-token>` can be found on the **CLI** page in the Rancher Observability UI main menu.
 
 ```text
 curl -X POST -d @export.sty \
@@ -95,28 +95,28 @@ curl -X POST -d @export.sty \
   "http://<HOST>/api/import?timeoutSeconds=15"
 ```
 
-### StackState UI
+### Rancher Observability UI
 
 {% hint style="info" %}
 * Import is intended to be a one-off action - importing multiple times might result in duplicate configuration entries. This behavior applies to importing nodes without any identifier. 
 * Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack won't be included in configuration export files - **all configuration items will be unlocked after import**.
 {% endhint %}
 
-Before import, clear the StackState configuration by following the instructions at [clear stored data](/setup/data-management/clear_stored_data.md).
+Before import, clear the Rancher Observability configuration by following the instructions at [clear stored data](/setup/data-management/clear_stored_data.md).
 
-To import StackState configuration in the StackState UI:
+To import Rancher Observability configuration in the Rancher Observability UI:
 
 1. Go to **Settings** &gt; **Import/Export** &gt; **Import Settings**.
 2. Choose the `*.sty` file that you want to import configuration from.
 3. Click the button **START IMPORT**.
 
-![Import configuration from the StackState UI](../../../.gitbook/assets/v51_import_configuration.png)
+![Import configuration from the Rancher Observability UI](../../../.gitbook/assets/v51_import_configuration.png)
 
 ## Advanced import/export
 
 ### Individual configuration items
 
-It's possible to export and import individual configuration items through the StackState user interface. For example, to export or export a component type:
+It's possible to export and import individual configuration items through the Rancher Observability user interface. For example, to export or export a component type:
 
 1. Go to the **Settings** page and click **Component Types**.
 2. To export an individual component type, click **Export as config**.

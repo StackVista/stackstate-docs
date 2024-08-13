@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # SAP
@@ -20,27 +20,27 @@ SAP is a [community integration](/stackpacks/integrations/about_integrations.md#
 
 ### Prerequisites
 
-To set up the StackState SAP integration you need to have:
+To set up the Rancher Observability SAP integration you need to have:
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a single machine that can connect to both your SAP Instance and StackState.
+* [Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a single machine that can connect to both your SAP Instance and Rancher Observability.
 * A running SAP instance.
 
 ### Networking requirements
 
-The StackState SAP integration requires the following TCP ports:
+The Rancher Observability SAP integration requires the following TCP ports:
 
 * 1128 for HTTP 
 * 1129 for HTTPS
 
 ### Install
 
-Install the SAP StackPack from the StackState UI **StackPacks** > **Integrations** screen. You will need to enter the following details:
+Install the SAP StackPack from the Rancher Observability UI **StackPacks** > **Integrations** screen. You will need to enter the following details:
 
 - **SAP Host Name** - the SAP host name from which topology and metrics need to be collected.
 
 ### Configure
 
-To enable the SAP check and begin collecting data from your SAP host instance, add the following configuration to StackState Agent V2:
+To enable the SAP check and begin collecting data from your SAP host instance, add the following configuration to Rancher Observability Agent V2:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/sap.d/conf.yaml`:
    * Include details of your SAP instance:
@@ -68,8 +68,8 @@ To enable the SAP check and begin collecting data from your SAP host instance, a
          cert: /path/to/cert.pem   # <certificate_path>
          keyfile: /path/to/key.pem # <keyfile_path>
      ```
-2. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to publish the configuration changes.
-3. Once the Agent is restarted, wait for the Agent to collect data and send it to StackState.
+2. [Restart Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to publish the configuration changes.
+3. Once the Agent is restarted, wait for the Agent to collect data and send it to Rancher Observability.
 
 ## Integration details
 
@@ -153,7 +153,7 @@ The SAP integration doesn't retrieve any traces.
 
 ### API endpoints
 
-The specific endpoints queried by the StackState SAP integration are described below. All named REST API endpoints use the HTTPS protocol for communication.
+The specific endpoints queried by the Rancher Observability SAP integration are described below. All named REST API endpoints use the HTTPS protocol for communication.
 
 * `SAP_ITSAMInstance/Process??Instancenumber=`
 * `SAP_ITSAMInstance/WorkProcess??Instancenumber=`

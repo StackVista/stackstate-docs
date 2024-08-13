@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # 💠 VMWare vSphere
@@ -15,34 +15,34 @@ The VMWare vSphere StackPack is used to create a near real-time synchronization 
 * DataStores
 * DataCenters
 
-VMWare vSphere is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
+VMWare vSphere is a [Rancher Observability core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "Rancher Observability Self-Hosted only").
 
 ![Data flow](../../.gitbook/assets/stackpack-vmware.svg)
 
 The VMware StackPack collects all topology data for the components and relations between them as well as telemetry and events.
 
-* StackState Agent V2 connects to the configured VMWare vSphere instance:
+* Rancher Observability Agent V2 connects to the configured VMWare vSphere instance:
   * Topology data and tags are retrieved for the configured resources.
   * Metrics data is retrieved for the configured resources.
   * The Agent watches the vCenter Event Manager for events related to the configured resources.
-* StackState Agent V2 pushes retrieved data and events to StackState:
+* Rancher Observability Agent V2 pushes retrieved data and events to Rancher Observability:
   * [Topology data](vsphere.md#topology) is translated into components and relations.
-  * [Tags](vsphere.md#tags) defined in VMWare vSphere are added to components and relations in StackState. Any defined StackState tags are used by StackState when the topology is retrieved.
-  * [Metrics data](vsphere.md#metrics) is automatically mapped to associated components and relations in StackState.
-  * [Events](vsphere.md#events) are available as a telemetry stream in StackState.
+  * [Tags](vsphere.md#tags) defined in VMWare vSphere are added to components and relations in Rancher Observability. Any defined Rancher Observability tags are used by Rancher Observability when the topology is retrieved.
+  * [Metrics data](vsphere.md#metrics) is automatically mapped to associated components and relations in Rancher Observability.
+  * [Events](vsphere.md#events) are available as a telemetry stream in Rancher Observability.
 
 ## Setup
 
 ### Prerequisites
 
-To set up the StackState VMWare vSphere integration, you need to have:
+To set up the Rancher Observability VMWare vSphere integration, you need to have:
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a single machine with HTTPS connection to both vSphere vCenter and StackState. 
+* [Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a single machine with HTTPS connection to both vSphere vCenter and Rancher Observability. 
 * A running vSphere vCenter instance.
 
 ### Install
 
-The VMWare vSphere StackPack can be installed from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
+The VMWare vSphere StackPack can be installed from the Rancher Observability UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
 
 * **VSphere Host Name** - The VMWare vSphere host name from which data will be collected.
 
@@ -69,8 +69,8 @@ To enable the VMWare vSphere check and begin collecting data from your vSphere v
        password: <password>
      ```
 2. If required, you can customise the integration using the [advanced configuration options](vsphere.md#advanced-configuration).
-3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to publish the configuration changes.
-4. Once the Agent has restarted, wait for the Agent to collect the data and send it to StackState.
+3. [Restart Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to publish the configuration changes.
+4. Once the Agent has restarted, wait for the Agent to collect the data and send it to Rancher Observability.
 
 #### Advanced configuration
 
@@ -84,7 +84,7 @@ The advanced configuration items described below can optionally be added to the 
 | `ssl_capath` | No | The absolute file path of a directory containing CA certificates in PEM format. |
 | `host_include_only_regex` | No | Use a regex pattern to only fetch metrics for these ESXi hosts and the VMs running on them. |
 | `vm_include_only_regex` | No | Use a regex to include only VMs that match the specified pattern. |
-| `include_only_marked` | No | Set to `true`, if you would like to only collect metrics on vSphere VMs that are marked by a custom field with the value `StackStateMonitored`. To set this custom field with PowerCLI, use the command: `Get-VM | Set-CustomField -Name "StackStateMonitored" -Value "StackStateMonitored"` |
+| `include_only_marked` | No | Set to `true`, if you would like to only collect metrics on vSphere VMs that are marked by a custom field with the value `Rancher ObservabilityMonitored`. To set this custom field with PowerCLI, use the command: `Get-VM | Set-CustomField -Name "Rancher ObservabilityMonitored" -Value "Rancher ObservabilityMonitored"` |
 | `collect_vcenter_alarms` | No | set to `true` to send vCenter alarms as events. | 
 
 ### Status
@@ -108,9 +108,9 @@ The VMWare vSphere integration retrieves the following data:
 
 #### Events
 
-VMWare vSphere events are sent to StackState in a telemetry stream. These can be mapped to components and relations in the StackState topology, however, they won't be visible in the StackState Events Perspective.
+VMWare vSphere events are sent to Rancher Observability in a telemetry stream. These can be mapped to components and relations in the Rancher Observability topology, however, they won't be visible in the Rancher Observability Events Perspective.
 
-The VMWare vSphere check watches the vCenter Event Manager for the events listed below and makes these available in StackState in the generic events topic telemetry stream:
+The VMWare vSphere check watches the vCenter Event Manager for the events listed below and makes these available in Rancher Observability in the generic events topic telemetry stream:
 
 * AlarmStatusChangedEvent:Gray
 * VmBeingHotMigratedEvent
@@ -134,9 +134,9 @@ The metrics retrieved from VMWare vSphere can be configured in the Agent check c
 
 #### Tags
 
-All tags defined in VMWare vSphere will be retrieved and added to the associated components and relations in StackState. 
+All tags defined in VMWare vSphere will be retrieved and added to the associated components and relations in Rancher Observability. 
 
-The VMWare vSphere integration also understands StackState [common tags](../../configure/topology/tagging.md#common-tags). These StackState tags can be assigned to elements in VMWare vSphere to influence the way that the resulting topology is built in StackState. For example, by placing a component in a specific layer or domain.
+The VMWare vSphere integration also understands Rancher Observability [common tags](../../configure/topology/tagging.md#common-tags). These Rancher Observability tags can be assigned to elements in VMWare vSphere to influence the way that the resulting topology is built in Rancher Observability. For example, by placing a component in a specific layer or domain.
 
 #### Topology
 
@@ -146,7 +146,7 @@ The VMWare vSphere integration retrieves the following topology data:
 * Relations
 
 {% hint style="info" %}
-The VMWare vSphere integration understands StackState [common tags](../../configure/topology/tagging.md#common-tags). These StackState tags can be assigned to elements in VMWare vSphere to influence the way that the resulting topology is built in StackState. For example, by placing a component in a specific layer or domain.
+The VMWare vSphere integration understands Rancher Observability [common tags](../../configure/topology/tagging.md#common-tags). These Rancher Observability tags can be assigned to elements in VMWare vSphere to influence the way that the resulting topology is built in Rancher Observability. For example, by placing a component in a specific layer or domain.
 {% endhint %}
 
 #### Traces
@@ -159,27 +159,27 @@ The VMWare vSphere integration connects to VMWare vSphere using the VMWare vSphe
 
 ### Open source
 
-The code for the StackState VMware vSphere check is open source and available on GitHub at:
+The code for the Rancher Observability VMware vSphere check is open source and available on GitHub at:
 
 [https://github.com/StackVista/stackstate-agent-integrations/tree/master/vsphere](https://github.com/StackVista/stackstate-agent-integrations/tree/master/vsphere)
 
 ## Troubleshooting
 
-Troubleshooting steps for any known issues can be found in the [StackState support Knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=vSphere).
+Troubleshooting steps for any known issues can be found in the [Rancher Observability support Knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=vSphere).
 
 ## Uninstall
 
 To uninstall the VMWare vSphere StackPack and disable the VMWare vSphere check:
 
-1. Go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **VMWare vSphere** screen and click UNINSTALL.
-   * All VMWare vSphere specific configuration will be removed from StackState.
+1. Go to the Rancher Observability UI **StackPacks** &gt; **Integrations** &gt; **VMWare vSphere** screen and click UNINSTALL.
+   * All VMWare vSphere specific configuration will be removed from Rancher Observability.
 2. Remove or rename the Agent integration configuration file, for example:
 
    ```text
     mv vsphere.d/conf.yaml vsphere.d/conf.yaml.bak
    ```
 
-3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+3. [Restart Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 
 ## Release notes
 
@@ -197,9 +197,9 @@ To uninstall the VMWare vSphere StackPack and disable the VMWare vSphere check:
 
 ## See also
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) 
+* [Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md) 
 * [Secrets management](../../configure/security/secrets_management.md)
-* [StackState Agent integrations - VMWare vSphere \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/vsphere)
+* [Rancher Observability Agent integrations - VMWare vSphere \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/vsphere)
 * [Example VMWare vSphere check configuration file \(github.com\)](https://github.com/StackVista/sts-agent-integrations-core/blob/master/vsphere/conf.yaml.example)
 * [Data Collection Levels \(docs.vmware.com\)](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.monitoring.doc/GUID-25800DE4-68E5-41CC-82D9-8811E27924BC.html)
 

@@ -1,14 +1,14 @@
 ---
-description: StackState Self-hosted v5.1.x
+description: Rancher Observability Self-hosted v5.1.x
 ---
 
 # Overview
 
-The page explains how health state in StackState works with custom instrumentations in specific scenarios. Before reading further:
+The page explains how health state in Rancher Observability works with custom instrumentations in specific scenarios. Before reading further:
 
 * If you haven't already read about the health state span mapping `http.status_code`, head over to the page [tracer and span mappings](/stackpacks/integrations/opentelemetry/manual-instrumentation/tracer-and-span-mappings.md) to understand how the health state is mapped to a span. 
-* If you aren't familiar with how health state works in StackState, see the page [about health state](/use/concepts/health-state.md) to learn about the types of element health state available, what propagated health state is and how it works.
-* To understand how StackState merges custom instrumentations with existing components, see the page [Merging components](merging.md).
+* If you aren't familiar with how health state works in Rancher Observability, see the page [about health state](/use/concepts/health-state.md) to learn about the types of element health state available, what propagated health state is and how it works.
+* To understand how Rancher Observability merges custom instrumentations with existing components, see the page [Merging components](merging.md).
 
 # Health state without merging
 

@@ -1,10 +1,10 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Configure traces
 
-Traces can be viewed in the [Traces Perspective](../../use/stackstate-ui/perspectives/traces-perspective.md) screen in the StackState UI. To enable tracing, you first need to install the StackState Agent V2 StackPack and configure one or more tracing integrations, see [how to set up traces](set-up-traces.md). This page describes how to override the default tracing configuration and hide traces from the StackState UI.
+Traces can be viewed in the [Traces Perspective](../../use/stackstate-ui/perspectives/traces-perspective.md) screen in the Rancher Observability UI. To enable tracing, you first need to install the Rancher Observability Agent V2 StackPack and configure one or more tracing integrations, see [how to set up traces](set-up-traces.md). This page describes how to override the default tracing configuration and hide traces from the Rancher Observability UI.
 
 {% hint style="info" %}
 **Note that it isn't advised to change the default configuration for tracing.**
@@ -16,7 +16,7 @@ Traces can be viewed in the [Traces Perspective](../../use/stackstate-ui/perspec
 It isn't advised to change the default settings for retention!
 {% endhint %}
 
-Retention limits specify the index size of StackState and how long data is stored. Changing the default value here can lead to reduced stability and may cause trace and topology data to go out of sync.
+Retention limits specify the index size of Rancher Observability and how long data is stored. Changing the default value here can lead to reduced stability and may cause trace and topology data to go out of sync.
 
 If required, overrides to the default retention limits can be placed in the file `etc/kafka-to-es/application.conf`:
 
@@ -27,7 +27,7 @@ stackstate.kafkaTraceToES.elasticsearch.index.maxIndicesRetained = 8 // defines 
 
 Restart the component for changes to take effect.
 
-For more details, see [how to configure the StackState metrics, events and traces data store](/setup/data-management/data_retention.md#retention-of-events-metrics-and-traces).
+For more details, see [how to configure the Rancher Observability metrics, events and traces data store](/setup/data-management/data_retention.md#retention-of-events-metrics-and-traces).
 
 ## Rate limits
 
@@ -46,7 +46,7 @@ Restart the component for changes to take effect.
 
 ## Turn off tracing
 
-Tracing can't be turned off in StackState. If required, you can hide traces from the StackState UI in the file `etc/application_stackstate.conf` by setting:
+Tracing can't be turned off in Rancher Observability. If required, you can hide traces from the Rancher Observability UI in the file `etc/application_stackstate.conf` by setting:
 
 ```text
 stackstate.webUIConfig.featureFlags.enableTraces = false

@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # AWS X-ray
@@ -10,11 +10,11 @@ AWS X-Ray is a service that collects data about requests that your application s
 
 AWS services integrate with AWS X-Ray by adding a tracing header to requests, running the X-Ray daemon, or making sampling decisions, and uploading trace data to X-Ray. The X-Ray SDKs include plugins for additional integration with AWS services.
 
-AWS X-ray is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
+AWS X-ray is a [Rancher Observability core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "Rancher Observability Self-Hosted only").
 
 ## Functionality
 
-The StackState AWS X-Ray integration provides the following functionality:
+The Rancher Observability AWS X-Ray integration provides the following functionality:
 
 * Enriches AWS components with X-Ray trace service data.
 * Allows mapping the relations between X-Ray services, and ultimately AWS resources.
@@ -50,5 +50,5 @@ The AWS X-Ray check is included in the [Agent V2 StackPack](../agent.md). You al
 
 2. Restart the Agent.
 
-Need help? Please contact [StackState support](http://support.stackstate.com/).
+Need help? Please contact [Rancher Observability support](http://support.stackstate.com/).
 

@@ -1,6 +1,6 @@
 ---
-description: StackState Self-hosted
+description: Rancher Observability Self-hosted
 ---
 
-# Upgrade StackState
+# Upgrade Rancher Observability
 

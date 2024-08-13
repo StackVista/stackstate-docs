@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Tags
@@ -10,7 +10,7 @@ Tags \(also known as _labels_\) are a way of associating names with topology so 
 
 ## Define Tags
 
-Below are StackState's tagging restrictions, requirements, and suggestions:
+Below are Rancher Observability's tagging restrictions, requirements, and suggestions:
 
 1. Tags must **start with a letter** and after that may contain the characters listed below:
    * Alphanumerics
@@ -32,7 +32,7 @@ Below are StackState's tagging restrictions, requirements, and suggestions:
    | `customer:US:acme` | `customer` | `US:acme` |
    | `customer:acme` | `customer` | `acme` |
 
-5. Tags shouldn't originate from unbounded sources, such as EPOCH timestamps, user IDs, or request IDs. Doing so may infinitely increase the number of tags in StackState.
+5. Tags shouldn't originate from unbounded sources, such as EPOCH timestamps, user IDs, or request IDs. Doing so may infinitely increase the number of tags in Rancher Observability.
 
 ## Assign Tags
 
@@ -45,7 +45,7 @@ Tags may be assigned using any \(or all\) of the following methods.
 
 ### Configuration Files
 
-The hostname \(tag key `host`\) is assigned automatically by StackState Agent V2. To customize the hostname, use the Agent configuration file, `stackstate.yaml`:
+The hostname \(tag key `host`\) is assigned automatically by Rancher Observability Agent V2. To customize the hostname, use the Agent configuration file, `stackstate.yaml`:
 
 ```yaml
 # Set the hostname (default: auto-detected)
@@ -54,7 +54,7 @@ The hostname \(tag key `host`\) is assigned automatically by StackState Agent V2
 hostname: mymachine.mydomain
 ```
 
-The Agent configuration file \(`stackstate.yaml`\) is also used to set host tags which apply to all data forwarded by StackState Agent V2 \(see YAML formats below\).
+The Agent configuration file \(`stackstate.yaml`\) is also used to set host tags which apply to all data forwarded by Rancher Observability Agent V2 \(see YAML formats below\).
 
 Tags for the integrations installed with the Agent are configured via YAML files located in the **conf.d** directory of the Agent install.
 
@@ -79,18 +79,18 @@ It's recommended you assign tags as `<KEY>:<VALUE>` pairs, but simple tags are a
 
 ## StackPack Inheritance
 
-The most efficient method for assigning tags is to rely on your StackPacks. Tags assigned to your Amazon Web Services components, Azure components, and more are all automatically assigned to the topology when they're brought into StackState.
+The most efficient method for assigning tags is to rely on your StackPacks. Tags assigned to your Amazon Web Services components, Azure components, and more are all automatically assigned to the topology when they're brought into Rancher Observability.
 
 ### Common tags
 
-A number of StackState integrations understand common tags. These are special tags that can be placed on items in the source system and are used by StackState when the topology is retrieved. For example, an application in VMWare vSphere with the tag `stackstate-layer:databases` would be placed in the StackState topology layer `databases` by the StackState VMWare vSphere integration.
+A number of Rancher Observability integrations understand common tags. These are special tags that can be placed on items in the source system and are used by Rancher Observability when the topology is retrieved. For example, an application in VMWare vSphere with the tag `stackstate-layer:databases` would be placed in the Rancher Observability topology layer `databases` by the Rancher Observability VMWare vSphere integration.
 
 | Tag | Description |
 | :--- | :--- |
-| `stackstate-layer` | The component will be placed in the specified layer in StackState. |
-| `stackstate-domain` | The component will be placed in the specified domain in StackState. |
-| `stackstate-environment` | The component will be placed in the specified environment in StackState. |
-| `stackstate-identifiers` | The specified value will be added as an identifier to the StackState component. |
+| `stackstate-layer` | The component will be placed in the specified layer in Rancher Observability. |
+| `stackstate-domain` | The component will be placed in the specified domain in Rancher Observability. |
+| `stackstate-environment` | The component will be placed in the specified environment in Rancher Observability. |
+| `stackstate-identifiers` | The specified value will be added as an identifier to the Rancher Observability component. |
 
 ## Using Tags
 

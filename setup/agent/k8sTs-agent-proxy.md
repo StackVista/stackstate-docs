@@ -1,5 +1,5 @@
 ---
-description: StackState v6.0
+description: Rancher Observability v6.0
 ---
 
 # Use an HTTP/HTTPS proxy
@@ -10,9 +10,9 @@ description: StackState v6.0
 
 The Agent can be configured to use a proxy for HTTP and HTTPS requests. Proxy settings can be configured in two ways:
 
-* [Proxy for all Agent communication](#proxy-for-all-agent-communication). This includes Agent checks and communication with StackState. Configured with:
+* [Proxy for all Agent communication](#proxy-for-all-agent-communication). This includes Agent checks and communication with Rancher Observability. Configured with:
   * Environment variables `HTTPS_PROXY` / `HTTP_PROXY` 
-* [Proxy for communication with StackState only](#proxy-for-communication-with-stackstate-only). Can be configured in 2 places: 
+* [Proxy for communication with Rancher Observability only](#proxy-for-communication-with-stackstate-only). Can be configured in 2 places: 
   * Environment variables `STS_PROXY_HTTPS` / `STS_PROXY_HTTP`
   * Agent configuration file
 
@@ -22,24 +22,24 @@ Configured proxy settings will be used by the Agent in the following sequence:
 2. Environment variables `HTTPS_PROXY` / `HTTP_PROXY`
 3. Proxy settings in the Agent configuration file.
 
-For example, if the environment variable `STS_PROXY_HTTPS=""` is set and the Agent configuration file includes the proxy setting `https: https://example.com:1234`, the Agent will use the proxy `""` for HTTPS requests to StackState.
+For example, if the environment variable `STS_PROXY_HTTPS=""` is set and the Agent configuration file includes the proxy setting `https: https://example.com:1234`, the Agent will use the proxy `""` for HTTPS requests to Rancher Observability.
 
 ## Proxy for all Agent communication
 
 {% hint style="info" %}
-Note that these settings will be overridden by the environment variables: `STS_PROXY_HTTPS` / `STS_PROXY_HTTP`. See [proxy for communication with StackState only](#proxy-for-communication-with-stackstate-only).
+Note that these settings will be overridden by the environment variables: `STS_PROXY_HTTPS` / `STS_PROXY_HTTP`. See [proxy for communication with Rancher Observability only](#proxy-for-communication-with-stackstate-only).
 {% endhint %}
 
-To use a proxy for all Agent communication including checks and communication with StackState, set the following environment variables:
+To use a proxy for all Agent communication including checks and communication with Rancher Observability, set the following environment variables:
 
 * `HTTP_PROXY` - proxy to use for all HTTP communication.
 * `HTTPS_PROXY` - proxy to use for all HTTPS communication.
 
 {% tabs %}
 {% tab title="Linux" %}
-To configure a proxy for an Agent running on Linux, add the required environment variables to the StackState Agent systemd service.
+To configure a proxy for an Agent running on Linux, add the required environment variables to the Rancher Observability Agent systemd service.
 
-**Add environment variables to the StackState Agent systemd service:**
+**Add environment variables to the Rancher Observability Agent systemd service:**
 
 1. Stop the service:
    ```yaml
@@ -51,20 +51,20 @@ To configure a proxy for an Agent running on Linux, add the required environment
    sudo systemctl edit stackstate-agent.service
    ```
 
-3. Add the environment variables below to use a proxy for Agent checks and communication with StackState - note that this setting will be overridden by the environment variables `STS_PROXY_HTTPS` / `STS_PROXY_HTTP` if they're also set:
+3. Add the environment variables below to use a proxy for Agent checks and communication with Rancher Observability - note that this setting will be overridden by the environment variables `STS_PROXY_HTTPS` / `STS_PROXY_HTTP` if they're also set:
      ```yaml
      [Service]
      Environment="HTTP_PROXY=http://example.com:1234"
      Environment="HTTPS_PROXY=https://example.com:1234"
      ```
-   You can also [use a proxy only for communication with StackState](#proxy-for-communication-with-stackstate-only).
+   You can also [use a proxy only for communication with Rancher Observability](#proxy-for-communication-with-stackstate-only).
     
 4. Restart the service:
    ```yaml
    sudo systemctl start stackstate-agent.service
    ```
 
-**Remove environment variables from the StackState Agent systemd service:**
+**Remove environment variables from the Rancher Observability Agent systemd service:**
 
 1. Stop the service:
    ```yaml
@@ -84,7 +84,7 @@ To configure a proxy for an Agent running on Linux, add the required environment
 {% endtab %}
 
 {% tab title="Docker" %}
-To configure a proxy for an Agent running in a Docker container, use one of the commands below to pass the required environment variables when starting StackState Agent.
+To configure a proxy for an Agent running in a Docker container, use one of the commands below to pass the required environment variables when starting Rancher Observability Agent.
 
 **Single container**
 
@@ -135,15 +135,15 @@ docker run -d \
     ```
 {% endtab %}
 {% tab title="Windows" %}
-To configure a proxy for an Agent running on Windows, add the required environment variables to the StackState Agent systemd service.
+To configure a proxy for an Agent running on Windows, add the required environment variables to the Rancher Observability Agent systemd service.
 
 1. Stop the Agent.
     ```yaml
     # CMD
-    "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" stopservice
+    "C:\Program Files\Rancher Observability\Rancher Observability Agent\embedded\agent.exe" stopservice
    
     # PowerShell
-    & "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" stopservice
+    & "C:\Program Files\Rancher Observability\Rancher Observability Agent\embedded\agent.exe" stopservice
     ```
 
 2. Add the environment variables
@@ -155,19 +155,19 @@ To configure a proxy for an Agent running on Windows, add the required environme
 3. Start the Agent.
     ```yaml
     # CMD
-    "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" start-service
+    "C:\Program Files\Rancher Observability\Rancher Observability Agent\embedded\agent.exe" start-service
    
     # PowerShell
-    & "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" start-service
+    & "C:\Program Files\Rancher Observability\Rancher Observability Agent\embedded\agent.exe" start-service
     ```
 
 {% endtab %}
 {% endtabs %}
 
 
-## Proxy for communication with StackState only
+## Proxy for communication with Rancher Observability only
 
-A proxy can be configured to be used only for communication between StackState Agent V2 and StackState. This can be set up either by using environment variables or by updating the Agent configuration file.
+A proxy can be configured to be used only for communication between Rancher Observability Agent V2 and Rancher Observability. This can be set up either by using environment variables or by updating the Agent configuration file.
 
 ### Environment variables
 
@@ -175,17 +175,17 @@ A proxy can be configured to be used only for communication between StackState A
 Note that these settings will override all other proxy settings either in environment variables or the Agent configuration file.
 {% endhint %}
 
-To use a proxy for communication with StackState only, set the following environment variables: 
+To use a proxy for communication with Rancher Observability only, set the following environment variables: 
 
-* `STS_PROXY_HTTPS` - proxy to use for HTTP communication with StackState.
-* `STS_PROXY_HTTP` - proxy to use for HTTPS communication with StackState.
+* `STS_PROXY_HTTPS` - proxy to use for HTTP communication with Rancher Observability.
+* `STS_PROXY_HTTP` - proxy to use for HTTPS communication with Rancher Observability.
 
 {% tabs %}
 {% tab title="Linux" %}
 
-To configure a proxy for an Agent running on Linux, add the required environment variables to the StackState Agent systemd service.
+To configure a proxy for an Agent running on Linux, add the required environment variables to the Rancher Observability Agent systemd service.
 
-**Add environment variables to the StackState Agent systemd service:**
+**Add environment variables to the Rancher Observability Agent systemd service:**
 
 1. Stop the service:
    ```yaml
@@ -197,7 +197,7 @@ To configure a proxy for an Agent running on Linux, add the required environment
    sudo systemctl edit stackstate-agent.service
    ```
 
-3. Add the environment variables below to use a proxy for communication with StackState only:
+3. Add the environment variables below to use a proxy for communication with Rancher Observability only:
      ```yaml
      [Service]
      Environment="STS_PROXY_HTTP=http://example.com:1234"
@@ -210,7 +210,7 @@ To configure a proxy for an Agent running on Linux, add the required environment
    sudo systemctl start stackstate-agent.service
    ```
 
-**Remove environment variables from the StackState Agent systemd service:**
+**Remove environment variables from the Rancher Observability Agent systemd service:**
 
 1. Stop the service:
    ```yaml
@@ -229,7 +229,7 @@ To configure a proxy for an Agent running on Linux, add the required environment
    ```
 {% endtab %}
 {% tab title="Docker" %}
-To configure a proxy for an Agent running in a Docker container, use one of the commands below to pass the required environment variables when starting StackState Agent.
+To configure a proxy for an Agent running in a Docker container, use one of the commands below to pass the required environment variables when starting Rancher Observability Agent.
 
 **Single container**
 
@@ -279,15 +279,15 @@ docker run -d \
 
 {% endtab %}
 {% tab title="Windows" %}
-To configure a proxy for an Agent running on Windows, add the required environment variables to the StackState Agent systemd service.
+To configure a proxy for an Agent running on Windows, add the required environment variables to the Rancher Observability Agent systemd service.
 
 1. Stop the Agent.
     ```yaml
     # CMD
-    "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" stopservice
+    "C:\Program Files\Rancher Observability\Rancher Observability Agent\embedded\agent.exe" stopservice
    
     # PowerShell
-    & "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" stopservice
+    & "C:\Program Files\Rancher Observability\Rancher Observability Agent\embedded\agent.exe" stopservice
     ```
 
 2. Add the environment variables
@@ -299,10 +299,10 @@ To configure a proxy for an Agent running on Windows, add the required environme
 3. Start the Agent.
     ```yaml
     # CMD
-    "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" start-service
+    "C:\Program Files\Rancher Observability\Rancher Observability Agent\embedded\agent.exe" start-service
    
     # PowerShell
-    & "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" start-service
+    & "C:\Program Files\Rancher Observability\Rancher Observability Agent\embedded\agent.exe" start-service
     ```
 {% endtab %}
 {% endtabs %}
@@ -315,12 +315,12 @@ Note that proxy settings configured using an environment variable will override 
 
 {% endhint %}
 
-A proxy set in the Agent configuration file will be used for communication with StackState only. Checks configured on the Agent won't use this proxy for communication with external systems. To use a proxy for Agent checks and communication with StackState, see how to use a [proxy for all Agent communication](#proxy-for-all-agent-communication).
+A proxy set in the Agent configuration file will be used for communication with Rancher Observability only. Checks configured on the Agent won't use this proxy for communication with external systems. To use a proxy for Agent checks and communication with Rancher Observability, see how to use a [proxy for all Agent communication](#proxy-for-all-agent-communication).
 
-To use a proxy for communication with StackState add the following items to the Agent configuration file:
+To use a proxy for communication with Rancher Observability add the following items to the Agent configuration file:
 
-* `proxy.http` - proxy to use for HTTP communication with StackState.
-* `proxy.https` - proxy to use for HTTPS communication with StackState.
+* `proxy.http` - proxy to use for HTTP communication with Rancher Observability.
+* `proxy.https` - proxy to use for HTTPS communication with Rancher Observability.
 
 {% tabs %}
 {% tab title="Linux" %}
@@ -363,7 +363,7 @@ To update the configuration file for an Agent running on Windows:
 
 1. Edit the Agent configuration file:
    ```yaml
-   C:\ProgramData\StackState\stackstate.yaml
+   C:\ProgramData\Rancher Observability\stackstate.yaml
    ```
 
 2. Uncomment the proxy settings:
@@ -376,10 +376,10 @@ To update the configuration file for an Agent running on Windows:
 3. Restart the Agent.
    ```yaml
    # CMD
-   "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" restart-service
+   "C:\Program Files\Rancher Observability\Rancher Observability Agent\embedded\agent.exe" restart-service
    
    # PowerShell
-   & "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" restart-service
+   & "C:\Program Files\Rancher Observability\Rancher Observability Agent\embedded\agent.exe" restart-service
    ```
 
 {% endtab %}

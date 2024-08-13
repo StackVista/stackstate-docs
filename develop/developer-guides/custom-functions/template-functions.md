@@ -1,14 +1,14 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Template functions
 
 ## Overview
 
-Template functions are defined by a JSON template and input parameters required by the template to render elements of StackState topology - mainly components or relations. When executed template functions substitutes all handlebar parameter references with values of input parameters. Template functions must define all parameters that template body refers to.
+Template functions are defined by a JSON template and input parameters required by the template to render elements of Rancher Observability topology - mainly components or relations. When executed template functions substitutes all handlebar parameter references with values of input parameters. Template functions must define all parameters that template body refers to.
 
-Template functions are used in cooperation with Mapping functions to create StackState topology elements. Mapping function parse topological data of external system and prepares input parameters for Template function.
+Template functions are used in cooperation with Mapping functions to create Rancher Observability topology elements. Mapping function parse topological data of external system and prepares input parameters for Template function.
 
 ## Create template functions
 
@@ -18,7 +18,7 @@ An easy way to create template functions is to create them based on existing com
 
 ### Manually create a template function
 
-Below are some examples templates to create components. Note that a template isn't limited to rendering only components and relations. It can render JSON for any StackState domain object that's supported by restapi, for example a Domain, Layer, Check or Stream. and also not only single object, but several multiple objects with one template.
+Below are some examples templates to create components. Note that a template isn't limited to rendering only components and relations. It can render JSON for any Rancher Observability domain object that's supported by restapi, for example a Domain, Layer, Check or Stream. and also not only single object, but several multiple objects with one template.
 
 * A simple template that creates a component. Its template function must define the parameters with the following names: `name`, `description`, `componentTypeId`, `layerId`, `domainId` and `environmentId`.
 

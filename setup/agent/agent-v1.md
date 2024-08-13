@@ -1,11 +1,11 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Agent V1 \(legacy\)
 
 {% hint style="warning" %}
-**Agent V1 (legacy) will be deprecated in a future release of StackState.** 
+**Agent V1 (legacy) will be deprecated in a future release of Rancher Observability.** 
 
 If you are still running Agent V1 (legacy), it's advised that you upgrade to Agent V2 and migrate all checks to run on Agent V2.
 
@@ -14,25 +14,25 @@ If you are still running Agent V1 (legacy), it's advised that you upgrade to Age
 
 ## Overview
 
-Prior to StackState v5.1, Agent V1 (legacy) was used to run checks that connect to [Splunk](/stackpacks/integrations/splunk/splunk_stackpack.md) to retrieve metrics and events data. From StackState v5.1, all Agent checks run on [StackState Agent V2](about-stackstate-agent.md).
+Prior to Rancher Observability v5.1, Agent V1 (legacy) was used to run checks that connect to [Splunk](/stackpacks/integrations/splunk/splunk_stackpack.md) to retrieve metrics and events data. From Rancher Observability v5.1, all Agent checks run on [Rancher Observability Agent V2](about-stackstate-agent.md).
 
-StackState Agent V1 (legacy) is open source: [View the source code on GitHub](https://github.com/StackVista/sts-agent).
+Rancher Observability Agent V1 (legacy) is open source: [View the source code on GitHub](https://github.com/StackVista/sts-agent).
 
 ## Installation
 
 {% hint style="warning" %}
-**Agent V1 (legacy) will be deprecated in a future release of StackState.** 
+**Agent V1 (legacy) will be deprecated in a future release of Rancher Observability.** 
 
 It's advised that you install Agent V2 and migrate all checks to run on Agent V2.
 
 ➡️ [Migrate Agent V1 (legacy) to Agent V2](/setup/agent/migrate-agent-v1-to-v2/)
 {% endhint %}
 
-Install StackState Agent V1 (legacy) by using the following sequence of steps:
+Install Rancher Observability Agent V1 (legacy) by using the following sequence of steps:
 
 {% tabs %}
 {% tab title="Debian, Ubuntu" %}
-1. Download the [StackState Agent V1 \(legacy\) Debian package](https://l.stackstate.com/stackstate-agent-1-deb-latest) or run this command on the machine where you wish to install the Agent:
+1. Download the [Rancher Observability Agent V1 \(legacy\) Debian package](https://l.stackstate.com/stackstate-agent-1-deb-latest) or run this command on the machine where you wish to install the Agent:
 
    ```text
    wget https://s3-eu-west-1.amazonaws.com/agent.stackstate.com/stackstate-agent-deb-repo/pool/s/stackstate-agent/stackstate-agent_1.3.0-1_amd64.deb'
@@ -59,7 +59,7 @@ Install StackState Agent V1 (legacy) by using the following sequence of steps:
 {% endtab %}
 
 {% tab title="Amazon linux, CentOS, Fedora, Red Hat" %}
-1. Download the [StackState Agent V1 \(legacy\) RPM package](https://l.stackstate.com/stackstate-agent-1-rpm-latest) or run this command on the machine where you wish to install the Agent:
+1. Download the [Rancher Observability Agent V1 \(legacy\) RPM package](https://l.stackstate.com/stackstate-agent-1-rpm-latest) or run this command on the machine where you wish to install the Agent:
 
    ```text
    wget 'https://s3-eu-west-1.amazonaws.com/agent.stackstate.com/stackstate-agent-yum-repo/stackstate-agent_1.3.0-1.x86_64.rpm'
@@ -92,10 +92,10 @@ If you need further assistance, our [support team](https://support.stackstate.co
 
 {% hint style="info" %}
 * Commands require elevated privileges.
-* Restarting StackState Agent V1 (legacy) will reload the configuration files.
+* Restarting Rancher Observability Agent V1 (legacy) will reload the configuration files.
 {% endhint %}
 
-To manually start, stop or restart StackState Agent V1 (legacy):
+To manually start, stop or restart Rancher Observability Agent V1 (legacy):
 
 {% tabs %}
 {% tab title="Linux" %}
@@ -110,17 +110,17 @@ sudo /etc/init.d/stackstate-agent restart
 **CMD**
 
 ```text
-"C:\Program Files\StackState\StackState Agent\embedded\agent.exe" start-service
-"C:\Program Files\StackState\StackState Agent\embedded\agent.exe" stopservice
-"C:\Program Files\StackState\StackState Agent\embedded\agent.exe" restart-service
+"C:\Program Files\Rancher Observability\Rancher Observability Agent\embedded\agent.exe" start-service
+"C:\Program Files\Rancher Observability\Rancher Observability Agent\embedded\agent.exe" stopservice
+"C:\Program Files\Rancher Observability\Rancher Observability Agent\embedded\agent.exe" restart-service
 ```
 
 **PowerShell**
 
 ```text
-& "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" start-service
-& "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" stopservice
-& "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" restart-service
+& "C:\Program Files\Rancher Observability\Rancher Observability Agent\embedded\agent.exe" start-service
+& "C:\Program Files\Rancher Observability\Rancher Observability Agent\embedded\agent.exe" stopservice
+& "C:\Program Files\Rancher Observability\Rancher Observability Agent\embedded\agent.exe" restart-service
 ```
 {% endtab %}
 {% endtabs %}
@@ -129,13 +129,13 @@ sudo /etc/init.d/stackstate-agent restart
 
 {% tabs %}
 {% tab title="Linux" %}
-To check if StackState Agent V1 (legacy) is running:
+To check if Rancher Observability Agent V1 (legacy) is running:
 
 ```text
 sudo /etc/init.d/stackstate-agent status
 ```
 
-To receive information about the StackState Agent V1 (legacy) state:
+To receive information about the Rancher Observability Agent V1 (legacy) state:
 
 ```text
 sudo /etc/init.d/stackstate-agent info
@@ -149,7 +149,7 @@ sudo /etc/init.d/stackstate-agent info -v
 {% endtab %}
 
 {% tab title="Windows" %}
-To check if the StackState Agent V1 (legacy) is running and receive information about the Agent's state:
+To check if the Rancher Observability Agent V1 (legacy) is running and receive information about the Agent's state:
 
 ```text
 "./agent.exe status"
@@ -159,7 +159,7 @@ To check if the StackState Agent V1 (legacy) is running and receive information 
 
 ## Troubleshooting
 
-Try running the [info command](agent-v1.md#status-and-information) to see the state of StackState Agent V1 (legacy).
+Try running the [info command](agent-v1.md#status-and-information) to see the state of Rancher Observability Agent V1 (legacy).
 
 Logs for the subsystems are in the following files:
 
@@ -168,10 +168,10 @@ Logs for the subsystems are in the following files:
 * `/var/log/stackstate/stsstatsd.log`
 * `/var/log/stackstate/forwarder.log`
 
-If you are still having trouble, contact our support team on the [StackState support site](http://support.stackstate.com/).
+If you are still having trouble, contact our support team on the [Rancher Observability support site](http://support.stackstate.com/).
 
 ## See also
 
-* [StackState Agent V2](/setup/agent/about-stackstate-agent.md)
+* [Rancher Observability Agent V2](/setup/agent/about-stackstate-agent.md)
 * [Migrate Agent V1 \(lecacy\) to Agent V2](/setup/agent/migrate-agent-v1-to-v2/)
 

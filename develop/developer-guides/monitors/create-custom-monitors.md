@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted v5.1.x
+description: Rancher Observability Self-hosted v5.1.x
 ---
 
 # Monitors
 
 ## Overview
 
-Monitors can be attached to any number of elements in the StackState topology to calculate a health state based on 4T data. Each monitor consists of a monitor definition and a monitor function. Monitors are created and managed by StackPacks, you can also create custom monitors and monitor functions outside of a StackPack without having to modify any configuration.
+Monitors can be attached to any number of elements in the Rancher Observability topology to calculate a health state based on 4T data. Each monitor consists of a monitor definition and a monitor function. Monitors are created and managed by StackPacks, you can also create custom monitors and monitor functions outside of a StackPack without having to modify any configuration.
 
 The example on this page creates a CPU metric monitor using an example monitor function.
 
@@ -14,12 +14,12 @@ The example on this page creates a CPU metric monitor using an example monitor f
 
 ## Example - CPU metric monitor
 
-To create the example CPU metric custom monitor in StackState we will:
+To create the example CPU metric custom monitor in Rancher Observability we will:
 
 1. [Create a new STY import file.](#create-a-new-sty-import-file)
 2. [Populate the monitor node.](#populate-the-monitor-node)
 3. [Populate the parameters of the monitor function invocation.](#populate-the-parameters-of-the-monitor-function-invocation)
-4. [Apply the newly created monitor in StackState.](#apply-the-newly-created-monitor-in-stackstate)
+4. [Apply the newly created monitor in Rancher Observability.](#apply-the-newly-created-monitor-in-stackstate)
 5. [Verify that your newly created monitor is working correctly.](#verify-that-your-newly-created-monitor-is-working-correctly)
 
 ### Create a new STY import file
@@ -84,7 +84,7 @@ nodes:
       topolopgyIdentifierPattern: "urn:host:/${tags.host}"
       metrics: |-
           Telemetry
-          .query("StackState Metrics", "")
+          .query("Rancher Observability Metrics", "")
           .metricField("system.cpu.system")
           .groupBy("tags.host")
           .start("-1m")
@@ -94,33 +94,33 @@ nodes:
 
 For further details of defining arguments in the monitor definition and how to work with commonly used parameters such as a metrics query or topology identifier, see [monitor sty file format > Arguments](/develop/developer-guides/monitors/monitor-sty-file-format.md#arguments).
 
-### Apply the newly created monitor in StackState
+### Apply the newly created monitor in Rancher Observability
 
-This can be achieved by using the dedicated StackState CLI command:
+This can be achieved by using the dedicated Rancher Observability CLI command:
 
-{% tabs %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: sts" %}[](http://not.a.link "StackState Self-Hosted only")
+{% tabs %}[](http://not.a.link "Rancher Observability Self-Hosted only")
+{% tab title="CLI: sts" %}[](http://not.a.link "Rancher Observability Self-Hosted only")
 ```
 sts monitor apply -f path/to/the/file.sty
 ```
 
-From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+From Rancher Observability v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
-➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: stac (deprecated)" %}[](http://not.a.link "StackState Self-Hosted only")
-`stac monitor apply < path/to/the/file.sty`[](http://not.a.link "StackState Self-Hosted only")
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "Rancher Observability Self-Hosted only")
+{% endtab %}[](http://not.a.link "Rancher Observability Self-Hosted only")
+{% tab title="CLI: stac (deprecated)" %}[](http://not.a.link "Rancher Observability Self-Hosted only")
+`stac monitor apply < path/to/the/file.sty`[](http://not.a.link "Rancher Observability Self-Hosted only")
 
-⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+⚠️ **From Rancher Observability v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
+The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "Rancher Observability Self-Hosted only")
 
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "Rancher Observability Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "Rancher Observability Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "Rancher Observability Self-Hosted only")
 
-{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
+{% endtab %}[](http://not.a.link "Rancher Observability Self-Hosted only")
+{% endtabs %}[](http://not.a.link "Rancher Observability Self-Hosted only")
 
 An alternative way is to include the newly created monitor in a custom StackPack and installing it.
 
@@ -128,8 +128,8 @@ An alternative way is to include the newly created monitor in a custom StackPack
 
 You can check if your monitor is working correctly by invoking the CLI command:
 
-{% tabs %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: sts" %}[](http://not.a.link "StackState Self-Hosted only")
+{% tabs %}[](http://not.a.link "Rancher Observability Self-Hosted only")
+{% tab title="CLI: sts" %}[](http://not.a.link "Rancher Observability Self-Hosted only")
 ```
 # By ID
 sts monitor status --id <id-of-a-monitor>
@@ -137,29 +137,29 @@ sts monitor status --id <id-of-a-monitor>
 sts monitor status --identifier <identifier-of-a-monitor>
 ```
 
-From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+From Rancher Observability v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
-➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: stac (deprecated)" %}[](http://not.a.link "StackState Self-Hosted only")
-`stac monitor status <id-or-identifier-of-a-monitor>`[](http://not.a.link "StackState Self-Hosted only")
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "Rancher Observability Self-Hosted only")
+{% endtab %}[](http://not.a.link "Rancher Observability Self-Hosted only")
+{% tab title="CLI: stac (deprecated)" %}[](http://not.a.link "Rancher Observability Self-Hosted only")
+`stac monitor status <id-or-identifier-of-a-monitor>`[](http://not.a.link "Rancher Observability Self-Hosted only")
 
 
-⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+⚠️ **From Rancher Observability v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
+The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "Rancher Observability Self-Hosted only")
 
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "Rancher Observability Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "Rancher Observability Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "Rancher Observability Self-Hosted only")
 
-{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
+{% endtab %}[](http://not.a.link "Rancher Observability Self-Hosted only")
+{% endtabs %}[](http://not.a.link "Rancher Observability Self-Hosted only")
 
 You can also preview the results it generates by invoking the CLI command:
 
-{% tabs %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: sts" %}[](http://not.a.link "StackState Self-Hosted only")
+{% tabs %}[](http://not.a.link "Rancher Observability Self-Hosted only")
+{% tab title="CLI: sts" %}[](http://not.a.link "Rancher Observability Self-Hosted only")
 ```
 # By ID
 sts monitor run --id <id-of-a-monitor>
@@ -167,29 +167,29 @@ sts monitor run --id <id-of-a-monitor>
 sts monitor run --identifier <identifier-of-a-monitor>
 ```
 
-From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+From Rancher Observability v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
-➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: stac (deprecated)" %}[](http://not.a.link "StackState Self-Hosted only")
-`stac monitor preview <id-or-identifier-of-a-monitor>`[](http://not.a.link "StackState Self-Hosted only")
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "Rancher Observability Self-Hosted only")
+{% endtab %}[](http://not.a.link "Rancher Observability Self-Hosted only")
+{% tab title="CLI: stac (deprecated)" %}[](http://not.a.link "Rancher Observability Self-Hosted only")
+`stac monitor preview <id-or-identifier-of-a-monitor>`[](http://not.a.link "Rancher Observability Self-Hosted only")
 
 
-⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+⚠️ **From Rancher Observability v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
-The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
+The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "Rancher Observability Self-Hosted only")
 
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "Rancher Observability Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "Rancher Observability Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "Rancher Observability Self-Hosted only")
 
-{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
+{% endtab %}[](http://not.a.link "Rancher Observability Self-Hosted only")
 {% endtabs %}
 
 ## See also
 
-* [Monitor functions](/develop/developer-guides/custom-functions/monitor-functions.md "StackState Self-Hosted only")
-* [StackState `sts` CLI](/setup/cli/cli-sts.md)
-* [StackState templating \(STY\)](/develop/reference/stackstate-templating/README.md)
-* [Develop your own StackPacks](/stackpacks/sdk.md "StackState Self-Hosted only")
+* [Monitor functions](/develop/developer-guides/custom-functions/monitor-functions.md "Rancher Observability Self-Hosted only")
+* [Rancher Observability `sts` CLI](/setup/cli/cli-sts.md)
+* [Rancher Observability templating \(STY\)](/develop/reference/stackstate-templating/README.md)
+* [Develop your own StackPacks](/stackpacks/sdk.md "Rancher Observability Self-Hosted only")
 * [Integrations](/stackpacks/integrations/README.md)

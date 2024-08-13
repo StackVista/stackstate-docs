@@ -1,5 +1,5 @@
 ---
-description: StackState v6.0
+description: Rancher Observability v6.0
 ---
 
 # Topology Perspective
@@ -80,7 +80,7 @@ There are zoom buttons located in the bottom right corner of the topology visual
 
 You can locate a specific component in the topology by clicking `CTRL` + `SHIFT` + `F` and typing the first few letters of the component name. Alternatively, you can select the **Find component** magnifying glass icon in the bottom right corner of the topology visualizer.
 
-See the full list of [StackState keyboard shortcuts](../keyboard-shortcuts.md).
+See the full list of [Rancher Observability keyboard shortcuts](../keyboard-shortcuts.md).
 
 ### Show root cause
 

@@ -1,10 +1,10 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Mirroring Telemetry
 
-Mirroring is a way to connect StackState to third-party telemetry data sources. In the case of mirroring StackState doesn't require the telemetry to be present within StackState's telemetry data source, but will retrieve the telemetry whenever it needs it. This means you can work with existing telemetry as if it were just a part of the 4T data model.
+Mirroring is a way to connect Rancher Observability to third-party telemetry data sources. In the case of mirroring Rancher Observability doesn't require the telemetry to be present within Rancher Observability's telemetry data source, but will retrieve the telemetry whenever it needs it. This means you can work with existing telemetry as if it were just a part of the 4T data model.
 
 ### When to use mirroring
 
@@ -17,8 +17,8 @@ Mirroring has some major _advantages_:
 There are however also some _disadvantages_:
 
 * Availability and retention of the data depends on the availability and retention of the data source.
-* If StackState requires streaming data it's forced to start polling data from the data source. When dealing with lots of streaming data, the limits that made mirroring a good idea in the first place now cause the same problems.
-* StackState has to make an outgoing connection to the mirror, which means that you will have to allow StackState to access your mirror. In order to secure these connections, firewalls rules may need to be configured. Especially in large enterprise this may cause installation delays.
+* If Rancher Observability requires streaming data it's forced to start polling data from the data source. When dealing with lots of streaming data, the limits that made mirroring a good idea in the first place now cause the same problems.
+* Rancher Observability has to make an outgoing connection to the mirror, which means that you will have to allow Rancher Observability to access your mirror. In order to secure these connections, firewalls rules may need to be configured. Especially in large enterprise this may cause installation delays.
 
 If you wish to use mirroring, but need a solution to any of the above disadvantages we recommend that you [contact us](http://support.stackstate.com).
 
@@ -26,13 +26,13 @@ To get started with mirroring, have a look at our [mirroring tutorial](../tutori
 
 ## Mirror Architecture
 
-Before mirroring StackState used to work with a plugin system to allow it to work with third-party telemetry data sources. Still some telemetry sources are accessed via the custom plugin method, but over time these will be deprecated in favor of the mirroring architecture, which builds on the plugin architecture.
+Before mirroring Rancher Observability used to work with a plugin system to allow it to work with third-party telemetry data sources. Still some telemetry sources are accessed via the custom plugin method, but over time these will be deprecated in favor of the mirroring architecture, which builds on the plugin architecture.
 
-Mirroring is performed using two components: the `Mirror Plugin` and a remote telemetry system called the `Mirror`. The Mirror Plugin is a StackState plugin configured to talk to the Mirror. The plugin requires the Mirror to implement the Mirror REST API. In its turn, the Mirror acts as a gateway to the target telemetry system and is implemented as a webserver.
+Mirroring is performed using two components: the `Mirror Plugin` and a remote telemetry system called the `Mirror`. The Mirror Plugin is a Rancher Observability plugin configured to talk to the Mirror. The plugin requires the Mirror to implement the Mirror REST API. In its turn, the Mirror acts as a gateway to the target telemetry system and is implemented as a webserver.
 
-The StackState instance has to be able to open a connection to the mirror. There is some work planned to use the Agent to reverse the connection, but this isn't available as of yet.
+The Rancher Observability instance has to be able to open a connection to the mirror. There is some work planned to use the Agent to reverse the connection, but this isn't available as of yet.
 
-The Mirror is intended to be stateless and to proxy StackState requests to the target telemetry system. The Mirror can be implemented in any technology or programming language. The only requirement is that it implements the Mirror REST API described below.
+The Mirror is intended to be stateless and to proxy Rancher Observability requests to the target telemetry system. The Mirror can be implemented in any technology or programming language. The only requirement is that it implements the Mirror REST API described below.
 
 ## Mirror REST API
 
@@ -116,7 +116,7 @@ The field "limit" asks the Mirror to return only a subset of the results.
 
 ### Common Response Information
 
-The Mirror is expected to reply with the header `X-MIRROR-API-KEY` and the StackState Mirror Plugin should compare it with the API key configured in the StackState server.
+The Mirror is expected to reply with the header `X-MIRROR-API-KEY` and the Rancher Observability Mirror Plugin should compare it with the API key configured in the Rancher Observability server.
 
 ## Method: Test Connection
 

@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted v5.1.x
+description: Rancher Observability Self-hosted v5.1.x
 ---
 
 # Tracer and span mappings
 
 ## Overview
 
-Before we jump into the nitty-gritty of the actual code we can write for a OpenTelemetry instrumentation, let's first look at the key-value pairs that are in spans and where this can be found in the StackState UI.
+Before we jump into the nitty-gritty of the actual code we can write for a OpenTelemetry instrumentation, let's first look at the key-value pairs that are in spans and where this can be found in the Rancher Observability UI.
 
 The span key values should be included when you create spans inside the manual OpenTelemetry instrumentation.
 
@@ -14,20 +14,20 @@ We will get to a few code examples later on in the documentation.
 
 ## Tracer name and version
 
-For StackState to understand your data, a tracer **name** and **version** needs to be passed with your instrumentation.
+For Rancher Observability to understand your data, a tracer **name** and **version** needs to be passed with your instrumentation.
 
-StackState requires the following name and version to be set:
+Rancher Observability requires the following name and version to be set:
 
 - **Tracer name:** `@opentelemetry/instrumentation-stackstate`
 - **Version:** `1.0.0`
 
 {% hint style="info" %}
-If the tracer name passed to StackState Agent doesn't exactly match the value specified above, received data won't be displayed in StackState.
+If the tracer name passed to Rancher Observability Agent doesn't exactly match the value specified above, received data won't be displayed in Rancher Observability.
 {% endhint %}
 
 ➡️ [See how this is implemented in code examples](code-examples.md#2-core-definitions)
 
-When the [log level in StackState Agent](/setup/agent/about-stackstate-agent.md#troubleshooting) is to `DEBUG`, a message will be returned if a wrong tracer name has been used. The message will warn about an unknown instrumentation and state the tracer name that was passed to it.
+When the [log level in Rancher Observability Agent](/setup/agent/about-stackstate-agent.md#troubleshooting) is to `DEBUG`, a message will be returned if a wrong tracer name has been used. The message will warn about an unknown instrumentation and state the tracer name that was passed to it.
 
 ## Span mapping requirements 
 
@@ -36,7 +36,7 @@ When the [log level in StackState Agent](/setup/agent/about-stackstate-agent.md#
 The table below provides a summary of all the span keys that can be provided and are required. Further details of each key can be found in the sections below.
 
 {% hint style="info" %}
-Note that ALL the keys listed as required must be provided when creating a span. If any required keys are missing, the component won't appear in StackState.
+Note that ALL the keys listed as required must be provided when creating a span. If any required keys are missing, the component won't appear in Rancher Observability.
 {% endhint %}
 
 | **Key**                                              |  **Type**  | **Required**  | **Allowed Value** | **Example**                         |
@@ -50,7 +50,7 @@ Note that ALL the keys listed as required must be provided when creating a span.
 
 ### Traces Perspective name
 
-The `trace.perspective.name` is used to find your span within a trace in the StackState UI [Traces Perspective](/use/stackstate-ui/perspectives/traces-perspective.md). The horizontal bar within a Trace will have a floating text value containing the specified `trace.perspective.name` key.
+The `trace.perspective.name` is used to find your span within a trace in the Rancher Observability UI [Traces Perspective](/use/stackstate-ui/perspectives/traces-perspective.md). The horizontal bar within a Trace will have a floating text value containing the specified `trace.perspective.name` key.
 
 | |                          |
 |:---|:-------------------------|
@@ -77,7 +77,7 @@ The `trace.perspective.name` is used to find your span within a trace in the Sta
 
 ### Service name
 
-The value from `service.name` is used as a primary means to identify a component in the StackState Topology Perspective. A `spans.serviceName` key is also created in the Traces Perspective to identify if the trace in the Traces Perspective matches the component in the Topology Perspective.
+The value from `service.name` is used as a primary means to identify a component in the Rancher Observability Topology Perspective. A `spans.serviceName` key is also created in the Traces Perspective to identify if the trace in the Traces Perspective matches the component in the Topology Perspective.
 
 | |                |
 |:---|:---------------|
@@ -116,7 +116,7 @@ The value from `service.name` is used as a primary means to identify a component
 
 **Example of where the service.name is displayed within the Topology Perspective within your component properties**
 
-1) Click on your component in the StackState Topology Perspective
+1) Click on your component in the Rancher Observability Topology Perspective
 2) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
 3) A row with the key `name` will contain the value you defined, as seen below in the image.
 4) Your component will also contain a new label called service-name, this will also represent your component name.
@@ -141,7 +141,7 @@ The value from `service.name` is used as a primary means to identify a component
 
 ### Service type
 
-The `service.type` is used to identify the type of service in the span in the StackState UI [Traces Perspective](/use/stackstate-ui/perspectives/traces-perspective.md).
+The `service.type` is used to identify the type of service in the span in the Rancher Observability UI [Traces Perspective](/use/stackstate-ui/perspectives/traces-perspective.md).
 
 | |                |
 |:---|:---------------|
@@ -167,9 +167,9 @@ The `service.type` is used to identify the type of service in the span in the St
 
 ### Service identifier 
 
-The service identifier is used for merging components. The provided value will be added to the identifier list on the component in StackState. 
+The service identifier is used for merging components. The provided value will be added to the identifier list on the component in Rancher Observability. 
 
-Components with the same service identifiers will merge into one component. This allows multiple components to merge and create relations. Components can also bo merged with existing StackState components.
+Components with the same service identifiers will merge into one component. This allows multiple components to merge and create relations. Components can also bo merged with existing Rancher Observability components.
 
 ➡️ [Learn more about merging components](/stackpacks/integrations/opentelemetry/manual-instrumentation/merging.md)
 
@@ -186,7 +186,7 @@ Components with the same service identifiers will merge into one component. This
 
 **Example of where the `service.identifier` is displayed within the Topology Perspective Component properties view**
 
-1) Click on your component in the StackState Topology Perspective
+1) Click on your component in the Rancher Observability Topology Perspective
 2) Click on the `SHOW ALL PROPERTIES` button on the right side, a popup will appear.
 3) The row with the key `identifiers` will contain the value you defined, as seen below in the image.
 4) ***NB. It's recommended to go and read the [merging with pre-existing components](/stackpacks/integrations/opentelemetry/manual-instrumentation/merging.md) page to know how this value can be leverage to create relations***
@@ -224,7 +224,7 @@ The resource name is displayed in the Traces Perspective for a specific trace, a
 
 ### HTTP status code 
 
-The HTTP status code controls the health state for the component in StackState. A `400` or higher will put the component into a CRITICAL state, while a `200` will result in a healthy component. This allows you to control the health state of the component in StackState.
+The HTTP status code controls the health state for the component in Rancher Observability. A `400` or higher will put the component into a CRITICAL state, while a `200` will result in a healthy component. This allows you to control the health state of the component in Rancher Observability.
 
 ➡️ [Learn how the span health state works](/stackpacks/integrations/opentelemetry/manual-instrumentation/span-health.md)
 

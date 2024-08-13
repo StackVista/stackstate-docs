@@ -1,14 +1,14 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Template functions
 
 ## Overview
 
-StackState Template JSON (STJ) and StackState Template YAML (STY) incorporate several custom handlebars functions that can be used, for example, to get existing nodes from the graph, create new nodes or join texts together. The available StackState functions are described below.
+Rancher Observability Template JSON (STJ) and Rancher Observability Template YAML (STY) incorporate several custom handlebars functions that can be used, for example, to get existing nodes from the graph, create new nodes or join texts together. The available Rancher Observability functions are described below.
 
-## StackState handlebars functions
+## Rancher Observability handlebars functions
 
 ### `add`
 
@@ -145,11 +145,11 @@ include "<filename>" "<encoding>"
 
 * **filename** - The name of the file to include from the StackPack. The file must exist in the `provisioning` directory or one of its subdirectories.
 * **encoding** \(optional, default = `handlebars`\) - Choice of:
-   * `handlebars` - Included file will be interpreted as StackState Templated JSON.
+   * `handlebars` - Included file will be interpreted as Rancher Observability Templated JSON.
    * `identity` - Included file will be not be interpreted, but simply will be included as text.
    * `base64` - Included file will be loaded using a BASE64 encoding. This is possible for the image types: `png`, `jpg`, `gif` and `svg`.
 
-For details on the filename, see [StackPack packaging](../../developer-guides/stackpack/prepare_package.md "StackState Self-Hosted only")
+For details on the filename, see [StackPack packaging](../../developer-guides/stackpack/prepare_package.md "Rancher Observability Self-Hosted only")
 
 #### Examples
 
@@ -159,7 +159,7 @@ For details on the filename, see [StackPack packaging](../../developer-guides/st
 {% tab title="Template" %}
 ```yaml
 _type: CheckFunction
-description: Converts AWS state to StackState run state
+description: Converts AWS state to Rancher Observability run state
 identifier: urn:stackpack:aws:shared:check-function:aws-event-run-state
 name: AWS event run state
 parameters:
@@ -182,7 +182,7 @@ The file `/provisioning/script/AWS event run state.groovy` in the AWS StackPack 
 {% tab title="Result" %}
 ```yaml
 _type: CheckFunction
-description: Converts AWS state to StackState run state
+description: Converts AWS state to Rancher Observability run state
 identifier: urn:stackpack:aws:shared:check-function:aws-event-run-state
 name: AWS event run state
 parameters:
@@ -316,5 +316,5 @@ Joins array or map data as a text usign a separator, prefix and suffix. This is 
 
 ## See also
 
-* [Using StackState templating](using_stackstate_templating.md)
+* [Using Rancher Observability templating](using_stackstate_templating.md)
 

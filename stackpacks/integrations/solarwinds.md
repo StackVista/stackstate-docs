@@ -1,22 +1,22 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # SolarWinds
 
 ## Overview
 
-The SolarWinds StackPack allows near real time synchronization between SolarWinds Orion \(SolarWinds\) and StackState. When the integration is enabled, SolarWinds nodes, interfaces and connections will be added to the StackState topology as components and relations. In addition, health status is applied to the components in StackState.
+The SolarWinds StackPack allows near real time synchronization between SolarWinds Orion \(SolarWinds\) and Rancher Observability. When the integration is enabled, SolarWinds nodes, interfaces and connections will be added to the Rancher Observability topology as components and relations. In addition, health status is applied to the components in Rancher Observability.
 
-SolarWinds is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
+SolarWinds is a [Rancher Observability curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
 ![Data flow](../../.gitbook/assets/stackpack-solarwinds.svg)
 
 * Agent V2 connects to the configured [SolarWinds API](solarwinds.md#rest-api-endpoints) \(default via TCP port 17778\).
 * Nodes, interfaces and connections are retrieved from the SolarWinds instance.
-* Node and interface Health status is retrieved from the SolarWinds instance and translated to StackState values.
-* Agent V2 pushes [retrieved data](solarwinds.md#data-retrieved) to StackState.
-* StackState translates incoming nodes, interfaces and connections into topology components and relations.
+* Node and interface Health status is retrieved from the SolarWinds instance and translated to Rancher Observability values.
+* Agent V2 pushes [retrieved data](solarwinds.md#data-retrieved) to Rancher Observability.
+* Rancher Observability translates incoming nodes, interfaces and connections into topology components and relations.
 
 ## Setup
 
@@ -24,7 +24,7 @@ SolarWinds is a [StackState curated integration](/stackpacks/integrations/about_
 
 To set up the SolarWinds integration you will need to have:
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to both SolarWinds \(default via TCP port 17778\) and StackState.
+* [Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to both SolarWinds \(default via TCP port 17778\) and Rancher Observability.
 * A running SolarWinds instance with correctly configured Network Performance Monitor \(NPM\) and User Device Tracker (UDT) modules. For details see [retrieved topology data](#topology).
 * A SolarWinds user with access to the required [API endpoints](solarwinds.md#rest-api-endpoints).
   * The lowest access level is sufficient.
@@ -34,19 +34,19 @@ To set up the SolarWinds integration you will need to have:
 Additionally, for some optional features you will need:
 
 * To see relations between components, a layer 3 network device is required.
-* To support [component actions](solarwinds.md#component-actions) from StackState, the SolarWinds server needs to be accessible from the user's browser.
+* To support [component actions](solarwinds.md#component-actions) from Rancher Observability, the SolarWinds server needs to be accessible from the user's browser.
 
 
 ### Install
 
-Install the SolarWinds StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
+Install the SolarWinds StackPack from the Rancher Observability UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
 
 * **SolarWinds Instance URL**: The SolarWinds instance URL from which topology data will be collected.
 * **SolarWinds Instance Name**: The user-defined name of the SolarWinds account shown in configurations such as views.
 
 ### Configure
 
-To enable the SolarWinds check and begin collecting data from SolarWinds, add the following configuration to StackState Agent V2:
+To enable the SolarWinds check and begin collecting data from SolarWinds, add the following configuration to Rancher Observability Agent V2:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/solarwinds.d/conf.yaml` to include details of your SolarWinds instance:
 
@@ -71,10 +71,10 @@ To enable the SolarWinds check and begin collecting data from SolarWinds, add th
    ```
 
 2. Set the following filters:
-   * **solarwinds\_domain** - The name of a SolarWinds custom property that will be used to select nodes from SolarWinds to include in the StackState dataset.
-   * **solarwinds\_domain\_values** - A list of values used by the SolarWinds custom property specified in `solarwinds_domain`. Used to select the correct nodes for inclusion. Any node in SolarWinds that has one of these values set will be included in the data collection. Each value in this list will be represented as a separate domain in StackState.
-3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
-4. Once the Agent has restarted, wait for data to be collected from SolarWinds and sent to StackState.
+   * **solarwinds\_domain** - The name of a SolarWinds custom property that will be used to select nodes from SolarWinds to include in the Rancher Observability dataset.
+   * **solarwinds\_domain\_values** - A list of values used by the SolarWinds custom property specified in `solarwinds_domain`. Used to select the correct nodes for inclusion. Any node in SolarWinds that has one of these values set will be included in the data collection. Each value in this list will be represented as a separate domain in Rancher Observability.
+3. [Restart Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+4. Once the Agent has restarted, wait for data to be collected from SolarWinds and sent to Rancher Observability.
 
 ### Status
 
@@ -86,7 +86,7 @@ sudo stackstate-agent status
 
 ### Upgrade
 
-When a new version of the SolarWinds StackPack is available in your instance of StackState, you will be prompted to upgrade in the StackState UI on the page **StackPacks** &gt; **Integrations** &gt; **SolarWinds**. For an overview of recent StackPack updates, check the [StackPack versions](../../setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release.
+When a new version of the SolarWinds StackPack is available in your instance of Rancher Observability, you will be prompted to upgrade in the Rancher Observability UI on the page **StackPacks** &gt; **Integrations** &gt; **SolarWinds**. For an overview of recent StackPack updates, check the [StackPack versions](../../setup/upgrade-stackstate/stackpack-versions.md) shipped with each Rancher Observability release.
 
 For considerations and instructions on upgrading a StackPack, see [how to upgrade a StackPack](../about-stackpacks.md#upgrade-a-stackpack).
 
@@ -94,7 +94,7 @@ For considerations and instructions on upgrading a StackPack, see [how to upgrad
 
 ### REST API endpoints
 
-The SolarWinds user configured in StackState Agent V2 must have read access to the SolarWinds API \(default for all user accounts\). No additional authorization needs to be set for this account in the SolarWinds system.
+The SolarWinds user configured in Rancher Observability Agent V2 must have read access to the SolarWinds API \(default for all user accounts\). No additional authorization needs to be set for this account in the SolarWinds system.
 
 Refer to the SolarWinds product documentation for details on how to [Manage Orion Web Console user accounts in the Orion Platform \(documentation.solarwinds.com\)](https://documentation.solarwinds.com/en/success_center/orionplatform/content/core-managing-web-accounts-sw1724.htm).
 
@@ -110,7 +110,7 @@ The SolarWinds check doesn't retrieve any metrics data.
 
 #### Topology
 
-The SolarWinds server can contain different modules suitable for data retrieval by the StackState SolarWinds integration.
+The SolarWinds server can contain different modules suitable for data retrieval by the Rancher Observability SolarWinds integration.
 
 * **Network Performance Monitor \(NPM\) module** - provides information about nodes, interfaces and layer-2 topology information for network devices. Layer-2 topology information for non-network devices is only available when the User Device Tracker \(UDT\) SolarWinds module is installed.
 * **User Device Tracker \(UDT\) module** - provides layer-2 topology information for non-network devices in the form of MAC-address tables from routers, switches and firewalls. This is added to the data retrieved from NPM, resulting in a complete topology for all SolarWinds nodes.
@@ -119,14 +119,14 @@ The SolarWinds check retrieves the following topology data from SolarWinds:
 
 | Data | Description |
 | :--- | :--- |
-| Components | Nodes and interfaces. In some cases, a SolarWinds node won't show any interfaces in the SolarWinds system. If UDT detects that such a node is connected to a device, a 'ghost' interface will be created in StackState to show the full topology. |
+| Components | Nodes and interfaces. In some cases, a SolarWinds node won't show any interfaces in the SolarWinds system. If UDT detects that such a node is connected to a device, a 'ghost' interface will be created in Rancher Observability to show the full topology. |
 | Relations | **NPM**: Layer-2 topology information from network devices. **UDT**: Layer-2 topology information connecting generic nodes to network devices |
 
 #### Health
 
-The SolarWinds check retrieves the health status from nodes and interfaces and translates these statuses to StackState statuses:
+The SolarWinds check retrieves the health status from nodes and interfaces and translates these statuses to Rancher Observability statuses:
 
-| SolarWinds Health status | StackState Health state |
+| SolarWinds Health status | Rancher Observability Health state |
 | :--- |:------------------------|
 | Up | `CLEAR`                 |
 | External | `CLEAR`                 |
@@ -146,9 +146,9 @@ The configured `collection_interval` will be used as the [`repeat_interval` for 
 
 The SolarWinds check doesn't retrieve any trace data.
 
-### StackState views
+### Rancher Observability views
 
-When the SolarWinds integration is enabled, the following SolarWinds specific views are available in StackState:
+When the SolarWinds integration is enabled, the following SolarWinds specific views are available in Rancher Observability:
 
 * Node Details
 * Interface Details
@@ -156,35 +156,35 @@ When the SolarWinds integration is enabled, the following SolarWinds specific vi
 ### Component actions
 
 {% hint style="info" %}
-To support component actions from StackState, the SolarWinds server needs to be accessible from the user's browser.
+To support component actions from Rancher Observability, the SolarWinds server needs to be accessible from the user's browser.
 {% endhint %}
 
 Links to SolarWinds detail dashboards are created as [component actions](../../use/stackstate-ui/perspectives/topology-perspective.md#actions) attached to SolarWinds components. This allows users to easily access more information from SolarWinds when needed.
 
 ### Open source
 
-The code for the StackState SolarWinds StackPack and check are open source and available on GitHub:
+The code for the Rancher Observability SolarWinds StackPack and check are open source and available on GitHub:
 
 * SolarWinds StackPack: [https://github.com/StackVista/stackpack-solarwinds](https://github.com/StackVista/stackpack-solarwinds)
 * SolarWinds check: [https://github.com/StackVista/stackstate-agent-integrations/tree/master/solarwinds](https://github.com/StackVista/stackstate-agent-integrations/tree/master/solarwinds)
 
 ## Troubleshooting
 
-Troubleshooting steps for any known issues can be found in the [StackState support Knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=SolarWinds).
+Troubleshooting steps for any known issues can be found in the [Rancher Observability support Knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=SolarWinds).
 
 ## Uninstall
 
 To uninstall the SolarWinds StackPack and disable the Dynatrace check:
 
-1. Go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **SolarWinds** screen and click **UNINSTALL**.
-   * All SolarWinds specific configuration will be removed from StackState.
+1. Go to the Rancher Observability UI **StackPacks** &gt; **Integrations** &gt; **SolarWinds** screen and click **UNINSTALL**.
+   * All SolarWinds specific configuration will be removed from Rancher Observability.
 2. Remove or rename the Agent integration configuration file, for example:
 
    ```text
     mv solarwinds.d/conf.yaml solarwinds.d/conf.yaml.bak
    ```
 
-3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+3. [Restart Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 
 ## Release notes
 
@@ -192,9 +192,9 @@ The [SolarWinds StackPack release notes](https://github.com/StackVista/stackpack
 
 ## See also
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md)
+* [Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md)
 * [Secrets management](https://docs.stackstate.com/configure/security/secrets_management)
 * [SolarWinds StackPack \(github.com\)](https://github.com/StackVista/stackpack-solarwinds)  
-* [StackState Agent integrations - SolarWinds \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/solarwinds)  
+* [Rancher Observability Agent integrations - SolarWinds \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/solarwinds)  
 * [Manage Orion Web Console user accounts in the Orion Platform \(documentation.solarwinds.com\)](https://documentation.solarwinds.com/en/success_center/orionplatform/content/core-managing-web-accounts-sw1724.htm)
 

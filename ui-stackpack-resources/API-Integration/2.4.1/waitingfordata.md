@@ -1,6 +1,6 @@
 ## The API-Integration StackPack is waiting for your action, please install the API-Integration Agent
 
-Provisioning of StackState configuration is done. We are now ready to process your data. Please install the StackState API-Integration Agent(s) of your choose.
+Provisioning of Rancher Observability configuration is done. We are now ready to process your data. Please install the Rancher Observability API-Integration Agent(s) of your choose.
 
 ### Installation
 

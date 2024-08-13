@@ -2,7 +2,7 @@
 
 The following prerequisites need to be met:
 
-* StackState Agent V2 must be installed on a single machine which can connect to Cloudera Manager and StackState. (See the [StackState Agent V2 StackPack](/#/stackpacks/stackstate-agent-v2/) for more details)
+* Rancher Observability Agent V2 must be installed on a single machine which can connect to Cloudera Manager and Rancher Observability. (See the [Rancher Observability Agent V2 StackPack](/#/stackpacks/stackstate-agent-v2/) for more details)
 * A Cloudera instance must be running.
 
 **NOTE**:- We support Cloudera version 5.11.
@@ -35,5 +35,5 @@ To enable the Cloudera check and begin collecting data from your Cloudera instan
        # mandatory
        api_version: <api_version> # v18
      ```
-2. [Restart the StackState Agent\(s\)](https://l.stackstate.com/ui-stackpack-restart-agent) to publish the configuration changes.
-3. Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
+2. [Restart the Rancher Observability Agent\(s\)](https://l.stackstate.com/ui-stackpack-restart-agent) to publish the configuration changes.
+3. Once the Agent is restarted, wait for the Agent to collect the data and send it to Rancher Observability.

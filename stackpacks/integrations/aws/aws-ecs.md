@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # AWS ECS
@@ -8,11 +8,11 @@ description: StackState Self-hosted v5.1.x
 
 Get topology and telemetry information from an Amazon Elastic Container Service \(ECS\) cluster.
 
-AWS ECS is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
+AWS ECS is a [Rancher Observability core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "Rancher Observability Self-Hosted only").
 
 ## Functionality
 
-StackState Agent V2 provides the following functionality:
+Rancher Observability Agent V2 provides the following functionality:
 
 * Reporting hosts, processes, and containers
 * Reporting all network connections between processes / containers including network traffic telemetry
@@ -25,7 +25,7 @@ StackState Agent V2 provides the following functionality:
 
 To monitor your ECS containers and tasks run the Agent as a container on every EC2 instance in your ECS cluster.
 
-Download the manifest from the StackState UI page **StackPacks** &gt; **AWS ECS** and edit it providing the configuration parameters provided there.
+Download the manifest from the Rancher Observability UI page **StackPacks** &gt; **AWS ECS** and edit it providing the configuration parameters provided there.
 
 Once the manifest is ready, the Agent task can be registered with the following command:
 
@@ -35,7 +35,7 @@ aws ecs register-task-definition --cli-input-json file://path/to/stackstate-agen
 
 The Agent should be loaded on one container on each EC2 instance. The way to achieve this is to run Agent as a [Daemon Service \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html#service_scheduler_daemon).
 
-Schedule a Daemon Service in AWS using StackState Agent V2 ECS Task:
+Schedule a Daemon Service in AWS using Rancher Observability Agent V2 ECS Task:
 
 1. Log in to the AWS console and navigate to the ECS Clusters section. Select the cluster you run the Agent on.
 2. Create a new service by clicking the **Create** button under Services.
@@ -46,18 +46,18 @@ Schedule a Daemon Service in AWS using StackState Agent V2 ECS Task:
 
 #### Integrate with Java traces
 
-When used in conjunction with one of our language specific trace clients to allow automatic merging of components within StackState make sure to configure you app to use the host’s pid namespace:
+When used in conjunction with one of our language specific trace clients to allow automatic merging of components within Rancher Observability make sure to configure you app to use the host’s pid namespace:
 
 
 ```text
   "containerDefinitions": [
     {
       ...
-      "pidMode": "host", # ensure pid's match with processes reported by the StackState process agent
+      "pidMode": "host", # ensure pid's match with processes reported by the Rancher Observability process agent
       ...
 ```
 
-For example, using the [StackState Java Trace Client](../java-apm.md "StackState Self-Hosted only").
+For example, using the [Rancher Observability Java Trace Client](../java-apm.md "Rancher Observability Self-Hosted only").
 
 
 #### Advanced Agent configurations

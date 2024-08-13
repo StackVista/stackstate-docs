@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Health Forecast
@@ -10,7 +10,7 @@ Install the Health Forecast StackPack to get on-demand forecasts for the health 
 
 ### How to use the Health Forecast StackPack
 
-1. Install the Health Forecast StackPack from the StackState UI:
+1. Install the Health Forecast StackPack from the Rancher Observability UI:
    * Go to StackPacks &gt; Add-ons
    * Select **Health Forecast**
    * Click **INSTALL**

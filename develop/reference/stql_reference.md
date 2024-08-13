@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
-# StackState Query Language \(STQL\)
+# Rancher Observability Query Language \(STQL\)
 
 ## Overview
 
-This page describes how to use the built-in StackState Query Language \(STQL\) to write advanced topology component filters. STQL queries are used in StackState to write [advanced topology filters](../../use/stackstate-ui/filters.md#advanced-topology-filters).
+This page describes how to use the built-in Rancher Observability Query Language \(STQL\) to write advanced topology component filters. STQL queries are used in Rancher Observability to write [advanced topology filters](../../use/stackstate-ui/filters.md#advanced-topology-filters).
 
 An STQL query consists of [component filters](stql_reference.md#component-filters) and [functions](stql_reference.md#functions). The query output is a component, or set of components, filtered from the complete topology.
 
@@ -131,12 +131,12 @@ It's always possible to switch from Basic to Advanced filtering. The selected ba
     - The **Include components** basic filter box (name) is the exception - this is chained to the other filter boxes with an OR: `layer IN ("business service") AND domain IN ("online banking") OR name IN ("DLL_DB”)`
     - The advanced filtering options **withNeighborsOf** function and **identifier** are only compatible with basic filtering if they're joined to other filters with an **OR**: `layer in ("Processes") OR identifier IN ("urn:test:component")`
   
-If you try to switch from an Advanced filter to a Basic filter and the query isn't compatible, StackState will let you know and ask for confirmation to continue as you will lose some set filters. Alternatively, you can choose to stay in advanced filtering.
+If you try to switch from an Advanced filter to a Basic filter and the query isn't compatible, Rancher Observability will let you know and ask for confirmation to continue as you will lose some set filters. Alternatively, you can choose to stay in advanced filtering.
 
 
 ## See also
 
 * [Basic topology filters](/use/stackstate-ui/filters.md#basic-topology-filters)
 * [Topology filter limits](../../use/stackstate-ui/filters.md#topology-filtering-limits)
-* [How to filter topology in the StackState UI](../../use/stackstate-ui/filters.md)
+* [How to filter topology in the Rancher Observability UI](../../use/stackstate-ui/filters.md)
 

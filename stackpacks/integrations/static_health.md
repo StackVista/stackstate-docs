@@ -1,14 +1,14 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Static Health
 
 ## Overview
 
-The Static Health integration is used to visualize static health information in StackState by reading from CSV files. The health consists of check states.
+The Static Health integration is used to visualize static health information in Rancher Observability by reading from CSV files. The health consists of check states.
 
-Static Health is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
+Static Health is a [Rancher Observability curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
 ## Setup
 
@@ -16,11 +16,11 @@ Static Health is a [StackState curated integration](/stackpacks/integrations/abo
 
 To set up the Static Health integration you will need to have:
 
-* StackState [Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to StackState.
+* Rancher Observability [Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to Rancher Observability.
 
 ### Configure
 
-To configure StackState Agent V2 to read CSV health files:
+To configure Rancher Observability Agent V2 to read CSV health files:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/static_health.d/conf.yaml` to include the following details:
    * **type** - set to `csv` for parsing CSV typed files.
@@ -35,8 +35,8 @@ To configure StackState Agent V2 to read CSV health files:
       health_file: /path/to/health.csv
       delimiter: ';'
      ```
-2. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
-3. Once the Agent has restarted, wait for the Agent to collect data from the specified [health CSV file](static_health.md#csv-file-format) and send it to StackState.
+2. [Restart Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+3. Once the Agent has restarted, wait for the Agent to collect data from the specified [health CSV file](static_health.md#csv-file-format) and send it to Rancher Observability.
 
 {% hint style="info" %}
 The configured `collection_interval` will be used as the [`repeat_interval` for the health synchronization](../../../configure/health/health-synchronization.md#repeat-interval). Make sure that the value set for the `collection_interval` matches the time that the check will take to run.
@@ -68,12 +68,12 @@ check_2,Another example check,clear,urn:component/some_component,This is going w
 
 ### Delimiter
 
-The delimiter used in the CSV file can be specified when you [configure the Static Health check](static_health.md#configure) on StackState Agent V2.
+The delimiter used in the CSV file can be specified when you [configure the Static Health check](static_health.md#configure) on Rancher Observability Agent V2.
 
 ## See also
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md)
-* [Health state in StackState](../../use/concepts/health-state.md)
+* [Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md)
+* [Health state in Rancher Observability](../../use/concepts/health-state.md)
 * [Health Synchronization](../../configure/health/health-synchronization.md)
 * [Debug Health Synchronization](../../configure/health/debug-health-sync.md)
 

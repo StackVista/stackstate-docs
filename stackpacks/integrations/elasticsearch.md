@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Elasticsearch
 
 ## Overview
 
-StackState can be configured to pull telemetry data from an external Elasticsearch system. This integration isn't set up using a StackPack. 
+Rancher Observability can be configured to pull telemetry data from an external Elasticsearch system. This integration isn't set up using a StackPack. 
 
 {% hint style="info" %}
 Requires Elasticsearch version 7.3.x or earlier.

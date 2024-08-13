@@ -1,17 +1,17 @@
 ---
-description: StackState Self-hosted v5.1.x
+description: Rancher Observability Self-hosted v5.1.x
 ---
 
 # Tune topology synchronization performance
 
 ## Overview
 
-This guide lays out steps to tune topology synchronization for best performance on a Kubernetes deployment of StackState.
+This guide lays out steps to tune topology synchronization for best performance on a Kubernetes deployment of Rancher Observability.
 
 To tune the topology synchronization performance, follow these steps:
 
 1. [Observe topology synchronization performance](#observe-topology-synchronization-performance)
-2. [Investigate StackState platform as the bottleneck](#investigate-stackstate-platform-as-the-bottleneck)
+2. [Investigate Rancher Observability platform as the bottleneck](#investigate-stackstate-platform-as-the-bottleneck)
 3. [Change the topology synchronization CPU budget](#change-the-topology-synchronization-cpu-budget)
 
 This process can be repeated until the desired performance is achieved.
@@ -48,13 +48,13 @@ To understand how a topology synchronization is performing, use the [`stac` CLI]
     latency (Seconds)                                   35.754                                    38.120                                    31.274
     ```
 
-⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+⚠️ **From Rancher Observability v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "Rancher Observability Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "Rancher Observability Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "Rancher Observability Self-Hosted only")
 
 {% endtab %}
 {% tab title="CLI: sts" %}
@@ -63,11 +63,11 @@ Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 {% endtab %}
 {% endtabs %}
 
-## Investigate StackState platform as the bottleneck
+## Investigate Rancher Observability platform as the bottleneck
 
-To understand whether the StackState platform is a bottleneck when processing topology, we want to know whether the pod that does synchronization has exhausted its CPU resources. We do this using the following steps:
+To understand whether the Rancher Observability platform is a bottleneck when processing topology, we want to know whether the pod that does synchronization has exhausted its CPU resources. We do this using the following steps:
 
-1. Get the configured request for the StackState topology synchroinzation pod
+1. Get the configured request for the Rancher Observability topology synchroinzation pod
     ```javascript
     > kubectl get pod -l app.kubernetes.io/component=sync -o=jsonpath='{.items[*]..resources.requests.cpu}'
     2
@@ -84,7 +84,7 @@ In the above example, we observe that 1.970 cores are used by the synchronizatio
 
 ## Change the topology synchronization CPU budget
 
-To modify the CPU budget for the topology synchronization, add/change the following configuration items in the [values.yaml](/setup/install-stackstate/kubernetes_openshift/customize_config.md) of your Kubernetes StackState deployment and deploy the change.
+To modify the CPU budget for the topology synchronization, add/change the following configuration items in the [values.yaml](/setup/install-stackstate/kubernetes_openshift/customize_config.md) of your Kubernetes Rancher Observability deployment and deploy the change.
 
 {% code lineNumbers="true" %}
 ```javascript

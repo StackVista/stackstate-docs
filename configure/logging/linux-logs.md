@@ -1,16 +1,16 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Linux logs
 
 ## Overview
 
-In a Linux setup, StackState keeps all log files in the `var/log` subdirectory of the StackState installation directory. By default, this is `/opt/stackstate/var/log`. In case of a two-node installation, logs are kept in the `var/log` directory on each node. Note that the logs are node-specific - the StackState node keeps StackState related logs and the StackGraph node keeps logs related to StackGraph.
+In a Linux setup, Rancher Observability keeps all log files in the `var/log` subdirectory of the Rancher Observability installation directory. By default, this is `/opt/stackstate/var/log`. In case of a two-node installation, logs are kept in the `var/log` directory on each node. Note that the logs are node-specific - the Rancher Observability node keeps Rancher Observability related logs and the StackGraph node keeps logs related to StackGraph.
 
 ## `var/log` details
 
-Inside `var/log`, there is a subdirectory for each type of logs kept by StackState. By default, each subdirectory has a size cap of 2 GB; when exceeded, the oldest files are deleted. Example of `var/log` contents:
+Inside `var/log`, there is a subdirectory for each type of logs kept by Rancher Observability. By default, each subdirectory has a size cap of 2 GB; when exceeded, the oldest files are deleted. Example of `var/log` contents:
 
 ```text
 .:
@@ -164,12 +164,12 @@ total 1043088
 ```
 
 {% hint style="info" %}
-From StackState v1.15.0, the version of Elasticsearch used by StackState changed. Elasticsearch logs are now saved in `./elasticsearch7`. The old `./elasticsearch` subdirectory can be removed to free some disk space.
+From Rancher Observability v1.15.0, the version of Elasticsearch used by Rancher Observability changed. Elasticsearch logs are now saved in `./elasticsearch7`. The old `./elasticsearch` subdirectory can be removed to free some disk space.
 {% endhint %}
 
 ## Log files
 
-StackState keeps logs in files that have a maximum size of 50 MB. When a log file exceeds 50 MB size cap, it's divided into ordered parts, as in the below example:
+Rancher Observability keeps logs in files that have a maximum size of 50 MB. When a log file exceeds 50 MB size cap, it's divided into ordered parts, as in the below example:
 
 ```text
 ./sync:
@@ -182,4 +182,4 @@ total 1043088
 
 ## Default log pattern
 
-StackState builds log files using the following default log pattern: `"%date [%thread] %-5level %logger{60} - %msg%n"`
+Rancher Observability builds log files using the following default log pattern: `"%date [%thread] %-5level %logger{60} - %msg%n"`

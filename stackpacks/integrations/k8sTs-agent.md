@@ -1,63 +1,63 @@
 ---
-description: StackState v6.0
+description: Rancher Observability v6.0
 ---
 
-# 💠 StackState Agent V2
+# 💠 Rancher Observability Agent V2
 
 ## Overview
 
 🚧 TODO - fix for k8sTs
 
-The StackState Agent V2 StackPack works with [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) to synchronize topology, metrics, events and traces data from external systems with StackState. A number of integrations are automatically enabled when the StackState Agent V2 StackPack is installed, however, integration with some systems will require an additional StackPack and configuration.
+The Rancher Observability Agent V2 StackPack works with [Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md) to synchronize topology, metrics, events and traces data from external systems with Rancher Observability. A number of integrations are automatically enabled when the Rancher Observability Agent V2 StackPack is installed, however, integration with some systems will require an additional StackPack and configuration.
 
-StackState Agent V2 is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
+Rancher Observability Agent V2 is a [Rancher Observability core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "Rancher Observability Self-Hosted only").
 
 ## Setup
 
 ### Prerequisites
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to StackState and any system you will integrate with.
+* [Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to Rancher Observability and any system you will integrate with.
 
 ### Install
 
-Install the StackState Agent V2 StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen.
+Install the Rancher Observability Agent V2 StackPack from the Rancher Observability UI **StackPacks** &gt; **Integrations** screen.
 
 ### Configure
 
-The integrations included in the StackState Agent V2 StackPack are listed below. Refer to the integration pages to find configuration details for each integration:
+The integrations included in the Rancher Observability Agent V2 StackPack are listed below. Refer to the integration pages to find configuration details for each integration:
 
-* [Apache TomCat](apache-tomcat.md "StackState Self-Hosted only")
+* [Apache TomCat](apache-tomcat.md "Rancher Observability Self-Hosted only")
 * [AWS ECS](aws/aws-ecs.md)
 * [AWS Xray](aws/aws-x-ray.md)
-* [DotNet APM](dotnet-apm.md "StackState Self-Hosted only")
-* [Java APM](java-apm.md "StackState Self-Hosted only")
-* [JMX](jmx.md "StackState Self-Hosted only")
-* [MySQL](mysql.md "StackState Self-Hosted only")
-* [OpenMetrics](openmetrics.md "StackState Self-Hosted only")
-* [PostgreSQL](postgresql.md "StackState Self-Hosted only")
-* [Static Health](static_health.md "StackState Self-Hosted only")  
-* [WMI](wmi.md "StackState Self-Hosted only")
+* [DotNet APM](dotnet-apm.md "Rancher Observability Self-Hosted only")
+* [Java APM](java-apm.md "Rancher Observability Self-Hosted only")
+* [JMX](jmx.md "Rancher Observability Self-Hosted only")
+* [MySQL](mysql.md "Rancher Observability Self-Hosted only")
+* [OpenMetrics](openmetrics.md "Rancher Observability Self-Hosted only")
+* [PostgreSQL](postgresql.md "Rancher Observability Self-Hosted only")
+* [Static Health](static_health.md "Rancher Observability Self-Hosted only")  
+* [WMI](wmi.md "Rancher Observability Self-Hosted only")
 
 ### Status
 
-To find the status of an installed Agent, use the status commands provided in the [StackState Agent documentation](/setup/agent/).
+To find the status of an installed Agent, use the status commands provided in the [Rancher Observability Agent documentation](/setup/agent/).
 
 ### Upgrade
 
-When a new version of the StackState Agent V2 StackPack is available in your instance of StackState, you will be prompted to upgrade in the StackState UI on the page **StackPacks** &gt; **Integrations** &gt; **StackState Agent V2**. 
+When a new version of the Rancher Observability Agent V2 StackPack is available in your instance of Rancher Observability, you will be prompted to upgrade in the Rancher Observability UI on the page **StackPacks** &gt; **Integrations** &gt; **Rancher Observability Agent V2**. 
 
 {% hint style="success" "self-hosted info" %}
 
-For an overview of recent StackPack updates, check the [StackPack versions](/setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release.
+For an overview of recent StackPack updates, check the [StackPack versions](/setup/upgrade-stackstate/stackpack-versions.md) shipped with each Rancher Observability release.
 {% endhint %}
 
-To upgrade StackState Agent V2, see the [StackState Agent documentation](/setup/agent/).
+To upgrade Rancher Observability Agent V2, see the [Rancher Observability Agent documentation](/setup/agent/).
 
 ## Integration details
 
 ### Data retrieved
 
-When installed and running, StackState Agent V2 will synchronize the following data with StackState from the host it's running on:
+When installed and running, Rancher Observability Agent V2 will synchronize the following data with Rancher Observability from the host it's running on:
 
 Linux:
 
@@ -76,19 +76,19 @@ When additional checks have been enabled on the Agent, data from other external 
 
 ## Troubleshooting
 
-Troubleshooting steps for any known issues can be found in the [StackState support knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=agent).
+Troubleshooting steps for any known issues can be found in the [Rancher Observability support knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=agent).
 
 ## Uninstall
 
-Uninstall the StackState Agent V2 StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen.
+Uninstall the Rancher Observability Agent V2 StackPack from the Rancher Observability UI **StackPacks** &gt; **Integrations** screen.
 
-To uninstall StackState Agent V2, see the [StackState Agent documentation](/setup/agent/).
+To uninstall Rancher Observability Agent V2, see the [Rancher Observability Agent documentation](/setup/agent/).
 
 ## Release notes
 
 **Agent V2 StackPack v4.5.1 (2022-04-08)**
 
-- Improvement: Added a Deprovisioning screen when uninstalling the StackState Agent V2 StackPack.
+- Improvement: Added a Deprovisioning screen when uninstalling the Rancher Observability Agent V2 StackPack.
 
 
 **Agent V2 StackPack v4.5.0 (2022-03-02)**
@@ -119,7 +119,7 @@ To uninstall StackState Agent V2, see the [StackState Agent documentation](/setu
 * Improvement: Supported additional identifiers for Disk component
 
 
-## See also [](http://not.a.link "StackState Self-Hosted only")
+## See also [](http://not.a.link "Rancher Observability Self-Hosted only")
 
-* [StackState Agent documentation](/setup/agent/ "StackState Self-Hosted only")
+* [Rancher Observability Agent documentation](/setup/agent/ "Rancher Observability Self-Hosted only")
 

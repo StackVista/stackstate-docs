@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Streaming script result
@@ -8,7 +8,7 @@ Most API functions execute asynchronously. That means they won't directly return
 
 ## Working with `StreamingScriptResult.then`
 
-If the result of your script is returned as a `StreamingScriptResult`, StackState will produce an asynchronously executed stream of data. If you want to further process the data in the `StreamingScriptResult`, the `.then` method can be used.
+If the result of your script is returned as a `StreamingScriptResult`, Rancher Observability will produce an asynchronously executed stream of data. If you want to further process the data in the `StreamingScriptResult`, the `.then` method can be used.
 
 The `.then` method expects a [Groovy closure /(groovy-lang.org/)](https://groovy-lang.org/closures.html). The closure will be executed for each element in the `StreamingScriptResult`. This lambda function can work with the element and returns a new list of items or a single new item.
 
@@ -33,7 +33,7 @@ To avoid computations becoming too heavy, the `StreamingScriptResult` can't be c
 
 ## Collecting results
 
-The `StreamingScriptResult` can be returned from a script, after which the script runtime will take care of collecting the results. This is the preferred way of using the `StreamingScriptResult` because it allows StackState to process data incrementally with constant memory. In exceptional cases, it can be useful to actually run a stream, such that all results are accessible. This can be achieved with the `collectStream` function.
+The `StreamingScriptResult` can be returned from a script, after which the script runtime will take care of collecting the results. This is the preferred way of using the `StreamingScriptResult` because it allows Rancher Observability to process data incrementally with constant memory. In exceptional cases, it can be useful to actually run a stream, such that all results are accessible. This can be achieved with the `collectStream` function.
 
 {% hint style="warning" %}
 Be careful collecting data from a stream with higher limits. This can cause memory pressure and the script to fail. It's always best not to collect the data and process the data in a streaming fashion.

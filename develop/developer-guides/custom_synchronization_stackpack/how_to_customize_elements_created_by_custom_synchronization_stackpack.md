@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # How to customize elements created by the Custom Synchronization StackPack
@@ -8,21 +8,21 @@ description: StackState Self-hosted v5.1.x
 
 Once you have installed the Custom Synchronization StackPack, you need to start preparing the configuration for your integration.
 
-There are some default Layers, Domains, and Environments created by StackState. Layers are used for vertical separation between components; Domains are used for horizontal separation between components; Environments are grouping components. You can add custom Layers, Domains, and Environments in the Settings pages to match your StackPack needs.
+There are some default Layers, Domains, and Environments created by Rancher Observability. Layers are used for vertical separation between components; Domains are used for horizontal separation between components; Environments are grouping components. You can add custom Layers, Domains, and Environments in the Settings pages to match your StackPack needs.
 
-These can also be created automatically by StackState using the `getOrCreate` functionality described alongside Component and Relation Templates below.
+These can also be created automatically by Rancher Observability using the `getOrCreate` functionality described alongside Component and Relation Templates below.
 
 ## 2. Configure Component and Relation types
 
-There are some default component and relation types in StackState. Component types are used to visualize components with a given icon; [relation types](/use/concepts/relations.md) describe relations between components.
+There are some default component and relation types in Rancher Observability. Component types are used to visualize components with a given icon; [relation types](/use/concepts/relations.md) describe relations between components.
 
-Component types and Relation types can also be created automatically by StackState using the `getOrCreate` functionality described in the **Configure Component and Relation Templates** section below. Auto-generated component types will be created without an icon.
+Component types and Relation types can also be created automatically by Rancher Observability using the `getOrCreate` functionality described in the **Configure Component and Relation Templates** section below. Auto-generated component types will be created without an icon.
 
 ## 3. Configure Component and Relation Templates
 
 Once you have installed the `Custom Synchronization` StackPack, it creates a Component Template called `autosync-component-template`. Similarly, `Custom Synchronization` StackPack, creates a Relation Template called `autosync-relation-template`.
 
-You can go ahead and rename it, add a description if needed. It is recommended to change the default value of the `ComponentType` from `Auto-synced Component` to something that represents a generic component in your data source. The same goes for `Layer`, `Domain` and `Environment` which defaults to `Auto-synced Components`, `Auto-synced Domain`,`Auto-synced Environment` respectively. As this template is using the `getOrCreate` functionality, these values are auto-created by StackState if they don't already exist. [Find more on Templates](../../reference/stackstate-templating/using_stackstate_templating.md).
+You can go ahead and rename it, add a description if needed. It is recommended to change the default value of the `ComponentType` from `Auto-synced Component` to something that represents a generic component in your data source. The same goes for `Layer`, `Domain` and `Environment` which defaults to `Auto-synced Components`, `Auto-synced Domain`,`Auto-synced Environment` respectively. As this template is using the `getOrCreate` functionality, these values are auto-created by Rancher Observability if they don't already exist. [Find more on Templates](../../reference/stackstate-templating/using_stackstate_templating.md).
 
 The `getOrCreate` function tries to resolve a node by first its identifier and then by the fallback create-identifier. If it can't find any, one will be created using the type and name argument. The newly created node will be identified with the create-identifier value.
 
@@ -34,13 +34,13 @@ Once you have completed all the changes, you can click **UPDATE** and confirm th
 
 ## 4. Prepare ID Extractor Functions
 
-When creating an integration, or a StackPack, it's important to have a `component` and `relation` identity extractor function. There are a few default ID Extractor Functions present in StackState. The `Auto sync component id extractor` and `Auto sync relation id extractor` are good starting points for your StackPack. You can go ahead and rename these, add a description if needed, and confirm the popup dialog to unlock these ID Extractor Functions from the `Custom Synchronization` StackPack.
+When creating an integration, or a StackPack, it's important to have a `component` and `relation` identity extractor function. There are a few default ID Extractor Functions present in Rancher Observability. The `Auto sync component id extractor` and `Auto sync relation id extractor` are good starting points for your StackPack. You can go ahead and rename these, add a description if needed, and confirm the popup dialog to unlock these ID Extractor Functions from the `Custom Synchronization` StackPack.
 
 You can find more on [ID Extractors page](../custom-functions/id-extractor-functions.md).
 
 ## 5. Configure Sts Sources - Topology Sources
 
-Once you have installed the `Custom Synchronization` StackPack, it creates a StackState DataSource called `Internal kafka`. This data source is a good starting point for your StackPack. You can change the name of it, add a description if needed. You can observe the `Integration Type` and `Kafka Topic` are a representation of the information you supplied in the `Custom Synchronization` StackPack instance details. More on [Topology Sources.](../../../configure/topology/topology_sources.md)
+Once you have installed the `Custom Synchronization` StackPack, it creates a Rancher Observability DataSource called `Internal kafka`. This data source is a good starting point for your StackPack. You can change the name of it, add a description if needed. You can observe the `Integration Type` and `Kafka Topic` are a representation of the information you supplied in the `Custom Synchronization` StackPack instance details. More on [Topology Sources.](../../../configure/topology/topology_sources.md)
 
-Once you have completed all the changes, you can click **UPDATE** and confirm the popup dialog to unlock this StackState DataSource from the `Custom Synchronization` StackPack.
+Once you have completed all the changes, you can click **UPDATE** and confirm the popup dialog to unlock this Rancher Observability DataSource from the `Custom Synchronization` StackPack.
 

@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # About views
 
 ## Overview
 
-The full topology available in StackState is likely much larger than you need to be concerned with at any given point in time. StackState allows you to create a filter to select a specific set of components from your topology and save it as a view. Each stored view includes:
+The full topology available in Rancher Observability is likely much larger than you need to be concerned with at any given point in time. Rancher Observability allows you to create a filter to select a specific set of components from your topology and save it as a view. Each stored view includes:
 
 * [Filters](../filters.md) - Topology filters add elements \(components and relations\) to the view. Events and Traces filters refine the traces and events displayed for the filtered topology.
 * [Visualization settings](visualization_settings.md) – customize how elements \(components and relations\) are displayed within the view.
@@ -22,7 +22,7 @@ Not all views are manually created. Many [StackPacks](../../../stackpacks/about-
 
 ## Access a view
 
-Every view that a user has permission to access is listed on the **all views** screen in the StackState UI. To open this screen, click **all views** from the main menu or **Views** in the top bar breadcrumbs. Views marked with a star are listed directly in the main menu for easy access.
+Every view that a user has permission to access is listed on the **all views** screen in the Rancher Observability UI. To open this screen, click **all views** from the main menu or **Views** in the top bar breadcrumbs. Views marked with a star are listed directly in the main menu for easy access.
 
 Click a view name to open the topology perspective for that view.
 
@@ -49,7 +49,7 @@ When you first open a view, the **View summary** will be visible in the right pa
 
 ## View health state
 
-A view is also a tool to define a clear selection of components for which you want to receive an event notifications. Typically, these are services that provide business value to a team's \(internal\) customers. StackState can define a single health state for any given set of components stored as a view - the [view health state](../../concepts/health-state.md#view-health-state). The view health state reflects the health state of components and relations within the view. It can be calculated based on a simple count, but it could also be something more complex, for example:
+A view is also a tool to define a clear selection of components for which you want to receive an event notifications. Typically, these are services that provide business value to a team's \(internal\) customers. Rancher Observability can define a single health state for any given set of components stored as a view - the [view health state](../../concepts/health-state.md#view-health-state). The view health state reflects the health state of components and relations within the view. It can be calculated based on a simple count, but it could also be something more complex, for example:
 
 * Report view health state `CLEAR` if service A and service B are working fine.
 * Report view health `DEVIATING` if service A has a problem.
@@ -82,10 +82,10 @@ Through a combination of configuration of permissions and scope, it's possible [
 
 ### What is a subview?
 
-A subview is a temporary StackState view that can be used to aid investigation. While views use stored filters to select a specific set of topology, subviews are generated on demand and can't be saved. Within a subview, you can investigate the element, group or problem across all perspectives and at any point in time. 
+A subview is a temporary Rancher Observability view that can be used to aid investigation. While views use stored filters to select a specific set of topology, subviews are generated on demand and can't be saved. Within a subview, you can investigate the element, group or problem across all perspectives and at any point in time. 
 
 
-Whenever a subview is opened in the StackState UI, topology filters are constructed to focus directly on the chosen area of the StackState topology. You can open a subview by:
+Whenever a subview is opened in the Rancher Observability UI, topology filters are constructed to focus directly on the chosen area of the Rancher Observability topology. You can open a subview by:
 
 * double-clicking an element in the topology visualizer
 * clicking **INVESTIGATE IN SUBVIEW** on a topology element or problem
@@ -93,20 +93,20 @@ Whenever a subview is opened in the StackState UI, topology filters are construc
 
 There are two types of subview:
 
-* **[Problem subviews](/use/problem-analysis/problem_investigation.md#problem-subview)** zoom in on the time window and components related to the root cause and contributing causes of a problem identified in the StackState topology. 
+* **[Problem subviews](/use/problem-analysis/problem_investigation.md#problem-subview)** zoom in on the time window and components related to the root cause and contributing causes of a problem identified in the Rancher Observability topology. 
 * **Selection subviews** zoom in on a specific component, relation or group.
 
 ### Working with subviews
 
 You can open a subview in any of the following ways:
 
-* Select a component, relation, group or problem in the StackState UI and then click **INVESTIGATE IN SUBVIEW** in the right panel details tab. The view filters will be updated to focus on the selected element, group or problem, and the **View summary** tab in the right panel will be replaced by a **Subview summary** tab.
+* Select a component, relation, group or problem in the Rancher Observability UI and then click **INVESTIGATE IN SUBVIEW** in the right panel details tab. The view filters will be updated to focus on the selected element, group or problem, and the **View summary** tab in the right panel will be replaced by a **Subview summary** tab.
 * Double-click on a component, relation or group in the topology visualizer.
 * Use the [Actions](/use/stackstate-ui/perspectives/topology-perspective.md#actions) list in the component context menu or right panel details tab to open a selection subview for a component.
 
-Subviews can be shared with other StackState users as a link, this will include any modifications that you have made to the subview. It isn't possible to save a subview.
+Subviews can be shared with other Rancher Observability users as a link, this will include any modifications that you have made to the subview. It isn't possible to save a subview.
 
-To exit a subview and return to the previous view or explore mode, click the view name in the top bar of the StackState UI.
+To exit a subview and return to the previous view or explore mode, click the view name in the top bar of the Rancher Observability UI.
 
 ![Breadcrumbs with view name](/.gitbook/assets/v51_problem_subview_breadcrumb.png)
 

@@ -1,6 +1,6 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
-# StackState Template JSON \(STJ\) and YAML \(STY\)
+# Rancher Observability Template JSON \(STJ\) and YAML \(STY\)
 

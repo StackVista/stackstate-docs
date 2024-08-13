@@ -1,6 +1,6 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
-# StackState Markup Language \(STML\)
+# Rancher Observability Markup Language \(STML\)
 

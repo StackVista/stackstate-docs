@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Explore mode
 
 ## Overview
 
-The StackState explore mode provides an unfiltered view of your topology with. This is most likely a much larger overview that you would like to see at any given time, but it's a good place to start when creating a [customized view](views/about_views.md) and get familiar with the StackState UI.
+The Rancher Observability explore mode provides an unfiltered view of your topology with. This is most likely a much larger overview that you would like to see at any given time, but it's a good place to start when creating a [customized view](views/about_views.md) and get familiar with the Rancher Observability UI.
 
 Up to 10,000 components can be displayed at any time, if there are already more items than this in your topology, you will need to [add a filter](explore_mode.md#add-a-filter) before any data will be displayed.
 
@@ -16,7 +16,7 @@ Up to 10,000 components can be displayed at any time, if there are already more 
 
 ![Perspectives](../../.gitbook/assets/v51_perspective_buttons.png)
 
-As in any StackState view, explore mode gives you access to data from your IT landscape in all available [StackState perspectives](../concepts/perspectives.md). Each perspective shows different data from the filtered \(or unfiltered\) components. Use the perspective buttons across the top of the screen to switch between them:
+As in any Rancher Observability view, explore mode gives you access to data from your IT landscape in all available [Rancher Observability perspectives](../concepts/perspectives.md). Each perspective shows different data from the filtered \(or unfiltered\) components. Use the perspective buttons across the top of the screen to switch between them:
 
 * [Topology Perspective](perspectives/topology-perspective.md)
 * [Metrics Perspective](perspectives/metrics-perspective.md)
@@ -38,5 +38,5 @@ When you change the displayed components using a filter, the **Save view** butto
 ## See also
 
 * [Filtering data](filters.md)
-* [StackState perspectives](../concepts/perspectives.md)
-* [Working with StackState Views](views/about_views.md)
+* [Rancher Observability perspectives](../concepts/perspectives.md)
+* [Working with Rancher Observability Views](views/about_views.md)

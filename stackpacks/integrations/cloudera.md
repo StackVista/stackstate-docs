@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Cloudera
@@ -14,7 +14,7 @@ Cloudera is a [community integration](/stackpacks/integrations/about_integration
 
 The following prerequisites need to be met:
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) must be installed on a single machine which can connect to Cloudera Manager and StackState.
+* [Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md) must be installed on a single machine which can connect to Cloudera Manager and Rancher Observability.
 * A Cloudera instance must be running.
 
 **NOTE**:- We support Cloudera version 5.11.
@@ -47,8 +47,8 @@ To enable the Cloudera check and begin collecting data from your Cloudera instan
        # mandatory
        api_version: <api_version> # v18
      ```
-2. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to publish the configuration changes.
-3. Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
+2. [Restart Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to publish the configuration changes.
+3. Once the Agent is restarted, wait for the Agent to collect the data and send it to Rancher Observability.
 
 ## Release notes
 
@@ -57,6 +57,6 @@ To enable the Cloudera check and begin collecting data from your Cloudera instan
 * Improvement: Enable auto grouping on generated views.
 * Improvement: Update documentation.
 * Improvement: Common bumped from 2.2.3 to 2.5.1
-* Improvement: StackState min version bumped to 4.3.0
+* Improvement: Rancher Observability min version bumped to 4.3.0
 
 

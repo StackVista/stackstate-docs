@@ -1,34 +1,34 @@
 ---
-description: StackState Self-hosted v5.1.x
+description: Rancher Observability Self-hosted v5.1.x
 ---
 
 # Create a simple StackPack
 
-This tutorial shows you how to create a basic StackPack to configure StackState. See the [StackPacks documentation](../../stackpacks/about-stackpacks.md) for more information.
+This tutorial shows you how to create a basic StackPack to configure Rancher Observability. See the [StackPacks documentation](../../stackpacks/about-stackpacks.md) for more information.
 
 ## Setup
 
 [This GitHub repository](https://github.com/StackVista/stackpack-tutorial) contains a sample project that containing a very basic StackPack. Clone the repository to your laptop to get started.
 
-The repository contains a StackPack that configures StackState to receive external data and turn that into topology. The main configuration of the StackPack is in the `src` folder.
+The repository contains a StackPack that configures Rancher Observability to receive external data and turn that into topology. The main configuration of the StackPack is in the `src` folder.
 
 ## What's in the StackPack?
 
-The tutorial StackPack is fairly basic. It includes configuration information that configure StackState to receive a specific data format and turn this into topology.
+The tutorial StackPack is fairly basic. It includes configuration information that configure Rancher Observability to receive a specific data format and turn this into topology.
 
 Specifically, the StackPack has:
 
 * A [Groovy](https://groovy-lang.org/) provisioning script that installs the components of the StackPack \(`TutorialProvision.groovy`\)
-* A component and relation template that tell StackState how to process incoming data into components and relations \(`tutorial-component-template.json.handlebars` and `tutorial-relation-template.json.handlebars`\)
-* [Groovy](https://groovy-lang.org/) component and relation ID extractor scripts that tell StackState how to extract the identifiers from the incoming data \(`Tutorial component id extractor.groovy` and `Tutorial relation id extractor.groovy`\)
-* [Markdown](https://en.wikipedia.org/wiki/Markdown) files and images that are shown in the StackState GUI when users interact with the StackPack \(in the `resources` directory\)
+* A component and relation template that tell Rancher Observability how to process incoming data into components and relations \(`tutorial-component-template.json.handlebars` and `tutorial-relation-template.json.handlebars`\)
+* [Groovy](https://groovy-lang.org/) component and relation ID extractor scripts that tell Rancher Observability how to extract the identifiers from the incoming data \(`Tutorial component id extractor.groovy` and `Tutorial relation id extractor.groovy`\)
+* [Markdown](https://en.wikipedia.org/wiki/Markdown) files and images that are shown in the Rancher Observability GUI when users interact with the StackPack \(in the `resources` directory\)
 * A configuration file that describes all components of the StackPack \(`stackpack.conf`\)
 
 Take a moment to locate these files in the `src/main/stackpack` folder of the project.
 
 ## Building the StackPack
 
-The first step is to build the StackPack into a binary file with extension `.sts` that we can send to StackState. Since the `.sts` file is essentially a ZIP archive, you can build the StackPack from the directory `stackpack-tutorial/src/main/stackpack` in the sample repository using the command:
+The first step is to build the StackPack into a binary file with extension `.sts` that we can send to Rancher Observability. Since the `.sts` file is essentially a ZIP archive, you can build the StackPack from the directory `stackpack-tutorial/src/main/stackpack` in the sample repository using the command:
 
 ```text
 zip -r ./tutorial-stackpack-0.0.1.sts stackpack.conf provisioning resources
@@ -36,16 +36,16 @@ zip -r ./tutorial-stackpack-0.0.1.sts stackpack.conf provisioning resources
 
 ## Importing the StackPack
 
-The StackPack must be imported into StackState before it can be installed. This can be done using the [StackState CLI](/setup/cli/README.md). Please make sure it's installed and configured to connect with your StackState instance.
+The StackPack must be imported into Rancher Observability before it can be installed. This can be done using the [Rancher Observability CLI](/setup/cli/README.md). Please make sure it's installed and configured to connect with your Rancher Observability instance.
 
-The following command installs our new tutorial StackPack in StackState:
+The following command installs our new tutorial StackPack in Rancher Observability:
 
 {% tabs %}
 {% tab title="CLI: sts" %}
 
-From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+From Rancher Observability v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
-➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "Rancher Observability Self-Hosted only")
 
 ```text
 sts stackpack upload tutorial-stackpack-0.0.1.sts
@@ -56,26 +56,26 @@ sts stackpack upload tutorial-stackpack-0.0.1.sts
 stac stackpack upload tutorial-stackpack-0.0.1.sts
 ```
 
-⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+⚠️ **From Rancher Observability v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "Rancher Observability Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "Rancher Observability Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "Rancher Observability Self-Hosted only")
 
 {% endtab %}
 {% endtabs %}
 
 {% hint style="info" %}
-The StackState CLI requires a `conf.d` configuration folder in the directory it's running from. This may require you to run the CLI from a different location. If so, remember to use an absolute path to refer to the StackPack binary.
+The Rancher Observability CLI requires a `conf.d` configuration folder in the directory it's running from. This may require you to run the CLI from a different location. If so, remember to use an absolute path to refer to the StackPack binary.
 {% endhint %}
 
 We are now ready to install our tutorial StackPack.
 
 ## Installing the StackPack
 
-Open the StackState application in your browser and log in. Navigate to the **StackPacks** page that lists all available StackPacks. You should see our Tutorial StackPack in the list of StackPacks.
+Open the Rancher Observability application in your browser and log in. Navigate to the **StackPacks** page that lists all available StackPacks. You should see our Tutorial StackPack in the list of StackPacks.
 
 {% hint style="info" %}
 If you don't see the Tutorial StackPack, or you see an older version of the StackPack than you uploaded, try refreshing the page.
@@ -83,19 +83,19 @@ If you don't see the Tutorial StackPack, or you see an older version of the Stac
 
 Open the Tutorial StackPack page. Here you see the installation instructions that are part of the StackPack \(in the `src/main/stackpack/resources` directory\). Install the StackPack with the **Install** button.
 
-If all goes well, your StackPack should be installed and in the _Waiting for data_ stage. This means the StackPack is ready to receive data, but hasn't yet received any. The StackState GUI tells you how to send data into the StackPack.
+If all goes well, your StackPack should be installed and in the _Waiting for data_ stage. This means the StackPack is ready to receive data, but hasn't yet received any. The Rancher Observability GUI tells you how to send data into the StackPack.
 
-If you want to use the manual approach, copy the JSON listed in the StackPack page to your laptop and use the supplied `curl` command to send it to StackState.
+If you want to use the manual approach, copy the JSON listed in the StackPack page to your laptop and use the supplied `curl` command to send it to Rancher Observability.
 
 {% hint style="info" %}
-The JSON and `curl` command shown in StackState contain data fields specific to your StackState installation, such as your API key and StackState URL.
+The JSON and `curl` command shown in Rancher Observability contain data fields specific to your Rancher Observability installation, such as your API key and Rancher Observability URL.
 {% endhint %}
 
 When the StackPack has received your data, it will show a message indicating success and allowing you to explore your data.
 
-## Seeing the topology in StackState
+## Seeing the topology in Rancher Observability
 
-When you log into your StackState instance, go to the **Explore Mode**. Using the topology filter, select all topology with the `tutorial` label. This should result in a topology similar to the following:
+When you log into your Rancher Observability instance, go to the **Explore Mode**. Using the topology filter, select all topology with the `tutorial` label. This should result in a topology similar to the following:
 
 ![](../../.gitbook/assets/v51_tutorial_component.png)
 
@@ -105,13 +105,13 @@ Select a component to display detailed information about it in the right panel d
 
 ## Making a change to the StackPack
 
-Now we are going to make a change to the tutorial StackPack. Let's say you want to add a telemetry stream to all of the components that the StackPack creates. This requires a change to the StackPack's component template. We are going to make this change in StackState and then update the StackPack with our changes.
+Now we are going to make a change to the tutorial StackPack. Let's say you want to add a telemetry stream to all of the components that the StackPack creates. This requires a change to the StackPack's component template. We are going to make this change in Rancher Observability and then update the StackPack with our changes.
 
 Select the **myDummyApp** component to display detailed information about it in the right panel tab - **Component details**. Find the triple dots menu in the top-right corner. There, select the **Edit template** option. This brings up the **Template Editor**.
 
 In the Template Editor you can edit the template used to create components based on data coming in from your sample check. It shows the following information:
 
-* **Input parameters** - The data sent by our `curl` command that's processed by StackState
+* **Input parameters** - The data sent by our `curl` command that's processed by Rancher Observability
 * **Template function** - The template that uses the input parameters to create a component
 * **Component preview** - A preview of the component produced by applying the input parameters to the template function
 
@@ -156,7 +156,7 @@ Go ahead and save the template. Be aware that you may need to [_unlock_](../../s
 
 Now we are going to export the changed component template so we can include it in our StackPack.
 
-Navigate to the **Settings** page and find the **Topology Synchronization** section. In that section, find the **Component Templates** page. Here you will find all component templates that StackState has loaded.
+Navigate to the **Settings** page and find the **Topology Synchronization** section. In that section, find the **Component Templates** page. Here you will find all component templates that Rancher Observability has loaded.
 
 Locate the tutorial StackPack template \(`tutorial-tutorial://tutorial-1-component-template`\) among the templates. Check the checkbox in front of the template and use the **Export Component Template Function** button to export it.
 
@@ -246,11 +246,11 @@ We are going to build a new version of our StackPack with our changed template.
 zip -r ./stackpack-0.0.2.sts stackpack.conf provisioning resources
 ```
 
-This should produce a `0.0.2` version of the StackPack. Upload the StackPack to StackState using the CLI.
+This should produce a `0.0.2` version of the StackPack. Upload the StackPack to Rancher Observability using the CLI.
 
 ## Upgrading the StackPack
 
-Navigate to the **StackPacks** page in StackState and find the **Tutorial** StackPack. If the StackPack is still installed, you should see that there is a new version available. This is what that message looks like:
+Navigate to the **StackPacks** page in Rancher Observability and find the **Tutorial** StackPack. If the StackPack is still installed, you should see that there is a new version available. This is what that message looks like:
 
 ![](../../.gitbook/assets/v51_stackpack_upgrade_available.png)
 
@@ -258,7 +258,7 @@ Navigate to the **StackPacks** page in StackState and find the **Tutorial** Stac
 If you don't see the Tutorial StackPack, or you see an older version of the StackPack than you uploaded, try refreshing the page.
 {% endhint %}
 
-You can use the **Upgrade now** button to upgrade the StackPack to the new version. StackState will perform the upgrade, but because you have unlocked a template earlier, you will see the following warning:
+You can use the **Upgrade now** button to upgrade the StackPack to the new version. Rancher Observability will perform the upgrade, but because you have unlocked a template earlier, you will see the following warning:
 
 ![](../../.gitbook/assets/v51_stackpack_upgrade_warning.png)
 
@@ -274,9 +274,9 @@ If you navigate to your **myDummyApp** component, you should now see the stream 
 
 ![](../../.gitbook/assets/v51_myDummyApp_stream.png)
 
-## Cleaning your StackState instance
+## Cleaning your Rancher Observability instance
 
-When you are done with this tutorial, you can remove the configuration from your StackState instance as follows:
+When you are done with this tutorial, you can remove the configuration from your Rancher Observability instance as follows:
 
-* Uninstall the **Tutorial StackPack**. This will remove the configuration and data received \(topology\) from StackState.
+* Uninstall the **Tutorial StackPack**. This will remove the configuration and data received \(topology\) from Rancher Observability.
 

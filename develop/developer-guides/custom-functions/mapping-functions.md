@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Mapping functions
@@ -15,7 +15,7 @@ Mapping functions can optionally be used in topology synchronization to transfor
 
 To add a custom component or relation mapping function: 
 
-1. In the StackState UI go to the settings page for the type of mapping function you would like to add:
+1. In the Rancher Observability UI go to the settings page for the type of mapping function you would like to add:
    * For component mapping functions, go to: **Settings** > **Topology Synchronization** > **Component Mapping Functions**
    * For relation mapping functions, go to: **Settings** > **Topology Synchronization** > **Relation Mapping Functions**
 2. Click **ADD COMPONENT MAPPING FUNCTION** or **ADD RELATION MAPPING FUNCTION**.
@@ -61,7 +61,7 @@ return element
 
 #### Topology synchronization
 
-Mapping functions are specified in step 3/5 of a topology synchronization. Here, the **Fixed label** mapping function is added to the **Other sources** mapping. In essence, every component processed by this topology synchronization will receive the label. A generic component template is used that converts the `data.labels` payload to a StackState label.
+Mapping functions are specified in step 3/5 of a topology synchronization. Here, the **Fixed label** mapping function is added to the **Other sources** mapping. In essence, every component processed by this topology synchronization will receive the label. A generic component template is used that converts the `data.labels` payload to a Rancher Observability label.
 
 ![Topology synchronization](/.gitbook/assets/v51_simple_mapping_synchronization.png)
 
@@ -71,7 +71,7 @@ The process and resulting component is shown here.
 
 ![Component with label](/.gitbook/assets/v51_simple_mapping_result.png)
 
-1. **Component JSON** - The component JSON object that was sent to the StackState receiver as part of a larger JSON payload is shown on the left. The JSON defines a component with name **Application1**. The JSON payload is processed by the topology synchronization on which the mapping function was configured.
+1. **Component JSON** - The component JSON object that was sent to the Rancher Observability receiver as part of a larger JSON payload is shown on the left. The JSON defines a component with name **Application1**. The JSON payload is processed by the topology synchronization on which the mapping function was configured.
 2. **Mapping function script** - A part of the mapping function is shown at the bottom to show the value of the label.
 3. **Component template** - A part of the component template is shown in the center. In the component template, the `labels` payload is processed using the `join` helper, as shown on line 30. This iterates through each string in the label list and outputs the JSON block on lines 31 until 34. The `this` variable inside the `join` helper on line 33 is used access the current value in the iteration. In this example, there is only one label to be processed. This is because there is no `labels` key in the original JSON and the mapping function adds the only one. Lines 37 until 40 also define a fixed label. The label defined there will have the value `demo:demo`. This shows that, in this example, the mapping function could also be replaced by adding the appropriate label block directly in the component template.
 4. **Component properties** - On the right is the Component Details tab of the **Application1** component after the JSON payload has been  processed by topology synchronization.  The **Application1** component has two labels:
@@ -80,7 +80,7 @@ The process and resulting component is shown here.
 
 ### Dynamic - add metric streams
 
-This example is used for hosts reported by StackState Agent. The mapping function adds the information needed to create a metric stream to the data payload, the template can then convert the information to actual metric streams. 
+This example is used for hosts reported by Rancher Observability Agent. The mapping function adds the information needed to create a metric stream to the data payload, the template can then convert the information to actual metric streams. 
 
 1. [The mapping function script](#script-1)
 2. [Metric stream](#metric-stream)

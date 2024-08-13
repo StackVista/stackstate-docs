@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Components
@@ -26,7 +26,7 @@ When a component is selected by clicking on it, detailed information about the c
 * **Properties** - metadata, such as the component name, type and any labels. Click SHOW ALL PROPERTIES to open a pop-up with all details of the component, including the YAML definition.
 * **Relations** - the number of other components that the component is connected to, note that this will also include any connections the component has with components that sit outside the current view. Expand to see details of each [relation](/use/concepts/relations.md).
 * **Actions** - the available [actions](/use/stackstate-ui/perspectives/topology-perspective.md#actions) for the component.
-* **Health** - reports the component [health state](/use/concepts/health-state.md) as calculated by StackState. Expand to see all [health checks](/use/checks-and-monitors/checks.md) and [monitors](/use/checks-and-monitors/monitors.md) attached to the component.
+* **Health** - reports the component [health state](/use/concepts/health-state.md) as calculated by Rancher Observability. Expand to see all [health checks](/use/checks-and-monitors/checks.md) and [monitors](/use/checks-and-monitors/monitors.md) attached to the component.
 * **Propagated health** - reports the component's [propagated health state](/use/concepts/health-state.md#element-propagated-health-state). This is derived from the health state of the components and relations that the component depends upon.
 * **Run state** - the [run state](/use/concepts/health-state.md#run-state) of the component (when available).
 * **Problems** - lists all [problems](/use/problem-analysis/about-problems.md) that involve the selected component. 

@@ -1,10 +1,10 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Time - script API
 
-Time API offers helper functions to manipulate with [time type](../time-in-scripts.md) in StackState scripts.
+Time API offers helper functions to manipulate with [time type](../time-in-scripts.md) in Rancher Observability scripts.
 
 ## Function: `Time.currentTimeSlice()`
 

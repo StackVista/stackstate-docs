@@ -1,34 +1,34 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
-# Push data to StackState from an external system
+# Push data to Rancher Observability from an external system
 
-This tutorial shows you how to create push-based integrations for StackState.
+This tutorial shows you how to create push-based integrations for Rancher Observability.
 
-Push-based integrations are built in python and run as part of StackState Agent V2. Each python integration is called a `check` and it can:
+Push-based integrations are built in python and run as part of Rancher Observability Agent V2. Each python integration is called a `check` and it can:
 
 * retrieve information from external systems
 * convert the information into topology
 * convert the information into telemetry
-* send the data to StackState
+* send the data to Rancher Observability
 
 ## Setup
 
-[This repository](https://github.com/StackVista/push-integration-tutorial) contains a sample project that sets up an Agent check called `example` that sends topology into StackState. It uses Docker to run StackState Agent V2 to execute the check.
+[This repository](https://github.com/StackVista/push-integration-tutorial) contains a sample project that sets up an Agent check called `example` that sends topology into Rancher Observability. It uses Docker to run Rancher Observability Agent V2 to execute the check.
 
 Clone the repository to your laptop to get started.
 
-The `stackstate.yaml` file is the main Agent configuration file. It tells the Agent where to find StackState and what API key to use.
+The `stackstate.yaml` file is the main Agent configuration file. It tells the Agent where to find Rancher Observability and what API key to use.
 
 The `example` check consists of two files:
 
 * `conf.d/example.d/conf.yaml` - the check configuration file
 * `checks.d/example.py` - the check Python code
 
-## Prepare StackState
+## Prepare Rancher Observability
 
-Before you get started, StackState must be configured to handle the data we will be sending from the sample check. The sample check sends data in a format that's consumed by the built-in **Custom Synchronization StackPack**. After installing this StackPack, StackState will know how to interpret the sample check data and turn it into topology.
+Before you get started, Rancher Observability must be configured to handle the data we will be sending from the sample check. The sample check sends data in a format that's consumed by the built-in **Custom Synchronization StackPack**. After installing this StackPack, Rancher Observability will know how to interpret the sample check data and turn it into topology.
 
 Configure the StackPack with the following values so they match with the data the check sends:
 
@@ -39,16 +39,16 @@ Instance URL: example://example-1
 
 ## Prepare the tutorial
 
-The StackState Agent V2 container uses the root directory of this repository for its configuration files.
+The Rancher Observability Agent V2 container uses the root directory of this repository for its configuration files.
 
-Before running the example, you need to configure the sample project with your StackState instance URL and API key.
+Before running the example, you need to configure the sample project with your Rancher Observability instance URL and API key.
 
 ```text
 export STS_API_KEY=my-api-key
 export STS_STS_URL=https://stackstate.acme.com/stsAgent
 ```
 
-If you are running the Agent from a container and StackState on your local machine \(for example, via our Kubernetes helm charts\) you can refer the Agent in the Docker container to your local StackState:
+If you are running the Agent from a container and Rancher Observability on your local machine \(for example, via our Kubernetes helm charts\) you can refer the Agent in the Docker container to your local Rancher Observability:
 
 ```text
 export STS_STS_URL=https://host.docker.internal/stsAgent
@@ -58,27 +58,27 @@ That's it, you are now ready to run the Agent.
 
 ## Run the sample check using the Agent
 
-The sample project contains a `run.sh` shell script that runs StackState Agent V2 in a docker container. It reads the configuration from this sample project and executes the `example` check.
+The sample project contains a `run.sh` shell script that runs Rancher Observability Agent V2 in a docker container. It reads the configuration from this sample project and executes the `example` check.
 
 When you run the Agent, it writes logging to its standard output. The Agent has debugging turned on by default \(check the `stackstate.yaml` file\) so it's fairly verbose.
 
-Once the check has run successfully, the topology data produced by the `example` check will be sent to StackState.
+Once the check has run successfully, the topology data produced by the `example` check will be sent to Rancher Observability.
 
 Press `ctrl-c` to stop the Agent.
 
-## See the topology in StackState
+## See the topology in Rancher Observability
 
-When you log into your StackState instance, go to the **Explore Mode**. Using the topology filter, select all topology with the `example` label. This should result in a topology similar to the following:
+When you log into your Rancher Observability instance, go to the **Explore Mode**. Using the topology filter, select all topology with the `example` label. This should result in a topology similar to the following:
 
 ![](../../.gitbook/assets/v51_example-topology.png)
 
-Note that the components you see are hardcoded in the `example` Agent check. The components appear in the **Example** domain and **Applications** and **Hosts** layers. The check produces two application components that StackState has grouped together. This is shown as a circle icon. Select the group to display the individual components that make up the group in the right panel details tab - **Group details**.
+Note that the components you see are hardcoded in the `example` Agent check. The components appear in the **Example** domain and **Applications** and **Hosts** layers. The check produces two application components that Rancher Observability has grouped together. This is shown as a circle icon. Select the group to display the individual components that make up the group in the right panel details tab - **Group details**.
 
 Select a component to display detailed information about it in the right panel details tab - **Component details**. You'll see the component's labels and other metadata that the check sent.
 
 ## Merge topology
 
-StackState creates a single, unified picture of your IT landscape by ingesting and merging data from multiple sources. If your check delivers data that should merge with data from other StackPacks, you'll need to configure the components with the correct extra identifiers.
+Rancher Observability creates a single, unified picture of your IT landscape by ingesting and merging data from multiple sources. If your check delivers data that should merge with data from other StackPacks, you'll need to configure the components with the correct extra identifiers.
 
 In our sample check, this code defines the extra identifiers:
 
@@ -92,11 +92,11 @@ Our documentation describes the [identifiers used by various StackPacks](../../c
 
 ## Add a custom telemetry stream to a component
 
-The sample check we are running also sends telemetry \(metrics\) to StackState, one metric stream for each of the application components. Let's find that telemetry data and map it to one of our applications.
+The sample check we are running also sends telemetry \(metrics\) to Rancher Observability, one metric stream for each of the application components. Let's find that telemetry data and map it to one of our applications.
 
-Find the sample check's components in StackState and select the **some-application-1** component. Detailed information about the component, including the metadata of this component, is displayed in the right panel details tab - **Component details**.
+Find the sample check's components in Rancher Observability and select the **some-application-1** component. Detailed information about the component, including the metadata of this component, is displayed in the right panel details tab - **Component details**.
 
-In the **Telemetry** section, click **ADD NEW STREAM**. This opens the Stream Wizard and allows you to add a new stream. Enter **Gauge** as the name for the stream and select the **StackState Metrics** datasource.
+In the **Telemetry** section, click **ADD NEW STREAM**. This opens the Stream Wizard and allows you to add a new stream. Enter **Gauge** as the name for the stream and select the **Rancher Observability Metrics** datasource.
 
 In the Stream Creation screen, fill in the following parameters:
 
@@ -118,7 +118,7 @@ Select the **some-application-1** component again to display detailed informatio
 
 In the Template Editor you can edit the template used to create components based on data coming in from your sample check. It shows the following information:
 
-* **Input parameters** - this is the data sent by our example check that's processed by StackState
+* **Input parameters** - this is the data sent by our example check that's processed by Rancher Observability
 * **Template function** - this is the template that uses the input parameters to create a component
 * **Component preview** - this is a preview of the component produced by applying the input parameters to the template function
 
@@ -175,7 +175,7 @@ If you go back to the topology, you'll see that both application components \(an
 
 ## Set a component's health state from an external source
 
-StackState calculates the health state of a component using a metric stream and one of the many check functions it ships with. It's also possible to create your own check function that interprets log data from an external source, such as another monitoring tool, and uses it to set the component's health state. Let's try that out on our **a-host** component.
+Rancher Observability calculates the health state of a component using a metric stream and one of the many check functions it ships with. It's also possible to create your own check function that interprets log data from an external source, such as another monitoring tool, and uses it to set the component's health state. Let's try that out on our **a-host** component.
 
 Let's start by creating the check function that takes the incoming data and translates it to a health state. Go to the **Settings** area and find the **Check functions** page. Click the **Add Check function** button to create a new check function. Name the function **External monitor state**.
 
@@ -202,7 +202,7 @@ Here is what that looks like:
 
 Finally, save the check function.
 
-Now, let's create some test events for the component. Provided you have set the correct environment variables, the following command sends events into StackState:
+Now, let's create some test events for the component. Provided you have set the correct environment variables, the following command sends events into Rancher Observability:
 
 ```text
 TS=`date +%s`; cat custom-event.json | sed -e "s/##TIMESTAMP##/$TS/" | curl -H "Content-Type: application/json" -X POST -d @- ${STS_STS_URL}/intake/\?api_key\=${STS_API_KEY}
@@ -210,7 +210,7 @@ TS=`date +%s`; cat custom-event.json | sed -e "s/##TIMESTAMP##/$TS/" | curl -H "
 
 Just execute a few of these so we have a few datapoints to work with.
 
-Next, let's create a _log stream_ for the component. Find the **a-host** component and select it to display detailed information about the component in the right panel details tab - **Component details**. In the **Telemetry** section, click **ADD NEW STREAM**. This opens the Stream Wizard and allows you to add a new stream. Enter **External monitor** as the name for the stream and select the **StackState Generic Events** datasource.
+Next, let's create a _log stream_ for the component. Find the **a-host** component and select it to display detailed information about the component in the right panel details tab - **Component details**. In the **Telemetry** section, click **ADD NEW STREAM**. This opens the Stream Wizard and allows you to add a new stream. Enter **External monitor** as the name for the stream and select the **Rancher Observability Generic Events** datasource.
 
 In the Stream Creation screen, select to output as a **Log stream** at the top. Then fill in the following parameters:
 
@@ -223,7 +223,7 @@ Here is what that looks like:
 
 You should already see the test events you sent in the log stream. Go ahead and save the stream.
 
-The last thing to do is to add a StackState health check to the **a-host** component. In the **Health** section, click **ADD NEW HEALTH CHECK**. This opens the Check Wizard and allows you to add a new check. Enter **External monitor** as the name for the check and, under the **Check function**, select our **External monitoring state** check. StackState should automatically select the **External Monitoring** log stream. Save the check by clicking the **Create** button.
+The last thing to do is to add a Rancher Observability health check to the **a-host** component. In the **Health** section, click **ADD NEW HEALTH CHECK**. This opens the Check Wizard and allows you to add a new check. Enter **External monitor** as the name for the check and, under the **Check function**, select our **External monitoring state** check. Rancher Observability should automatically select the **External Monitoring** log stream. Save the check by clicking the **Create** button.
 
 Now, sending in the events using the command below should set the health state to `CRITICAL`:
 
@@ -237,10 +237,10 @@ When the component turns `CRITICAL`, this is what you should see:
 
 ![](../../.gitbook/assets/v51_example-health-state.png)
 
-## Cleaning your StackState instance
+## Cleaning your Rancher Observability instance
 
-When you are done with this tutorial, you can remove the configuration from your StackState instance as follows:
+When you are done with this tutorial, you can remove the configuration from your Rancher Observability instance as follows:
 
-* Uninstall the **Custom Synchronization StackPack**. This will remove the configuration and data received \(topology\) from StackState.
+* Uninstall the **Custom Synchronization StackPack**. This will remove the configuration and data received \(topology\) from Rancher Observability.
 * Remove any check functions you added
 

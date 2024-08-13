@@ -1,27 +1,27 @@
 ---
-description: StackState Self-hosted
+description: Rancher Observability Self-hosted
 ---
 
 # Kubernetes backup
 
 ## Overview
 
-The Kubernetes setup for StackState has a built-in backup and restore mechanism that can be configured to store backups to the local clusters, to AWS S3 or to Azure Blob Storage.
+The Kubernetes setup for Rancher Observability has a built-in backup and restore mechanism that can be configured to store backups to the local clusters, to AWS S3 or to Azure Blob Storage.
 
 ### Backup scope
 
 The following data can be automatically backed up:
 
 * **Configuration and topology data** stored in StackGraph is backed up when the Helm value `backup.stackGraph.enabled` is set to `true`.
-* **Metrics** stored in StackState's Victoria Metrics instance(s) is backed up when the Helm value `victoria-metrics-0.backup.enabled` and `victoria-metrics-1.backup.enabled` are set to `true`.
-* **Telemetry data** stored in StackState's Elasticsearch instance is backed up when the Helm value `backup.elasticsearch.enabled` is set to `true`.
-* **OpenTelemetry data** stored in StackState's ClickHouse instance is backed up when the Helm value `clickhouse.backup.enabled` is set to `true`.
+* **Metrics** stored in Rancher Observability's Victoria Metrics instance(s) is backed up when the Helm value `victoria-metrics-0.backup.enabled` and `victoria-metrics-1.backup.enabled` are set to `true`.
+* **Telemetry data** stored in Rancher Observability's Elasticsearch instance is backed up when the Helm value `backup.elasticsearch.enabled` is set to `true`.
+* **OpenTelemetry data** stored in Rancher Observability's ClickHouse instance is backed up when the Helm value `clickhouse.backup.enabled` is set to `true`.
 
 The following data will **not** be backed up:
 
 * In transit topology and telemetry updates stored in Kafka - these only have temporary value and would be of no use when a backup is restored
 * Master node negotiations state stored in ZooKeeper - this runtime state would be incorrect when restored and will be automatically determined at runtime
-* Kubernetes configuration state and raw persistent volume state - this state can be rebuilt by re-installing StackState and restoring the backups.
+* Kubernetes configuration state and raw persistent volume state - this state can be rebuilt by re-installing Rancher Observability and restoring the backups.
 * Kubernetes logs - these are ephemeral.
 
 ### Storage options
@@ -49,7 +49,7 @@ Amazon S3-managed keys (SSE-S3) should be used when encrypting S3 buckets that s
 `Caused by: org.elasticsearch.common.io.stream.NotSerializableExceptionWrapper: sdk_client_exception: Unable to verify integrity of data upload. Client calculated content hash (contentMD5: ZX4D/ZDUzZWRhNDUyZTI1MTc= in base 64) didn't match hash (etag: c75faa31280154027542f6530c9e543e in hex) calculated by Amazon S3. You may need to delete the data stored in Amazon S3. (metadata.contentMD5: null, md5DigestStream: com.amazonaws.services.s3.internal.MD5DigestCalculatingInputStream@5481a656, bucketName: stackstate-elasticsearch-backup, key: tests-UG34QIV9s32tTzQWdPsZL/master.dat)",`
 {% endhint %}
 
-To enable scheduled backups to AWS S3 buckets, add the following YAML fragment to the Helm `values.yaml` file used to install StackState:
+To enable scheduled backups to AWS S3 buckets, add the following YAML fragment to the Helm `values.yaml` file used to install Rancher Observability:
 
 ```yaml
 backup:
@@ -125,7 +125,7 @@ The IAM user identified by `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` must be configu
 
 ### Azure Blob Storage
 
-To enable backups to an Azure Blob Storage account, add the following YAML fragment to the Helm `values.yaml` file used to install StackState:
+To enable backups to an Azure Blob Storage account, add the following YAML fragment to the Helm `values.yaml` file used to install Rancher Observability:
 
 ```yaml
 backup:
@@ -153,10 +153,10 @@ It's advised to use AWS S3 for clusters running on Amazon AWS and Azure Blob Sto
 
 1. Kubernetes clusters running in a cloud provider usually map PVCs to block storage, such as Elastic Block Storage for AWS or Azure Block Storage. Block storage is expensive, especially for large data volumes.
 2. Persistent Volumes are destroyed when the cluster that created them is destroyed. That means an (accidental) deletion of your cluster will also destroy all backups stored in Persistent Volumes.
-3. Persistent Volumes can't be accessed from another cluster. That means that it isn't possible to restore StackState from a backup taken on another cluster.
+3. Persistent Volumes can't be accessed from another cluster. That means that it isn't possible to restore Rancher Observability from a backup taken on another cluster.
 {% endhint %}
 
-To enable backups to cluster-local storage, enable MinIO by adding the following YAML fragment to the Helm `values.yaml` file used to install StackState:
+To enable backups to cluster-local storage, enable MinIO by adding the following YAML fragment to the Helm `values.yaml` file used to install Rancher Observability:
 
 ```yaml
 backup:
@@ -321,14 +321,14 @@ The indices for which a snapshot is created can be configured using the Helm val
 
 ## Restore backups and snapshots
 
-Scripts to list and restore backups and snapshots can be found in the [restore directory of the StackState Helm chart repository \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-k8s/restore). To use the scripts, download them from GitHub or checkout the repository.
+Scripts to list and restore backups and snapshots can be found in the [restore directory of the Rancher Observability Helm chart repository \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-k8s/restore). To use the scripts, download them from GitHub or checkout the repository.
 
 {% hint style="info" %}
 **Before you use the scripts, ensure that:**
 
 * The `kubectl` binary is installed and configured to connect to:
-    1. The Kubernetes cluster where StackState has been installed.
-    2. The namespace within that cluster where StackState has been installed.
+    1. The Kubernetes cluster where Rancher Observability has been installed.
+    2. The namespace within that cluster where Rancher Observability has been installed.
 * The following Helm values have been correctly set:
     1. `backup.enabled` is set to `true`.
     2. `backup.stackGraph.restore.enabled` isn't set to `false` \(to access StackGraph backups\).

@@ -1,21 +1,21 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Set custom default telemetry interval
 
 ## Overview
 
-The telemetry interval specifies the time window for which events, metrics and traces are available in the StackState perspectives. It runs from left to right on the timeline at the bottom of the StackState UI. By default, the telemetry interval active when opening a [view](/use/stackstate-ui/views/about_views.md) or [explore mode](/use/stackstate-ui/explore_mode.md) is set to a relative time period, showing telemetry data from the last hour. If required, you can configure StackState to use a different default telemetry interval.
+The telemetry interval specifies the time window for which events, metrics and traces are available in the Rancher Observability perspectives. It runs from left to right on the timeline at the bottom of the Rancher Observability UI. By default, the telemetry interval active when opening a [view](/use/stackstate-ui/views/about_views.md) or [explore mode](/use/stackstate-ui/explore_mode.md) is set to a relative time period, showing telemetry data from the last hour. If required, you can configure Rancher Observability to use a different default telemetry interval.
 
 ![Telemetry interval](../../.gitbook/assets/v51_telemetry_interval.png)
 
 ## Customise the default telemetry interval
 
-You can configure the default telemetry interval used in StackState with the parameter `defaultTimeRange`. The configured value will then be applied automatically when a view or explore mode is opened.
+You can configure the default telemetry interval used in Rancher Observability with the parameter `defaultTimeRange`. The configured value will then be applied automatically when a view or explore mode is opened.
 
 {% hint style="info" %}
-A telemetry interval specified by a user in the StackState UI will override the default telemetry interval and will be applied to each subsequent view opened.
+A telemetry interval specified by a user in the Rancher Observability UI will override the default telemetry interval and will be applied to each subsequent view opened.
 {% endhint %}
 
 The default telemetry interval can be set to any of the following values:
@@ -35,7 +35,7 @@ Any other value will be ignored and converted to the default value (`LAST_1_HOUR
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-To set a custom default telemetry interval, add the following to the `values.yaml` file used to deploy StackState:
+To set a custom default telemetry interval, add the following to the `values.yaml` file used to deploy Rancher Observability:
 ```yaml
 stackstate:
   components:

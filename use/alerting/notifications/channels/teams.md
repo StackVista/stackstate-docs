@@ -1,5 +1,5 @@
 ---
-description: StackState v6.0
+description: Rancher Observability v6.0
 ---
 
 # Teams 
@@ -29,7 +29,7 @@ Copy the HTTP URL parameter.
 
 ![Configure Teams Channe](/.gitbook/assets/k8s/configure-teams-channel.png)
 
-Back in StackState you can now use the Webhook URL to create a notification channel.
+Back in Rancher Observability you can now use the Webhook URL to create a notification channel.
 
 ## Teams messages for notifications
 

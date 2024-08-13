@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Humio
@@ -22,5 +22,5 @@ Humio is a [community integration](/stackpacks/integrations/about_integrations.m
 
 ## Using the Humio StackPack
 
-Navigate to your Kubernetes cluster in StackState and use a Quick Action on one of the containers to jump into your logs.
+Navigate to your Kubernetes cluster in Rancher Observability and use a Quick Action on one of the containers to jump into your logs.
 

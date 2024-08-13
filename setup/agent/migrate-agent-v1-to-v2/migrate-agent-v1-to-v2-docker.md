@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x
+description: Rancher Observability Self-hosted v5.1.x
 ---
 
 # Agent V1 \(legacy\) to Agent V2 Migration
@@ -24,11 +24,11 @@ It may affect some steps below, but will reduce the initial impact if something 
 
 ### Downtime
 
-Running Agent V1 (legacy) and Agent V2 at the same time on a single machine will result in missing data. For this reason, StackState Agent will need to be down for the entire of the migration process. The exact length of time required to complete the migration process will vary depending on your specific environment and the number of Agent checks that need to be migrated.
+Running Agent V1 (legacy) and Agent V2 at the same time on a single machine will result in missing data. For this reason, Rancher Observability Agent will need to be down for the entire of the migration process. The exact length of time required to complete the migration process will vary depending on your specific environment and the number of Agent checks that need to be migrated.
 
 ### Performance
 
-Switching from Agent V1 (legacy) to Agent V2 can either increase or decrease the number of resources used. Unlike Agent V1 (legacy), Agent V2 allows for synchronous execution of checks. This provides a better StackState experience, but may result in increased resource requirements.
+Switching from Agent V1 (legacy) to Agent V2 can either increase or decrease the number of resources used. Unlike Agent V1 (legacy), Agent V2 allows for synchronous execution of checks. This provides a better Rancher Observability experience, but may result in increased resource requirements.
 
 
 ## Migration process - Docker-Compose
@@ -111,7 +111,7 @@ Keep the above snippet on the side, we will use it in the Docker-Compose file.
 
 ### 4. Migrate the Agent V1 (legacy) cache
 
-Migrating the Agent V1 (legacy) cache requires a cache conversion process. This is a manual process that StackState will assist you with. Contact StackState support to assist with this process.
+Migrating the Agent V1 (legacy) cache requires a cache conversion process. This is a manual process that Rancher Observability will assist you with. Contact Rancher Observability support to assist with this process.
 
 A breakdown of the steps that will happen in the cache migration is as follows:
 
@@ -121,11 +121,11 @@ A breakdown of the steps that will happen in the cache migration is as follows:
 
 ### 5. Install and start Agent V2
 
-To run StackState Agent V2 with Docker compose:
+To run Rancher Observability Agent V2 with Docker compose:
 
 1. Add the following configuration to the compose file on each node where the Agent will run.  
-   * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
-   * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState.
+   * `<STACKSTATE_RECEIVER_API_KEY>` is set during Rancher Observability installation.
+   * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of Rancher Observability.
    * `<THE_VOLUME_SNIPPET_YOU_CREATED>` this is the volume snippet you created in step 2 and 3.
 ```dockerfile
 stackstate-agent:
@@ -269,8 +269,8 @@ Now that you have the snippet above keep it on the side, we will use it in the d
 
 ### 4. Migrate the Agent V1 (legacy) cache
 
-Migrating the Agent V1 (legacy) cache requires a cache conversion process, and this is a manual process that StackState will assist you with.
-Contact StackState to assist with this process.
+Migrating the Agent V1 (legacy) cache requires a cache conversion process, and this is a manual process that Rancher Observability will assist you with.
+Contact Rancher Observability to assist with this process.
 
 A breakdown of the steps that will happen in the cache migration is as follows:
 
@@ -281,11 +281,11 @@ A breakdown of the steps that will happen in the cache migration is as follows:
 
 ### 5. Install and Start Agent V2
 
-To start a single Docker container with StackState Agent V2, run the command below.
+To start a single Docker container with Rancher Observability Agent V2, run the command below.
 
 1. Add the following configuration to the compose file on each node where the Agent will run.
-  * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
-  * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState.
+  * `<STACKSTATE_RECEIVER_API_KEY>` is set during Rancher Observability installation.
+  * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of Rancher Observability.
   * `<ADD_YOUR_VOLUME_SNIPPET_YOU_CREATED_HERE>` this is the volume snippet you created in step 2 and 3.
 ```shell
 docker run -d \
@@ -344,5 +344,5 @@ docker run -d \
 {% hint style="info" %}
 **Splunk Health check**
 
-In addition to the Splunk Topology, Splunk Metrics and Splunk Events checks, StackState Agent V2 can also be configured to run a [Splunk Health](/stackpacks/integrations/splunk/splunk_health.md) check to collect health data from Splunk.
+In addition to the Splunk Topology, Splunk Metrics and Splunk Events checks, Rancher Observability Agent V2 can also be configured to run a [Splunk Health](/stackpacks/integrations/splunk/splunk_health.md) check to collect health data from Splunk.
 {% endhint %}

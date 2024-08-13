@@ -1,6 +1,6 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
-# Introduction to StackState
+# Introduction to Rancher Observability
 

@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Windows
@@ -7,14 +7,14 @@ description: StackState Self-hosted v5.1.x
 ## Overview
 
 {% hint style="info" %}
-**StackState Agent V2**
+**Rancher Observability Agent V2**
 {% endhint %}
 
-StackState Agent V2 can be installed on Windows systems. The Agent collects data from the host where it's running and can be configured to integrate with external systems. Retrieved data is pushed to StackState, to work with this data the [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md) must be installed in your StackState instance. For details of the data retrieved and available integrations, see the [StackPack integration documentation](../../stackpacks/integrations/).
+Rancher Observability Agent V2 can be installed on Windows systems. The Agent collects data from the host where it's running and can be configured to integrate with external systems. Retrieved data is pushed to Rancher Observability, to work with this data the [Rancher Observability Agent V2 StackPack](../../stackpacks/integrations/agent.md) must be installed in your Rancher Observability instance. For details of the data retrieved and available integrations, see the [StackPack integration documentation](../../stackpacks/integrations/).
 
 ## Monitoring
 
-StackState Agent V2 will synchronize the following data from the host it's running on with StackState:
+Rancher Observability Agent V2 will synchronize the following data from the host it's running on with Rancher Observability:
 
 * Hosts, processes and containers.
 * Telemetry for hosts, processes and containers   
@@ -24,24 +24,24 @@ StackState Agent V2 will synchronize the following data from the host it's runni
 
 ### Supported versions
 
-StackState Agent V2.19.x is supported to run on:
+Rancher Observability Agent V2.19.x is supported to run on:
 
 * Windows 10 or higher
 * Windows Server 2012 or higher
 
 ### Install
 
-StackState Agent V2 is installed using a [PowerShell \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-7.2&viewFallbackFrom=powershell-6) script.
+Rancher Observability Agent V2 is installed using a [PowerShell \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-7.2&viewFallbackFrom=powershell-6) script.
 
 * [Online install](windows.md#online-install) - If you have access to the internet on the machine where the Agent will be installed. 
 * [Offline install](windows.md#offline-install) - If you **don't** have access to the internet on the machine where the Agent will be installed.
 
 {% hint style="info" %}
 
-* `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
-* `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
+* `<STACKSTATE_RECEIVER_API_KEY>` is set during Rancher Observability installation.
+* `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of Rancher Observability. 
 
-For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
+For details see [Rancher Observability Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
 {% endhint %}
 
 #### Online install
@@ -73,7 +73,7 @@ If you don't have access to the internet on the machine where the Agent will be 
 
 ### Upgrade
 
-To upgrade StackState Agent V2 running on Windows,
+To upgrade Rancher Observability Agent V2 running on Windows,
 
 1. Download the latest version of the Agent installer package and copy this to the host where it will be installed next to the PowerShell install script:
    * [https://stackstate-agent-2.s3.amazonaws.com/windows/stable/stackstate-agent-latest-1-x86\_64.msi](https://stackstate-agent-2.s3.amazonaws.com/windows/stable/stackstate-agent-latest-1-x86_64.msi)
@@ -83,17 +83,17 @@ To upgrade StackState Agent V2 running on Windows,
 
 ### Agent configuration
 
-The StackState Agent V2 configuration is located in the file `C:\ProgramData\StackState\stackstate.yaml`. The `stsApiKey` and `stsUrl` specified during installation will be added here by the install script. No further configuration should be required.
+The Rancher Observability Agent V2 configuration is located in the file `C:\ProgramData\Rancher Observability\stackstate.yaml`. The `stsApiKey` and `stsUrl` specified during installation will be added here by the install script. No further configuration should be required.
 
 ### Advanced Agent configuration
 
-StackState Agent V2 can be configured to reduce data production, tune the process blacklist, or turn off specific features when not needed. The required settings are described in detail on the page [advanced Agent configuration](advanced-agent-configuration.md).
+Rancher Observability Agent V2 can be configured to reduce data production, tune the process blacklist, or turn off specific features when not needed. The required settings are described in detail on the page [advanced Agent configuration](advanced-agent-configuration.md).
 
 ### Integration configuration
 
-The Agent can be configured to run checks that integrate with external systems. Configuration files for integrations run through StackState Agent V2 can be found in the directory `C:\ProgramData\StackState\conf.d`. Each integration has its own configuration file that's used by the enabled Agent checks.
+The Agent can be configured to run checks that integrate with external systems. Configuration files for integrations run through Rancher Observability Agent V2 can be found in the directory `C:\ProgramData\Rancher Observability\conf.d`. Each integration has its own configuration file that's used by the enabled Agent checks.
 
-Documentation for the available StackState integrations, including configuration details can be found on the [StackPacks &gt; Integrations pages](../../stackpacks/integrations/).
+Documentation for the available Rancher Observability integrations, including configuration details can be found on the [StackPacks &gt; Integrations pages](../../stackpacks/integrations/).
 
 ### Proxy configuration
 
@@ -107,29 +107,29 @@ Commands require elevated privileges.
 
 ### Start, stop or restart the Agent
 
-To manually start, stop or restart StackState Agent V2:
+To manually start, stop or restart Rancher Observability Agent V2:
 
 {% tabs %}
 {% tab title="CMD" %}
 ```text
-"C:\Program Files\StackState\StackState Agent\embedded\agent.exe" start-service
-"C:\Program Files\StackState\StackState Agent\embedded\agent.exe" stopservice
-"C:\Program Files\StackState\StackState Agent\embedded\agent.exe" restart-service
+"C:\Program Files\Rancher Observability\Rancher Observability Agent\embedded\agent.exe" start-service
+"C:\Program Files\Rancher Observability\Rancher Observability Agent\embedded\agent.exe" stopservice
+"C:\Program Files\Rancher Observability\Rancher Observability Agent\embedded\agent.exe" restart-service
 ```
 {% endtab %}
 
 {% tab title="PowerShell" %}
 ```text
-& "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" start-service
-& "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" stopservice
-& "C:\Program Files\StackState\StackState Agent\embedded\agent.exe" restart-service
+& "C:\Program Files\Rancher Observability\Rancher Observability Agent\embedded\agent.exe" start-service
+& "C:\Program Files\Rancher Observability\Rancher Observability Agent\embedded\agent.exe" stopservice
+& "C:\Program Files\Rancher Observability\Rancher Observability Agent\embedded\agent.exe" restart-service
 ```
 {% endtab %}
 {% endtabs %}
 
 ### Status
 
-To check if StackState Agent V2 is running and receive information about the Agent's status:
+To check if Rancher Observability Agent V2 is running and receive information about the Agent's status:
 
 ```text
 "./agent.exe status"
@@ -140,7 +140,7 @@ To check if StackState Agent V2 is running and receive information about the Age
 Use the command below to manually run an Agent check once and output the results.
 
 ```yaml
-C:\Program Files\StackState\StackState Agent\embedded\agent.exe check <CHECK_NAME>
+C:\Program Files\Rancher Observability\Rancher Observability Agent\embedded\agent.exe check <CHECK_NAME>
 ```
 
 ## Troubleshooting
@@ -151,8 +151,8 @@ To troubleshoot the Agent, try to [check the Agent status](windows.md#status) or
 
 Logs for the Agent subsystems can be found in the following files:
 
-* `C:\ProgramData\StackState\logs\agent.log`
-* `C:\ProgramData\StackState\logs\process-agent.log`
+* `C:\ProgramData\Rancher Observability\logs\agent.log`
+* `C:\ProgramData\Rancher Observability\logs\process-agent.log`
 
 ### Debug mode
 
@@ -160,12 +160,12 @@ By default, the log level of the Agent is set to `INFO`. To assist in troublesho
 
 To set the log level to `DEBUG` for an Agent running on Windows:
 
-1. Edit the file `C:\ProgramData\StackState\stackstate.yaml`
+1. Edit the file `C:\ProgramData\Rancher Observability\stackstate.yaml`
 2. To set the log level to `DEBUG`, add the line:
     ```
     log_level: debug
     ```
-3. To also include the topology/telemetry payloads sent to StackState in the Agent log, add the line:
+3. To also include the topology/telemetry payloads sent to Rancher Observability in the Agent log, add the line:
     ```
     log_payloads: true
     ```
@@ -174,20 +174,20 @@ To set the log level to `DEBUG` for an Agent running on Windows:
 
 ### Support knowledge base
 
-Troubleshooting steps for any known issues can be found in the [StackState support knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=agent).
+Troubleshooting steps for any known issues can be found in the [Rancher Observability support knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=agent).
 
 ## Uninstall
 
-To uninstall StackState Agent V2 running on Windows:
+To uninstall Rancher Observability Agent V2 running on Windows:
 
 1. In the Windows task bar, search for **control panel**.
 2. In the control panel, open **Add/remove programs**.
-3. Follow the instructions to uninstall StackState Agent V2.
+3. Follow the instructions to uninstall Rancher Observability Agent V2.
 
 ## See also
 
-* [About StackState Agent V2](about-stackstate-agent.md)
+* [About Rancher Observability Agent V2](about-stackstate-agent.md)
 * [Advanced Agent configuration](advanced-agent-configuration.md)  
-* [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md)
-* [StackState Agent V2 \(github.com\)](https://github.com/StackVista/stackstate-agent)
+* [Rancher Observability Agent V2 StackPack](../../stackpacks/integrations/agent.md)
+* [Rancher Observability Agent V2 \(github.com\)](https://github.com/StackVista/stackstate-agent)
 

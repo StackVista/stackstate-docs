@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted
+description: Rancher Observability Self-hosted
 ---
 
 # Small profile setup
 
 ## Overview
 
-The recommended Kubernetes/OpenShift deployment of StackState is a production ready setup suited for observing large clusters. If the setup is not expected to be big, it can be tuned down to consume less resources. This is called the small profile setup.
+The recommended Kubernetes/OpenShift deployment of Rancher Observability is a production ready setup suited for observing large clusters. If the setup is not expected to be big, it can be tuned down to consume less resources. This is called the small profile setup.
 
 {% hint style="info" %}
 The small profile setup is only suitable for situations that observe up to roughly 100 nodes.
@@ -14,12 +14,12 @@ The small profile setup is only suitable for situations that observe up to rough
 
 ## Create `small_values.yaml`
 
-To deploy StackState in a small profile setup, you will need a `small_values.yaml` file. Follow the instructions below to create this file and use it for deployment of StackState.
+To deploy Rancher Observability in a small profile setup, you will need a `small_values.yaml` file. Follow the instructions below to create this file and use it for deployment of Rancher Observability.
 
 1. Create a Helm values file `small_values.yaml` with the following content and store it next to the generated `values.yaml` file:
 
   ```yaml
-  # This files defines additional Helm values to run StackState on a
+  # This files defines additional Helm values to run Rancher Observability on a
   # small profile production setup. Use this file in combination
   # with a regular values.yaml file that contains your API key, etc.
   elasticsearch:
@@ -162,7 +162,7 @@ To deploy StackState in a small profile setup, you will need a `small_values.yam
         size: 60Gi
   ```
 
-2. Continue with the instructions to deploy StackState with Helm:
+2. Continue with the instructions to deploy Rancher Observability with Helm:
    * [Deploy on Kubernetes](/setup/install-stackstate/kubernetes_openshift/kubernetes_install.md#deploy-stackstate-with-helm).
    * [Deploy on OpenShift](/setup/install-stackstate/kubernetes_openshift/openshift_install.md#deploy-stackstate-with-helm).
 

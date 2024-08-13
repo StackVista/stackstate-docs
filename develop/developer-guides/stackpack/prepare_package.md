@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Packaging
 
 ## What is a StackPack package?
 
-StackPacks are essentially `.zip` archives that contain a file structure allowing for StackPack presentation in StackState, installation, provisioning and configuration of StackState. The `.zip` extension must be changed to `.sts` to make the archive visible as a StackPack in StackState. A StackPack archive has the following structure:
+StackPacks are essentially `.zip` archives that contain a file structure allowing for StackPack presentation in Rancher Observability, installation, provisioning and configuration of Rancher Observability. The `.zip` extension must be changed to `.sts` to make the archive visible as a StackPack in Rancher Observability. A StackPack archive has the following structure:
 
 ```text
 <your-stackpack>
@@ -28,10 +28,10 @@ StackPacks are essentially `.zip` archives that contain a file structure allowin
 
 Inside the `.sts` archive you can find the provisioning directory, resources directory and a configuration file. Provisioning directory is prepared for provision groovy scripts, and Templates.
 
-* `provisioning` directory is where all icons, templates, and `groovy` scripts used for provisioning the StackPack are stored. The provisioning can also be split into multiple groovy scripts, and the `provisioning` directory is part of the `classpath` while provisioning the StackPack. Find more on [Groovy in StackState](../../reference/scripting/).
+* `provisioning` directory is where all icons, templates, and `groovy` scripts used for provisioning the StackPack are stored. The provisioning can also be split into multiple groovy scripts, and the `provisioning` directory is part of the `classpath` while provisioning the StackPack. Find more on [Groovy in Rancher Observability](../../reference/scripting/).
 * `resources` directory has all the static resources and contents for the StackPack. They're available in the Groove code through `/stackpack/{stackpack-name}/resources/{resource}`.
 * `stackpack.conf` is where the StackPack is configured. See the section below for more details.
-* `Templates` - these files are StackState Templated JSON handlebar files that reflect StackState configuration; it may contain `ComponentTypes`, `Id Extractors` and component/relations templates. Find more details on the [templates page](how_to_get_a_template_file.md)  
+* `Templates` - these files are Rancher Observability Templated JSON handlebar files that reflect Rancher Observability configuration; it may contain `ComponentTypes`, `Id Extractors` and component/relations templates. Find more details on the [templates page](how_to_get_a_template_file.md)  
 
 ## The StackPack configuration file
 

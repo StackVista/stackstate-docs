@@ -1,16 +1,16 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Manage event handlers
 
 ## Overview
 
-Event handlers attached to a StackState view listen to events that are generated in relation to components in the view. Event notifications can then be sent or actions can be triggered in response to health state change events or problem events.
+Event handlers attached to a Rancher Observability view listen to events that are generated in relation to components in the view. Event notifications can then be sent or actions can be triggered in response to health state change events or problem events.
 
 ## Configured event handlers
 
-All event handlers configured for the view are listed in the StackState UI right panel **View summary** tab under **Event handlers**. You can add, edit and remove event handlers from here. Expand an event handler to see its configured settings. 
+All event handlers configured for the view are listed in the Rancher Observability UI right panel **View summary** tab under **Event handlers**. You can add, edit and remove event handlers from here. Expand an event handler to see its configured settings. 
 
 The badge on the right next to the **Event handlers** section heading shows the number of event handlers configured for the view. 
 
@@ -18,7 +18,7 @@ The badge on the right next to the **Event handlers** section heading shows the 
 
 ## Add event handler
 
-You can add an event handler to a view from the StackState UI right panel **View summary** tab. 
+You can add an event handler to a view from the Rancher Observability UI right panel **View summary** tab. 
 
 {% hint style="info" %}
 Event handlers can only be added to a saved [view](/use/stackstate-ui/views/about_views.md). It isn't possible to add event handlers to [subviews](/use/stackstate-ui/views/about_views.md#subview) or while in [explore mode](/use/stackstate-ui/explore_mode.md).
@@ -40,11 +40,11 @@ Event handlers can only be added to a saved [view](/use/stackstate-ui/views/abou
 
 ## Event handler functions
 
-Event handlers listen to events generated within a view. When the configured event type is generated, an event handler function is run to send an event notification or trigger an action in a system outside of StackState. For example, an event handler function could send a message to a Slack channel or make a POST to a webhook URL. A number of default event handler functions are included out of the box with StackState, these are described below.
+Event handlers listen to events generated within a view. When the configured event type is generated, an event handler function is run to send an event notification or trigger an action in a system outside of Rancher Observability. For example, an event handler function could send a message to a Slack channel or make a POST to a webhook URL. A number of default event handler functions are included out of the box with Rancher Observability, these are described below.
 
 {% hint style="success" "self-hosted info" %}
 * You can [create your own custom event handler functions](/develop/developer-guides/custom-functions/event-handler-functions.md).
-* A full list of the event handler functions available in your StackState instance can be found in the StackState UI. Go to **Settings** &gt; **Functions** &gt; **Event Handler Functions**.
+* A full list of the event handler functions available in your Rancher Observability instance can be found in the Rancher Observability UI. Go to **Settings** &gt; **Functions** &gt; **Event Handler Functions**.
 {% endhint %}
 
 ### Slack
@@ -54,7 +54,7 @@ The Slack event handler function sends a Slack message with detailed information
 Can be triggered by **Health state change events** and **Problem events**.
 
 {% hint style="info" %}
-Requires the [Slack StackPack](/stackpacks/integrations/slack.md) to be installed on your StackState instance.
+Requires the [Slack StackPack](/stackpacks/integrations/slack.md) to be installed on your Rancher Observability instance.
 {% endhint %}
 
 ### HTTP webhook POST
@@ -87,6 +87,6 @@ You can [create your own custom event handler functions](/develop/developer-guid
 
 * [Event types for event notifications](/use/events/event-notifications.md#event-types-for-notifications)
 * [Add a health check](/use/checks-and-monitors/add-a-health-check.md)
-* [Configure an SMTP server to send email event notifications](/configure/topology/configure-email-event-notifications.md "StackState Self-Hosted only")
-* [Create a custom event handler function](/develop/developer-guides/custom-functions/event-handler-functions.md "StackState Self-Hosted only")
+* [Configure an SMTP server to send email event notifications](/configure/topology/configure-email-event-notifications.md "Rancher Observability Self-Hosted only")
+* [Create a custom event handler function](/develop/developer-guides/custom-functions/event-handler-functions.md "Rancher Observability Self-Hosted only")
 * [Create a Slack Webhook \(slack.com\)](https://api.slack.com/messaging/webhooks)

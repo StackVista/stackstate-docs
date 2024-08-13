@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x
+description: Rancher Observability Self-hosted v5.1.x
 ---
 
 # Agent V1 \(legacy\) to Agent V2 Migration
@@ -24,11 +24,11 @@ It may affect some steps below, but will reduce the initial impact if something 
 
 ### Downtime
 
-Running Agent V1 (legacy) and Agent V2 at the same time on a single machine will result in missing data. For this reason, StackState Agent will need to be down for the entire of the migration process. The exact length of time required to complete the migration process will vary depending on your specific environment and the number of Agent checks that need to be migrated.
+Running Agent V1 (legacy) and Agent V2 at the same time on a single machine will result in missing data. For this reason, Rancher Observability Agent will need to be down for the entire of the migration process. The exact length of time required to complete the migration process will vary depending on your specific environment and the number of Agent checks that need to be migrated.
 
 ### Performance
 
-Switching from Agent V1 (legacy) to Agent V2 can either increase or decrease the number of resources used. Unlike Agent V1 (legacy), Agent V2 allows for synchronous execution of checks. This provides a better StackState experience, but may result in increased resource requirements.
+Switching from Agent V1 (legacy) to Agent V2 can either increase or decrease the number of resources used. Unlike Agent V1 (legacy), Agent V2 allows for synchronous execution of checks. This provides a better Rancher Observability experience, but may result in increased resource requirements.
 
 ## Migration process
 
@@ -54,14 +54,14 @@ sudo /etc/init.d/stackstate-agent status
 
 ### 2. Install Agent V2
 
-StackState Agent V2 can now safely be installed.
+Rancher Observability Agent V2 can now safely be installed.
 
 Follow all the steps on [Agent V2 - Deploy on Linux](/setup/agent/linux.md) to successfully deploy Agent V2.
 
 ### 3. Stop Agent V2
 
 {% hint style="info" %}
-The installation of Agent V2 will automatically start the StackState Agent.
+The installation of Agent V2 will automatically start the Rancher Observability Agent.
 {% endhint %}
 
 To prevent Agent state files from being overwritten during the state migration process, let's stop the Agent
@@ -114,7 +114,7 @@ This can be done by following these steps:
 
 ### 4. Migrate Agent V1 (legacy) cache
 
-Migrating the Agent V1 (legacy) cache requires a cache conversion process. This is a manual process that StackState will assist you with. Contact StackState support to assist with this process.
+Migrating the Agent V1 (legacy) cache requires a cache conversion process. This is a manual process that Rancher Observability will assist you with. Contact Rancher Observability support to assist with this process.
 
 A breakdown of the steps that will happen in the cache migration is as follows:
 
@@ -156,5 +156,5 @@ The log files for the above process can be found at the following locations:
 {% hint style="info" %}
 **Splunk Health check**
 
-In addition to the Splunk Topology, Splunk Metrics and Splunk Events checks, StackState Agent V2 can also be configured to run a [Splunk Health](/stackpacks/integrations/splunk/splunk_health.md) check to collect health data from Splunk.
+In addition to the Splunk Topology, Splunk Metrics and Splunk Events checks, Rancher Observability Agent V2 can also be configured to run a [Splunk Health](/stackpacks/integrations/splunk/splunk_health.md) check to collect health data from Splunk.
 {% endhint %}

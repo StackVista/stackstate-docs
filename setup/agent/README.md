@@ -1,6 +1,6 @@
 ---
-description: StackState v6.0
+description: Rancher Observability v6.0
 ---
 
-# StackState Agent
+# Rancher Observability Agent
 

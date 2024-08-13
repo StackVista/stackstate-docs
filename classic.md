@@ -4,33 +4,33 @@ coverY: 0
 layout: landing
 ---
 
-# Welcome to the StackState docs!
+# Welcome to the Rancher Observability docs!
 
-Select your version of StackState to jump to the associated documentation.
+Select your version of Rancher Observability to jump to the associated documentation.
 
 ### Kubernetes troubleshooting
 
-Use StackState to troubleshoot your Kubernetes cluster.
+Use Rancher Observability to troubleshoot your Kubernetes cluster.
 
-🚀 [StackState docs](https://docs.stackstate.com/)
+🚀 [Rancher Observability docs](https://docs.stackstate.com/)
 
 
-### StackState Self-hosted
+### Rancher Observability Self-hosted
 
-Use StackState Self-hosted to observe an extensive set of technologies that originate either in your own data centers or in the cloud.
+Use Rancher Observability Self-hosted to observe an extensive set of technologies that originate either in your own data centers or in the cloud.
 
-↗️ **[StackState Self-hosted v5.1 docs](https://docs.stackstate.com/v/5.1/latest) - latest self-hosted release!**
+↗️ **[Rancher Observability Self-hosted v5.1 docs](https://docs.stackstate.com/v/5.1/latest) - latest self-hosted release!**
 
-↗️ [StackState Self-hosted v5.0 docs](https://docs.stackstate.com/v/5.0/)
+↗️ [Rancher Observability Self-hosted v5.0 docs](https://docs.stackstate.com/v/5.0/)
 
-↗️ [StackState Self-hosted v4.6 docs](https://docs.stackstate.com/v/4.6/)
+↗️ [Rancher Observability Self-hosted v4.6 docs](https://docs.stackstate.com/v/4.6/)
 
-### StackState SaaS
+### Rancher Observability SaaS
 
-Use StackState SaaS to observe cloud technologies, such as Kubernetes and AWS services. 
+Use Rancher Observability SaaS to observe cloud technologies, such as Kubernetes and AWS services. 
 
-↗️ [StackState SaaS docs](https://docs.stackstate.com/v/stackstate-saas/)
+↗️ [Rancher Observability SaaS docs](https://docs.stackstate.com/v/stackstate-saas/)
 
 {% hint style="success" %}
-🔒 StackState is SOC2/3 certified. [Learn more](https://www.stackstate.com/compliance)
+🔒 Rancher Observability is SOC2/3 certified. [Learn more](https://www.stackstate.com/compliance)
 {% endhint %}

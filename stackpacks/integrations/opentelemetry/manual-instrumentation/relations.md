@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted v5.1.x
+description: Rancher Observability Self-hosted v5.1.x
 ---
 
 # Relations between components
 
 ## Overview
 
-Component and span relations show the relationship between components in StackState. For example, the image below shows a relation running from a parent to a child component, that child also then has another component as a child component:
+Component and span relations show the relationship between components in Rancher Observability. For example, the image below shows a relation running from a parent to a child component, that child also then has another component as a child component:
 
 ```text
 Service Name: Parent Component
@@ -16,7 +16,7 @@ Service Name: Parent Component
      ---> Service Name: Child 2 Component
 ```
 
-An example of the above displayed in StackState will show up as follows:
+An example of the above displayed in Rancher Observability will show up as follows:
 
 ![Topology Perspective - Unmerged OTEL Components](../../../../.gitbook/assets/v51_otel_topology_perspective_healthy_component.png)
 
@@ -28,7 +28,7 @@ This means that:
 
 ## Health state propagation
 
-In StackState, the health state of a component will propagate upwards through the dependency tree. This means that in the following situation:
+In Rancher Observability, the health state of a component will propagate upwards through the dependency tree. This means that in the following situation:
 
 ```text
 Service Name: Parent Component
@@ -48,7 +48,7 @@ Service Name: Parent Component [Propagated 400 Status]
      ---> Service Name: Child 2 Component
 ```
 
-A visual example of this in the StackState UI will be as follows:
+A visual example of this in the Rancher Observability UI will be as follows:
 
 ![Topology Perspective - OTEL Components CRITICAL State](../../../../.gitbook/assets/v51_otel_topology_perspective_critical_component.png)
 

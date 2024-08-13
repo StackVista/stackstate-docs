@@ -1,27 +1,27 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Logz.io
 
 ## What is the Logz.io StackPack?
 
-The Logz.io StackPack allows StackState to connect to Logz.io.
+The Logz.io StackPack allows Rancher Observability to connect to Logz.io.
 
 Using this StackPack, you can:
 
 * plot log events from Logz.io onto your topology
 * monitor and create event notifications based on Logz.io log events
 
-Logz.io is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
+Logz.io is a [Rancher Observability curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
 ## Installation
 
-Install the Logz.io StackPack from the StackPacks page in StackState.
+Install the Logz.io StackPack from the StackPacks page in Rancher Observability.
 
 ## Wildcard search
 
-StackState provides ability to make Logz.io and Elasticsearch wildcard search operations. This approach introduces the **Support Wildcards in values** switch in the Telemetry Sources page for Logz.io.
+Rancher Observability provides ability to make Logz.io and Elasticsearch wildcard search operations. This approach introduces the **Support Wildcards in values** switch in the Telemetry Sources page for Logz.io.
 
 ### Optional Prerequisites:
 
