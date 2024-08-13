@@ -1,13 +1,13 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # HTTP - script API
 
-Sometimes it may be useful to process the retrieved topology or telemetry data using an external tool. For example, to perform analysis using a custom Python script, a cloud service or a Machine Learning framework. StackState can call out to any external service via HTTP using the functions in this script API.
+Sometimes it may be useful to process the retrieved topology or telemetry data using an external tool. For example, to perform analysis using a custom Python script, a cloud service or a Machine Learning framework. Rancher Observability can call out to any external service via HTTP using the functions in this script API.
 
 {% hint style="info" %}
-To execute scripts using the HTTP script API in the StackState UI analytics environment, a user must have the permission `execute-restricted-scripts`. For details, see the [analytics page permissions](../../../../configure/security/rbac/rbac_permissions.md#analytics-page-permissions).
+To execute scripts using the HTTP script API in the Rancher Observability UI analytics environment, a user must have the permission `execute-restricted-scripts`. For details, see the [analytics page permissions](../../../../configure/security/rbac/rbac_permissions.md#analytics-page-permissions).
 {% endhint %}
 
 ## Function: `HTTP.get(uri: String)`

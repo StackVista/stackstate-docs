@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x
+description: Rancher Observability Self-hosted v5.1.x
 ---
 
 # Enable logging for functions
@@ -7,17 +7,17 @@ description: StackState Self-hosted v5.1.x
 ## Overview
 
 {% hint style="info" %}
-Only available for Linux installations of StackState.
+Only available for Linux installations of Rancher Observability.
 {% endhint %}
 
-For debugging purposes, it may be helpful to enable logging for a StackState function. You can add logging statements to functions and then use the StackState `stac` CLI to set the logging level for an individual function instance . Log messages will be added to the StackState log file `stackstate.log`. It isn't possible to enable logging for all function types.
+For debugging purposes, it may be helpful to enable logging for a Rancher Observability function. You can add logging statements to functions and then use the Rancher Observability `stac` CLI to set the logging level for an individual function instance . Log messages will be added to the Rancher Observability log file `stackstate.log`. It isn't possible to enable logging for all function types.
 
 ## Set the logging level for a function instance
 
-To enable logging for an instance of a function, use its ID to set a logging level in the `stac` CLI. Note that the function itself will have an ID and each instance of the function relating to a component or view in StackState will have a separate ID.
+To enable logging for an instance of a function, use its ID to set a logging level in the `stac` CLI. Note that the function itself will have an ID and each instance of the function relating to a component or view in Rancher Observability will have a separate ID.
 
 {% hint style="info" %}
-* It's only possible to enable logging for functions running on a Linux installation of StackState.
+* It's only possible to enable logging for functions running on a Linux installation of Rancher Observability.
 * Use the ID for an instance of a function to set the logging level, not the ID of the function itself.
 * Use the [`stac` CLI](/setup/cli/cli-stac.md) to set the logging level. It isn't possible to set the logging level of a function instance using the new `sts` CLI.
 {% endhint %}
@@ -46,7 +46,7 @@ tail -f stackstate.log | grep <id>
 
 ## Add logging statements to a function
 
-Logging statements can be added to StackState functions and monitored in the `stackstate.log` file. This is useful for debug purposes.
+Logging statements can be added to Rancher Observability functions and monitored in the `stackstate.log` file. This is useful for debug purposes.
 
 1. Add a log statement in the function's code. For example:
    * `log.info("message")`
@@ -65,7 +65,7 @@ Retrieve the ID for a specific instance of a function:
 
 ### Check function instance ID
 
-The ID for an instance of a check or propagation function on a specific component can be found in the StackState UI. These are the IDs for the component's instance of a check function or propagation function.
+The ID for an instance of a check or propagation function on a specific component can be found in the Rancher Observability UI. These are the IDs for the component's instance of a check function or propagation function.
 
 1. Select a component to open detailed information about it in the right panel details tab - **Component details**.
 2. Click on **...** and select **Show JSON**.
@@ -78,9 +78,9 @@ The ID for an instance of a check or propagation function on a specific componen
 
 ### Event handler function instance ID
 
-The ID for an instance of an event handler function can be found using the [StackState CLI](../../setup/cli/README.md). 
+The ID for an instance of an event handler function can be found using the [Rancher Observability CLI](../../setup/cli/README.md). 
 
-* To list all event handlers, run the StackState CLI command below.
+* To list all event handlers, run the Rancher Observability CLI command below.
 * Use the `id` from the command output to [enable logging](enable-logging.md#set-the-logging-level-for-a-function-instance) for a specific event handler.
 
 {% tabs %}
@@ -93,13 +93,13 @@ stac graph list EventHandler
 114118706410878  EventHandler  demo_handler                             True      Fri Nov 13 11:32:29 2020
 ```
 
-⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+⚠️ **From Rancher Observability v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "Rancher Observability Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "Rancher Observability Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "Rancher Observability Self-Hosted only")
 
 {% endtab %}
 {% tab title="CLI: sts" %}
@@ -108,14 +108,14 @@ The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts`
 sts settings list --type EventHandler
 ```
 
-From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+From Rancher Observability v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 {% endtab %}
 {% endtabs %}
 
 ### Monitor function instance ID
-The ID for an instance of a monitor function can be found using the [StackState CLI](../../setup/cli/README.md). 
+The ID for an instance of a monitor function can be found using the [Rancher Observability CLI](../../setup/cli/README.md). 
 
 {% tabs %}
 {% tab title="CLI: stac (deprecated)" %}
@@ -132,13 +132,13 @@ stac monitor list
 
 ```
 
-⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.** 
+⚠️ **From Rancher Observability v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.** 
 
-In a future release of StackState, the new `sts` CLI will fully replace the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
+In a future release of Rancher Observability, the new `sts` CLI will fully replace the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "Rancher Observability Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "Rancher Observability Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "Rancher Observability Self-Hosted only")
 
 {% endtab %}
 {% tab title="CLI: sts" %}
@@ -154,7 +154,7 @@ ID              | STATUS   | IDENTIFIER                                         
 239992462327332 | DISABLED | urn:stackpack:stackstate-self-health:shared:monitor:memory-load | Memory Load               | 152715969986888 | []
 ```
 
-From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+From Rancher Observability v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 {% endtab %}
@@ -164,14 +164,14 @@ From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is 
 
 ### Propagation function instance ID
 
-The ID for an instance of a propagation functioncan be found in the StackState UI. For details on how to do this, see the instructions for [retrieving a check function instance ID](#check-function-instance-id).
+The ID for an instance of a propagation functioncan be found in the Rancher Observability UI. For details on how to do this, see the instructions for [retrieving a check function instance ID](#check-function-instance-id).
 
 ### View health state configuration function instance ID
 
-The ID for an instance of a view health state configuration function can be found using the StackState CLI.
+The ID for an instance of a view health state configuration function can be found using the Rancher Observability CLI.
 
-* Run the two StackState CLI commands below:
-  1. To return the IDs of all StackState views.
+* Run the two Rancher Observability CLI commands below:
+  1. To return the IDs of all Rancher Observability views.
   2. To retrieve the JSON for a specific view ID.
 * Use the `viewHealthStateConfiguration` ID from the retrieved view JSON to [enable logging](enable-logging.md#set-the-logging-level-for-a-function-instance) for this instance of the view health state configuration function. In the example below, this would be `39710412772194`.
 
@@ -216,13 +216,13 @@ sts graph show-node 9161801377514
       ...
 ```
 
-⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+⚠️ **From Rancher Observability v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "Rancher Observability Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "Rancher Observability Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "Rancher Observability Self-Hosted only")
 
 {% endtab %}
 {% tab title="CLI: sts" %}
@@ -243,7 +243,7 @@ sts settings describe --ids <VIEW_ID>
 
 ```
 
-From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
+From Rancher Observability v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
 
 ➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
 {% endtab %}
@@ -252,7 +252,7 @@ From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is 
 
 ## See also
 
-* [StackState CLI](../../setup/cli/README.md)
+* [Rancher Observability CLI](../../setup/cli/README.md)
 * [Check functions](../../develop/developer-guides/custom-functions/check-functions.md)
 * [Event handler functions](../../develop/developer-guides/custom-functions/event-handler-functions.md)
 * [Monitor functions](../../develop/developer-guides/custom-functions/monitor-functions.md)

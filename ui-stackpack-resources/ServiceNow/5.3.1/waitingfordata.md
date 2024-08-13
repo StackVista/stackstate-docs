@@ -1,6 +1,6 @@
-### The StackState ServiceNow StackPack is waiting for data
+### The Rancher Observability ServiceNow StackPack is waiting for data
 
-To begin collecting data from ServiceNow, add the following configuration to StackState Agent V2:
+To begin collecting data from ServiceNow, add the following configuration to Rancher Observability Agent V2:
 
 1. Edit the Agent integration configuration file `/etc/sts-agent/conf.d/servicenow.d/conf.yaml` to include details of your ServiceNow instance:
     - **url** - the REST API url, uses HTTPS protocol for communication.
@@ -35,8 +35,8 @@ To begin collecting data from ServiceNow, add the following configuration to Sta
    - Use queries to [filter change requests retrieved](#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) from ServiceNow (default all).
    - Use queries to [filter the CI types retrieved](#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) (default all).
    - [Specify the CI types](#specify-ci-types-to-retrieve) that should be retrieved (default all).
-3. [Restart the StackState Agent\(s\)](https://l.stackstate.com/ui-stackpack-restart-agent) to apply the configuration changes.
-3. Once the Agent has restarted, wait for the Agent to collect data from ServiceNow and send it to StackState.
+3. [Restart the Rancher Observability Agent\(s\)](https://l.stackstate.com/ui-stackpack-restart-agent) to apply the configuration changes.
+3. Once the Agent has restarted, wait for the Agent to collect data from ServiceNow and send it to Rancher Observability.
 
 #### Use ServiceNow queries to filter retrieved events and CI types
 
@@ -64,16 +64,16 @@ To begin collecting data from ServiceNow, add the following configuration to Sta
    # custom_cmdb_ci_field: u_configuration_item
    ...
    ```
-3. [Restart the StackState Agent\(s\)](https://l.stackstate.com/ui-stackpack-restart-agent) to apply the configuration changes.
+3. [Restart the Rancher Observability Agent\(s\)](https://l.stackstate.com/ui-stackpack-restart-agent) to apply the configuration changes.
 
 #### Specify CI types to retrieve
 
-By default, all available ServiceNow CI types will be sent to StackState. If you prefer to work with a specific set of resource types, you can configure the Agent integration to filter the CI types it retrieves:
+By default, all available ServiceNow CI types will be sent to Rancher Observability. If you prefer to work with a specific set of resource types, you can configure the Agent integration to filter the CI types it retrieves:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/servicenow.d/conf.yaml`.
     - A subset of the available CI types is listed and commented out.
-2. Uncomment the line `include_resource_types` and the CI types you would like to send to StackState.
-    You can add any valid ServiceNow CI type to the **include_resource_types** list, however, components from resource types that you have added will appear on the **Uncategorized** layer of a StackState view. 
+2. Uncomment the line `include_resource_types` and the CI types you would like to send to Rancher Observability.
+    You can add any valid ServiceNow CI type to the **include_resource_types** list, however, components from resource types that you have added will appear on the **Uncategorized** layer of a Rancher Observability view. 
 
     ```
     instances:
@@ -120,8 +120,8 @@ By default, all available ServiceNow CI types will be sent to StackState. If you
         #        - cmdb_ci_server
         #        - cmdb_ci_network_adapter
     ```
-4. [Restart the StackState Agent\(s\)](https://l.stackstate.com/ui-stackpack-restart-agent) to apply the configuration changes.
+4. [Restart the Rancher Observability Agent\(s\)](https://l.stackstate.com/ui-stackpack-restart-agent) to apply the configuration changes.
 
 ### Troubleshooting
 
-Troubleshooting steps for any known issues can be found in the [StackState support Knowledge base](https://l.stackstate.com/ui-servicenow-support-kb).
+Troubleshooting steps for any known issues can be found in the [Rancher Observability support Knowledge base](https://l.stackstate.com/ui-servicenow-support-kb).

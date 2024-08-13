@@ -1,20 +1,20 @@
 ---
-description: StackState Self-hosted
+description: Rancher Observability Self-hosted
 ---
 
 # File based
 
 ## Overview
 
-In case no external authentication provider can be used, you can use file based authentication. This will require every StackState user to be pre-configured in the configuration file. For every change made to a user in the configuration, StackState will automatically restart after applying the changes with Helm.
+In case no external authentication provider can be used, you can use file based authentication. This will require every Rancher Observability user to be pre-configured in the configuration file. For every change made to a user in the configuration, Rancher Observability will automatically restart after applying the changes with Helm.
 
-StackState includes a number of default roles, see the example configuration below. The permissions assigned to each default role and instructions on how to create other roles can be found in the [Role based access control (RBAC) documentation](../rbac/role_based_access_control.md).
+Rancher Observability includes a number of default roles, see the example configuration below. The permissions assigned to each default role and instructions on how to create other roles can be found in the [Role based access control (RBAC) documentation](../rbac/role_based_access_control.md).
 
 ## Set up file based authentication
 
 ### Kubernetes
 
-To configure file based authentication on Kubernetes, StackState users need to be added to the `authentication.yaml` file. For example:
+To configure file based authentication on Kubernetes, Rancher Observability users need to be added to the `authentication.yaml` file. For example:
 
 {% tabs %}
 {% tab title="authentication.yaml" %}
@@ -46,10 +46,10 @@ stackstate:
 Follow the steps below to configure users and apply changes:
 
 1. In `authentication.yaml` - add users. The following configuration should be added for each user \(see the example above\):
-   * **username** - the username used to log into StackState.
-   * **passwordHash** - the password used to log into StackState. Passwords are stored as a bcrypt hash.
-   * **roles** - the list of roles that the user is a member of. The [default StackState roles](../rbac/rbac_permissions.md#predefined-roles) are `stackstate-admin`,`stackstate-platform-admin`, `stackstate-power-user` and `stackstate-guest`, for details on how to create other roles, see [RBAC roles](../rbac/rbac_roles.md).
-2. Store the file `authentication.yaml` together with the file `values.yaml` from the StackState installation instructions.
+   * **username** - the username used to log into Rancher Observability.
+   * **passwordHash** - the password used to log into Rancher Observability. Passwords are stored as a bcrypt hash.
+   * **roles** - the list of roles that the user is a member of. The [default Rancher Observability roles](../rbac/rbac_permissions.md#predefined-roles) are `stackstate-admin`,`stackstate-platform-admin`, `stackstate-power-user` and `stackstate-guest`, for details on how to create other roles, see [RBAC roles](../rbac/rbac_roles.md).
+2. Store the file `authentication.yaml` together with the file `values.yaml` from the Rancher Observability installation instructions.
 3. Run a Helm upgrade to apply the changes:
 
    ```text
@@ -75,10 +75,10 @@ Follow the steps below to configure users and apply changes:
 Follow the steps below to configure users and apply changes:
 
 1. In `authentication.yaml` - add users. The following configuration should be added for each user \(see the example above\):
-   * **username** - the username used to log into StackState.
-   * **password** - the password used to log into StackState. Passwords are stored as either an MD5 hash or a bcrypt hash.
-   * **roles** - the list of roles that the user is a member of. The [default StackState roles](../rbac/rbac_permissions.md#predefined-roles) are `stackstate-admin`, `stackstate-platform-admin`, `stackstate-power-user`, `stackstate-k8s-troubleshooter` and `stackstate-guest`, for details on how to create other roles, see [RBAC roles](../rbac/rbac_roles.md).
-2. Restart StackState to apply the changes.
+   * **username** - the username used to log into Rancher Observability.
+   * **password** - the password used to log into Rancher Observability. Passwords are stored as either an MD5 hash or a bcrypt hash.
+   * **roles** - the list of roles that the user is a member of. The [default Rancher Observability roles](../rbac/rbac_permissions.md#predefined-roles) are `stackstate-admin`, `stackstate-platform-admin`, `stackstate-power-user`, `stackstate-k8s-troubleshooter` and `stackstate-guest`, for details on how to create other roles, see [RBAC roles](../rbac/rbac_roles.md).
+2. Restart Rancher Observability to apply the changes.
 
 {% hint style="info" %}
 **Note:**
@@ -90,6 +90,6 @@ Follow the steps below to configure users and apply changes:
 ## See also
 
 * [Authentication options](authentication_options.md)
-* [Permissions for predefined StackState roles](../rbac/rbac_permissions.md#predefined-roles)
+* [Permissions for predefined Rancher Observability roles](../rbac/rbac_permissions.md#predefined-roles)
 * [Create RBAC roles](../rbac/rbac_roles.md)
 

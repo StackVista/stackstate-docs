@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Prepare a StackPack provisioning script
 
 The provisioning script used for provisioning the StackPack should extend from `com.stackstate.stackpack.ProvisioningScript`. The provisioning script can be split into multiple groovy scripts. The `provisioning` directory inside the StackPack is part of the classpath, so any groovy script referred to inside the `provisioning` directory is also loaded.
 
-A provisioning script is provided with a set of capabilities that it can execute in the `StackState` environment. The capabilities are restricted to those that are defined as part of `com.stackstate.stackpack.ProvisioningContext` which is passed as a constructor parameter for the `ProvisioningScript`.
+A provisioning script is provided with a set of capabilities that it can execute in the `Rancher Observability` environment. The capabilities are restricted to those that are defined as part of `com.stackstate.stackpack.ProvisioningContext` which is passed as a constructor parameter for the `ProvisioningScript`.
 
 Here is an example of a provisioning script:
 
@@ -49,7 +49,7 @@ class SomeProvisioningScript extends ProvisioningScript {
 
   @Override
   void waitingForData(Map<String, Object> config) {
-    // Determine wether sufficient data has reached StackState.
+    // Determine wether sufficient data has reached Rancher Observability.
   }
 }
 ```
@@ -78,9 +78,9 @@ The `context()` function returns an object that provides the following functions
 * `scriptsDirectory()` - returns the path to the directory where this script resides.
 * `fail(errorMessage)` - marks this StackPack instance as broken \(StackPack is in `ERROR` state\) with `errorMessage` error message.
 
-### The StackState \(`sts`\) object
+### The Rancher Observability \(`sts`\) object
 
-The provisioning script can interact with the StackState instance it's running in via the `sts()` function:
+The provisioning script can interact with the Rancher Observability instance it's running in via the `sts()` function:
 
 ```text
 context().sts()
@@ -88,14 +88,14 @@ context().sts()
 
 The `sts()` function returns an object that provides the following functions:
 
-* `intakeApi()` - returns an object representing the StackState Receiver API that receives incoming data. The object supplies the following functions:
-  * `apiKey()` - returns the `API_KEY`, this is the API key for the StackState Receiver API. Also referred to as the `<STACKSTATE_RECEIVER_API_KEY>` for clarity in the docs.
-  * `baseUrl()` - returns the `RECEIVER_BASE_URL`, this is the base URL for the StackState Receiver API. Also referred to as the `<STACKSTATE_RECEIVER_API_ADDRESS>` for clarity in the docs.
+* `intakeApi()` - returns an object representing the Rancher Observability Receiver API that receives incoming data. The object supplies the following functions:
+  * `apiKey()` - returns the `API_KEY`, this is the API key for the Rancher Observability Receiver API. Also referred to as the `<STACKSTATE_RECEIVER_API_KEY>` for clarity in the docs.
+  * `baseUrl()` - returns the `RECEIVER_BASE_URL`, this is the base URL for the Rancher Observability Receiver API. Also referred to as the `<STACKSTATE_RECEIVER_API_ADDRESS>` for clarity in the docs.
 * `log()` - allows logging to be done in the provisioning script. Example: `context().sts().log().debug("Installing test StackPack")`.
 * `install(stackpackName, parameters)` - triggers installation of StackPack `stackpackName` with parameters `parameters`.
-* `onDataReceived(topic, callback)` - runs a `callback` function whenever data is received by the StackState API on topic `topic`.
+* `onDataReceived(topic, callback)` - runs a `callback` function whenever data is received by the Rancher Observability API on topic `topic`.
 * `provisioningComplete()` - called when provisioning is done, marks this StackPack instance state as `INSTALLED`.
-* `createTopologyTopicName(sourceType, sourceId)` - formats a StackState Kafka topic name using `sourceType` and `sourceId` parameters.
+* `createTopologyTopicName(sourceType, sourceId)` - formats a Rancher Observability Kafka topic name using `sourceType` and `sourceId` parameters.
 
 ### The StackPack \(`stackPack`\) object
 
@@ -124,7 +124,7 @@ The `instance()` function returns an object that provides the following function
 
 ### The environment \(`env`\) object
 
-The provisioning script can interact with the StackState environment via the `env()` function:
+The provisioning script can interact with the Rancher Observability environment via the `env()` function:
 
 ```text
 context().env()
@@ -138,7 +138,7 @@ The `env()` function returns an object that provides the following functions:
 
 It's time to template out the variables exposed by your StackPack. It's possible to define some input fields that your StackPack requires to authenticate against some external sources and to differentiate between instances. To generalize the configuration, it is needed to inject the configuration file with some template parameters which are provided by the provisioning script. Any parameters or configuration item can be passed down to the `.sty` template file.
 
-One common example is to create the topic name required by the data source for a given instance. To ensure data received from the StackState Agent Check ends up in your StackPack's data source, make sure that you create the same topic in the provisioning script. The following code snippet shows how to create a function called `topicName` that generates a topic name for this instance, based on the data provided by the user in the StackPack installation step.
+One common example is to create the topic name required by the data source for a given instance. To ensure data received from the Rancher Observability Agent Check ends up in your StackPack's data source, make sure that you create the same topic in the provisioning script. The following code snippet shows how to create a function called `topicName` that generates a topic name for this instance, based on the data provided by the user in the StackPack installation step.
 
 ```text
 @Override
@@ -160,7 +160,7 @@ private def topicName(Map<String, Object> stackpackConfig) {
 }
 ```
 
-It's possible now to reference any of the above `templateArguments` in your `.sty` template file. In case of the `topicName` you can replace the `topic` value in the `config` section of your StackState DataSource with this parameter:
+It's possible now to reference any of the above `templateArguments` in your `.sty` template file. In case of the `topicName` you can replace the `topic` value in the `config` section of your Rancher Observability DataSource with this parameter:
 
 ```yaml
 _type: "DataSource",

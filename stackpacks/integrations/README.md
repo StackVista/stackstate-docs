@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Integrations
@@ -18,7 +18,7 @@ description: StackState Self-hosted v5.1.x
     </thead>
     <tbody>
         <tr>
-            <td><strong>StackState Agent V2</strong></td>
+            <td><strong>Rancher Observability Agent V2</strong></td>
             <td><a href="/stackpacks/integrations/agent.md">agent</a></td>
             <td><a href="/.gitbook/assets/gitbook-card-image_agent-v2.jpg">gitbook-card-image_agent-v2.jpg</a></td>
         </tr>

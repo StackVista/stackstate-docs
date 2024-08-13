@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Propagation functions
@@ -25,7 +25,7 @@ Assigns the transparent state as the propagated state of a component.
 
 ### Transparent state
 
-The transparent state is pre-calculated by StackState and used for the default propagation type (auto propagation). It's passed to each propagation function script at run time in the [system parameters](#system-parameters) `transparentState` and `autoState`. The transparent state is calculated as the maximum of a component's own state and the propagated state of all the components that it depends upon. For example:
+The transparent state is pre-calculated by Rancher Observability and used for the default propagation type (auto propagation). It's passed to each propagation function script at run time in the [system parameters](#system-parameters) `transparentState` and `autoState`. The transparent state is calculated as the maximum of a component's own state and the propagated state of all the components that it depends upon. For example:
 
 | Dependency state | Component state | Transparent state |
 | :--- | :--- | :--- |
@@ -35,7 +35,7 @@ The transparent state is pre-calculated by StackState and used for the default p
 
 ### Propagation functions
 
-Propagation functions can be defined and used to calculate the propagated state of a component. Some propagation functions are installed as part of a StackPack. For example, Quorum based cluster propagation, which will propagate a `DEVIATING` state when the cluster quorum agrees on deviating and a `CRITICAL` state when the cluster quorum is in danger. You can also write your own [custom propagation functions](propagation-functions.md#create-a-custom-propagation-function). A full list of the propagation functions available in your StackState instance can be found in the StackState UI, go to **Settings** &gt; **Functions** &gt; **Propagation Functions**
+Propagation functions can be defined and used to calculate the propagated state of a component. Some propagation functions are installed as part of a StackPack. For example, Quorum based cluster propagation, which will propagate a `DEVIATING` state when the cluster quorum agrees on deviating and a `CRITICAL` state when the cluster quorum is in danger. You can also write your own [custom propagation functions](propagation-functions.md#create-a-custom-propagation-function). A full list of the propagation functions available in your Rancher Observability instance can be found in the Rancher Observability UI, go to **Settings** &gt; **Functions** &gt; **Propagation Functions**
 
 {% hint style="info" %}
 To specify a propagation function that should be used to calculate the propagated state a component, add the [`propagation` block](#edit-template) to the template used in topology synchronization.
@@ -104,11 +104,11 @@ Two types of execution are available for propagation functions:
 
 #### Asynchronous execution
 
-Functions that run with asynchronous execution can make an HTTP request and use [StackState script APIs](../../reference/scripting/script-apis/) in the function body. This gives you access to parts of the topology/telemetry not available in the context of the propagation itself. You can also use the available [element properties and methods](propagation-functions.md#script-properties-and-methods).
+Functions that run with asynchronous execution can make an HTTP request and use [Rancher Observability script APIs](../../reference/scripting/script-apis/) in the function body. This gives you access to parts of the topology/telemetry not available in the context of the propagation itself. You can also use the available [element properties and methods](propagation-functions.md#script-properties-and-methods).
 
 {% hint style="danger" %}
 **Keep performance aspects in mind when developing functions with asynchronous execution**  
-The script APIs offer super-human levels of flexibility and even allow querying standalone services. Consider extreme cases where the function is executed on all components and properly assess system impact. StackState comes with a number of StackPacks that include tuned propagating functions. Changes to those functions are possible, but may impact the stability of the system.
+The script APIs offer super-human levels of flexibility and even allow querying standalone services. Consider extreme cases where the function is executed on all components and properly assess system impact. Rancher Observability comes with a number of StackPacks that include tuned propagating functions. Changes to those functions are possible, but may impact the stability of the system.
 {% endhint %}
 
 #### Synchronous execution
@@ -161,7 +161,7 @@ You can add logging statements to a propagation function script for debug purpos
 
 ### Specify a propagation function
 
-The default propagation used in StackState is [Auto propagation](#auto-propagation-default). If another type of propagation should be applied to a component, this must be specified in the template and applied during topology synchronization. In most cases this will be handled by the StackPack responsible for synchronization of the component. 
+The default propagation used in Rancher Observability is [Auto propagation](#auto-propagation-default). If another type of propagation should be applied to a component, this must be specified in the template and applied during topology synchronization. In most cases this will be handled by the StackPack responsible for synchronization of the component. 
 
 To manually specify a non-default propagation function, a `"propagation"` block should be added to the template used for topology synchronization. If the `"propagation"` block is omitted, the default Auto propagation will be used. 
 
@@ -237,6 +237,6 @@ The template example below includes an argument that will be passed to the propa
 
 ## See also
 
-* [StackState script APIs](../../reference/scripting/script-apis/)
+* [Rancher Observability script APIs](../../reference/scripting/script-apis/)
 * [Enable logging for functions](../../../configure/logging/)
 

@@ -1,16 +1,16 @@
 ---
-description: StackState Self-hosted
+description: Rancher Observability Self-hosted
 ---
 
 # Data retention
 
 ## Overview
 
-StackState imposes data retention limits to save storage space and improve performance. You can configure the data retention period to balance the amount of data stored with StackState performance and data availability.
+Rancher Observability imposes data retention limits to save storage space and improve performance. You can configure the data retention period to balance the amount of data stored with Rancher Observability performance and data availability.
 
 ## Retention of topology graph data
 
-By default, topology graph data will be retained for 30 days. This works in a way that the latest state of topology graph will always be retained; only history older than 30 days will be removed. You can check and alter the configured retention period this using the StackState CLI.
+By default, topology graph data will be retained for 30 days. This works in a way that the latest state of topology graph will always be retained; only history older than 30 days will be removed. You can check and alter the configured retention period this using the Rancher Observability CLI.
 
 ```shell
 $ sts graph retention
@@ -32,7 +32,7 @@ After changing the retention period to a smaller window, you may end up with som
 $ sts graph retention --set 10d --schedule-removal
 ```
 
-In some cases, for example a disk running full, it can be needed to force removal of data immediately. This will have an impact on performance and current activity on StackState so is better avoided. 
+In some cases, for example a disk running full, it can be needed to force removal of data immediately. This will have an impact on performance and current activity on Rancher Observability so is better avoided. 
 
 Note that this may take some time to have an effect.
 
@@ -42,9 +42,9 @@ $ sts graph delete-expired-data --immediately
 
 ## Retention of events, traces and logs
 
-### StackState data store
+### Rancher Observability data store
 
-If you are using the event/logs store provided with StackState, your data will by default be retained for 30 days. In most cases, the default settings will be sufficient to store all indices for this amount of time.
+If you are using the event/logs store provided with Rancher Observability, your data will by default be retained for 30 days. In most cases, the default settings will be sufficient to store all indices for this amount of time.
 
 #### Configure disk space for Elasticsearch
 
@@ -82,7 +82,7 @@ Based on the `esDiskSpaceShare` and `retention` a portion of the Elasticsearch d
 
 ## Retention of metrics
 
-StackState uses VictoriaMetrics to store metrics. It's configured with a default retention of 30 days. The helm chart allocates disk space and configures the retention period for the 1 or 2 Victoria metrics instances like this:
+Rancher Observability uses VictoriaMetrics to store metrics. It's configured with a default retention of 30 days. The helm chart allocates disk space and configures the retention period for the 1 or 2 Victoria metrics instances like this:
 
 ```
 victoria-metrics-0:
@@ -100,34 +100,34 @@ victoria-metrics-1:
 
 To change the volume size after the initial installation some [extra steps are required](data_retention.md#resizing-storage).
 
-To change the retention period override both `retentionPeriod` keys with the same value in your custom values.yaml and [update StackState](./data_retention.md#update-stackstate):
+To change the retention period override both `retentionPeriod` keys with the same value in your custom values.yaml and [update Rancher Observability](./data_retention.md#update-stackstate):
 
 * The following optional suffixes are supported: h (hour), d (day), w (week), y (year). If no suffix is set the duration is in months.
 * Minimum retention period is 24h or 1 day.
 
-## Update StackState
+## Update Rancher Observability
 
-After making changes to the values.yaml StackState needs to be updated to apply those changes to the runtime. This may cause some short downtime while the services restart. To update StackState use the same command that was used during installation of StackState and make sure to include the same configuration files including the changes that have been made:
+After making changes to the values.yaml Rancher Observability needs to be updated to apply those changes to the runtime. This may cause some short downtime while the services restart. To update Rancher Observability use the same command that was used during installation of Rancher Observability and make sure to include the same configuration files including the changes that have been made:
 
 * [Kubernetes](/setup/install-stackstate/kubernetes_openshift/kubernetes_install.md#deploy-stackstate-with-helm)
 * [OpenShift](/setup/install-stackstate/kubernetes_openshift/openshift_install.md#deploy-stackstate-with-helm):
 
 ## Resizing storage
 
-In most clusters it's possible to resize a persistent volume after it has been created and without interrupting the operation of applications at all. However this can't be done by simply changing the configured storage size in the values.yaml of the StackState Helm chart. Instead several steps are needed:
+In most clusters it's possible to resize a persistent volume after it has been created and without interrupting the operation of applications at all. However this can't be done by simply changing the configured storage size in the values.yaml of the Rancher Observability Helm chart. Instead several steps are needed:
 
 1. Verify the used storage class can be resized
 2. Resize the volumes
 3. Update values.yaml and apply change (optional but recommended)
 
-The examples below use the VictoriaMetrics storage as an example. StackState is installed in the `stackstate` namespace. The volume is going to be resized to 500Gi.
+The examples below use the VictoriaMetrics storage as an example. Rancher Observability is installed in the `stackstate` namespace. The volume is going to be resized to 500Gi.
 
 ### Verify the storage class supports resizing
 
 Use the following `kubectl` commands to get the storage class used and check that the `allowVolumeExpansion` is set to true.
 
 ```bash
-# Get the PVC's for StackState
+# Get the PVC's for Rancher Observability
 kubectl get pvc --namespace stackstate
 
 # There is a storage class column in the output, copy it and use it to describe the storage class
@@ -144,12 +144,12 @@ If the line is absent or if it's set to `False` please consult with your Kuberne
 
 ### Resize the volumes
 
-The StackState Helm chart creates a stateful set, which has a template to create the persistent volume claim (PVC). This template is only used to create the PVC once, after that it won't be applied anymore and it's also not allowed to change it. So to make the PVC's bigger the PVC itself needs to be edited.
+The Rancher Observability Helm chart creates a stateful set, which has a template to create the persistent volume claim (PVC). This template is only used to create the PVC once, after that it won't be applied anymore and it's also not allowed to change it. So to make the PVC's bigger the PVC itself needs to be edited.
 
 To change the PVC size use the following commands.
 
 ```bash
-# Get the PVC's for StackState, allows us to check the current size and copy the name of the PVC to modify it with the next command
+# Get the PVC's for Rancher Observability, allows us to check the current size and copy the name of the PVC to modify it with the next command
 kubectl get pvc --namespace stackstate
 
 # Patch the PVC's specified size, change it to 500Gi
@@ -179,4 +179,4 @@ kubectl get statefulset --namespace stackstate
 kubectl delete statefulset --namespace stackstate stackstate-victoria-metrics-0 --cascade=orphan
 ```
 
-Finally [update StackState](./data_retention.md#update-stackstate) with the new settings.
+Finally [update Rancher Observability](./data_retention.md#update-stackstate) with the new settings.

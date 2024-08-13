@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Resources in a StackPack
 
-The resources reside in `<your-stackpack>/src/main/stackpack/resources` directory. This folder has files to be used mostly as display assets in the StackState UI as steps during the StackPack installation process. Some of the files are required for a StackPack to be displayed correctly:
+The resources reside in `<your-stackpack>/src/main/stackpack/resources` directory. This folder has files to be used mostly as display assets in the Rancher Observability UI as steps during the StackPack installation process. Some of the files are required for a StackPack to be displayed correctly:
 
-* `logo.png` - an image file with the StackPack logo that's displayed on the StackPacks page in StackState.
+* `logo.png` - an image file with the StackPack logo that's displayed on the StackPacks page in Rancher Observability.
 * `overview.md` - a Markdown text file with general information about the StackPack.
 * `configuration.md` - a Markdown text file with information about how to configure a StackPack instance.
 

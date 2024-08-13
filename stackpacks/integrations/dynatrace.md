@@ -1,24 +1,24 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # 💠 Dynatrace
 
 ## Overview
 
-The Dynatrace StackPack creates a synchronization between a Dynatrace instance and StackState. When the integration is enabled, Dynatrace Smartscape topology and events for the configured `relative_time` \(default 1 hour\) will be available in StackState.
+The Dynatrace StackPack creates a synchronization between a Dynatrace instance and Rancher Observability. When the integration is enabled, Dynatrace Smartscape topology and events for the configured `relative_time` \(default 1 hour\) will be available in Rancher Observability.
 
-Dynatrace is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
+Dynatrace is a [Rancher Observability core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "Rancher Observability Self-Hosted only").
 
 ![Data flow](../../.gitbook/assets/stackpack-dynatrace.svg)
 
 * Agent V2 connects to the configured [Dynatrace API](dynatrace.md#rest-api-endpoints) to retrieve data:
   * If a Dynatrace topology check is configured, Topology and Smartscape data is retrieved
   * If a Dynatrace health check is configured, events data is retrieved.
-* Agent V2 pushes [retrieved data](dynatrace.md#data-retrieved) to StackState.
+* Agent V2 pushes [retrieved data](dynatrace.md#data-retrieved) to Rancher Observability.
     * [Topology data](dynatrace.md#topology) is translated into components and relations. 
-    * [Tags](dynatrace.md#tags) defined in Dynatrace are added to components and relations in StackState. Any defined StackState tags are used by StackState when the topology is retrieved.
-    * [Events](dynatrace.md#events) are available in the StackState Events Perspective. They're also included in the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**..
+    * [Tags](dynatrace.md#tags) defined in Dynatrace are added to components and relations in Rancher Observability. Any defined Rancher Observability tags are used by Rancher Observability when the topology is retrieved.
+    * [Events](dynatrace.md#events) are available in the Rancher Observability Events Perspective. They're also included in the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**..
 
 ## Setup
 
@@ -26,13 +26,13 @@ Dynatrace is a [StackState core integration](/stackpacks/integrations/about_inte
 
 To set up the Dynatrace integration you will need to have:
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to both Dynatrace and StackState.
+* [Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to both Dynatrace and Rancher Observability.
 * A running Dynatrace instance.
 * A [Dynatrace API Token](#dynatrace-api-token) with access to read the Smartscape Topology and Events.
 
 ### Install
 
-Install the Dynatrace StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
+Install the Dynatrace StackPack from the Rancher Observability UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
 
 * **Dynatrace URL** - the Dynatrace URL from which topology will be collected. 
 * **Dynatrace Instance Name** - the user-defined name of the Dynatrace account shown in configurations such as views. 
@@ -46,10 +46,10 @@ To enable the Dynatrace integration, two Dynatrace checks need to be configured.
 #### Dynatrace Topology Check
 
 {% hint style="info" %}
-If only the Dynatrace topology check is enabled, no Dynatrace events data will be available in StackState and components will be reported with a green (CLEAR) health state. To enable retrieval of events data from Dynatrace, you should also enable the [Dynatrace health check](#dynatrace-health-check).
+If only the Dynatrace topology check is enabled, no Dynatrace events data will be available in Rancher Observability and components will be reported with a green (CLEAR) health state. To enable retrieval of events data from Dynatrace, you should also enable the [Dynatrace health check](#dynatrace-health-check).
 {% endhint %}
 
-To enable the Dynatrace topology check and begin collecting topology data from Dynatrace, add the following configuration to StackState Agent V2:
+To enable the Dynatrace topology check and begin collecting topology data from Dynatrace, add the following configuration to Rancher Observability Agent V2:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/dynatrace_topology.d/conf.yaml` to include details of your Dynatrace instance:
    * **url** - the base URL of the Dynatrace instance.
@@ -82,7 +82,7 @@ To enable the Dynatrace topology check and begin collecting topology data from D
         #   - foo:bar
     
     ```
-2. You can also add optional configuration to specify where imported Dynatrace topology will end up in StackState:
+2. You can also add optional configuration to specify where imported Dynatrace topology will end up in Rancher Observability:
    - **domain** - The domain to use for imported topology (default dynatrace).
    - **environment** - The environment to use for imported topology (default production).
 3. Other optional configuration options are:
@@ -96,16 +96,16 @@ To enable the Dynatrace topology check and begin collecting topology data from D
    - **custom_device_fields** - The Custom Device property fields that should be used.
    - **custom_device_ip** - Use IP address to generate Custom Device identifiers. Set to `False` if there are multiple Custom Devices using the same IP to prevent incorrect merging of Custom Device components. Default `True`. Requires Agent V2.17 or later. 
    - **tags** - custom tags appended to all components, useful for filtering.
-4. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
-5. Once the Agent has restarted, wait for data to be collected from Dynatrace and sent to StackState.
+4. [Restart Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+5. Once the Agent has restarted, wait for data to be collected from Dynatrace and sent to Rancher Observability.
 
 #### Dynatrace Health Check
 
 {% hint style="info" %}
-If only the Dynatrace health check is enabled, no Dynatrace topology data will be available in StackState. Events data will be retrieved from Dynatrace, but there will be no components or relations available in StackState to map this to. To enable retrieval of topology data from Dynatrace, you should also enable the [Dynatrace topology check](#dynatrace-topology-check).
+If only the Dynatrace health check is enabled, no Dynatrace topology data will be available in Rancher Observability. Events data will be retrieved from Dynatrace, but there will be no components or relations available in Rancher Observability to map this to. To enable retrieval of topology data from Dynatrace, you should also enable the [Dynatrace topology check](#dynatrace-topology-check).
 {% endhint %}
 
-To enable the Dynatrace health check and begin collecting events from Dynatrace, add the following configuration to StackState Agent V2:
+To enable the Dynatrace health check and begin collecting events from Dynatrace, add the following configuration to Rancher Observability Agent V2:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/dynatrace_health.d/conf.yaml` to include details of your Dynatrace instance:
    * **url** - the base URL of the Dynatrace instance.
@@ -141,12 +141,12 @@ To enable the Dynatrace health check and begin collecting events from Dynatrace,
    - **relative_time** - The relative timeframe for retrieving topology.
    - **events_bootstrap_days** - How many days in the past to collect events on the first run.
    - **events_process_limit** - Maximum number of events to process each run.
-3. [Restart StackState Agent V2](https://l.stackstate.com/ui-stackpack-restart-agent) to apply the configuration changes.
-4.Once the Agent has restarted, wait for data to be collected from Dynatrace and sent to StackState.
+3. [Restart Rancher Observability Agent V2](https://l.stackstate.com/ui-stackpack-restart-agent) to apply the configuration changes.
+4.Once the Agent has restarted, wait for data to be collected from Dynatrace and sent to Rancher Observability.
 
 #### Dynatrace API token
 
-The API Token configured in StackState Agent V2 must have the permission **Access problems and event feed, metrics, and topology** \(API value `DataExport`\). Note that this token must be generated by an admin Dynatrace user in Settings > Integrations > Dynatrace API. For details, see [Dynatrace API token permissions \(dynatrace.com\)](https://www.dynatrace.com/support/help/dynatrace-api/basics/dynatrace-api-authentication#token-permissions).
+The API Token configured in Rancher Observability Agent V2 must have the permission **Access problems and event feed, metrics, and topology** \(API value `DataExport`\). Note that this token must be generated by an admin Dynatrace user in Settings > Integrations > Dynatrace API. For details, see [Dynatrace API token permissions \(dynatrace.com\)](https://www.dynatrace.com/support/help/dynatrace-api/basics/dynatrace-api-authentication#token-permissions).
 
 You can check if the generated token is working using the curl command:
 
@@ -170,7 +170,7 @@ sudo stackstate-agent status
 
 ### Upgrade
 
-When a new version of the Dynatrace StackPack is available in your instance of StackState, you will be prompted to upgrade in the StackState UI on the page **StackPacks** &gt; **Integrations** &gt; **Dynatrace**. For a quick overview of recent StackPack updates, check the [StackPack versions](../../setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release.
+When a new version of the Dynatrace StackPack is available in your instance of Rancher Observability, you will be prompted to upgrade in the Rancher Observability UI on the page **StackPacks** &gt; **Integrations** &gt; **Dynatrace**. For a quick overview of recent StackPack updates, check the [StackPack versions](../../setup/upgrade-stackstate/stackpack-versions.md) shipped with each Rancher Observability release.
 
 For considerations and instructions on upgrading a StackPack, see [how to upgrade a StackPack](../about-stackpacks.md#upgrade-a-stackpack).
 
@@ -178,7 +178,7 @@ For considerations and instructions on upgrading a StackPack, see [how to upgrad
 
 ### REST API endpoints
 
-The API endpoints used in the StackState integration are listed below:
+The API endpoints used in the Rancher Observability integration are listed below:
 
 * `/api/v1/entity/applications`
 * `/api/v1/entity/infrastructure/hosts`
@@ -200,11 +200,11 @@ Refer to the Dynatrace documentation for details on [how to create an API Token 
 
 The [Dynatrace health check](#dynatrace-health-check) retrieves all events and their parameters from Dynatrace for the configured `relative time` (default 1 hour).
 
-| Dynatrace event severity | Available in StackState as                                                                                                                                                                                                                      |
+| Dynatrace event severity | Available in Rancher Observability as                                                                                                                                                                                                                      |
 | :--- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `INFO` | Events are mapped to the associated component. They're listed on the StackState Events Perspective. They're also included in the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**. |
-| `PERFORMANCE`, `RESOURCE_CONTENTION`, `MONITORING_UNAVAILABLE`, `ERROR` | Events are added to a StackState health stream. These event severities will result in a `DEVIATING` state on the associated component.                                                                                                         |
-| `AVAILABILITY`, `CUSTOM_ALERT` | Events are added to a StackState health stream. These event severities will result in a CRITICAL state on the associated component.                                                                                                            |
+| `INFO` | Events are mapped to the associated component. They're listed on the Rancher Observability Events Perspective. They're also included in the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**. |
+| `PERFORMANCE`, `RESOURCE_CONTENTION`, `MONITORING_UNAVAILABLE`, `ERROR` | Events are added to a Rancher Observability health stream. These event severities will result in a `DEVIATING` state on the associated component.                                                                                                         |
+| `AVAILABILITY`, `CUSTOM_ALERT` | Events are added to a Rancher Observability health stream. These event severities will result in a CRITICAL state on the associated component.                                                                                                            |
 
 
 #### Metrics
@@ -213,9 +213,9 @@ The Dynatrace integration doesn't retrieve any metrics data.
 
 #### Tags
 
-All tags defined in Dynatrace will be retrieved and added to the associated components and relations in StackState. 
+All tags defined in Dynatrace will be retrieved and added to the associated components and relations in Rancher Observability. 
 
-The Dynatrace integration also understands StackState [common tags](../../configure/topology/tagging.md#common-tags). These StackState tags can be assigned to elements in Dynatrace to influence the way that the resulting topology is built in StackState. For example, by placing a component in a specific layer or domain.
+The Dynatrace integration also understands Rancher Observability [common tags](../../configure/topology/tagging.md#common-tags). These Rancher Observability tags can be assigned to elements in Dynatrace to influence the way that the resulting topology is built in Rancher Observability. For example, by placing a component in a specific layer or domain.
 
 #### Topology
 
@@ -227,16 +227,16 @@ The [Dynatrace topology check](#dynatrace-topology-check) retrieves the followin
 | Relations | Relations between the imported components are included in the component data retrieved from Dynatrace.                                                        |
 
 {% hint style="info" %}
-The Dynatrace integration understands StackState [common tags](../../configure/topology/tagging.md#common-tags). These StackState tags can be assigned to elements in Dynatrace to influence the way that the resulting topology is built in StackState. For example, by placing a component in a specific layer or domain.
+The Dynatrace integration understands Rancher Observability [common tags](../../configure/topology/tagging.md#common-tags). These Rancher Observability tags can be assigned to elements in Dynatrace to influence the way that the resulting topology is built in Rancher Observability. For example, by placing a component in a specific layer or domain.
 {% endhint %}
 
 #### Traces
 
 The Dynatrace integration doesn't retrieve any traces data.
 
-### Dynatrace filters for StackState views
+### Dynatrace filters for Rancher Observability views
 
-When the Dynatrace integration is enabled, the following additional keys can be used to filter views in the StackState UI:
+When the Dynatrace integration is enabled, the following additional keys can be used to filter views in the Rancher Observability UI:
 
 * dynatrace-ManagementZones
 * dynatrace-EntityID
@@ -256,14 +256,14 @@ The code for the Dynatrace checks are open source and available on GitHub:
 
 ## Troubleshooting
 
-Troubleshooting steps for any known issues can be found in the [StackState support Knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=Dynatrace).
+Troubleshooting steps for any known issues can be found in the [Rancher Observability support Knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=Dynatrace).
 
 ## Uninstall
 
 To uninstall the Dynatrace StackPack and disable the Dynatrace checks:
 
-1. Go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **Dynatrace** screen and click **UNINSTALL**.
-   * All Dynatrace specific configuration will be removed from StackState.
+1. Go to the Rancher Observability UI **StackPacks** &gt; **Integrations** &gt; **Dynatrace** screen and click **UNINSTALL**.
+   * All Dynatrace specific configuration will be removed from Rancher Observability.
 2. Remove or rename the Agent integration configuration file, for example:
 
    ```text
@@ -271,7 +271,7 @@ To uninstall the Dynatrace StackPack and disable the Dynatrace checks:
     mv dynatrace_health.d/conf.yaml dynatrace_health.d/conf.yaml.bak
    ```
 
-3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+3. [Restart Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 
 ## Release notes
 
@@ -285,7 +285,7 @@ To uninstall the Dynatrace StackPack and disable the Dynatrace checks:
 
 **Dynatrace StackPack v1.4.0 (2022-04-06)**
 
-- Features: Dynatrace support for synthetic checks, introduced a new component type synthetic monitor (requires StackState Agent V2.17 or later)
+- Features: Dynatrace support for synthetic checks, introduced a new component type synthetic monitor (requires Rancher Observability Agent V2.17 or later)
 - Features: Synthetic checks and custom devices added as layer
 - BugFix: Fixed showing component actions when component merges. STAC-14517
 
@@ -296,8 +296,8 @@ To uninstall the Dynatrace StackPack and disable the Dynatrace checks:
 
 ## See also
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md)
-* StackState Agent integrations:
+* [Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md)
+* Rancher Observability Agent integrations:
   - [Topology check/(github.com/)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_topology)
   - [Health check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/dynatrace_health)
 * [How to generate a Dynatrace API token \(dynatrace.com\)](https://www.dynatrace.com/support/help/dynatrace-api/basics/dynatrace-api-authentication#generate-a-token)

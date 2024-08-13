@@ -1,12 +1,12 @@
 ---
-description: StackState v6.0
+description: Rancher Observability v6.0
 ---
 
 # OpenMetrics
 
 ## Overview
 
-StackState Agent V2 can be configured to retrieve metrics from an OpenMetrics endpoint and push these to StackState.
+Rancher Observability Agent V2 can be configured to retrieve metrics from an OpenMetrics endpoint and push these to Rancher Observability.
 
 ## Setup
 
@@ -16,7 +16,7 @@ The OpenMetrics check is included in the [Agent V2 StackPack].
 
 ### Configuration
 
-To enable the OpenMetrics integration and begin collecting metrics data from an OpenMetrics endpoint, the OpenMetrics check must be configured on StackState Agent V2. The check configuration provides all details required for the Agent to connect to your OpenMetrics endpoint and retrieve the available metrics.
+To enable the OpenMetrics integration and begin collecting metrics data from an OpenMetrics endpoint, the OpenMetrics check must be configured on Rancher Observability Agent V2. The check configuration provides all details required for the Agent to connect to your OpenMetrics endpoint and retrieve the available metrics.
 
 {% tabs %}
 {% tab title="Kubernetes, OpenShift" %}
@@ -64,7 +64,7 @@ To enable the OpenMetrics integration and begin collecting metrics data from an 
    - **ssl_private_key** - required if the certificate linked in `ssl_cert` doesn't include the private key. Note that the private key to your local certificate must be unencrypted.
    - **ssl_ca_cert** - the path to the trusted CA used for generating custom certificates.
    - **extra_headers** - a list of additional HTTP headers to send in queries to the OpenMetrics endpoint. Can be combined with autodiscovery template variables. For example, `"Authorization: Bearer %%env_TOKEN%%"`.
-4. Wait for the Agent to collect data from the OpenMetrics endpoint and send it to StackState.
+4. Wait for the Agent to collect data from the OpenMetrics endpoint and send it to Rancher Observability.
 
 {% endtab %}
 {% endtabs %}

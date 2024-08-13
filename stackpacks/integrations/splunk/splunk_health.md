@@ -1,33 +1,33 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Splunk Health
 
 ## Overview
 
-When the [Splunk StackPack](splunk_stackpack.md) has been installed in StackState, you can configure the Splunk Health check on StackState Agent V2 to begin collecting Splunk health data.
+When the [Splunk StackPack](splunk_stackpack.md) has been installed in Rancher Observability, you can configure the Splunk Health check on Rancher Observability Agent V2 to begin collecting Splunk health data.
 
-Health is collected from Splunk by executing Splunk saved searches from StackState Agent V2. In order to receive Splunk health data in StackState, configuration needs to be added to both Splunk and StackState Agent V2:
+Health is collected from Splunk by executing Splunk saved searches from Rancher Observability Agent V2. In order to receive Splunk health data in Rancher Observability, configuration needs to be added to both Splunk and Rancher Observability Agent V2:
 
 * [Splunk saved search](splunk_health.md#splunk-saved-search) - there should be at least one saved search that generates the health data you want to retrieve.
-* [StackState Agent V2 Splunk Health check](splunk_health.md#agent-check) - a Splunk Health check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
+* [Rancher Observability Agent V2 Splunk Health check](splunk_health.md#agent-check) - a Splunk Health check should be configured to connect to your Splunk instance and execute the relevant Splunk saved searches.
 
-The Splunk Health check on StackState Agent V2 will execute all configured Splunk saved searches periodically to retrieve a snapshot of the health at the current time.
+The Splunk Health check on Rancher Observability Agent V2 will execute all configured Splunk saved searches periodically to retrieve a snapshot of the health at the current time.
 
 ## Prerequisites
 
 To run the Splunk Health Agent check, you need to have:
 
 * A running Splunk instance.
-* The [Splunk StackPack](splunk_stackpack.md) installed on your StackState instance.
-* [StackState Agent V2](/setup/agent/about-stackstate-agent.md) must be installed on a single machine which can connect to Splunk and StackState.
+* The [Splunk StackPack](splunk_stackpack.md) installed on your Rancher Observability instance.
+* [Rancher Observability Agent V2](/setup/agent/about-stackstate-agent.md) must be installed on a single machine which can connect to Splunk and Rancher Observability.
 
 ## Splunk saved search
 
 ### Fields used
 
-StackState Agent V2 executes the Splunk saved searches configured in the [Splunk Health Agent check](splunk_health.md#agent-check) and pushes retrieved data to StackState. The following fields from the results of a saved search are sent to StackState:
+Rancher Observability Agent V2 executes the Splunk saved searches configured in the [Splunk Health Agent check](splunk_health.md#agent-check) and pushes retrieved data to Rancher Observability. The following fields from the results of a saved search are sent to Rancher Observability:
 
 | Field                                      | Description                                                                     |
 |:-------------------------------------------|:--------------------------------------------------------------------------------|
@@ -58,7 +58,7 @@ StackState Agent V2 executes the Splunk saved searches configured in the [Splunk
 
 ### Configure the Splunk Health check
 
-To enable the Splunk Health integration and begin collecting health data from your Splunk instance, the Splunk Health check must be configured on StackState Agent V2. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
+To enable the Splunk Health integration and begin collecting health data from your Splunk instance, the Splunk Health check must be configured on Rancher Observability Agent V2. The check configuration provides all details required for the Agent to connect to your Splunk instance and execute a Splunk saved search.
 
 {% hint style="info" %}
 Example Agent V2 Splunk Health check configuration file:  
@@ -67,7 +67,7 @@ Example Agent V2 Splunk Health check configuration file:
 
 To configure the Splunk Health Agent check:
 
-1. Edit the StackState Agent V2 configuration file `/etc/stackstate-agent/conf.d/splunk_health.d/conf.yaml`.
+1. Edit the Rancher Observability Agent V2 configuration file `/etc/stackstate-agent/conf.d/splunk_health.d/conf.yaml`.
 2. Under **instances**, add details of your Splunk instance:
    * **url** - The URL of your Splunk instance.
    * **authentication** - How the Agent should authenticate with your Splunk instance. Choose either token-based \(recommended\) or basic authentication. For details, see [authentication configuration details](splunk_stackpack.md#authentication).
@@ -84,9 +84,9 @@ To configure the Splunk Health Agent check:
      * **parameters** - Used in the Splunk API request. The default parameters provided make sure the Splunk saved search query refreshes. Default `force_dispatch: true` and `dispatch.now: true`.
 4. More advanced options can be found in the [example configuration \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_health/stackstate_checks/splunk_health/data/conf.yaml.example). 
 5. Save the configuration file.
-6. Restart StackState Agent V2 to apply the configuration changes.
-7. Incoming health data will be mapped to associated components and relations in the StackState UI as check states.
-8. To more closely inspect what the synchronization is doing, [use the StackState CLI](../../../configure/health/debug-health-sync.md)
+6. Restart Rancher Observability Agent V2 to apply the configuration changes.
+7. Incoming health data will be mapped to associated components and relations in the Rancher Observability UI as check states.
+8. To more closely inspect what the synchronization is doing, [use the Rancher Observability CLI](../../../configure/health/debug-health-sync.md)
 
 {% hint style="info" %}
 The configured `collection_interval` will be used as the [`repeat_interval` for the health synchronization](../../../configure/health/health-synchronization.md#repeat-interval). Make sure that the value set for the `collection_interval` matches the time that the check will take to run.
@@ -102,12 +102,12 @@ To disable the Splunk Health Agent check:
     mv /etc/stackstate-agent/conf.d/splunk_health.d/conf.yaml /etc/stackstate-agent/conf.d/splunk_health.d/conf.yaml.bak
    ```
 
-2. Restart StackState Agent V2 to apply the configuration changes.
+2. Restart Rancher Observability Agent V2 to apply the configuration changes.
 
 ## See also
 
-* [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md)
-* [StackState Splunk integration details](splunk_stackpack.md)
+* [Rancher Observability Agent V2](../../../setup/agent/about-stackstate-agent.md)
+* [Rancher Observability Splunk integration details](splunk_stackpack.md)
 * [Health synchronization](../../../configure/health/health-synchronization.md)
 * [Debug health synchronization](../../../configure/health/debug-health-sync.md)
 * [Example Splunk Health configuration file - splunk\_health/conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/splunk_health/stackstate_checks/splunk_health/data/conf.yaml.example)

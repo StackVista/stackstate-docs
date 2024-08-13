@@ -1,23 +1,23 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
-# Connect an Agent check to StackState
+# Connect an Agent check to Rancher Observability
 
 ## Overview
 
-The recommended way to connect your Agent check and visualize the data within StackState is to install the **Custom Synchronization** StackPack. Note that the Custom Synchronization StackPack only supports a single instance, to synchronize multiple instances you will need to create a multi-tenant StackPack.
+The recommended way to connect your Agent check and visualize the data within Rancher Observability is to install the **Custom Synchronization** StackPack. Note that the Custom Synchronization StackPack only supports a single instance, to synchronize multiple instances you will need to create a multi-tenant StackPack.
 
 ## Install
 
-Install the Custom Synchronization StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following parameters:
+Install the Custom Synchronization StackPack from the Rancher Observability UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following parameters:
 
 * **Instance type \(source identifier\)** - `TopologyInstance`
 * **Instance URL**
 
 These are directly mapped to the `TopologyInstance` supplied in the `get_instance_key` function of your Agent check.
 
-In the example Agent check below StackState, the Custom Synchronization StackPack **Instance type** would be `example` and the **Instance URL** would be `instance_url`.
+In the example Agent check below Rancher Observability, the Custom Synchronization StackPack **Instance type** would be `example` and the **Instance URL** would be `instance_url`.
 
 ```text
     def get_instance_key(self, instance):

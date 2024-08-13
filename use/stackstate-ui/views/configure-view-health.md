@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Configure the view health
@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.1.x
 
 Reacting to each event in an environment can cause a lot of noise. This may be both undesirable and unnecessary. For example, if one or multiple components have an impact on a service, it can be sufficient to report on changes to the problem itself and not each related state change.
 
-StackState can reduce this noise by looking at the overall [health state of a view](/use/concepts/health-state.md#view-health-state) rather than that of individual elements. The view health state is determined by the combined health of its elements. When a view changes its health state, a view state change event is triggered and that can in turn trigger an [event notification](/use/events/event-notifications.md) or automated action.
+Rancher Observability can reduce this noise by looking at the overall [health state of a view](/use/concepts/health-state.md#view-health-state) rather than that of individual elements. The view health state is determined by the combined health of its elements. When a view changes its health state, a view state change event is triggered and that can in turn trigger an [event notification](/use/events/event-notifications.md) or automated action.
 
 ![Views list with view health state](../../../.gitbook/assets/v51_views_list.png)
 
@@ -16,7 +16,7 @@ StackState can reduce this noise by looking at the overall [health state of a vi
 
 View health state is calculated by a **view state configuration function**. To configure a view to report its health state:
 
-1. In the StackState UI, click **Views** from the main menu.
+1. In the Rancher Observability UI, click **Views** from the main menu.
 2. Click the pencil icon next to a view name to edit the view.
 3. Set **View Health State Enabled** to **On**.
 4. Select a **Configuration function** to use to calculate the view health.
@@ -31,7 +31,7 @@ View health state is calculated by a **view state configuration function**. To c
 {% hint style="success" "self-hosted info" %}
 
 * Create your own [custom View Health State Configuration functions](../../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md).
-* Details of the available configuration functions are available in the StackState UI, go to **Settings** &gt; **Functions** &gt; **View Health State Configuration Functions**.
+* Details of the available configuration functions are available in the Rancher Observability UI, go to **Settings** &gt; **Functions** &gt; **View Health State Configuration Functions**.
 {% endhint %}
 
 ## React to view state changes
@@ -63,5 +63,5 @@ Use the **MINIMUM HEALTH STATES** view health state configuration as a starting 
 
 * [Add a health check](../../checks-and-monitors/add-a-health-check.md)
 * [Send event notifications when a health state changes](/use/events/manage-event-handlers.md)
-* [Customize the view state configuration](../../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md "StackState Self-Hosted only")
-* [Create a custom view health state configuration function](../../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#create-a-custom-view-health-state-configuration-function "StackState Self-Hosted only")
+* [Customize the view state configuration](../../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md "Rancher Observability Self-Hosted only")
+* [Create a custom view health state configuration function](../../../develop/developer-guides/custom-functions/view-health-state-configuration-functions.md#create-a-custom-view-health-state-configuration-function "Rancher Observability Self-Hosted only")

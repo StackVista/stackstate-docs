@@ -1,5 +1,5 @@
 ---
-description: StackState v6.0
+description: Rancher Observability v6.0
 ---
 
 # Events Perspective
@@ -14,7 +14,7 @@ The Events Perspective shows events and changes for the elements in the current 
 
 ## Filter displayed events
 
-The events displayed can be filtered in the **View filters** panel on the left of the StackState UI. Event filters will be applied to the events shown in the Events Perspective. They're also included in the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**.. 
+The events displayed can be filtered in the **View filters** panel on the left of the Rancher Observability UI. Event filters will be applied to the events shown in the Events Perspective. They're also included in the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**.. 
 
 ### Filter by source component
 
@@ -26,7 +26,7 @@ The [event filters](../filters.md#filter-events) set in the **View Filters** pan
 
 ### Filter by timestamp
 
-The Events Perspective and events lists show events that match the [Telemetry interval](../timeline-time-travel.md#telemetry-interval) selected in the timeline at the bottom of the StackState UI. Adjust the telemetry interval to show only events that were generated at that time.
+The Events Perspective and events lists show events that match the [Telemetry interval](../timeline-time-travel.md#telemetry-interval) selected in the timeline at the bottom of the Rancher Observability UI. Adjust the telemetry interval to show only events that were generated at that time.
 
 ## Time travel
 
@@ -51,4 +51,4 @@ For example:
 
 * [Use events to trigger event notifications and actions](/use/events/manage-event-handlers.md)
 * [Filtering data](../filters.md)
-* [Working with StackState views](../views/about_views.md)
+* [Working with Rancher Observability views](../views/about_views.md)

@@ -1,22 +1,22 @@
 ---
-description: StackState Self-hosted
+description: Rancher Observability Self-hosted
 ---
 
 # Scopes
 
 ## How do scopes work?
 
-The scope is an [STQL query](../../../develop/reference/k8sTs-stql_reference.md) that's added as a prefix to every query executed in StackState. Whenever a user wants to select a view or pass a query in StackState, this prefix query is executed as a part of the user's query. This limits the results accordingly to match the user's role.
+The scope is an [STQL query](../../../develop/reference/k8sTs-stql_reference.md) that's added as a prefix to every query executed in Rancher Observability. Whenever a user wants to select a view or pass a query in Rancher Observability, this prefix query is executed as a part of the user's query. This limits the results accordingly to match the user's role.
 
 Note: Please note that function calls like `withCauseOf` and `withNeighborsOf` aren't supported as they would not be performant in this context.
 
 If a user belongs to multiple groups, then this user can have multiple scopes, which translates to multiple prefixes. In this situation, the prefix is executed as an OR of all scopes that this user has.
 
-Users need to log out and authenticate again to StackState whenever any changes to roles or permissions are made.
+Users need to log out and authenticate again to Rancher Observability whenever any changes to roles or permissions are made.
 
 ## Why scopes?
 
-Scopes are introduced as a security feature that's mandatory for every subject within StackState. The predefined StackState users Administrator, Power User and Guest roles have no scope defined.
+Scopes are introduced as a security feature that's mandatory for every subject within Rancher Observability. The predefined Rancher Observability users Administrator, Power User and Guest roles have no scope defined.
 
 It's possible to specify a scope as a query wildcard, however, this will result in access to everything and isn't recommended. If there is a need for access without a scope, it's recommended to use one of the [predefined roles](rbac_permissions.md#predefined-roles) instead.
 
@@ -24,7 +24,7 @@ It's possible to specify a scope as a query wildcard, however, this will result 
 
 The below example shows the same topology view called "All Infrastructure" for four users with different permission levels.
 
-### This user is a part of StackState Admin group, so there is no scope:
+### This user is a part of Rancher Observability Admin group, so there is no scope:
 
 ![Full view permissions](../../../.gitbook/assets/v51_allperm.png)
 

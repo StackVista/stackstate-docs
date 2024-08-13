@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Async script result
@@ -8,7 +8,7 @@ Most API functions execute asynchronously. That means they won't directly return
 
 ## Working with `AsyncScriptResult.then`
 
-If the result of your script returns is an `AsyncScriptResult` StackState will automatically wait for the actual result to resolve. If however you want to continue your script with the resolved result of an `AsyncScriptResult` you must use the `.then` method.
+If the result of your script returns is an `AsyncScriptResult` Rancher Observability will automatically wait for the actual result to resolve. If however you want to continue your script with the resolved result of an `AsyncScriptResult` you must use the `.then` method.
 
 The `.then` method expects a [Groovy closure](https://groovy-lang.org/closures.html). The closure will execute as soon as the result is received. This lambda function can work with the result and return either a new `AsyncScriptResult` or a simple \(synchronous\) result.
 

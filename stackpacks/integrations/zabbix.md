@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Zabbix
@@ -8,13 +8,13 @@ description: StackState Self-hosted v5.1.x
 
 The Zabbix StackPack is used to create a near real time synchronization with your Zabbix instance.
 
-Zabbix is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
+Zabbix is a [Rancher Observability curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
 ## Prerequisites
 
 The following prerequisites need to be met:
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) must be installed on a single machine which can connect to Zabbix and StackState.
+* [Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md) must be installed on a single machine which can connect to Zabbix and Rancher Observability.
 * A Zabbix instance must be running.
 
 **NOTE**: Zabbix versions 3, 4 and 5 are supported.
@@ -41,14 +41,14 @@ To enable the Zabbix check and begin collecting data from your Zabbix instance:
        username: <username> # Admin
        password: <password> # zabbix
      ```
-2. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to publish the configuration changes.
-3. Once the Agent is restarted, wait for the Agent to collect the data and send it to StackState.
+2. [Restart Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to publish the configuration changes.
+3. Once the Agent is restarted, wait for the Agent to collect the data and send it to Rancher Observability.
 
 ## Release notes
 
 **Zabbix StackPack v3.2.0 (2021-09-22)**
 
-* Feature: Support StackState Common tags
+* Feature: Support Rancher Observability Common tags
 
 
 **Zabbix StackPack v3.1.1 \(2021-04-12\)**

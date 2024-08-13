@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x
+description: Rancher Observability Self-hosted v5.1.x
 ---
 
 # Debug topology synchronization
@@ -10,18 +10,18 @@ This page explains several tools that can be used to troubleshoot a topology syn
 
 ## Topology synchronization process
 
-A topology synchronized using StackState Agent follows the process described below:
+A topology synchronized using Rancher Observability Agent follows the process described below:
 
-![Topology synchronization with StackState Agent](/.gitbook/assets/topo_sync_process.svg)
+![Topology synchronization with Rancher Observability Agent](/.gitbook/assets/topo_sync_process.svg)
 
-1. StackState Agent:
+1. Rancher Observability Agent:
    * Connects to a data source to collect data.
-   * Connects to the StackState Receiver to push collected data to StackState (in JSON format).
-   * Read the [troubleshooting steps for StackState Agent](#stackstate-agent).
-2. StackState Receiver:
+   * Connects to the Rancher Observability Receiver to push collected data to Rancher Observability (in JSON format).
+   * Read the [troubleshooting steps for Rancher Observability Agent](#stackstate-agent).
+2. Rancher Observability Receiver:
    * Extracts topology and telemetry payloads from the received JSON.
    * Puts messages on the Kafka bus.
-   * Read the [troubleshooting steps for StackState Receiver](#stackstate-receiver).
+   * Read the [troubleshooting steps for Rancher Observability Receiver](#stackstate-receiver).
 3. Kafka:
    * Stores received data in topics.
    * Read the [troubleshooting steps for Kafka](#kafka).
@@ -39,36 +39,36 @@ A topology synchronized using StackState Agent follows the process described bel
 2. If no components appear after making changes to a synchronization, or the data isn't as expected, follow the steps described in the sections below to check each step in the [topology synchronization process](#topology-synchronization-process).
 3. If relations are missing from the topology, read the note on [troubleshooting synchronization of relations](#relations).
 
-### StackState Agent
+### Rancher Observability Agent
 
-For integrations that run through StackState Agent, StackState Agent is a good place to start an investigation.
-- Check the [StackState Agent log](/setup/agent/about-stackstate-agent.md#deployment) for hints that it has problems connecting to StackState.
-- The integration can be triggered manually using the `stackstate-agent check <check_name> -l debug` command on your terminal. This command won't send any data to StackState. Instead, it will return the topology and telemetry collected to standard output along with any generated log messages.
+For integrations that run through Rancher Observability Agent, Rancher Observability Agent is a good place to start an investigation.
+- Check the [Rancher Observability Agent log](/setup/agent/about-stackstate-agent.md#deployment) for hints that it has problems connecting to Rancher Observability.
+- The integration can be triggered manually using the `stackstate-agent check <check_name> -l debug` command on your terminal. This command won't send any data to Rancher Observability. Instead, it will return the topology and telemetry collected to standard output along with any generated log messages.
 
-### StackState Receiver
+### Rancher Observability Receiver
 
-The StackState Receiver receives JSON data from StackState Agent V2.
+The Rancher Observability Receiver receives JSON data from Rancher Observability Agent V2.
 
-- Check the StackState Receiver logs for JSON deserialization errors.
+- Check the Rancher Observability Receiver logs for JSON deserialization errors.
 
 ### Kafka
 
-Topology and telemetry are stored on Kafka on separate topics. The StackState topology synchronization reads data from a Kafka bus once it becomes available.
+Topology and telemetry are stored on Kafka on separate topics. The Rancher Observability topology synchronization reads data from a Kafka bus once it becomes available.
 
 Use the `stac` CLI to list the topics on Kafka and check the messages on a topic:
-- List all topics present on Kafka: `stac topology list-topics`. A topic should be present where the name has the format `sts_topo_<instance_type>_<instance url>` where `<instance_type>` is the recognizable name of an integration and `<instance_url>` corresponds to the StackState Agent integration YAML (usually the URL of the data source).
+- List all topics present on Kafka: `stac topology list-topics`. A topic should be present where the name has the format `sts_topo_<instance_type>_<instance url>` where `<instance_type>` is the recognizable name of an integration and `<instance_url>` corresponds to the Rancher Observability Agent integration YAML (usually the URL of the data source).
 - Check messages on a Kafka topic: `stac topic show <topic_name>`. If there are recent messages on the Kafka bus, then the issue isn't in the data collection.
 
 ### Synchronization
 
-The StackState topology synchronization reads messages from a topic on the Kafka data bus. The Kafka topic used by a synchronization is defined in the Sts data source.
+The Rancher Observability topology synchronization reads messages from a topic on the Kafka data bus. The Kafka topic used by a synchronization is defined in the Sts data source.
 
 - Check if the topic name defined in the Sts data source matches what is returned by the `stackstate-agent check` command. Note that topic names are case-sensitive.
-- Check the error counter for the synchronization on the StackState UI page **Settings** > **Topology Synchronization** > **Synchronizations**. Increasing numbers tell you that there was an error while processing received data.
+- Check the error counter for the synchronization on the Rancher Observability UI page **Settings** > **Topology Synchronization** > **Synchronizations**. Increasing numbers tell you that there was an error while processing received data.
 
 ![Synchronization errors](/.gitbook/assets/settings_synchronizations.png)
 
-To troubleshoot processing errors, refer to the relevant StackState log files. The provided log messages will help you to resolve the issue. For details on working with the StackState log files on Kubernetes and Linux see the pages under [Configure > Logging](/configure/logging/README.md).
+To troubleshoot processing errors, refer to the relevant Rancher Observability log files. The provided log messages will help you to resolve the issue. For details on working with the Rancher Observability log files on Kubernetes and Linux see the pages under [Configure > Logging](/configure/logging/README.md).
 
 - Check the `stackstate.log` or, for Kubernetes, the `stackstate-api` pod.
   - If there is an issue with the ID extractor, an exception will be logged here on each received topology element. No topology will be synchronized, however, the synchronization’s error counter will **not** increase.
@@ -85,7 +85,7 @@ It's possible that a relation references a source or target component that doesn
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-When StackState is deployed on Kubernetes, logs about synchronization can be found in the `stackstate-sync` pod and the `stackstate-api` pod. The name of the synchronization is shown in the log entries.
+When Rancher Observability is deployed on Kubernetes, logs about synchronization can be found in the `stackstate-sync` pod and the `stackstate-api` pod. The name of the synchronization is shown in the log entries.
 
 * The `stackstate-sync` pod has details of:
   * Template/mapping function errors.
@@ -97,12 +97,12 @@ When StackState is deployed on Kubernetes, logs about synchronization can be fou
   * ID extractor errors.
   * StackPacks.
 
-➡️ [Learn more about StackState log files on Kubernetes](/configure/logging/kubernetes-logs.md)
+➡️ [Learn more about Rancher Observability log files on Kubernetes](/configure/logging/kubernetes-logs.md)
 
 {% endtab %}
 
 {% tab title="Linux" %}
-When StackState is deployed on Linux, logs about synchronization are stored in the directory:
+When Rancher Observability is deployed on Linux, logs about synchronization are stored in the directory:
 
 `<my_install_location>/var/log/sync/`
 
@@ -123,7 +123,7 @@ Logs about StackPacks are stored in the directory:
 
 There is a log file for each StackPack. The name of the log file is set to the StackPack’s internal name. Information about the StackPack lifecycle can be found here.
 
-➡️ [Learn more about StackState log files on Linux](/configure/logging/linux-logs.md)
+➡️ [Learn more about Rancher Observability log files on Linux](/configure/logging/linux-logs.md)
 
 {% endtab %}
 {% endtabs %}
@@ -150,13 +150,13 @@ stac topology list
 ```
 {% endcode %}
 
-⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+⚠️ **From Rancher Observability v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "Rancher Observability Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "Rancher Observability Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "Rancher Observability Self-Hosted only")
 
 {% endtab %}
 {% tab title="CLI: sts" %}
@@ -187,13 +187,13 @@ latency (Seconds)                                   35.754  ---                 
 ```
 {% endcode %}
 
-⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+⚠️ **From Rancher Observability v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "Rancher Observability Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "Rancher Observability Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "Rancher Observability Self-Hosted only")
 
 {% endtab %}
 {% tab title="CLI: sts" %}
@@ -204,6 +204,6 @@ Command not currently available in the new `sts` CLI. Use the `stac` CLI.
 
 ## See also
 
-* [Working with StackState log files](/configure/logging/README.md)
+* [Working with Rancher Observability log files](/configure/logging/README.md)
 * [Configure topology synchronizations](/configure/topology/sync.md)
 * [Tune topology synchronization](/configure/topology/tune-topology-synchronization.md)

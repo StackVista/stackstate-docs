@@ -1,19 +1,19 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # OpenTelemetry - NodeJS
 
 ## Overview
 
-StackState provides an out-of-the-box OpenTelemetry solution for serverless AWS Lambda applications built with NodeJS. A modified OpenTelemetry Lambda Layer, based on the officially released [AWS Distro for OpenTelemetry Lambda \(aws-otel.github.io\)](https://aws-otel.github.io/docs/getting-started/lambda), gives a plug-and-play user experience.
+Rancher Observability provides an out-of-the-box OpenTelemetry solution for serverless AWS Lambda applications built with NodeJS. A modified OpenTelemetry Lambda Layer, based on the officially released [AWS Distro for OpenTelemetry Lambda \(aws-otel.github.io\)](https://aws-otel.github.io/docs/getting-started/lambda), gives a plug-and-play user experience.
 
 OpenTelemetry has the following benefits:
 
 - Lambda functions can include the OpenTelemetry Lambda Layer solution to collect trace data without the need to change any code.
-- The specific AWS Service that a Lambda communicates with is shown in StackState. 
+- The specific AWS Service that a Lambda communicates with is shown in Rancher Observability. 
 
-The StackState OpenTelemetry Lambda Layer can be used with AWS Lambda scripts running NodeJS 14.x (or later) and will transform the Topology in StackState as follows: 
+The Rancher Observability OpenTelemetry Lambda Layer can be used with AWS Lambda scripts running NodeJS 14.x (or later) and will transform the Topology in Rancher Observability as follows: 
 
 
 {% tabs %}
@@ -30,12 +30,12 @@ The StackState OpenTelemetry Lambda Layer can be used with AWS Lambda scripts ru
 ### Prerequisites
 
 To set up OpenTelemetry traces, you need to have:
-* [StackState Agent](/setup/agent/about-stackstate-agent.md) v2.16 (or later)
-* StackState Agent should have [traces enabled](/setup/agent/advanced-agent-configuration.md#enable-traces). If traces aren't enabled on the Agent, OpenTelemetry won't generate any data.
+* [Rancher Observability Agent](/setup/agent/about-stackstate-agent.md) v2.16 (or later)
+* Rancher Observability Agent should have [traces enabled](/setup/agent/advanced-agent-configuration.md#enable-traces). If traces aren't enabled on the Agent, OpenTelemetry won't generate any data.
 * AWS Lambda scripts running `NodeJS 14.x` (or later)
   * These will be the Lambda functions you wish to add OpenTelemetry support to.
-  * They should be able to communicate with the StackState Agent.
-* The [AWS StackPack](/stackpacks/integrations/aws/aws.md) should be installed and configured in StackState. The AWS StackPack CloudFormation template will deploy the latest supported OpenTelemetry Lambda Layer (required for AWS OpenTelemetry functionality).
+  * They should be able to communicate with the Rancher Observability Agent.
+* The [AWS StackPack](/stackpacks/integrations/aws/aws.md) should be installed and configured in Rancher Observability. The AWS StackPack CloudFormation template will deploy the latest supported OpenTelemetry Lambda Layer (required for AWS OpenTelemetry functionality).
 
 ### Supported Services
 
@@ -60,9 +60,9 @@ Note that the installation steps should be completed for every Lambda function t
 2. [Set up tracing](#set-up-tracing)
 3. [Add the required environment variables](#add-environment-variables)
 
-After these steps have been completed, you should be ready to send traces to your StackState Agent.
+After these steps have been completed, you should be ready to send traces to your Rancher Observability Agent.
 
-To test the configuration, execute the associated Lambda function. New Topology relations should be created and visible in the StackState UI within a minute or so. Relations will be created wherever your Lambda is communicating with any of the [supported services](#supported-services).
+To test the configuration, execute the associated Lambda function. New Topology relations should be created and visible in the Rancher Observability UI within a minute or so. Relations will be created wherever your Lambda is communicating with any of the [supported services](#supported-services).
 
 #### Verify that the Lambda Layer exists
 
@@ -164,9 +164,9 @@ Create all of the following environment variables in the **Configuration** tab u
 
 ![Verify Active Tracing](../../../.gitbook/assets/otel_add_env_variable.png)
 
-- StackState Agent OpenTelemetry Information
+- Rancher Observability Agent OpenTelemetry Information
   - Trace Agent Port: `8126`
-  - OpenTelemetry StackState Agent Path: `/open-telemetry`
+  - OpenTelemetry Rancher Observability Agent Path: `/open-telemetry`
 
 #### Required Environment variables
 
@@ -177,7 +177,7 @@ Create all of the following environment variables in the **Configuration** tab u
 | `OTEL_PROPAGATORS` | The OpenTelemetry propagator context. | `tracecontext` |
 | `OTEL_TRACES_EXPORTER` | The type of export used with OpenTelemetry. | `otlp` |
 | `OTEL_TRACES_SAMPLER` | When execution data should be sampled. | `always_on` |
-| `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT` | Routing information from the Lambda to the StackState Agent. This needs to point to the open telemetry endpoint of your StackState Agent. | `http://stackstate-agent-ip:8126/open-telemetry` |
+| `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT` | Routing information from the Lambda to the Rancher Observability Agent. This needs to point to the open telemetry endpoint of your Rancher Observability Agent. | `http://stackstate-agent-ip:8126/open-telemetry` |
 
 #### Optional Environment variables
 

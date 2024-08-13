@@ -1,16 +1,16 @@
 ---
-description: StackState Self-hosted v5.1.x
+description: Rancher Observability Self-hosted v5.1.x
 ---
 
 # Monitor STY file format
 
 ## Overview
 
-Monitors produce health states that can be attached to any number of elements in the StackState topology to calculate a health state based on 4T data. Each monitor consists of a monitor definition and a monitor function. Monitors are created and managed by StackPacks or the CLI.
+Monitors produce health states that can be attached to any number of elements in the Rancher Observability topology to calculate a health state based on 4T data. Each monitor consists of a monitor definition and a monitor function. Monitors are created and managed by StackPacks or the CLI.
 
 ## STY file format
 
-Monitors in StackState are represented textually using the [STY file format](/develop/reference/stackstate-templating/using_stackstate_templating.md). The following snippet presents an example monitor file:
+Monitors in Rancher Observability are represented textually using the [STY file format](/develop/reference/stackstate-templating/using_stackstate_templating.md). The following snippet presents an example monitor file:
 
 ```yaml
 _version: "1.0.39",
@@ -26,7 +26,7 @@ nodes:
       deviating: 0.8
       metrics: |
         Telemetry
-              .query("StackState Metrics", "")
+              .query("Rancher Observability Metrics", "")
               .metricField("stackstate.java_lang_operatingsystem_systemcpuload")
               .groupBy("host")
               .window("-10m", "-1m")
@@ -41,7 +41,7 @@ The supported fields are:
 
 - **name** - a human-readable name that shortly describes the operating principle of the monitor.
 - **description** - a longer, more in-depth description of the monitor.
-- **identifier** - a StackState-URN-formatted value that uniquely identifies this monitor definition. For more details see [identifier](#identifier).
+- **identifier** - a Rancher Observability-URN-formatted value that uniquely identifies this monitor definition. For more details see [identifier](#identifier).
 - **remediationHint** - a short, markdown-enabled hint displayed whenever the validation rule represented by this monitor triggers and results in an unhealthy state.
 - **function** - the specific monitor function to use as the basis of computation for this monitor. For more details see [function](#function).
 - **arguments** - lists concrete values that are to be used for parameters in the monitor function invocation. For more details and descriptions of commonly used parameters, see [arguments](#arguments).
@@ -53,48 +53,48 @@ The supported fields are:
 
 ### identifier
 
-An important field of the monitor node is the `identifier` - it is a unique value of the StackState URN format that can be used together with the monitor-specific StackState CLI commands. The identifier should be formatted as follows:
+An important field of the monitor node is the `identifier` - it is a unique value of the Rancher Observability URN format that can be used together with the monitor-specific Rancher Observability CLI commands. The identifier should be formatted as follows:
 
 `urn : <prefix> : monitor : <unique-monitor-identification>`
 
-* The `<prefix>` is described in more detail in [topology identifiers](../../../configure/topology/identifiers.md "StackState Self-Hosted only").
+* The `<prefix>` is described in more detail in [topology identifiers](../../../configure/topology/identifiers.md "Rancher Observability Self-Hosted only").
 * The `<unique-monitor-identification>` is user-definable and free-form.
 
 ### function
 
-Each monitor configured in StackState uses a monitor function to compute the health state results that are attached to the elements.
+Each monitor configured in Rancher Observability uses a monitor function to compute the health state results that are attached to the elements.
 
 Monitor functions are scripts that accept 4T data as input, check the data based on some internal logic and output health state mappings for the affected topology elements. The function is run periodically by the monitor runner (at the configured `intervalSeconds`). The monitor function is responsible for detecting any changes in the data that can be considered to change an element's health state.
 
 You can list the available monitor functions using the CLI command:
 
-{% tabs %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: sts" %}[](http://not.a.link "StackState Self-Hosted only")
+{% tabs %}[](http://not.a.link "Rancher Observability Self-Hosted only")
+{% tab title="CLI: sts" %}[](http://not.a.link "Rancher Observability Self-Hosted only")
 ```
 sts settings list --type MonitorFunction
 ```
 
-From StackState v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.[](http://not.a.link "StackState Self-Hosted only")
+From Rancher Observability v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.[](http://not.a.link "Rancher Observability Self-Hosted only")
 
-➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% tab title="CLI: stac (deprecated)" %}[](http://not.a.link "StackState Self-Hosted only")
-`stac graph list MonitorFunction`[](http://not.a.link "StackState Self-Hosted only")
+➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "Rancher Observability Self-Hosted only")
+{% endtab %}[](http://not.a.link "Rancher Observability Self-Hosted only")
+{% tab title="CLI: stac (deprecated)" %}[](http://not.a.link "Rancher Observability Self-Hosted only")
+`stac graph list MonitorFunction`[](http://not.a.link "Rancher Observability Self-Hosted only")
 
-⚠️ **From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.** [](http://not.a.link "StackState Self-Hosted only")
+⚠️ **From Rancher Observability v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.** [](http://not.a.link "Rancher Observability Self-Hosted only")
 
-The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "StackState Self-Hosted only")
+The new `sts` CLI replaces the `stac` CLI. It is advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:[](http://not.a.link "Rancher Observability Self-Hosted only")
 
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "Rancher Observability Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "Rancher Observability Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "Rancher Observability Self-Hosted only")
 
-{% endtab %}[](http://not.a.link "StackState Self-Hosted only")
-{% endtabs %}[](http://not.a.link "StackState Self-Hosted only")
+{% endtab %}[](http://not.a.link "Rancher Observability Self-Hosted only")
+{% endtabs %}[](http://not.a.link "Rancher Observability Self-Hosted only")
 
 {% hint style="success" "self-hosted info" %}
 
-You can [create custom monitor function](../custom-functions/monitor-functions.md) to customize how StackState processes 4T data.
+You can [create custom monitor function](../custom-functions/monitor-functions.md) to customize how Rancher Observability processes 4T data.
 
 {% endhint %}
 
@@ -192,21 +192,21 @@ parameters:
 {% endtabs %}
 
 #### Telemetry query
-Monitor functions that utilize telemetry tend to be parameterized with the exact telemetry query to use for their computation. The telemetry query should be built using the StackState Telemetry Script API. The following fields are particularly useful in telemetry queries that are passed to monitor functions:
+Monitor functions that utilize telemetry tend to be parameterized with the exact telemetry query to use for their computation. The telemetry query should be built using the Rancher Observability Telemetry Script API. The following fields are particularly useful in telemetry queries that are passed to monitor functions:
 
 * `groupBy(fields)` - when a monitor will produce a health state for multiple components, use the `groupBy` field to produce multiple time series as a set of unique values for the defined `fields`.
 * `aggregation(type, interval)` - aggregates each time series by the defined `type`. Each aggregated value is constructed out of a data span the size of the defined `interval`.
 
-➡️ [Learn more about the Telemetry script API](/develop/reference/scripting/script-apis/telemetry.md "StackState Self-Hosted only")
+➡️ [Learn more about the Telemetry script API](/develop/reference/scripting/script-apis/telemetry.md "Rancher Observability Self-Hosted only")
 
 {% tabs %}
 {% tab title="Monitor STY definition" %}
-To supply a value to the `telemetryQuery` parameter defined in the monitor function, the monitor STY definition would look something like the following. Note that the provided value must utilize the StackState Telemetry Script API and evaluate to a telemetry query, otherwise it will not pass the argument validation that is performed before the function execution begins.
+To supply a value to the `telemetryQuery` parameter defined in the monitor function, the monitor STY definition would look something like the following. Note that the provided value must utilize the Rancher Observability Telemetry Script API and evaluate to a telemetry query, otherwise it will not pass the argument validation that is performed before the function execution begins.
 
 ```yaml
 ...
 arguments:
-  telemetryQuery: "Telemetry.query('StackState Metrics', '').metricField('system.cpu.iowait').groupBy('tags.host').start('-10m').aggregation('mean', '1m')"
+  telemetryQuery: "Telemetry.query('Rancher Observability Metrics', '').metricField('system.cpu.iowait').groupBy('tags.host').start('-10m').aggregation('mean', '1m')"
   ...
 ```
 {% endtab %}
@@ -241,11 +241,11 @@ arguments:
 ...
 ```
 
-The exact `value` to use for this parameter depends on the topology available in StackState (or more precisely on its identifier scheme), and on the values supplied by the monitor function for interpolation (or more precisely the type of data processed by the function). In the most common case, a topology identifier pattern parameter is used in conjunction with a [telemetry query parameter](#telemetry-query) - in this case, the fields used for the telemetry query grouping (listed in its `.groupBy()` step) will also be available for the interpolation of topology identifier values. For example, consider the following query:
+The exact `value` to use for this parameter depends on the topology available in Rancher Observability (or more precisely on its identifier scheme), and on the values supplied by the monitor function for interpolation (or more precisely the type of data processed by the function). In the most common case, a topology identifier pattern parameter is used in conjunction with a [telemetry query parameter](#telemetry-query) - in this case, the fields used for the telemetry query grouping (listed in its `.groupBy()` step) will also be available for the interpolation of topology identifier values. For example, consider the following query:
 
 ```groovy
 Telemetry
-  .query('StackState Metrics', '')
+  .query('Rancher Observability Metrics', '')
   .metricField('system.cpu.iowait')
   .groupBy('host', 'region')
   .start('-10m')
@@ -291,17 +291,17 @@ A newly created monitor will start with a `DISABLED` status, unless the `status`
 An updated monitor will by default keep its own `status`. If the `status` field is included in the payload used to update the monitor, the specified `status` will be assumed.
 
 {% hint style="info" %}
-Note that when a monitor is disabled, all health states associated with the monitor will be removed, and they will no longer be visible in the StackState UI.
+Note that when a monitor is disabled, all health states associated with the monitor will be removed, and they will no longer be visible in the Rancher Observability UI.
 {% endhint %}
 
 ### intervalSeconds
 
-The monitor run interval determines how often a monitor logic will be executed. This is configured in the monitor STY file as a number of seconds using the `intervalSeconds` field. For example, an `intervalSeconds: 60` configuration means that StackState will attempt to execute the monitor function associated with the monitor every 60 seconds. If the monitor function execution takes significant time, the next scheduled run will occur 60 seconds after the previous run finishes.
+The monitor run interval determines how often a monitor logic will be executed. This is configured in the monitor STY file as a number of seconds using the `intervalSeconds` field. For example, an `intervalSeconds: 60` configuration means that Rancher Observability will attempt to execute the monitor function associated with the monitor every 60 seconds. If the monitor function execution takes significant time, the next scheduled run will occur 60 seconds after the previous run finishes.
 
 ## See also
 
 * [Create a custom monitor](create-custom-monitors.md)
-* [Monitor functions](/develop/developer-guides/custom-functions/monitor-functions.md "StackState Self-Hosted only")
+* [Monitor functions](/develop/developer-guides/custom-functions/monitor-functions.md "Rancher Observability Self-Hosted only")
 * [Manage monitors](/use/checks-and-monitors/manage-monitors.md)
 * [Using STY](/develop/reference/stackstate-templating/using_stackstate_templating.md)
   [STY Reference](/develop/reference/stackstate-templating/template_functions.md)

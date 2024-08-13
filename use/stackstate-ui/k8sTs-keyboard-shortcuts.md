@@ -1,12 +1,12 @@
 ---
-description: StackState v6.0
+description: Rancher Observability v6.0
 ---
 
 # Keyboard shortcuts
 
 🚧 TODO - fix for k8sTs
 
-The keyboard shortcuts below can be used to navigate the StackState UI.
+The keyboard shortcuts below can be used to navigate the Rancher Observability UI.
 
 | Keyboard shortcut | Action                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | :--- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

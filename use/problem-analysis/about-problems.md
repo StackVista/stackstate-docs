@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # What is a problem?
 
 ## Overview
 
-When a component or relation reports a `DEVIATING` \(orange\) or `CRITICAL` \(red\) state, StackState will identify this as a problem in your IT environment. As StackState is aware of the connections and dependencies between components in the topology, related unhealthy state changes can be grouped together into a single problem with a single probable root cause. This is helpful because it will:
+When a component or relation reports a `DEVIATING` \(orange\) or `CRITICAL` \(red\) state, Rancher Observability will identify this as a problem in your IT environment. As Rancher Observability is aware of the connections and dependencies between components in the topology, related unhealthy state changes can be grouped together into a single problem with a single probable root cause. This is helpful because it will:
 
 * **Speed up problem investigation** - all unhealthy elements affected by a single root cause can be found in a dedicated subview.
 * **Reduce noise** - the evolution of the problem can be tracked as a single entity, rather than a collection of individual, unhealthy elements.
@@ -15,7 +15,7 @@ When a component or relation reports a `DEVIATING` \(orange\) or `CRITICAL` \(re
 
 ## Topology elements in a problem
 
-A problem in StackState is a collection of unhealthy elements (components and relations) that can all be attributed to a single probable root cause. Each problem has one root cause element and any number of contributing causes.
+A problem in Rancher Observability is a collection of unhealthy elements (components and relations) that can all be attributed to a single probable root cause. Each problem has one root cause element and any number of contributing causes.
 
 ### Root cause
 
@@ -30,7 +30,7 @@ When the root cause element changes, a `Problem updated` event is generated. Not
 
 ### Contributing causes
 
-A problem can contain any number of contributing causes. These are all the unhealthy elements that depend on the problem's root cause element. A change in the health state of elements might result in contributing causes being added to or removed from an existing problem. It's possible for a single unhealthy element to be a contributing cause in two separate problems - if there are two potential root cause elements for an element's unhealthy state, StackState will see this as two separate problems. 
+A problem can contain any number of contributing causes. These are all the unhealthy elements that depend on the problem's root cause element. A change in the health state of elements might result in contributing causes being added to or removed from an existing problem. It's possible for a single unhealthy element to be a contributing cause in two separate problems - if there are two potential root cause elements for an element's unhealthy state, Rancher Observability will see this as two separate problems. 
 
 When a contributing cause element is added or removed, a `Problem updated` event is generated.
 
@@ -42,7 +42,7 @@ A problem is considered to start one hour before the timestamp of the first repo
 
 ## See also
 
-* [How to navigate through a problem in the StackState UI](problem_investigation.md)
+* [How to navigate through a problem in the Rancher Observability UI](problem_investigation.md)
 * [Problem lifecycle](problem-lifecycle.md)
 * [Anomaly detection](../concepts/anomaly-detection.md)
 * [Problem notifications](problem_notifications.md)

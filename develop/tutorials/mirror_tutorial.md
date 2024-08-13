@@ -1,24 +1,24 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Set up a mirror to pull telemetry data from an external system
 
-StackState supports fetching external telemetry and mapping this onto components as metric streams, for instance with the AWS StackPack and CloudWatch. In this scenario, StackState pulls telemetry data from CloudWatch on-demand when required for StackState server processes or the StackState GUI. The telemetry data from CloudWatch isn't copied into StackState, but retrieved and used when needed. This concept is called _mirroring_ and is further described [in the StackState documentation](../developer-guides/mirroring.md).
+Rancher Observability supports fetching external telemetry and mapping this onto components as metric streams, for instance with the AWS StackPack and CloudWatch. In this scenario, Rancher Observability pulls telemetry data from CloudWatch on-demand when required for Rancher Observability server processes or the Rancher Observability GUI. The telemetry data from CloudWatch isn't copied into Rancher Observability, but retrieved and used when needed. This concept is called _mirroring_ and is further described [in the Rancher Observability documentation](../developer-guides/mirroring.md).
 
 Mirror integrations can be built in any language and run as a separate process. A mirror can:
 
 * retrieve telemetry data from external systems on-demand
 * aggregate this data in various ways
-* send the data in a standard format to StackState
+* send the data in a standard format to Rancher Observability
 
 ## Mirror architecture
 
-To integrate StackState with an external telemetry source using mirroring, the mirror integration sits in between StackState and the telemetry source. The mirror offers a standard interface \(the mirror API\) to StackState so that StackState can use multiple different mirror data sources out of the box. The mirror integration translates calls to the mirror API to calls to a telemetry datasource, allowing StackState to access telemetry data in a standard way.
+To integrate Rancher Observability with an external telemetry source using mirroring, the mirror integration sits in between Rancher Observability and the telemetry source. The mirror offers a standard interface \(the mirror API\) to Rancher Observability so that Rancher Observability can use multiple different mirror data sources out of the box. The mirror integration translates calls to the mirror API to calls to a telemetry datasource, allowing Rancher Observability to access telemetry data in a standard way.
 
 ## Setup
 
-[This repository](https://github.com/StackVista/mirror-integration-tutorial) contains a sample mirror that serves telemetry data to StackState. The mirror is built in Python and stored in the `mirror_server.py` file.
+[This repository](https://github.com/StackVista/mirror-integration-tutorial) contains a sample mirror that serves telemetry data to Rancher Observability. The mirror is built in Python and stored in the `mirror_server.py` file.
 
 Clone the repository to your laptop to get started.
 
@@ -28,7 +28,7 @@ Requires Python 3.8 or higher.
 
 ## Running the sample mirror
 
-For this demo, your StackState instance needs to be able to connect with the mirror running on your local laptop. This can be done by running StackState on your laptop as well, or by exposing your laptop to the internet using `ngrok`.
+For this demo, your Rancher Observability instance needs to be able to connect with the mirror running on your local laptop. This can be done by running Rancher Observability on your laptop as well, or by exposing your laptop to the internet using `ngrok`.
 
 Start by running the sample mirror. This directory contains a Python mirror server:
 
@@ -38,9 +38,9 @@ python3 mirror_server.py
 
 The sample mirror server listens for requests on port `7007`.
 
-## Configuring the mirror in StackState
+## Configuring the mirror in Rancher Observability
 
-In StackState, navigate to the **Settings** page and find **Mirror sources** in the **Telemetry Sources** section. Create a new mirror data source with the following parameters:
+In Rancher Observability, navigate to the **Settings** page and find **Mirror sources** in the **Telemetry Sources** section. Create a new mirror data source with the following parameters:
 
 * Name: Mirror server
 * Mirror URL: URL to connect to the mirror, use `host.docker.internal` if you are running everything on your laptop, or the `ngrok` URL if you are using it to expose your laptop to the internet
@@ -51,7 +51,7 @@ In StackState, navigate to the **Settings** page and find **Mirror sources** in 
 {}
 ```
 
-Use the **Test Connection** button to verify connectivity from StackState to the mirror.
+Use the **Test Connection** button to verify connectivity from Rancher Observability to the mirror.
 
 Here is what that looks like:
 
@@ -71,9 +71,9 @@ Here is what that looks like:
 
 Click the **Save** button to permanently add the stream to the **a-host** component.
 
-## Cleaning your StackState instance
+## Cleaning your Rancher Observability instance
 
-When you are done with this tutorial, you can remove the configuration from your StackState instance as follows:
+When you are done with this tutorial, you can remove the configuration from your Rancher Observability instance as follows:
 
 * Remove the mirror data source you added
 

@@ -1,86 +1,86 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # 💠 OpenShift
 
 ## Overview
 
-The OpenShift integration is used to create a near real-time synchronization of topology and associated internal services from an OpenShift cluster to StackState. This StackPack allows monitoring of the following:
+The OpenShift integration is used to create a near real-time synchronization of topology and associated internal services from an OpenShift cluster to Rancher Observability. This StackPack allows monitoring of the following:
 
 * Workloads
 * Nodes, pods, containers and services
 * Configmaps, secrets and volumes
 
-OpenShift is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
+OpenShift is a [Rancher Observability core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "Rancher Observability Self-Hosted only").
 
 ![Data flow](../../.gitbook/assets/stackpack-openshift.svg)
 
 The OpenShift integration collects topology data in an OpenShift cluster as well as metrics and events.
 
-* Data is retrieved by the deployed [StackState Agents](../../setup/agent/kubernetes-openshift.md#stackstate-agent-types) and then pushed to StackState via the Agent StackPack and the OpenShift StackPack.
-* In StackState:
+* Data is retrieved by the deployed [Rancher Observability Agents](../../setup/agent/kubernetes-openshift.md#stackstate-agent-types) and then pushed to Rancher Observability via the Agent StackPack and the OpenShift StackPack.
+* In Rancher Observability:
   * [Topology data](openshift.md#topology) is translated into components and relations.
-  * [Tags](openshift.md#tags) defined in OpenShift are added to components and relations in StackState.
-  * Relevant [metrics data](openshift.md#metrics) is mapped to associated components and relations in StackState. All retrieved metrics data is stored and accessible within StackState.
-  * [OpenShift events](openshift.md#events) are available in the StackState UI Events Perspective. They're also included the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**.
+  * [Tags](openshift.md#tags) defined in OpenShift are added to components and relations in Rancher Observability.
+  * Relevant [metrics data](openshift.md#metrics) is mapped to associated components and relations in Rancher Observability. All retrieved metrics data is stored and accessible within Rancher Observability.
+  * [OpenShift events](openshift.md#events) are available in the Rancher Observability UI Events Perspective. They're also included the **Event** list in the right panel **View summary** tab and the details tabs - **Component details** and **Direct relation details**.
   * [Object change events](openshift.md#events) are created for every detected change to `spec` or `metadata` in OpenShift objects
 
 ## Setup
 
 ### Prerequisites
 
-The following prerequisites are required to install the OpenShift StackPack and deploy the StackState Agent and Cluster Agent:
+The following prerequisites are required to install the OpenShift StackPack and deploy the Rancher Observability Agent and Cluster Agent:
 
 * An OpenShift Cluster must be up and running.
 * A recent version of Helm 3.
 * A user with permissions to create privileged pods, ClusterRoles, ClusterRoleBindings and SCCs:
-  * ClusterRole and ClusterRoleBinding are needed to grant StackState Agents permissions to access the OpenShift API.
-  * StackState Agents need to run in a privileged pod to be able to gather information on network connections and host information.
+  * ClusterRole and ClusterRoleBinding are needed to grant Rancher Observability Agents permissions to access the OpenShift API.
+  * Rancher Observability Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
 ### Supported container runtimes
 
-From StackState Agent V2.16, the following container runtimes are supported:
+From Rancher Observability Agent V2.16, the following container runtimes are supported:
 
 * containerd
 * CRI-O
 * Docker
 
-Note that versions of StackState Agent prior to v2.16 support the Docker container runtime only.
+Note that versions of Rancher Observability Agent prior to v2.16 support the Docker container runtime only.
 
 ### Install
 
-Install the OpenShift StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
+Install the OpenShift StackPack from the Rancher Observability UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
 
 * **OpenShift Cluster Name** - A name to identify the cluster. This doesn't need to match the cluster name used in `kubeconfig`, however, that's usually a good candidate for a unique name.
 
-If the Agent StackPack isn't already installed, this will be automatically installed together with the OpenShift StackPack. StackState requires the Agent StackPack to work with the StackState Agent, which will need to be deployed on each node in the OpenShift cluster.
+If the Agent StackPack isn't already installed, this will be automatically installed together with the OpenShift StackPack. Rancher Observability requires the Agent StackPack to work with the Rancher Observability Agent, which will need to be deployed on each node in the OpenShift cluster.
 
 ### Deploy: Agent and Cluster Agent
 
 For the OpenShift integration to retrieve topology, events and metrics data, you will need to have the following installed on your OpenShift cluster:
 
-* StackState Agent V2 on each node in the cluster
-* StackState Cluster Agent on one node
-* StackState Checks Agent on one node
+* Rancher Observability Agent V2 on each node in the cluster
+* Rancher Observability Cluster Agent on one node
+* Rancher Observability Checks Agent on one node
 * kube-state-metrics
 
-➡️ [Deploy StackState Agents and kube-state-metrics](../../setup/agent/kubernetes-openshift.md).
+➡️ [Deploy Rancher Observability Agents and kube-state-metrics](../../setup/agent/kubernetes-openshift.md).
 
 {% hint style="info" %}
-To integrate with other services, a separate instance of the [StackState Agent](../../setup/agent/about-stackstate-agent.md) should be deployed on a standalone VM. It isn't currently possible to configure a StackState Agent deployed on an OpenShift cluster with checks that integrate with other services.
+To integrate with other services, a separate instance of the [Rancher Observability Agent](../../setup/agent/about-stackstate-agent.md) should be deployed on a standalone VM. It isn't currently possible to configure a Rancher Observability Agent deployed on an OpenShift cluster with checks that integrate with other services.
 {% endhint %}
 
 ### Configure kube-state-metrics
 
-The kubernetes\_state check is responsible for gathering metrics from kube-state-metrics and sending them to StackState. The kubernetes\_state check runs in the [StackState Checks Agent](../../setup/agent/kubernetes-openshift.md#checks-agent) by default and is configured in the [StackState Cluster Agent](../../setup/agent/kubernetes-openshift.md#cluster-agent).
+The kubernetes\_state check is responsible for gathering metrics from kube-state-metrics and sending them to Rancher Observability. The kubernetes\_state check runs in the [Rancher Observability Checks Agent](../../setup/agent/kubernetes-openshift.md#checks-agent) by default and is configured in the [Rancher Observability Cluster Agent](../../setup/agent/kubernetes-openshift.md#cluster-agent).
 
 The default URL that the kubernetes\_state check uses is:
 ```
 http://<release-name>-kube-state-metrics.<namespace>.svc.cluster.local:8080/metrics
 ```
 
-If an alternative kube-state-metrics pod \(i.e. Prometheus\) is installed, the default StackState kube-state-metrics pod can be disabled and the kubernetes\_state check redirected to the alternative service:
+If an alternative kube-state-metrics pod \(i.e. Prometheus\) is installed, the default Rancher Observability kube-state-metrics pod can be disabled and the kubernetes\_state check redirected to the alternative service:
 
 1. Update the `values.yaml` file used to deploy the `checks-agent`, for example:
    ```yaml
@@ -109,7 +109,7 @@ If an alternative kube-state-metrics pod \(i.e. Prometheus\) is installed, the d
 
 ### Status
 
-To check the status of the OpenShift integration, check that the StackState Cluster Agent \(`cluster-agent`\) pod, StackState Checks Agent pod \(`checks-agent`\) and all of the StackState Agent \(`node-agent`\) pods have status ready.
+To check the status of the OpenShift integration, check that the Rancher Observability Cluster Agent \(`cluster-agent`\) pod, Rancher Observability Checks Agent pod \(`checks-agent`\) and all of the Rancher Observability Agent \(`node-agent`\) pods have status ready.
 
 ```text
 ❯ kubectl get deployment,daemonset --namespace stackstate
@@ -134,15 +134,15 @@ The OpenShift integration retrieves the following data:
 
 #### Events
 
-The OpenShift integration retrieves all OpenShift events from the OpenShift cluster. In addition to this, `Element Properties Change` events will be generated in StackState for changes in Kubernetes objects.
+The OpenShift integration retrieves all OpenShift events from the OpenShift cluster. In addition to this, `Element Properties Change` events will be generated in Rancher Observability for changes in Kubernetes objects.
 * All [OpenShift events](#openshift-events) are retrieved from the Kubernetes cluster.
-* StackState `Element Properties Change` events will be generated for [changes detected in an OpenShift object](#object-change-events).
+* Rancher Observability `Element Properties Change` events will be generated for [changes detected in an OpenShift object](#object-change-events).
 
 ##### OpenShift events
 
-The OpenShift integration retrieves all events from the OpenShift cluster. The table below shows which event category will be assigned to each event type in StackState:
+The OpenShift integration retrieves all events from the OpenShift cluster. The table below shows which event category will be assigned to each event type in Rancher Observability:
 
-| StackState event category | OpenShift events                                                                                                                                                                                                                                                                                                                                                               |
+| Rancher Observability event category | OpenShift events                                                                                                                                                                                                                                                                                                                                                               |
 | :--- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Activities** | `BackOff` `ContainerGCFailed` `ExceededGracePeriod` `FileSystemResizeSuccessful` `ImageGCFailed` `Killing` `NodeAllocatableEnforced` `NodeNotReady` `NodeSchedulable` `Preempting` `Pulling` `Pulled` `Rebooted` `Scheduled` `Starting` `Started` `SuccessfulAttachVolume` `SuccessfulDetachVolume` `SuccessfulMountVolume` `SuccessfulUnMountVolume` `VolumeResizeSuccessful` |
 | **Alerts** | `NotTriggerScaleUp`                                                                                                                                                                                                                                                                                                                                                            |
@@ -187,9 +187,9 @@ You can also see current ([or past](../../use/stackstate-ui/timeline-time-travel
 
 #### Metrics
 
-The OpenShift integration makes all metrics from the OpenShift cluster available in StackState. Relevant metrics are automatically mapped to the associated components.
+The OpenShift integration makes all metrics from the OpenShift cluster available in Rancher Observability. Relevant metrics are automatically mapped to the associated components.
 
-All retrieved metrics can be browsed or added to a component as a telemetry stream. Select the data source **StackState Metrics** and type `kubernetes` in the **Select** box to get a full list of all available metrics.
+All retrieved metrics can be browsed or added to a component as a telemetry stream. Select the data source **Rancher Observability Metrics** and type `kubernetes` in the **Select** box to get a full list of all available metrics.
 
 ![Add an OpenShift metrics stream to a component](../../.gitbook/assets/v51_add_k8s_stream.png)
 
@@ -198,12 +198,12 @@ All retrieved metrics can be browsed or added to a component as a telemetry stre
 The OpenShift integration retrieves components and relations for the OpenShift cluster.
 
 {% hint style="info" %}
-**StackState Agent versions prior to 2.16:** Topology information is only gathered from OpenShift clusters that use the Docker container runtime.
+**Rancher Observability Agent versions prior to 2.16:** Topology information is only gathered from OpenShift clusters that use the Docker container runtime.
 {% endhint %}
 
 **Components**
 
-The following OpenShift topology data is available in StackState as components:
+The following OpenShift topology data is available in Rancher Observability as components:
 
 |  |  |
 | :--- | :--- |
@@ -243,7 +243,7 @@ The OpenShift integration doesn't retrieve any traces data.
 
 #### Tags
 
-All tags defined in OpenShift will be retrieved and added to the associated components and relations in StackState as labels.
+All tags defined in OpenShift will be retrieved and added to the associated components and relations in Rancher Observability as labels.
 
 The following labels will also be added to imported elements as relevant:
 
@@ -263,9 +263,9 @@ The following labels will also be added to imported elements as relevant:
 
 ### REST API endpoints
 
-The StackState Agent talks to the kubelet and kube-state-metrics API.
+The Rancher Observability Agent talks to the kubelet and kube-state-metrics API.
 
-The StackState Agent and Cluster Agent connect to the OpenShift API to retrieve cluster wide information and OpenShift events. The following API endpoints used:
+The Rancher Observability Agent and Cluster Agent connect to the OpenShift API to retrieve cluster wide information and OpenShift events. The following API endpoints used:
 
 | Resource type | REST API endpoint |
 | :--- | :--- |
@@ -295,7 +295,7 @@ For further details, refer to the [OpenShift API documentation \(openshift.com\)
 
 ### Component actions
 
-A number of [actions](../../use/stackstate-ui/perspectives/topology-perspective.md#actions) are added to StackState when the OpenShift StackPack is installed. They're available from the **Actions** section in the right panel details tab - **Component details** - when an OpenShift component is selected or from the component context menu, which is displayed when you hover the mouse pointer over an OpenShift component in the Topology Perspective
+A number of [actions](../../use/stackstate-ui/perspectives/topology-perspective.md#actions) are added to Rancher Observability when the OpenShift StackPack is installed. They're available from the **Actions** section in the right panel details tab - **Component details** - when an OpenShift component is selected or from the component context menu, which is displayed when you hover the mouse pointer over an OpenShift component in the Topology Perspective
 
 | Action | Available for component types | Description |
 | :--- | :--- | :--- |
@@ -306,11 +306,11 @@ A number of [actions](../../use/stackstate-ui/perspectives/topology-perspective.
 | **Show services** | namespace | Open a view for the service and ingress components in the selected namespace |
 | **Show workloads** | namespace | Show workloads in the selected namespace |
 
-Details of installed actions can be found in the StackState UI **Settings** &gt; **Actions** &gt; **Component Actions** screen.
+Details of installed actions can be found in the Rancher Observability UI **Settings** &gt; **Actions** &gt; **Component Actions** screen.
 
-### OpenShift views in StackState
+### OpenShift views in Rancher Observability
 
-When the OpenShift integration is enabled, the following OpenShift views are available in StackState for each cluster:
+When the OpenShift integration is enabled, the following OpenShift views are available in Rancher Observability for each cluster:
 
 * OpenShift - Applications -
 * OpenShift - Infrastructure -
@@ -319,7 +319,7 @@ When the OpenShift integration is enabled, the following OpenShift views are ava
 
 ### Open source
 
-The code for the StackState Agent OpenShift check is open source and available on GitHub at:
+The code for the Rancher Observability Agent OpenShift check is open source and available on GitHub at:
 
 * [https://github.com/StackVista/stackstate-agent/tree/master/pkg/collector/corechecks/cluster](https://github.com/StackVista/stackstate-agent/tree/master/pkg/collector/corechecks/cluster)
 * [https://github.com/stackvista/stackstate-agent](https://github.com/stackvista/stackstate-agent)
@@ -327,13 +327,13 @@ The code for the StackState Agent OpenShift check is open source and available o
 
 ## Troubleshooting
 
-Troubleshooting steps for any known issues can be found in the [StackState support Knowledge base](https://support.stackstate.com/hc/en-us/search?utf8=%E2%9C%93&category=360002777619&query=OpenShift).
+Troubleshooting steps for any known issues can be found in the [Rancher Observability support Knowledge base](https://support.stackstate.com/hc/en-us/search?utf8=%E2%9C%93&category=360002777619&query=OpenShift).
 
 ## Uninstall
 
-To uninstall the OpenShift StackPack, go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **OpenShift** screen and click **UNINSTALL**. All OpenShift StackPack specific configuration will be removed from StackState.
+To uninstall the OpenShift StackPack, go to the Rancher Observability UI **StackPacks** &gt; **Integrations** &gt; **OpenShift** screen and click **UNINSTALL**. All OpenShift StackPack specific configuration will be removed from Rancher Observability.
 
-See the Kubernetes Agent documentation for instructions on [how to uninstall the StackState Cluster Agent and the StackState Agent](/setup/agent/kubernetes-openshift.md#uninstall) from your OpenShift cluster.
+See the Kubernetes Agent documentation for instructions on [how to uninstall the Rancher Observability Cluster Agent and the Rancher Observability Agent](/setup/agent/kubernetes-openshift.md#uninstall) from your OpenShift cluster.
 
 ## Release notes
 
@@ -355,7 +355,7 @@ See the Kubernetes Agent documentation for instructions on [how to uninstall the
 
 **OpenShift StackPack v3.7.11 (2022-05-23)**
 
-- Bug Fix: Fixed broken link in integration StackState Agent V2 integration documentation.
+- Bug Fix: Fixed broken link in integration Rancher Observability Agent V2 integration documentation.
 
 **OpenShift StackPack v3.7.10 (2022-03-02)**
 
@@ -369,6 +369,6 @@ See the Kubernetes Agent documentation for instructions on [how to uninstall the
 ## See also
 
 * [Agent StackPack](agent.md)
-* [StackState Agent Kubernetes check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/kubernetes)
-* [StackState Agent Helm Chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-agent)
+* [Rancher Observability Agent Kubernetes check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/kubernetes)
+* [Rancher Observability Agent Helm Chart \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-agent)
 * [OpenShift API documentation \(openshift.com\)](https://docs.openshift.com/container-platform/4.4/rest_api/storage_apis/volumeattachment-storage-k8s-io-v1.html)

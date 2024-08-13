@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Policies for AWS
@@ -7,7 +7,7 @@ description: StackState Self-hosted v5.1.x
 ## Overview
 
 {% hint style="info" %}
-This page includes examples of all IAM and other policies necessary for a working StackState AWS Agent installation. For the AWS \(legacy\) integration, refer to the policy files provided when the AWS \(legacy\) StackPack is installed.
+This page includes examples of all IAM and other policies necessary for a working Rancher Observability AWS Agent installation. For the AWS \(legacy\) integration, refer to the policy files provided when the AWS \(legacy\) StackPack is installed.
 {% endhint %}
 
 These policies are taken directly from the CloudFormation template and should be used wherever possible.
@@ -17,7 +17,7 @@ To use a template, replace the following values:
 * **${Region}** - replace with the name of the region that the IAM role will be used for, such as `${Region}` or `us-east-1`. 
 * **${AccountId}** - replace with the 12-digit AWS account ID of the AWS account that the resources will be deployed in.
 
-## StackStateAwsIntegrationRole
+## Rancher ObservabilityAwsIntegrationRole
 
 The JSON objects below include the least-privileged IAM policy used by the AWS integration. The Assume Role Policy Document should grant the Agent access. Refer to the AWS documentation for more information on [setting a trust policy \(aws.amazon.com\)](https://aws.amazon.com/blogs/security/how-to-use-trust-policies-with-iam-roles/).
 
@@ -301,7 +301,7 @@ For an AWS Agent running on an EC2 instance:
 }
 ```
 
-## StackStateEventBridgeRole-${Region}
+## Rancher ObservabilityEventBridgeRole-${Region}
 
 ### Trust Relationship
 
@@ -341,7 +341,7 @@ Replace the Resource with the ARN of the target Kinesis Firehose Delivery Stream
 }
 ```
 
-## StackStateFirehoseRole-${Region}
+## Rancher ObservabilityFirehoseRole-${Region}
 
 ### Trust Relationship
 

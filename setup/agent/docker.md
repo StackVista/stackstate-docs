@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Docker
@@ -7,27 +7,27 @@ description: StackState Self-hosted v5.1.x
 ## Overview
 
 {% hint style="info" %}
-**StackState Agent V2**
+**Rancher Observability Agent V2**
 {% endhint %}
 
-StackState Agent V2 can run in a Docker container. The Agent collects data from the host where it's running and can be configured to integrate with external systems. Retrieved data is pushed to StackState, to work with this data the [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md) must be installed in your StackState instance. For details of the data retrieved and available integrations, see the [StackPack integration documentation](../../stackpacks/integrations/).
+Rancher Observability Agent V2 can run in a Docker container. The Agent collects data from the host where it's running and can be configured to integrate with external systems. Retrieved data is pushed to Rancher Observability, to work with this data the [Rancher Observability Agent V2 StackPack](../../stackpacks/integrations/agent.md) must be installed in your Rancher Observability instance. For details of the data retrieved and available integrations, see the [StackPack integration documentation](../../stackpacks/integrations/).
 
-In Docker Swarm mode, the StackState Swarm Agent can be deployed on the manager node to retrieve topology data for the cluster.
+In Docker Swarm mode, the Rancher Observability Swarm Agent can be deployed on the manager node to retrieve topology data for the cluster.
 
 ## Monitoring
 
-StackState Agent V2 will retrieve topology and metrics data from the host that it's running on. In [Docker swarm mode](#docker-swarm-mode), StackState Cluster Agent running on the manager node will synchronize data for a Docker cluster. For details, see the [data retrieved](#data-retrieved).
+Rancher Observability Agent V2 will retrieve topology and metrics data from the host that it's running on. In [Docker swarm mode](#docker-swarm-mode), Rancher Observability Cluster Agent running on the manager node will synchronize data for a Docker cluster. For details, see the [data retrieved](#data-retrieved).
 
 ## Setup
 
 ### Single container
 
-To start a single Docker container with StackState Agent V2, run the command below.
+To start a single Docker container with Rancher Observability Agent V2, run the command below.
 
-* `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
-* `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
+* `<STACKSTATE_RECEIVER_API_KEY>` is set during Rancher Observability installation.
+* `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of Rancher Observability. 
 
-For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
+For details see [Rancher Observability Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
 
 {% code lineNumbers="true" %}
 ```text
@@ -57,12 +57,12 @@ docker run -d \
 
 ### Docker compose
 
-To run StackState Agent V2 with Docker compose:
+To run Rancher Observability Agent V2 with Docker compose:
 
 1. Add the following configuration to the compose file on each node where the Agent will run.
-   * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
-   * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
-   For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
+   * `<STACKSTATE_RECEIVER_API_KEY>` is set during Rancher Observability installation.
+   * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of Rancher Observability. 
+   For details see [Rancher Observability Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
 
    {% code lineNumbers="true" %}
    ```bash
@@ -99,14 +99,14 @@ To run StackState Agent V2 with Docker compose:
 
 ### Docker swarm mode
 
-In Docker Swarm mode, the StackState Cluster Agent can be deployed on the manager node to retrieve basic topology data \(services, containers and the relations between them\). To retrieve full data, StackState Agent V2 must also be deployed on each node as a [Docker compose setup](docker.md#docker-compose).
+In Docker Swarm mode, the Rancher Observability Cluster Agent can be deployed on the manager node to retrieve basic topology data \(services, containers and the relations between them\). To retrieve full data, Rancher Observability Agent V2 must also be deployed on each node as a [Docker compose setup](docker.md#docker-compose).
 
-To run StackState Swarm Agent in Docker Swarm mode:
+To run Rancher Observability Swarm Agent in Docker Swarm mode:
 
-1. Create a file `docker-compose.yml` with the following content. Update to include details of your StackState instance:
-   * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
-   * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
-   For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
+1. Create a file `docker-compose.yml` with the following content. Update to include details of your Rancher Observability instance:
+   * `<STACKSTATE_RECEIVER_API_KEY>` is set during Rancher Observability installation.
+   * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of Rancher Observability. 
+   For details see [Rancher Observability Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
    * `<CLUSTER_NAME>` is the name you would like to give this cluster
 
    {% code lineNumbers="true" %}
@@ -138,12 +138,12 @@ To run StackState Swarm Agent in Docker Swarm mode:
    ```
 
 {% hint style="info" %}
-Running the StackState Swarm Agent in Docker Swarm mode will collect basic topology data from the cluster. To retrieve more data, including telemetry, StackState Agent V2 must also be installed on each node in the Swarm cluster as a [Docker compose setup](docker.md#docker-compose).
+Running the Rancher Observability Swarm Agent in Docker Swarm mode will collect basic topology data from the cluster. To retrieve more data, including telemetry, Rancher Observability Agent V2 must also be installed on each node in the Swarm cluster as a [Docker compose setup](docker.md#docker-compose).
 {% endhint %}
 
 ### Upgrade
 
-To upgrade StackState Agent V2 running inside a Docker container.
+To upgrade Rancher Observability Agent V2 running inside a Docker container.
 
 1. Stop the running container and remove it.
 
@@ -158,15 +158,15 @@ docker container rm stackstate-agent
 
 ### Agent configuration
 
-The StackState Agent V2 configuration is located in the file `/etc/stackstate-agent/stackstate.yaml`. The configuration file contains the `STS_API_KEY` and `STS_STS_URL` environment variables set when the Docker command is run. No further configuration should be required, however, a number of advanced configuration options are available.
+The Rancher Observability Agent V2 configuration is located in the file `/etc/stackstate-agent/stackstate.yaml`. The configuration file contains the `STS_API_KEY` and `STS_STS_URL` environment variables set when the Docker command is run. No further configuration should be required, however, a number of advanced configuration options are available.
 
 ### Advanced Agent configuration
 
-StackState Agent V2 can be configured to reduce data production, tune the process blacklist, or turn off specific features when not needed. The required settings are described in detail on the page [advanced Agent configuration](advanced-agent-configuration.md).
+Rancher Observability Agent V2 can be configured to reduce data production, tune the process blacklist, or turn off specific features when not needed. The required settings are described in detail on the page [advanced Agent configuration](advanced-agent-configuration.md).
 
 ### External integration configuration
 
-StackState Agent V2 can be configured to run checks that integrate with external systems. Each integration has its own configuration file that's used by the associated Agent check. Configuration files for integrations that will run through StackState Agent V2 in Docker should be added as a volume to the directory `/etc/stackstate-agent/conf.d/` when the container is started.
+Rancher Observability Agent V2 can be configured to run checks that integrate with external systems. Each integration has its own configuration file that's used by the associated Agent check. Configuration files for integrations that will run through Rancher Observability Agent V2 in Docker should be added as a volume to the directory `/etc/stackstate-agent/conf.d/` when the container is started.
 
 For example, the Agent Docker configuration below includes a volume with a check configuration file for the ServiceNow integration:
 
@@ -192,7 +192,7 @@ stackstate-agent:
 ```
 {% endcode %}
 
-Documentation for the available StackState integrations, including how to configure the associated Agent checks, can be found on the [StackPacks &gt; Integrations pages](../../stackpacks/integrations/).
+Documentation for the available Rancher Observability integrations, including how to configure the associated Agent checks, can be found on the [StackPacks &gt; Integrations pages](../../stackpacks/integrations/).
 
 ### Proxy configuration
 
@@ -200,7 +200,7 @@ The Agent can be configured to use a proxy for HTTP and HTTPS requests. For deta
 
 ### Self-Signed Certificates
 
-If StackState Agent V2 will run checks that are configured to use self-signed certificates for HTTPs requests, override the `CURL_CA_BUNDLE` environment variable:
+If Rancher Observability Agent V2 will run checks that are configured to use self-signed certificates for HTTPs requests, override the `CURL_CA_BUNDLE` environment variable:
 
 ```text
   CURL_CA_BUNDLE = ""
@@ -208,12 +208,12 @@ If StackState Agent V2 will run checks that are configured to use self-signed ce
 
 ### Traces
 
-StackState Agent V2 can be configured to collect traces via a [StackState tracing integration](../../configure/traces/set-up-traces.md#2-configure-tracing-integrations). If the Agent will be used in conjunction with a language specific trace client, make sure to configure your app to use the host’s PID namespace:
+Rancher Observability Agent V2 can be configured to collect traces via a [Rancher Observability tracing integration](../../configure/traces/set-up-traces.md#2-configure-tracing-integrations). If the Agent will be used in conjunction with a language specific trace client, make sure to configure your app to use the host’s PID namespace:
 
 ```text
   service:
     ...
-    pid: "host" # should match with processes reported by the StackState process Agent
+    pid: "host" # should match with processes reported by the Rancher Observability process Agent
     ...
 ```
 
@@ -221,7 +221,7 @@ StackState Agent V2 can be configured to collect traces via a [StackState tracin
 
 ### Start or stop the Agent
 
-To start, stop or restart StackState Agent V2, start or stop the container it's running in:
+To start, stop or restart Rancher Observability Agent V2, start or stop the container it's running in:
 
 ```text
 # Start container
@@ -259,13 +259,13 @@ To troubleshoot the Agent, try to [check the Agent status](docker.md#status) or 
 
 ### Log files
 
-Docker logs for the StackState Agent V2 container can be followed using the command:
+Docker logs for the Rancher Observability Agent V2 container can be followed using the command:
 
 ```text
 docker logs -f stackstate-agent
 ```
 
-Inside the running container, StackState Agent V2 logs are in the following files:
+Inside the running container, Rancher Observability Agent V2 logs are in the following files:
 
 * `/var/log/stackstate-agent/agent.log`
 * `/var/log/stackstate-agent/process-agent.log`
@@ -276,7 +276,7 @@ By default, the log level of the Agent container is set to `INFO`. To assist in 
 
 To set the log level to `DEBUG` for an Agent running on Docker, use the `STS_LOG_LEVEL` environment variable. Other optional logging settings:
 
-* `STS_LOG_PAYLOADS: "true"` - include the topology/telemetry payloads sent to StackState in the Agent log.
+* `STS_LOG_PAYLOADS: "true"` - include the topology/telemetry payloads sent to Rancher Observability in the Agent log.
 * `STS_LOG_TO_CONSOLE: "true"` - write log output to the container stdout.
 
 For example:
@@ -317,11 +317,11 @@ stackstate-agent:
 
 ### Support knowledge base
 
-Troubleshooting steps for any known issues can be found in the [StackState support knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=agent).
+Troubleshooting steps for any known issues can be found in the [Rancher Observability support knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=agent).
 
 ## Uninstall
 
-To uninstall StackState Agent V2, stop the Docker container it's running in and remove it.
+To uninstall Rancher Observability Agent V2, stop the Docker container it's running in and remove it.
 
 ```text
 docker stop stackstate-agent
@@ -332,12 +332,12 @@ docker container rm stackstate-agent
 
 ### Topology
 
-StackState Agent V2 will retrieve the following topology data from the host that it's running on:
+Rancher Observability Agent V2 will retrieve the following topology data from the host that it's running on:
 
 * Hosts, processes and containers
 * Network connections between processes/containers/services 
 
-In [Docker swarm mode](#docker-swarm-mode), StackState Cluster Agent running on the manager node will synchronize the following topology data for a Docker cluster:
+In [Docker swarm mode](#docker-swarm-mode), Rancher Observability Cluster Agent running on the manager node will synchronize the following topology data for a Docker cluster:
 
 * Containers
 * Services
@@ -345,7 +345,7 @@ In [Docker swarm mode](#docker-swarm-mode), StackState Cluster Agent running on 
 
 ### Metrics
 
-StackState Agent V2 will retrieve the metrics listed below for containers. Telemetry for hosts and processes, as well as network traffic telemetry for network connections between processes/containers/services will also be retrieved.
+Rancher Observability Agent V2 will retrieve the metrics listed below for containers. Telemetry for hosts and processes, as well as network traffic telemetry for network connections between processes/containers/services will also be retrieved.
 
 **Metrics for containers**
 
@@ -370,8 +370,8 @@ The list below shows the container metrics that are provided by default. Additio
 
 ## See also
 
-* [About StackState Agent V2](about-stackstate-agent.md)
-* [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md)
+* [About Rancher Observability Agent V2](about-stackstate-agent.md)
+* [Rancher Observability Agent V2 StackPack](../../stackpacks/integrations/agent.md)
 * [StackPack integration documentation](../../stackpacks/integrations/)
-* [StackState Agent V2 \(github.com\)](https://github.com/StackVista/stackstate-agent)
+* [Rancher Observability Agent V2 \(github.com\)](https://github.com/StackVista/stackstate-agent)
 

@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Synchronizations and templated files
 
-To obtain the `.sty` Templated file for your StackPack you need to perform a few steps in StackState Settings page and then edit the template file by hand.
+To obtain the `.sty` Templated file for your StackPack you need to perform a few steps in Rancher Observability Settings page and then edit the template file by hand.
 
-Every .sty template is filled with information about the hosts and environments that StackState collects data from. Example of this information looks like this:
+Every .sty template is filled with information about the hosts and environments that Rancher Observability collects data from. Example of this information looks like this:
 
 {% code lineNumbers="true" %}
 ```yaml
@@ -30,17 +30,17 @@ version: "0.1"
 
 ## How to get a templated file for your StackPack
 
-Preparing a templated file is a process that requires some configuration of StackState. To get the above file in a structure that can be used to create a StackPack, follow the below route:
+Preparing a templated file is a process that requires some configuration of Rancher Observability. To get the above file in a structure that can be used to create a StackPack, follow the below route:
 
-### 1. Prepare a check in StackState Agent
+### 1. Prepare a check in Rancher Observability Agent
 
 The first step is to prepare a check using the Agent V2 StackPack. This step allows for getting data from synchronizations that you configure in the next steps. Find out more about [Agent V2 checks](../../setup/agent/about-stackstate-agent.md).
 
 ### 2. Install Custom Synchronization StackPack
 
-To install this StackPack go to StackState's StackPacks section and locate the "Custom Synchronization" in Other StackPacks. During the installation process, you need to enter the following information:
+To install this StackPack go to Rancher Observability's StackPacks section and locate the "Custom Synchronization" in Other StackPacks. During the installation process, you need to enter the following information:
 
-* Instance type \(source identifier\) - this is the identifier for the resource that you want to integrate with StackState, for example, AWS, Azure and Zabbix.
+* Instance type \(source identifier\) - this is the identifier for the resource that you want to integrate with Rancher Observability, for example, AWS, Azure and Zabbix.
 * Instance URL - The URL of the instance the data is being reported for.
 
 When the above information is provided click the "Install" button and if Agent V2 checks are working you should start to see the topology coming in for your integration and the "Custom Synchronization" should become enabled.
@@ -49,25 +49,25 @@ When the above information is provided click the "Install" button and if Agent V
 
 Once you have installed Custom Synchronization StackPack, you need to start preparing the configuration that's needed for your integration.
 
-There are some default Layers, Domains, and Environments created by StackState. Layers are used for vertical separation between components; Domains are used for horizontal separation between components; Environments are grouping components. You can add custom Layers, Domains, and Environments in the Settings pages to match your StackPack needs.
+There are some default Layers, Domains, and Environments created by Rancher Observability. Layers are used for vertical separation between components; Domains are used for horizontal separation between components; Environments are grouping components. You can add custom Layers, Domains, and Environments in the Settings pages to match your StackPack needs.
 
-These can also be created automatically by StackState using the `getOrCreate` functionality described [a little further in this document](../reference/stackstate-templating/template_functions.md).
+These can also be created automatically by Rancher Observability using the `getOrCreate` functionality described [a little further in this document](../reference/stackstate-templating/template_functions.md).
 
 ### 4. Configure Component and Relation types
 
-There are some default component and relation types in StackState. Component types are used to visualize components with a given icon; [relation types](/use/concepts/relations.md) describe relations between components.
+There are some default component and relation types in Rancher Observability. Component types are used to visualize components with a given icon; [relation types](/use/concepts/relations.md) describe relations between components.
 
-Component types and Relation types can also be created automatically by StackState using the `getOrCreate` functionality described in the `Component + Relation Templates` section. Auto-generated components types will be created without an icon.
+Component types and Relation types can also be created automatically by Rancher Observability using the `getOrCreate` functionality described in the `Component + Relation Templates` section. Auto-generated components types will be created without an icon.
 
 ### 5. Prepare ID Extractor Functions
 
-When creating a StackPack, it's important to have a `component` and `relation` identity extractor function. There are a few default ID Extractor Functions present in StackState. The `Auto sync component id extractor` and `Auto sync relation id extractor` are good starting points for your StackPack. You can go ahead and rename these, add a description if needed, and confirm the popup dialog to unlock these ID Extractor Functions from the `Custom Synchronization` StackPack.
+When creating a StackPack, it's important to have a `component` and `relation` identity extractor function. There are a few default ID Extractor Functions present in Rancher Observability. The `Auto sync component id extractor` and `Auto sync relation id extractor` are good starting points for your StackPack. You can go ahead and rename these, add a description if needed, and confirm the popup dialog to unlock these ID Extractor Functions from the `Custom Synchronization` StackPack.
 
 ➡️ [Learn more about ID Extractors](custom-functions/id-extractor-functions.md)
 
 ### 6. Prepare Component and Relation Mapping Functions
 
-Component Mapping Functions are used by StackState to do some translation of incoming component data. They're applied in the Synchronization for a given source/component type.
+Component Mapping Functions are used by Rancher Observability to do some translation of incoming component data. They're applied in the Synchronization for a given source/component type.
 
 Mapping functions are an optional step in the Synchronization flow. [Find out more about Mapping Functions](custom-functions/mapping-functions.md).
 
@@ -75,23 +75,23 @@ Mapping functions are an optional step in the Synchronization flow. [Find out mo
 
 Once you have installed the `Custom Synchronization` StackPack, it creates a Component Template called `autosync-component-template`. Similarly, `Custom Synchronization` StackPack, creates a Relation Template called `autosync-relation-template`.
 
-You can go ahead and rename it, add a description if needed. It's recommended to change the default value of the `ComponentType` from `Auto-synced Component` to something that represents a generic component in your data source. The same goes for `Layer`, `Domain` and `Environment` which defaults to `Auto-synced Components`, `Auto-synced Domain`,`Auto-synced Environment` respectively. As this template is using the `getOrCreate` functionality, these values are auto-created by StackState if they don't already exist. Find more on Templates [here](../reference/stackstate-templating/using_stackstate_templating.md).
+You can go ahead and rename it, add a description if needed. It's recommended to change the default value of the `ComponentType` from `Auto-synced Component` to something that represents a generic component in your data source. The same goes for `Layer`, `Domain` and `Environment` which defaults to `Auto-synced Components`, `Auto-synced Domain`,`Auto-synced Environment` respectively. As this template is using the `getOrCreate` functionality, these values are auto-created by Rancher Observability if they don't already exist. Find more on Templates [here](../reference/stackstate-templating/using_stackstate_templating.md).
 
 Once you have completed all the changes, you can click **UPDATE** and confirm the popup dialog to unlock this Template from the `Custom Synchronization` StackPack.
 
 ### 8. Configure Sts Sources - Topology Sources
 
-Once you have installed the `Custom Synchronization` StackPack, it creates a StackState DataSource called `Internal kafka`. This data source is a good starting point for your StackPack. You can change the name of it, add a description if needed. You can observe the `Integration Type` and `Kafka Topic` are a representation of the information you supplied in the `Custom Synchronization` StackPack instance details. More on Topology Sources [here](../../configure/topology/topology_sources.md)
+Once you have installed the `Custom Synchronization` StackPack, it creates a Rancher Observability DataSource called `Internal kafka`. This data source is a good starting point for your StackPack. You can change the name of it, add a description if needed. You can observe the `Integration Type` and `Kafka Topic` are a representation of the information you supplied in the `Custom Synchronization` StackPack instance details. More on Topology Sources [here](../../configure/topology/topology_sources.md)
 
-Once you have completed all the changes, you can click **UPDATE** and confirm the popup dialog to unlock this StackState DataSource from the `Custom Synchronization` StackPack.
+Once you have completed all the changes, you can click **UPDATE** and confirm the popup dialog to unlock this Rancher Observability DataSource from the `Custom Synchronization` StackPack.
 
 ### 9. Configure Synchronizations
 
-Synchronizations are defined by a data source and several mappings from the external system topology data into StackState topology elements using Component and Relation Mapping Functions, as well as Component and Relation Templates. `Custom Synchronization` StackPack delivers a Synchronization called `default auto synchronization`. You can [find more on Synchronizations](../../configure/topology/send-topology-data.md) or proceed to edit this synchronization with the instructions below:
+Synchronizations are defined by a data source and several mappings from the external system topology data into Rancher Observability topology elements using Component and Relation Mapping Functions, as well as Component and Relation Templates. `Custom Synchronization` StackPack delivers a Synchronization called `default auto synchronization`. You can [find more on Synchronizations](../../configure/topology/send-topology-data.md) or proceed to edit this synchronization with the instructions below:
 
 #### Step 1
 
-We recommend that you change the `Synchronization Name` and add a `Description` if needed. There is no action required on `Plugin`, it uses the `Sts` plugin to synchronize data from StackState Agent V2.
+We recommend that you change the `Synchronization Name` and add a `Description` if needed. There is no action required on `Plugin`, it uses the `Sts` plugin to synchronize data from Rancher Observability Agent V2.
 
 #### Step 2
 
@@ -113,9 +113,9 @@ Here you can define all your own relation mappings for different sources.
 
 Verify all the changes and click "Save". On the popup dialog that appears right after saving click "Confirm" to unlock this synchronization from the `Custom Synchronizations` StackPacks.
 
-### 10. Export the StackState Configuration
+### 10. Export the Rancher Observability Configuration
 
-When your integration is working and has a shape that you expect, you can convert StackState's configuration into a StackPack template file. To do this go to the **Settings** page and at the bottom of the left menu, you can find an Import/Export section. Click on the `STS-EXPORT-ALL-{Date}.conf` button on the main screen. This exports all of StackState's configuration into a config file format.
+When your integration is working and has a shape that you expect, you can convert Rancher Observability's configuration into a StackPack template file. To do this go to the **Settings** page and at the bottom of the left menu, you can find an Import/Export section. Click on the `STS-EXPORT-ALL-{Date}.conf` button on the main screen. This exports all of Rancher Observability's configuration into a config file format.
 
 The configuration file has the following format:
 
@@ -127,12 +127,12 @@ nodes:
   ...
 ```
 
-### 11. Convert your StackState configuration file to the `.sty` template
+### 11. Convert your Rancher Observability configuration file to the `.sty` template
 
-Each of the node elements represents a configuration item in StackState. This configuration file has all the configuration of your StackState instance, which means you have to take out unnecessary configuration node objects. Take the steps below to convert your configuration file into an `.sty` template file:
+Each of the node elements represents a configuration item in Rancher Observability. This configuration file has all the configuration of your Rancher Observability instance, which means you have to take out unnecessary configuration node objects. Take the steps below to convert your configuration file into an `.sty` template file:
 
 * Remove all configuration `node` objects that are owned by another StackPack. They all have a field called `ownedBy`.
-* StackState uses an urn-based identifiers, you can go ahead and define an urn for each of your configuration objects.
+* Rancher Observability uses an urn-based identifiers, you can go ahead and define an urn for each of your configuration objects.
 * Items that are extended from the `Custom Synchronization` StackPack, will have their urn `identifier` field with the following structure: `urn:stackpack:autosync:{type_name}:{object_name}`.
 * Typical `identifier` pattern that you can find across our StackPacks configuration is: `urn:stackpack:{stackpack_name}:{type_name}:{object_name}`
 * For StackPacks that can have multiple instances the identifier has a slightly different pattern: `urn:stackpack:{stackpack_name}:instance:{{instanceId}}:{type_name}:{object_name}` where `{{instanceId}}` is uniquely genrated for every instance of the StackPack.
@@ -141,7 +141,7 @@ The only way to add/modify the identifiers is the manual edit of the configurati
 
 After cleaning up the configuration file it's time to template out the variables exposed by your StackPack. As explained in the [Configuration input](stackpack/prepare_package.md) documentation section, it's possible to define some input fields that your StackPack requires to authenticate against some external sources and to differentiate between instances. To generalize the configuration, it's needed to inject the configuration file with some template parameters which is provided by the [Provisioning Script](stackpack/prepare_stackpack_provisioning_script.md). Any parameters or configuration item can be passed down to the `.sty` template file.
 
-One common example is to create the topic name required by the data source for a given instance. To ensure data received from the StackState Agent Check ends up in your StackPack's data source, make sure that you create the same topic in the provisioning script. Following code snippet shows how to create a function called `topicName` that generates a topic name for this instance based on the data provided by the user in the StackPack installation step.
+One common example is to create the topic name required by the data source for a given instance. To ensure data received from the Rancher Observability Agent Check ends up in your StackPack's data source, make sure that you create the same topic in the provisioning script. Following code snippet shows how to create a function called `topicName` that generates a topic name for this instance based on the data provided by the user in the StackPack installation step.
 
 ```text
 @Override
@@ -163,7 +163,7 @@ private def topicName(Map<String, Object> stackpackConfig) {
 }
 ```
 
-It's possible now to reference any of the above `templateArguments` in your `.sty` template file. In case of the `topicName` you can replace the `topic` value in the `config` section of your StackState DataSource with this parameter:
+It's possible now to reference any of the above `templateArguments` in your `.sty` template file. In case of the `topicName` you can replace the `topic` value in the `config` section of your Rancher Observability DataSource with this parameter:
 
 ```yaml
 _type: "DataSource"

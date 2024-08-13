@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Analytics
 
 ## Overview
 
-The analytics environment allows you to directly query the [4T data model](../concepts/4t_data_model.md). The analytics environment uses the StackState Scripting Language \(STSL\) as the basis for querying StackState, so you can build and test your StackState scripts here.
+The analytics environment allows you to directly query the [4T data model](../concepts/4t_data_model.md). The analytics environment uses the Rancher Observability Scripting Language \(STSL\) as the basis for querying Rancher Observability, so you can build and test your Rancher Observability scripts here.
 
 Queries created in the analytics environment can be used to investigate issues, automate processes and build reports. Here are some examples of queries that you could execute:
 
@@ -17,7 +17,7 @@ Queries created in the analytics environment can be used to investigate issues, 
 
 ## The analytics environment
 
-If your StackState user has the permission `access-analytics`, you can access the analytics environment from the main menu. This will be available by default for all [power users and admins](../../setup/security/rbac/rbac_permissions.md). There are also places in the user interface where you can be directed to analytical environment if some data is available in the form of a query, a link will then say "Open in Analytics".
+If your Rancher Observability user has the permission `access-analytics`, you can access the analytics environment from the main menu. This will be available by default for all [power users and admins](../../setup/security/rbac/rbac_permissions.md). There are also places in the user interface where you can be directed to analytical environment if some data is available in the form of a query, a link will then say "Open in Analytics".
 
 The analytics environment is divided into two sections:
 
@@ -26,7 +26,7 @@ The analytics environment is divided into two sections:
 
 When executing a query for the first time, the result of the query is displayed in preview form if a preview is available for the type of data requested, for example a metric chart or a topology view. If no preview is available, the data will be shown in JSON form.
 
-Every query that you have executed in StackState is shown in the query history, together with the query result at that point in time.
+Every query that you have executed in Rancher Observability is shown in the query history, together with the query result at that point in time.
 
 ## Previews
 
@@ -41,7 +41,7 @@ Results of queries are typically displayed in raw JSON form, unless there is a p
 
 ## Queries
 
-In the analytics environment, you use a combination of the [StackState Scripting Language \(STSL\)](../../develop/reference/scripting/) and the [StackState Query Language \(STQL\)](../../develop/reference/stql_reference.md) to build your queries and scripts.
+In the analytics environment, you use a combination of the [Rancher Observability Scripting Language \(STSL\)](../../develop/reference/scripting/) and the [Rancher Observability Query Language \(STQL\)](../../develop/reference/stql_reference.md) to build your queries and scripts.
 
 A query is a regular STSL script. For example, when you run the query: `1+1` you will get the result `2`.
 
@@ -75,7 +75,7 @@ The full list of available functions can be found [in the Script API documentati
 
 ### Example queries
 
-Below are some queries to get you started with an example of their expected output. You can find more examples in the StackState UI Analytics environment itself.
+Below are some queries to get you started with an example of their expected output. You can find more examples in the Rancher Observability UI Analytics environment itself.
 
 * [Find the number of relations between two components](analytics.md#find-the-number-of-relations-between-two-components)
 * [Compare the Staging environment to the Production environment](analytics.md#compare-the-staging-environment-to-the-production-environment)
@@ -140,7 +140,7 @@ Topology.query('environment = "Staging"')
 {% code lineNumbers="true" %}
 ```text
 Prediction.predictMetrics("linear", "7d",
-    Telemetry.query("StackState metrics", 'host="lnx01" AND name="diskspace" AND mount="/dev/disk1s1"')
+    Telemetry.query("Rancher Observability metrics", 'host="lnx01" AND name="diskspace" AND mount="/dev/disk1s1"')
         .metricField("value")
         .aggregation("min", "1d")
         .start("-4w") // based on last month
@@ -198,7 +198,7 @@ Prediction.predictMetrics("linear", "7d",
 
 ## See also
 
-* [StackState scripting language \(STSL\)](../../develop/reference/scripting/)
-* [StackState script APIs](../../develop/reference/scripting/script-apis/)
-* [StackState Query Language \(STQL\)](../../develop/reference/stql_reference.md)
+* [Rancher Observability scripting language \(STSL\)](../../develop/reference/scripting/)
+* [Rancher Observability script APIs](../../develop/reference/scripting/script-apis/)
+* [Rancher Observability Query Language \(STQL\)](../../develop/reference/stql_reference.md)
 

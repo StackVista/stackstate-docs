@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Set telemetry stream priority
@@ -8,7 +8,7 @@ description: StackState Self-hosted v5.1.x
 
 The telemetry streams associated with an element are displayed in the right panel details tab when an element is selected to show its detailed information - **Component details** or **Direct relation details** depending on the element type that you selected. Telemetry streams are displayed in order of telemetry stream priority. There are four levels of priority: `High`, `Medium`, `Low`, and `None`. By default, all streams have priority set to `None`. 
 
-Stream priority is used in StackState to help determine the following:
+Stream priority is used in Rancher Observability to help determine the following:
 
 * The order in which streams are displayed in the details tab **Telemetry** list. Streams are ordered first by priority (highest at the top) and then alphabetically.
 * The streams that are shown as [Top metrics](/use/metrics/top-metrics.md) in the component context menu - this is the pop-up displayed when you hover the mouse pointer over a component in the Topology Perspective. The most recent metric received from the first three metric streams in the **Telemetry** list will be displayed.

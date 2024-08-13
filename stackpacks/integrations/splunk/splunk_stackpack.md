@@ -1,27 +1,27 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Splunk
 
 ## Overview
 
-The StackState Splunk integration synchronizes events, metrics, health and topology data from Splunk to StackState. The integration uses [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md) to collect Splunk events, metrics, health and topology data.
+The Rancher Observability Splunk integration synchronizes events, metrics, health and topology data from Splunk to Rancher Observability. The integration uses [Rancher Observability Agent V2](../../../setup/agent/about-stackstate-agent.md) to collect Splunk events, metrics, health and topology data.
 
-Splunk is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
+Splunk is a [Rancher Observability core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "Rancher Observability Self-Hosted only").
 
 ![Data flow](../../../.gitbook/assets/stackpack-splunk.svg)
 
-* StackState Agent V2 periodically connects to the configured Splunk instance to execute Splunk saved searches and retrieve data:
+* Rancher Observability Agent V2 periodically connects to the configured Splunk instance to execute Splunk saved searches and retrieve data:
   * Topology data from the searches configured in the Splunk Topology Agent check.
   * Metrics data from the searches configured in the Splunk Metrics Agent check.
   * Events data from the searches configured in the Splunk Events Agent check.
   * Health data from the searches configured in the Splunk Health Agent check.
-* The Agents push retrieved data to StackState.
-* StackState translates incoming data:
+* The Agents push retrieved data to Rancher Observability.
+* Rancher Observability translates incoming data:
   * [Topology data](splunk_stackpack.md#topology) is translated into components and relations.
-  * [Metrics data](splunk_stackpack.md#metrics) is available in StackState as a metrics telemetry stream.
-  * [Events](splunk_stackpack.md#events) are available in StackState as a log telemetry stream.
+  * [Metrics data](splunk_stackpack.md#metrics) is available in Rancher Observability as a metrics telemetry stream.
+  * [Events](splunk_stackpack.md#events) are available in Rancher Observability as a log telemetry stream.
   * [Health](splunk_stackpack.md#health) information is added to associated components and relations.
 
 ## Setup
@@ -30,20 +30,20 @@ Splunk is a [StackState core integration](/stackpacks/integrations/about_integra
 
 * A running Splunk instance.
 * A Splunk user account with access to Splunk saved searches. The user should have the capability `search` to dispatch and read Splunk saved searches.
-* A compatible [StackState Agent V2](../../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to both Splunk and StackState.
+* A compatible [Rancher Observability Agent V2](../../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to both Splunk and Rancher Observability.
 
 ### Install
 
-The Splunk StackPack provides all the necessary configuration to easily work with Splunk topology data in StackState. Install the Splunk StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
+The Splunk StackPack provides all the necessary configuration to easily work with Splunk topology data in Rancher Observability. Install the Splunk StackPack from the Rancher Observability UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
 
-* **Splunk instance name** - A unique name to identify the Splunk instance in StackState. 
+* **Splunk instance name** - A unique name to identify the Splunk instance in Rancher Observability. 
 * **Splunk API URL** - The URL where the Splunk API can be reached. For example: `http://splunk.network.local:8089`.
 
-After the StackPack has been installed, you should follow the instructions below to configure the required Splunk checks on StackState Agent V2.
+After the StackPack has been installed, you should follow the instructions below to configure the required Splunk checks on Rancher Observability Agent V2.
 
 ### Configure
 
-A Splunk check must be configured on StackState Agent V2 for each type of data you want to retrieve from Splunk:
+A Splunk check must be configured on Rancher Observability Agent V2 for each type of data you want to retrieve from Splunk:
 
 * [Splunk Health check](splunk_health.md) - to retrieve health data from Splunk
 * [Splunk Topology check](splunk_topology.md) - to retrieve topology data from Splunk
@@ -52,7 +52,7 @@ A Splunk check must be configured on StackState Agent V2 for each type of data y
 
 ### Authentication
 
-Each Splunk check configured on StackState Agent V2 must include authentication details to allow the Agent to connect to your Splunk instance and execute the configured Splunk saved searches.
+Each Splunk check configured on Rancher Observability Agent V2 must include authentication details to allow the Agent to connect to your Splunk instance and execute the configured Splunk saved searches.
 
 Two authentication mechanisms are available:
 
@@ -87,7 +87,7 @@ instances:
 {% endtab %}
 {% endtabs %}
 
-To enable token-based authentication, the following parameters should be included in the section `authentcation.token_auth` of each StackState Agent V2 Splunk check configuration file:
+To enable token-based authentication, the following parameters should be included in the section `authentcation.token_auth` of each Rancher Observability Agent V2 Splunk check configuration file:
 
 * **name** - Name of the user who will use this token.
 * **initial\_token** - An initial, valid token. This token will be used once only and then replaced with a new generated token requested by the integration.
@@ -103,7 +103,7 @@ The first time the check runs, the configured `initial_token` will be exchanged 
 It's recommended to use [token-based authentication](splunk_stackpack.md#token-based-authentication).
 {% endhint %}
 
-With HTTP basic authentication, the `username` and `password` specified in the StackState Agent V2 check configuration files are used to connect to Splunk. These parameters are specified in the section `authentication.basic_auth` of each StackState Agent V2 Splunk check configuration file.
+With HTTP basic authentication, the `username` and `password` specified in the Rancher Observability Agent V2 check configuration files are used to connect to Splunk. These parameters are specified in the section `authentication.basic_auth` of each Rancher Observability Agent V2 Splunk check configuration file.
 
 {% tabs %}
 {% tab title="Example check configuration with HTTP basic authentication" %}
@@ -145,37 +145,37 @@ The Splunk integration can retrieve the following data:
 
 #### Events
 
-When the Splunk Events Agent check is configured, events will be retrieved from the configured Splunk saved search or searches. Events retrieved from splunk are available in StackState as a log telemetry stream in the `stackstate-generic-events` data source. This can be [mapped to associated components](../../../use/metrics/add-telemetry-to-element.md).
+When the Splunk Events Agent check is configured, events will be retrieved from the configured Splunk saved search or searches. Events retrieved from splunk are available in Rancher Observability as a log telemetry stream in the `stackstate-generic-events` data source. This can be [mapped to associated components](../../../use/metrics/add-telemetry-to-element.md).
 
 For details on how to configure the events retrieved, see the [Splunk Events check configuration](splunk_events.md).
 
 #### Metrics
 
-When the Splunk Metrics Agent check is configured, metrics will be retrieved from the configured Splunk saved search or searches. One metric can be retrieved from each saved search. Metrics retrieved from splunk are available in StackState as a metrics telemetry stream in the `stackstate-metrics` data source. This can be [mapped to associated components](../../../use/metrics/add-telemetry-to-element.md).
+When the Splunk Metrics Agent check is configured, metrics will be retrieved from the configured Splunk saved search or searches. One metric can be retrieved from each saved search. Metrics retrieved from splunk are available in Rancher Observability as a metrics telemetry stream in the `stackstate-metrics` data source. This can be [mapped to associated components](../../../use/metrics/add-telemetry-to-element.md).
 
 For details on how to configure the metrics retrieved, see the [Splunk Metrics check configuration](splunk_metrics.md).
 
 #### Topology
 
-When the Splunk StackPack is installed, and a Splunk Topology Agent check is configured, topology will be retrieved from the configured Splunk saved searches. The check that you should configure depends on the StackState Agent that you will use to retrieve topology data. 
+When the Splunk StackPack is installed, and a Splunk Topology Agent check is configured, topology will be retrieved from the configured Splunk saved searches. The check that you should configure depends on the Rancher Observability Agent that you will use to retrieve topology data. 
 
 For details on how to configure the components and relations retrieved, see the [Splunk Topology check configuration](splunk_topology.md).
 
-If you have an existing Splunk Topology integration configured to use StackState Agent V1 (legacy) and would like to upgrade to use StackState Agent V2, refer to the [Agent migration instructions](/setup/agent/migrate-agent-v1-to-v2/).
+If you have an existing Splunk Topology integration configured to use Rancher Observability Agent V1 (legacy) and would like to upgrade to use Rancher Observability Agent V2, refer to the [Agent migration instructions](/setup/agent/migrate-agent-v1-to-v2/).
 
 #### Health
 
-When the Splunk Health Agent check is configured, health check states will be retrieved from the configured Splunk saved searches. Retrieved health check states are mapped to the associated components and relations in StackState.
+When the Splunk Health Agent check is configured, health check states will be retrieved from the configured Splunk saved searches. Retrieved health check states are mapped to the associated components and relations in Rancher Observability.
 
 For details on how to configure the health retrieved, see the [Splunk Health check configuration](splunk_health.md).
 
 #### Traces
 
-The StackState Splunk integration doesn't retrieve any trace data.
+The Rancher Observability Splunk integration doesn't retrieve any trace data.
 
 ### REST API endpoints
 
-StackState Agent V2 connects to the Splunk API at the endpoints listed below. The same endpoints are used to retrieve events, metrics and topology data.
+Rancher Observability Agent V2 connects to the Splunk API at the endpoints listed below. The same endpoints are used to retrieve events, metrics and topology data.
 
 | Endpoint | Description |
 | :--- | :--- |
@@ -199,11 +199,11 @@ The Splunk StackPack and the Agent checks for Splunk Events, metrics and topolog
 
 ## Troubleshooting
 
-Troubleshooting steps for any known issues can be found in the [StackState support Knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=Splunk).
+Troubleshooting steps for any known issues can be found in the [Rancher Observability support Knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=Splunk).
 
 ## Uninstall
 
-To uninstall the Splunk StackPack, go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **Splunk** screen and click **UNINSTALL**. All Splunk topology specific configuration will be removed from StackState.
+To uninstall the Splunk StackPack, go to the Rancher Observability UI **StackPacks** &gt; **Integrations** &gt; **Splunk** screen and click **UNINSTALL**. All Splunk topology specific configuration will be removed from Rancher Observability.
 
 For instructions on how to disable the Splunk Agent checks, see:
 
@@ -218,7 +218,7 @@ The [Splunk StackPack release notes](https://github.com/StackVista/stackpack-spl
 
 ## See also
 
-Configure the StackState Agent V2 Splunk checks:
+Configure the Rancher Observability Agent V2 Splunk checks:
 
 * [Splunk Health check](splunk_health.md) - to retrieve health data from Splunk
 * [Splunk Topology check](splunk_topology.md) - to retrieve topology data from Splunk

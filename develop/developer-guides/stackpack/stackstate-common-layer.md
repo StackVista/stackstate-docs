@@ -1,10 +1,10 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
-# StackState Common Layer
+# Rancher Observability Common Layer
 
-A Layer is a specific term in the StackState where all the Components from different integrations lie within. It's used for the horizontal ordering of the topology. Since StackState supports multiple integrations, there are some common layers defined in the product. Layers are ordered in terms of proximity to the end-user. Merging preference is given to the component in the layer which is closer to the end-user. Below is the list of common layers used in the StackState and their identifiers that can be referenced in a StackPack.
+A Layer is a specific term in the Rancher Observability where all the Components from different integrations lie within. It's used for the horizontal ordering of the topology. Since Rancher Observability supports multiple integrations, there are some common layers defined in the product. Layers are ordered in terms of proximity to the end-user. Merging preference is given to the component in the layer which is closer to the end-user. Below is the list of common layers used in the Rancher Observability and their identifiers that can be referenced in a StackPack.
 
 | Layer Name | Identifier |
 | :--- | :--- |
@@ -26,5 +26,5 @@ A Layer is a specific term in the StackState where all the Components from diffe
 | Hardware | urn:stackpack:common:layer:hardware |
 | Locations | urn:stackpack:common:layer:locations |
 
-The above layer list will be shown on the StackState Integration View from top to bottom. It means `Blueprints` layer will be on top and `Locations` layer will be at the bottom.
+The above layer list will be shown on the Rancher Observability Integration View from top to bottom. It means `Blueprints` layer will be on top and `Locations` layer will be at the bottom.
 

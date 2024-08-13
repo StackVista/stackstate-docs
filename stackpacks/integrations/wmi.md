@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # WMI
@@ -8,27 +8,27 @@ description: StackState Self-hosted v5.1.x
 
 Collect telemetry information with Windows Management Instrumentation \(WMI\) from Windows applications and servers.
 
-WMI is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
+WMI is a [Rancher Observability curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
 ## Functionality
 
-StackState Agent for Windows collects telemetry information from Windows by querying WMI. Metrics obtained from the defined WMI queries are collected periodically. Multiple WMI queries can be defined. Collected WMI metrics are sent to StackState and can be used as metric streams.
+Rancher Observability Agent for Windows collects telemetry information from Windows by querying WMI. Metrics obtained from the defined WMI queries are collected periodically. Multiple WMI queries can be defined. Collected WMI metrics are sent to Rancher Observability and can be used as metric streams.
 
 ## Setup
 
 ### Installation
 
-After installing StackState Agent V2 for Windows, the integration can be configured. The integration is included in StackState Agent V2 for Windows, no additional installation steps are required. The WMI integration has to be configured.
+After installing Rancher Observability Agent V2 for Windows, the integration can be configured. The integration is included in Rancher Observability Agent V2 for Windows, no additional installation steps are required. The WMI integration has to be configured.
 
 ### Configuration
 
-The WMI integration can be enabled and configured via the StackState Agent Manager. Opening the StackState Agent Manager can be done by, in PowerShell:
+The WMI integration can be enabled and configured via the Rancher Observability Agent Manager. Opening the Rancher Observability Agent Manager can be done by, in PowerShell:
 
 ```text
-PS> & 'C:\Program Files\StackState\StackState Agent\embedded\agent.exe' launch-gui
+PS> & 'C:\Program Files\Rancher Observability\Rancher Observability Agent\embedded\agent.exe' launch-gui
 ```
 
-The integration can be enabled via the StackState Agent Manager:
+The integration can be enabled via the Rancher Observability Agent Manager:
 
 1. open `Checks`, `Manage checks`, 
 2. select in the drop-down `Add a check`,
@@ -39,9 +39,9 @@ After the integration is enabled WMI queries can be defined in the integrations 
 | Field | Required | Description                                                                                                                                                                                                                                                         |
 | :--- | :--- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `class` | Yes | The WMI class to use in the query.                                                                                                                                                                                                                                  |
-| `metrics` | Yes | The metrics that need to be collected. This is in format `[WMI property name, metric name, metric type]`. The `WMI property name` is the property to be collected, `metric name` is the metric name reported to StackState, and `metric type` is the metric's type. |
-| `tag_by` | No | Adds the properties value as tag to the metric sent to StackState.                                                                                                                                                                                                  |
-| `tags` | No | Add customer tags to the metric sent to StackState.                                                                                                                                                                                                                 |
+| `metrics` | Yes | The metrics that need to be collected. This is in format `[WMI property name, metric name, metric type]`. The `WMI property name` is the property to be collected, `metric name` is the metric name reported to Rancher Observability, and `metric type` is the metric's type. |
+| `tag_by` | No | Adds the properties value as tag to the metric sent to Rancher Observability.                                                                                                                                                                                                  |
+| `tags` | No | Add customer tags to the metric sent to Rancher Observability.                                                                                                                                                                                                                 |
 | `filters` | No | WMI query filter to reduce the amount of metrics returned.                                                                                                                                                                                                          |
 | `collection_interval` | No | Periodicity of executing the WMI query, in seconds. Default is once per 15 seconds.                                                                                                                                                                                 |
 
@@ -60,19 +60,19 @@ Example instance:
       - Name: test_db
 ```
 
-Restart StackState Agent V2 after making changes to the WMI integration's configuration.
+Restart Rancher Observability Agent V2 after making changes to the WMI integration's configuration.
 
-Reference: the integration's configuration file is located at `C:\ProgramData\StackState\conf.d\wmi_check.d\`.
+Reference: the integration's configuration file is located at `C:\ProgramData\Rancher Observability\conf.d\wmi_check.d\`.
 
 ### Troubleshooting
 
-The `Status` page in the StackState Agent Manager provides insight into the operational status of the configurated WMI queries/instances.
+The `Status` page in the Rancher Observability Agent Manager provides insight into the operational status of the configurated WMI queries/instances.
 
-It's possible to invoke the WMI integration to verify whether the configured WMI queries/instances telemetry is being retrieved and collected by StackState Agent V2 for Windows. To invoke, in PowerShell:
+It's possible to invoke the WMI integration to verify whether the configured WMI queries/instances telemetry is being retrieved and collected by Rancher Observability Agent V2 for Windows. To invoke, in PowerShell:
 
 ```text
-PS> & 'C:\Program Files\StackState\StackState Agent\embedded\agent.exe' check wmi_check
+PS> & 'C:\Program Files\Rancher Observability\Rancher Observability Agent\embedded\agent.exe' check wmi_check
 ```
 
-Refer to the log file for more information. The log file is located at `C:\ProgramData\StackState\logs\agent.log`.
+Refer to the log file for more information. The log file is located at `C:\ProgramData\Rancher Observability\logs\agent.log`.
 

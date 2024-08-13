@@ -1,24 +1,24 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Nagios
 
 ## What is the Nagios StackPack?
 
-The Nagios StackPack allows StackState to connect to Nagios. We support the Nagios version 5.x onwards.
+The Nagios StackPack allows Rancher Observability to connect to Nagios. We support the Nagios version 5.x onwards.
 
 Using this StackPack, you can:
 
 * map Nagios alerts onto your topology
 
-Nagios is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
+Nagios is a [Rancher Observability curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
 ## Prerequisites
 
 The following prerequisites need to be met:
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) must be installed on a single machine which can connect to Nagios and StackState.
+* [Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md) must be installed on a single machine which can connect to Nagios and Rancher Observability.
 * A Nagios instance must be running.
 
 ## Configuration
@@ -53,12 +53,12 @@ To enable the Nagios check and begin collecting data from your Nagios instance:
        collect_host_performance_data: True      # default is False
        collect_service_performance_data: True   # default is False
      ```
-2. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to publish the configuration changes.
-3. Once the Agent is restarted, wait for the Agent to collect data and send it to StackState.
+2. [Restart Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to publish the configuration changes.
+3. Once the Agent is restarted, wait for the Agent to collect data and send it to Rancher Observability.
 
 ## Permissions for Nagios files
 
-Nagios StackState Agent check tails Nagios config and log files, so it should have permission to read those files. If you run StackState Agent with some other user than `root`, the StackState Agent user must be added to the same group that's attached to the config and log files. Note that manually setting read permission isn't an option as the files can sometimes be recreated by Nagios.
+Nagios Rancher Observability Agent check tails Nagios config and log files, so it should have permission to read those files. If you run Rancher Observability Agent with some other user than `root`, the Rancher Observability Agent user must be added to the same group that's attached to the config and log files. Note that manually setting read permission isn't an option as the files can sometimes be recreated by Nagios.
 
 ## Release notes
 

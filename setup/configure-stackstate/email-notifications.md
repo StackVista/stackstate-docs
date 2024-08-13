@@ -1,18 +1,18 @@
 ---
-description: StackState Self-hosted
+description: Rancher Observability Self-hosted
 ---
 
-# Configuring StackState for E-mail notifications
+# Configuring Rancher Observability for E-mail notifications
 
 {% hint style="warning" %}
-SaaS users of StackState can use E-mail notifications without extra configuration. This guide is only applicable for self-hosted StackState installations, that are planning to use the E-mail notification channel.
+SaaS users of Rancher Observability can use E-mail notifications without extra configuration. This guide is only applicable for self-hosted Rancher Observability installations, that are planning to use the E-mail notification channel.
 {% endhint %}
 
-Before you can use the E-mail notification channel in StackState, you first need to follow the following steps:
+Before you can use the E-mail notification channel in Rancher Observability, you first need to follow the following steps:
 
-## Configure StackState with the SMTP configuration
+## Configure Rancher Observability with the SMTP configuration
 
-StackState needs to be configured with credentials to connect to the SMTP server. You can do this by adding the following to the `values.yaml` file of your StackState installation:
+Rancher Observability needs to be configured with credentials to connect to the SMTP server. You can do this by adding the following to the `values.yaml` file of your Rancher Observability installation:
 
 ```yaml
 stackstate:

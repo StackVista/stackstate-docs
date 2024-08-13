@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted
+description: Rancher Observability Self-hosted
 ---
 
 # Prepare air-gapped agent installation
@@ -13,7 +13,7 @@ When running in an air-gapped environment extra preparation is needed before the
 
 ## Configure Helm
 
-Configure helm on your local machine to be able to pull the StackState Helm chart.
+Configure helm on your local machine to be able to pull the Rancher Observability Helm chart.
 
 ```bash
 helm repo add stackstate https://helm.stackstate.io
@@ -46,11 +46,11 @@ Download the `copy_images.sh` bash script from the [Agent Helm chart Github repo
 chmod +x copy_images.sh
 ```
 
-The script can copy images directly from StackState's Quay.io registry to your internal registry. If the internal registry isn't accessible from a computer that has direct internet access an intermediate step is needed.
+The script can copy images directly from Rancher Observability's Quay.io registry to your internal registry. If the internal registry isn't accessible from a computer that has direct internet access an intermediate step is needed.
 
 {%tabs %}
 {% tab title="Copy direct to local registry" %} 
-To copy the images directly from the StackState registry to the internal registry run the script like this to copy the images to the registry at `registry.acme.com:5000`:
+To copy the images directly from the Rancher Observability registry to the internal registry run the script like this to copy the images to the registry at `registry.acme.com:5000`:
 
 ```bash
 STS_REGISTRY_USERNAME=... STS_REGISTRY_PASSWORD=... DST_REGISTRY_USERNAME=... DST_REGISTRY_PASSWORD=...  ./copy_images.sh -d registry.acme.com:5000
@@ -69,10 +69,10 @@ When it's impossible to directly copy the images to the internal registry the im
 Here is an example way of working that uses the `copy_images.sh` script to produce a list of images and then uses bash scripting to download, re-tag and upload all images. Depending on the exact situation this may need be adapted.
 
 ```bash
-# Produce a list of all StackState images in the stackstate_agent_images.txt file
+# Produce a list of all Rancher Observability images in the stackstate_agent_images.txt file
 STS_REGISTRY_USERNAME=noop STS_REGISTRY_PASSWORD=noop ./copy_images.sh -t -d noop | cut -d' ' -f2 > stackstate_agent_images.txt
 
-# Authenticate to the StackState quay.io repositories using the credentials provided by StackState
+# Authenticate to the Rancher Observability quay.io repositories using the credentials provided by Rancher Observability
 docker login quay.io
 
 # Save all images to the local file system
@@ -100,12 +100,12 @@ done < stackstate_agent_images.txt
 
 ## Customize the Helm command
 
-The StackState UI provides the exact commands to install the agent depending on the distribution but it assumes the internet is accessible. For air-gapped installations the command needs to be extended to use the local copy of the helm chart and to override the docker registry with the local registry. If the local docker registry requires authentication a custom image pull secret can be provided.
+The Rancher Observability UI provides the exact commands to install the agent depending on the distribution but it assumes the internet is accessible. For air-gapped installations the command needs to be extended to use the local copy of the helm chart and to override the docker registry with the local registry. If the local docker registry requires authentication a custom image pull secret can be provided.
 
 {% tabs %}
 {% tab title="Registry without authentication" %}
 
-This example uses the command for the standard Kubernetes distribution to show how to use a local copy of the Helm chart and add the extra registry argument. Please make sure to use the command that corresponds with your Kubernetes distribution as provided in the StackState UI and apply the same modifications (this example uses `registry.acme.com:5000` as the registry).
+This example uses the command for the standard Kubernetes distribution to show how to use a local copy of the Helm chart and add the extra registry argument. Please make sure to use the command that corresponds with your Kubernetes distribution as provided in the Rancher Observability UI and apply the same modifications (this example uses `registry.acme.com:5000` as the registry).
 
 {% hint style="warning" %}
 This command isn't the right command for your Kubernetes cluster. Instead, copy the command for your Kubernetes distribution from the installed Kubernetes StackPack in the UI. Then replace `stackstate-k8s/stackstate` with the `.tgz` file and add the image registry argument.
@@ -131,7 +131,7 @@ The modifications are:
 {% endtab %}
 {% tab title="Registry with authentication" %}
 
-This example uses the command for the standard Kubernetes distribution to show how to use a local copy of the Helm chart and add the extra registry argument. Please make sure to use the command that corresponds with your Kubernetes distribution as provided in the StackState UI and apply the same modifications (this example uses `registry.acme.com:5000` as the registry):
+This example uses the command for the standard Kubernetes distribution to show how to use a local copy of the Helm chart and add the extra registry argument. Please make sure to use the command that corresponds with your Kubernetes distribution as provided in the Rancher Observability UI and apply the same modifications (this example uses `registry.acme.com:5000` as the registry):
 
 {% hint style="warning" %}
 This command isn't the right command for your Kubernetes cluster. Instead, copy the command for your Kubernetes distribution from the installed Kubernetes StackPack in the UI. Then replace `stackstate-k8s/stackstate` with the `.tgz` file and add the image registry and pull secret arguments.

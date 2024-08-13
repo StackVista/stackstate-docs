@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Autonomous Anomaly Detector
@@ -16,7 +16,7 @@ Note that the AAD requires a [training period](aad.md#training-period) before it
 
 ### The anomaly detection process
 
-The Autonomous Anomaly Detector (AAD) is enabled as soon as the [AAD StackPack has been installed](aad.md#install-the-aad-stackpack) in StackState. When the AAD has been enabled, metric streams are identified and analyzed in search of any anomalous behavior based on their past. After the initial training period, detected anomalies will be reported in the following way:
+The Autonomous Anomaly Detector (AAD) is enabled as soon as the [AAD StackPack has been installed](aad.md#install-the-aad-stackpack) in Rancher Observability. When the AAD has been enabled, metric streams are identified and analyzed in search of any anomalous behavior based on their past. After the initial training period, detected anomalies will be reported in the following way:
 
 * The identified anomaly is given a [severity](aad.md#anomaly-severity) (HIGH, MEDIUM or LOW).
 * The anomaly and time period during which anomalous behaviour was detected are shown on the associated metric stream chart. The color indicates the anomaly severity.
@@ -53,19 +53,19 @@ When a HIGH severity anomaly is detected on a metric stream, a `Metric Stream An
 Note that feedback isn't used to train the running instance of the AAD.
 {% endhint %}
 
-Models are selected by the AAD and optimized for each metric stream. The quality of the anomalies reported is determined to a large extent by how well the selected model describes the stream that it runs on. The StackState team works with representative datasets to develop new models and optimize the hyperparameters used for model selection and training the AAD. 
+Models are selected by the AAD and optimized for each metric stream. The quality of the anomalies reported is determined to a large extent by how well the selected model describes the stream that it runs on. The Rancher Observability team works with representative datasets to develop new models and optimize the hyperparameters used for model selection and training the AAD. 
 
-To enable improvement of the AAD, users can add feedback to reported anomalies. This feedback can then be used by StackState to assist in the ongoing development of the AAD.
+To enable improvement of the AAD, users can add feedback to reported anomalies. This feedback can then be used by Rancher Observability to assist in the ongoing development of the AAD.
 
 {% hint style="success" "self-hosted info" %}
 
-Use the StackState CLI to [export anomaly feedback](/configure/anomaly-detection/export-anomaly-feedback.md) ready to send to StackState.
+Use the Rancher Observability CLI to [export anomaly feedback](/configure/anomaly-detection/export-anomaly-feedback.md) ready to send to Rancher Observability.
 
 {% endhint %}
 
-The feedback sent to StackState consists of:
+The feedback sent to Rancher Observability consists of:
 * **Thumbs-up, Thumbs-down** votes - Each user can cast one vote per reported anomaly.
-* **Comments** - Free-form text entered by users. Note that any comments added to an anomaly will be included in the feedback sent to StackState. Take care not to include sensitive data in comments.
+* **Comments** - Free-form text entered by users. Note that any comments added to an anomaly will be included in the feedback sent to Rancher Observability. Take care not to include sensitive data in comments.
 * **Anomaly details** - The description, interval, severity (score), model information, metric query and element, stream names.
 * **Metric data** - Data from the metric stream leading up to the anomaly.
 
@@ -73,10 +73,10 @@ The feedback sent to StackState consists of:
 
 ## Installation
     
-### Prerequisites[](http://not.a.link "StackState Self-Hosted only")
+### Prerequisites[](http://not.a.link "Rancher Observability Self-Hosted only")
 
-* The AAD StackPack can only be installed within a [Kubernetes setup](../../setup/install-stackstate/kubernetes_openshift/ "StackState Self-Hosted only"). Please make sure that this is supported by your StackState installation.
-* If you aren't sure that you have a Kubernetes setup or would you like to know more, contact [StackState support](https://support.stackstate.com/hc/en-us "StackState Self-Hosted only").
+* The AAD StackPack can only be installed within a [Kubernetes setup](../../setup/install-stackstate/kubernetes_openshift/ "Rancher Observability Self-Hosted only"). Please make sure that this is supported by your Rancher Observability installation.
+* If you aren't sure that you have a Kubernetes setup or would you like to know more, contact [Rancher Observability support](https://support.stackstate.com/hc/en-us "Rancher Observability Self-Hosted only").
 
 ### Install the AAD StackPack
 
@@ -123,7 +123,7 @@ To uninstall the AAD StackPack, simply press the **UNINSTALL** button. No other 
 **Autonomous Anomaly Detector StackPack v0.9.2 (02-04-2021)**
 
 * Common version bumped from 2.4.3 to 3.0.0
-* StackState min version bumped to 4.3.0
+* Rancher Observability min version bumped to 4.3.0
 
 ## See also
 

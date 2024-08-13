@@ -1,27 +1,27 @@
 ---
-description: StackState Self-hosted v5.1.x
+description: Rancher Observability Self-hosted v5.1.x
 ---
 
 # Monitor functions
 
 ## Overview
 
-Monitor functions are run by [monitors](/use/checks-and-monitors/monitors.md) in StackState. They can process 4T data to trigger a change in health status of a component or relation. A number of monitor functions are shipped together with StackState, or you can write your own monitor function as a groovy script.
+Monitor functions are run by [monitors](/use/checks-and-monitors/monitors.md) in Rancher Observability. They can process 4T data to trigger a change in health status of a component or relation. A number of monitor functions are shipped together with Rancher Observability, or you can write your own monitor function as a groovy script.
 
 ## Create a custom monitor function
 
 To add a custom monitor function:
 
-1. In the StackState UI, go to **Settings** >  **Functions** > **Monitor Functions**.
+1. In the Rancher Observability UI, go to **Settings** >  **Functions** > **Monitor Functions**.
 2. Click **ADD MONITOR FUNCTION**.
 3. Enter the required settings:
    * **Name** - A name to identify the monitor function.
    * **Description** - Optional. A description of the monitor function.
    * **User parameters** - These are parameters that must be specified in the monitor definition that runs the monitor function. For more details see the section [parameters](#parameters).
    * **Script** - The groovy script run by the function. For more details see the section [script](#script).
-   * **Identifier** - a StackState-URN-formatted value that uniquely identifies the monitor function. The identifier is used by the monitor definition during the invocation of this function.
+   * **Identifier** - a Rancher Observability-URN-formatted value that uniquely identifies the monitor function. The identifier is used by the monitor definition during the invocation of this function.
 4. Click **CREATE** to save the monitor function.
-   * The monitor function will be listed in the StackState UI page **Settings** >  **Functions** > **Monitor Functions**. It can be exported from here to use in a monitor or add to a template included in a custom StackPack.
+   * The monitor function will be listed in the Rancher Observability UI page **Settings** >  **Functions** > **Monitor Functions**. It can be exported from here to use in a monitor or add to a template included in a custom StackPack.
 
 ![Add a custom monitor function](../../../.gitbook/assets/v51_add-monitor-function.png)
 
@@ -68,21 +68,21 @@ timestamp: "2022-05-23T13:16:27.369269Z[GMT]"
 nodes:
   - ...
     arguments:
-      latest_metrics: "Telemetry.query('StackState Metrics', '').groupBy('tags.pid', 'tags.createTime', 'host').metricField('cpu_systemPct').start('-1m').aggregation('mean', '15s')"
+      latest_metrics: "Telemetry.query('Rancher Observability Metrics', '').groupBy('tags.pid', 'tags.createTime', 'host').metricField('cpu_systemPct').start('-1m').aggregation('mean', '15s')"
   
 ```
 {% endcode %}
 
 ## Script
 
-The monitor function script is a Groovy script that will be run whenever the monitor function is invoked by a monitor. The script has access to all defined user parameters and can use the StackState [Telemetry script API](/develop/reference/scripting/script-apis/telemetry.md) to fetch Metric and Log data.
+The monitor function script is a Groovy script that will be run whenever the monitor function is invoked by a monitor. The script has access to all defined user parameters and can use the Rancher Observability [Telemetry script API](/develop/reference/scripting/script-apis/telemetry.md) to fetch Metric and Log data.
 
 The script should return a result of type `MonitorHealthState` with the following details:
 
 * `id` - An identifier for the monitor health state. This uniquely identifies a monitor health state between monitor runs.
 * `state` - A `HealthStateValue`. This will be the new health state of the monitor (`CLEAR`, `DEVIATING`, `CRITICAL`, `DISABLED` or `UNKNOWN`).
 * `topologyIdentifier` - The identifier of a component or relation that the monitor health state will bind to.
-* `displayTimeSeries` - Description of a timeseries that will be shown as a chart in the StackState UI.
+* `displayTimeSeries` - Description of a timeseries that will be shown as a chart in the Rancher Observability UI.
 
 Example monitor function script:
 

@@ -1,11 +1,11 @@
 ---
-description: StackState v6.0
+description: Rancher Observability v6.0
 ---
 
 # Traces perspective
 
 The Traces Perspective shows spans for a component and their related metrics.
-This allows you to monitor the performance of the applications in your IT infrastructure directly in StackState.
+This allows you to monitor the performance of the applications in your IT infrastructure directly in Rancher Observability.
 
 Click on any span in the list to see the descendant spans that belong to it. 
 When expanded, the timeline for a span shows when each descendant started and completed.
@@ -19,7 +19,7 @@ When inspecting a trace and seeing the list of its spans, you can click on any s
 
 The trace filters allow you to refine the traces displayed based on span status (Error, Ok or Unset), parent type (External, Internal or Root) and duration.
 
-In addition to these filters, the traces match the **Time Window** selected in the timeline control at the bottom of the StackState UI.
+In addition to these filters, the traces match the **Time Window** selected in the timeline control at the bottom of the Rancher Observability UI.
 Adjust the time window to show only traces from that time.
 
 ### Filtering the duration
@@ -29,7 +29,7 @@ Zooming out can be achieved by clearing all filters, or by brushing the entire r
 
 ## Span details
 
-In StackState, a [view](k8s-view-structure.md) shows you a sub-selection of your IT infrastructure for a particular Kubernetes resource.
+In Rancher Observability, a [view](k8s-view-structure.md) shows you a sub-selection of your IT infrastructure for a particular Kubernetes resource.
 The traces perspective shows the spans related to the resource, along with their descendants.
 As a descendant span can originate from an other resource, it is possible to navigate to it from the span details.
 The "parent spans" link will expand the view to show the full trace.

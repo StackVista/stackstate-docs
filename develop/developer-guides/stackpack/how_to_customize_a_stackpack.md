@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Customize a StackPack
 
 ## StackPack configuration file
 
-The StackPack configuration file is responsible for how StackState interprets the StackPack. The configuration file holds information like the StackPack version, or its category, but also defines what is presented to the user during installation and what input user is asked for. Find more details on fields in [The StackPack Configuration file](prepare_package.md) or follow the instructions below.
+The StackPack configuration file is responsible for how Rancher Observability interprets the StackPack. The configuration file holds information like the StackPack version, or its category, but also defines what is presented to the user during installation and what input user is asked for. Find more details on fields in [The StackPack Configuration file](prepare_package.md) or follow the instructions below.
 
 StackPack configuration file structure is as follows:
 
@@ -73,7 +73,7 @@ The `text` input field is described as below:
 }
 ```
 
-StackState assumes all the input fields in the StackPack are mandatory, and to circumvent that, an optional field could be provided with a default value.
+Rancher Observability assumes all the input fields in the StackPack are mandatory, and to circumvent that, an optional field could be provided with a default value.
 
 ### Password input
 
@@ -89,7 +89,7 @@ The `password` input field is described like the `text` input field except that 
 }
 ```
 
-If the user doesn't enter any value to any of the input fields defined in the `steps`, StackState will raise a validation error and prompt the user to enter the values. The input values of the entered fields are provided as an un-modifiable map to the `provision` function of the `ProvisioningScript` which can be used for further provisioning. The map is indexed by the names of the fields provided for each field.
+If the user doesn't enter any value to any of the input fields defined in the `steps`, Rancher Observability will raise a validation error and prompt the user to enter the values. The input values of the entered fields are provided as an un-modifiable map to the `provision` function of the `ProvisioningScript` which can be used for further provisioning. The map is indexed by the names of the fields provided for each field.
 
 ## Customize Components and Relations
 
@@ -97,15 +97,15 @@ If you haven't completed this step during [configuration of the elements created
 
 ### Component and Relation types
 
-There are some default component and relation types in StackState. Component types are used to visualize components with a given icon - you can change it to reflect the context of your environment; [relation types](/use/concepts/relations.md) describe relations between components.
+There are some default component and relation types in Rancher Observability. Component types are used to visualize components with a given icon - you can change it to reflect the context of your environment; [relation types](/use/concepts/relations.md) describe relations between components.
 
-Component types and Relation types can also be created automatically by StackState using the `getOrCreate` functionality described in the `Component + Relation Templates` section below. Auto-generated components types will be created without an icon.
+Component types and Relation types can also be created automatically by Rancher Observability using the `getOrCreate` functionality described in the `Component + Relation Templates` section below. Auto-generated components types will be created without an icon.
 
 ### Component and Relation Templates
 
 The `Custom Synchronization` StackPack installed as an integration prerequisite, creates a Component Template called `autosync-component-template`. Similarly, `Custom Synchronization` StackPack, creates a Relation Template called `autosync-relation-template`.
 
-You can go ahead to the Settings page section `Topology Synchronization` and rename it, add a description if needed. It's recommended to change the default value of the `ComponentType` from `Auto-synced Component` to something that represents a generic component in your data source. The same goes for `Layer`, `Domain` and `Environment` which defaults to `Auto-synced Components`, `Auto-synced Domain`,`Auto-synced Environment` respectively. As this template is using the `getOrCreate` functionality, these values are auto-created by StackState if they don't already exist. Find more on [Templates](../../reference/stackstate-templating/using_stackstate_templating.md).
+You can go ahead to the Settings page section `Topology Synchronization` and rename it, add a description if needed. It's recommended to change the default value of the `ComponentType` from `Auto-synced Component` to something that represents a generic component in your data source. The same goes for `Layer`, `Domain` and `Environment` which defaults to `Auto-synced Components`, `Auto-synced Domain`,`Auto-synced Environment` respectively. As this template is using the `getOrCreate` functionality, these values are auto-created by Rancher Observability if they don't already exist. Find more on [Templates](../../reference/stackstate-templating/using_stackstate_templating.md).
 
 Once you have completed all the changes, you can click **UPDATE** and confirm the popup dialog to unlock this Template from the `Custom Synchronization` StackPack.
 

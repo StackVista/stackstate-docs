@@ -1,5 +1,5 @@
 ---
-description: StackState v6.0
+description: Rancher Observability v6.0
 ---
 
 # Troubleshooting notifications
@@ -17,7 +17,7 @@ When a notification channel fails to send out notifications the notification ove
 
 Slack errors usually contain an error code:
 
-* `token_revoked`, `token_expired` or `missing_scope`: These error codes all indicate a problem with the authorization of StackState to post messages to Slack. To solve these recreate the channel to re-authorize StackState with Slack such that all required permissions are granted.
+* `token_revoked`, `token_expired` or `missing_scope`: These error codes all indicate a problem with the authorization of Rancher Observability to post messages to Slack. To solve these recreate the channel to re-authorize Rancher Observability with Slack such that all required permissions are granted.
 * For other error codes see [Slack API error codes](https://api.slack.com/automation/cli/errors).
 
 ### HTTP
@@ -28,4 +28,4 @@ Verify that any configured URLs and tokens are correct and, in case of the webho
 
 ### Other
 
-In case the error is of type "Other" StackState is most likely not able to even connect to the external service or webhook. Verify that URL is correct, can be resolved and can be accessed by StackState.
+In case the error is of type "Other" Rancher Observability is most likely not able to even connect to the external service or webhook. Verify that URL is correct, can be resolved and can be accessed by Rancher Observability.

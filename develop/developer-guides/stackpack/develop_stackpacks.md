@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # How to create a StackPack
 
 ## When to create a StackPack
 
-As a rule of thumb each integration should have a StackPack. Without configuration StackState doesn't process incoming topology, telemetry or trace data. Such data will be accepted by StackState, but won't automatically reflect on the 4T data model. The best way to bundle configuration is through a StackPack. StackState can also be configured using the CLI, UI or directly via the API, but then your configuration won't be protected from user changes, can't easily be upgraded and can't easily be used for configuring multiple instances of an integration.
+As a rule of thumb each integration should have a StackPack. Without configuration Rancher Observability doesn't process incoming topology, telemetry or trace data. Such data will be accepted by Rancher Observability, but won't automatically reflect on the 4T data model. The best way to bundle configuration is through a StackPack. Rancher Observability can also be configured using the CLI, UI or directly via the API, but then your configuration won't be protected from user changes, can't easily be upgraded and can't easily be used for configuring multiple instances of an integration.
 
 ## How to create a StackPack
 

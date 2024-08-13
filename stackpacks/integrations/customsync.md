@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Custom Synchronization
@@ -10,7 +10,7 @@ The Custom Synchronization StackPack has everything you need to automatically sy
 
 **Use the Custom Synchronization StackPack if you want to connect an external topology source that isn't listed as a standard StackPack.**
 
-Custom synchronization is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
+Custom synchronization is a [Rancher Observability curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
 ## Next steps
 
@@ -18,5 +18,5 @@ Read up on [configuring synchronizations](../../configure/topology/sync.md), fol
 
 ## Open-source
 
-The Custom Synchronization StackPack is open-source and can be found [on StackState's gitHub page](https://github.com/StackVista/stackpack-autosync).
+The Custom Synchronization StackPack is open-source and can be found [on Rancher Observability's gitHub page](https://github.com/StackVista/stackpack-autosync).
 

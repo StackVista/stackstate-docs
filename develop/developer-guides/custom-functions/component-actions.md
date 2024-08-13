@@ -1,16 +1,16 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Component actions
 
 ## Overview
 
-This how-to describes the steps to create a [component action](../../../configure/topology/component_actions.md) that's available for specific components. Component actions can be executed from the component context menu in the StackState UI Topology Perspective or the right panel details tab when detailed information about a component has been selected - **Component details**.
+This how-to describes the steps to create a [component action](../../../configure/topology/component_actions.md) that's available for specific components. Component actions can be executed from the component context menu in the Rancher Observability UI Topology Perspective or the right panel details tab when detailed information about a component has been selected - **Component details**.
 
 ## Add or edit a component action
 
-The component actions available in StackState can be managed in the StackState UI from the page **Settings** &gt; **Actions** &gt; **Component Actions**.
+The component actions available in Rancher Observability can be managed in the Rancher Observability UI from the page **Settings** &gt; **Actions** &gt; **Component Actions**.
 
 * To add a new component action, click the **ADD COMPONENT ACTION** button.
 * To edit an existing component action, click the **...** menu to the right of its description and select **Edit**.
@@ -19,10 +19,10 @@ The component actions available in StackState can be managed in the StackState U
 
 Each component action includes the following details:
 
-* **Name** - The name displayed to users in the StackState UI when the component action is available for a component. The component action name is case-sensitive.
-* **Description** - The text shown in the tooltip when a user hovers over the component action name in the StackState UI.
+* **Name** - The name displayed to users in the Rancher Observability UI when the component action is available for a component. The component action name is case-sensitive.
+* **Description** - The text shown in the tooltip when a user hovers over the component action name in the Rancher Observability UI.
 * **STQL Query** - An advanced topology query that returns all components for which this component action should be available. For details, see the [STQL Query](component-actions.md#stql-query) section below.
-* **Script** - A script written in StackState Scripting Language that's run whenever the component action is executed in the StackState UI. For details, see the [script](component-actions.md#script) section and the [example scripts](component-actions.md#example-scripts) below.
+* **Script** - A script written in Rancher Observability Scripting Language that's run whenever the component action is executed in the Rancher Observability UI. For details, see the [script](component-actions.md#script) section and the [example scripts](component-actions.md#example-scripts) below.
 * **Identifier** - Optional. A unique identifier for the component action. For details, see the [identifier](component-actions.md#identifier) section below.
 
 ### STQL query
@@ -33,11 +33,11 @@ The STQL query specified in a component action determines which components of th
 (domain IN ("Production") AND layer IN ("databases"))
 ```
 
-You can find more information about writing advanced topology queries in StackState on the page [using STQL](../../reference/stql_reference.md).
+You can find more information about writing advanced topology queries in Rancher Observability on the page [using STQL](../../reference/stql_reference.md).
 
 ### Script
 
-The script determines behavior of the component action when it's executed by a user. YOu can use the [StackState Scripting Language](../../reference/scripting/scripting-in-stackstate.md) to script almost any action you need, such as redirecting a user to another view with a specific context, restarting remote components, or calling predictions for components. Some [example scripts](component-actions.md#example-scripts) are available below to help you get started.
+The script determines behavior of the component action when it's executed by a user. YOu can use the [Rancher Observability Scripting Language](../../reference/scripting/scripting-in-stackstate.md) to script almost any action you need, such as redirecting a user to another view with a specific context, restarting remote components, or calling predictions for components. Some [example scripts](component-actions.md#example-scripts) are available below to help you get started.
 
 Component action scripts always have access to a `component` variable, this represents the component for which the component action was invoked.
 
@@ -78,7 +78,7 @@ urn:stackpack:{stackpack-name}:component-action:{component-action-name}
 
 ### Show a topology query
 
-The component action script below will direct the StackState UI to open a new topology query:
+The component action script below will direct the Rancher Observability UI to open a new topology query:
 
 ```text
 def componentId = component.id.longValue()
@@ -87,7 +87,7 @@ UI.showTopologyByQuery("withNeighborsOf(direction = 'both', components = (id = '
 
 ### Navigate the user to an external URL
 
-The component action script below will direct the StackState UI to navigate to a specific URL:
+The component action script below will direct the Rancher Observability UI to navigate to a specific URL:
 
 ```text
 def region = (component.labels.find {it -> it.name.startsWith("region") }).name.split(':')[1]
@@ -98,7 +98,7 @@ UI.redirectToURL(url)
 
 ### Navigate the user to an external URL using time context
 
-The component action script below will direct the StackState UI to navigate to an external monitoring system at point of time:
+The component action script below will direct the Rancher Observability UI to navigate to an external monitoring system at point of time:
 
 ```
 def asEpoch(time) {
@@ -117,7 +117,7 @@ UI.redirectToURL("${dashboardURL}?${queryParams}")
 
 ### Make HTTP requests
 
-The component action script below will invoke an HTTP request to a remote URL. This call is made from the StackState server:
+The component action script below will invoke an HTTP request to a remote URL. This call is made from the Rancher Observability server:
 
 ```text
 Http.post("https://postman-echo.com/post")
@@ -127,7 +127,7 @@ Http.post("https://postman-echo.com/post")
 
 ## See also
 
-* [StackState Query Language \(STQL\)](../../reference/stql_reference.md)    
-* [Scripting in StackState](../../reference/scripting/scripting-in-stackstate.md)
+* [Rancher Observability Query Language \(STQL\)](../../reference/stql_reference.md)    
+* [Scripting in Rancher Observability](../../reference/scripting/scripting-in-stackstate.md)
 * [Component script API](../../reference/scripting/script-apis/component.md)
 

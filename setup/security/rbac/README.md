@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted
+description: Rancher Observability Self-hosted
 ---
 
 # Role based access control (RBAC)

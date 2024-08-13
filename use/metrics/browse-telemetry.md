@@ -1,14 +1,14 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Browse telemetry
 
 ## Overview
 
-The StackState UI displays a visualization of filtered data for each configured telemetry stream.
+The Rancher Observability UI displays a visualization of filtered data for each configured telemetry stream.
 
-Telemetry streams are added to elements automatically when they're imported to StackState or you can manually [add a single telemetry stream](add-telemetry-to-element.md) to a single component.
+Telemetry streams are added to elements automatically when they're imported to Rancher Observability or you can manually [add a single telemetry stream](add-telemetry-to-element.md) to a single component.
 
 ## Telemetry inspector
 
@@ -24,20 +24,20 @@ Changes made here won't be saved to the telemetry stream attached to the element
 
 ### Anomaly feedback
 
-When anomaly detection is enabled for a metric stream, users can give feedback on reported anomalies in the form of a thumbs-up (meaning "well spotted!") or thumbs-down (meaning "false positive"). For more elaborate feedback, it's also possible to add comments. Feedback added to anomalies will be used by the StackState team to further develop and improve the AAD. **It isn't used to train the local instance of the AAD.**
+When anomaly detection is enabled for a metric stream, users can give feedback on reported anomalies in the form of a thumbs-up (meaning "well spotted!") or thumbs-down (meaning "false positive"). For more elaborate feedback, it's also possible to add comments. Feedback added to anomalies will be used by the Rancher Observability team to further develop and improve the AAD. **It isn't used to train the local instance of the AAD.**
 
 {% hint style="success" "self-hosted info" %}
-In a self-hosted installation, feedback must be [exported and sent to StackState](/configure/anomaly-detection/export-anomaly-feedback.md) for the StackState team to be able to access it.
+In a self-hosted installation, feedback must be [exported and sent to Rancher Observability](/configure/anomaly-detection/export-anomaly-feedback.md) for the Rancher Observability team to be able to access it.
 {% endhint %}
 
 {% hint style="warning" %} 
 **Take care not to include sensitive data in comments.** 
 
-Comments added to an anomaly will be included in any anomaly feedback data sent to StackState.
+Comments added to an anomaly will be included in any anomaly feedback data sent to Rancher Observability.
 {% endhint %}
 
 ## See also
 
 * [Add a single telemetry stream to a component](add-telemetry-to-element.md)
 * [Monitor a telemetry stream with a health check](../checks-and-monitors/add-a-health-check.md)
-* [Use templates to add telemetry streams to your own integrations](../../configure/telemetry/telemetry_synchronized_topology.md "StackState Self-Hosted only")
+* [Use templates to add telemetry streams to your own integrations](../../configure/telemetry/telemetry_synchronized_topology.md "Rancher Observability Self-Hosted only")

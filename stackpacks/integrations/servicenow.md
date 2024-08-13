@@ -1,44 +1,44 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # 💠 ServiceNow
 
 ## Overview
 
-The ServiceNow StackPack allows near real time synchronization between ServiceNow and StackState. When the ServiceNow Agent integration is enabled, configuration items \(CIs\) and their dependencies from the ServiceNow CMDB will be added to the StackState topology as components and relations. ServiceNow change request events are also retrieved.
+The ServiceNow StackPack allows near real time synchronization between ServiceNow and Rancher Observability. When the ServiceNow Agent integration is enabled, configuration items \(CIs\) and their dependencies from the ServiceNow CMDB will be added to the Rancher Observability topology as components and relations. ServiceNow change request events are also retrieved.
 
-ServiceNow is a [StackState core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "StackState Self-Hosted only").
+ServiceNow is a [Rancher Observability core integration](/stackpacks/integrations/about_integrations.md#stackstate-core-integrations "Rancher Observability Self-Hosted only").
 
 ![Data flow](../../.gitbook/assets/stackpack-servicenow.svg)
 
 * Agent V2 connects to the configured [ServiceNow API](servicenow.md#rest-api-endpoints).
 * CIs and dependencies for the configured CI types are retrieved from the ServiceNow CMDB \(default all\). Change request events are retrieved in the same run.
-* Agent V2 pushes [retrieved data](servicenow.md#data-retrieved) to StackState:
+* Agent V2 pushes [retrieved data](servicenow.md#data-retrieved) to Rancher Observability:
    * CIs and dependencies are translated into [topology components and relations](#topology). 
-   * [Tags](#tags) defined in ServiceNow are added to components and relations in StackState. Any defined StackState tags are used by StackState when the topology is retrieved.
-   * Change requests are attached to the associated elements as [events](#events) and listed in the StackState Events Perspective.
+   * [Tags](#tags) defined in ServiceNow are added to components and relations in Rancher Observability. Any defined Rancher Observability tags are used by Rancher Observability when the topology is retrieved.
+   * Change requests are attached to the associated elements as [events](#events) and listed in the Rancher Observability Events Perspective.
 
 ## Setup
 
 ### Prerequisites
 
-To set up the StackState ServiceNow integration, you need to have:
+To set up the Rancher Observability ServiceNow integration, you need to have:
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to both ServiceNow \(via HTTPS\) and StackState.
+* [Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md) installed on a machine that can connect to both ServiceNow \(via HTTPS\) and Rancher Observability.
 * A running ServiceNow instance.
 * A ServiceNow user with access to the required [ServiceNow API endpoints](servicenow.md#rest-api-endpoints).
 
 ### Install
 
-Install the ServiceNow StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
+Install the ServiceNow StackPack from the Rancher Observability UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
 
 * **ServiceNow Instance URL**: The ServiceNow instance URL from which topology data will be collected. 
 * **ServiceNow Instance Name**: the user-defined name of the ServiceNow account shown in configurations such as views. 
 
 ### Configure
 
-To enable the ServiceNow check and begin collecting data from ServiceNow, add the following configuration to StackState Agent V2:
+To enable the ServiceNow check and begin collecting data from ServiceNow, add the following configuration to Rancher Observability Agent V2:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/servicenow.d/conf.yaml` to include details of your ServiceNow instance:
    * **url** - The REST API URL, uses HTTPS protocol for communication.
@@ -75,8 +75,8 @@ To enable the ServiceNow check and begin collecting data from ServiceNow, add th
    * Use queries to [filter change requests retrieved](servicenow.md#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) from ServiceNow \(default all\).
    * Use queries to [filter the CI types retrieved](servicenow.md#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) \(default all\).
    * [Specify the CI types](servicenow.md#specify-ci-types-to-retrieve) that should be retrieved \(default all\).
-3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
-4. Once the Agent has restarted, wait for the Agent to collect data from ServiceNow and send it to StackState.
+3. [Restart Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+4. Once the Agent has restarted, wait for the Agent to collect data from ServiceNow and send it to Rancher Observability.
 
 #### Use ServiceNow queries to filter retrieved events and CI types
 
@@ -110,15 +110,15 @@ To enable the ServiceNow check and begin collecting data from ServiceNow, add th
    ...
    ```
 
-5. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+5. [Restart Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 
 #### Specify CI types to retrieve
 
-By default, all available ServiceNow CI types will be sent to StackState. If you prefer to work with a specific set of resource types, you can configure the Agent integration to filter the CI types it retrieves:
+By default, all available ServiceNow CI types will be sent to Rancher Observability. If you prefer to work with a specific set of resource types, you can configure the Agent integration to filter the CI types it retrieves:
 
 1. Edit the Agent integration configuration file `/etc/stackstate-agent/conf.d/servicenow.d/conf.yaml`.
    * A subset of the available CI types is listed and commented out.
-2. Uncomment the line `include_resource_types` and the CI types you would like to send to StackState. You can add any valid ServiceNow CI type to the **include\_resource\_types** list, however, components from resource types that you have added will appear on the **Uncategorized** layer of a StackState view.
+2. Uncomment the line `include_resource_types` and the CI types you would like to send to Rancher Observability. You can add any valid ServiceNow CI type to the **include\_resource\_types** list, however, components from resource types that you have added will appear on the **Uncategorized** layer of a Rancher Observability view.
 
    ```text
     instances:
@@ -166,7 +166,7 @@ By default, all available ServiceNow CI types will be sent to StackState. If you
         #        - cmdb_ci_network_adapter
    ```
 
-3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+3. [Restart Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 
 ### Status
 
@@ -178,7 +178,7 @@ sudo stackstate-agent status
 
 ### Upgrade
 
-When a new version of the ServiceNow StackPack is available in your instance of StackState, you will be prompted to upgrade in the StackState UI on the page **StackPacks** &gt; **Integrations** &gt; **ServiceNow**. For a quick overview of recent StackPack updates, check the [StackPack versions](../../setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release.
+When a new version of the ServiceNow StackPack is available in your instance of Rancher Observability, you will be prompted to upgrade in the Rancher Observability UI on the page **StackPacks** &gt; **Integrations** &gt; **ServiceNow**. For a quick overview of recent StackPack updates, check the [StackPack versions](../../setup/upgrade-stackstate/stackpack-versions.md) shipped with each Rancher Observability release.
 
 For considerations and instructions on upgrading a StackPack, see [how to upgrade a StackPack](../about-stackpacks.md#upgrade-a-stackpack).
 
@@ -192,7 +192,7 @@ The ServiceNow check retrieves the following events data from ServiceNow:
 
 | Data | Description |
 | :--- | :--- |
-| Change requests | The change requests retrieved can be [filtered using ServiceNow queries](servicenow.md#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) and will be visible in the StackState [Events Perspective](../../use/stackstate-ui/perspectives/events_perspective.md). |
+| Change requests | The change requests retrieved can be [filtered using ServiceNow queries](servicenow.md#use-servicenow-queries-to-filter-retrieved-events-and-ci-types) and will be visible in the Rancher Observability [Events Perspective](../../use/stackstate-ui/perspectives/events_perspective.md). |
 
 #### Metrics
 
@@ -200,9 +200,9 @@ The ServiceNow check doesn't retrieve any metrics data.
 
 #### Tags
 
-All tags defined in ServiceNow will be retrieved and added to the associated components and relations in StackState. 
+All tags defined in ServiceNow will be retrieved and added to the associated components and relations in Rancher Observability. 
 
-The ServiceNow integration also understands StackState [common tags](../../configure/topology/tagging.md#common-tags). These StackState tags can be assigned to elements in ServiceNow to influence the way that the resulting topology is built in StackState. For example, by placing a component in a specific layer or domain.
+The ServiceNow integration also understands Rancher Observability [common tags](../../configure/topology/tagging.md#common-tags). These Rancher Observability tags can be assigned to elements in ServiceNow to influence the way that the resulting topology is built in Rancher Observability. For example, by placing a component in a specific layer or domain.
 
 #### Topology
 
@@ -214,7 +214,7 @@ The ServiceNow check retrieves the following topology data from the ServiceNow C
 | Relations | Relations retrieved from the `cmdb_rel_ci` table. |
 
 {% hint style="info" %}
-The ServiceNow integration understands StackState [common tags](../../configure/topology/tagging.md#common-tags). These StackState tags can be assigned to elements in ServiceNow to influence the way that the resulting topology is built in StackState. For example, by placing a component in a specific layer or domain.
+The ServiceNow integration understands Rancher Observability [common tags](../../configure/topology/tagging.md#common-tags). These Rancher Observability tags can be assigned to elements in ServiceNow to influence the way that the resulting topology is built in Rancher Observability. For example, by placing a component in a specific layer or domain.
 {% endhint %}
 
 #### Traces
@@ -223,7 +223,7 @@ The ServiceNow check doesn't retrieve any traces data.
 
 ### REST API endpoints
 
-The ServiceNow user configured in StackState Agent V2 must have access to read the ServiceNow `TABLE` API. The specific table names and endpoints used in the StackState integration are described below. All named REST API endpoints use the HTTPS protocol for communication.
+The ServiceNow user configured in Rancher Observability Agent V2 must have access to read the ServiceNow `TABLE` API. The specific table names and endpoints used in the Rancher Observability integration are described below. All named REST API endpoints use the HTTPS protocol for communication.
 
 | Table Name | REST API Endpoint |
 | :--- | :--- |
@@ -236,9 +236,9 @@ The ServiceNow user configured in StackState Agent V2 must have access to read t
 Refer to the ServiceNow product documentation for details on [how to configure a ServiceNow user and assign roles](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/users_and_groups/task/t_CreateAUser.html).
 {% endhint %}
 
-### ServiceNow views in StackState
+### ServiceNow views in Rancher Observability
 
-When the ServiceNow integration is enabled, the following ServiceNow specific views are available in StackState:
+When the ServiceNow integration is enabled, the following ServiceNow specific views are available in Rancher Observability:
 
 * ServiceNow Applications
 * ServiceNow Business Processes
@@ -248,25 +248,25 @@ When the ServiceNow integration is enabled, the following ServiceNow specific vi
 
 ### Open source
 
-The code for the StackState ServiceNow check is open source and available on GitHub at: [https://github.com/StackVista/stackstate-agent-integrations/tree/master/servicenow](https://github.com/StackVista/stackstate-agent-integrations/tree/master/servicenow)
+The code for the Rancher Observability ServiceNow check is open source and available on GitHub at: [https://github.com/StackVista/stackstate-agent-integrations/tree/master/servicenow](https://github.com/StackVista/stackstate-agent-integrations/tree/master/servicenow)
 
 ## Troubleshooting
 
-Troubleshooting steps for any known issues can be found in the [StackState support knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=ServiceNow).
+Troubleshooting steps for any known issues can be found in the [Rancher Observability support knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=ServiceNow).
 
 ## Uninstall
 
 To uninstall the ServiceNow StackPack and disable the ServiceNow check:
 
-1. Go to the StackState UI **StackPacks** &gt; **Integrations** &gt; **ServiceNow** screen and click UNINSTALL.
-   * All ServiceNow specific configuration will be removed from StackState.
+1. Go to the Rancher Observability UI **StackPacks** &gt; **Integrations** &gt; **ServiceNow** screen and click UNINSTALL.
+   * All ServiceNow specific configuration will be removed from Rancher Observability.
 2. Remove or rename the Agent integration configuration file, for example:
 
    ```text
     mv servicenow.d/conf.yaml servicenow.d/conf.yaml.bak
    ```
 
-3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+3. [Restart Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
 
 ## Release notes
 
@@ -278,9 +278,9 @@ To uninstall the ServiceNow StackPack and disable the ServiceNow check:
 
 ## See also
 
-* [StackState Agent V2](../../setup/agent/about-stackstate-agent.md) 
+* [Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md) 
 * [Secrets management](../../configure/security/secrets_management.md)
-* [StackState Agent integrations - ServiceNow \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/servicenow)
+* [Rancher Observability Agent integrations - ServiceNow \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/tree/master/servicenow)
 * [How to configure a ServiceNow user and assign roles \(servicenow.com\)](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/users_and_groups/task/t_CreateAUser.html)
 * [Filtering with sysparm\_query parameters \(servicenow.com\)](https://developer.servicenow.com/dev.do#!/learn/learning-plans/orlando/servicenow_application_developer/app_store_learnv2_rest_orlando_more_about_query_parameters)
 

@@ -1,10 +1,10 @@
-# Configuring StackState Kubernetes Agent to Proxy Connections
+# Configuring Rancher Observability Kubernetes Agent to Proxy Connections
 
-The StackState Kubernetes Agent allows you to configure HTTP or HTTPS proxy settings for the connections it initiates.
+The Rancher Observability Kubernetes Agent allows you to configure HTTP or HTTPS proxy settings for the connections it initiates.
 
-## Proxy for communication with StackState
+## Proxy for communication with Rancher Observability
 
-To configure the agent to proxy connections to the StackState backend, you can use Helm configuration.
+To configure the agent to proxy connections to the Rancher Observability backend, you can use Helm configuration.
 
 ### Helm Configuration
 

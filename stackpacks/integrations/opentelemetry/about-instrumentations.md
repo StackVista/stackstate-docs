@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x
+description: Rancher Observability Self-hosted v5.1.x
 ---
 
 # About OpenTelemetry instrumentation
@@ -19,7 +19,7 @@ Below is an example of a Trace that contains two spans, one Lambda parent span, 
 
 ![Distributed Trace Sample](../../../.gitbook/assets/v51_otel_distributed_trace_sample.png)
 
-The above is a snippet of the [Traces Perspective](/use/stackstate-ui/perspectives/traces-perspective.md) within StackState.
+The above is a snippet of the [Traces Perspective](/use/stackstate-ui/perspectives/traces-perspective.md) within Rancher Observability.
 
 
 ## Spans
@@ -106,7 +106,7 @@ As you can see from the above, each following span parent ID has the ID from the
 ### Why create parent and children spans?
 We want to create relations between different span timed operations, how they affect each other, and their relational flow.
 
-You can head over to the [manual instrumentation component relations](/stackpacks/integrations/opentelemetry/manual-instrumentation/relations.md) page to get a full breakdown of how StackState relations work, how parent-child spans are shown on StackState, and how relations are created between components and how the health state uses these relations to propagate health.
+You can head over to the [manual instrumentation component relations](/stackpacks/integrations/opentelemetry/manual-instrumentation/relations.md) page to get a full breakdown of how Rancher Observability relations work, how parent-child spans are shown on Rancher Observability, and how relations are created between components and how the health state uses these relations to propagate health.
 
 
 ### Span contents
@@ -160,15 +160,15 @@ As you can see, the different types of spans have been grouped under what the li
 This allows us to capture unique data for a specific type of instrumentation and look for it specifically under that instrumentation name.
 
 
-### Support in StackState
-StackState currently supports two types of instrumentations:
+### Support in Rancher Observability
+Rancher Observability currently supports two types of instrumentations:
 
 - An ***out-of-the-box*** solution specifically for AWS using a Lambda layer for all your ***NodeJS*** functions. 
   - This solution doesn't require you to write any code, but only supports certain services
   - Visit the [AWS OpenTelemetry integrations page](/stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md) for more information regarding the [supported AWS services](/stackpacks/integrations/opentelemetry/opentelemetry-nodejs.md#supported-services) and how to install and use this Lambda layer.
 - **Manual instrumentation** using the [OpenTelemetry API](https://opentelemetry.io/docs/instrumentation/)
-  - This gives you the ability to create and display a custom component with a health state within StackState using the [OpenTelemetry API](https://opentelemetry.io/docs/instrumentation/).
-  - To learn more about how to implement a manual instrumentation specifically for StackState, head over to the [manual instrumentation tracer and span mappings](/stackpacks/integrations/opentelemetry/manual-instrumentation/tracer-and-span-mappings.md) page
+  - This gives you the ability to create and display a custom component with a health state within Rancher Observability using the [OpenTelemetry API](https://opentelemetry.io/docs/instrumentation/).
+  - To learn more about how to implement a manual instrumentation specifically for Rancher Observability, head over to the [manual instrumentation tracer and span mappings](/stackpacks/integrations/opentelemetry/manual-instrumentation/tracer-and-span-mappings.md) page
 
 
 

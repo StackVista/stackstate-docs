@@ -1,39 +1,39 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
-# Push metrics to StackState over HTTP
+# Push metrics to Rancher Observability over HTTP
 
 ## Overview
 
-StackState can either pull metrics from a data source or can receive pushed metrics. Pushed metrics are stored by StackState, while pulled metrics aren't. Pushed metrics are stored for the duration of the configured retention period. This page describes how metrics can be pushed.
+Rancher Observability can either pull metrics from a data source or can receive pushed metrics. Pushed metrics are stored by Rancher Observability, while pulled metrics aren't. Pushed metrics are stored for the duration of the configured retention period. This page describes how metrics can be pushed.
 
-There are several ways to send metrics to StackState. A large number of [integrations](../../stackpacks/integrations/) are provided out of the box that may help you get started. If there is no out of the box integration, you can send metrics to StackState using either HTTP or the [StackState `stac` CLI](/setup/cli/cli-stac.md).
+There are several ways to send metrics to Rancher Observability. A large number of [integrations](../../stackpacks/integrations/) are provided out of the box that may help you get started. If there is no out of the box integration, you can send metrics to Rancher Observability using either HTTP or the [Rancher Observability `stac` CLI](/setup/cli/cli-stac.md).
 
-## StackState Receiver API
+## Rancher Observability Receiver API
 
-The StackState Receiver API accepts topology, metrics, events and health data in a common JSON object. The default location for the receiver API is the `<STACKSTATE_RECEIVER_API_ADDRESS>`, constructed using the `<STACKSTATE_BASE_URL>` and <`STACKSTATE_RECEIVER_API_KEY>`.
+The Rancher Observability Receiver API accepts topology, metrics, events and health data in a common JSON object. The default location for the receiver API is the `<STACKSTATE_RECEIVER_API_ADDRESS>`, constructed using the `<STACKSTATE_BASE_URL>` and <`STACKSTATE_RECEIVER_API_KEY>`.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-The `<STACKSTATE_RECEIVER_API_ADDRESS>` for StackState deployed on Kubernetes or OpenShift is:
+The `<STACKSTATE_RECEIVER_API_ADDRESS>` for Rancher Observability deployed on Kubernetes or OpenShift is:
 
 ```text
 https://<STACKSTATE_BASE_URL>/receiver/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>
 ```
 
-The `<STACKSTATE_BASE_URL>` and `<STACKSTATE_RECEIVER_API_KEY>` are set during StackState installation, for details see [Kubernetes install - configuration parameters](/setup/install-stackstate/kubernetes_openshift/kubernetes_install.md#generate-values-yaml).
+The `<STACKSTATE_BASE_URL>` and `<STACKSTATE_RECEIVER_API_KEY>` are set during Rancher Observability installation, for details see [Kubernetes install - configuration parameters](/setup/install-stackstate/kubernetes_openshift/kubernetes_install.md#generate-values-yaml).
 {% endtab %}
 
 {% tab title="Linux" %}
 
-The `<STACKSTATE_RECEIVER_API_ADDRESS>` for StackState deployed on Linux is:
+The `<STACKSTATE_RECEIVER_API_ADDRESS>` for Rancher Observability deployed on Linux is:
 
 ```text
 https://<STACKSTATE_BASE_URL>:<STACKSTATE_RECEIVER_PORT>/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>
 ```
 
-The `<STACKSTATE_BASE_URL>` and `<STACKSTATE_RECEIVER_API_KEY>` are set during StackState installation, for details see [Linux install - configuration parameters](/setup/install-stackstate/linux/install_stackstate.md#configuration-options-required-during-install).
+The `<STACKSTATE_BASE_URL>` and `<STACKSTATE_RECEIVER_API_KEY>` are set during Rancher Observability installation, for details see [Linux install - configuration parameters](/setup/install-stackstate/linux/install_stackstate.md#configuration-options-required-during-install).
 {% endtab %}
 {% endtabs %}
 
@@ -54,12 +54,12 @@ Topology, metrics, events and health data are sent to the receiver API via HTTP 
 ```
 
 {% hint style="info" %}
-Depending on your StackState configuration, received metrics that are too old will be ignored.
+Depending on your Rancher Observability configuration, received metrics that are too old will be ignored.
 {% endhint %}
 
 ## JSON property: "metrics"
 
-Metrics can be sent to the StackState Receiver API using the `"metrics"` property of the [common JSON object](send_metrics.md#common-json-object).
+Metrics can be sent to the Rancher Observability Receiver API using the `"metrics"` property of the [common JSON object](send_metrics.md#common-json-object).
 
 {% tabs %}
 {% tab title="Example metric JSON" %}
@@ -90,11 +90,11 @@ Every metric has the following details:
 * **type** - The type of metric. Can be `gauge`, `count`, `rate`, `counter` or `raw`.
 * **tags** - Optional.  A list of key/value tags to associate with the metric.
 
-The `timestamp` and `value` are used to plot the metric as a time series. The `name` and `tags` can be used to define a metric stream in StackState.
+The `timestamp` and `value` are used to plot the metric as a time series. The `name` and `tags` can be used to define a metric stream in Rancher Observability.
 
-## Send metrics to StackState
+## Send metrics to Rancher Observability
 
-Multiple metrics can be sent in one JSON message via HTTP POST to the [StackState Receiver API address](#stackstate-receiver-api). For example:
+Multiple metrics can be sent in one JSON message via HTTP POST to the [Rancher Observability Receiver API address](#stackstate-receiver-api). For example:
 
 {% tabs %}
 {% tab title="curl" %}
@@ -138,10 +138,10 @@ curl -X POST \
 {% endtab %}
 {% endtabs %}
 
-You can also send metrics to StackState using the `stac` CLI `metric send` command.
+You can also send metrics to Rancher Observability using the `stac` CLI `metric send` command.
 
 ## See also
 
-* [StackState identifiers](../topology/identifiers.md)
+* [Rancher Observability identifiers](../topology/identifiers.md)
 * [Metrics Perspective](../../use/stackstate-ui/perspectives/metrics-perspective.md)
 

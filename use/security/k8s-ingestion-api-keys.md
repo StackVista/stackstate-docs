@@ -1,12 +1,12 @@
 ---
-description: StackState v6.0
+description: Rancher Observability v6.0
 ---
 
 # Ingestion API Keys
 
 ## Overview
 
-Ingestion API Keys are used by external tools to ingest data (like metrics, events, traces and so on) to the StackState cluster. 
+Ingestion API Keys are used by external tools to ingest data (like metrics, events, traces and so on) to the Rancher Observability cluster. 
 These tools can be STS Agent or/and OTel Collector.
 
 ## Manage Ingestion API Keys
@@ -30,7 +30,7 @@ Use "sts ingestion-api-key [command] --help" for more information about a comman
 
 ### Create Ingestion API Keys
 
-To create a Key in your instance of StackState, you can use the `sts` CLI.
+To create a Key in your instance of Rancher Observability, you can use the `sts` CLI.
 
 ```sh
 > sts ingestion-api-key create --name {NAME}
@@ -83,18 +83,18 @@ Once created, an Ingestion API Key can be used to authenticate:
 
 ### stackstate-k8s-agent
 
-The StackState agent requires an API key for communication, historically known as the Receiver API Key. StackState now offers two options for authentication:
-- Receiver API Key: This key is typically generated during the initial installation of your StackState instance,
-- Ingestion API Key: You can create Ingestion API Keys using the StackState CLI (STS). These keys offer expiration dates, requiring periodic rotation for continued functionality.
+The Rancher Observability agent requires an API key for communication, historically known as the Receiver API Key. Rancher Observability now offers two options for authentication:
+- Receiver API Key: This key is typically generated during the initial installation of your Rancher Observability instance,
+- Ingestion API Key: You can create Ingestion API Keys using the Rancher Observability CLI (STS). These keys offer expiration dates, requiring periodic rotation for continued functionality.
 
 ### OTel Collector
 
-When using the StackState collector, you'll need to include an `Authorization` header in your configuration. The collector accepts either a Receiver API Key or an Ingestion API Key for authentication. 
+When using the Rancher Observability collector, you'll need to include an `Authorization` header in your configuration. The collector accepts either a Receiver API Key or an Ingestion API Key for authentication. 
 The following code snippet provides an example configuration:
 ```yaml
   extensions:
     bearertokenauth:
-      scheme: StackState
+      scheme: Rancher Observability
       token: "${env:API_KEY}"
   
   ...

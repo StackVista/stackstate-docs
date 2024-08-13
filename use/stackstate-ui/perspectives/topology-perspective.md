@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Topology Perspective
@@ -93,7 +93,7 @@ The Visualization Settings are saved together with the View. For details, see th
 
 ## Problems
 
-If one or more components in a view have a CRITICAL state, StackState will show the related components and their states as a **Problem** in the [View summary](../views/about_views.md#view-summary).
+If one or more components in a view have a CRITICAL state, Rancher Observability will show the related components and their states as a **Problem** in the [View summary](../views/about_views.md#view-summary).
 
 ## Navigation
 
@@ -105,7 +105,7 @@ There are zoom buttons located in the bottom right corner of the topology visual
 
 You can locate a specific component in the topology by clicking `CTRL` + `SHIFT` + `F` and typing the first few letters of the component name. Alternatively, you can select the **Find component** magnifying glass icon in the bottom right corner of the topology visualizer.
 
-See the full list of [StackState keyboard shortcuts](../keyboard-shortcuts.md).
+See the full list of [Rancher Observability keyboard shortcuts](../keyboard-shortcuts.md).
 
 ### Show root cause
 

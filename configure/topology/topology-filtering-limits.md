@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Topology filtering limits
@@ -20,7 +20,7 @@ If required, the default filtering limit can be manually configured.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-To set a custom filtering limit, add the following to the `values.yaml` file used to deploy StackState:
+To set a custom filtering limit, add the following to the `values.yaml` file used to deploy Rancher Observability:
 {% code lineNumbers="true" %}
 ```yaml
 stackstate:

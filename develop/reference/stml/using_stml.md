@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Using STML
 
 ## Overview
 
-With StackState Markup Language \(STML\), you can create pretty formatted documents of StackState data. STML is a [markdown based language](https://en.wikipedia.org/wiki/Markdown) with extensions in the form of [HTML](https://en.wikipedia.org/wiki/HTML)-like tags.
+With Rancher Observability Markup Language \(STML\), you can create pretty formatted documents of Rancher Observability data. STML is a [markdown based language](https://en.wikipedia.org/wiki/Markdown) with extensions in the form of [HTML](https://en.wikipedia.org/wiki/HTML)-like tags.
 
 ## Rich text formatting using Markdown
 
@@ -21,7 +21,7 @@ STML is a valid superset of markdown. In other words, it's markdown plus extensi
 
 ## Tags
 
-STML is markdown plus HTML-like tags. Tags are StackState-specific extensions to Markdown that render in some specific way. It could be a chart, visualization, pie chart, etc.
+STML is markdown plus HTML-like tags. Tags are Rancher Observability-specific extensions to Markdown that render in some specific way. It could be a chart, visualization, pie chart, etc.
 
 Each tag has its unique rendering, and a set of required or optional attributes.
 
@@ -44,7 +44,7 @@ Here is an example of a script passing some metric data to the `data` attribute 
 {% code lineNumbers="true" %}
 ```text
 Telemetry
-  .query("StackState Metrics", "name='system.load.norm' and host='host1'")
+  .query("Rancher Observability Metrics", "name='system.load.norm' and host='host1'")
   .metricField("value")
   .start("-2h")
   .aggregation("99th percentile", "5m")

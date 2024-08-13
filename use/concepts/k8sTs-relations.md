@@ -1,5 +1,5 @@
 ---
-description: StackState v6.0
+description: Rancher Observability v6.0
 ---
 
 # Relations 
@@ -8,11 +8,11 @@ description: StackState v6.0
 
 🚧 TODO - fix for kubernetes troubleshooting
 
-A relation connects two [components or groups of components](/use/concepts/components.md). Relations have some similarities with components. Just like a component, they can have a health state and a propagated health state. In the StackState topology perspective, relations are shown as lines connecting components or component groups.
+A relation connects two [components or groups of components](/use/concepts/components.md). Relations have some similarities with components. Just like a component, they can have a health state and a propagated health state. In the Rancher Observability topology perspective, relations are shown as lines connecting components or component groups.
 
 ## Relation types
 
-Relations in StackState can be either direct or indirect. The type of relation is indicated by the type of line connecting the components. Relations that connect to a component group are represented as grouped relations, these can contain a combination of direct and indirect relations and may connect to all or only some components included in the group. Select a relation in the topology visualizer to display detailed information about it in the right panel details tab - **Direct relation details**, **Indirect relation details** or **Grouped relation details** depending on the relation type that you selected. 
+Relations in Rancher Observability can be either direct or indirect. The type of relation is indicated by the type of line connecting the components. Relations that connect to a component group are represented as grouped relations, these can contain a combination of direct and indirect relations and may connect to all or only some components included in the group. Select a relation in the topology visualizer to display detailed information about it in the right panel details tab - **Direct relation details**, **Indirect relation details** or **Grouped relation details** depending on the relation type that you selected. 
 
 You can customize the types of relations displayed in the [visualization settings](/use/stackstate-ui/views/visualization_settings.md).
 
@@ -26,11 +26,11 @@ Direct relations link two components that have a direct connection to each other
 
 ![Direct relation details](/.gitbook/assets/v51_direct_relation_details.png)
 
-The **Direct relation details** tab is shown in the StackState UI right panel when a direct relation is selected in the topology visualizer. This includes:
+The **Direct relation details** tab is shown in the Rancher Observability UI right panel when a direct relation is selected in the topology visualizer. This includes:
 
 * **Properties** - metadata, such as the relation type and any labels. Click SHOW ALL PROPERTIES to open a pop-up with all details of the relation.
 * **Components** - the source component and target component that the relation connects.
-* **Health** - reports the relation [health state](/use/concepts/health-state.md) as calculated by StackState. Expand to see all [health checks](/use/checks-and-monitors/checks.md) and [monitors](/use/checks-and-monitors/monitors.md) attached to the component.
+* **Health** - reports the relation [health state](/use/concepts/health-state.md) as calculated by Rancher Observability. Expand to see all [health checks](/use/checks-and-monitors/checks.md) and [monitors](/use/checks-and-monitors/monitors.md) attached to the component.
 * **Propagated health** - reports the relation's [propagated health state](/use/concepts/health-state.md#element-propagated-health-state). This is derived from the health state of the components and relations that the relation depends upon.
 * **Problems** - lists all [problems](/use/problem-analysis/about-problems.md) that involve the selected relation. 
 * **Events** - the latest 10 [events](/use/events/about_events.md) that relate to the selected relation. Click VIEW ALL to open the Events perspective in a [subview](/use/stackstate-ui/views/about_views.md#subview) containing only the relation component. 
@@ -46,7 +46,7 @@ Indirect relations link two components that are connected together via a path of
 
 ![Indirect relation details](/.gitbook/assets/v51_indirect_relation_details.png)
 
-The **Indirect relation details** tab is shown in the StackState UI right panel when an indirect relation is selected in the topology visualizer. The full path, including all components that connect the source and the target component, is shown. From here you can click on a component or relation between components to jump to the associated **Component details** tab or **Direct relation details** tab where you will find detailed information about the selected component or relation.
+The **Indirect relation details** tab is shown in the Rancher Observability UI right panel when an indirect relation is selected in the topology visualizer. The full path, including all components that connect the source and the target component, is shown. From here you can click on a component or relation between components to jump to the associated **Component details** tab or **Direct relation details** tab where you will find detailed information about the selected component or relation.
 
 ### Grouped relations
 
@@ -58,7 +58,7 @@ Relations between a component group and a component or component group are shown
 
 ![Grouped relation details](/.gitbook/assets/v51_grouped_relation_details.png)
 
-The **Grouped relation details** tab is shown in the StackState UI right panel when a grouped relation is selected in the topology visualizer. This shows all direct and indirect relations included in the group. From here you can click on a component or relation between components to open the associated **Component details** tab, **Direct relation details** tab or **Indirect relation details** tab with detailed information about the selected component or relation.
+The **Grouped relation details** tab is shown in the Rancher Observability UI right panel when a grouped relation is selected in the topology visualizer. This shows all direct and indirect relations included in the group. From here you can click on a component or relation between components to open the associated **Component details** tab, **Direct relation details** tab or **Indirect relation details** tab with detailed information about the selected component or relation.
 
 ## Relation details
 

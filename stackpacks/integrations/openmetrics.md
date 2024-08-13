@@ -1,14 +1,14 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # OpenMetrics
 
 ## Overview
 
-StackState Agent V2 can be configured to retrieve metrics from an OpenMetrics endpoint and push these to StackState.
+Rancher Observability Agent V2 can be configured to retrieve metrics from an OpenMetrics endpoint and push these to Rancher Observability.
 
-OpenMetrics is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
+OpenMetrics is a [Rancher Observability curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
 ## Setup
 
@@ -18,7 +18,7 @@ The OpenMetrics check is included in the [Agent V2 StackPack](/stackpacks/integr
 
 ### Configuration
 
-To enable the OpenMetrics integration and begin collecting metrics data from an OpenMetrics endpoint, the OpenMetrics check must be configured on StackState Agent V2. The check configuration provides all details required for the Agent to connect to your OpenMetrics endpoint and retrieve the available metrics.
+To enable the OpenMetrics integration and begin collecting metrics data from an OpenMetrics endpoint, the OpenMetrics check must be configured on Rancher Observability Agent V2. The check configuration provides all details required for the Agent to connect to your OpenMetrics endpoint and retrieve the available metrics.
 
 {% tabs %}
 {% tab title="Kubernetes, OpenShift" %}
@@ -66,7 +66,7 @@ To enable the OpenMetrics integration and begin collecting metrics data from an 
    - **ssl_private_key** - required if the certificate linked in `ssl_cert` doesn't include the private key. Note that the private key to your local certificate must be unencrypted.
    - **ssl_ca_cert** - the path to the trusted CA used for generating custom certificates.
    - **extra_headers** - a list of additional HTTP headers to send in queries to the OpenMetrics endpoint. Can be combined with autodiscovery template variables. For example, `"Authorization: Bearer %%env_TOKEN%%"`.
-4. Wait for the Agent to collect data from the OpenMetrics endpoint and send it to StackState.
+4. Wait for the Agent to collect data from the OpenMetrics endpoint and send it to Rancher Observability.
 
 {% endtab %}
 {% tab title="Docker, Linux, Windows" %}
@@ -76,7 +76,7 @@ Example OpenMetrics Agent check configuration file:
 [openmetrics/conf.yaml.example \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/openmetrics/stackstate_checks/openmetrics/data/conf.yaml.example)
 {% endhint %}
 
-1. Edit the StackState Agent V2 configuration file `/etc/stackstate-agent/conf.d/openmetrics.d/conf.yaml` to include details of the OpenMetrics endpoint and the metrics to be retrieved.
+1. Edit the Rancher Observability Agent V2 configuration file `/etc/stackstate-agent/conf.d/openmetrics.d/conf.yaml` to include details of the OpenMetrics endpoint and the metrics to be retrieved.
    - **prometheus_url** - the URL exposing metrics in the OpenMetrics format
    - **namespace** - the namespace to be prepended to all metrics.
    - **metrics** - a list of metrics to be fetched from the OpenMetrics endpoint at `prometheus_url`. Either a string representing the metric name or a mapping to rename the metric`<EXPOSED_METRIC>:<SENT_METRIC>`. This list should contain at least one metric.
@@ -133,8 +133,8 @@ Example OpenMetrics Agent check configuration file:
    - **ssl_private_key** - required if the certificate linked in `ssl_cert` doesn't include the private key. Note that the private key to your local certificate must be unencrypted.
    - **ssl_ca_cert** - the path to the trusted CA used for generating custom certificates.
    - **extra_headers** - a list of additional HTTP headers to send in queries to the OpenMetrics endpoint. Can be combined with autodiscovery template variables. For example, `"Authorization: Bearer %%env_TOKEN%%"`.
-3. [Restart StackState Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
-4. Once the Agent has restarted, wait for the Agent to collect data from the OpenMetrics endpoint and send it to StackState.
+3. [Restart Rancher Observability Agent V2](../../setup/agent/about-stackstate-agent.md#deployment) to apply the configuration changes.
+4. Once the Agent has restarted, wait for the Agent to collect data from the OpenMetrics endpoint and send it to Rancher Observability.
 
 {% endtab %}
 {% endtabs %}
@@ -154,9 +154,9 @@ Run the Agent status subcommand and look for `openmetrics` under the `Checks` se
 
 ### Metrics
 
-By default, all metrics are retrieved from the specified OpenMetrics endpoint and available in the **StackState multi metrics** data source. To optimize performance, a maximum of 2000 metrics will be retrieved. If the check is attempting to retrieve more than 2000 metrics, add a `metrics` filter to the [configuration](#configuration) to ensure that all important metrics can be retrieved within the limit.
+By default, all metrics are retrieved from the specified OpenMetrics endpoint and available in the **Rancher Observability multi metrics** data source. To optimize performance, a maximum of 2000 metrics will be retrieved. If the check is attempting to retrieve more than 2000 metrics, add a `metrics` filter to the [configuration](#configuration) to ensure that all important metrics can be retrieved within the limit.
 
-Retrieved metrics won't automatically be mapped to topology elements. They can be browsed using the [telemetry inspector](/use/metrics/browse-telemetry.md) or added to a component as a telemetry stream. Select the data source **StackState Multi Metrics** and type the configured `namespace` in the **Select** box to get a full list of all available metrics. 
+Retrieved metrics won't automatically be mapped to topology elements. They can be browsed using the [telemetry inspector](/use/metrics/browse-telemetry.md) or added to a component as a telemetry stream. Select the data source **Rancher Observability Multi Metrics** and type the configured `namespace` in the **Select** box to get a full list of all available metrics. 
 
 ![Inspect OpenMetrics telemetry](/.gitbook/assets/v51_openmetrics_stream.png)
 
@@ -170,4 +170,4 @@ The OpenMetrics integration doesn't retrieve trace data.
 
 ## See also
 
-* [StackState Agent V2 StackPack](/stackpacks/integrations/agent.md)
+* [Rancher Observability Agent V2 StackPack](/stackpacks/integrations/agent.md)

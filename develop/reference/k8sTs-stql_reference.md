@@ -1,12 +1,12 @@
 ---
-description: StackState v6.0
+description: Rancher Observability v6.0
 ---
 
-# StackState Query Language \(STQL\)
+# Rancher Observability Query Language \(STQL\)
 
 ## Overview
 
-This page describes how to use the built-in StackState Query Language \(STQL\) to write advanced topology component filters. STQL queries are used in StackState to write [advanced topology filters](../../use/views/k8s-filters.md#advanced-topology-filters).
+This page describes how to use the built-in Rancher Observability Query Language \(STQL\) to write advanced topology component filters. STQL queries are used in Rancher Observability to write [advanced topology filters](../../use/views/k8s-filters.md#advanced-topology-filters).
 
 An STQL query consists of [component filters](#component-filters) and [functions](#functions). The query output is a component, or set of components, filtered from the complete topology.
 
@@ -129,11 +129,11 @@ It isn't always possible to switch from advanced filtering to basic filtering. M
   - The **Include components** basic filter box (`name`) is the exception - this is chained to the other filter boxes with an OR: `layer IN ("Containers") AND domain IN ("cluster.test.stackstate.io") OR name IN ("cert-manager”)`
   - To be compatible with basic filtering, the **withNeighborsOf** function and **identifier** filter must be joined to other filters with an **OR**: `layer in ("Containers") OR identifier IN ("urn:kubernetes:/cluster.test.stackstate.io:kube-system:pod/cert-manager-7749f44bb4-vspjj:container/cert-manager")`
 
-If you try to switch from an advanced filter to a basic filter and the query isn't compatible, StackState will ask for confirmation before removing the incompatible filters. To keep the filters, you can choose to stay in advanced filtering.
+If you try to switch from an advanced filter to a basic filter and the query isn't compatible, Rancher Observability will ask for confirmation before removing the incompatible filters. To keep the filters, you can choose to stay in advanced filtering.
 
 ## See also
 
 * [Basic topology filters](../../use/views/k8s-filters.md#basic-topology-filters)
 * [Topology filter limits](../../use/views/k8s-filters.md#topology-filtering-limits)
-* [How to filter topology in the StackState UI](../../use/views/k8s-filters.md)
+* [How to filter topology in the Rancher Observability UI](../../use/views/k8s-filters.md)
 

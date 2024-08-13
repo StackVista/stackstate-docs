@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Azure
@@ -18,36 +18,36 @@ Microsoft Azure is a cloud computing service created by Microsoft for building, 
 | Compute Disks | Operations Management |  |
 | Event Hubs | Public IP Addresses |  |
 
-Azure is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
+Azure is a [Rancher Observability curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
 ![Data flow](../../.gitbook/assets/stackpack-azure.svg)
 
-* The StackState Azure Agent is [a collection of Azure functions](azure.md#stackstate-azure-functions) that connect to the [Azure APIs](azure.md#rest-api-endpoints) at a configured interval to collect information about available resources.
+* The Rancher Observability Azure Agent is [a collection of Azure functions](azure.md#stackstate-azure-functions) that connect to the [Azure APIs](azure.md#rest-api-endpoints) at a configured interval to collect information about available resources.
   * `TimedStart` triggers data collection every 2 hours.
   * `EventHubChangesFunction` collects the deltas. 
-  * `SendToStackState` pushes [retrieved data](azure.md#data-retrieved) to StackState.
-* StackState translates incoming data into topology components and relations.
-* The StackState Azure plugin pulls available telemetry data per resource on demand from Azure, for example when a component is viewed in the StackState UI or when a health check is run on the telemetry stream.
-* StackState maps retrieved telemetry \(metrics\) onto the associated Azure components and relations.
+  * `SendToRancher Observability` pushes [retrieved data](azure.md#data-retrieved) to Rancher Observability.
+* Rancher Observability translates incoming data into topology components and relations.
+* The Rancher Observability Azure plugin pulls available telemetry data per resource on demand from Azure, for example when a component is viewed in the Rancher Observability UI or when a health check is run on the telemetry stream.
+* Rancher Observability maps retrieved telemetry \(metrics\) onto the associated Azure components and relations.
 
 ## Setup
 
 ### Prerequisites
 
-To set up the StackState Azure integration, you need to have:
+To set up the Rancher Observability Azure integration, you need to have:
 
 * PowerShell version &gt;= 5.0 or Bash.
 * The [Azure CLI \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
-* A Resource Group where the StackState resources can be deployed. We recommend that you create a separate resource group for all the resources related to StackState.
-* An Azure Service Principal \(SPN\) for the StackState Azure Agent with the following permissions:
+* A Resource Group where the Rancher Observability resources can be deployed. We recommend that you create a separate resource group for all the resources related to Rancher Observability.
+* An Azure Service Principal \(SPN\) for the Rancher Observability Azure Agent with the following permissions:
   * `Contributor` role for the StackPack Resource Group to deploy and delete resources.
   * `Reader` role for each of the subscriptions the StackPack instance will monitor.
-* If StackState is installed on premise and behind a firewall, the [IP addresses used by Azure monitor \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/azure/azure-monitor/app/ip-addresses) need to be reachable.
-* StackState should not be configured to use a [custom trust store](/configure/security/self-signed-certificates.md).
+* If Rancher Observability is installed on premise and behind a firewall, the [IP addresses used by Azure monitor \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/azure/azure-monitor/app/ip-addresses) need to be reachable.
+* Rancher Observability should not be configured to use a [custom trust store](/configure/security/self-signed-certificates.md).
 
 ### Install StackPack
 
-Install the Azure StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
+Install the Azure StackPack from the Rancher Observability UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
 
 * **Azure instance name** - the user-defined name of the Azure instance shown in configurations such as views.
 * **Client Id** - the client ID of the Azure Service Principal.
@@ -56,10 +56,10 @@ Install the Azure StackPack from the StackState UI **StackPacks** &gt; **Integra
 
 ### Deploy Azure Agent
 
-To enable the Azure integration and begin collecting data from Azure, you will need to deploy the StackState Azure Agent to your Azure instance. The StackState Azure Agent is a collection of [Azure functions](azure.md#stackstate-azure-functions) that connect to [Azure REST API endpoints](azure.md#rest-api-endpoints). You can deploy one or more StackState Azure Agents, each will collect data from resources related to the configured `Reader` roles in the Azure Service Principle.
+To enable the Azure integration and begin collecting data from Azure, you will need to deploy the Rancher Observability Azure Agent to your Azure instance. The Rancher Observability Azure Agent is a collection of [Azure functions](azure.md#stackstate-azure-functions) that connect to [Azure REST API endpoints](azure.md#rest-api-endpoints). You can deploy one or more Rancher Observability Azure Agents, each will collect data from resources related to the configured `Reader` roles in the Azure Service Principle.
 
-1. Download the manual installation zip file. This is included in the Azure StackPack and can be accessed at the link provided in StackState after you install the Azure StackPack.
-2. Make sure you have created a resource group in one of your subscriptions where the StackState Azure Agent can be deployed.
+1. Download the manual installation zip file. This is included in the Azure StackPack and can be accessed at the link provided in Rancher Observability after you install the Azure StackPack.
+2. Make sure you have created a resource group in one of your subscriptions where the Rancher Observability Azure Agent can be deployed.
 3. Run one of the install scripts below, specifying the `Client Id` and `Client Secret` - these are the `appId` and `password` from the Service Principal you created before installing the Azure StackPack.
 
 {% tabs %}
@@ -112,19 +112,19 @@ You can check the status of the Azure integration in Azure resource group. Open 
 
 ![Azure FunctionApp](../../.gitbook/assets/azure_functionApp.png)
 
-![StackState Azure functions](../../.gitbook/assets/azure_all_functions.png)
+![Rancher Observability Azure functions](../../.gitbook/assets/azure_all_functions.png)
 
 ### Upgrade
 
-When a new version of the Azure StackPack is available in your instance of StackState, you will be prompted to upgrade in the StackState UI on the page **StackPacks** &gt; **Integrations** &gt; **Azure**. For a quick overview of recent StackPack updates, check the [StackPack versions](../../setup/upgrade-stackstate/stackpack-versions.md) shipped with each StackState release.
+When a new version of the Azure StackPack is available in your instance of Rancher Observability, you will be prompted to upgrade in the Rancher Observability UI on the page **StackPacks** &gt; **Integrations** &gt; **Azure**. For a quick overview of recent StackPack updates, check the [StackPack versions](../../setup/upgrade-stackstate/stackpack-versions.md) shipped with each Rancher Observability release.
 
 For considerations and instructions on upgrading a minor or patch release of a StackPack, see [how to upgrade a StackPack](../about-stackpacks.md#upgrade-a-stackpack).
 
 To upgrade to a new major release of the Azure StackPack:
 
-1. Completely remove the StackState Azure resources, either in Azure directly or using the provided deprovisioning script, and uninstall the current StackPack. For details see [uninstall the Azure StackPack](azure.md#uninstall).
+1. Completely remove the Rancher Observability Azure resources, either in Azure directly or using the provided deprovisioning script, and uninstall the current StackPack. For details see [uninstall the Azure StackPack](azure.md#uninstall).
 2. Install the new version from the page **StackPacks** &gt; **Integrations** &gt; **Azure**.
-3. Install the new StackState Azure resources using the install script, see [deploy the StackState Azure Agent](azure.md#deploy-azure-agent).
+3. Install the new Rancher Observability Azure resources using the install script, see [deploy the Rancher Observability Azure Agent](azure.md#deploy-azure-agent).
 
 ## Integration details
 
@@ -136,7 +136,7 @@ The Azure integration doesn't retrieve any Events data.
 
 #### Metrics
 
-Metrics data is pulled on demand directly from Azure by the StackState Azure plugin, for example when a component is viewed in the StackState UI or when a health check is run on the telemetry stream. Retrieved metrics are mapped onto the associated topology component.
+Metrics data is pulled on demand directly from Azure by the Rancher Observability Azure plugin, for example when a component is viewed in the Rancher Observability UI or when a health check is run on the telemetry stream. Retrieved metrics are mapped onto the associated topology component.
 
 #### Topology
 
@@ -186,7 +186,7 @@ The Azure integration uses the following Azure REST API endpoints, scroll right 
 | Virtual Networks | resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks?api-version=2018-04-01 | Microsoft.Azure.Management.ResourceManager.Fluent \(1.18.0\) |
 | Web Apps | resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites?api-version=2017-10-01 | Microsoft.Azure.Management.ResourceManager.Fluent \(1.18.0\) |
 
-### StackState Azure functions
+### Rancher Observability Azure functions
 
 There are a number of methods in the `TopologyDurableFunction` class:
 
@@ -194,28 +194,28 @@ There are a number of methods in the `TopologyDurableFunction` class:
 | :--- | :--- |
 | `TimedStart` | Timed trigger to start the MainOrchestrator. |
 | `HttpStart` | HTTP trigger to start the MainOrchestrator manually for testing or after a first deployment from the StackPack. |
-| `MainOrchestrator` | The orchestrator containing the main workflow: GetSubscriptions -&gt;  HandleSubscription \(for each subscription\) -&gt;  SendToStackState. |
+| `MainOrchestrator` | The orchestrator containing the main workflow: GetSubscriptions -&gt;  HandleSubscription \(for each subscription\) -&gt;  SendToRancher Observability. |
 | `GetSubscriptions` | Fetches all subscriptions that the service principle has access to. |
-| `HandleSubscription` | Sub-orchestrator, contains the workflow: GetResourcesToInclude -&gt;  ConvertResourcesToStackStateData \(for each set of resources, grouped by type\) |
+| `HandleSubscription` | Sub-orchestrator, contains the workflow: GetResourcesToInclude -&gt;  ConvertResourcesToRancher ObservabilityData \(for each set of resources, grouped by type\) |
 | `GetResourcesToInclude` | Fetches all resources in a subscription and filters out those that are ignored. |
-| `ConvertResourcesToStackStateData` | Receives a group of resources and calls the ResourceTypeConverter class in the Core project. |
-| `EventHubChangesFunction` | Listens to events for all currently supported resource types on `insights-operational-Logs` and provides incremental updates to StackState about your Azure environment. |
-| `SendToStackState` | Receives a Synchronization object and sends it to StackState. |
+| `ConvertResourcesToRancher ObservabilityData` | Receives a group of resources and calls the ResourceTypeConverter class in the Core project. |
+| `EventHubChangesFunction` | Listens to events for all currently supported resource types on `insights-operational-Logs` and provides incremental updates to Rancher Observability about your Azure environment. |
+| `SendToRancher Observability` | Receives a Synchronization object and sends it to Rancher Observability. |
 | `PurgeHistory` | Durable functions store their state and history in Azure Blob Storage. This Azure Function does a daily cleanup of the data from the currentdate -2 months to the currentdate -1 month. |
 
-### Azure views in StackState
+### Azure views in Rancher Observability
 
-When the Azure integration is enabled, a [view](../../use/stackstate-ui/views/about_views.md) will be created in StackState for each instance of the StackPack. Each view shows components filtered by the Azure `instance_name` tag and is named **Azure\_\[instance\_name\]**.
+When the Azure integration is enabled, a [view](../../use/stackstate-ui/views/about_views.md) will be created in Rancher Observability for each instance of the StackPack. Each view shows components filtered by the Azure `instance_name` tag and is named **Azure\_\[instance\_name\]**.
 
 ## Troubleshooting
 
-Troubleshooting steps can be found in the StackState support Knowledge base guide to [troubleshoot the StackState Azure StackPack](https://support.stackstate.com/hc/en-us/articles/360016450300-Troubleshooting-StackState-Azure-StackPack).
+Troubleshooting steps can be found in the Rancher Observability support Knowledge base guide to [troubleshoot the Rancher Observability Azure StackPack](https://support.stackstate.com/hc/en-us/articles/360016450300-Troubleshooting-Rancher Observability-Azure-StackPack).
 
 ## Uninstall
 
-The Azure StackPack can be uninstalled by clicking the _Uninstall_ button from the StackState UI **StackPacks** &gt; **Integrations** &gt; **Azure** screen. This will remove all Azure specific configuration in StackState. You can also stop and delete the created resources \(within the resource group specified when running the manual installation\). They have been labeled with the tag `StackState`.
+The Azure StackPack can be uninstalled by clicking the _Uninstall_ button from the Rancher Observability UI **StackPacks** &gt; **Integrations** &gt; **Azure** screen. This will remove all Azure specific configuration in Rancher Observability. You can also stop and delete the created resources \(within the resource group specified when running the manual installation\). They have been labeled with the tag `Rancher Observability`.
 
-To do so, you can use the scripts in the manual installation zip file you downloaded when installing the StackState Azure Agent. You can download this file again at anytime from the StackState UI **StackPacks** &gt; **Integrations** &gt; **Azure** screen.
+To do so, you can use the scripts in the manual installation zip file you downloaded when installing the Rancher Observability Azure Agent. You can download this file again at anytime from the Rancher Observability UI **StackPacks** &gt; **Integrations** &gt; **Azure** screen.
 
 {% tabs %}
 {% tab title="Bash" %}
@@ -248,11 +248,11 @@ To do so, you can use the scripts in the manual installation zip file you downlo
 * Improvement: Enable auto grouping on generated views.
 * Improvement: Common bumped from 2.2.3 to 2.5.1
 * Improvement: Update documentation.
-* Improvement: StackState min version bumped to 4.3.0
+* Improvement: Rancher Observability min version bumped to 4.3.0
 
 ## See also
 
-* [Troubleshooting the Azure StackPack](https://support.stackstate.com/hc/en-us/articles/360016450300-Troubleshooting-StackState-Azure-StackPack)
+* [Troubleshooting the Azure StackPack](https://support.stackstate.com/hc/en-us/articles/360016450300-Troubleshooting-Rancher Observability-Azure-StackPack)
 * [Service principals in Azure \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object)
 * [IP addresses used by Azure monitor \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/azure/azure-monitor/app/ip-addresses)
 

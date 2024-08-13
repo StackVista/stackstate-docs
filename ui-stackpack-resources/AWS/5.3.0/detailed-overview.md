@@ -1,6 +1,6 @@
 ### Prerequisites
 
-To set up the StackState AWS integration, you need to have:
+To set up the Rancher Observability AWS integration, you need to have:
 
 * AWS CLI version 2.0.4 or later installed and configured.
 * An AWS user with the required access to retrieve Cloudwatch metrics:
@@ -8,15 +8,15 @@ To set up the StackState AWS integration, you need to have:
     - `cloudwatch:GetMetricData`
     - `cloudwatch:ListMetrics`
 
-* An AWS user with the required access rights to install StackState monitoring in your account. Policy files to create a user with the correct rights are available to download after a StackPack instance has been installed.
+* An AWS user with the required access rights to install Rancher Observability monitoring in your account. Policy files to create a user with the correct rights are available to download after a StackPack instance has been installed.
 
 #### Proxy URL
 
-If your StackState instance is behind a proxy, you need to configure the proxy URL and port for the AWS authorization to work.
+If your Rancher Observability instance is behind a proxy, you need to configure the proxy URL and port for the AWS authorization to work.
 You can configure a proxy URL environment variable or JVM system property.
 
 - Environment variable `HTTP_PROXY` or `HTTPS_PROXY`
-- Pass following properties when starting StackState instance `-Dhttp.proxyHost -Dhttp.proxyPort` or `-Dhttps.proxyHost -Dhttps.proxyPort`
+- Pass following properties when starting Rancher Observability instance `-Dhttp.proxyHost -Dhttp.proxyPort` or `-Dhttps.proxyHost -Dhttps.proxyPort`
 
 ### Costs
 
@@ -33,7 +33,7 @@ The AWS integration doesn't retrieve any Events data.
 
 #### Metrics
 
-Metrics data is pulled at a configured interval directly from AWS by the StackState CloudWatch plugin. Retrieved metrics are mapped onto the associated topology component.
+Metrics data is pulled at a configured interval directly from AWS by the Rancher Observability CloudWatch plugin. Retrieved metrics are mapped onto the associated topology component.
 
 #### Topology
 
@@ -41,7 +41,7 @@ Each AWS integration retrieves topology data for resources associated with the a
 
 ##### Components
 
-The following AWS service data is available in StackState as components:
+The following AWS service data is available in Rancher Observability as components:
 
 | | | |
 |:--- |:--- |:--- |
@@ -91,37 +91,37 @@ The AWS integration doesn't retrieve any Traces data.
 
 ### AWS lambdas
 
-The StackState AWS integration installs the following AWS lambdas:
+The Rancher Observability AWS integration installs the following AWS lambdas:
 
 | Lambda | Description |
 |:---|:---|
-| `stackstate-topo-cron` | Scans the initial topology based on an interval schedule and pushes to StackState. |
+| `stackstate-topo-cron` | Scans the initial topology based on an interval schedule and pushes to Rancher Observability. |
 | `stackstate-topo-cwevents` | Listens to CloudWatch events, transforms the events and publishes them to Kinesis. Full install only.|
-| `stackstate-topo-publisher` | Pushes topology from a Kinesis stream to StackState. Full install only. |
+| `stackstate-topo-publisher` | Pushes topology from a Kinesis stream to Rancher Observability. Full install only. |
 
-### AWS views in StackState
+### AWS views in Rancher Observability
 
-When the AWS integration is enabled, three [views](https://l.stackstate.com/ui-aws-views) will be created in StackState for each instance of the StackPack.
+When the AWS integration is enabled, three [views](https://l.stackstate.com/ui-aws-views) will be created in Rancher Observability for each instance of the StackPack.
 
 - **AWS - \[instance_name\] - All** - includes all resources retrieved from AWS by the StackPack instance.
 - **AWS - \[instance_name\] - Infrastructure** - includes only Networking, Storage and Machines resources retrieved from AWS by the StackPack instance.
 - **AWS - \[instance_name\] - Serverless** - includes only S3 buckets, lambdas and application load balancers retrieved from AWS by the StackPack instance.
 
-### AWS actions in StackState
+### AWS actions in Rancher Observability
 
 Components retrieved from AWS will have an additional [Action](https://l.stackstate.com/ui-aws-actions) available in the component context menu and in the right panel **Selection details** tab when a component has been selected to show its detailed information. This provides a deep link through to the relevant AWS console at the correct point.
 
-For example, in the StackState topology perspective: 
+For example, in the Rancher Observability topology perspective: 
 
 - Components of type aws-subnet have the action **Go to Subnet console**, which links directly to this component in the AWS Subnet console.
 - Components of type ec2-instance have the action **Go to EC2 console**, which links directly to this component in the EC2 console.
 
 ### Tags and labels
 
-The AWS StackPack converts tags in AWS to labels in StackState. In addition, the following special tags are supported:
+The AWS StackPack converts tags in AWS to labels in Rancher Observability. In addition, the following special tags are supported:
 
 | Tag | Description |
 | :--- | :--- |
-| `stackstate-identifier` | Adds the specified value as an identifier to the StackState component |
-| `stackstate-environment` | Places the StackState component in the environment specified |
+| `stackstate-identifier` | Adds the specified value as an identifier to the Rancher Observability component |
+| `stackstate-environment` | Places the Rancher Observability component in the environment specified |
 

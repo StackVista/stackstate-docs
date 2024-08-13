@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # AWS \(legacy\)
@@ -14,38 +14,38 @@ Amazon Web Services \(AWS\) is a major cloud provider. This StackPack enables in
 
 ![Data flow](../../../.gitbook/assets/stackpack-aws.svg)
 
-* Three AWS Lambdas collect topology data from AWS and push this to StackState:
-  * `stackstate-topo-cron` scans AWS resources every hour using the AWS APIs and pushes this to StackState.
+* Three AWS Lambdas collect topology data from AWS and push this to Rancher Observability:
+  * `stackstate-topo-cron` scans AWS resources every hour using the AWS APIs and pushes this to Rancher Observability.
   * `stackstate-topo-cwevents` listens to CloudWatch events, transforms the events and publishes them to Kinesis.
-  * `stackstate-topo-publisher` publishes [retrieved topology data](aws-legacy.md#topology) from a Kinesis stream to StackState.
-* StackState translates incoming data into topology components and relations.
-* The StackState CloudWatch plugin pulls available telemetry data per resource at a configured interval from AWS.
-* StackState maps retrieved telemetry \(metrics\) onto the associated AWS components and relations.
+  * `stackstate-topo-publisher` publishes [retrieved topology data](aws-legacy.md#topology) from a Kinesis stream to Rancher Observability.
+* Rancher Observability translates incoming data into topology components and relations.
+* The Rancher Observability CloudWatch plugin pulls available telemetry data per resource at a configured interval from AWS.
+* Rancher Observability maps retrieved telemetry \(metrics\) onto the associated AWS components and relations.
 
 ## Setup
 
 ### Prerequisites
 
-To set up the StackState AWS integration, you need to have:
+To set up the Rancher Observability AWS integration, you need to have:
 
-* AWS CLI version 2.0.4 or later is installed on the environment where StackState is running.
+* AWS CLI version 2.0.4 or later is installed on the environment where Rancher Observability is running.
 * An AWS user with the required access to retrieve CloudWatch metrics:
   * `cloudwatch:GetMetricData`
   * `cloudwatch:ListMetrics`
 
-    A policy file to create a user with the correct rights can be downloaded from the StackState UI screen **StackPacks** &gt; **Integrations** &gt; **AWS**.
-* An AWS user with the required access rights to install StackState monitoring in your account. See [AWS IAM policies](aws-legacy.md#aws-iam-policies), below.
+    A policy file to create a user with the correct rights can be downloaded from the Rancher Observability UI screen **StackPacks** &gt; **Integrations** &gt; **AWS**.
+* An AWS user with the required access rights to install Rancher Observability monitoring in your account. See [AWS IAM policies](aws-legacy.md#aws-iam-policies), below.
 
 ### Proxy URL
 
-If your StackState instance is behind a proxy, you need to configure the proxy URL and port for the AWS authorization to work. You can configure a proxy URL environment variable or JVM system property.
+If your Rancher Observability instance is behind a proxy, you need to configure the proxy URL and port for the AWS authorization to work. You can configure a proxy URL environment variable or JVM system property.
 
 * Environment variable `HTTP_PROXY` or `HTTPS_PROXY`
-* Pass following properties when starting StackState instance `-Dhttp.proxyHost -Dhttp.proxyPort` or `-Dhttps.proxyHost -Dhttps.proxyPort`
+* Pass following properties when starting Rancher Observability instance `-Dhttp.proxyHost -Dhttp.proxyPort` or `-Dhttps.proxyHost -Dhttps.proxyPort`
 
 ### Install
 
-Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
+Install the AWS StackPack from the Rancher Observability UI **StackPacks** &gt; **Integrations** screen. You will need to enter the following details:
 
 * **AWS instance name** - the user-defined name of the AWS account shown in configurations such as views.
 * **AWS Access Key id** - the access key for the user for retrieving CloudWatch metrics.
@@ -54,9 +54,9 @@ Install the AWS StackPack from the StackState UI **StackPacks** &gt; **Integrati
 
 ### Deploy AWS Cloudformation stacks
 
-The StackState AWS Cloudformation stacks are deployed on your AWS account to enable topology monitoring. There are two options for StackState monitoring:
+The Rancher Observability AWS Cloudformation stacks are deployed on your AWS account to enable topology monitoring. There are two options for Rancher Observability monitoring:
 
-* [Full install](aws-legacy.md#full-install) - picks up all changes to AWS resources and pushes to StackState.
+* [Full install](aws-legacy.md#full-install) - picks up all changes to AWS resources and pushes to Rancher Observability.
 * [Minimal install](aws-legacy.md#minimal-install) - picks up changes at a configured interval only.
 
 #### Full install
@@ -71,8 +71,8 @@ A full installation will install the following CloudFormation Stacks:
 
 Follow the steps below to complete a full install:
 
-1. Download the manual installation zip file and extract it. This is included in the AWS StackPack and can be accessed at the link provided in StackState after you install the AWS StackPack.
-2. Make sure the AWS CLI is configured with the proper account and has the default region set to the region that should be monitored by StackState.
+1. Download the manual installation zip file and extract it. This is included in the AWS StackPack and can be accessed at the link provided in Rancher Observability after you install the AWS StackPack.
+2. Make sure the AWS CLI is configured with the proper account and has the default region set to the region that should be monitored by Rancher Observability.
    * For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
 3. From the command line, run the command:
 
@@ -96,12 +96,12 @@ These environment variables have the same names used by the AWS\_CLI utility and
 
 #### Minimal install
 
-The minimal installation is useful when less permissions are available. This installs only the `stackstate-topo-cron` Cloudformation stack, which means StackState's topology will only get a full topology update every hour. Updates between the hour aren't sent to StackState.
+The minimal installation is useful when less permissions are available. This installs only the `stackstate-topo-cron` Cloudformation stack, which means Rancher Observability's topology will only get a full topology update every hour. Updates between the hour aren't sent to Rancher Observability.
 
 Follow the steps below to complete a minimal install:
 
-1. Download the manual installation zip file and extract it. This is included in the AWS StackPack and can be accessed at the link provided in StackState after you install the AWS StackPack.
-2. Make sure the AWS CLI is configured with the proper account and has the default region set to the region that should be monitored by StackState.
+1. Download the manual installation zip file and extract it. This is included in the AWS StackPack and can be accessed at the link provided in Rancher Observability after you install the AWS StackPack.
+2. Make sure the AWS CLI is configured with the proper account and has the default region set to the region that should be monitored by Rancher Observability.
    * For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
 3. From the command line, run the command:
 
@@ -130,13 +130,13 @@ These environment variables have the same names used by the AWS\_CLI utility and
 
 ### AWS IAM Policies
 
-The following AWS policies can be downloaded during the installation of the AWS StackPack in your StackState instance:
+The following AWS policies can be downloaded during the installation of the AWS StackPack in your Rancher Observability instance:
 
-* **Full install** - `StackStateIntegrationPolicyInstall.json`
-* **Minimal install** - `StackStateIntegrationPolicyTopoCronInstall.json` 
-* **Minimal set of policies** - `StackStateIntegrationPolicyTopoCronMinimal.json` S3 bucket and role are provided by user.
-* **Uninstall a full install** - `StackStateIntegrationPolicyUninstall.json`
-* **Uninstall a minimal install** - `StackStateIntegrationPolicyTopoCronUninstall.json`
+* **Full install** - `Rancher ObservabilityIntegrationPolicyInstall.json`
+* **Minimal install** - `Rancher ObservabilityIntegrationPolicyTopoCronInstall.json` 
+* **Minimal set of policies** - `Rancher ObservabilityIntegrationPolicyTopoCronMinimal.json` S3 bucket and role are provided by user.
+* **Uninstall a full install** - `Rancher ObservabilityIntegrationPolicyUninstall.json`
+* **Uninstall a minimal install** - `Rancher ObservabilityIntegrationPolicyTopoCronUninstall.json`
 
 ### Timeout
 
@@ -152,7 +152,7 @@ The AWS integration doesn't retrieve any Events data.
 
 #### Metrics
 
-Metrics data is pulled at a configured interval directly from AWS by the StackState CloudWatch plugin. Retrieved metrics are mapped onto the associated topology component.
+Metrics data is pulled at a configured interval directly from AWS by the Rancher Observability CloudWatch plugin. Retrieved metrics are mapped onto the associated topology component.
 
 #### Topology
 
@@ -160,7 +160,7 @@ Each AWS integration retrieves topology data for resources associated with the a
 
 **Components**
 
-The following AWS service data is available in StackState as components:
+The following AWS service data is available in Rancher Observability as components:
 
 |  |  |  |
 | :--- | :--- | :--- |
@@ -210,60 +210,60 @@ The AWS integration doesn't retrieve any Traces data.
 
 ### AWS lambdas
 
-The StackState AWS integration installs the following AWS lambdas:
+The Rancher Observability AWS integration installs the following AWS lambdas:
 
 | Lambda | Description |
 | :--- | :--- |
-| `stackstate-topo-cron` | Scans the initial topology based on an interval schedule and pushes to StackState. |
+| `stackstate-topo-cron` | Scans the initial topology based on an interval schedule and pushes to Rancher Observability. |
 | `stackstate-topo-cwevents` | Listens to CloudWatch events, transforms the events and publishes them to Kinesis. Full install only. |
-| `stackstate-topo-publisher` | Pushes topology from a Kinesis stream to StackState. Full install only. |
+| `stackstate-topo-publisher` | Pushes topology from a Kinesis stream to Rancher Observability. Full install only. |
 
 ### Costs
 
 The AWS lightweight Agent uses Amazon resources \(Lambda and Kinesis\) for which Amazon will charge a minimal fee. Amazon also charges a fee for the use of CloudWatch metrics. Metrics are only retrieved when viewed or when a check is configured on a CloudWatch metric.
 
-### AWS views in StackState
+### AWS views in Rancher Observability
 
-When the AWS integration is enabled, three [views](../../../use/stackstate-ui/views/about_views.md) will be created in StackState for each instance of the StackPack.
+When the AWS integration is enabled, three [views](../../../use/stackstate-ui/views/about_views.md) will be created in Rancher Observability for each instance of the StackPack.
 
 * **AWS - \[instance\_name\] - All** - includes all resources retrieved from AWS by the StackPack instance.
 * **AWS - \[instance\_name\] - Infrastructure** - includes only Networking, Storage and Machines resources retrieved from AWS by the StackPack instance.
 * **AWS - \[instance\_name\] - Serverless** - includes only S3 buckets, lambdas and application load balancers retrieved from AWS by the StackPack instance.
 
-### AWS actions in StackState
+### AWS actions in Rancher Observability
 
 Components retrieved from AWS will have an additional [Action](/use/stackstate-ui/perspectives/topology-perspective.md#actions) available in the component context menu and in the right panel details tab - **Component details** - when the component is selected. This provides a deep link through to the relevant AWS console at the correct point.
 
-For example, in the StackState Topology Perspective:
+For example, in the Rancher Observability Topology Perspective:
 
 * Components of type aws-subnet have the action **Go to Subnet console**, which links directly to this component in the AWS Subnet console.
 * Components of type ec2-instance have the action **Go to EC2 console**, which links directly to this component in the EC2 console.
 
 ### Tags and labels
 
-The AWS StackPack converts tags in AWS to labels in StackState. In addition, the following special tags are supported:
+The AWS StackPack converts tags in AWS to labels in Rancher Observability. In addition, the following special tags are supported:
 
 | Tag | Description |
 | :--- | :--- |
-| `stackstate-identifier` | Adds the specified value as an identifier to the StackState component |
-| `stackstate-environment` | Places the StackState component in the environment specified |
+| `stackstate-identifier` | Adds the specified value as an identifier to the Rancher Observability component |
+| `stackstate-environment` | Places the Rancher Observability component in the environment specified |
 
 ## Troubleshooting
 
-Check the StackState support site for:
+Check the Rancher Observability support site for:
 
-* [The AWS \(legacy\) StackPack troubleshooting guide](https://support.stackstate.com/hc/en-us/articles/360016959719-Troubleshooting-StackState-AWS-Legacy-StackPack).
+* [The AWS \(legacy\) StackPack troubleshooting guide](https://support.stackstate.com/hc/en-us/articles/360016959719-Troubleshooting-Rancher Observability-AWS-Legacy-StackPack).
 * [Known issues relating to the AWS \(legacy\) StackPack](https://support.stackstate.com/hc/en-us/search?utf8=%E2%9C%93&query=tags%3Aaws-legacy).
 
 
 ## Uninstall
 
-To uninstall the StackState AWS StackPack, click the _Uninstall_ button from the StackState UI **StackPacks** &gt; **Integrations** &gt; **AWS** screen. This will remove all AWS specific configuration in StackState.
+To uninstall the Rancher Observability AWS StackPack, click the _Uninstall_ button from the Rancher Observability UI **StackPacks** &gt; **Integrations** &gt; **AWS** screen. This will remove all AWS specific configuration in Rancher Observability.
 
-Once the AWS StackPack has been uninstalled, you will need to manually uninstall the StackState AWS Cloudformation stacks from the AWS account being monitored. To execute the manual uninstall follow these steps:
+Once the AWS StackPack has been uninstalled, you will need to manually uninstall the Rancher Observability AWS Cloudformation stacks from the AWS account being monitored. To execute the manual uninstall follow these steps:
 
-1. Download the manual installation zip file and extract it. This is included in the AWS StackPack and can be accessed at the link provided in StackState after you install the AWS StackPack.
-2. Make sure the AWS CLI is configured with the proper account and has the default region set to the region that should be monitored by StackState.
+1. Download the manual installation zip file and extract it. This is included in the AWS StackPack and can be accessed at the link provided in Rancher Observability after you install the AWS StackPack.
+2. Make sure the AWS CLI is configured with the proper account and has the default region set to the region that should be monitored by Rancher Observability.
    * For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html).
 3. From the command line, run the below command to de-provision all resources related to the StackPack instance:
 
@@ -297,12 +297,12 @@ These environment variables have the same names used by the AWS\_CLI utility and
 
 **AWS \(legacy\) StackPack v5.3.1 \(2021-07-16\)**
 
-* Feature: Added Legacy logo and deprecation message, the new AWS stackpack is ready to use on StackState 4.4+.
+* Feature: Added Legacy logo and deprecation message, the new AWS stackpack is ready to use on Rancher Observability 4.4+.
 * Bugfix: Fixed problem when uninstalling CloudFormation Stack that CloudTrail was still producing logs.
 * Improvement: Updated documentation.
 
 ## See also
 
-* [Troubleshoot the StackState AWS StackPack](https://support.stackstate.com/hc/en-us/articles/360016959719-Troubleshooting-StackState-AWS-StackPack)
+* [Troubleshoot the Rancher Observability AWS StackPack](https://support.stackstate.com/hc/en-us/articles/360016959719-Troubleshooting-Rancher Observability-AWS-StackPack)
 * [Using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html)
 

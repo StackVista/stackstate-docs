@@ -1,12 +1,12 @@
 ---
-description: StackState v6.0
+description: Rancher Observability v6.0
 ---
 
 # Add a threshold monitor to components using the CLI
 
 ## Overview 
 
-StackState provides [monitors out of the box](/use/alerting/k8s-monitors.md), which provide monitoring on common issues that can occur in a Kubernetes cluster. It's also possible to configure custom monitors for the metrics collected by StackState or application metrics ingested [from Prometheus](/use/metrics/k8s-prometheus-remote-write.md).
+Rancher Observability provides [monitors out of the box](/use/alerting/k8s-monitors.md), which provide monitoring on common issues that can occur in a Kubernetes cluster. It's also possible to configure custom monitors for the metrics collected by Rancher Observability or application metrics ingested [from Prometheus](/use/metrics/k8s-prometheus-remote-write.md).
 
 ## Steps
 
@@ -15,7 +15,7 @@ Steps to create a monitor:
 1. [Write the outline of the monitor](#write-the-outline-of-the-monitor)
 1. [Bind the results of the monitor to the correct component](#bind-the-results-of-the-monitor-to-the-correct-components)
 1. [Write the remediation hint](#write-the-remediation-hint)
-1. [Create or update the metric binding in StackState](#create-or-update-the-monitor-in-stackstate)
+1. [Create or update the metric binding in Rancher Observability](#create-or-update-the-monitor-in-stackstate)
 1. [Verify the monitor produces the expected result](#verifying-the-results-of-a-monitor)
 1. [Common issues](#common-issues)
 
@@ -23,7 +23,7 @@ As an example the steps will add a monitor for the `Replica counts` of Kubernete
 
 ## Write the outline of the monitor
 
-Create a new YAML file called `monitor.yaml` and add this YAML template to it to create your own monitor. Open it in your favorite code editor to change it throughout this guide. At the end the StackState CLI will be used to create and update the monitor in StackState.
+Create a new YAML file called `monitor.yaml` and add this YAML template to it to create your own monitor. Open it in your favorite code editor to change it throughout this guide. At the end the Rancher Observability CLI will be used to create and update the monitor in Rancher Observability.
 
 ```
 nodes:
@@ -50,13 +50,13 @@ nodes:
 
 The fields in this template are:
 
-* `_type`: StackState needs to know this is a monitor so, value always needs to be `Monitor`
-* `query`: A PromQL query. Use the [metric explorer](/use/metrics/k8sTs-explore-metrics.md) of your StackState instance, http://your-stackstate-instance/#/metrics, and use it to construct query for the metric of interest.
+* `_type`: Rancher Observability needs to know this is a monitor so, value always needs to be `Monitor`
+* `query`: A PromQL query. Use the [metric explorer](/use/metrics/k8sTs-explore-metrics.md) of your Rancher Observability instance, http://your-stackstate-instance/#/metrics, and use it to construct query for the metric of interest.
 * `unit`: The unit of the values in the time series returned by the query or queries, used to render the Y-axis of the chart. See the [supported units](/develop/reference/k8sTs-chart-units.md) reference for all units.
 * `aliasTemplate`: An alias for time series in the metric chart. This is a template that can substitute labels from the time series using the `${my_label}` placeholder. 
 * `comparator`: Choose one of LTE/LT/GTE/GT to compare the threshold against the metric. Time series for which `<metric> <comparator> <threshold>` holds true will produce the failure state.   
 * `threshold`: A numeric threshold to compare against.
-* `failureState`: Either "CRITICAL" or "DEVIATING". "CRITICAL" will show as read in StackState and "DEVIATING" as orange, to denote different severity.
+* `failureState`: Either "CRITICAL" or "DEVIATING". "CRITICAL" will show as read in Rancher Observability and "DEVIATING" as orange, to denote different severity.
 * `urnTemplate`: A template to construct the urn of the component a result of the monitor will be [bound to](#bind-the-results-of-the-monitor-to-the-correct-components).  
 * `titleTemplate`: A title for the result of a monitor. Because multiple monitor results can bind to the same component, it's possible to substitute time series labels using the `${my_label}` placeholder.
 * `description`: A description of the monitor.
@@ -66,7 +66,7 @@ The fields in this template are:
 * `name`: The name of the monitor
 * `remediationHint`: A description of what the user can do when the monitor fails. The format is markdown, with optionally use of handlebars variables to customize the hint based on time series or other data ([more explanation below](#write-the-remediation-hint)). 
 * `status`: Either `"DISABLED"` or `"ENABLED"`. Determines whether the monitor will run or not.
-* `tags`: Add tags to the monitor to help organize them in the monitors overview of your StackState instance, http://your-StackState-instance/#/monitors
+* `tags`: Add tags to the monitor to help organize them in the monitors overview of your Rancher Observability instance, http://your-Rancher Observability-instance/#/monitors
 
 For example, this could be the start for a monitor which monitors the available replicas of a deployment:
 
@@ -97,7 +97,7 @@ The `urnTemplate` and `remediationHint` will be filled in the next steps.
 
 ## Bind the results of the monitor to the correct components
 
-The results of a monitor need to be bound to components in StackState, to be visible and usable. The result of a monitor is bound to a component using the component `identifiers`. Each component in StackState has one or more identifiers that uniquely identify the component. To bind a result of a monitor to a component, it's required to provide the `urnTemplate`. The `urnTemplate` substitutes the labels in the time series of the monitor result into the template, producing an identifier matching a component. This is best illustrated with the example:
+The results of a monitor need to be bound to components in Rancher Observability, to be visible and usable. The result of a monitor is bound to a component using the component `identifiers`. Each component in Rancher Observability has one or more identifiers that uniquely identify the component. To bind a result of a monitor to a component, it's required to provide the `urnTemplate`. The `urnTemplate` substitutes the labels in the time series of the monitor result into the template, producing an identifier matching a component. This is best illustrated with the example:
 
 The metric that's used in this example is the `kubernetes_state_deployment_replicas_available` metric. Run the metric in the metric explorer to observe what labels are available on the time series:
 
@@ -136,9 +136,9 @@ The remediation hint is there to help users find the cause of an issue when a mo
   ...
 ```
 
-## Create or update the monitor in StackState
+## Create or update the monitor in Rancher Observability
 
-After completing the `monitor.yaml`, use the [StackState CLI](/setup/cli/k8sTs-cli-sts.md) to create or update the monitor:
+After completing the `monitor.yaml`, use the [Rancher Observability CLI](/setup/cli/k8sTs-cli-sts.md) to create or update the monitor:
 
 ```bash
 sts monitor apply -f monitor.yaml
@@ -162,7 +162,7 @@ To delete a monitor use
 sts monitor delete --id <id>
 ```
 
-To edit a monitor, edit the original of the monitor that was applied, and apply again. Or there is a `sts monitor edit` command to edit the configured monitor in the StackState instance directly:
+To edit a monitor, edit the original of the monitor that was applied, and apply again. Or there is a `sts monitor edit` command to edit the configured monitor in the Rancher Observability instance directly:
 
 ```bash
 sts monitor edit --id <id>
@@ -184,7 +184,7 @@ It's good practice to, after a monitor is made, validate whether it produces the
 
 ### Verify the execution of the monitor
 
-Go to the monitor overview page (http://your-StackState-instance/#/monitors) and find your monitor.
+Go to the monitor overview page (http://your-Rancher Observability-instance/#/monitors) and find your monitor.
 
 1. Verify the `Status` column is in `Enabled` state. If the monitor is in `Disabled` state, [enable it](#enable-or-disable-the-monitor). If the status is in `Error` state, follow the steps below [to debug](#the-monitor-is-showing-an-error-in-the-monitor-status-overview).
 1. Verify you see the expected amount of states in the `Clear`/`Deviating`/`Critical` column. If the number of states is significantly lower or higher than the amount of components you meant to monitor, the PromQL query might be giving too many results.

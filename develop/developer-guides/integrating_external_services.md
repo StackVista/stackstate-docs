@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Integrate external services
 
-Not all custom logic needs to be coded using the [StackState Scripting Language \(STSL\)](../reference/scripting/). When your logic grows very complex you may want to call out to your own service, written in any programming language that fits your needs.
+Not all custom logic needs to be coded using the [Rancher Observability Scripting Language \(STSL\)](../reference/scripting/). When your logic grows very complex you may want to call out to your own service, written in any programming language that fits your needs.
 
-Integrating external services with StackState is done by using the [HTTP script API](../reference/scripting/script-apis/http.md) from a [function](/develop/developer-guides/custom-functions/functions.md). This is similar to a webhook, but more flexible. Whereas with a webhook your webserver needs to follow a predefined protocol and receives a predefined set of data, which may not fit your needs, with this mechanism you can define your own protocol and decide what extra information you want to retrieve from StackState before sending a request to your microservice.
+Integrating external services with Rancher Observability is done by using the [HTTP script API](../reference/scripting/script-apis/http.md) from a [function](/develop/developer-guides/custom-functions/functions.md). This is similar to a webhook, but more flexible. Whereas with a webhook your webserver needs to follow a predefined protocol and receives a predefined set of data, which may not fit your needs, with this mechanism you can define your own protocol and decide what extra information you want to retrieve from Rancher Observability before sending a request to your microservice.
 
 ## Example
 
@@ -27,12 +27,12 @@ Component.withId(componentId).get().then { component ->
 ```
 {% endcode %}
 
-This function first gets the name of the component, then calls out via HTTP to the external service and then uses its response to decide how StackState should propagate the state of the given component.
+This function first gets the name of the component, then calls out via HTTP to the external service and then uses its response to decide how Rancher Observability should propagate the state of the given component.
 
 ## Requirements
 
-* Your service should be network-resolvable and accessible by the StackState servers that run the scripts.
-* HTTPS is supported only for certificates that are signed by the Certificate Authorities known to the Java Keystore accessible by the StackState server.
-* StackState scripts have a default configurable timeout, for example 15 seconds. If your service doesn't respond in a timely fashion an error will be logged and depending on the type of function different types of error behavior will be observed. 
-* Make sure your service can keep up with the demand. Depending on the type of function and the size of the 4T model, StackState might make a lot of calls to your service.
+* Your service should be network-resolvable and accessible by the Rancher Observability servers that run the scripts.
+* HTTPS is supported only for certificates that are signed by the Certificate Authorities known to the Java Keystore accessible by the Rancher Observability server.
+* Rancher Observability scripts have a default configurable timeout, for example 15 seconds. If your service doesn't respond in a timely fashion an error will be logged and depending on the type of function different types of error behavior will be observed. 
+* Make sure your service can keep up with the demand. Depending on the type of function and the size of the 4T model, Rancher Observability might make a lot of calls to your service.
 

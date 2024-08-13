@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Prepare a multi-instance provisioning script
@@ -67,5 +67,5 @@ class Provision extends ProvisioningScript {
 }
 ```
 
-The last step is to [prepare a StackPack `.sts` package and upload it to StackState.](prepare_multi-instance_provisioning_script.md)
+The last step is to [prepare a StackPack `.sts` package and upload it to Rancher Observability.](prepare_multi-instance_provisioning_script.md)
 

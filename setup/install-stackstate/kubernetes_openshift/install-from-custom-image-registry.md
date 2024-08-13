@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted
+description: Rancher Observability Self-hosted
 ---
 
 # Install from custom image registry
 
 ## Overview
 
-This page describes how to use a custom image registry to install StackState, the StackState Agent, Cluster Agent and kube-state-metrics. The required images are first copied and then the helm chart can then be configured to pull images using the custom registry and tag.
+This page describes how to use a custom image registry to install Rancher Observability, the Rancher Observability Agent, Cluster Agent and kube-state-metrics. The required images are first copied and then the helm chart can then be configured to pull images using the custom registry and tag.
 
 ## Serve images from a different image registry
 
@@ -18,8 +18,8 @@ To address this issue, you can copy all the images to a single registry close to
    * For Amazon Elastic Kubernetes Service (EKS), use [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/).
    * For Azure Kubernetes Service (AKS), use [Azure Container Registry (ACR) \(azure.microsoft.com\)](https://azure.microsoft.com/en-us/products/container-registry/).
 2. Use the relevant script to copy all the images used by the Helm chart to the new registry:
-   * **StackState:** [stackstate/installation/copy_images.sh \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation "StackState Self-Hosted only") to copy all the images used by the Helm chart to the new registry
-   * **StackState Agent:** [stackstate-agent/installation/copy_images.sh \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-agent/installation/copy_images.sh)
+   * **Rancher Observability:** [stackstate/installation/copy_images.sh \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate/installation "Rancher Observability Self-Hosted only") to copy all the images used by the Helm chart to the new registry
+   * **Rancher Observability Agent:** [stackstate-agent/installation/copy_images.sh \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-agent/installation/copy_images.sh)
    * For example:
 
     ```bash
@@ -69,11 +69,11 @@ To address this issue, you can copy all the images to a single registry close to
 
 ## Images
 
-### StackState
+### Rancher Observability
 
 {% hint style="success" "self-hosted info" %}
 
-The images listed below are used in StackState v5.1.2:
+The images listed below are used in Rancher Observability v5.1.2:
 
 - quay.io/stackstate/container-tools:1.1.4
 - quay.io/stackstate/container-tools:1.1.4.txt
@@ -122,9 +122,9 @@ The images listed below are used in StackState v5.1.2:
 
 {% endhint %}
 
-### StackState Agent, Cluster Agent and kube-state-metrics
+### Rancher Observability Agent, Cluster Agent and kube-state-metrics
 
-The images listed below are used in StackState Agent v2.19.1:
+The images listed below are used in Rancher Observability Agent v2.19.1:
 
 * quay.io/stackstate/kube-state-metrics:2.3.0-focal-20220316-r61.20220418.2032
 * quay.io/stackstate/stackstate-agent-2:2.19.1

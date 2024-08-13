@@ -1,41 +1,41 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Topology synchronization
 
 ## Overview
 
-StackState can synchronize topology information from different sources, including your own sources.
+Rancher Observability can synchronize topology information from different sources, including your own sources.
 
-The easiest way to connect StackState to one of your data sources is to use a **StackPack**. StackPacks are standard integrations that configure StackState to consume data from a particular data source or platform.
+The easiest way to connect Rancher Observability to one of your data sources is to use a **StackPack**. StackPacks are standard integrations that configure Rancher Observability to consume data from a particular data source or platform.
 
-You can also create a **custom topology synchronization** and send topology data to StackState in JSON format. Received JSON files pass through a number of processing steps. At the end of this synchronization pipeline, the incoming data is stored as components and relations in the StackState topology. 
+You can also create a **custom topology synchronization** and send topology data to Rancher Observability in JSON format. Received JSON files pass through a number of processing steps. At the end of this synchronization pipeline, the incoming data is stored as components and relations in the Rancher Observability topology. 
 
-## StackState Receiver API
+## Rancher Observability Receiver API
 
-The StackState Receiver API accepts topology, metrics, events and health data in a common JSON object. The default location for the receiver API is the `<STACKSTATE_RECEIVER_API_ADDRESS>`, constructed using the `<STACKSTATE_BASE_URL>` and <`STACKSTATE_RECEIVER_API_KEY>`.
+The Rancher Observability Receiver API accepts topology, metrics, events and health data in a common JSON object. The default location for the receiver API is the `<STACKSTATE_RECEIVER_API_ADDRESS>`, constructed using the `<STACKSTATE_BASE_URL>` and <`STACKSTATE_RECEIVER_API_KEY>`.
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-The `<STACKSTATE_RECEIVER_API_ADDRESS>` for StackState deployed on Kubernetes or OpenShift is:
+The `<STACKSTATE_RECEIVER_API_ADDRESS>` for Rancher Observability deployed on Kubernetes or OpenShift is:
 
 ```text
 https://<STACKSTATE_BASE_URL>/receiver/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>
 ```
 
-The `<STACKSTATE_BASE_URL>` and `<STACKSTATE_RECEIVER_API_KEY>` are set during StackState installation, for details see [Kubernetes install - configuration parameters](/setup/install-stackstate/kubernetes_openshift/kubernetes_install.md#generate-values-yaml).
+The `<STACKSTATE_BASE_URL>` and `<STACKSTATE_RECEIVER_API_KEY>` are set during Rancher Observability installation, for details see [Kubernetes install - configuration parameters](/setup/install-stackstate/kubernetes_openshift/kubernetes_install.md#generate-values-yaml).
 {% endtab %}
 
 {% tab title="Linux" %}
 
-The `<STACKSTATE_RECEIVER_API_ADDRESS>` for StackState deployed on Linux is:
+The `<STACKSTATE_RECEIVER_API_ADDRESS>` for Rancher Observability deployed on Linux is:
 
 ```text
 https://<STACKSTATE_BASE_URL>:<STACKSTATE_RECEIVER_PORT>/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>
 ```
 
-The `<STACKSTATE_BASE_URL>` and `<STACKSTATE_RECEIVER_API_KEY>` are set during StackState installation, for details see [Linux install - configuration parameters](/setup/install-stackstate/linux/install_stackstate.md#configuration-options-required-during-install).
+The `<STACKSTATE_BASE_URL>` and `<STACKSTATE_RECEIVER_API_KEY>` are set during Rancher Observability installation, for details see [Linux install - configuration parameters](/setup/install-stackstate/linux/install_stackstate.md#configuration-options-required-during-install).
 {% endtab %}
 {% endtabs %}
 
@@ -59,7 +59,7 @@ Topology, telemetry and health data are sent to the receiver API via HTTP POST. 
 
 ## JSON property: "topologies" 
 
-StackState accepts topology information in the following JSON format:
+Rancher Observability accepts topology information in the following JSON format:
 
 {% code lineNumbers="true" %}
 ```text
@@ -132,11 +132,11 @@ StackState accepts topology information in the following JSON format:
 
 The JSON has the following fields:
 
-* **apiKey**: The key that StackState provided for your installation.
-* **collection_timestamp**: Collection timestamp in Epoch seconds. Depending on your StackState configuration, topology that's to old may be ignored.
+* **apiKey**: The key that Rancher Observability provided for your installation.
+* **collection_timestamp**: Collection timestamp in Epoch seconds. Depending on your Rancher Observability configuration, topology that's to old may be ignored.
 * **internalHostname**: The hostname of the collector \(which sends your custom topology data\).
 * **topologies**: A list of one or more instance types. Instance types are described by the following fields:
-  * **start_snapshot**: Boolean \(true/false\). When set to "true" this message is handled as the beginning of a snapshot. This enables StackState to diff snapshots with the previous one to delete components / relations which aren't in the snapshot anymore.
+  * **start_snapshot**: Boolean \(true/false\). When set to "true" this message is handled as the beginning of a snapshot. This enables Rancher Observability to diff snapshots with the previous one to delete components / relations which aren't in the snapshot anymore.
   * **stop_snapshot**: Boolean \(true/false\). When set to "true" this message is handled as the end of a snapshot.
   * **delete_ids**: List of external ids. List of components or relations that should be deleted. All components and relations that aren't repeated in a snapshot will be deleted automatically, thus this field is only necessary when _not_ sending a snapshot.
 * **instance**: Describes the type and unique ID \(URL format\) of the topology data.
@@ -146,7 +146,7 @@ The JSON has the following fields:
   * **externalId**: A unique ID for this component. This has to be unique for this instance.
   * **type**: A named parameter for this type.
   * **data**: A JSON blob of arbitrary data.
-  * **sourceProperties**: Optional. A JSON blob of arbitrary data. When populated, the contents of this field will be displayed in the StackState UI component properties in place of the `data` field. The `data` field will still be accessible in templates and the various functions that make use of this data
+  * **sourceProperties**: Optional. A JSON blob of arbitrary data. When populated, the contents of this field will be displayed in the Rancher Observability UI component properties in place of the `data` field. The `data` field will still be accessible in templates and the various functions that make use of this data
 * **relations**: A list of relations. Each relation has the following fields:
   * **externalId**: A unique ID for this relation. This has to be unique for this instance.
   * **type**: A named parameter for this type.
@@ -156,7 +156,7 @@ The JSON has the following fields:
 
 ## Get started with custom topology
 
-The [push-integration tutorial](../../develop/tutorials/push_integration_tutorial.md) is a good way to get started sending your own topology into StackState.
+The [push-integration tutorial](../../develop/tutorials/push_integration_tutorial.md) is a good way to get started sending your own topology into Rancher Observability.
 
 ## See also
 

@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x
+description: Rancher Observability Self-hosted v5.1.x
 ---
 
 # The AAD status UI
@@ -16,7 +16,7 @@ Common questions that can be answered in the AAD status UI:
 If the status UI is accessible: The service is running.
 If the status UI isn't available: Either the service isn't running, or the Ingress hasn't been configured \(See the install section\).
 
-**Can the AAD Kubernetes service reach StackState?**
+**Can the AAD Kubernetes service reach Rancher Observability?**
 Check the status UI sections **Top errors** and **Last stream polling results**. Errors here usually indicate connection problems.
 
 **Has the AAD Kubernetes service selected metric streams for anomaly detection?**

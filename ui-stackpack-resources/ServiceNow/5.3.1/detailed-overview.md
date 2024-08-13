@@ -1,6 +1,6 @@
 ### Prerequisites
 
-- [StackState Agent V2](/#/stackpacks/stackstate-agent-v2/) installed on a machine that can connect to both ServiceNow (via HTTPS) and StackState.
+- [Rancher Observability Agent V2](/#/stackpacks/stackstate-agent-v2/) installed on a machine that can connect to both ServiceNow (via HTTPS) and Rancher Observability.
 - A running ServiceNow instance.
 - A ServiceNow user with access to the ServiceNow REST API endopints described below.
 
@@ -8,7 +8,7 @@
 
 ### REST API endpoints
 
-The ServiceNow user configured in StackState Agent V2 must have access to read the ServiceNow `TABLE` API. The specific table names and endpoints used in the StackState integration are described below. All named REST API endpoints use the HTTPS protocol for communication.
+The ServiceNow user configured in Rancher Observability Agent V2 must have access to read the ServiceNow `TABLE` API. The specific table names and endpoints used in the Rancher Observability integration are described below. All named REST API endpoints use the HTTPS protocol for communication.
 
 | Table Name | REST API Endpoint | 
 |:---|:---|
@@ -33,8 +33,8 @@ The ServiceNow check doesn't retrieve any metrics data.
 
 #### Tags
 
-All tags defined in ServiceNow will be retrieved and added to the associated components and relations in StackState.
-The ServiceNow integration also understands [common tags](https://docs.stackstate.com/configure/topology/tagging) and applies these to topology in StackState.
+All tags defined in ServiceNow will be retrieved and added to the associated components and relations in Rancher Observability.
+The ServiceNow integration also understands [common tags](https://docs.stackstate.com/configure/topology/tagging) and applies these to topology in Rancher Observability.
 
 #### Topology
 
@@ -49,4 +49,4 @@ The ServiceNow check doesn't retrieve any traces data.
 
 ### Open source
 
-The code for the StackState ServiceNow check is open source and [available on GitHub](https://l.stackstate.com/ui-servicenow-github-agent-check).
+The code for the Rancher Observability ServiceNow check is open source and [available on GitHub](https://l.stackstate.com/ui-servicenow-github-agent-check).

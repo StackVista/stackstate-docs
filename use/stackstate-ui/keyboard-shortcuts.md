@@ -1,10 +1,10 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Keyboard shortcuts
 
-The keyboard shortcuts below can be used to navigate the StackState UI.
+The keyboard shortcuts below can be used to navigate the Rancher Observability UI.
 
 | Keyboard shortcut | Action                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | :--- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

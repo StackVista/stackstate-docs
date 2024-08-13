@@ -1,23 +1,23 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Using Templated STJ and STY
 
 ## Overview
 
-StackState makes use of StackState Templated JSON (STJ) and StackState Templated YAML (STY) for configuration.
+Rancher Observability makes use of Rancher Observability Templated JSON (STJ) and Rancher Observability Templated YAML (STY) for configuration.
 
-The templating is based on [handlebars \(handlebarsjs.com\)](https://handlebarsjs.com/) and comes with a number of [StackState functions](template_functions.md).
+The templating is based on [handlebars \(handlebarsjs.com\)](https://handlebarsjs.com/) and comes with a number of [Rancher Observability functions](template_functions.md).
 
 This table described which variant is used where:
 
 | Functionality                                                                                                      | STJ | STY |
 |:-------------------------------------------------------------------------------------------------------------------|:---:|:---:|
-| [Topology synchronization templates](/configure/topology/sync.md#template-functions "StackState Self-Hosted only") |  ✅  |  -  |
-| [StackPack settings](/develop/developer-guides/stackpack/develop_stackpacks.md "StackState Self-Hosted only")      |  -  |  ✅  |
+| [Topology synchronization templates](/configure/topology/sync.md#template-functions "Rancher Observability Self-Hosted only") |  ✅  |  -  |
+| [StackPack settings](/develop/developer-guides/stackpack/develop_stackpacks.md "Rancher Observability Self-Hosted only")      |  -  |  ✅  |
 | [Monitor definitions](/develop/developer-guides/monitors/create-custom-monitors.md)                                |  -  |  ✅  |
-| [Backup/restore for settings](/setup/data-management/backup_restore/ "StackState Self-Hosted only")                |  -  |  ✅  |       
+| [Backup/restore for settings](/setup/data-management/backup_restore/ "Rancher Observability Self-Hosted only")                |  -  |  ✅  |       
 
 ## Handlebars syntax
 
@@ -66,7 +66,7 @@ nodes:
     topolopgyIdentifierPattern: "urn:host:/${tags.host}"
     metrics: |-
       Telemetry
-        .query("StackState Metrics", "")
+        .query("Rancher Observability Metrics", "")
         .metricField("system.cpu.system")
         .groupBy("tags.host")
         .start("-1m")
@@ -140,16 +140,16 @@ Loop over an array or map of data.
 {% endtab %}
 {% endtabs %}
 
-## StackState handlebars functions
+## Rancher Observability handlebars functions
 
-StackState adds a number of function to the handlebars syntax. You can use these to create complex JSON results.
+Rancher Observability adds a number of function to the handlebars syntax. You can use these to create complex JSON results.
 
 ➡️ [Learn more about the available handlebars functions](template_functions.md).
 
 ## See also
 
-* [StackState template functions](template_functions.md)
-* [Synchronization framework](/configure/topology/sync.md#template-functions "StackState Self-Hosted only")
-* [StackPacks](/develop/developer-guides/stackpack/develop_stackpacks.md "StackState Self-Hosted only")
+* [Rancher Observability template functions](template_functions.md)
+* [Synchronization framework](/configure/topology/sync.md#template-functions "Rancher Observability Self-Hosted only")
+* [StackPacks](/develop/developer-guides/stackpack/develop_stackpacks.md "Rancher Observability Self-Hosted only")
 * [Create custom monitors](/develop/developer-guides/monitors/create-custom-monitors.md)
-* [Backup/Restore](/setup/data-management/backup_restore/ "StackState Self-Hosted only")
+* [Backup/Restore](/setup/data-management/backup_restore/ "Rancher Observability Self-Hosted only")

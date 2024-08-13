@@ -1,14 +1,14 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Agent check API
 
 ## Overview
 
-The Agent check API can be used to create checks that run on the [StackState Agent](../../../setup/agent/about-stackstate-agent.md). This page explains how to work with the Agent check API to write checks that send topology, metrics, events and service status information to StackState.
+The Agent check API can be used to create checks that run on the [Rancher Observability Agent](../../../setup/agent/about-stackstate-agent.md). This page explains how to work with the Agent check API to write checks that send topology, metrics, events and service status information to Rancher Observability.
 
-Code examples for the open source StackState Agent checks can be found on GitHub at: [https://github.com/StackVista/stackstate-agent-integrations](https://github.com/StackVista/stackstate-agent-integrations).
+Code examples for the open source Rancher Observability Agent checks can be found on GitHub at: [https://github.com/StackVista/stackstate-agent-integrations](https://github.com/StackVista/stackstate-agent-integrations).
 
 ## Agent checks
 
@@ -54,7 +54,7 @@ class MyCheck(AgentCheckV2):
 ```
 
 
-A more comprehensive example can be found in the [StackState Agent Integrations repo](https://github.com/StackVista/stackstate-agent-integrations/tree/master/agent_v2_integration_sample)
+A more comprehensive example can be found in the [Rancher Observability Agent Integrations repo](https://github.com/StackVista/stackstate-agent-integrations/tree/master/agent_v2_integration_sample)
 
 ### StatefulAgentCheck (Agent 2.18+)
 An Stateful Agent Check is a Python class that inherits from `StatefulAgentCheck` and implements the `stateful_check` method. This is intended to be used for Agent checks that requires the ability to persist data across check runs and be available in the event of Agent failure. If an Agent failure occurs, the persisted state will be used in the next check run. **Persistent state is persisted even in the event of check failure.** The `StatefulAgentCheck` receives the current persistent state as an input parameter. The `persistent_state` parameter of the `CheckResponse` return type is then set as the new persistent state value. 
@@ -72,10 +72,10 @@ class MyCheck(StatefulAgentCheck):
         # Provide an identifier (TopologyInstance)
 ```
 
-A more comprehensive example can be found in the [StackState Agent Integrations repo](https://github.com/StackVista/stackstate-agent-integrations/tree/master/agent_v2_integration_stateful_sample)
+A more comprehensive example can be found in the [Rancher Observability Agent Integrations repo](https://github.com/StackVista/stackstate-agent-integrations/tree/master/agent_v2_integration_stateful_sample)
 
 ### TransactionalAgentCheck (Agent 2.18+)
-An Transactional Agent Check is a Python class that inherits from `TransactionalAgentCheck` and implements the `transactional_check` method. This is intended to be used for Agent checks that require transactional behavior for updating it's state. A Agent Check transaction is considered a success if the data submitted by the Agent Check reaches StackState. This enables checks to never process / submit data that has already been received by StackState. **Persistent state is persisted even in the event of check failure, while transactional state is only persistent once a transaction has succeeded.** The `TransactionalAgentCheck` receives the current transactional and persistent state as input parameters. The `transactional_state` and `persistent_state` parameters of the `CheckResponse` return type are then correspondingly set as the new state values.
+An Transactional Agent Check is a Python class that inherits from `TransactionalAgentCheck` and implements the `transactional_check` method. This is intended to be used for Agent checks that require transactional behavior for updating it's state. A Agent Check transaction is considered a success if the data submitted by the Agent Check reaches Rancher Observability. This enables checks to never process / submit data that has already been received by Rancher Observability. **Persistent state is persisted even in the event of check failure, while transactional state is only persistent once a transaction has succeeded.** The `TransactionalAgentCheck` receives the current transactional and persistent state as input parameters. The `transactional_state` and `persistent_state` parameters of the `CheckResponse` return type are then correspondingly set as the new state values.
 
 ```text
 from stackstate_checks.base.checks.v2.transactional_agent_check import TransactionalAgentCheck
@@ -91,7 +91,7 @@ class MyCheck(TransactionalAgentCheck):
         # Provide an identifier (TopologyInstance)
 ```
 
-A more comprehensive example can be found in the [StackState Agent Integrations repo](https://github.com/StackVista/stackstate-agent-integrations/tree/master/agent_v2_integration_transactional_sample)
+A more comprehensive example can be found in the [Rancher Observability Agent Integrations repo](https://github.com/StackVista/stackstate-agent-integrations/tree/master/agent_v2_integration_transactional_sample)
 
 
 ### Agent Check (To be deprecated)
@@ -141,16 +141,16 @@ Multiple instances of the same check can run concurrently. If a check is already
 
 ### Topology
 
-Topology elements can be sent to StackState with the following methods:
+Topology elements can be sent to Rancher Observability with the following methods:
 
-* `self.component` - Create a component in StackState. See [send components](agent-check-api.md#send-components).
-* `self.relation` - Create a relation between two components in StackState. See [send relations](agent-check-api.md#send-relations).
+* `self.component` - Create a component in Rancher Observability. See [send components](agent-check-api.md#send-components).
+* `self.relation` - Create a relation between two components in Rancher Observability. See [send relations](agent-check-api.md#send-relations).
 * `self.start_snapshot()` - Start a topology snapshot for a specific topology instance source.
 * `self.stop_snapshot()` - Stop a topology snapshot for a specific topology instance source.
 
 #### Send components
 
-Components can be sent to StackState using the `self.component(id, type, data)` method.
+Components can be sent to Rancher Observability using the `self.component(id, type, data)` method.
 
 {% tabs %}
 {% tab title="Example - send a component" %}
@@ -174,15 +174,15 @@ The method requires the following details:
 
 * **id** - string. A unique ID for this component. This has to be unique for this instance.
 * **type** - string. A named parameter for this type.
-* **data** - dictionary. A JSON blob of arbitrary data. The fields within this object can be referenced in the `ComponentTemplateFunction` and the `RelationTemplateFunction` within StackState.
+* **data** - dictionary. A JSON blob of arbitrary data. The fields within this object can be referenced in the `ComponentTemplateFunction` and the `RelationTemplateFunction` within Rancher Observability.
 
-See the example of creating a component in StackState in the [StackState MySQL check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/mysql.py#L349).
+See the example of creating a component in Rancher Observability in the [Rancher Observability MySQL check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/mysql.py#L349).
 
-All submitted topologies are collected by StackState and flushed together with all the other Agent metrics at the end of `check` function.
+All submitted topologies are collected by Rancher Observability and flushed together with all the other Agent metrics at the end of `check` function.
 
 #### Send relations
 
-Relations can be sent to StackState using the `self.relation(source_id, target_id, type, data)` method.
+Relations can be sent to Rancher Observability using the `self.relation(source_id, target_id, type, data)` method.
 
 {% tabs %}
 {% tab title="Example - send a relation" %}
@@ -201,15 +201,15 @@ The method requires the following details:
 * **source\_id** - string. The source component externalId.
 * **target\_id** - string. The target component externalId.
 * **type** - string. The type of relation.
-* **data** - dictionary. A JSON blob of arbitrary data. The fields within this object can be referenced in the `ComponentTemplateFunction` and the `RelationTemplateFunction` within StackState.
+* **data** - dictionary. A JSON blob of arbitrary data. The fields within this object can be referenced in the `ComponentTemplateFunction` and the `RelationTemplateFunction` within Rancher Observability.
 
-See the example of creating a relation in StackState in the [StackState SAP check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/sap/stackstate_checks/sap/sap.py#L124).
+See the example of creating a relation in Rancher Observability in the [Rancher Observability SAP check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/1e8f59bdbe13749119172d6066c3660feed6c9a9/sap/stackstate_checks/sap/sap.py#L124).
 
-All submitted topologies are collected by StackState and flushed together with all the other Agent metrics at the end of `check` function.
+All submitted topologies are collected by Rancher Observability and flushed together with all the other Agent metrics at the end of `check` function.
 
 ### Metrics
 
-Metrics can be sent to StackState with the following methods:
+Metrics can be sent to Rancher Observability with the following methods:
 
 * `self.gauge` - Sample a gauge metric.
 * `self.count` - Sample a raw count metric.
@@ -244,11 +244,11 @@ Each method accepts the following metric details:
 
 All submitted metrics are collected and flushed with all the other Agent metrics at the end of `check` function.
 
-Check the example to send metrics in the [StackState MySQL check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/mysql.py#L655).
+Check the example to send metrics in the [Rancher Observability MySQL check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/mysql.py#L655).
 
 ### Events
 
-Events can be sent to StackState with the `self.event(event_dict)` method.
+Events can be sent to Rancher Observability with the `self.event(event_dict)` method.
 
 {% tabs %}
 {% tab title="Example - send an event" %}
@@ -320,7 +320,7 @@ This will be fully deprecated in Agent Check V2 in favour of the `CheckResponse`
 
 ### Health
 
-Health information can be sent to StackState with the following methods:
+Health information can be sent to Rancher Observability with the following methods:
 
 * `self.health.check_state` - send a check state as part of a snapshot.
 * `self.health.start_snapshot()` - start a health snapshot. Stackstate will only process health information if it's sent as part of a snapshot.
@@ -361,14 +361,14 @@ The `HealthStream` class has the following options:
 
 * **urn** - HealthStreamUrn. The stream urn under which the health information will be grouped.
 * **sub\_stream** - string. Optional. Allows for separating disjoint data sources within a single health synchronization stream. For example, the data for the streams is reported separately from different hosts.
-* **repeat\_interval\_seconds** - integer. Optional. The interval with which data will be repeated, defaults to `collection_interval` (`min_collection_interval` for Agent V2.14.x or earlier). This allows StackState to detect when data arrives later than expected.
+* **repeat\_interval\_seconds** - integer. Optional. The interval with which data will be repeated, defaults to `collection_interval` (`min_collection_interval` for Agent V2.14.x or earlier). This allows Rancher Observability to detect when data arrives later than expected.
 * **expiry\_seconds** - integer. Optional. The time after which all data from the stream or substream should be removed. Set to '0' to disable expiry \(this is only possible when the `sub_stream` parameter is omitted\). Default 4\*`repeat_interval_seconds`.
 
 For more information on urns, health synchronization streams, snapshots and how to debug, see [health Synchronization](../../../configure/health/health-synchronization.md).
 
 #### Send check states
 
-Components can be sent to StackState using the `self.component(id, type, data)` method.
+Components can be sent to Rancher Observability using the `self.component(id, type, data)` method.
 
 {% tabs %}
 {% tab title="Example - send a check state" %}
@@ -392,15 +392,15 @@ The method requires the following details:
 
 * **check\_state\_id** - string. Uniquely identifies the check state within the \(sub\)stream.
 * **name** - string. Display name for the health check state.
-* **health\_value** - Health. The StackState health value, can be `CLEAR`, `DEVIATING` or `CRITICAL`.
+* **health\_value** - Health. The Rancher Observability health value, can be `CLEAR`, `DEVIATING` or `CRITICAL`.
 * **topology\_element\_identifier** - string. The component or relation identifier that the check state should bind to. The check state will be associated with all components/relations that have the specified identifier.
 * **message** - string. Optional. Extended message to display with the health state. Supports Markdown.
 
-For an example of how to create a component, see the [StackState Static Health check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/static_health/stackstate_checks/static_health/static_health.py).
+For an example of how to create a component, see the [Rancher Observability Static Health check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/static_health/stackstate_checks/static_health/static_health.py).
 
 ### Checks and streams
 
-Streams and health checks can be sent to StackState together with a topology component. These can then be mapped together in StackState by a StackPack to give you telemetry streams and health states on your components.
+Streams and health checks can be sent to Rancher Observability together with a topology component. These can then be mapped together in Rancher Observability by a StackPack to give you telemetry streams and health states on your components.
 
 All telemetry classes and methods can be imported from `stackstate_checks.base`. The following stream types can be added:
 
@@ -467,7 +467,7 @@ EventStream(
 
 Each events stream has the following details:
 
-* **name** - The name for the stream in StackState.
+* **name** - The name for the stream in Rancher Observability.
 * **conditions** - A dictionary of key:value arguments that are used to filter the event values for the stream.
 
 **Event stream health check**
@@ -500,8 +500,8 @@ EventHealthChecks.contains_key_value(
 An event stream health check includes the details listed below. Note that a custom\_health\_check only requires a **name** and **check\_arguments**:
 
 * **stream\_id** - the identifier of the stream the check should run on.
-* **name** - the name the check will have in StackState.
-* **description** - the description for the check in StackState.
+* **name** - the name the check will have in Rancher Observability.
+* **description** - the description for the check in Rancher Observability.
 * **remediation\_hint** - the remediation hint to display when the check return a CRITICAL health state.
 * **contains\_key** - for check `contains_key_value` only. The key that should be contained in the event.
 * **contains\_value** - for check `contains_key_value` only. The value that should be contained in the event.
@@ -534,12 +534,12 @@ MetricStream(
 
 Each metric stream has the following details:
 
-* **name** - The name for the stream in StackState.
+* **name** - The name for the stream in Rancher Observability.
 * **metricField** - The name of the metric to select.
 * **conditions** - A dictionary of key:value arguments that are used to filter the metric values for the stream.
 * **unit\_of\_measure** - Optional. The unit of measure for the metric points, it gets appended after the stream name: `name (unit_of_measure)`
-* **aggregation** - Optional. sets the aggregation function for the metrics in StackState. See [aggregation methods](/use/metrics/add-telemetry-to-element.md#aggregation-methods).
-* **priority** - Optional. The stream priority in StackState, one of `NONE`, `LOW`, `MEDIUM`, `HIGH`. HIGH priority streams are used for anomaly detection in StackState.
+* **aggregation** - Optional. sets the aggregation function for the metrics in Rancher Observability. See [aggregation methods](/use/metrics/add-telemetry-to-element.md#aggregation-methods).
+* **priority** - Optional. The stream priority in Rancher Observability, one of `NONE`, `LOW`, `MEDIUM`, `HIGH`. HIGH priority streams are used for anomaly detection in Rancher Observability.
 
 **Metric stream health check**
 
@@ -576,8 +576,8 @@ MetricHealthChecks.maximum_average(
 
 A metric stream health check has the details listed below. Note that a custom\_health\_check only requires a **name** and **check\_arguments**:
 
-* **name** - the name the health check will have in StackState.
-* **description** - the description for the health check in StackState.
+* **name** - the name the health check will have in Rancher Observability.
+* **description** - the description for the health check in Rancher Observability.
 * **deviating\_value** - the threshold at which point the check will return a DEVIATING health state.
 * **critical\_value** - the threshold at which point the check will return a CRITICAL health state.
 * **remediation\_hint** - the remediation hint to display when the check returns a CRITICAL health state.
@@ -594,15 +594,15 @@ For details see the [MetricHealthChecks class \(github.com\)](https://github.com
 
 #### Service check stream
 
-A Service Check stream can be added to a component using the `ServiceCheckStream` class. It expects a stream `name` and `conditions` for the metric telemetry query in StackState. Service Check Streams has one out of the box supported check which can be mapped using the stream identifier.
+A Service Check stream can be added to a component using the `ServiceCheckStream` class. It expects a stream `name` and `conditions` for the metric telemetry query in Rancher Observability. Service Check Streams has one out of the box supported check which can be mapped using the stream identifier.
 
 ```text
 class ServiceCheckStream(TelemetryStream):
     """
-    creates a service check stream definition for the component that will bind service checks in StackState for the
+    creates a service check stream definition for the component that will bind service checks in Rancher Observability for the
     conditions.
     args: `name, conditions
-    `name` The name for the stream in StackState
+    `name` The name for the stream in Rancher Observability
     `conditions` is a dictionary of key -> value arguments that are used to filter the event values for the stream.
     """
 
@@ -610,11 +610,11 @@ class ServiceCheckHealthChecks(object):
 
     def service_check_health(stream_id, name, description=None, remediation_hint=None):
         """
-        Check that returns the service check status as a health status in StackState
+        Check that returns the service check status as a health status in Rancher Observability
         args: `stream_id, name, description, remediation_hint`
         `stream_id` the identifier of the stream this check should run on
-        `name` the name this check will have in StackState
-        `description` the description for this check in StackState
+        `name` the name this check will have in Rancher Observability
+        `description` the description for this check in Rancher Observability
         `remediation_hint` the remediation hint to display when this check return a CRITICAL health state
         """
 ```
@@ -637,7 +637,7 @@ def _collect_type(self, key, mapping, the_type):
 {% endtab %}
 {% endtabs %}
 
-Example taken from the [StackState MySQL Agent check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/mysql.py#L731).
+Example taken from the [Rancher Observability MySQL Agent check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/mysql.py#L731).
 
 ## Error handling
 
@@ -657,11 +657,11 @@ if len(queries) > max_custom_queries:
 {% endtab %}
 {% endtabs %}
 
-Example taken from the [StackState MySQL Agent check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/mysql.py#L640).
+Example taken from the [Rancher Observability MySQL Agent check \(github.com\)](https://github.com/StackVista/stackstate-agent-integrations/blob/master/mysql/stackstate_checks/mysql/mysql.py#L640).
 
 ## See also
 
-* [Connect an Agent check with StackState using the Custom Synchronization StackPack](connect_agent_check_with_stackstate.md)
+* [Connect an Agent check with Rancher Observability using the Custom Synchronization StackPack](connect_agent_check_with_stackstate.md)
 * [Agent check state](agent-check-state.md)
 * [How to develop Agent checks](how_to_develop_agent_checks.md)
 * [Developer guide - Custom Synchronization StackPack](../custom_synchronization_stackpack/)

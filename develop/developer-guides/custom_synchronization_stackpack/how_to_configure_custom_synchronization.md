@@ -1,18 +1,18 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # How to configure a custom synchronization
 
 ## Overview
 
-Synchronizations are defined by a data source and several mappings from the external system topology data into StackState topology elements using Component and Relation Mapping Functions, as well as Component and Relation Templates. `Custom Synchronization` StackPack delivers a Synchronization called `default auto synchronization`. You can [find more on Synchronizations](../synchronizations_and_templated_files.md) or proceed to edit `default auto synchronization` following the instructions below.
+Synchronizations are defined by a data source and several mappings from the external system topology data into Rancher Observability topology elements using Component and Relation Mapping Functions, as well as Component and Relation Templates. `Custom Synchronization` StackPack delivers a Synchronization called `default auto synchronization`. You can [find more on Synchronizations](../synchronizations_and_templated_files.md) or proceed to edit `default auto synchronization` following the instructions below.
 
 ## Edit default auto synchronization
 
 ### Step 1
 
-It's recommended that you change the `Synchronization Name` and add a `Description` if needed. There is no action required on `Plugin`, it uses the `Sts` plugin to synchronize data from StackState Agent V2.
+It's recommended that you change the `Synchronization Name` and add a `Description` if needed. There is no action required on `Plugin`, it uses the `Sts` plugin to synchronize data from Rancher Observability Agent V2.
 
 ### Step 2
 

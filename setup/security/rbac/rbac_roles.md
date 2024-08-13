@@ -1,24 +1,24 @@
 ---
-description: StackState Self-hosted
+description: Rancher Observability Self-hosted
 ---
 
 # Roles
 
 ## Overview
 
-Every user in StackState needs to have a subject and a set of [permissions](rbac_permissions.md) assigned; this combination is called a role. A role describes a group of users that can access a specific data set. StackState ships with a set of predefined roles and you can also create roles to match your needs.
+Every user in Rancher Observability needs to have a subject and a set of [permissions](rbac_permissions.md) assigned; this combination is called a role. A role describes a group of users that can access a specific data set. Rancher Observability ships with a set of predefined roles and you can also create roles to match your needs.
 
 ## Predefined roles
 
-There are four roles predefined in StackState:
+There are four roles predefined in Rancher Observability:
 
 * **Administrator** - has full access to all views and has all permissions, except for platform management.
 * **Platform Administrator** - has platform management permissions and access to all views.
-* **Power User** - typically granted to a user that needs to configure StackState for a team\(s\), but won't manage the entire StackState installation.
-* **Kubernetes Troubleshooter** - has all permissions required to use StackState for troubleshooting, including the ability to enable/disable monitors, create custom views and use the Cli.
-* **Guest** - has read-only access to StackState.
+* **Power User** - typically granted to a user that needs to configure Rancher Observability for a team\(s\), but won't manage the entire Rancher Observability installation.
+* **Kubernetes Troubleshooter** - has all permissions required to use Rancher Observability for troubleshooting, including the ability to enable/disable monitors, create custom views and use the Cli.
+* **Guest** - has read-only access to Rancher Observability.
 
-The permissions assigned to each predefined StackState role can be found below. For details of the different permissions and how to manage them using the `stac` CLI, see [Role based access control (RBAC) permissions](/setup/security/rbac/rbac_permissions.md)
+The permissions assigned to each predefined Rancher Observability role can be found below. For details of the different permissions and how to manage them using the `stac` CLI, see [Role based access control (RBAC) permissions](/setup/security/rbac/rbac_permissions.md)
 
 {% tabs %}
 {% tab title="Administrator" %}
@@ -134,7 +134,7 @@ view-monitors               | system
 {% endtab %}
 {% tab title="Troubleshooter" %}
 
-The Troubleshooter role \(`stackstate-k8s-troubleshooter`\) has access to all data available in StackState and the ability to create views and enable/disable monitors.
+The Troubleshooter role \(`stackstate-k8s-troubleshooter`\) has access to all data available in Rancher Observability and the ability to create views and enable/disable monitors.
 
 Permissions assigned to the predefined troubleshooter role are listed below, these were retrieved using the `sts` CLI. For details of the different permissions and how to manage them using the `sts` CLI, see [RBAC permissions](/setup/security/rbac/rbac_permissions.md).
 
@@ -178,7 +178,7 @@ view-monitors               | system
 {% endtab %}
 {% tab title="Guest" %}
 
-The Guest role \(`stackstate-guest`\) has read-only access to StackState.
+The Guest role \(`stackstate-guest`\) has read-only access to Rancher Observability.
 
 Permissions assigned to the predefined Guest role are listed below, these were retrieved using the `sts` CLI. For details of the different permissions and how to manage them using the `sts` CLI, see [RBAC permissions](/setup/security/rbac/rbac_permissions.md).
 
@@ -213,7 +213,7 @@ Roles added via the configuration file require a restart and therefore result in
 
 ### Custom names for predefined roles
 
-Use this option when the predefined StackState roles are a good fit but the external authentication provider has different names for the roles. For example when the LDAP authentication provider has similar but differently named roles include this YAML snippet in an `authentication.yaml` to give the roles from LDAP the same permissions and scopes as the predefined, equivalent, roles.
+Use this option when the predefined Rancher Observability roles are a good fit but the external authentication provider has different names for the roles. For example when the LDAP authentication provider has similar but differently named roles include this YAML snippet in an `authentication.yaml` to give the roles from LDAP the same permissions and scopes as the predefined, equivalent, roles.
 
 ```yaml
 stackstate:
@@ -226,7 +226,7 @@ stackstate:
       platformAdmin: ["ldap-platform-admin-role"]
 ```
 
-To use it in for your StackState installation \(or already running instance, note that it will restart the API\):
+To use it in for your Rancher Observability installation \(or already running instance, note that it will restart the API\):
 
 ```text
 helm upgrade \
@@ -286,7 +286,7 @@ stackstate:
           topologyScope: "label = 'kube_cluster_name:dev-test'" # Optional, leave out when the scope should be all topology
 ```
 
-To use it in for your StackState installation \(or already running instance, note that it will restart the API\):
+To use it in for your Rancher Observability installation \(or already running instance, note that it will restart the API\):
 
 ```text
 helm upgrade \

@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Linux
@@ -7,14 +7,14 @@ description: StackState Self-hosted v5.1.x
 ## Overview
 
 {% hint style="info" %}
-**StackState Agent V2**
+**Rancher Observability Agent V2**
 {% endhint %}
 
-StackState Agent V2 can be installed on Linux systems running CentOS, Debian, Fedora, RedHat or Ubuntu. The Agent collects data from the host where it's running and can be configured to integrate with external systems. Retrieved data is pushed to StackState, to work with this data the [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md) must be installed in your StackState instance. For details of the data retrieved and available integrations, see the [StackPack integration documentation](../../stackpacks/integrations/).
+Rancher Observability Agent V2 can be installed on Linux systems running CentOS, Debian, Fedora, RedHat or Ubuntu. The Agent collects data from the host where it's running and can be configured to integrate with external systems. Retrieved data is pushed to Rancher Observability, to work with this data the [Rancher Observability Agent V2 StackPack](../../stackpacks/integrations/agent.md) must be installed in your Rancher Observability instance. For details of the data retrieved and available integrations, see the [StackPack integration documentation](../../stackpacks/integrations/).
 
 ## Monitoring
 
-StackState Agent V2 will synchronize the following data with StackState from the Linux host it's running on:
+Rancher Observability Agent V2 will synchronize the following data with Rancher Observability from the Linux host it's running on:
 
 * Hosts, processes and containers.
 * Telemetry for hosts, processes and containers.
@@ -27,7 +27,7 @@ StackState Agent V2 will synchronize the following data with StackState from the
 
 ### Supported versions
 
-StackState Agent is tested to run on the Linux versions listed below with 64bit architecture. Note that host data for network connections between processes and containers \(including network traffic telemetry\) can only be retrieved for OS versions with a network tracer \(kernel version 4.3.0 or higher\):
+Rancher Observability Agent is tested to run on the Linux versions listed below with 64bit architecture. Note that host data for network connections between processes and containers \(including network traffic telemetry\) can only be retrieved for OS versions with a network tracer \(kernel version 4.3.0 or higher\):
 
 | Platform | Minimum version | Notes |
 | :--- | :--- | :--- |
@@ -39,7 +39,7 @@ StackState Agent is tested to run on the Linux versions listed below with 64bit 
 
 ### Install
 
-StackState Agent V2 is installed using an install script.
+Rancher Observability Agent V2 is installed using an install script.
 
 * [Online install](linux.md#online-install) - If you have access to the internet on the machine where the Agent will be installed. 
 * [Offline install](linux.md#offline-install) - If you **don't** have access to the internet on the machine where the Agent will be installed.
@@ -48,10 +48,10 @@ StackState Agent V2 is installed using an install script.
 
 If you have access to the internet on the machine where the Agent will be installed, use one of the commands below to run the `install.sh` script. The Agent installer package will be downloaded automatically.
 
-* `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
-* `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState. 
+* `<STACKSTATE_RECEIVER_API_KEY>` is set during Rancher Observability installation.
+* `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of Rancher Observability. 
 
-For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
+For details see [Rancher Observability Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
 
 {% tabs %}
 {% tab title="cURL" %}
@@ -85,9 +85,9 @@ If you don't have access to the internet on the machine where the Agent will be 
    * **DEB Download link:** `https://stackstate-agent-2.s3.amazonaws.com/<Key_from_DEB_installer_package_list>`
    * **RPM Download link:** `https://stackstate-agent-2-rpm.s3.amazonaws.com/<Key_from_RPM_installer_package_list>`
 4. Use the command below to set the required environment variables and run the installer script.
-   * `<STACKSTATE_RECEIVER_API_KEY>` is set during StackState installation.
-   * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of StackState.
-   For details see [StackState Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
+   * `<STACKSTATE_RECEIVER_API_KEY>` is set during Rancher Observability installation.
+   * `<STACKSTATE_RECEIVER_API_ADDRESS>` is specific to your installation of Rancher Observability.
+   For details see [Rancher Observability Receiver API](/setup/agent/about-stackstate-agent.md#connect-to-stackstate).
 
 ```text
 STS_API_KEY="<STACKSTATE_RECEIVER_API_KEY>" \
@@ -98,7 +98,7 @@ STS_INSTALL_NO_REPO=yes \
 
 ### Upgrade
 
-To upgrade StackState Agent V2 on your system, stop the `stackstate-agent` service and upgrade using `yum` or `apt-get`. To upgrade offline, download the Agent installer package \(DEB or RPM package\) and copy this to the host where it will be installed - see step 2 in the [offline install instructions](linux.md#offline-install).
+To upgrade Rancher Observability Agent V2 on your system, stop the `stackstate-agent` service and upgrade using `yum` or `apt-get`. To upgrade offline, download the Agent installer package \(DEB or RPM package\) and copy this to the host where it will be installed - see step 2 in the [offline install instructions](linux.md#offline-install).
 
 {% tabs %}
 {% tab title="yum" %}
@@ -134,17 +134,17 @@ sudo apt-get upgrade <agent_installer_package>.deb
 
 ### Agent configuration
 
-The StackState Agent V2 configuration is located in the file `/etc/stackstate-agent/stackstate.yaml`. The `<STACKSTATE_RECEIVER_API_KEY>` and `<STACKSTATE_BASE_URL>` specified during installation will be added here by the install script. No further configuration should be required, however, a number of advanced configuration options are available.
+The Rancher Observability Agent V2 configuration is located in the file `/etc/stackstate-agent/stackstate.yaml`. The `<STACKSTATE_RECEIVER_API_KEY>` and `<STACKSTATE_BASE_URL>` specified during installation will be added here by the install script. No further configuration should be required, however, a number of advanced configuration options are available.
 
 ### Advanced Agent configuration
 
-StackState Agent V2 can be configured to reduce data production, tune the process blacklist, or turn off specific features when not needed. The required settings are described in detail on the page [advanced Agent configuration](advanced-agent-configuration.md).
+Rancher Observability Agent V2 can be configured to reduce data production, tune the process blacklist, or turn off specific features when not needed. The required settings are described in detail on the page [advanced Agent configuration](advanced-agent-configuration.md).
 
 ### Integration configuration
 
-The Agent can be configured to run checks that integrate with external systems. Configuration files for integrations run through StackState Agent V2 can be found in the directory `/etc/stackstate-agent/conf.d/`. Each integration has its own configuration file that's used by the associated Agent check.
+The Agent can be configured to run checks that integrate with external systems. Configuration files for integrations run through Rancher Observability Agent V2 can be found in the directory `/etc/stackstate-agent/conf.d/`. Each integration has its own configuration file that's used by the associated Agent check.
 
-Documentation for the available StackState integrations, including configuration details can be found on the [StackPacks &gt; Integrations pages](../../stackpacks/integrations/).
+Documentation for the available Rancher Observability integrations, including configuration details can be found on the [StackPacks &gt; Integrations pages](../../stackpacks/integrations/).
 
 ### Proxy configuration
 
@@ -158,7 +158,7 @@ Commands require elevated privileges.
 
 ### Start, stop or restart the Agent
 
-To manually start, stop or restart StackState Agent V2:
+To manually start, stop or restart Rancher Observability Agent V2:
 
 ```text
 # with systemctl
@@ -174,7 +174,7 @@ sudo service stackstate-agent restart
 
 ### Status and information
 
-To check if StackState Agent V2 is running and receive information about the Agent's state:
+To check if Rancher Observability Agent V2 is running and receive information about the Agent's state:
 
 ```text
 # with systemctl
@@ -228,7 +228,7 @@ To set the log level to `DEBUG` for an Agent running on Linux:
     ```
     log_level: debug
     ```
-3. To also include the topology/telemetry payloads sent to StackState in the Agent log, add the line:
+3. To also include the topology/telemetry payloads sent to Rancher Observability in the Agent log, add the line:
     ```
     log_payloads: true
     ```
@@ -236,11 +236,11 @@ To set the log level to `DEBUG` for an Agent running on Linux:
 
 ### Support knowledge base
 
-Troubleshooting steps for any known issues can be found in the [StackState support knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=agent).
+Troubleshooting steps for any known issues can be found in the [Rancher Observability support knowledge base](https://support.stackstate.com/hc/en-us/search?category=360002777619&filter_by=knowledge_base&query=agent).
 
 ## Uninstall
 
-To uninstall StackState Agent V2 from your system, stop the `stackstate-agent` service and remove it using `yum` or `apt-get`.
+To uninstall Rancher Observability Agent V2 from your system, stop the `stackstate-agent` service and remove it using `yum` or `apt-get`.
 
 {% tabs %}
 {% tab title="yum" %}
@@ -268,9 +268,9 @@ sudo apt-get remove stackstate-agent
 
 ## See also
 
-* [About StackState Agent V2](about-stackstate-agent.md)
+* [About Rancher Observability Agent V2](about-stackstate-agent.md)
 * [Advanced Agent configuration](advanced-agent-configuration.md)  
-* [StackState Agent V2 StackPack](../../stackpacks/integrations/agent.md)
+* [Rancher Observability Agent V2 StackPack](../../stackpacks/integrations/agent.md)
 * [StackPack integration documentation](../../stackpacks/integrations/)
-* [StackState Agent V2 \(github.com\)](https://github.com/StackVista/stackstate-agent)
+* [Rancher Observability Agent V2 \(github.com\)](https://github.com/StackVista/stackstate-agent)
 

@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # UI - script API
@@ -10,15 +10,15 @@ These functions only work in the context of scripts that are executed by a user 
 
 ## Function: `UI.baseUrl()`
 
-Returns the baseUrl of the StackState instance (`<STACKSTATE_BASE_URL>`) as configured in the `application.conf` or `values.yaml`.
+Returns the baseUrl of the Rancher Observability instance (`<STACKSTATE_BASE_URL>`) as configured in the `application.conf` or `values.yaml`.
 
 ### Examples
 
-Return the base URL from the StackState configuration.
+Return the base URL from the Rancher Observability configuration.
 
 ## Function: `UI.createUrl()`
 
-Creates a URL builder that can be used to generate URLs that can be linked back in StackState.
+Creates a URL builder that can be used to generate URLs that can be linked back in Rancher Observability.
 
 ### Args
 
@@ -112,7 +112,7 @@ Shows a report in the user-interface. The user-interface will open a dialog with
 ### Args
 
 * `reportName` - Name of the report. In a dialog with the report, the name of the report will be in the title bar.
-* `stmlContent` - The report markup. See [StackState Markup Language](../../stml/) for more information on how to format a report.
+* `stmlContent` - The report markup. See [Rancher Observability Markup Language](../../stml/) for more information on how to format a report.
 * Optional `data` - A map with data elements that can be referenced by the STML.
 
 ### Return type

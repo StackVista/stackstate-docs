@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Telemetry - script API
@@ -20,7 +20,7 @@ Telemetry queries only support metric queries. If you need event queries, please
 ### Returns
 
 {% hint style="info" %}
-The output format of the Telemetry API changed in StackState v5.0. If you are running an earlier version of StackState, see the documentation for [StackState v4.6 documentation \(docs.stackstate.com/v/4.6\)](https://docs.stackstate.com/v/4.6/develop/reference/scripting/script-apis/telemetry).
+The output format of the Telemetry API changed in Rancher Observability v5.0. If you are running an earlier version of Rancher Observability, see the documentation for [Rancher Observability v4.6 documentation \(docs.stackstate.com/v/4.6\)](https://docs.stackstate.com/v/4.6/develop/reference/scripting/script-apis/telemetry).
 {% endhint %}
 
 `StreamingScriptResult[MetricTimeSeriesResult]`
@@ -53,7 +53,7 @@ The output format of the Telemetry API changed in StackState v5.0. If you are ru
   {% tab title="Query" %}
   ```text
   Telemetry
-    .query("StackState Multi Metrics", "")
+    .query("Rancher Observability Multi Metrics", "")
     .groupBy("host")
     .metricField("jvm_threads_current")
     .start("-15m")
@@ -144,7 +144,7 @@ The output format of the Telemetry API changed in StackState v5.0. If you are ru
   {% tab title="Query" %}
   ```text
   Telemetry
-    .query("StackState Multi Metrics", "")
+    .query("Rancher Observability Multi Metrics", "")
     .groupBy("host")
     .metricField("jvm_threads_current")
     .start("-15m")
@@ -176,14 +176,14 @@ The output format of the Telemetry API changed in StackState v5.0. If you are ru
 #### Get raw metric by query
   ```text
   Telemetry
-    .query("StackState Metrics", "name='system.load.norm' and host='host1'")
+    .query("Rancher Observability Metrics", "name='system.load.norm' and host='host1'")
     .metricField("value")
   ```
 
 #### Get metric aggregated using Mean with bucket size 1 minute
   ```text
   Telemetry
-    .query("StackState Metrics", "name='system.load.norm' and host='host1'")
+    .query("Rancher Observability Metrics", "name='system.load.norm' and host='host1'")
     .metricField("value")
     .aggregation("99th percentile", "1m") // get 99th percentile of each minute
   ```
@@ -192,7 +192,7 @@ The output format of the Telemetry API changed in StackState v5.0. If you are ru
 
   ```text
   Telemetry
-    .query("StackState Metrics", "name='system.load.norm' and host='host1'")
+    .query("Rancher Observability Metrics", "name='system.load.norm' and host='host1'")
     .metricField("value")
     .start("-3h") // starting from 3 hours ago
   ```
@@ -201,7 +201,7 @@ The output format of the Telemetry API changed in StackState v5.0. If you are ru
 
   ```text
   Telemetry
-    .query("StackState Metrics", "name='system.load.norm' and host='host1'")
+    .query("Rancher Observability Metrics", "name='system.load.norm' and host='host1'")
     .metricField("value")
     .end("-1h") // ending 1 hour ago
   ```
@@ -210,7 +210,7 @@ The output format of the Telemetry API changed in StackState v5.0. If you are ru
 
   ```text
   Telemetry
-    .query("StackState Metrics", "name='system.load.norm' and host='host1'")
+    .query("Rancher Observability Metrics", "name='system.load.norm' and host='host1'")
     .metricField("value")
     .window("-3h", "-1h") // from 3 hours ago to 1 hour ago
   ```
@@ -219,7 +219,7 @@ The output format of the Telemetry API changed in StackState v5.0. If you are ru
 
   ```text
   Telemetry
-    .query("StackState Metrics", "name='system.load.norm' and host='host1'")
+    .query("Rancher Observability Metrics", "name='system.load.norm' and host='host1'")
     .metricField("value")
     .limit(100)
   ```

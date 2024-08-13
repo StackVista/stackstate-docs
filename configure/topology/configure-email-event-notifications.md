@@ -1,18 +1,18 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Enable email event notifications
 
 ## Overview
 
-StackState can send an event notification by email whenever the health state of an entity or view changes. To enable email event notifications, the StackState configuration must include details of the SMTP server to use.
+Rancher Observability can send an event notification by email whenever the health state of an entity or view changes. To enable email event notifications, the Rancher Observability configuration must include details of the SMTP server to use.
 
 ## Configure an SMTP server to use for email event notifications
 
 {% tabs %}
 {% tab title="Kubernetes" %}
-1. Update the StackState configuration in `values.yaml` to include SMTP server details:
+1. Update the Rancher Observability configuration in `values.yaml` to include SMTP server details:
 
    ```text
     stackstate:
@@ -37,12 +37,12 @@ StackState can send an event notification by email whenever the health state of 
             }
    ```
 
-2. Restart StackState to apply the configuration changes.
-3. You can [manage the event handlers configured for a view](/use/events/manage-event-handlers.md) in the StackState UI right panel **View summary** tab under **Event handlers**.
+2. Restart Rancher Observability to apply the configuration changes.
+3. You can [manage the event handlers configured for a view](/use/events/manage-event-handlers.md) in the Rancher Observability UI right panel **View summary** tab under **Event handlers**.
 {% endtab %}
 
 {% tab title="Linux" %}
-1. Update the StackState configuration file `application_stackstate.conf` to include SMTP server details:
+1. Update the Rancher Observability configuration file `application_stackstate.conf` to include SMTP server details:
 
    ```text
     stackstate{
@@ -67,8 +67,8 @@ StackState can send an event notification by email whenever the health state of 
     }
    ```
 
-2. Restart StackState to apply the configuration changes.
-3. You can [manage the event handlers configured for a view](/use/events/manage-event-handlers.md) in the StackState UI right panel **View summary** tab under **Event handlers**.
+2. Restart Rancher Observability to apply the configuration changes.
+3. You can [manage the event handlers configured for a view](/use/events/manage-event-handlers.md) in the Rancher Observability UI right panel **View summary** tab under **Event handlers**.
 {% endtab %}
 {% endtabs %}
 

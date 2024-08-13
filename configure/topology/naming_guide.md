@@ -1,12 +1,12 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Naming guide
 
 ## Overview
 
-Getting the most out of StackState becomes easier when components are easy to find. What things are called helps a lot with creating that clarity. To help when naming your new layers or components, this page provides a list of examples used within StackState. Often already provided to you within StackPacks.
+Getting the most out of Rancher Observability becomes easier when components are easy to find. What things are called helps a lot with creating that clarity. To help when naming your new layers or components, this page provides a list of examples used within Rancher Observability. Often already provided to you within StackPacks.
 
 ## Layers
 

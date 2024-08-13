@@ -1,5 +1,5 @@
 ---
-description: StackState v6.0
+description: Rancher Observability v6.0
 ---
 
 ## Overview
@@ -8,7 +8,7 @@ This page describes the exact JSON messages that can be sent for the health sync
 
 ## JSON property: "health"
 
-Health can be sent to the StackState Receiver API using the `"health"` property of the [common JSON object](send-health-data.md#common-json-object).
+Health can be sent to the Rancher Observability Receiver API using the `"health"` property of the [common JSON object](send-health-data.md#common-json-object).
 
 {% tabs %}
 {% tab title="Example health `repeat_snapshots` JSON" %}
@@ -54,24 +54,24 @@ Health can be sent to the StackState Receiver API using the `"health"` property 
 
 Every health Repeat Snapshots data payload has the following details:
 
-* **start_snapshot** - Optional. A start of a snapshot needs to be processed before processing `check_states`. This enables StackState to diff a stream snapshot with the previously received one and delete check states that are no longer present in the snapshot. It carries the following fields as snapshot metadata:
-  * **repeat_interval_s** - Time in seconds. The frequency with which the external source will send health data to StackState. Max allowed value is 1800 (30 minutes).
-  * **expiry_interval_s** - Time in seconds. The time to wait after the last update before an external check is deleted by StackState. Required when using sub streams.
+* **start_snapshot** - Optional. A start of a snapshot needs to be processed before processing `check_states`. This enables Rancher Observability to diff a stream snapshot with the previously received one and delete check states that are no longer present in the snapshot. It carries the following fields as snapshot metadata:
+  * **repeat_interval_s** - Time in seconds. The frequency with which the external source will send health data to Rancher Observability. Max allowed value is 1800 (30 minutes).
+  * **expiry_interval_s** - Time in seconds. The time to wait after the last update before an external check is deleted by Rancher Observability. Required when using sub streams.
 * **stop_snapshot** - Optional. An end of a snapshot will be processed after processing the`check_states`.
 * **stream** - Object providing identification regarding which snapshots and `check_states` belong together. It has the following fields:
-  * **urn** - Data source and stream ID encoded as a StackState [URN](/configure/topology/identifiers.md) that matches the following convention: `urn:health:<sourceId>:<streamId>` where `<sourceId>` is the name if the external data source and `<streamId>` is a unique identifier for the health data stream.
+  * **urn** - Data source and stream ID encoded as a Rancher Observability [URN](/configure/topology/identifiers.md) that matches the following convention: `urn:health:<sourceId>:<streamId>` where `<sourceId>` is the name if the external data source and `<streamId>` is a unique identifier for the health data stream.
   * **sub_stream_id** - Optional. Identifier for a subset of the stream health data. When the stream data is distributed and reported by several Agents, this allows snapshot lifecycles per `sub_stream_id`
 * **check_states** - A list of check states. Each check state can have the following fields:
   * **checkStateId** - Identifier for the check state in the external system
-  * **message** - Optional. Message to display in StackState UI. Data will be interpreted as markdown allowing to have links to the external system check that generated the external check state.
-  * **health** - One of the following StackState Health state values: `Clear`, `Deviating`, `Critical`.
-  * **topologyElementIdentifier** - Used to bind the check state to a StackState topology element.
+  * **message** - Optional. Message to display in Rancher Observability UI. Data will be interpreted as markdown allowing to have links to the external system check that generated the external check state.
+  * **health** - One of the following Rancher Observability Health state values: `Clear`, `Deviating`, `Critical`.
+  * **topologyElementIdentifier** - Used to bind the check state to a Rancher Observability topology element.
   * **name** - Name of the external check state.
 
 
-## Send health to StackState
+## Send health to Rancher Observability
 
-Health can be sent in one JSON message via HTTP POST or using the `stac` CLI command `stac health send`. In the example below, a snapshot containing two check states is sent to StackState from a single external monitoring system.
+Health can be sent in one JSON message via HTTP POST or using the `stac` CLI command `stac health send`. In the example below, a snapshot containing two check states is sent to Rancher Observability from a single external monitoring system.
 
 {% tabs %}
 {% tab title="curl" %}
@@ -115,13 +115,13 @@ curl -X POST \
 {% endtab %}
 {% tab title="CLI: stac (deprecated)" %}
 {% hint style="warning" %}
-**From StackState v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
+**From Rancher Observability v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
 
 The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
 
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "StackState Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "StackState Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "StackState Self-Hosted only")
+* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "Rancher Observability Self-Hosted only")
+* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "Rancher Observability Self-Hosted only")
+* [Comparison between the CLIs](/setup/cli/cli-comparison.md "Rancher Observability Self-Hosted only")
 {% endhint %}
 
 ```

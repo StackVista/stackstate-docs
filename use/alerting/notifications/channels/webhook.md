@@ -1,10 +1,10 @@
 ---
-description: StackState v6.0
+description: Rancher Observability v6.0
 ---
 
 # Webhook
 
-Webhooks are custom HTTP callbacks that you define and run. They can take any action needed whenever a notification is opened or closed. For example by creating a ticket in a ticketing system that's not supported natively by StackState. Or by simply writing the notification messages to an S3 bucket for future reference.
+Webhooks are custom HTTP callbacks that you define and run. They can take any action needed whenever a notification is opened or closed. For example by creating a ticket in a ticketing system that's not supported natively by Rancher Observability. Or by simply writing the notification messages to an S3 bucket for future reference.
 
 The webhook channel sends the notifications data as [JSON over HTTP](#webhook-requests-and-payload).
 
@@ -15,9 +15,9 @@ The webhook channel sends the notifications data as [JSON over HTTP](#webhook-re
 To configure a webhook complete the fields:
 
 1. URL - enter the URL of the webhook endpoint. The URL must be percent-encoded if it has special characters.
-2. Secret token - a secret token that StackState will include in every request to [validate it](#validate-the-requests)
-3. Metadata - add extra key/value pairs that are included in the payload. This can be used when the same endpoint handles multiple StackState webhooks and needs some extra information
-4. Enable SSL verification - (default on) enable SSL certificate validation. Only disable when using self-signed certificates or certificate authorities not supported by StackState
+2. Secret token - a secret token that Rancher Observability will include in every request to [validate it](#validate-the-requests)
+3. Metadata - add extra key/value pairs that are included in the payload. This can be used when the same endpoint handles multiple Rancher Observability webhooks and needs some extra information
+4. Enable SSL verification - (default on) enable SSL certificate validation. Only disable when using self-signed certificates or certificate authorities not supported by Rancher Observability
 
 Finally select "Add channel". The webhook channel will appear on the right. To test that the webhook works send a test message by clicking the "Test" button.
 
@@ -78,10 +78,10 @@ The Webhook channel sends data as HTTP POST requests. The endpoint and payload a
 
 The sections in the `open` payload are:
 
-1. Component: the StackState component that the notification applies to. This includes the components name, identifier, type, and tags. It also has a link to the StackState UI that will open the component at the time of the health state change
+1. Component: the Rancher Observability component that the notification applies to. This includes the components name, identifier, type, and tags. It also has a link to the Rancher Observability UI that will open the component at the time of the health state change
 2. Event: the event that triggered this notification. It can either be of type `open` or `close` (see next section). An `open` state means that the monitor is still in a critical (or deviating) state for the specified component. A `close` state means that the monitor was open before but that the issue has been resolved. The state and triggered time are included. Also included is a `title` which is a short description of the problem as provided by the monitor, it is the same title shown in the highlights page of the component, this can be different and more detailed than the monitor name.
-3. Monitor: the monitor that triggered the notification. Next to the monitor name, tags and identifier also a link is included. The link will open the monitor in the StackState UI.
-4. Notification configuration: The notification configuration for this notification. Includes a name, identifier and link. The link will open the notification configuration in the StackState UI.
+3. Monitor: the monitor that triggered the notification. Next to the monitor name, tags and identifier also a link is included. The link will open the monitor in the Rancher Observability UI.
+4. Notification configuration: The notification configuration for this notification. Includes a name, identifier and link. The link will open the notification configuration in the Rancher Observability UI.
 5. Notification id: A unique identifier for this notification. See also the [Notification life cycle](#notification-life-cycle)
 6. Metadata: It's possible to specify metadata on a webhook channel. The metadata is one-to-one reproduced here as a set of key/value pairs.
 
@@ -154,11 +154,11 @@ Note that a notification can be both opened and closed for different reasons tha
 
 ## Validate the requests
 
-The secret token specified in the channel configuration is included in the webhook requests in the  `X-StackState-Webhook-Token` header. Your webhook endpoint can check the value to verify the requests is legitimate.
+The secret token specified in the channel configuration is included in the webhook requests in the  `X-Rancher Observability-Webhook-Token` header. Your webhook endpoint can check the value to verify the requests is legitimate.
 
 ## Retries
 
-The webhook channel will retry requests for a notification until it receives a status 200 OK response (the body in the response is ignored). If the webhook fails to process the message (for example because a database is unreachable right at the time) it can simply respond with a 500 status code. StackState will re-send the same message within a few seconds in the hope that the issue has been resolved now.
+The webhook channel will retry requests for a notification until it receives a status 200 OK response (the body in the response is ignored). If the webhook fails to process the message (for example because a database is unreachable right at the time) it can simply respond with a 500 status code. Rancher Observability will re-send the same message within a few seconds in the hope that the issue has been resolved now.
 
 If a notification was updated or closed the old message will however be discarded and the new, updated, message will be send and again retried until it succeeds.
 
@@ -185,11 +185,11 @@ httpd = HTTPServer(('', int(sys.argv[1])), WebhookHTTPRequestHandler)
 httpd.serve_forever()
 ```
 2. Run the webhook server on an unused port (for example 8000): `python3 webhook.py 8000`
-3. Configure the webhook in StackState with the URL for your webhook server `http://webhook.example.com:8000`
+3. Configure the webhook in Rancher Observability with the URL for your webhook server `http://webhook.example.com:8000`
 4. Click `test` on the webhook channel
 
 {% hint style="info" %}
-The URL for your webhook must be accessible by StackState, so a localhost address or a local ip-address won't be enough.
+The URL for your webhook must be accessible by Rancher Observability, so a localhost address or a local ip-address won't be enough.
 {% endhint %}
 
 The example doesn't authenticate the request, which can be added by verifying the value of the [token header](#validate-the-requests).

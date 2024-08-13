@@ -1,14 +1,14 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # DotNet APM
 
 ## Overview
 
-To begin tracing applications written in any language, first make sure to have StackState Agent V2 installed and configured. The .NET Tracer runs in-process to instrument your applications and sends traces from your application to StackState Agent V2.
+To begin tracing applications written in any language, first make sure to have Rancher Observability Agent V2 installed and configured. The .NET Tracer runs in-process to instrument your applications and sends traces from your application to Rancher Observability Agent V2.
 
-DotNet APM is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
+DotNet APM is a [Rancher Observability curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
 ### Traces installation
 

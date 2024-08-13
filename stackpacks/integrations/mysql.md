@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # MySQL
@@ -15,7 +15,7 @@ Get realtime metrics from MySQL databases, including:
 
 You can also invent your own metrics using custom SQL queries.
 
-MySQL is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
+MySQL is a [Rancher Observability curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
 ## Setup
 
@@ -119,7 +119,7 @@ To collect `extra_performance_metrics`, your MySQL server must have `performance
 
 Note that the `stackstate` user should be set up in the MySQL integration configuration as `host: 127.0.0.1` instead of `localhost`. Alternatively, you may also use `sock`.
 
-Restart the Agent to start sending MySQL metrics to StackState.
+Restart the Agent to start sending MySQL metrics to Rancher Observability.
 
 #### Log Collection
 
@@ -152,7 +152,7 @@ Restart the Agent to start sending MySQL metrics to StackState.
             Compress
      }
      ```
-2. Collecting logs is disabled by default in StackState Agent V2, so you need to enable it in `stackstate.yaml`:
+2. Collecting logs is disabled by default in Rancher Observability Agent V2, so you need to enable it in `stackstate.yaml`:
 
    ```text
     logs_enabled: true

@@ -1,4 +1,4 @@
-## The StackState API-Integration Agent StackPack is installed
+## The Rancher Observability API-Integration Agent StackPack is installed
 
 ### Install API-Integration StackPacks
 To install specific API-Integrations have a look at our [StackPacks](/#/stackpacks).

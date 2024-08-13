@@ -2,9 +2,9 @@
 
 ### Deploy AWS Cloudformation stacks
 
-The StackState AWS Cloudformation stacks are deployed on your AWS account to enable topology monitoring. There are two options for StackState monitoring:
+The Rancher Observability AWS Cloudformation stacks are deployed on your AWS account to enable topology monitoring. There are two options for Rancher Observability monitoring:
 
-* [**Full install**](#full-install) - picks up all changes to AWS resources and pushes these to StackState.
+* [**Full install**](#full-install) - picks up all changes to AWS resources and pushes these to Rancher Observability.
 * [**Minimal install**](#minimal-install) - picks up changes at a configured interval only.
 
 #### Full install
@@ -19,11 +19,11 @@ A full installation will install the following CloudFormation Stacks:
 
 Follow the steps below to complete a full install:
 
-1. Use the following AWS policy file to give correct permissions to install the lambdas: [StackStateIntegrationPolicyInstall.json](/api/stackpack/aws/resources/{{stackPackVersion}}/StackStateIntegrationPolicyInstall.json)
+1. Use the following AWS policy file to give correct permissions to install the lambdas: [Rancher ObservabilityIntegrationPolicyInstall.json](/api/stackpack/aws/resources/{{stackPackVersion}}/Rancher ObservabilityIntegrationPolicyInstall.json)
 
 2. Download the manual installation zip file and extract it: [stackstate-aws-manual-installation-{{stackPackVersion}}.zip](/api/stackpack/aws/resources/{{stackPackVersion}}/stackstate-aws-manual-installation-{{stackPackVersion}}.zip)
 
-3. Make sure that the AWS CLI is configured with the proper account and has the default region set to the region that should be monitored by StackState. For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://l.stackstate.com/ui-aws-cli-configure-role).
+3. Make sure that the AWS CLI is configured with the proper account and has the default region set to the region that should be monitored by Rancher Observability. For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://l.stackstate.com/ui-aws-cli-configure-role).
 
 4. From the command line, run the command:
     ```
@@ -46,18 +46,18 @@ These environment variables have the same names used by the AWS_CLI utility and 
 
 #### Minimal install
 
-The minimal installation is useful when less permissions are available. This installs only the `stackstate-topo-cron` Cloudformation stack, which means StackState's topology will only get a full topology update every hour. Updates between the hour aren't sent to StackState. 
+The minimal installation is useful when less permissions are available. This installs only the `stackstate-topo-cron` Cloudformation stack, which means Rancher Observability's topology will only get a full topology update every hour. Updates between the hour aren't sent to Rancher Observability. 
 
 Follow the steps below to complete a minimal install:
 
 1. Use one of the following AWS policy files to give correct permissions to install the lambdas:
 
-    * **Minimal install** - [StackStateIntegrationPolicyTopoCronInstall.json](/api/stackpack/aws/resources/{{stackPackVersion}}/StackStateIntegrationPolicyTopoCronInstall.json)
-    * **Minimal set of policies** - [StackStateIntegrationPolicyTopoCronMinimal.json](/api/stackpack/aws/resources/{{stackPackVersion}}/StackStateIntegrationPolicyTopoCronMinimal.json) (S3 bucket and role are provided by user)
+    * **Minimal install** - [Rancher ObservabilityIntegrationPolicyTopoCronInstall.json](/api/stackpack/aws/resources/{{stackPackVersion}}/Rancher ObservabilityIntegrationPolicyTopoCronInstall.json)
+    * **Minimal set of policies** - [Rancher ObservabilityIntegrationPolicyTopoCronMinimal.json](/api/stackpack/aws/resources/{{stackPackVersion}}/Rancher ObservabilityIntegrationPolicyTopoCronMinimal.json) (S3 bucket and role are provided by user)
 
 2. Download the manual installation zip file and extract it: [stackstate-aws-manual-installation-{{stackPackVersion}}.zip](/api/stackpack/aws/resources/{{stackPackVersion}}/stackstate-aws-manual-installation-{{stackPackVersion}}.zip)
 
-3. Make sure the AWS CLI is configured with the proper account and has the default region set to the region that should be monitored by StackState. For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://l.stackstate.com/ui-aws-cli-configure-role).
+3. Make sure the AWS CLI is configured with the proper account and has the default region set to the region that should be monitored by Rancher Observability. For further information on authentication via the AWS CLI, see [using an IAM role in the AWS CLI \(docs.aws.amazon.com\)](https://l.stackstate.com/ui-aws-cli-configure-role).
  
 4. From the command line, run the command:
     ```
@@ -83,5 +83,5 @@ These environment variables have the same names used by the AWS_CLI utility and 
 
 ## Troubleshooting
 
-Troubleshooting steps can be found in the StackState support Knowledge base guide to [troubleshoot the StackState AWS StackPack](https://l.stackstate.com/ui-aws-support-kb).
+Troubleshooting steps can be found in the Rancher Observability support Knowledge base guide to [troubleshoot the Rancher Observability AWS StackPack](https://l.stackstate.com/ui-aws-support-kb).
 

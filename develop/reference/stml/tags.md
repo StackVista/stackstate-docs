@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # STML Tags
@@ -21,7 +21,7 @@ This is an example of a script that uses the `auto-widget` to render a telemetry
 {% code lineNumbers="true" %}
 ```text
 Telemetry
-  .query("StackState Metrics", "name='system.load.norm' and host='host1'")
+  .query("Rancher Observability Metrics", "name='system.load.norm' and host='host1'")
   .metricField("value")
   .start("-2h")
   .aggregation("99th percentile", "5m")

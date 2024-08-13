@@ -1,5 +1,5 @@
 ---
-description: StackState v6.0
+description: Rancher Observability v6.0
 ---
 
 # Visualization settings
@@ -32,7 +32,7 @@ For example, if you have a business service visualization of a stack that comes 
 
 ## Components grouping
 
-Topology visualizations of large numbers of components can become hard to read. StackState can group together components within the same view. Grouping brings the number of components and relations down to something visually more manageable.
+Topology visualizations of large numbers of components can become hard to read. Rancher Observability can group together components within the same view. Grouping brings the number of components and relations down to something visually more manageable.
 
 Grouping is enabled by default and respects the selected [grid options](visualization_settings.md#grid-options) - components must be in the same grid row/column to be grouped together.
 
@@ -53,10 +53,10 @@ By default, the minimum group size is 2, this means that if there is one compone
 
 Another option in the view visualization settings is showing indirect relations. So, what are indirect relations? Well, if we take a landscape with three components that are all dependent on each other. If we then created a view in which only two of those components are included - for example, the first and last components – we would see both components, but we would not see a relation between them anymore. In this case, we would probably still want to know that there is an indirect path between those two components and that's where this functionality comes in.
 
-If we enable show indirect relations in the view visualizations settings, then StackState will draw a dotted line between those two components to show that there is a path between them passes through components that aren't included on the view.
+If we enable show indirect relations in the view visualizations settings, then Rancher Observability will draw a dotted line between those two components to show that there is a path between them passes through components that aren't included on the view.
 
 * A solid line between two components indicates that there is a direct relation between them 
-* StackState shows a dotted line when two components have a path between them, but the full path isn't visible in the current view.
+* Rancher Observability shows a dotted line when two components have a path between them, but the full path isn't visible in the current view.
 
 Show indirect relations is switched off by default. If we take a view of three components again and remove the Applications layer. That will hide the middle component. With show indirect relations disabled there are no connection between the remaining components - it appears that these components aren't connected at all - you see the tree of connected components at the top and then 4 components at the bottom that aren't connected to anything, with no relations between them.
 

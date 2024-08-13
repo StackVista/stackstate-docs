@@ -1,23 +1,23 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Prometheus mirror
 
 ## Overview
 
-Prometheus mirror is a gateway between StackState and Prometheus that enables Prometheus telemetry in StackState.
+Prometheus mirror is a gateway between Rancher Observability and Prometheus that enables Prometheus telemetry in Rancher Observability.
 
 ## Prerequisites
 
 The Prometheus Mirror has the following prerequisites:
 
-* The mirror must be reachable from StackState
+* The mirror must be reachable from Rancher Observability
 * Prometheus must be reachable from the mirror **without authentication**
 
 ## Helm
 
-The Prometheus mirror is available via the StackState helm repository. Configure your helm with these 2 commands:
+The Prometheus mirror is available via the Rancher Observability helm repository. Configure your helm with these 2 commands:
 
 ```text
 helm repo add stackstate https://helm.stackstate.io
@@ -40,13 +40,13 @@ docker pull stackstate/prometheusmirror:latest
 
 The Prometheus mirror is configured using the following parameters:
 
-* `global.apiKey` - the API key used to authenticate communication between the mirror and StackState
+* `global.apiKey` - the API key used to authenticate communication between the mirror and Rancher Observability
 * `workers` - number of workers processes \(default: `20`\)
 * `port` - the port the mirror is listening on \(default: `9900`\)
 
-## StackState configuration
+## Rancher Observability configuration
 
-In order to start using Prometheus mirror in StackState one has to create Mirror Datasource
+In order to start using Prometheus mirror in Rancher Observability one has to create Mirror Datasource
 
 ### Configure Mirror Datasource
 

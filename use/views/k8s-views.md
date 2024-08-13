@@ -1,14 +1,14 @@
 ---
-description: StackState v6.0
+description: Rancher Observability v6.0
 ---
 
 # Kubernetes views
 
 ## Overview
 
-StackState has deep knowledge of Kubernetes and its components. After installation of the StackState agent in your cluster, it will then automatically detect and visualize the topology of your Kubernetes applications. This includes the Kubernetes resources that make up your application, such as deployments, pods, services, and ingress. It will also automatically detect and visualize the topology of your Kubernetes infrastructure that makes up your cluster, such as nodes, namespaces, and persistent volumes.
+Rancher Observability has deep knowledge of Kubernetes and its components. After installation of the Rancher Observability agent in your cluster, it will then automatically detect and visualize the topology of your Kubernetes applications. This includes the Kubernetes resources that make up your application, such as deployments, pods, services, and ingress. It will also automatically detect and visualize the topology of your Kubernetes infrastructure that makes up your cluster, such as nodes, namespaces, and persistent volumes.
 
-StackState has dedicated overviews and highlights pages for the following Kubernetes native resources:
+Rancher Observability has dedicated overviews and highlights pages for the following Kubernetes native resources:
 
 ![Kubernetes views](../../.gitbook/assets/k8s/k8s-menu.png)
 

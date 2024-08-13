@@ -1,6 +1,6 @@
-# StackState
+# Rancher Observability
 
-**These documentation pages cover all functionality in the StackState product**.
+**These documentation pages cover all functionality in the Rancher Observability product**.
 
 ### Get started
 
@@ -10,9 +10,9 @@ Visit the [quick start guide page](https://docs.stackstate.com/get-started/k8s-q
 ## Can't find something?
 
 **Search for it!** Use the search bar on the top right.
-If you believe any documentation is missing, please let us know on the [StackState support site](http://support.stackstate.com/).
+If you believe any documentation is missing, please let us know on the [Rancher Observability support site](http://support.stackstate.com/).
 
 ## Troubleshooting and support
 
-Any questions? We love to help! Find our support team on the [StackState support site](http://support.stackstate.com/).
+Any questions? We love to help! Find our support team on the [Rancher Observability support site](http://support.stackstate.com/).
 

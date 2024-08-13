@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Apache Tomcat
@@ -14,7 +14,7 @@ This check collects Tomcat metrics, for example:
 
 And more.
 
-Apache Tomcat is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
+Apache Tomcat is a [Rancher Observability curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
 ## Setup
 
@@ -110,7 +110,7 @@ init_config:
 
 See the [JMX Check documentation](jmx.md) for a list of configuration options usable by all JMX-based checks. The page also describes how the Agent tags JMX metrics.
 
-Restart the Agent to start sending Tomcat metrics to StackState.
+Restart the Agent to start sending Tomcat metrics to Rancher Observability.
 
 Configuration Options:
 
@@ -140,7 +140,7 @@ mydomain:attr0=val0,attr1=val1
 
 Your metric is mydomain \(or some variation depending on the attribute inside the bean\) and has the tags `attr0:val0, attr1:val1, domain:mydomain`.
 
-If you specify an alias in an `include` key that's formatted as _camel case_, it's converted to _snake case_. For example, `MyMetricName` is shown in StackState as `my_metric_name`.
+If you specify an alias in an `include` key that's formatted as _camel case_, it's converted to _snake case_. For example, `MyMetricName` is shown in Rancher Observability as `my_metric_name`.
 
 See the sample `tomcat.yaml` for all available configuration options.
 
@@ -165,7 +165,7 @@ The `attribute` filter accepts two types of values:
             metric_type: counter
 ```
 
-For the case above, the metric aliases specified become the metric name in StackState. Also, the metric type can be specified as a gauge or counter. If you choose counter, a rate per second is computed for this metric.
+For the case above, the metric aliases specified become the metric name in Rancher Observability. Also, the metric type can be specified as a gauge or counter. If you choose counter, a rate per second is computed for this metric.
 
 * A list of attributes names:
 
@@ -266,7 +266,7 @@ log4j.logger.org.apache.catalina.core.ContainerBase.[Catalina].[localhost].[/hos
 
 Check Tomcat logging documentation for more information about Tomcat logging capabilities.
 
-* Collecting logs is disabled by default in StackState Agent V2, enable it in your `stackstate.yaml` file with:
+* Collecting logs is disabled by default in Rancher Observability Agent V2, enable it in your `stackstate.yaml` file with:
 
   ```text
   logs_enabled: true

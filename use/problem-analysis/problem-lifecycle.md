@@ -1,14 +1,14 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Problem lifecycle
 
 ## Overview
 
-After a problem has been identified in the StackState topology, it will be tracked and updated accordingly as the health state of elements change. Whenever there is a change to a problem, an associated event will be generated in StackState. These problem events can be used to [trigger problem notifications](problem_notifications.md), such as a message to a Slack channel.
+After a problem has been identified in the Rancher Observability topology, it will be tracked and updated accordingly as the health state of elements change. Whenever there is a change to a problem, an associated event will be generated in Rancher Observability. These problem events can be used to [trigger problem notifications](problem_notifications.md), such as a message to a Slack channel.
 
-The stages in the problem lifecycle and associated StackState events are described on this page:
+The stages in the problem lifecycle and associated Rancher Observability events are described on this page:
 
 1. [Problem created](#problem-created) - a new problem is identified.
 2. [Problem updated](#problem-updated) - a change to an existing problem.
@@ -41,7 +41,7 @@ Updates to an existing problem may result in another existing problem being [sub
 
 ## Problem subsumed
 
-If an element switches its state to unhealthy and would become the new root cause for more than one existing problem, StackState will combine all of these problems into one problem. The oldest of the problems will be updated to have the new root cause element and all other problems with the same root cause are subsumed. This would happen, for example, if an upstream dependency of two root cause elements switched to an unhealthy state.
+If an element switches its state to unhealthy and would become the new root cause for more than one existing problem, Rancher Observability will combine all of these problems into one problem. The oldest of the problems will be updated to have the new root cause element and all other problems with the same root cause are subsumed. This would happen, for example, if an upstream dependency of two root cause elements switched to an unhealthy state.
 
 When a problem is subsumed, the following events are generated:
 
@@ -52,14 +52,14 @@ When a problem is subsumed, the following events are generated:
 
 ## Problem resolved
 
-When the root cause and all contributing cause elements have changed to a CLEAR \(green\) health state, the problem is considered as resolved and will no longer be visible in the StackState UI. 
+When the root cause and all contributing cause elements have changed to a CLEAR \(green\) health state, the problem is considered as resolved and will no longer be visible in the Rancher Observability UI. 
 
 When a problem is resolved, the following event is generated:
 
 * A `Problem resolved` event for the resolved problem.
 
 {% hint style="info" %}
-If elements from the problem change back to an unhealthy state in the future, this will be reported as a new problem in StackState.
+If elements from the problem change back to an unhealthy state in the future, this will be reported as a new problem in Rancher Observability.
 {% endhint %}
 
 ![Problem resolved](/.gitbook/assets/v51_problem_resolved_animation.gif)
@@ -67,6 +67,6 @@ If elements from the problem change back to an unhealthy state in the future, th
 ## See also
 
 * [What is a problem?](about-problems.md)
-* [How to navigate through a problem in the StackState UI](problem_investigation.md)
+* [How to navigate through a problem in the Rancher Observability UI](problem_investigation.md)
 * [Anomaly detection](../concepts/anomaly-detection.md)
 * [Problem notifications](problem_notifications.md)

@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted v5.1.x 
+description: Rancher Observability Self-hosted v5.1.x 
 ---
 
 # Java APM
@@ -15,9 +15,9 @@ The Java APM Integration of the Agent V2 StackPack provides tracing support for 
 
 This integration will be a part of the Agent V2 StackPack which should be installed as the first step; the rest of the installation instructions will follow soon.
 
-The traces collected by the java trace client are forwarded to the StackState Trace Agent, which in turn forwards it to StackState. This also means that port `7077` should be opened for communication from the StackState Trace Agent.
+The traces collected by the java trace client are forwarded to the Rancher Observability Trace Agent, which in turn forwards it to Rancher Observability. This also means that port `7077` should be opened for communication from the Rancher Observability Trace Agent.
 
-Java APM is a [StackState curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
+Java APM is a [Rancher Observability curated integration](/stackpacks/integrations/about_integrations.md#stackstate-curated-integrations).
 
 ## Automatic Instrumentation
 
@@ -43,7 +43,7 @@ Download the [java trace client](https://github.com/StackVista/sts-trace-java/re
   * -Dsts.agent.host=`{{host-of-the-stackstate-agent}}`
   * -Dsts.agent.port=`8126 {the default port for the trace agent api}`
   * -javaagent:`{path/of/downloaded-jar.jar}`  
-* Once above steps are done,the java trace client will start sending collected traces to the StackState Trace Agent which will then be forwarded to StackState.
+* Once above steps are done,the java trace client will start sending collected traces to the Rancher Observability Trace Agent which will then be forwarded to Rancher Observability.
 
 ### Traces Installation - Docker
 
@@ -91,7 +91,7 @@ For example, running a container in a pod, setting the jvm arguments as part of 
 
 ## Compatibility
 
-StackState officially supports the Java JRE 1.7 and higher versions of both Oracle JDK and OpenJDK. StackState doesn't officially support any early-access versions of Java.
+Rancher Observability officially supports the Java JRE 1.7 and higher versions of both Oracle JDK and OpenJDK. Rancher Observability doesn't officially support any early-access versions of Java.
 
 ### Web Framework Compatibility
 
@@ -115,7 +115,7 @@ StackState officially supports the Java JRE 1.7 and higher versions of both Orac
 
 _Note:_ Many application servers are Servlet compatible and are automatically covered by that instrumentation, such as Tomcat, Jetty, Websphere, Weblogic, etc. Also, frameworks like Spring Boot inherently work because it uses a Servlet compatible embedded application server.
 
-Don't see your desired web frameworks? StackState is continuously adding additional support. Contact our support if you need help.
+Don't see your desired web frameworks? Rancher Observability is continuously adding additional support. Contact our support if you need help.
 
 ### Networking Framework Compatibility
 
@@ -137,7 +137,7 @@ The `stackstate-java-agent` includes support for automatically tracing the follo
 
 **Networking tracing provides:** timing request to response, tags for the request \(for example, response code\), error and stacktrace capturing, and distributed tracing.
 
-Don't see your desired networking framework? StackState is continuously adding additional support. Contact our support if you need help.
+Don't see your desired networking framework? Rancher Observability is continuously adding additional support. Contact our support if you need help.
 
 ### Data Store Compatibility
 
@@ -171,7 +171,7 @@ Don't see your desired networking framework? StackState is continuously adding a
 
 **Datastore tracing provides:** timing request to response, query info \(for example, a sanitized query string\), and error and stacktrace capturing.
 
-Don't see your desired datastores? StackState is continuously adding additional support. Contact our support if you need help.
+Don't see your desired datastores? Rancher Observability is continuously adding additional support. Contact our support if you need help.
 
 ### Other Framework Compatibility
 
@@ -185,7 +185,7 @@ Don't see your desired datastores? StackState is continuously adding additional 
 | Hystrix | 1.4+ | Fully Supported | `hystrix` |
 | Twilio SDK | 0+ | Fully Supported | `twilio-sdk` |
 
-Don't see your desired framework? StackState is continuously adding additional support. Contact our support if you need help.
+Don't see your desired framework? Rancher Observability is continuously adding additional support. Contact our support if you need help.
 
 To improve visibility into applications using unsupported frameworks, consider:
 
@@ -201,7 +201,7 @@ To troubleshoot the java trace client add the following jvm arguments:
 -Dstackstate.slf4j.simpleLogger.defaultLogLevel=debug
 ```
 
-You can also verify whether the StackState Trace Agent has received the traces, by setting the logging level to debug and checking the `trace-agent.log`:
+You can also verify whether the Rancher Observability Trace Agent has received the traces, by setting the logging level to debug and checking the `trace-agent.log`:
 
 stackstate.yaml
 
@@ -209,7 +209,7 @@ stackstate.yaml
 log_level: debug
 ```
 
-In Docker or Kubernetes, set the following environment variable for the StackState Agent
+In Docker or Kubernetes, set the following environment variable for the Rancher Observability Agent
 
 ```text
 STS_LOG_LEVEL: "DEBUG"
