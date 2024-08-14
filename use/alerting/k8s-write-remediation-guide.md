@@ -1,5 +1,5 @@
 ---
-description: Rancher Observability v6.0
+description: Rancher Observability
 ---
 
 # Write a remediation guide to help users troubleshoot issues

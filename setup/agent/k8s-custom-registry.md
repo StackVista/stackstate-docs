@@ -1,5 +1,5 @@
 ---
-description: Rancher Observability v6.0
+description: Rancher Observability
 ---
 
 # Install Rancher Observability Agent from custom image registry
