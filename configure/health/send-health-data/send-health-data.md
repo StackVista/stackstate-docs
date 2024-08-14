@@ -6,14 +6,12 @@ description: Rancher Observability
 
 ## Overview
 
-Rancher Observability can synchronize health information from your own data sources either via HTTP or the [Rancher Observability CLI](../../../setup/cli/k8sTs-cli-sts.md).
+Rancher Observability can synchronize health information from your own data sources either via HTTP or the [Rancher Observability CLI](../../../setup/cli/cli-sts.md).
 
 ## Rancher Observability Receiver API
 
 The Rancher Observability Receiver API accepts topology, metrics, events and health data in a common JSON object. The default location for the receiver API is the `<STACKSTATE_RECEIVER_API_ADDRESS>`, constructed using the `<STACKSTATE_BASE_URL>` and <`STACKSTATE_RECEIVER_API_KEY>`.
 
-{% tabs %}
-{% tab title="Kubernetes" %}
 The `<STACKSTATE_RECEIVER_API_ADDRESS>` for Rancher Observability deployed on Kubernetes or OpenShift is:
 
 ```text
@@ -21,19 +19,6 @@ https://<STACKSTATE_BASE_URL>/receiver/stsAgent/intake?api_key=<STACKSTATE_RECEI
 ```
 
 The `<STACKSTATE_BASE_URL>` and `<STACKSTATE_RECEIVER_API_KEY>` are set during Rancher Observability installation, for details see [Kubernetes install - configuration parameters](/setup/install-stackstate/kubernetes_openshift/kubernetes_install.md#generate-values-yaml).
-{% endtab %}
-
-{% tab title="Linux" %}
-
-The `<STACKSTATE_RECEIVER_API_ADDRESS>` for Rancher Observability deployed on Linux is:
-
-```text
-https://<STACKSTATE_BASE_URL>:<STACKSTATE_RECEIVER_PORT>/stsAgent/intake?api_key=<STACKSTATE_RECEIVER_API_KEY>
-```
-
-The `<STACKSTATE_BASE_URL>` and `<STACKSTATE_RECEIVER_API_KEY>` are set during Rancher Observability installation, for details see [Linux install - configuration parameters](/setup/install-stackstate/linux/install_stackstate.md#configuration-options-required-during-install).
-{% endtab %}
-{% endtabs %}
 
 ## JSON 
 
@@ -63,5 +48,5 @@ Rancher Observability accepts health data based on a chosen [consistency model](
 
 ## See also
 
-* [Install the Rancher Observability CLI](../../../setup/cli/k8sTs-cli-sts.md)
+* [Install the Rancher Observability CLI](../../../setup/cli/cli-sts.md)
 

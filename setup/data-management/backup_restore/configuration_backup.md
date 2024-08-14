@@ -10,7 +10,7 @@ Rancher Observability configuration can be exported and imported. The import/exp
 
 ## Export configuration
 
-An export of the Rancher Observability configuration can be obtained from the Rancher Observability UI, the [Rancher Observability CLI](../../cli/k8sTs-cli-sts.md) or using curl commands. 
+An export of the Rancher Observability configuration can be obtained from the Rancher Observability UI, the [Rancher Observability CLI](../../cli/cli-sts.md) or using curl commands. 
 
 ### Rancher Observability CLI
 

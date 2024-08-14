@@ -8,7 +8,7 @@ description: Rancher Observability Self-hosted v5.1.x
 
 Rancher Observability can either pull metrics from a data source or can receive pushed metrics. Pushed metrics are stored by Rancher Observability, while pulled metrics aren't. Pushed metrics are stored for the duration of the configured retention period. This page describes how metrics can be pushed.
 
-There are several ways to send metrics to Rancher Observability. A large number of [integrations](../../stackpacks/integrations/) are provided out of the box that may help you get started. If there is no out of the box integration, you can send metrics to Rancher Observability using either HTTP or the [Rancher Observability `stac` CLI](/setup/cli/cli-stac.md).
+There are several ways to send metrics to Rancher Observability. A large number of [integrations](../../stackpacks/integrations/) are provided out of the box that may help you get started. If there is no out of the box integration, you can send metrics to Rancher Observability using HTTP.
 
 ## Rancher Observability Receiver API
 
@@ -96,9 +96,7 @@ The `timestamp` and `value` are used to plot the metric as a time series. The `n
 
 Multiple metrics can be sent in one JSON message via HTTP POST to the [Rancher Observability Receiver API address](#stackstate-receiver-api). For example:
 
-{% tabs %}
-{% tab title="curl" %}
-```javascript
+```sh
 curl -X POST \
  'https://<STACKSTATE_RECEIVER_API_ADDRESS> \
  -H 'Content-Type: application/json' \
@@ -135,10 +133,6 @@ curl -X POST \
   ]
 }'
 ```
-{% endtab %}
-{% endtabs %}
-
-You can also send metrics to Rancher Observability using the `stac` CLI `metric send` command.
 
 ## See also
 

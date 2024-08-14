@@ -86,8 +86,6 @@ Every health Transactional Increments data payload has the following details:
 
 Health can be sent in one JSON message via HTTP POST. In the example below, a snapshot containing two check states is sent to Rancher Observability from a single external monitoring system.
 
-{% tabs %}
-{% tab title="curl" %}
 ```bash
 curl -X POST \
  '<STACKSTATE_RECEIVER_API_ADDRESS>' \
@@ -135,24 +133,3 @@ curl -X POST \
   ]
 }'
 ```
-{% endtab %}
-{% tab title="CLI: stac (deprecated)" %}
-{% hint style="warning" %}
-**From Rancher Observability v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
-
-The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
-
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "Rancher Observability Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "Rancher Observability Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "Rancher Observability Self-Hosted only")
-{% endhint %}
-
-Sending of Transactional increments check_states isn't available in the CLI, but all the debugging and introspection features can still be used.
-
-{% endtab %}
-{% tab title="CLI: sts" %}
-
-Sending of Transactional increments check_states isn't available in the `sts` CLI.
-{% endtab %}
-
-{% endtabs %}

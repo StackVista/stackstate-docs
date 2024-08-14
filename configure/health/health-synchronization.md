@@ -91,7 +91,7 @@ Once attached to a topology element, the health check state contributes to the e
 
 ### External Monitor
 
-An external monitor allows to attach the health states to components and to show a remediationHint on the Rancher Observability highlight pages. This resource needs to be created via the [Rancher Observability CLI](../../setup/cli/k8sTs-cli-sts.md) or as part of a stackpack. Here is an example of an externa monitor:
+An external monitor allows to attach the health states to components and to show a remediationHint on the Rancher Observability highlight pages. This resource needs to be created via the [Rancher Observability CLI](../../setup/cli/cli-sts.md) or as part of a stackpack. Here is an example of an externa monitor:
 
 ```
     {
@@ -116,7 +116,7 @@ Every `ExternalMonitor` payload has the following details:
 * `remediationHint`: A description of what the user can do when the monitor fails. The format is markdown. 
 * `tags`: Add tags to the monitor to help organize them in the monitors overview of your Rancher Observability instance, http://your-Rancher Observability-instance/#/monitors
 
-Here is an example of how to create an `External Monitor` using the [Rancher Observability CLI](../../setup/cli/k8sTs-cli-sts.md)
+Here is an example of how to create an `External Monitor` using the [Rancher Observability CLI](../../setup/cli/cli-sts.md)
 * Create a new YAML file called `externalMonitor.yaml` and add this YAML template to it to create your own external monitor.
 ```
 nodes:

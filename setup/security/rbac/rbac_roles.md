@@ -18,7 +18,7 @@ There are four roles predefined in Rancher Observability:
 * **Kubernetes Troubleshooter** - has all permissions required to use Rancher Observability for troubleshooting, including the ability to enable/disable monitors, create custom views and use the Cli.
 * **Guest** - has read-only access to Rancher Observability.
 
-The permissions assigned to each predefined Rancher Observability role can be found below. For details of the different permissions and how to manage them using the `stac` CLI, see [Role based access control (RBAC) permissions](/setup/security/rbac/rbac_permissions.md)
+The permissions assigned to each predefined Rancher Observability role can be found below. For details of the different permissions and how to manage them using the `sts` CLI, see [Role based access control (RBAC) permissions](/setup/security/rbac/rbac_permissions.md)
 
 {% tabs %}
 {% tab title="Administrator" %}

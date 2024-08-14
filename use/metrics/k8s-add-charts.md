@@ -71,7 +71,7 @@ The fields in this template are:
 * `identifier`: A URN (universal resource identifier), used as the unique identifier of the metric binding. It must start with `urn:custom:metric-binding:`, the remainder is free-format as long as it's unique amongst all metric bindings.
 * `queries`: A list of queries to show in the chart for the metric binding (see also the following sections)
 * `scope`: The topology scope of the metric binding, a topology query that selects the components on which this metric binding will be shown.
-* `layout`: How to groups charts on different perspective views, e.g. on [Metrics perspective](../../use/stackstate-ui/perspectives/metrics-perspective.md)
+* `layout`: How to groups charts on different perspective views, e.g. on [Metrics perspective](/use/views/k8s-metrics-perspective.md)
 
 Fill in all the parts already known first (with the deployment replica counts as the example)
 
@@ -189,7 +189,7 @@ nodes:
   scope: type = "deployment" and label = "stackpack:kubernetes"
 ```
 
-Use the [Rancher Observability CLI](/setup/cli/k8sTs-cli-sts.md) to create the metric binding:
+Use the [Rancher Observability CLI](/setup/cli/cli-sts.md) to create the metric binding:
 
 ```bash
 sts settings apply -f metric-bindings.yaml
@@ -309,6 +309,6 @@ Fields:
 - `layout.weight` - This represents the weight of the chart within sections. The charts are sorted in ascending order by weight, followed by alphabetical order.
 - `layout.layouts` -  (array) This allows each chart to be added to multiple views (perspectives).
 - `layout.layouts.perspective` - This is the type of perspective to display the chart. Currently, only the `Metrics` perspective is supported. 
-  - `Metrics` - display on [Metrics perspective](../../use/stackstate-ui/perspectives/metrics-perspective.md)
+  - `Metrics` - display on [Metrics perspective](/use/views/k8s-metrics-perspective.md)
 - `layout.layouts.tab` - This indicates the tab `name` and its `weight`. Tabs are sorted ascending by weight (the lowest one from all `MetricBinding`), followed by alphabetical order.
 - `layout.layouts.section` - This is the section `name` and its `weight`. Sections are sorted alphabetically.

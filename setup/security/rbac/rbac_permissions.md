@@ -22,9 +22,9 @@ There are two types of permission in Rancher Observability. **System permissions
 The following permissions are available in Rancher Observability:
 
 * `access-admin-api` -Access the administrator API.
-* `access-analytics` - Access the [Analytics](/use/stackstate-ui/analytics.md) page in the Rancher Observability UI.
+* `access-analytics` - Access the Analytics page in the Rancher Observability UI.
 * `access-cli` - Access the CLI page. This provides the API key to use for authentication with the Rancher Observability CLI.
-* `access-explore` - Access the [Explore](/use/stackstate-ui/explore_mode.md) page in the Rancher Observability UI.
+* `access-explore` - Access the Explore page in the Rancher Observability UI.
 * `access-log-data` - Access Rancher Observability logs using the CLI.
 * `access-synchronization-data` - Access Rancher Observability synchronization status and data using the CLI.
 * `access-topic-data` - Access Rancher Observability Receiver data using the CLI.
@@ -33,35 +33,34 @@ The following permissions are available in Rancher Observability:
   * Platform Administrator: `everything` (all views)
   * Power User: `everything` (all views)
   * Guest: `everything` (all views)
-* `create-views` - [Create views](/use/stackstate-ui/views/create_edit_views.md) in the Rancher Observability UI.
+* `create-views` - [Create views](/use/views/k8s-custom-views.md) in the Rancher Observability UI.
 * `delete-view` - A **view permission**. Delete a specific view \(when granted on a view\) or all views \(when granted on `everything`\). Granted on the following views for predefined Rancher Observability roles:
   * Administrator: `everything` (all views)
   * Platform Administrator: -
   * Power User: `everything` (all views)
   * Guest: -
-* `execute-component-actions` - Execute [component actions](/use/stackstate-ui/perspectives/topology-perspective.md#actions).
+* `execute-component-actions` - Execute [component actions](/use/views/k8s-topology-perspective.md#actions).
 * `execute-component-templates` - Invoke a component template API extension \(internal use only\).
 * `execute-node-sync` - Reset or delete a synchronization.
-* `execute-restricted-scripts` - Execute scripts using the [HTTP script API](/develop/reference/scripting/script-apis/http.md) in the Rancher Observability UI analytics environment. Also requires `execute-scripts`.
+* `execute-restricted-scripts` - Execute scripts using the HTTP script API in the Rancher Observability UI analytics environment. Also requires `execute-scripts`.
 * `execute-scripts` - Execute a query in the Rancher Observability UI Analytics environment. The `execute-restricted-scripts` permission is also required to execute scripts using the HTTP script API.
 * `export-settings` - Export settings.
 * `import-settings` - Import settings.
 * `manage-annotations` - Persist and fetch Anomaly annotations in Rancher Observability.
 * `manage-ingestion-api-keys` - Manage [API keys](/use/security/k8s-ingestion-api-keys.md) for data ingestion.
-* `manage-monitors` - Create, delete and change [monitors](/use/checks-and-monitors/monitors.md).
+* `manage-monitors` - Create, delete and change [monitors](/use/alerting/k8s-monitors.md).
 * `manage-notifications` - Create, delete, and modify [notifications](/use/alerting/notifications/configure.md).
-* `manage-service-tokens`- Create/delete [Service Tokens](../security/authentication/service_tokens.md) in Rancher Observability.
+* `manage-service-tokens`- Create/delete [Service Tokens](/use/security/k8s-service-tokens.md) in Rancher Observability.
 * `manage-stackpacks` - Install/upgrade/uninstall StackPacks.
-* `manage-star-view` - Add and remove [stars](/use/stackstate-ui/views/about_views.md#starred-views) from views in the Rancher Observability UI.
-* `manage-telemetry-streams` - [Create or edit new telemetry streams](/use/metrics/add-telemetry-to-element.md) for components in the Rancher Observability UI.
+* `manage-star-view` - Add and remove stars from views in the Rancher Observability UI.
 * `manage-topology-elements` - Create/update/delete topology elements.
-* `perform-custom-query` - Access the [topology filter](/use/stackstate-ui/filters.md#filter-topology).
+* `perform-custom-query` - Access the [topology filter](/use/views/k8s-filters.md#filter-topology).
 * `read-permissions` - List all granted permissions across the entire system using the CLI.
 * `read-settings` - Access the Settings page in the Rancher Observability UI.
 * `read-stackpacks`
 * `read-telemetry-streams` - Access the telemetry data for components in the Rancher Observability UI
 * `read-traces` - Read and access trace data.
-* `run-monitors` - Execute a [monitor](/use/checks-and-monitors/monitors.md) and make it run periodically.
+* `run-monitors` - Execute a [monitor](/use/alerting/k8s-monitors.md) and make it run periodically.
 * `save-view`- A **view permission**. Update a specific view \(when granted on a view\) or all views \(when granted on `everything`\). Granted on the following views for predefined Rancher Observability roles:
   * Administrator: `everything` (all views)
   * Platform Administrator: -
@@ -70,7 +69,7 @@ The following permissions are available in Rancher Observability:
 * `unlock-node` - Unlock [locked configuration items](/stackpacks/about-stackpacks.md#locked-configuration-items).
 * `update-permissions` - Grant/revoke permissions or change subjects.
 * `update-settings` - Update settings.
-* `update-visualization` - Change [visualization settings](/use/stackstate-ui/views/visualization_settings.md).
+* `update-visualization` - Change [visualization settings](/use/views/k8s-topology-perspective.md#visualization-settings).
 * `upload-stackpacks` - Upload new \(versions of\) StackPacks.
 * `view-monitors` - View monitor configurations.
 * `view-notifications` - View notification settings.
