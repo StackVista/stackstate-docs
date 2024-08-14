@@ -16,7 +16,7 @@ The Tech Preview phase is expected  is expected to last at least 30 days. After 
 The installation of StackState, the SUSE Rancher Observability UI extension and the StackState Agents takes about 30 minutes in total.
 
 ## Getting help
-To get support, ask any question or provide feedback you can reach us during the tech preview phase on the following Slack channel.
+To get support, ask any question or provide feedback you can reach us during the tech preview phase on the following email rancherobservability@suse.com
 
 ## Prerequisites
 
