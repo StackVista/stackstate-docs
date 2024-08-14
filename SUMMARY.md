@@ -30,7 +30,7 @@
     * [Webhook](use/alerting/notifications/channels/webhook.md)
     * [Opsgenie](use/alerting/notifications/channels/opsgenie.md)
   * [Troubleshooting](use/alerting/notifications/troubleshooting.md)
-* [Customize](use/alerting/k8s-customize.md)
+* [Customize](dynamic/customize-alerting.md)
   * [Add a monitor using the CLI](use/alerting/k8s-add-monitors-cli.md)
   * [Override monitor arguments](use/alerting/k8s-override-monitor-arguments.md)
   * [Write a remediation guide](use/alerting/k8s-write-remediation-guide.md)
@@ -38,11 +38,11 @@
 ## 📈 Metrics
 
 * [Explore Metrics](use/metrics/k8sTs-explore-metrics.md)
-* [Custom charts](use/metrics/k8s-custom-charts.md)
+* [Custom charts](dynamic/custom-charts.md)
   * [Adding custom charts to components](use/metrics/k8s-add-charts.md)
   * [Writing PromQL queries for representative charts](use/metrics/k8s-writing-promql-for-charts.md)
   * [Troubleshooting custom charts](use/metrics/k8sTs-metrics-troubleshooting.md)
-* [Advanced Metrics](use/metrics/k8s-advanced.md)
+* [Advanced Metrics](dynamic/advanced-metrics.md)
   * [Grafana Datasource](use/metrics/k8s-stackstate-grafana-datasource.md)
   * [Prometheus remote_write](use/metrics/k8s-prometheus-remote-write.md)
   * [OpenMetrics](use/metrics/open-metrics.md)
@@ -72,13 +72,14 @@
 * [Component views](use/views/k8s-component-views.md)
 * [Explore views](use/views/k8s-explore-views.md)
 * [View structure](use/views/k8s-view-structure.md)
-  * [Filters](use/views/k8s-filters.md)
   * [Overview perspective](use/views/k8s-overview-perspective.md)
   * [Highlights perspective](use/views/k8s-highlights-perspective.md)
   * [Topology perspective](use/views/k8s-topology-perspective.md)
   * [Events perspective](use/views/k8s-events-perspective.md)
   * [Metrics perspective](use/views/k8s-metrics-perspective.md)
   * [Traces perspective](use/views/k8s-traces-perspective.md)
+  * [Filters](use/views/k8s-filters.md)
+  * [Keyboard shortcuts](use/stackstate-ui/k8sTs-keyboard-shortcuts.md)
 * [Timeline and time travel](use/stackstate-ui/k8sTs-timeline-time-travel.md)
 
 ## 🕵️ Agent
@@ -101,7 +102,7 @@
 * [Troubleshooting](setup/otel/troubleshooting.md)
   
 ## CLI
-* [Rancher Observability CLI](setup/cli/k8sTs-cli-sts.md)
+* [Rancher Observability CLI](setup/cli/cli-sts.md)
 
 ## 🚀 Self-hosted setup
 * [Install Rancher Observability](setup/install-stackstate/README.md)
@@ -163,3 +164,4 @@
 ## Reference
 * [Rancher Observability Query Language \(STQL\)](develop/reference/k8sTs-stql_reference.md)
 * [Chart units](develop/reference/k8sTs-chart-units.md)
+* [Topology Identifiers](configure/topology/identifiers.md)

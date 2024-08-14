@@ -40,32 +40,9 @@ The StackPack must be imported into Rancher Observability before it can be insta
 
 The following command installs our new tutorial StackPack in Rancher Observability:
 
-{% tabs %}
-{% tab title="CLI: sts" %}
-
-From Rancher Observability v5.0, the old `sts` CLI has been renamed to `stac` and there is a new `sts` CLI. The command(s) provided here are for use with the new `sts` CLI.
-
-➡️ [Check which version of the `sts` CLI you are running](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "Rancher Observability Self-Hosted only")
-
 ```text
 sts stackpack upload tutorial-stackpack-0.0.1.sts
 ```
-{% endtab %}
-{% tab title="CLI: stac (deprecated)" %}
-```text
-stac stackpack upload tutorial-stackpack-0.0.1.sts
-```
-
-⚠️ **From Rancher Observability v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
-
-The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
-
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "Rancher Observability Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "Rancher Observability Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "Rancher Observability Self-Hosted only")
-
-{% endtab %}
-{% endtabs %}
 
 {% hint style="info" %}
 The Rancher Observability CLI requires a `conf.d` configuration folder in the directory it's running from. This may require you to run the CLI from a different location. If so, remember to use an absolute path to refer to the StackPack binary.

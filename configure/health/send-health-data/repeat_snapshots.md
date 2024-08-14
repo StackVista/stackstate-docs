@@ -71,10 +71,8 @@ Every health Repeat Snapshots data payload has the following details:
 
 ## Send health to Rancher Observability
 
-Health can be sent in one JSON message via HTTP POST or using the `stac` CLI command `stac health send`. In the example below, a snapshot containing two check states is sent to Rancher Observability from a single external monitoring system.
+Health can be sent in one JSON message via HTTP POST. In the example below, a snapshot containing two check states is sent to Rancher Observability from a single external monitoring system.
 
-{% tabs %}
-{% tab title="curl" %}
 ```bash
 curl -X POST \
  '<STACKSTATE_RECEIVER_API_ADDRESS>' \
@@ -112,36 +110,3 @@ curl -X POST \
   ]
 }'
 ```
-{% endtab %}
-{% tab title="CLI: stac (deprecated)" %}
-{% hint style="warning" %}
-**From Rancher Observability v5.0, the old `sts` CLI is called `stac`. The old CLI is now deprecated.**
-
-The new `sts` CLI replaces the `stac` CLI. It's advised to install the new `sts` CLI and upgrade any installed instance of the old `sts` CLI to `stac`. For details see:
-
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running "Rancher Observability Self-Hosted only")
-* [Install the new `sts` CLI and upgrade the old `sts` CLI to `stac`](/setup/cli/cli-sts.md#install-the-new-sts-cli "Rancher Observability Self-Hosted only")
-* [Comparison between the CLIs](/setup/cli/cli-comparison.md "Rancher Observability Self-Hosted only")
-{% endhint %}
-
-```
-stac health send start urn:health:sourceId:streamId \
-  --repeat-interval-seconds 300
-
-stac health send check-state urn:health:sourceId:streamId \
-  checkStateId1 "Disk Usage" "server-1" deviating \
-  --message "Deviating Server Running out of disk space" --consistency-model="REPEAT_SNAPSHOTS"
-
-stac health send check-state urn:health:sourceId:streamId \
-  checkStateId2 "Health monitor" "server-2" critical \
-  --message "Provisioning failed. [Learn more](https://www.any-link.com)" --consistency-model="REPEAT_SNAPSHOTS"
-
-stac health send stop urn:health:sourceId:streamId
-```
-
-{% endtab %}
-{% tab title="CLI: sts" %}
-
-The new `sts` CLI doesn't support sending health states. This will only be supported by directly reaching out to the receiver API.
-{% endtab %}
-{% endtabs %}

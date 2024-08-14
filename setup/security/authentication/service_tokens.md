@@ -10,7 +10,7 @@ Using Service tokens it's possible to authenticate to Rancher Observability with
 
 ## Manage service tokens
 
-Service tokens can be managed via the [new `sts` CLI](/setup/cli/k8sTs-cli-sts.md). The following commands are available:
+Service tokens can be managed via the [`sts` CLI](/setup/cli/cli-sts.md). The following commands are available:
 
 ```bash
 > sts service-token --help
@@ -127,10 +127,7 @@ Once created, a service token can be used to authenticate to Rancher Observabili
 
 ### Rancher Observability `sts` CLI
 
-A service token can be used for authentication with the `sts` CLI. For details, see the CLI documentation:
-
-* [Which version of the `sts` CLI am I running?](/setup/cli/cli-comparison.md#which-version-of-the-cli-am-i-running)
-* New `sts` CLI: [Authentication](/setup/cli/cli-sts.md#authentication)
+A service token can be used for authentication with the `sts` CLI. For details, see [the CLI documentation](/setup/cli/cli-sts.md#authentication).
 
 ### Rancher Observability APIs
 
@@ -146,4 +143,4 @@ To use a service token to talk directly to the Rancher Observability Base API or
     > curl -X GET -H "X-API-Key: <TOKEN>" http://localhost:8080/api/server/status
     ```
 
-➡️ [Learn more about the Rancher Observability APIs](/setup/cli/cli-stac.md#authentication)
+➡️ [Learn more about the Rancher Observability APIs](/setup/cli/cli-sts.md#authentication)

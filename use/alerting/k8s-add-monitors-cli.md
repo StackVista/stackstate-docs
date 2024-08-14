@@ -138,7 +138,7 @@ The remediation hint is there to help users find the cause of an issue when a mo
 
 ## Create or update the monitor in Rancher Observability
 
-After completing the `monitor.yaml`, use the [Rancher Observability CLI](/setup/cli/k8sTs-cli-sts.md) to create or update the monitor:
+After completing the `monitor.yaml`, use the [Rancher Observability CLI](/setup/cli/cli-sts.md) to create or update the monitor:
 
 ```bash
 sts monitor apply -f monitor.yaml
