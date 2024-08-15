@@ -60,7 +60,7 @@ This is an UI extension to Rancher Manager that integrates the health signals ob
 
 ### Where to install StackState server
 
-StackState server should be installed in a downstream cluster intended for Observability. See the below picture for reference.
+StackState server should be installed in its own downstream cluster intended for Observability. See the below picture for reference.
 
 {% hint style="info" %}
 **Important considerations**
