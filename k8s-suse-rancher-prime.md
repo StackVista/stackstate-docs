@@ -62,12 +62,6 @@ This is an UI extension to Rancher Manager that integrates the health signals ob
 
 StackState server should be installed in its own downstream cluster intended for Observability. See the below picture for reference.
 
-{% hint style="info" %}
-**Important considerations**
-
-It is important to note that the full Observability Stack is resource-intensive, and resource consumption spikes with every added node observed. For this reason the Observability Stack should not be installed in the upstream management cluster.
-{% endhint %}
-
 ![Architecture](/.gitbook/assets/k8s/prime/architecture.png)
 
 ### Pre-Installation
