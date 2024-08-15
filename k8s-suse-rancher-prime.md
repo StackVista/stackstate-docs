@@ -60,15 +60,7 @@ This is an UI extension to Rancher Manager that integrates the health signals ob
 
 ### Where to install StackState server
 
-It is possible to install StackState server on the upstream cluster on which SUSE Rancher Prime is installed or it is possible to install StackState Server in a downstream cluster for Observability. See the below picture for reference.
-Our advice is to install StackState on a downstream cluster as shown on the right diagram.
-
-
-{% hint style="info" %}
-**Important considerations**
-
-It is important to note that the full Observability Stack is resource-intensive, and resource consumption spikes with every added node observed. In general we expect the Stack to use up to 1% of total CPU/Mem capacity used by the clusters/nodes observed. If the upstream management cluster is not easy to scale in your situation we advise to run the Observability Stack in a separate downstream cluster.
-{% endhint %}
+StackState server should be installed in its own downstream cluster intended for Observability. See the below picture for reference.
 
 ![Architecture](/.gitbook/assets/k8s/prime/architecture.png)
 
