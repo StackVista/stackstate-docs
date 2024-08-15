@@ -102,7 +102,7 @@ You can now follow the instruction below for a HA or NON-HA setup.
 ```text
 helm repo add rancher-prime-observability https://helm-rancher-prime.stackstate.io
 helm repo update
-```    
+```
 {% endcode %}
 
 
@@ -117,7 +117,7 @@ helm template \
     --set pullSecret.password='trial' \
     prime-observability-values \
     rancher-prime-observability/stackstate-values > values.yaml
-```    
+```
 {% endcode %}
 
 3. Deploy the StackState helm chart with the generated values:
@@ -140,7 +140,7 @@ helm upgrade --install \
 ```text
 helm repo add rancher-prime-observability https://helm-rancher-prime.stackstate.io
 helm repo update
-```    
+```
 {% endcode %}
 
 2. Command to generate helm chart values file:
@@ -154,7 +154,7 @@ helm template \
     --set pullSecret.password='trial' \
     prime-observability-values \
     rancher-prime-observability/stackstate-values > values.yaml
-```    
+```
 {% endcode %}
 
 3. Create a second values file for the non-ha setup, named nonha_values.yaml with the following content:
@@ -199,7 +199,7 @@ victoria-metrics-1:
 
 zookeeper:
   replicaCount: 1
-  
+
 clickhouse:
   replicaCount: 1
 ```
@@ -246,13 +246,19 @@ Use the default Helm option and add the **Index URL**: http://stackvista.github.
 1. Note the API token and install StackState cli on your local machine.
 1. Create a service token by running
 
-{% hint style="info" %}
-sts service-token create --name my-service-token --roles stackstate-power-user
-{% endhint %}
+{% code %}
+```
+sts service-token create --name rancher-prime-observability --roles stackstate-k8s-troubleshooter
+```
+{% endcode %}
 
 
 ## Installing the StackState Agent
 There are two ways to install the StackState Agent: via the Rancher UI or directly via helm, as mentioned in the instructions of the StackPack page.
+
+{$ hint style="warning" %}
+Ensure that the cluster name provided in the StackState UI matches the cluster name in the Rancher UI.
+{$ endhint %}
 
 ### Install the StackState Agent from the Rancher UI:
 
@@ -281,7 +287,7 @@ To enable Single sign-on with your own authentication provider please [see here]
    * Both options are possible.
 1. To monitor the downstream clusters, should we install the StackState agent from the app store or add a new instance from the StackState UI?
    * Both options are possible depending on users preference.
-   
+
 ## Open Issues
 1. When you uninstall and reinstall the UI extensions for Observability, we noticed that service token is not deleted and is reused upon reinstallation. Whenever we uninstall the extensions, service token should be removed.
    * This information should be deleted when the UI extensions are uninstalled.
