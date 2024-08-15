@@ -65,7 +65,7 @@ StackState server should be installed in its own downstream cluster intended for
 {% hint style="info" %}
 **Important considerations**
 
-It is important to note that the full Observability Stack is resource-intensive, and resource consumption spikes with every added node observed. In general we expect the Stack to use up to 1% of total CPU/Mem capacity used by the clusters/nodes observed. For this reason the Observability Stack should not be installed in the upstream management cluster.
+It is important to note that the full Observability Stack is resource-intensive, and resource consumption spikes with every added node observed. For this reason the Observability Stack should not be installed in the upstream management cluster.
 {% endhint %}
 
 ![Architecture](/.gitbook/assets/k8s/prime/architecture.png)
