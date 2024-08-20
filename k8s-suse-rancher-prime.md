@@ -16,7 +16,7 @@ The Tech Preview phase is expected  is expected to last at least 30 days. After 
 The installation of Rancher Observability, the SUSE Rancher Observability UI extension and the Rancher Observability Agents takes about 30 minutes in total.
 
 ## Getting help
-To get support, ask any question or provide feedback you can reach us during the tech preview phase on the following Slack channel.
+To get support, ask any question or provide feedback you can reach us during the tech preview phase on the following email rancherobservability@suse.com
 
 ## Prerequisites
 
@@ -60,15 +60,7 @@ This is an UI extension to Rancher Manager that integrates the health signals ob
 
 ### Where to install Rancher Observability server
 
-It is possible to install Rancher Observability server on the upstream cluster on which SUSE Rancher Prime is installed or it is possible to install Rancher Observability Server in a downstream cluster for Observability. See the below picture for reference.
-Our advice is to install Rancher Observability on a downstream cluster as shown on the right diagram.
-
-
-{% hint style="info" %}
-**Important considerations**
-
-It is important to note that the full Observability Stack is resource-intensive, and resource consumption spikes with every added node observed. In general we expect the Stack to use up to 1% of total CPU/Mem capacity used by the clusters/nodes observed. If the upstream management cluster is not easy to scale in your situation we advise to run the Observability Stack in a separate downstream cluster.
-{% endhint %}
+StackState server should be installed in its own downstream cluster intended for Observability. See the below picture for reference.
 
 ![Architecture](/.gitbook/assets/k8s/prime/architecture.png)
 
@@ -102,7 +94,7 @@ You can now follow the instruction below for a HA or NON-HA setup.
 ```text
 helm repo add rancher-prime-observability https://helm-rancher-prime.stackstate.io
 helm repo update
-```    
+```
 {% endcode %}
 
 
@@ -117,7 +109,7 @@ helm template \
     --set pullSecret.password='trial' \
     prime-observability-values \
     rancher-prime-observability/stackstate-values > values.yaml
-```    
+```
 {% endcode %}
 
 3. Deploy the Rancher Observability helm chart with the generated values:
@@ -140,7 +132,7 @@ helm upgrade --install \
 ```text
 helm repo add rancher-prime-observability https://helm-rancher-prime.stackstate.io
 helm repo update
-```    
+```
 {% endcode %}
 
 2. Command to generate helm chart values file:
@@ -154,7 +146,7 @@ helm template \
     --set pullSecret.password='trial' \
     prime-observability-values \
     rancher-prime-observability/stackstate-values > values.yaml
-```    
+```
 {% endcode %}
 
 3. Create a second values file for the non-ha setup, named nonha_values.yaml with the following content:
@@ -199,7 +191,7 @@ victoria-metrics-1:
 
 zookeeper:
   replicaCount: 1
-  
+
 clickhouse:
   replicaCount: 1
 ```
@@ -246,13 +238,19 @@ Use the default Helm option and add the **Index URL**: http://stackvista.github.
 1. Note the API token and install Rancher Observability cli on your local machine.
 1. Create a service token by running
 
-{% hint style="info" %}
-sts service-token create --name my-service-token --roles stackstate-power-user
-{% endhint %}
+{% code %}
+```
+sts service-token create --name rancher-prime-observability --roles stackstate-k8s-troubleshooter
+```
+{% endcode %}
 
 
 ## Installing the Rancher Observability Agent
 There are two ways to install the Rancher Observability Agent: via the Rancher UI or directly via helm, as mentioned in the instructions of the StackPack page.
+
+{$ hint style="warning" %}
+Ensure that the cluster name provided in the Rancher Observability UI matches the cluster name in the Rancher UI.
+{$ endhint %}
 
 ### Install the Rancher Observability Agent from the Rancher UI:
 
@@ -281,7 +279,7 @@ To enable Single sign-on with your own authentication provider please [see here]
    * Both options are possible.
 1. To monitor the downstream clusters, should we install the Rancher Observability agent from the app store or add a new instance from the Rancher Observability UI?
    * Both options are possible depending on users preference.
-   
+
 ## Open Issues
 1. When you uninstall and reinstall the UI extensions for Observability, we noticed that service token is not deleted and is reused upon reinstallation. Whenever we uninstall the extensions, service token should be removed.
    * This information should be deleted when the UI extensions are uninstalled.
