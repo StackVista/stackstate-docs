@@ -120,6 +120,7 @@ helm upgrade --install \
 --set-string 'stackstate.url'='https://stackstate.acme.local/receiver/stsAgent' \
 --set-string 'logsAgent.enabled'='true' \
 --set-string 'all.image.registry'="registry.acme.com:5000" \
+--set-string 'global.imageRegistry'='registry.acme.com:5000' \
 stackstate-k8s-agent ./stackstate-k8s-agent-1.0.30.tgz
 ```
 
@@ -146,6 +147,7 @@ helm upgrade --install \
 --set-string 'stackstate.url'='https://stackstate.acme.local/receiver/stsAgent' \
 --set-string 'logsAgent.enabled'='true' \
 --set-string 'all.image.registry'="registry.acme.com:5000" \
+--set-string 'global.imageRegistry'='registry.acme.com:5000' \
 --set-string 'global.imagePullSecrets[0]'="acme-registry-pull-secret-name" \
 stackstate-k8s-agent ./stackstate-k8s-agent-1.0.30.tgz
 ```
