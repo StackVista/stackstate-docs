@@ -53,9 +53,9 @@ helm fetch stackstate/stackstate-k8s-agent
 
 ```bash
 # o11y-agent-get-images.sh
-curl -LO https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/stackstate-k8s/installation/o11y-agent-get-images.sh
+curl -LO https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/stackstate-k8s-agent/installation/o11y-agent-get-images.sh
 # o11y-agent-save-images.sh
-curl -LO https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/stackstate-k8s/installation/o11y-agent-save-images.sh
+curl -LO https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/stackstate-k8s-agent/installation/o11y-agent-save-images.sh
 
 # Make the scripts executable
 chmod a+x o11y-agent-get-images.sh o11y-agent-save-images.sh
@@ -83,7 +83,7 @@ Replace `stackstate-k8s-agent-X.Y.Z.tgz` with the actual filename of the chart a
 The following files have to be copied from the local host to the host in the private network:
 - o11y-agent-images.txt (List of images required by the Rancher Prime Observability Agent chart)
 - o11y-agent-images.tar.gz (An archive with the Rancher Prime Observability Agent's Docker images)
-- [o11y-agent-load-images.sh](https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/stackstate-k8s/installation/o11y-agent-load-images.sh) (Bash script to upload Docker images to a registry)
+- [o11y-agent-load-images.sh](https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/stackstate-k8s-agent/installation/o11y-agent-load-images.sh) (Bash script to upload Docker images to a registry)
 - Helm charts downloaded earlier:
   - stackstate-k8s-agent-X.Y.Z.tgz
 
