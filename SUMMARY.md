@@ -121,6 +121,8 @@
 * [Configure StackState](setup/configure-stackstate/README.md)
   * [Slack notifications](setup/configure-stackstate/slack-notifications.md)
   * [Stackpacks](stackpacks/about-stackpacks.md)
+* [Release Notes](setup/release-notes/README.md)
+  * [v1.11.0 - 18/07/2024](setup/release-notes/20240718165243.md)
 * [Upgrade StackState](setup/upgrade-stackstate/README.md)
   * [Steps to upgrade](setup/upgrade-stackstate/steps-to-upgrade.md)
   * [Version-specific upgrade instructions](setup/upgrade-stackstate/version-specific-upgrade-instructions.md)

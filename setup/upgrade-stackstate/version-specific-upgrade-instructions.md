@@ -21,5 +21,6 @@ This page provides specific instructions and details of any required manual step
 
 ## See also
 
+* [Release Notes](../release-notes/README.md)
 * [Steps to upgrade StackState](steps-to-upgrade.md)
 
