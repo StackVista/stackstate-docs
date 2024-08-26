@@ -62,6 +62,10 @@ This is an UI extension to Rancher Manager that integrates the health signals ob
 
 StackState server should be installed in its own downstream cluster intended for Observability. See the below picture for reference.
 
+For StackState to be able to work properly it needs:
+* [Kubernetes Persistent Storage](https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/manage-clusters/create-kubernetes-persistent-storage) to be available in the observability cluster to store metrics, events, etc.
+* the observability cluster to support a way to expose StackState on an HTTPS URL to Rancher, StackState users and the StackState agent. This can be done via an Ingress configuration using an ingress controller, alternatively a (cloud) loadbalancer for the StackState services could do this too, for more information see the [Rancher docs](https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/kubernetes-resources-setup/load-balancer-and-ingress-controller).
+
 ![Architecture](/.gitbook/assets/k8s/prime/architecture.png)
 
 ### Pre-Installation
@@ -149,6 +153,8 @@ helm template \
 ```
 {% endcode %}
 
+The `baseUrl` must be the URL via which StackState will be accessible to Rancher, users, and the StackState agent. The URL must including the scheme, for example `https://stackstate.internal.mycompany.com`. See also [accessing StackState](#accessing-stackstate).
+
 3. Create a second values file for the non-ha setup, named nonha_values.yaml with the following content:
 
 
@@ -211,6 +217,12 @@ helm upgrade --install \
 ```
 {% endcode %}
 
+## Accessing StackState
+
+The StackState Helm chart has support for creating an Ingress resource to make StackState accessible outside of the cluster. Follow [these instructions](setup/install-stackstate/kubernetes_openshift/ingress.md) to set that up when you have an ingress controller in the cluster. Make sure that the resulting URL uses TLS with a valid, not self-signed, certificate.
+
+If you prefer to use a load balancer instead of ingress, expose the `prime-observe-stackstate-k8s-router` service. The URL for the loadbalancer needs to use a valid, not self-signed, TLS certificate.
+
 ## Installing UI extensions
 
 {% hint style="warning" %}
@@ -254,16 +266,22 @@ Ensure that the cluster name provided in the StackState UI matches the cluster n
 
 ### Install the StackState Agent from the Rancher UI:
 
-1. Navigate to the downstream cluster on the Rancher UI on which you want to install the Agent and then go to apps.
-1. From the partner charts, select the StackState agent.
-1. The Stackstate agent will now be installed on the downstream cluster.
-1. After you install the StackState Agent, the cluster can be seen within the StackState UI as well as the _SUSE Rancher - Observability UI extension_.
+1. In the StackState UI open the main menu and select StackPacks.
+2. Select the Kubernetes StackPack.
+3. Click on new instance and provide the cluster name of the downstream cluster which you are adding. Make sure you match the name of the Rancher cluster with the name provided here. Click install. When installation completes the api-key and StackState URL are shown as part of the installation instructions.
+4. In a separate tab navigate to the downstream cluster on the Rancher UI on which you want to install the Agent and then go to apps.
+5. From the partner charts, select the StackState agent.
+6. Provide the requested installation values:
+   1. Make sure the cluster name matches the Rancher cluster name.
+   2. The api-key and StackState URL from step 3 must be used.
+7. The Stackstate agent will now be installed on the downstream cluster.
+8. After you install the StackState Agent, the cluster can be seen within the StackState UI as well as the _SUSE Rancher - Observability UI extension_.
 
 ### Install the StackState Agent via helm:
 
 1. In the StackState UI open the main menu and select StackPacks.
 1. Select the Kubernetes StackPack.
-1. Click on new instance and provide the cluster name of the downstream cluster which you are adding. Make sure you match the name of the cluster with the name provided here.
+1. Click on new instance and provide the cluster name of the downstream cluster which you are adding. Make sure you match the name of the Rancher cluster with the name provided here. Click install.
 1. You will now see the helm command which you need to execute.
 1. After you install the StackState Agent, the cluster can be seen within the StackState UI as well as the _SUSE Rancher - Observability UI extension_.
 
