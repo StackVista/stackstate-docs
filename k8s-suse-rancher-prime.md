@@ -219,7 +219,7 @@ helm upgrade --install \
 
 ## Accessing StackState
 
-The StackState Helm chart has support for creating an Ingress resource to make StackState accessible outside of the cluster. Follow [these instructions](setup/install-stackstate/kubernetes_openshift/ingress) to set that up when you have an ingress controller in the cluster. Make sure that the resulting URL uses TLS with a valid, not self-signed, certificate.
+The StackState Helm chart has support for creating an Ingress resource to make StackState accessible outside of the cluster. Follow [these instructions](setup/install-stackstate/kubernetes_openshift/ingress.md) to set that up when you have an ingress controller in the cluster. Make sure that the resulting URL uses TLS with a valid, not self-signed, certificate.
 
 If you prefer to use a load balancer instead of ingress, expose the `prime-observe-stackstate-k8s-router` service. The URL for the loadbalancer needs to use a valid, not self-signed, TLS certificate.
 
