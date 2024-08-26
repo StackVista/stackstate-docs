@@ -63,7 +63,7 @@ This is an UI extension to Rancher Manager that integrates the health signals ob
 StackState server should be installed in its own downstream cluster intended for Observability. See the below picture for reference.
 
 For StackState to be able to work properly it needs:
-* [Kubernetes Persitent Storage](https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/manage-clusters/create-kubernetes-persistent-storage) to be available in the observability cluster to store metrics, events, etc.
+* [Kubernetes Persistent Storage](https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/manage-clusters/create-kubernetes-persistent-storage) to be available in the observability cluster to store metrics, events, etc.
 * the observability cluster to support a way to expose StackState on an HTTPS URL to Rancher, StackState users and the StackState agent. This can be done via an Ingress configuration using an ingress controller, alternatively a (cloud) loadbalancer for the StackState services could do this too, for more information see the [Rancher docs](https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/kubernetes-resources-setup/load-balancer-and-ingress-controller).
 
 ![Architecture](/.gitbook/assets/k8s/prime/architecture.png)
@@ -153,7 +153,7 @@ helm template \
 ```
 {% endcode %}
 
-Note that the `baseUrl` needs to be the URL via which StackState will be accessible to Rancher, users and the agent. See also [accessing StackState](#accessing-stackstate).
+The `baseUrl` must be the URL via which StackState will be accessible to Rancher, users, and the StackState agent. The URL must including the scheme, for example `https://stackstate.internal.mycompany.com`. See also [accessing StackState](#accessing-stackstate).
 
 3. Create a second values file for the non-ha setup, named nonha_values.yaml with the following content:
 
@@ -219,9 +219,9 @@ helm upgrade --install \
 
 ## Accessing StackState
 
-The StackState Helm chart has support for creating an Ingress resource to make StackState accessible outside of the cluster. Follow [these instructions](setup/install-stackstate/kubernetes_openshift/ingress) to set that up when you have an ingress controller in the cluster. Make that the resulting URL uses TLS with a valid, not self-signed, TLS certificate is used.
+The StackState Helm chart has support for creating an Ingress resource to make StackState accessible outside of the cluster. Follow [these instructions](setup/install-stackstate/kubernetes_openshift/ingress) to set that up when you have an ingress controller in the cluster. Make sure that the resulting URL uses TLS with a valid, not self-signed, certificate.
 
-If you prefer to use a load balancer instead of ingress, expose the `prime-observe-stackstate-k8s-router` service. The URL for the loadbalancer needs to use a valid, not self-signed, TLS certificate
+If you prefer to use a load balancer instead of ingress, expose the `prime-observe-stackstate-k8s-router` service. The URL for the loadbalancer needs to use a valid, not self-signed, TLS certificate.
 
 ## Installing UI extensions
 
