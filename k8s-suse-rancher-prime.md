@@ -74,6 +74,7 @@ Before installing the StackState server a default storage class must be set up i
 - **For k3s**: The local-path storage class of type rancher.io/local-path is created by default.
 - **For EKS, AKS, GKE** a storage class is set by default
 - **For RKE2 Node Drivers**: No storage class is created by default. You will need to create one before installing StackState.
+- **RKE1** is not supported to run StackState server.
 
 ## Installing StackState
 
