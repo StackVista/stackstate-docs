@@ -1,4 +1,5 @@
  -
+Active Directory
 ADD
 Add
 add
@@ -11,6 +12,7 @@ API
 APIs
 async
 AWS
+Azure
 BACK
 Back
 back
@@ -49,6 +51,7 @@ IAM
 ITSM
 JIRA
 JVM
+Keycloak
 LIVE
 Live
 live
@@ -64,6 +67,8 @@ Namespace
 NEW
 new
 New
+Oidc
+OIDC
 OpenMetrics
 OpenShift
 playhead
@@ -71,6 +76,7 @@ Playhead
 PostgreSQL
 PromQL
 SAVE
+SaaS
 Save
 save
 serverless
