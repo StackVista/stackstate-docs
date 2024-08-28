@@ -91,6 +91,10 @@ After meeting the prerequisites you can proceed with the installation. The insta
 
 You can now follow the instruction below for a HA or NON-HA setup.
 
+{% hint style="info" %}
+Be aware upgrading or downgrading from HA to NON-HA and visa-versa is not yet supported.
+{% endhint %}
+
 
 ### Installing a default HA setup for up to 250 Nodes
 
@@ -307,3 +311,5 @@ To enable Single sign-on with your own authentication provider please [see here]
 1. The SUSE Rancher Prime - Observability Extension is only supported on 2.8.x versions and not yet on the 2.9.x version.
    * Support for 2.9.x will be available soon.
 1. On RKE(1) The Node Agent does not start process-agent with Ubuntu 20.04.6 LTS worker nodes it fails with a message `failed to create network tracer`
+1. Be aware upgrading or downgrading from HA to NON-HA and visa-versa is not yet supported.
+
