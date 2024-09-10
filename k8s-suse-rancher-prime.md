@@ -2,16 +2,11 @@
 description: SUSE Observability
 ---
 
-# SUSE Observability Tech Preview
+# SUSE Observability
 
 ## Introduction
 
-This page describes how to install SUSE Observability during the Tech Preview phase on-premise.
-
-SUSE Observability, formerly known as SUSE Observability can be used for Observability of your Kubernetes clusters and their workloads.
-During the Tech Preview phase we only offer 2 on-prem installations which can support up-to 50 (non-HA) or up-to 250 (HA) worker Nodes.
-
-The Tech Preview phase is expected  is expected to last at least 30 days. After the Tech Preview phase a GA version will be made available for SUSE Observability customers. There is no guarantee that the Tech Preview will be compatible from a feature or upgrade perspective with the GA version.
+SUSE Observability, formerly known as StackState can be used for Observability of your Kubernetes clusters and their workloads.
 
 The installation of SUSE Observability, the SUSE Observability UI extension and the SUSE Observability Agents takes about 30 minutes in total.
 
@@ -21,7 +16,7 @@ To get support, ask any question or provide feedback you can reach us during the
 ## Prerequisites
 
 ### License key
-A license key for SUSE Observability server can be obtained via the SUSE Customer Center and will be shown as "SUSE Observability Tech Preview" Registration Code. The license for the tech preview is valid until Oct, 31 2024. Before the end a license will be made available which is valid until the end of your SUSE Observability subscription.
+A license key for SUSE Observability server can be obtained via the SUSE Customer Center and will be shown as "SUSE Rancher Prime - Observability Tech Preview" Registration Code. This license is valid until Oct, 31 2024. Before the end a license will be made available which is valid until the end of your Rancher Prime subscription.
 
 ### Requirements
 To install SUSE Observability, ensure that the nodes have enough CPU and memory capacity. Below are the specific requirements.
@@ -258,32 +253,13 @@ sts service-token create --name suse-observability-extension --roles stackstate-
 
 
 ## Installing the SUSE Observability Agent
-There are two ways to install the SUSE Observability Agent: via the Rancher UI or directly via Helm, as mentioned in the instructions of the StackPack page.
-
-{$ hint style="warning" %}
-Ensure that the cluster name provided in the SUSE Observability UI matches the cluster name in the Rancher UI.
-{$ endhint %}
-
-### Install the StackState Agent from the Rancher UI:
 
 1. In the SUSE Observability UI open the main menu and select StackPacks.
 2. Select the Kubernetes StackPack.
-3. Click on new instance and provide the cluster name of the downstream cluster which you are adding. Make sure you match the name of the Rancher cluster with the name provided here. Click install. When installation completes the api-key and SUSE Observability URL are shown as part of the installation instructions.
-4. In a separate tab navigate to the downstream cluster on the Rancher UI on which you want to install the Agent and then go to apps.
-5. From the partner charts, select the SUSE Observability agent.
-6. Provide the requested installation values:
-   1. Make sure the cluster name matches the Rancher cluster name.
-   2. The api-key and SUSE Observability URL from step 3 must be used.
-7. The SUSE Observability agent will now be installed on the downstream cluster.
-8. After you install the SUSE Observability Agent, the cluster can be seen within the SUSE Observability UI as well as the _SUSE Rancher - Observability UI extension_.
-
-### Install the SUSE Observability Agent via helm:
-
-1. In the SUSE Observability UI open the main menu and select StackPacks.
-1. Select the Kubernetes StackPack.
-1. Click on new instance and provide the cluster name of the downstream cluster which you are adding. Make sure you match the name of the Rancher cluster with the name provided here. Click install.
-1. You will now see the helm command which you need to execute.
-1. After you install the SUSE Observability Agent, the cluster can be seen within the SUSE Observability UI as well as the _SUSE Rancher - Observability UI extension_.
+3. Click on new instance and provide the cluster name of the downstream cluster which you are adding. Make sure you match the name of the Rancher cluster with the name provided here. Click install.
+4. In the list of instructions find the section that matches your cluster best
+5. Execute the instructions provided to install the agent, these can be run in the `kubectl shell` that you can open for your cluster via the Rancher UI. But it can also be run from a local machine if it has Helm installed and is authorized to connect to the cluster.
+6. After you install the agent, the cluster can be seen within the SUSE Observability UI as well as the _SUSE Rancher - Observability UI extension_.
 
 ## Single Sign On
 To enable Single sign-on with your own authentication provider please [see here](setup/security/authentication/authentication_options.md).
