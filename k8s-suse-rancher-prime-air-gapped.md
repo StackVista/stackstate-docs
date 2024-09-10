@@ -2,9 +2,9 @@
 description: Suse Rancher Prime
 ---
 
-# Installing Rancher Prime Observability in Air-Gapped Mode
+# Installing SUSE Observability in Air-Gapped Mode
 
-This document provides a step-by-step guide for installing Rancher Prime Observability using Helm charts in an air-gapped environment. The process involves preparing the necessary Docker images and Helm charts on a host with internet access, transferring them to a host within a private network, copying Docker images to a private registry, and then deploying the Helm charts.
+This document provides a step-by-step guide for installing SUSE Observability using Helm charts in an air-gapped environment. The process involves preparing the necessary Docker images and Helm charts on a host with internet access, transferring them to a host within a private network, copying Docker images to a private registry, and then deploying the Helm charts.
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ Run the following commands on the local host to obtain the required Docker image
 **Adding Helm repositories to the local Helm cache:**
 
 ```bash
-# Adding the Helm repository for Rancher Prime Observability
+# Adding the Helm repository for SUSE Observability
 helm repo add rancher-prime-observability https://helm-rancher-prime.stackstate.io
 helm repo update
 ```
@@ -44,11 +44,11 @@ helm repo update
 **Fetching the latest versions of the charts. These commands will download TGZ archives of the charts:**
 
 ```bash
-# Downloading the chart for Rancher Prime Observability
+# Downloading the chart for SUSE Observability
 # The file will be named stackstate-k8s-A.B.C.tgz
 helm fetch rancher-prime-observability/stackstate-k8s
 
-# Downloading the helper chart that generates values for Rancher Prime Observability
+# Downloading the helper chart that generates values for SUSE Observability
 # The file will be named stackstate-values-L.M.N.tgz
 helm fetch rancher-prime-observability/stackstate-values
 ```
@@ -78,7 +78,7 @@ Replace `stackstate-k8s-A.B.C.tgz` with the actual filename of the chart archive
 
 ```bash
 # Save Docker images to an archive.
-# The script expects the file o11y-images.txt to contain the list of images used by Rancher Prime Observability.
+# The script expects the file o11y-images.txt to contain the list of images used by SUSE Observability.
 # The Docker images will be saved to o11y-images.tar.gz.
 ./o11y-save-images.sh -i o11y-images.txt -f o11y-images.tar.gz
 ```
@@ -86,8 +86,8 @@ Replace `stackstate-k8s-A.B.C.tgz` with the actual filename of the chart archive
 ## Copying the Required Files to the Remote Host
 
 Copy the following files from the local host to the host in the private network:
-- o11y-images.txt (List of images required by the Rancher Prime Observability chart)
-- o11y-images.tar.gz (An archive with the Rancher Prime Observability's Docker images)
+- o11y-images.txt (List of images required by the SUSE Observability chart)
+- o11y-images.tar.gz (An archive with the SUSE Observability's Docker images)
 - [o11y-load-images.sh](https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/stackstate-k8s/installation/o11y-load-images.sh) (Bash script to upload Docker images to a registry)
 - Helm charts downloaded earlier:
   - stackstate-k8s-A.B.C.tgz
@@ -109,11 +109,11 @@ export DST_REGISTRY_PASSWORD="..."
 If the destination registry doesn't use authentication the environment variables, `DST_REGISTRY_USERNAME` and `DST_REGISTRY_PASSWORD` must not be configured or have to be set to empty values.*
 {% endhint %}
 
-## Installing Rancher Prime Observability
+## Installing SUSE Observability
 
 **Custom Helm values**
 
-Installing Rancher Prime Observability Helm charts in an air-gapped environment requires overriding the registries used in Docker image URLs. This can be achieved by customizing Helm values.
+Installing SUSE Observability Helm charts in an air-gapped environment requires overriding the registries used in Docker image URLs. This can be achieved by customizing Helm values.
 
 Create a private-registry.yaml file with the following content:
 
@@ -151,7 +151,7 @@ helm template \
 ```
 {% endcode %}
 
-**Deploying the Rancher Prime Observability Helm Chart:**
+**Deploying the SUSE Observability Helm Chart:**
 
 {% code title="helm_deploy.sh" lineNumbers="true" %}
 ```text

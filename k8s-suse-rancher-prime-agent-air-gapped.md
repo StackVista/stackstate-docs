@@ -2,9 +2,9 @@
 description: Suse Rancher Prime
 ---
 
-# Installing Rancher Prime Observability Agent in Air-Gapped Mode
+# Installing SUSE Observability Agent in Air-Gapped Mode
 
-This document provides a step-by-step guide for installing the Rancher Prime Observability Agent using Helm charts in an air-gapped environment. The installation process involves preparing the necessary Docker images and Helm chart on a host with internet access, transferring them to a host within a private network, uploading Docker images to a private registry, and deploying the Helm charts.
+This document provides a step-by-step guide for installing the SUSE Observability Agent using Helm charts in an air-gapped environment. The installation process involves preparing the necessary Docker images and Helm chart on a host with internet access, transferring them to a host within a private network, uploading Docker images to a private registry, and deploying the Helm charts.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ Run the following commands on the local host to obtain the necessary Docker imag
 **Adding Helm Repositories to the Local Helm Cache:**
 
 ```bash
-# Adding the Helm repository for the Rancher Prime Observability Agent
+# Adding the Helm repository for the SUSE Observability Agent
 helm repo add stackstate https://helm.stackstate.io
 helm repo update
 ```
@@ -44,7 +44,7 @@ helm repo update
 The following command will download a TGZ archive of the chart from the Helm repository:
 
 ```bash
-# Downloading the chart for the Rancher Prime Observability Agent
+# Downloading the chart for the SUSE Observability Agent
 # The file will be named stackstate-agent-X.Y.Z.tgz
 helm fetch stackstate/stackstate-k8s-agent
 ```
@@ -73,7 +73,7 @@ Replace `stackstate-k8s-agent-X.Y.Z.tgz` with the actual filename of the chart a
 
 ```bash
 # Save Docker images to an archive.
-# The script expects the file o11y-agent-images.txt to contain the list of images used by the Rancher Prime Observability Agent.
+# The script expects the file o11y-agent-images.txt to contain the list of images used by the SUSE Observability Agent.
 # The Docker images will be saved to o11y-agent-images.tar.gz.
 ./o11y-agent-save-images.sh -i o11y-agent-images.txt -f o11y-agent-images.tar.gz
 ```
@@ -81,8 +81,8 @@ Replace `stackstate-k8s-agent-X.Y.Z.tgz` with the actual filename of the chart a
 ## Copying the Required Files to the Remote Host
 
 The following files have to be copied from the local host to the host in the private network:
-- o11y-agent-images.txt (List of images required by the Rancher Prime Observability Agent chart)
-- o11y-agent-images.tar.gz (An archive with the Rancher Prime Observability Agent's Docker images)
+- o11y-agent-images.txt (List of images required by the SUSE Observability Agent chart)
+- o11y-agent-images.tar.gz (An archive with the SUSE Observability Agent's Docker images)
 - [o11y-agent-load-images.sh](https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/stackstate-k8s-agent/installation/o11y-agent-load-images.sh) (Bash script to upload Docker images to a registry)
 - Helm charts downloaded earlier:
   - stackstate-k8s-agent-X.Y.Z.tgz
@@ -103,9 +103,9 @@ export DST_REGISTRY_PASSWORD="..."
 *Note: if the destination registry doesn't use authentication the environment variables, `DST_REGISTRY_USERNAME` and `DST_REGISTRY_PASSWORD` must not be configured or have to be set to empty values.*
 {% endhint %}
 
-## Installing Rancher Prime Observability Agent
+## Installing SUSE Observability Agent
 
-The command to install the Rancher Prime Observability Agent has to be received from Rancher Prime Observability UI.
+The command to install the SUSE Observability Agent has to be received from SUSE Observability UI.
 Log in to your instance and in the left-side menu choose the `Stackpacks`. Press `ADD NEW INSTANCE` and fill in the name of the cluster. For correct integration with Rancher it has to be the same as the cluster name in the Rancher UI.
 
 
@@ -119,7 +119,7 @@ The command has to be updated for the air-gapped installation:
 - Overriding the image registry with `all.image.registry` value.
 - Using the arhive with the Helm chart instead of the Helm repository. `stackstate/stackstate-k8s-agent` -> `./stackstate-k8s-agent-X.Y.Z.tgz`
 
-Run the command to install the Rancher Prime Observability Agent
+Run the command to install the SUSE Observability Agent
 
 ```bash
 helm upgrade --install \

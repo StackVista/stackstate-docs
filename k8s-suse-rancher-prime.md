@@ -231,7 +231,7 @@ If you prefer to use a load balancer instead of ingress, expose the `prime-obser
 ## Installing UI extensions
 
 {% hint style="warning" %}
-Currently the UI extension for SUSE Rancher Prime Observability is only supported on the 2.8.x versions for SUSE Rancher Prime, and not on the 2.9.x versions. The 2.9.x version will be released soon.
+Currently the UI extension for SUSE SUSE Observability is only supported on the 2.8.x versions for SUSE Rancher Prime, and not on the 2.9.x versions. The 2.9.x version will be released soon.
 {% endhint %}
 
 To install UI extensions, enable the UI extensions from the rancher UI
@@ -245,8 +245,8 @@ Use the default Helm option and add the **Index URL**: http://stackvista.github.
 1. Once it is created, a deployment by the name **ui-plugin-operator** in the namespace **cattle-ui-plugin-system** gets created in the local cluster
 1. Navigate to extensions on the rancher UI and under Available section of extensions, we will have the Observability extension available.
 1. Install the Observability extension.
-1. Once installed, on the left panel of the rancher UI, the _Rancher Prime Observability_ section appears.
-1. Navigate to the _Rancher Prime Observability_ section and select "configurations". In this section, you can add the SUSE Observability server details and connect it.
+1. Once installed, on the left panel of the rancher UI, the _SUSE Observability_ section appears.
+1. Navigate to the _SUSE Observability_ section and select "configurations". In this section, you can add the SUSE Observability server details and connect it.
 1. Follow the instructions as mentioned in *Obtain a service token* tab and fill in the details.
 
 ### Obtain a service token:
