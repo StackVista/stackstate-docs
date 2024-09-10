@@ -1,12 +1,12 @@
 ---
-description: Rancher Observability
+description: SUSE Observability
 ---
 
 # View structure
 
 ## Overview
 
-A view in Rancher Observability allows you to monitor and inspect a subset of your IT environment. The structure of a view is tailored towards filtering and visualizing the data in that subset (view) in an efficient way.
+A view in SUSE Observability allows you to monitor and inspect a subset of your IT environment. The structure of a view is tailored towards filtering and visualizing the data in that subset (view) in an efficient way.
 
 ### Filters
 

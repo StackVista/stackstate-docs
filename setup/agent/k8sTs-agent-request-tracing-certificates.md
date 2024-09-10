@@ -1,5 +1,5 @@
 ---
-description: Rancher Observability
+description: SUSE Observability
 ---
 
 # Certificates for request tracing sidecar injection

@@ -1,19 +1,19 @@
 ---
-description: Rancher Observability
+description: SUSE Observability
 ---
 
 # Identifiers
 
 ## Overview
 
-Identifiers are used in Rancher Observability to identify objects, such as topology elements \(components and relations\) and functions. This page describes the different types of identifiers used for topology elements and how global scope identifiers are structured in Rancher Observability.
+Identifiers are used in SUSE Observability to identify objects, such as topology elements \(components and relations\) and functions. This page describes the different types of identifiers used for topology elements and how global scope identifiers are structured in SUSE Observability.
 
 ## Topology identifiers
 
-Topology elements use two types of identifiers in Rancher Observability:
+Topology elements use two types of identifiers in SUSE Observability:
 
 * **Integration scope identifiers** - used for identifying components and relations within an integration. Each component or relation has only one integration scope identifier. The identifier is arbitrary, but must be consistent within the scope of the integration itself.
-* **Global scope identifiers** - used for merging components between integrations, for example ServiceNow and the Rancher Observability Agent. Each component can have multiple global scope identifiers, while relations don't have any global identifiers. They're assigned by Rancher Observability and formatted in accordance with the [Rancher Observability global identifier convention](identifiers.md#global-scope-identifiers).
+* **Global scope identifiers** - used for merging components between integrations, for example ServiceNow and the SUSE Observability Agent. Each component can have multiple global scope identifiers, while relations don't have any global identifiers. They're assigned by SUSE Observability and formatted in accordance with the [SUSE Observability global identifier convention](identifiers.md#global-scope-identifiers).
 
 The code sample below shows a component with both types of identifiers.
 
@@ -33,9 +33,9 @@ self.component("this-host-unique-identifier", "Host", {
 ```
 {% endcode %}
 
-## Rancher Observability Agent identifiers
+## SUSE Observability Agent identifiers
 
-The global scope identifiers used by the Rancher Observability Agent to identify synchronized topology elements are listed in the table below.
+The global scope identifiers used by the SUSE Observability Agent to identify synchronized topology elements are listed in the table below.
 
 | Resource type | URN identifier format |
 | :--- | :--- |
@@ -45,13 +45,13 @@ The global scope identifiers used by the Rancher Observability Agent to identify
 | Service discovered with traces | `urn:service:/[serviceName]` |
 | Service instance discovered with traces | `urn:service-instance:/[serviceName]:/[hostName]` |
 
-See the [example URN global scope identifiers from the Rancher Observability Agent](identifiers.md#stackstate-agent).
+See the [example URN global scope identifiers from the SUSE Observability Agent](identifiers.md#stackstate-agent).
 
 ## Global scope identifiers
 
-When Rancher Observability receives components with matching global scope identifiers from different external sources, the components and their properties \(labels, streams, checks\) are merged into a single component. This makes it possible to combine data from different sources into a single picture of an IT landscape.
+When SUSE Observability receives components with matching global scope identifiers from different external sources, the components and their properties \(labels, streams, checks\) are merged into a single component. This makes it possible to combine data from different sources into a single picture of an IT landscape.
 
-Global scope identifiers in Rancher Observability are a globally unique URN that matches the following convention:
+Global scope identifiers in SUSE Observability are a globally unique URN that matches the following convention:
 
 ```text
 urn:<prefix>:<type-name>:<free-form>
@@ -98,9 +98,9 @@ Example URN global scope identifiers from the common StackPack. The objects will
 * View health state configuration function Minimum Propagated Health States:
   * `urn:stackpack:common:view-health-state-configuration-function:minimum-propagated-health-states`
 
-### Rancher Observability Agent
+### SUSE Observability Agent
 
-Example URN global scope identifiers from the Rancher Observability Agent.
+Example URN global scope identifiers from the SUSE Observability Agent.
 
 * Host:
   * `urn:host:/example.org`

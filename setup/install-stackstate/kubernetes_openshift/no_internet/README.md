@@ -1,5 +1,5 @@
 ---
-description: Rancher Observability Self-hosted
+description: SUSE Observability Self-hosted
 ---
 
 # Air-gapped installation

@@ -1,5 +1,5 @@
 ---
-description: Rancher Observability
+description: SUSE Observability
 ---
 
 # Topology Perspective
@@ -73,7 +73,7 @@ For example, if you have a business service visualization of a stack that comes 
 
 ### Components grouping
 
-Topology visualizations of large numbers of components can become hard to read. Rancher Observability can group together components within the same view. Grouping brings the number of components and relations down to something visually more manageable.
+Topology visualizations of large numbers of components can become hard to read. SUSE Observability can group together components within the same view. Grouping brings the number of components and relations down to something visually more manageable.
 
 Grouping is enabled by default and respects the selected [grid options](#grid-options) - components must be in the same grid row/column to be grouped together.
 
@@ -95,7 +95,7 @@ There are zoom buttons located in the bottom right corner of the topology visual
 
 You can locate a specific component in the topology by clicking `CTRL` + `SHIFT` + `F` and typing the first few letters of the component name. Alternatively, you can select the **Find component** magnifying glass icon in the bottom right corner of the topology visualizer.
 
-See the full list of [Rancher Observability keyboard shortcuts](/use/stackstate-ui/k8sTs-keyboard-shortcuts.md).
+See the full list of [SUSE Observability keyboard shortcuts](/use/stackstate-ui/k8sTs-keyboard-shortcuts.md).
 
 ### Show root cause
 

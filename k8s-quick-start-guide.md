@@ -1,16 +1,16 @@
 ---
-description: Rancher Observability
+description: SUSE Observability
 ---
 
-# Rancher Observability quick start guides
+# SUSE Observability quick start guides
 
 ## Overview
 
-When your Rancher Observability SaaS instance has been set up and configured, you will receive an email from Rancher Observability
+When your SUSE Observability SaaS instance has been set up and configured, you will receive an email from SUSE Observability
 with the required login details. This quick start guide will help you get started and get your own data into
-your Rancher Observability SaaS instance.
+your SUSE Observability SaaS instance.
 
-To integrate your cluster(s) with Rancher Observability you can follow one of these guides for your appropriate environment.
+To integrate your cluster(s) with SUSE Observability you can follow one of these guides for your appropriate environment.
 * [Amazon EKS](#amazon-eks)
 * [Azure AKS](#azure-aks)
 * [Google GKE](#google-gke)
@@ -23,7 +23,7 @@ To integrate your cluster(s) with Rancher Observability you can follow one of th
 
 # Kubernetes
 
-Set up a Kubernetes integration to collect topology, events, logs, change and metrics data from a Kubernetes cluster and make this available in Rancher Observability.
+Set up a Kubernetes integration to collect topology, events, logs, change and metrics data from a Kubernetes cluster and make this available in SUSE Observability.
 
 ### Supported versions
 
@@ -50,13 +50,13 @@ Set up a Kubernetes integration to collect topology, events, logs, change and me
 
 ### Prerequisites for Kubernetes
 
-To set up a Rancher Observability Kubernetes integration you need to have:
+To set up a SUSE Observability Kubernetes integration you need to have:
 
 * An up-and-running Kubernetes Cluster.
 * A recent version of Helm 3.
 * A user with the permission to `create privileged pods`, `ClusterRoles` and `ClusterRoleBindings`:
-  * ClusterRole and ClusterRoleBinding are needed to grant Rancher Observability Agents permissions to access the Kubernetes API.
-  * Rancher Observability Agents need to run in a privileged pod to be able to gather information on network connections and host information.
+  * ClusterRole and ClusterRoleBinding are needed to grant SUSE Observability Agents permissions to access the Kubernetes API.
+  * SUSE Observability Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
 ### Set up a Kubernetes integration
 
@@ -64,21 +64,21 @@ To set up a Rancher Observability Kubernetes integration you need to have:
 Before you begin, check the [prerequisites for Kubernetes](#prerequisites-for-kubernetes).
 {% endhint %}
 
-To get data from a Kubernetes cluster into Rancher Observability, follow the steps described below:
+To get data from a Kubernetes cluster into SUSE Observability, follow the steps described below:
 
-1. Add the Rancher Observability helm repository to the local helm client:
+1. Add the SUSE Observability helm repository to the local helm client:
     ```buildoutcfg
     helm repo add stackstate https://helm.stackstate.io
     helm repo update
     ```
 
-2. In the Rancher Observability UI, open the main menu by clicking in the top left of the screen and go to `StackPacks` > `Integrations` > `Kubernetes`.
+2. In the SUSE Observability UI, open the main menu by clicking in the top left of the screen and go to `StackPacks` > `Integrations` > `Kubernetes`.
 3. Install a new instance of the Kubernetes StackPack:
    * Specify a **Kubernetes Cluster Name**
-     * This name will be used to identify the cluster in Rancher Observability
+     * This name will be used to identify the cluster in SUSE Observability
    * Click **install**.
-4. Deploy the Rancher Observability Agent, Cluster Agent, Checks Agent and kube-state-metrics on your Cluster using the helm command provided in the Rancher Observability UI after you have installed the StackPack.
-   * Once the Agents have been deployed, they will begin collecting data and push this to Rancher Observability
+4. Deploy the SUSE Observability Agent, Cluster Agent, Checks Agent and kube-state-metrics on your Cluster using the helm command provided in the SUSE Observability UI after you have installed the StackPack.
+   * Once the Agents have been deployed, they will begin collecting data and push this to SUSE Observability
 
 {% hint style="warning" %}
 When running on a self-hosted air-gapped environment prepare the agent installation first with the [air-gapped instructions](setup/install-stackstate/kubernetes_openshift/no_internet/agent_install.md).
@@ -87,7 +87,7 @@ When running on a self-hosted air-gapped environment prepare the agent installat
 
 # OpenShift
 
-Set up an OpenShift integration to collect topology, events, logs, change and metrics data from a OpenShift cluster and make this available in Rancher Observability.
+Set up an OpenShift integration to collect topology, events, logs, change and metrics data from a OpenShift cluster and make this available in SUSE Observability.
 
 ### Supported versions
 [comment]: <> (https://access.redhat.com/support/policy/updates/openshift)
@@ -110,13 +110,13 @@ Set up an OpenShift integration to collect topology, events, logs, change and me
 
 ### Prerequisites for OpenShift
 
-To set up a Rancher Observability OpenShift integration you need to have:
+To set up a SUSE Observability OpenShift integration you need to have:
 
 * An up-and-running OpenShift Cluster.
 * A recent version of Helm 3.
 * A user with the permission to `create privileged pods`, `ClusterRoles` and `ClusterRoleBindings`:
-  * ClusterRole and ClusterRoleBinding are needed to grant Rancher Observability Agents permissions to access the Kubernetes API.
-  * Rancher Observability Agents need to run in a privileged pod to be able to gather information on network connections and host information.
+  * ClusterRole and ClusterRoleBinding are needed to grant SUSE Observability Agents permissions to access the Kubernetes API.
+  * SUSE Observability Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
 ### Set up an OpenShift integration
 
@@ -124,27 +124,27 @@ To set up a Rancher Observability OpenShift integration you need to have:
 Before you begin, check the [prerequisites for Kubernetes](#prerequisites-for-openshift).
 {% endhint %}
 
-To get data from a Kubernetes cluster into Rancher Observability, follow the steps described below:
+To get data from a Kubernetes cluster into SUSE Observability, follow the steps described below:
 
-1. Add the Rancher Observability helm repository to the local helm client:
+1. Add the SUSE Observability helm repository to the local helm client:
     ```buildoutcfg
     helm repo add stackstate https://helm.stackstate.io
     helm repo update
     ```
 
-2. In the Rancher Observability UI, open the main menu by clicking in the top left of the screen and go to `StackPacks` > `Integrations` > `Kubernetes`.
+2. In the SUSE Observability UI, open the main menu by clicking in the top left of the screen and go to `StackPacks` > `Integrations` > `Kubernetes`.
 3. Install a new instance of the Kubernetes StackPack:
    * Specify a **Kubernetes Cluster Name**
-     * This name will be used to identify the cluster in Rancher Observability
+     * This name will be used to identify the cluster in SUSE Observability
    * Click **install**.
-4. Deploy the Rancher Observability Agent, Cluster Agent, Checks Agent and kube-state-metrics on your Cluster using the helm command provided in the Rancher Observability UI after you have installed the StackPack.
-   * Once the Agents have been deployed, they will begin collecting data and push this to Rancher Observability
+4. Deploy the SUSE Observability Agent, Cluster Agent, Checks Agent and kube-state-metrics on your Cluster using the helm command provided in the SUSE Observability UI after you have installed the StackPack.
+   * Once the Agents have been deployed, they will begin collecting data and push this to SUSE Observability
 
 ---
 
 # Amazon EKS
 
-Set up an Amazon EKS integration to collect topology, events, logs, change and metrics data from an Amazon EKS cluster and make this available in Rancher Observability.
+Set up an Amazon EKS integration to collect topology, events, logs, change and metrics data from an Amazon EKS cluster and make this available in SUSE Observability.
 
 ### Supported versions
 [comment]: <> (https://endoflife.date/amazon-eks)
@@ -176,13 +176,13 @@ Set up an Amazon EKS integration to collect topology, events, logs, change and m
 
 ### Prerequisites for Amazon EKS
 
-To set up a Rancher Observability Amazon EKS integration you need to have:
+To set up a SUSE Observability Amazon EKS integration you need to have:
 
 * An up-and-running Amazon EKS Cluster.
 * A recent version of Helm 3.
 * A user with the permission to `create privileged pods`, `ClusterRoles` and `ClusterRoleBindings`:
-    * ClusterRole and ClusterRoleBinding are needed to grant Rancher Observability Agents permissions to access the Kubernetes API.
-    * Rancher Observability Agents need to run in a privileged pod to be able to gather information on network connections and host information.
+    * ClusterRole and ClusterRoleBinding are needed to grant SUSE Observability Agents permissions to access the Kubernetes API.
+    * SUSE Observability Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
 ### Set up a Amazon EKS integration
 
@@ -190,27 +190,27 @@ To set up a Rancher Observability Amazon EKS integration you need to have:
 Before you begin, check the [prerequisites for Kubernetes](#prerequisites-for-amazon-eks).
 {% endhint %}
 
-To get data from a Kubernetes cluster into Rancher Observability, follow the steps described below:
+To get data from a Kubernetes cluster into SUSE Observability, follow the steps described below:
 
-1. Add the Rancher Observability helm repository to the local helm client:
+1. Add the SUSE Observability helm repository to the local helm client:
     ```buildoutcfg
     helm repo add stackstate https://helm.stackstate.io
     helm repo update
     ```
 
-2. In the Rancher Observability UI, open the main menu by clicking in the top left of the screen and go to `StackPacks` > `Integrations` > `Kubernetes`.
+2. In the SUSE Observability UI, open the main menu by clicking in the top left of the screen and go to `StackPacks` > `Integrations` > `Kubernetes`.
 3. Install a new instance of the Kubernetes StackPack:
     * Specify a **Kubernetes Cluster Name**
-        * This name will be used to identify the cluster in Rancher Observability
+        * This name will be used to identify the cluster in SUSE Observability
     * Click **install**.
-4. Deploy the Rancher Observability Agent, Cluster Agent, Checks Agent and kube-state-metrics on your Cluster using the helm command provided in the Rancher Observability UI after you have installed the StackPack.
-    * Once the Agents have been deployed, they will begin collecting data and push this to Rancher Observability
+4. Deploy the SUSE Observability Agent, Cluster Agent, Checks Agent and kube-state-metrics on your Cluster using the helm command provided in the SUSE Observability UI after you have installed the StackPack.
+    * Once the Agents have been deployed, they will begin collecting data and push this to SUSE Observability
 
 ---
 
 # Google GKE
 
-Set up a Google GKE integration to collect topology, events, logs, change and metrics data from an Google GKE cluster and make this available in Rancher Observability.
+Set up a Google GKE integration to collect topology, events, logs, change and metrics data from an Google GKE cluster and make this available in SUSE Observability.
 
 ### Supported versions
 [comment]: <> (https://endoflife.date/google-kubernetes-engine)
@@ -235,13 +235,13 @@ Set up a Google GKE integration to collect topology, events, logs, change and me
 
 ### Prerequisites for Google GKE
 
-To set up a Rancher Observability Google GKE integration you need to have:
+To set up a SUSE Observability Google GKE integration you need to have:
 
 * An up-and-running Google GKE Cluster.
 * A recent version of Helm 3.
 * A user with the permission to `create privileged pods`, `ClusterRoles` and `ClusterRoleBindings`:
-    * ClusterRole and ClusterRoleBinding are needed to grant Rancher Observability Agents permissions to access the Kubernetes API.
-    * Rancher Observability Agents need to run in a privileged pod to be able to gather information on network connections and host information.
+    * ClusterRole and ClusterRoleBinding are needed to grant SUSE Observability Agents permissions to access the Kubernetes API.
+    * SUSE Observability Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
 ### Set up a Google GKE integration
 
@@ -249,27 +249,27 @@ To set up a Rancher Observability Google GKE integration you need to have:
 Before you begin, check the [prerequisites for Kubernetes](#prerequisites-for-amazon-eks).
 {% endhint %}
 
-To get data from a Kubernetes cluster into Rancher Observability, follow the steps described below:
+To get data from a Kubernetes cluster into SUSE Observability, follow the steps described below:
 
-1. Add the Rancher Observability helm repository to the local helm client:
+1. Add the SUSE Observability helm repository to the local helm client:
     ```buildoutcfg
     helm repo add stackstate https://helm.stackstate.io
     helm repo update
     ```
 
-2. In the Rancher Observability UI, open the main menu by clicking in the top left of the screen and go to `StackPacks` > `Integrations` > `Kubernetes`.
+2. In the SUSE Observability UI, open the main menu by clicking in the top left of the screen and go to `StackPacks` > `Integrations` > `Kubernetes`.
 3. Install a new instance of the Kubernetes StackPack:
     * Specify a **Kubernetes Cluster Name**
-        * This name will be used to identify the cluster in Rancher Observability
+        * This name will be used to identify the cluster in SUSE Observability
     * Click **install**.
-4. Deploy the Rancher Observability Agent, Cluster Agent, Checks Agent and kube-state-metrics on your Cluster using the helm command provided in the Rancher Observability UI after you have installed the StackPack.
-    * Once the Agents have been deployed, they will begin collecting data and push this to Rancher Observability
+4. Deploy the SUSE Observability Agent, Cluster Agent, Checks Agent and kube-state-metrics on your Cluster using the helm command provided in the SUSE Observability UI after you have installed the StackPack.
+    * Once the Agents have been deployed, they will begin collecting data and push this to SUSE Observability
 
 ---
 
 # Azure AKS
 
-Set up an Azure AKS integration to collect topology, events, logs, change and metrics data from an Azure AKS cluster and make this available in Rancher Observability.
+Set up an Azure AKS integration to collect topology, events, logs, change and metrics data from an Azure AKS cluster and make this available in SUSE Observability.
 
 ### Supported versions
 [comment]: <> (https://endoflife.date/azure-kubernetes-service)
@@ -291,13 +291,13 @@ Set up an Azure AKS integration to collect topology, events, logs, change and me
 
 ### Prerequisites for Azure AKS
 
-To set up a Rancher Observability Azure AKS integration you need to have:
+To set up a SUSE Observability Azure AKS integration you need to have:
 
 * An up-and-running Azure AKS Cluster.
 * A recent version of Helm 3.
 * A user with the permission to `create privileged pods`, `ClusterRoles` and `ClusterRoleBindings`:
-    * ClusterRole and ClusterRoleBinding are needed to grant Rancher Observability Agents permissions to access the Kubernetes API.
-    * Rancher Observability Agents need to run in a privileged pod to be able to gather information on network connections and host information.
+    * ClusterRole and ClusterRoleBinding are needed to grant SUSE Observability Agents permissions to access the Kubernetes API.
+    * SUSE Observability Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
 ### Set up a Azure AKS integration
 
@@ -305,27 +305,27 @@ To set up a Rancher Observability Azure AKS integration you need to have:
 Before you begin, check the [prerequisites for Kubernetes](#prerequisites-for-amazon-eks).
 {% endhint %}
 
-To get data from a Kubernetes cluster into Rancher Observability, follow the steps described below:
+To get data from a Kubernetes cluster into SUSE Observability, follow the steps described below:
 
-1. Add the Rancher Observability helm repository to the local helm client:
+1. Add the SUSE Observability helm repository to the local helm client:
     ```buildoutcfg
     helm repo add stackstate https://helm.stackstate.io
     helm repo update
     ```
 
-2. In the Rancher Observability UI, open the main menu by clicking in the top left of the screen and go to `StackPacks` > `Integrations` > `Kubernetes`.
+2. In the SUSE Observability UI, open the main menu by clicking in the top left of the screen and go to `StackPacks` > `Integrations` > `Kubernetes`.
 3. Install a new instance of the Kubernetes StackPack:
     * Specify a **Kubernetes Cluster Name**
-        * This name will be used to identify the cluster in Rancher Observability
+        * This name will be used to identify the cluster in SUSE Observability
     * Click **install**.
-4. Deploy the Rancher Observability Agent, Cluster Agent, Checks Agent and kube-state-metrics on your Cluster using the helm command provided in the Rancher Observability UI after you have installed the StackPack.
-    * Once the Agents have been deployed, they will begin collecting data and push this to Rancher Observability
+4. Deploy the SUSE Observability Agent, Cluster Agent, Checks Agent and kube-state-metrics on your Cluster using the helm command provided in the SUSE Observability UI after you have installed the StackPack.
+    * Once the Agents have been deployed, they will begin collecting data and push this to SUSE Observability
 
 ---
 
 # KOPS
 
-Set up a KOPS integration to collect topology, events, logs, change and metrics data from an KOPS cluster and make this available in Rancher Observability.
+Set up a KOPS integration to collect topology, events, logs, change and metrics data from an KOPS cluster and make this available in SUSE Observability.
 
 ### Supported versions
 
@@ -357,13 +357,13 @@ Set up a KOPS integration to collect topology, events, logs, change and metrics 
 
 ### Prerequisites for KOPS
 
-To set up a Rancher Observability KOPS integration you need to have:
+To set up a SUSE Observability KOPS integration you need to have:
 
 * An up-and-running KOPS Cluster.
 * A recent version of Helm 3.
 * A user with the permission to `create privileged pods`, `ClusterRoles` and `ClusterRoleBindings`:
-    * ClusterRole and ClusterRoleBinding are needed to grant Rancher Observability Agents permissions to access the Kubernetes API.
-    * Rancher Observability Agents need to run in a privileged pod to be able to gather information on network connections and host information.
+    * ClusterRole and ClusterRoleBinding are needed to grant SUSE Observability Agents permissions to access the Kubernetes API.
+    * SUSE Observability Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
 ### Set up a KOPS integration
 
@@ -371,27 +371,27 @@ To set up a Rancher Observability KOPS integration you need to have:
 Before you begin, check the [prerequisites for Kubernetes](#prerequisites-for-amazon-eks).
 {% endhint %}
 
-To get data from a Kubernetes cluster into Rancher Observability, follow the steps described below:
+To get data from a Kubernetes cluster into SUSE Observability, follow the steps described below:
 
-1. Add the Rancher Observability helm repository to the local helm client:
+1. Add the SUSE Observability helm repository to the local helm client:
     ```buildoutcfg
     helm repo add stackstate https://helm.stackstate.io
     helm repo update
     ```
 
-2. In the Rancher Observability UI, open the main menu by clicking in the top left of the screen and go to `StackPacks` > `Integrations` > `Kubernetes`.
+2. In the SUSE Observability UI, open the main menu by clicking in the top left of the screen and go to `StackPacks` > `Integrations` > `Kubernetes`.
 3. Install a new instance of the Kubernetes StackPack:
     * Specify a **Kubernetes Cluster Name**
-        * This name will be used to identify the cluster in Rancher Observability
+        * This name will be used to identify the cluster in SUSE Observability
     * Click **install**.
-4. Deploy the Rancher Observability Agent, Cluster Agent, Checks Agent and kube-state-metrics on your Cluster using the helm command provided in the Rancher Observability UI after you have installed the StackPack.
-    * Once the Agents have been deployed, they will begin collecting data and push this to Rancher Observability
+4. Deploy the SUSE Observability Agent, Cluster Agent, Checks Agent and kube-state-metrics on your Cluster using the helm command provided in the SUSE Observability UI after you have installed the StackPack.
+    * Once the Agents have been deployed, they will begin collecting data and push this to SUSE Observability
 
 ---
 
 # Self-hosted
 
-Set up a Self-hosted integration to collect topology, events, logs, change and metrics data from an Self-hosted cluster and make this available in Rancher Observability.
+Set up a Self-hosted integration to collect topology, events, logs, change and metrics data from an Self-hosted cluster and make this available in SUSE Observability.
 
 ### Supported versions
 
@@ -423,15 +423,15 @@ Set up a Self-hosted integration to collect topology, events, logs, change and m
 
 ### Prerequisites for Self-hosted
 
-To set up a Rancher Observability Self-hosted integration you need to have:
+To set up a SUSE Observability Self-hosted integration you need to have:
 
 * An up-and-running Self-hosted Cluster.
 * A recent version of Helm 3.
 * A user with the permission to `create privileged pods`, `ClusterRoles` and `ClusterRoleBindings`:
     * ClusterRole and ClusterRoleBinding are needed to:
-      * Grant Rancher Observability Agents permissions to access the Kubernetes API
+      * Grant SUSE Observability Agents permissions to access the Kubernetes API
       * Generate a secret for the mutating validation webhook which is part of [request tracing](/setup/agent/k8sTs-agent-request-tracing.md)
-    * Rancher Observability Agents need to run in a privileged pod to be able to gather information on network connections and host information.
+    * SUSE Observability Agents need to run in a privileged pod to be able to gather information on network connections and host information.
 
 ### Set up a self-hosted integration
 
@@ -439,25 +439,25 @@ To set up a Rancher Observability Self-hosted integration you need to have:
 Before you begin, check the [prerequisites for Kubernetes](#prerequisites-for-amazon-eks).
 {% endhint %}
 
-To get data from a Kubernetes cluster into Rancher Observability, follow the steps described below:
+To get data from a Kubernetes cluster into SUSE Observability, follow the steps described below:
 
-1. Add the Rancher Observability helm repository to the local helm client:
+1. Add the SUSE Observability helm repository to the local helm client:
     ```buildoutcfg
     helm repo add stackstate https://helm.stackstate.io
     helm repo update
     ```
 
-2. In the Rancher Observability UI, open the main menu by clicking in the top left of the screen and go to `StackPacks` > `Integrations` > `Kubernetes`.
+2. In the SUSE Observability UI, open the main menu by clicking in the top left of the screen and go to `StackPacks` > `Integrations` > `Kubernetes`.
 3. Install a new instance of the Kubernetes StackPack:
     * Specify a **Kubernetes Cluster Name**
-        * This name will be used to identify the cluster in Rancher Observability
+        * This name will be used to identify the cluster in SUSE Observability
     * Click **install**.
-4. Deploy the Rancher Observability Agent, Cluster Agent, Checks Agent and kube-state-metrics on your Cluster using the helm command provided in the Rancher Observability UI after you have installed the StackPack.
-    * Once the Agents have been deployed, they will begin collecting data and push this to Rancher Observability
+4. Deploy the SUSE Observability Agent, Cluster Agent, Checks Agent and kube-state-metrics on your Cluster using the helm command provided in the SUSE Observability UI after you have installed the StackPack.
+    * Once the Agents have been deployed, they will begin collecting data and push this to SUSE Observability
 
 ---
 
 
 ## What's next?
 
-- [Rancher Observability walk-through](k8s-getting-started.md)
+- [SUSE Observability walk-through](k8s-getting-started.md)

@@ -1,5 +1,5 @@
 ---
-description: Rancher Observability
+description: SUSE Observability
 ---
 
 # Instrumenting  Node.js Applications
@@ -20,7 +20,7 @@ npm install --save @opentelemetry/auto-instrumentations-node
 node --require @opentelemetry/auto-instrumentations-node/register app.js
 ```
 3. Deploy your application with the extra environment variables [to configure the service name and exporter endpoint](./sdk-exporter-config.md).
-4. [Verify](./verify.md) Rancher Observability is receiving traces and/or metrics
+4. [Verify](./verify.md) SUSE Observability is receiving traces and/or metrics
 
 For more details please refer to the [Open Telemetry documentation](https://opentelemetry.io/docs/languages/js/automatic/). 
 

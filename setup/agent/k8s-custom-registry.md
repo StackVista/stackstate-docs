@@ -1,12 +1,12 @@
 ---
-description: Rancher Observability
+description: SUSE Observability
 ---
 
-# Install Rancher Observability Agent from custom image registry
+# Install SUSE Observability Agent from custom image registry
 
 ## Overview
 
-This page describes how to use a custom image registry to install the Rancher Observability Agent. There are many reasons why you might want to do this, for example:
+This page describes how to use a custom image registry to install the SUSE Observability Agent. There are many reasons why you might want to do this, for example:
 
 - You want to use an image registry that is behind a firewall or on-premises.
 - You have specific security requirements that prevent you from using public image registries like Docker Hub.
@@ -15,7 +15,7 @@ In this guide you can find how to copy the required Docker images to your own re
 
 ## Copying images to another registry
 
-This section describes how to copy the images used by the Rancher Observability Agent to another registry. The images are listed in the [Images](#images) section.
+This section describes how to copy the images used by the SUSE Observability Agent to another registry. The images are listed in the [Images](#images) section.
 
 ### Prerequisites
 
@@ -24,7 +24,7 @@ The following prerequisites are required to copy the images:
 - Setup a registry if you don't have one available. You can use [Amazon Elastic Container Registry \(ECR\)](https://aws.amazon.com/ecr/) or [Azure Container Registry \(ACR\)](https://azure.microsoft.com/en-us/products/container-registry/) for example.
 - Have the access credentials for your newly setup registry available.
 - Have the `docker` command line tool installed.
-- Install the `copy_images.sh` script from the [Rancher Observability Agent Helm Chart](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-k8s-agent/installation/copy_images.sh)
+- Install the `copy_images.sh` script from the [SUSE Observability Agent Helm Chart](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-k8s-agent/installation/copy_images.sh)
 
 ### Copying the images
 
@@ -45,7 +45,7 @@ Login Succeeded
 
 ### Images
 
-The images listed below are used in the Rancher Observability Agent Helm Chart:
+The images listed below are used in the SUSE Observability Agent Helm Chart:
 
 - [quay.io/stackstate/container-tools](https://quay.io/stackstate/container-tools)
 - [quay.io/stackstate/generic-sidecar-injector](https://quay.io/stackstate/generic-sidecar-injector)
@@ -58,7 +58,7 @@ The images listed below are used in the Rancher Observability Agent Helm Chart:
 
 ## Configuring the Helm Chart to use a custom registry
 
-This section describes the values that need to be configured in the Rancher Observability Agent Helm Chart to use a custom registry.
+This section describes the values that need to be configured in the SUSE Observability Agent Helm Chart to use a custom registry.
 
 The following values need to be configured:
 

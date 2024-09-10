@@ -1,44 +1,44 @@
 ---
-description: Rancher Observability
+description: SUSE Observability
 ---
 
 # Open Telemetry Collector
 
-The OpenTelemetry Collector offers a vendor-agnostic implementation to receive, process and export telemetry data. Applications instrumented with Open Telemetry SDKs can use the collector to send telemetry data to Rancher Observability (traces and metrics). 
+The OpenTelemetry Collector offers a vendor-agnostic implementation to receive, process and export telemetry data. Applications instrumented with Open Telemetry SDKs can use the collector to send telemetry data to SUSE Observability (traces and metrics). 
 
-Your applications, when set up with OpenTelemetry SDKs, can use the collector to send telemetry data, like traces and metrics, straight to Rancher Observability. The collector is set up to receive this data by default via OTLP, the native open telemetry protocol. It can also receive data in other formats provided by other instrumentation SDKs like Jaeger and Zipkin for traces, and Influx and Prometheus for metrics.
+Your applications, when set up with OpenTelemetry SDKs, can use the collector to send telemetry data, like traces and metrics, straight to SUSE Observability. The collector is set up to receive this data by default via OTLP, the native open telemetry protocol. It can also receive data in other formats provided by other instrumentation SDKs like Jaeger and Zipkin for traces, and Influx and Prometheus for metrics.
 
 Usually, the collector is running close to your application, like in the same Kubernetes cluster, making the process efficient.
 
-For Rancher Observability integration, it's simple: Rancher Observability offers an OTLP endpoint using the gRPC protocol and uses bearer tokens for authentication. This means configuring your OpenTelemetry collector to send data to Rancher Observability is easy and standardized.
+For SUSE Observability integration, it's simple: SUSE Observability offers an OTLP endpoint using the gRPC protocol and uses bearer tokens for authentication. This means configuring your OpenTelemetry collector to send data to SUSE Observability is easy and standardized.
 
 ## Pre-requisites
 
 1. A Kubernetes cluster with an application that is [instrumented with Open Telemetry](./languages/README.md)
-2. An API key for Rancher Observability
+2. An API key for SUSE Observability
 3. Permissions to deploy the open telemetry collector in a namespace on the cluster (i.e. create resources like deployments and configmaps in a namespace). To be able to enrich the data with Kubernetes attributes permission is needed to create a [cluster role](https://github.com/open-telemetry/opentelemetry-helm-charts/blob/main/charts/opentelemetry-collector/templates/clusterrole.yaml) and role binding.
 
 ## Kubernetes configuration and deployment
 
-To install and configure the collector for usage with Rancher Observability we'll use the [Open Telemetry Collector helm chart](https://opentelemetry.io/docs/kubernetes/helm/collector/) and add the configuration needed for Rancher Observability:
+To install and configure the collector for usage with SUSE Observability we'll use the [Open Telemetry Collector helm chart](https://opentelemetry.io/docs/kubernetes/helm/collector/) and add the configuration needed for SUSE Observability:
 
 1. [Configure the collector](#configure-the-collector)
    1. helm chart configuration
    2. generating metrics from traces
-   3. sending the data to Rancher Observability
+   3. sending the data to SUSE Observability
    4. combine it all together in pipelines
-2. [Create a Kubernetes secret for the Rancher Observability API key](#create-secret-for-the-api-key)
+2. [Create a Kubernetes secret for the SUSE Observability API key](#create-secret-for-the-api-key)
 3. [Deploy the collector](#deploy-the-collector)
 4. [Configure your instrumented applicatins to send telemetry to the collector](#configure-applications)
 
 ### Configure the collector
 
 Here is the full values file needed, continue reading below the file for an explanation of the different parts. Or skip ahead to the next step, but make sure to replace:
-* `<otlp-stackstate-endpoint>` with the OTLP endpoint of your Rancher Observability. If, for example, you access Rancher Observability on `play.stackstate.com` the OTLP endpoint is `otlp-play.stackstate.com`. So simply prefixing `otlp-` to the normal Rancher Observability url will do.
-* `<your-cluster-name>` with the cluster name you configured in Rancher Observability. **This must be the same cluster name used when installing the Rancher Observability agent**. Using a differnt cluster name will result in an empty traces perspective for Kubernetes components.
+* `<otlp-stackstate-endpoint>` with the OTLP endpoint of your SUSE Observability. If, for example, you access SUSE Observability on `play.stackstate.com` the OTLP endpoint is `otlp-play.stackstate.com`. So simply prefixing `otlp-` to the normal SUSE Observability url will do.
+* `<your-cluster-name>` with the cluster name you configured in SUSE Observability. **This must be the same cluster name used when installing the SUSE Observability agent**. Using a differnt cluster name will result in an empty traces perspective for Kubernetes components.
 
 {% hint style="warning" %}
-The Kubernetes attributes and the span metrics namespace are required for Rancher Observability to provide full functionality.
+The Kubernetes attributes and the span metrics namespace are required for SUSE Observability to provide full functionality.
 {% endhint %}
 
 {% hint style="info" %}
@@ -61,7 +61,7 @@ presets:
 config:
   extensions:
     bearertokenauth:
-      scheme: Rancher Observability
+      scheme: SUSE Observability
       token: "${env:API_KEY}"
   exporters:
     otlp/stackstate:
@@ -147,7 +147,7 @@ config:
 
 The `config` section customizes the collector config itself and is discussed in the next section. The other parts are:
 
-* `extraEnvsFrom`: Sets environment variables from the specified secret, in the next step this secret is created for storing the Rancher Observability API key (Receiver / [Ingestion API Key](../../use/security/k8s-ingestion-api-keys.md))
+* `extraEnvsFrom`: Sets environment variables from the specified secret, in the next step this secret is created for storing the SUSE Observability API key (Receiver / [Ingestion API Key](../../use/security/k8s-ingestion-api-keys.md))
 * `mode`: Run the collector as a Kubernetes deployment, when to use the other modes is discussed [here](https://opentelemetry.io/docs/kubernetes/helm/collector/).
 * `ports`: Used to enable the metrics port such that the collector can scrape its own metrics
 * `presets`: Used to enable the default configuration for adding Kubernetes metadata as attributes, this includes Kubernetes labels and metadata like namespace, pod, deployment etc. Enabling the metadata also introduces the cluster role and role binding mentioned in the pre-requisites.
@@ -156,21 +156,21 @@ The `config` section customizes the collector config itself and is discussed in 
 
 The `service` section determines what components of the collector are enabled. The configuration for those components comes from the other sections (extensions, receivers, connectors, processors and exporters). The `extensions` section enables:
 * `health_check`, doesn't need additional configuration but adds an endpoint for Kubernetes liveness and readiness probes
-* `bearertokenauth`, this extension adds an authentication header to each request with the Rancher Observability API key. In its configuration, we can see it is getting the Rancher Observability API key from the environment variable `API_KEY`.
+* `bearertokenauth`, this extension adds an authentication header to each request with the SUSE Observability API key. In its configuration, we can see it is getting the SUSE Observability API key from the environment variable `API_KEY`.
 
 The `pipelines` section defines pipelines for the traces and metrics. The metrics pipeline defines:
 * `receivers`, to receive metrics from instrumented applications (via the OTLP protocol, `otlp`), from spans (the `spanmetrics` connector) and by scraping Prometheus endpoints (the `prometheus` receiver). The latter is configured by default in the collector Helm chart to scrape the collectors own metrics
 * `processors`: The `memory_limiter` helps to prevent out-of-memory errors. The `batch` processor helps better compress the data and reduce the number of outgoing connections required to transmit the data. The `resource` processor adds additional resource attributes (discussed separately)
-* `exporters`: The `debug` exporter simply logs to stdout which helps when troubleshooting. The `otlp/stackstate` exporter sends telemetry data to Rancher Observability using the OTLP protocol. It is configured to use the bearertokenauth extension for authentication to send data to the Rancher Observability OTLP endpoint.
+* `exporters`: The `debug` exporter simply logs to stdout which helps when troubleshooting. The `otlp/stackstate` exporter sends telemetry data to SUSE Observability using the OTLP protocol. It is configured to use the bearertokenauth extension for authentication to send data to the SUSE Observability OTLP endpoint.
 
 For traces, there are 3 pipelines that are connected:
 * `traces`: The pipeline that receives traces from SDKs (via the `otlp` receiver) and does the initial processing using the same processors as for metrics. It exports into a router which routes all spans to both other traces pipelines. This setup makes it possible to calculate span metrics for all spans while applying sampling to the traces that are exported.
-* `traces/spanmetrics`: Use the `spanmetrics` connector as an exporter to generate metrics from the spans  (`otel_span_duration` and `otel_span_calls`). It is configured to not report time series anymore when no spans have been observed for 5 minutes. Rancher Observability expects the span metrics to be prefixed with `otel_span_`, which is taken care of by the `namespace` configuration.
-* `traces/sampling`: The pipeline that exports traces to Rancher Observability using the OTLP protocol, but uses the tail sampling processor to make the trace volume that is sent to Rancher Observability predictable to keep the cost predictable as well. Sampling is discussed in a [separate section](#trace-sampling).
+* `traces/spanmetrics`: Use the `spanmetrics` connector as an exporter to generate metrics from the spans  (`otel_span_duration` and `otel_span_calls`). It is configured to not report time series anymore when no spans have been observed for 5 minutes. SUSE Observability expects the span metrics to be prefixed with `otel_span_`, which is taken care of by the `namespace` configuration.
+* `traces/sampling`: The pipeline that exports traces to SUSE Observability using the OTLP protocol, but uses the tail sampling processor to make the trace volume that is sent to SUSE Observability predictable to keep the cost predictable as well. Sampling is discussed in a [separate section](#trace-sampling).
 
 The `resource` processor is configured for both metrics and traces. It adds extra resource attributes:
 
-* The `k8s.cluster.name` is added by providing the cluster name in the configuration. Rancher Observability needs the cluster name and Open Telemetry does not have a consistent way of determining it. Because some SDKs, in some environments, provide a cluster name that does not match what Rancher Observability expects the cluster name is an `upsert` (overwrites any pre-existing value).
+* The `k8s.cluster.name` is added by providing the cluster name in the configuration. SUSE Observability needs the cluster name and Open Telemetry does not have a consistent way of determining it. Because some SDKs, in some environments, provide a cluster name that does not match what SUSE Observability expects the cluster name is an `upsert` (overwrites any pre-existing value).
 * The `service.instance.id` is added based on the pod uid. It is recommended to always provide a service instance id, and the pod uid is an easy way to get a unique identifier if the SDKs don't provide one.
 
 #### Trace Sampling
@@ -201,7 +201,7 @@ There are many more policies available that can be added to the configuration wh
 
 ### Create a secret for the API key
 
-The collector needs a Kubernetes secret with the Rancher Observability API key. Create that in the same namespace (here we are using the `open-telemetry` namespace) where the collector will be installed (replace `<stackstate-api-key>` with your API key):
+The collector needs a Kubernetes secret with the SUSE Observability API key. Create that in the same namespace (here we are using the `open-telemetry` namespace) where the collector will be installed (replace `<stackstate-api-key>` with your API key):
 
 ```bash
 kubectl create secret generic open-telemetry-collector \
@@ -209,22 +209,22 @@ kubectl create secret generic open-telemetry-collector \
     --from-literal=API_KEY='<stackstate-api-key>' 
 ```
 
-Rancher Observability supports two types of keys:
+SUSE Observability supports two types of keys:
 - Receiver API Key
 - Ingestion API Key
 
 #### Receiver API Key
 
-You can find the API key for Rancher Observability on the Kubernetes Stackpack installation screen:
+You can find the API key for SUSE Observability on the Kubernetes Stackpack installation screen:
 
-1. Open Rancher Observability
+1. Open SUSE Observability
 2. Navigate to StackPacks and select the Kubernetes StackPack
 3. Open one of the installed instances
 4. Scroll down to the first set of installation instructions. It shows the API key as `STACKSTATE_RECEIVER_API_KEY` in text and as `'stackstate.apiKey'` in the command.
 
 #### Ingestion API Key
 
-Rancher Observability supports creating multiple Ingestion Keys. This allows you to assign a unique key to each OpenTelemetry Collector for better security and access control.
+SUSE Observability supports creating multiple Ingestion Keys. This allows you to assign a unique key to each OpenTelemetry Collector for better security and access control.
 For instructions on generating an Ingestion API Key, refer to the [documentation page](../../use/security/k8s-ingestion-api-keys.md).
 
 ### Deploy the collector

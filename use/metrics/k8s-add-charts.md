@@ -1,19 +1,19 @@
 ---
-description: Rancher Observability
+description: SUSE Observability
 ---
 
 # Add custom charts to components
 
 ## Overview 
 
-Rancher Observability provides already many metric charts by default on most types of components that represent Kubernetes resources. Extra metric charts can be added to any set of components whenever needed. When adding metrics to components there are 2 options:
+SUSE Observability provides already many metric charts by default on most types of components that represent Kubernetes resources. Extra metric charts can be added to any set of components whenever needed. When adding metrics to components there are 2 options:
 
-1. The metrics are already collected by Rancher Observability but aren't visualized on a component by default
-2. The metrics aren't yet collected by Rancher Observability at all and therefore aren't available yet
+1. The metrics are already collected by SUSE Observability but aren't visualized on a component by default
+2. The metrics aren't yet collected by SUSE Observability at all and therefore aren't available yet
 
-For option 1 the steps below will instruct you how to create a metric binding which will configure Rancher Observability to add a specific metric to a specific set of components.
+For option 1 the steps below will instruct you how to create a metric binding which will configure SUSE Observability to add a specific metric to a specific set of components.
 
-In case of option 2, first make sure that the metrics are available in Rancher Observability, by sending them to Rancher Observability using the [Prometheus remote write protocol](./k8s-prometheus-remote-write.md). Only after that continue by adding charts for the metrics to the components.
+In case of option 2, first make sure that the metrics are available in SUSE Observability, by sending them to SUSE Observability using the [Prometheus remote write protocol](./k8s-prometheus-remote-write.md). Only after that continue by adding charts for the metrics to the components.
 
 ## Steps
 
@@ -23,13 +23,13 @@ Steps to create a metric binding:
 2. [Write the topology query (STQL) to select the components](#write-the-topology-query)
 3. [Write the PromQL query for the desired metric](#write-the-promql-query)
 4. [Bind the correct time series to each component](#bind-the-correct-time-series-to-each-component)
-5. [Create or update the metric binding in Rancher Observability](#create-or-update-the-metric-binding-in-stackstate)
+5. [Create or update the metric binding in SUSE Observability](#create-or-update-the-metric-binding-in-stackstate)
 
-As an example the steps will add a metric binding for the `Replica counts`  of Kubernetes deployments. This is just an example, this metric binding already exists in Rancher Observability by default.
+As an example the steps will add a metric binding for the `Replica counts`  of Kubernetes deployments. This is just an example, this metric binding already exists in SUSE Observability by default.
 
 ## Write the outline of the metric binding
 
-Create a new YAML file called `metric-bindings.yaml` and add this YAML template to it to create your own metric binding. Open it in your favorite code editor to change it throughout this guide. At the end the Rancher Observability CLI will be used to create and update the metric bindings in Rancher Observability. 
+Create a new YAML file called `metric-bindings.yaml` and add this YAML template to it to create your own metric binding. Open it in your favorite code editor to change it throughout this guide. At the end the SUSE Observability CLI will be used to create and update the metric bindings in SUSE Observability. 
 
 ```
 nodes:
@@ -60,8 +60,8 @@ nodes:
 
 The fields in this template are:
 
-* `_type`: Rancher Observability needs to know this is a metric binding so, value always needs to be `MetricBinding`
-* `chartType`: Rancher Observability will support different chart types (`line`, `bar`, etc.), currently only `line` is supported
+* `_type`: SUSE Observability needs to know this is a metric binding so, value always needs to be `MetricBinding`
+* `chartType`: SUSE Observability will support different chart types (`line`, `bar`, etc.), currently only `line` is supported
 * `enabled`: Set to `false` to keep the metric binding but not show it to users
 * `tags`: Will be used to organize metrics in the user interface, can be left empty using `{}`
 * `unit`: The unit of the values in the time series returned by the query or queries, used to render the Y-axis of the chart. See the [supported units](/develop/reference/k8sTs-chart-units.md) reference for all units.
@@ -110,7 +110,7 @@ Metric bindings only support the query filters, query functions like `withNeighb
 
 ## Write the PromQL query
 
-Go to the [metric explorer](/use/metrics/k8sTs-explore-metrics.md) of your Rancher Observability instance, http://your-stackstate-instance/#/metrics, and use it to query for the metric of interest. The explorer has auto-completion for metrics, labels, label values but also PromQL functions, and operators to help you out. Start with a short time range of, for example, an hour to get the best results.
+Go to the [metric explorer](/use/metrics/k8sTs-explore-metrics.md) of your SUSE Observability instance, http://your-stackstate-instance/#/metrics, and use it to query for the metric of interest. The explorer has auto-completion for metrics, labels, label values but also PromQL functions, and operators to help you out. Start with a short time range of, for example, an hour to get the best results.
 
 For the total number of replicas use the `kubernetes_state_deployment_replicas` metric. To make the charts shown for this metric representative for the time series data extend the query to do an aggregation using the `${__interval}` parameter:
 
@@ -123,7 +123,7 @@ In this specific case use `max_over_time` to make sure the chart always shows th
 Copy the query into the `expression` property of the first entry in the `queries` field of the metric binding. Use `Total replicas` as an alias. This is the name that will show in the chart legend.
 
 {% hint style="info" %}
-In Rancher Observability the size of the metric chart automatically determines the granularity of the metric shown in the chart. PromQL queries can adjusted to make optimal use of this behavior to get a representative chart for the metric. [Writing PromQL for charts](./k8s-writing-promql-for-charts.md) explains this in detail.
+In SUSE Observability the size of the metric chart automatically determines the granularity of the metric shown in the chart. PromQL queries can adjusted to make optimal use of this behavior to get a representative chart for the metric. [Writing PromQL for charts](./k8s-writing-promql-for-charts.md) explains this in detail.
 {% endhint %}
 
 ## Bind the correct time series to each component
@@ -145,7 +145,7 @@ queries:
 scope: type = "deployment" and label = "stackpack:kubernetes"
 ```
 
-Creating it in Rancher Observability and viewing the "Replica count" chart on a deployment component gives an unexpected result. The chart shows the replica counts for all deployments. Logically one would expect only 1 time series: the replica count for this specific deployment.
+Creating it in SUSE Observability and viewing the "Replica count" chart on a deployment component gives an unexpected result. The chart shows the replica counts for all deployments. Logically one would expect only 1 time series: the replica count for this specific deployment.
 
 ![The incorrect chart for a single deployment, it shows the replica count for all deployments](../../.gitbook/assets/k8s/k8s-replica-counts-without-binding.png)
 
@@ -169,9 +169,9 @@ Supported variable references are:
 The cluster name, namespace and a combination of the component type and name are ususally enough for selecting the metrics for a specific component from Kubernetes. These labels, or similar labels, are usually available on most metrics and components.
 {% endhint %}
 
-## Create or update the metric binding in Rancher Observability
+## Create or update the metric binding in SUSE Observability
 
-Use the Rancher Observability CLI to create the metric binding in Rancher Observability. Make sure the `metric-bindings.yaml` is saved and looks like this:
+Use the SUSE Observability CLI to create the metric binding in SUSE Observability. Make sure the `metric-bindings.yaml` is saved and looks like this:
 
 ```
 nodes:
@@ -189,13 +189,13 @@ nodes:
   scope: type = "deployment" and label = "stackpack:kubernetes"
 ```
 
-Use the [Rancher Observability CLI](/setup/cli/cli-sts.md) to create the metric binding:
+Use the [SUSE Observability CLI](/setup/cli/cli-sts.md) to create the metric binding:
 
 ```bash
 sts settings apply -f metric-bindings.yaml
 ```
 
-Verify the results in Rancher Observability by opening the metrics perspective for a deployment. If you're not happy with the result simply change the metric binding in the YAML file and run the command again to update it. The list of nodes supports adding many metric bindings. Simply add another metric binding entry to the YAML array using the same steps as before.
+Verify the results in SUSE Observability by opening the metrics perspective for a deployment. If you're not happy with the result simply change the metric binding in the YAML file and run the command again to update it. The list of nodes supports adding many metric bindings. Simply add another metric binding entry to the YAML array using the same steps as before.
 
 {% hint style="warning" %}
 The identifier is used as the unique key of a metric binding. Changing the identifier will create a new metric binding instead of updating the existing one.
@@ -216,7 +216,7 @@ sts settings delete --ids <id>
 The `<id>` in this command isn't the identifier but the number in the `Id` column of the `sts settings list` output.
 
 {% hint style="info" %}
-The recommended way of working is to store metric bindings (and any other custom resources created in Rancher Observability) as YAML files in a Git repository. From there changes can be manually applied or it can be fully automated by using the Rancher Observability CLI in a CI/CD system like GitHub actions or GitLab pipelines.
+The recommended way of working is to store metric bindings (and any other custom resources created in SUSE Observability) as YAML files in a Git repository. From there changes can be manually applied or it can be fully automated by using the SUSE Observability CLI in a CI/CD system like GitHub actions or GitLab pipelines.
 {% endhint %}
 
 ## Other options
@@ -287,7 +287,7 @@ Note that the `alias` references the `container` label of the metric. Make sure 
 ### Layouts
 
 Each component can be associated with various technologies or protocols such as k8s, networking, runtime environments (e.g., JVM), protocols (HTTP, AMQP), etc. 
-Consequently, a multitude of different metrics can be displayed for each component. For easier readability, Rancher Observability can organize these charts into tabs and sections.
+Consequently, a multitude of different metrics can be displayed for each component. For easier readability, SUSE Observability can organize these charts into tabs and sections.
 To display a chart (`MetricBinding`) within a specific tab or section, you need to configure the layout property. 
 Any MetricsBinding without a specified layout will be displayed in a tab and section named `Other`.
 

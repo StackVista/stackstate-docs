@@ -1,21 +1,21 @@
 ---
-description: Rancher Observability
+description: SUSE Observability
 ---
 
 # Verify the instrumentation is working
 
-If the collector and the instrumentation setup has been successful data should be available in Rancher Observability within about a minute or two. 
+If the collector and the instrumentation setup has been successful data should be available in SUSE Observability within about a minute or two. 
 
-You can check that Rancher Observability is receiving traces:
+You can check that SUSE Observability is receiving traces:
 
-1. Open Rancher Observability in a browser
+1. Open SUSE Observability in a browser
 2. Find (one of) the pods that is instrumented
 3. Select the pod to open the Highlights page
 4. Open the trace perspective. If the pod is serving traffic it should now show traces
 
-To check that Rancher Observability is receiving metrics:
+To check that SUSE Observability is receiving metrics:
 
-1. Open Rancher Observability in a browser
+1. Open SUSE Observability in a browser
 2. Open the metrics explorer from the menu
 3. Search for the metrics exposed by your application
 

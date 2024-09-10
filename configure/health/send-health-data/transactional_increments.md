@@ -1,5 +1,5 @@
 ---
-description: Rancher Observability
+description: SUSE Observability
 ---
 
 ## Overview
@@ -8,7 +8,7 @@ This page describes the exact JSON messages that can be sent for the health sync
 
 ## JSON property: "health"
 
-Health can be sent to the Rancher Observability Receiver API using the `"health"` property of the [common JSON object](send-health-data.md#common-json-object).
+Health can be sent to the SUSE Observability Receiver API using the `"health"` property of the [common JSON object](send-health-data.md#common-json-object).
 
 {% tabs %}
 {% tab title="Example health `transactional_increments` JSON" %}
@@ -65,26 +65,26 @@ Health can be sent to the Rancher Observability Receiver API using the `"health"
 
 Every health Transactional Increments data payload has the following details:
 
-* **increment** - An increment objects needs to be present on every message. This enables Rancher Observability to track the complete chain of messages and be able to detect when a retransmission of data, or an unexpected gap in the data is occurring. It carries the following fields as increment metadata:
+* **increment** - An increment objects needs to be present on every message. This enables SUSE Observability to track the complete chain of messages and be able to detect when a retransmission of data, or an unexpected gap in the data is occurring. It carries the following fields as increment metadata:
   * **checkpoint** - Object providing the checkpoint that belongs the `check_states` present in the message, it has two fields:
     * **offset** - The offset asigned to the messages by the streaming pipeline. For example, Kafka offset.
     * **batch_index** - Optional. When using a single message to accumulate several `check_states` the batch index represents the latest index that's present in the message, allowing to send big batches in separate api calls.
-  * **previous_checkpoint** - Optional. Represents the previously communicated checkpoint, can be empty on the very first transmission on the substream. It allows Rancher Observability to keep track if there could be any data missing from upstream.
+  * **previous_checkpoint** - Optional. Represents the previously communicated checkpoint, can be empty on the very first transmission on the substream. It allows SUSE Observability to keep track if there could be any data missing from upstream.
 * **stream** - Object providing identification regarding which snapshots and `check_states` belong together. It has the following fields:
-  * **urn** - Data source and stream ID encoded as a Rancher Observability [URN](/configure/topology/identifiers.md) that matches the following convention: `urn:health:<sourceId>:<streamId>` where `<sourceId>` is the name if the external data source and `<streamId>` is a unique identifier for the health data stream.
+  * **urn** - Data source and stream ID encoded as a SUSE Observability [URN](/configure/topology/identifiers.md) that matches the following convention: `urn:health:<sourceId>:<streamId>` where `<sourceId>` is the name if the external data source and `<streamId>` is a unique identifier for the health data stream.
   * **sub_stream_id** - Optional. Identifier for a subset of the stream health data. When the stream data is distributed and reported by several agents, this allows snapshot lifecycles per `sub_stream_id`
 * **check_states** - A list of check states. Each check state can have the following fields:
   * **checkStateId** - Identifier for the check state in the external system
-  * **message** - Optional. Message to display in Rancher Observability UI. Data will be interpreted as markdown allowing to have links to the external system check that generated the external check state.
-  * **health** - One of the following Rancher Observability Health state values: `Clear`, `Deviating`, `Critical`.
-  * **topologyElementIdentifier** - Used to bind the check state to a Rancher Observability topology element.
+  * **message** - Optional. Message to display in SUSE Observability UI. Data will be interpreted as markdown allowing to have links to the external system check that generated the external check state.
+  * **health** - One of the following SUSE Observability Health state values: `Clear`, `Deviating`, `Critical`.
+  * **topologyElementIdentifier** - Used to bind the check state to a SUSE Observability topology element.
   * **name** - Name of the external check state.
   * **delete** - Flag that's interpreted as a delete request for the related `checkStateId`. Even if the rest of the fields for the create are present, for example, `name, health, ...` the delete will take precedence.
 
 
-## Send health to Rancher Observability
+## Send health to SUSE Observability
 
-Health can be sent in one JSON message via HTTP POST. In the example below, a snapshot containing two check states is sent to Rancher Observability from a single external monitoring system.
+Health can be sent in one JSON message via HTTP POST. In the example below, a snapshot containing two check states is sent to SUSE Observability from a single external monitoring system.
 
 ```bash
 curl -X POST \

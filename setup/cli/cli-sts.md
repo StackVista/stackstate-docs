@@ -1,18 +1,18 @@
 ---
-description: Rancher Observability
+description: SUSE Observability
 ---
 
 # CLI: sts
 
 ## Overview
 
-The Rancher Observability `sts` CLI provides easy access to the functionality provided by the Rancher Observability APIs. It can be used for automation using Rancher Observability data, to configure Rancher Observability and to develop StackPacks.
+The SUSE Observability `sts` CLI provides easy access to the functionality provided by the SUSE Observability APIs. It can be used for automation using SUSE Observability data, to configure SUSE Observability and to develop StackPacks.
 
 ## Install the `sts` CLI
 
 ### Windows
 
-Follow the steps below to install the Rancher Observability `sts` CLI on Windows.
+Follow the steps below to install the SUSE Observability `sts` CLI on Windows.
 
 {% tabs %}
 {% tab title="Installer" %}
@@ -23,7 +23,7 @@ Open a **Powershell** terminal (version 5.1 or later), change the `<URL>` and `<
 . { iwr -useb https://dl.stackstate.com/stackstate-cli/install.ps1 } | iex; install -StsUrl "<URL>" -StsApiToken "<API-TOKEN>"
 ```
 
-Alternatively, go to the **CLI** page in the Rancher Observability UI and copy the **Quick installation** command for **Windows** - this is pre-filled with the correct `<URL>` and `<API-TOKEN>` for your Rancher Observability instance.
+Alternatively, go to the **CLI** page in the SUSE Observability UI and copy the **Quick installation** command for **Windows** - this is pre-filled with the correct `<URL>` and `<API-TOKEN>` for your SUSE Observability instance.
 
 {% endtab %}
 {% tab title="Manual install steps" %}
@@ -38,7 +38,7 @@ Open a **Powershell** terminal (version 5.1 or later) and run the steps below. T
     $VERSION=type $CLI_PATH\VERSION
     $VERSION=$VERSION -replace "[v]"
     $CLI_DL = "https://dl.stackstate.com/stackstate-cli/v$VERSION/stackstate-cli-$VERSION.windows-x86_64.zip"
-    echo "Installing Rancher Observability CLI v$VERSION to: $CLI_PATH"
+    echo "Installing SUSE Observability CLI v$VERSION to: $CLI_PATH"
     ```
 
 2. Download and unpack the CLI to the target CLI path. Remove remaining artifacts:
@@ -69,7 +69,7 @@ Open a **Powershell** terminal (version 5.1 or later) and run the steps below. T
 
 ### macOS
 
-Follow the steps below to install the Rancher Observability `sts` CLI on macOS.
+Follow the steps below to install the SUSE Observability `sts` CLI on macOS.
 
 {% tabs %}
 {% tab title="Installer" %}
@@ -88,7 +88,7 @@ curl -o- https://dl.stackstate.com/stackstate-cli/install.sh | STS_URL="<URL>" S
 curl -o- https://dl.stackstate.com/stackstate-cli/install.sh | STS_URL="<URL>" STS_API_TOKEN="<API-TOKEN>" STS_CLI_LOCATION="<INSTALL-PATH>" bash
 ```
 
-Alternatively, go to the **CLI** page in the Rancher Observability UI and copy the **Quick installation** command for **MacOS** - this is pre-filled with the correct `<URL>` and `<API-TOKEN>` for your Rancher Observability instance and will install the CLI at the default location.
+Alternatively, go to the **CLI** page in the SUSE Observability UI and copy the **Quick installation** command for **MacOS** - this is pre-filled with the correct `<URL>` and `<API-TOKEN>` for your SUSE Observability instance and will install the CLI at the default location.
 
 {% endtab %}
 
@@ -113,7 +113,7 @@ Open a terminal and run the steps below. This can be done one step at a time, or
 
 ### Linux
 
-Follow the steps below to install the Rancher Observability `sts` CLI on Linux.
+Follow the steps below to install the SUSE Observability `sts` CLI on Linux.
 
 {% tabs %}
 {% tab title="Installer" %}
@@ -123,7 +123,7 @@ Open a terminal, change the `<URL>` and `<API-TOKEN>` and run the command below.
 curl -o- https://dl.stackstate.com/stackstate-cli/install.sh | STS_URL="<URL>" STS_API_TOKEN="<API-TOKEN>" bash
 ```
 
-Alternatively, go to the **CLI** page in the Rancher Observability UI and copy the **Quick installation** command for **Linux** - this is pre-filled with the correct `<URL>` and `<API-TOKEN>` for your Rancher Observability instance.
+Alternatively, go to the **CLI** page in the SUSE Observability UI and copy the **Quick installation** command for **Linux** - this is pre-filled with the correct `<URL>` and `<API-TOKEN>` for your SUSE Observability instance.
 
 {% endtab %}
 
@@ -152,7 +152,7 @@ To run the latest version of the CLI using Docker execute:
 docker run stackstate/stackstate-cli2
 ```
 
-Alternatively, go to the **CLI** page in the Rancher Observability UI and copy the **Quick installation** command for **Docker** - this is pre-filled with the correct `<URL>` and `<API-TOKEN>` required to configure the CLI for your Rancher Observability instance.
+Alternatively, go to the **CLI** page in the SUSE Observability UI and copy the **Quick installation** command for **Docker** - this is pre-filled with the correct `<URL>` and `<API-TOKEN>` required to configure the CLI for your SUSE Observability instance.
 
 You can now run CLI commands by adding appending them to the end of the `docker run` command (for example, `docker run stackstate/stackstate-cli2 version`).
 
@@ -167,21 +167,21 @@ The most secure way to use your API token is through an environment variable. Yo
 
 #### Linux, macOS and Windows
 
-1. In the Rancher Observability UI, go to **Main menu** &gt; **CLI** and copy your API token.
+1. In the SUSE Observability UI, go to **Main menu** &gt; **CLI** and copy your API token.
 
-2. Run the command below, where `<URL>` is the URL to your Rancher Observability instance and `<API-TOKEN>` is the API token you copied from the CLI page in the Rancher Observability UI:
+2. Run the command below, where `<URL>` is the URL to your SUSE Observability instance and `<API-TOKEN>` is the API token you copied from the CLI page in the SUSE Observability UI:
    ```bash
    sts context save --name <NAME> --url <URL> --api-token <API-TOKEN>
    ```
 
-3. The connection to your Rancher Observability instance will be tested and a configuration file stored at `~/.config/stackstate-cli/config.yaml`.
+3. The connection to your SUSE Observability instance will be tested and a configuration file stored at `~/.config/stackstate-cli/config.yaml`.
 
 #### Docker
 
-The Docker version of the CLI can't be configured with a config file. Specify the configuration of your Rancher Observability instance using environment variables and pass these to Docker:
+The Docker version of the CLI can't be configured with a config file. Specify the configuration of your SUSE Observability instance using environment variables and pass these to Docker:
 
-* `STS_CLI_URL` - the URL to your Rancher Observability instance.
-* `STS_CLI_API_TOKEN` - the API token taken from the Rancher Observability UI **Main menu** &gt; **CLI** page.
+* `STS_CLI_URL` - the URL to your SUSE Observability instance.
+* `STS_CLI_API_TOKEN` - the API token taken from the SUSE Observability UI **Main menu** &gt; **CLI** page.
 
 For example:
 ```
@@ -199,7 +199,7 @@ By default, the CLI will authenticate using the API token that you provided when
 
 #### Service tokens
 
-You can optionally use the CLI to create one or more service tokens to authenticate with the Rancher Observability Base and Admin APIs. For example, a service token can be used to authenticate in CI (Continuous Integration) scenarios where no real user is doing the operations on the Rancher Observability instance.
+You can optionally use the CLI to create one or more service tokens to authenticate with the SUSE Observability Base and Admin APIs. For example, a service token can be used to authenticate in CI (Continuous Integration) scenarios where no real user is doing the operations on the SUSE Observability instance.
 
 To create a service token, run the command below:
 
@@ -217,7 +217,7 @@ sts context save --name <NAME> --service-token <TOKEN> --url <URL>
 
 ### Manage multiple contexts
 
-The `sts` CLI supports configuration and management of different (authentication) contexts. This enables you to easily switch between an administrative and regular user, or to switch between different Rancher Observability instances. For example, you could use a different context for a test and production instance of Rancher Observability. You can list, save, delete, set and validate contexts in the `sts` CLI. Run `sts context -h` for details of the available commands and their usage.
+The `sts` CLI supports configuration and management of different (authentication) contexts. This enables you to easily switch between an administrative and regular user, or to switch between different SUSE Observability instances. For example, you could use a different context for a test and production instance of SUSE Observability. You can list, save, delete, set and validate contexts in the `sts` CLI. Run `sts context -h` for details of the available commands and their usage.
 
 ### Configuration options
 
@@ -231,9 +231,9 @@ If multiple types of configuration are presented to the CLI the order of process
 
 | Environment variable    | Flag | Description                                                                                                                                                                                                                                     |
 |:------------------------|:--- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `STS_CLI_URL`           | `--url` | URL to your Rancher Observability instance.                                                                                                                                                                                                               |
-| `STS_CLI_API_TOKEN`     | `--api-token` | API token to your Rancher Observability instance. The most secure way to use your API token is through an environment variable. You can store the API token with a secrets manager and inject it as an environment variable into your shell.              |
-| `STS_CLI_SERVICE_TOKEN` | `--service-token` | A service token to your Rancher Observability instance. The most secure way to use your service token is through an environment variable. You can store the service token with a secrets manager and inject it as an environment variable into your shell. |
+| `STS_CLI_URL`           | `--url` | URL to your SUSE Observability instance.                                                                                                                                                                                                               |
+| `STS_CLI_API_TOKEN`     | `--api-token` | API token to your SUSE Observability instance. The most secure way to use your API token is through an environment variable. You can store the API token with a secrets manager and inject it as an environment variable into your shell.              |
+| `STS_CLI_SERVICE_TOKEN` | `--service-token` | A service token to your SUSE Observability instance. The most secure way to use your service token is through an environment variable. You can store the service token with a secrets manager and inject it as an environment variable into your shell. |
 | `STS_CLI_API_PATH`      | n/a | The path appended to the end of the URL to get the API endpoint. (Defaults to `/api`)                                                                                                                                                           |
 | `STS_CLI_CONTEXT` | `--context` | The name of the context to use.                                                                                                                                                                                                                |
 
@@ -247,7 +247,7 @@ You can check the version of the `sts` CLI that you are currently running with t
 
 ## Uninstall
 
-Follow the instructions below to uninstall the Rancher Observability CLI.
+Follow the instructions below to uninstall the SUSE Observability CLI.
 
 {% tabs %}
 {% tab title="Windows" %}
@@ -368,6 +368,6 @@ docker rmi -f stackstate/stackstate-cli2
 
 ## Open source
 
-The Rancher Observability `sts` CLI is open source and can be found on GitHub at:
+The SUSE Observability `sts` CLI is open source and can be found on GitHub at:
 
 * [https://github.com/stackvista/stackstate-cli](https://github.com/stackvista/stackstate-cli)

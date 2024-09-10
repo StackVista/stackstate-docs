@@ -1,5 +1,5 @@
 ---
-description: Rancher Observability
+description: SUSE Observability
 ---
 
 # Configure notifications 
@@ -12,7 +12,7 @@ To configure a new notification these are the steps:
 
 ## Create a new notification
 
-Open the notifications page via the link in the bottom half of hamburger menu in the Rancher Observability UI. This opens an overview of all notifications that are already configured including their status.
+Open the notifications page via the link in the bottom half of hamburger menu in the SUSE Observability UI. This opens an overview of all notifications that are already configured including their status.
 
 You can check if the desired notification already exists. If not create a new one with the "Add new notification" button.
 
@@ -38,13 +38,13 @@ There are 4 possible scope filters. By default a notification will be sent for e
 
 ## Where to send notifications?
 
-Rancher Observability can send notifications to different external systems via channels. Supported channels are:
+SUSE Observability can send notifications to different external systems via channels. Supported channels are:
 
 * [Slack](channels/slack.md) - Send notifications to Slack
-* [Webhook](channels/webhook.md) - Send notifications to a webhook, the webhook endpoint can translate the Rancher Observability payload into any custom third-party API needed
+* [Webhook](channels/webhook.md) - Send notifications to a webhook, the webhook endpoint can translate the SUSE Observability payload into any custom third-party API needed
 * [Opsgenie](channels/opsgenie.md) - Send notifications to OpsGenie
 
-In general Rancher Observability sends two types of messages for notifications:
+In general SUSE Observability sends two types of messages for notifications:
 
 1. An `open` message when a health state goes to Critical or Deviating. This message can be repeated when there are changes in the health state
 2. A `close` message when the health state isn't Critical or Deviating anymore or when for other reasons (the component disappeared, the monitor was removed, etc.) the notification isn't active anymore.

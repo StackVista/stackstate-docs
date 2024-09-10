@@ -1,14 +1,14 @@
 ---
-description: Rancher Observability
+description: SUSE Observability
 ---
 
 # Kubernetes views
 
 ## Overview
 
-Rancher Observability has deep knowledge of Kubernetes and its components. After installation of the Rancher Observability agent in your cluster, it will then automatically detect and visualize the topology of your Kubernetes applications. This includes the Kubernetes resources that make up your application, such as deployments, pods, services, and ingress. It will also automatically detect and visualize the topology of your Kubernetes infrastructure that makes up your cluster, such as nodes, namespaces, and persistent volumes.
+SUSE Observability has deep knowledge of Kubernetes and its components. After installation of the SUSE Observability agent in your cluster, it will then automatically detect and visualize the topology of your Kubernetes applications. This includes the Kubernetes resources that make up your application, such as deployments, pods, services, and ingress. It will also automatically detect and visualize the topology of your Kubernetes infrastructure that makes up your cluster, such as nodes, namespaces, and persistent volumes.
 
-Rancher Observability has dedicated overviews and highlights pages for the following Kubernetes native resources:
+SUSE Observability has dedicated overviews and highlights pages for the following Kubernetes native resources:
 
 ![Kubernetes views](../../.gitbook/assets/k8s/k8s-menu.png)
 

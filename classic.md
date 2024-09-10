@@ -4,15 +4,15 @@ coverY: 0
 layout: landing
 ---
 
-# Welcome to the Rancher Observability docs!
+# Welcome to the SUSE Observability docs!
 
-Select your version of Rancher Observability to jump to the associated documentation.
+Select your version of SUSE Observability to jump to the associated documentation.
 
-### Rancher Observability
+### SUSE Observability
 
-Use Rancher Observability to troubleshoot your Rancher Kubernetes cluster.
+Use SUSE Observability to troubleshoot your Rancher Kubernetes cluster.
 
-🚀 [Rancher Observability docs](https://docs.stackstate.com/)
+🚀 [SUSE Observability docs](https://docs.stackstate.com/)
 
 
 ### StackState Self-hosted
@@ -32,5 +32,5 @@ Use StackState SaaS to observe cloud technologies, such as Kubernetes and AWS se
 ↗️ [StackState SaaS docs](https://docs.stackstate.com/v/stackstate-saas/)
 
 {% hint style="success" %}
-🔒 Rancher Observability is SOC2/3 certified. [Learn more](https://www.stackstate.com/compliance)
+🔒 SUSE Observability is SOC2/3 certified. [Learn more](https://www.stackstate.com/compliance)
 {% endhint %}

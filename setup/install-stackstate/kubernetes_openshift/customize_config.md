@@ -1,16 +1,16 @@
 ---
-description: Rancher Observability Self-hosted
+description: SUSE Observability Self-hosted
 ---
 
 # Override default configuration
 
-A number of values can be set in the [Rancher Observability Helm chart](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-k8s). For example, it's possible to customize the `tolerations` and `nodeSelectors` for each of the components. You can also add customized configuration and include environment variables
+A number of values can be set in the [SUSE Observability Helm chart](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-k8s). For example, it's possible to customize the `tolerations` and `nodeSelectors` for each of the components. You can also add customized configuration and include environment variables
 
-## Custom configuration for Rancher Observability `api`
+## Custom configuration for SUSE Observability `api`
 
-For the Rancher Observability `api` service, custom configuration can be dropped directly into the Helm chart. This is the advised way to override the default configuration that Rancher Observability ships with and is especially convenient for customizing authentication. Configuration set in this way will be available to the Rancher Observability configuration file in [HOCON](https://github.com/lightbend/config/blob/master/HOCON.md) format.
+For the SUSE Observability `api` service, custom configuration can be dropped directly into the Helm chart. This is the advised way to override the default configuration that SUSE Observability ships with and is especially convenient for customizing authentication. Configuration set in this way will be available to the SUSE Observability configuration file in [HOCON](https://github.com/lightbend/config/blob/master/HOCON.md) format.
 
-For example, you can set a custom "forgot password link" for the Rancher Observability login page:
+For example, you can set a custom "forgot password link" for the SUSE Observability login page:
 
 {% tabs %}
 {% tab title="values.yaml" %}
@@ -31,7 +31,7 @@ Note that custom configuration set here will be overridden by [environment varia
 
 ## Environment variables
 
-The configuration for all of the Rancher Observability services \(`receiver`, `k2es-*`, `correlation` and `api`\) can be customized using environment variables. Environment variables are specified in the `values.yaml` file and can be either `secret` \(such as passwords\) or `open` \(for normal values\). To convert a configuration item to an environment variable name, replace `.` with `_` and add the prefix `CONFIG_FORCE_`.
+The configuration for all of the SUSE Observability services \(`receiver`, `k2es-*`, `correlation` and `api`\) can be customized using environment variables. Environment variables are specified in the `values.yaml` file and can be either `secret` \(such as passwords\) or `open` \(for normal values\). To convert a configuration item to an environment variable name, replace `.` with `_` and add the prefix `CONFIG_FORCE_`.
 
 ```text
 # configuration item
@@ -41,7 +41,7 @@ stackstate.api.authentication.forgotPasswordLink
 CONFIG_FORCE_stackstate_api_authentication_forgotPasswordLink
 ```
 
-For example, you can set a custom "forgot password link" for the Rancher Observability login page:
+For example, you can set a custom "forgot password link" for the SUSE Observability login page:
 
 {% tabs %}
 {% tab title="values.yaml" %}
@@ -61,9 +61,9 @@ stackstate:
 {% endtabs %}
 
 {% hint style="info" %}
-For the Rancher Observability `api` service, environment variables will override [custom configuration set using `config`](customize_config.md#custom-configuration-for-stackstate-api).
+For the SUSE Observability `api` service, environment variables will override [custom configuration set using `config`](customize_config.md#custom-configuration-for-stackstate-api).
 {% endhint %}
 
-* Full details on the naming of all the different services can be found in the [Rancher Observability Helm chart readme](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-k8s).
+* Full details on the naming of all the different services can be found in the [SUSE Observability Helm chart readme](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-k8s).
 * Find more details on [customizing authentication](../../security/authentication/README.md).
 

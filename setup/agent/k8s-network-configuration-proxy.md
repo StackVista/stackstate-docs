@@ -1,10 +1,10 @@
-# Configuring Rancher Observability Kubernetes Agent to Proxy Connections
+# Configuring SUSE Observability Kubernetes Agent to Proxy Connections
 
-The Rancher Observability Kubernetes Agent allows you to configure HTTP or HTTPS proxy settings for the connections it initiates.
+The SUSE Observability Kubernetes Agent allows you to configure HTTP or HTTPS proxy settings for the connections it initiates.
 
-## Proxy for communication with Rancher Observability
+## Proxy for communication with SUSE Observability
 
-To configure the agent to proxy connections to the Rancher Observability backend, you can use Helm configuration.
+To configure the agent to proxy connections to the SUSE Observability backend, you can use Helm configuration.
 
 ### Helm Configuration
 

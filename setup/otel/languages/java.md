@@ -1,5 +1,5 @@
 ---
-description: Rancher Observability
+description: SUSE Observability
 ---
 
 # Java Applications
@@ -18,7 +18,7 @@ Automatic instrumentation does not require any modifications of the application.
 java -javaagent:/path/to/opentelemetry-javaagent.jar -jar myapp.jar
 ```
 3. Deploy your application with the extra environment variables [to configure the service name and exporter endpoint](./sdk-exporter-config.md).
-4. [Verify](./verify.md) Rancher Observability is receiving traces and/or metrics
+4. [Verify](./verify.md) SUSE Observability is receiving traces and/or metrics
 
 For more details please refer to the [Open Telemetry documentation](https://opentelemetry.io/docs/languages/java/automatic/). 
 
@@ -34,6 +34,6 @@ There is detailed documentation for this on the [Open Telemetry Java SDK doc pag
 
 Make sure you use the OTLP exporter (this is the default) and [auto-configuration](https://opentelemetry.io/docs/languages/java/instrumentation/#autoconfiguration). When deploying the application the service name and exporter are [configured via environment variables](./sdk-exporter-config.md).
 
-## Metrics in Rancher Observability
+## Metrics in SUSE Observability
 
-For some Java metrics, for example, garbage collector metrics, Rancher Observability has defined charts on the related components. For Kubernetes, the charts are available on the pods. It is possible to [add charts for more metrics](/use/metrics/k8s-add-charts.md), this works for metrics from automatic instrumentation but also for application-specific metrics from manual instrumentation.
+For some Java metrics, for example, garbage collector metrics, SUSE Observability has defined charts on the related components. For Kubernetes, the charts are available on the pods. It is possible to [add charts for more metrics](/use/metrics/k8s-add-charts.md), this works for metrics from automatic instrumentation but also for application-specific metrics from manual instrumentation.

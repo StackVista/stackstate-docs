@@ -1,19 +1,19 @@
 ---
-description: Rancher Observability Self-hosted
+description: SUSE Observability Self-hosted
 ---
 
 # Steps to upgrade
 
 ## Overview
 
-This document describes the upgrade procedure for Rancher Observability.
+This document describes the upgrade procedure for SUSE Observability.
 
 ## Before you upgrade
 
-When executing a Rancher Observability upgrade, be aware of the following:
+When executing a SUSE Observability upgrade, be aware of the following:
 
 {% hint style="warning" %}
-**Always read the** [**version-specific upgrade notes**](version-specific-upgrade-instructions.md) **before upgrading Rancher Observability.**
+**Always read the** [**version-specific upgrade notes**](version-specific-upgrade-instructions.md) **before upgrading SUSE Observability.**
 {% endhint %}
 
 {% hint style="warning" %}
@@ -21,35 +21,35 @@ When upgrading a StackPack, **any changes you have made to configuration items f
 {% endhint %}
 
 {% hint style="danger" %}
-If there are **hotfixes** installed in your Rancher Observability installation, contact Rancher Observability technical support prior to upgrading.
+If there are **hotfixes** installed in your SUSE Observability installation, contact SUSE Observability technical support prior to upgrading.
 {% endhint %}
 
 ## Steps to upgrade
 
-### Minor or maintenance Rancher Observability release
+### Minor or maintenance SUSE Observability release
 
-A minor release of Rancher Observability is indicated by a change in the second digit of the version number, for example 4.1.0. Maintenance releases are identified by a change in the third digit of the version number, for example 4.1.1.
+A minor release of SUSE Observability is indicated by a change in the second digit of the version number, for example 4.1.0. Maintenance releases are identified by a change in the third digit of the version number, for example 4.1.1.
 
-If you are upgrading to a new **minor** Rancher Observability release or a **maintenance** release, Rancher Observability itself and the StackPacks will be compatible with the current installation.
+If you are upgrading to a new **minor** SUSE Observability release or a **maintenance** release, SUSE Observability itself and the StackPacks will be compatible with the current installation.
 
 A minor upgrade consists of the following steps:
 
 1. [Create a backup](#create-a-backup)
-2. [Upgrade Rancher Observability](#upgrade-stackstate)
+2. [Upgrade SUSE Observability](#upgrade-stackstate)
 3. [Verify the new installation](#verify-the-new-installation)
 4. Check if any installed StackPacks require an upgrade
 
-### Major Rancher Observability release
+### Major SUSE Observability release
 
-A major release of Rancher Observability is indicated by a change in the first digit of the version number, for example 4.0.0.
+A major release of SUSE Observability is indicated by a change in the first digit of the version number, for example 4.0.0.
 
-If you upgrade to a new **major** Rancher Observability release, Rancher Observability and the installed StackPacks may be incompatible with the current installation. For details, check the [version-specific upgrade notes](version-specific-upgrade-instructions.md).
+If you upgrade to a new **major** SUSE Observability release, SUSE Observability and the installed StackPacks may be incompatible with the current installation. For details, check the [version-specific upgrade notes](version-specific-upgrade-instructions.md).
 
 A major upgrade consists of the following steps:
 
 1. [Create a backup](steps-to-upgrade.md#create-a-backup)
 2. Optional: [Uninstall StackPacks](steps-to-upgrade.md#uninstall-stackpacks-optional)
-3. [Upgrade Rancher Observability](steps-to-upgrade.md#upgrade-stackstate)
+3. [Upgrade SUSE Observability](steps-to-upgrade.md#upgrade-stackstate)
 4. Optional: [Install StackPacks](steps-to-upgrade.md#install-stackpacks-optional)
 5. [Verify the new installation](steps-to-upgrade.md#verify-the-new-installation)
 
@@ -57,16 +57,16 @@ A major upgrade consists of the following steps:
 
 ### Create a backup
 
-Before upgrading Rancher Observability it's recommended to back up your configuration and topology data:
+Before upgrading SUSE Observability it's recommended to back up your configuration and topology data:
 
 * [Kubernetes backup](../data-management/backup_restore/kubernetes_backup.md)
 * [Configuration backup](../data-management/backup_restore/configuration_backup.md)
 
 {% hint style="info" %}
-Note that it won't be possible to restore the backup on the upgraded version of Rancher Observability. The Rancher Observability backup can only be restored in the Rancher Observability version before the upgrade.
+Note that it won't be possible to restore the backup on the upgraded version of SUSE Observability. The SUSE Observability backup can only be restored in the SUSE Observability version before the upgrade.
 {% endhint %}
 
-### Upgrade Rancher Observability
+### Upgrade SUSE Observability
 
 Be sure to check the release notes and any optional upgrade notes before running the upgrade.
 
@@ -91,7 +91,7 @@ Be sure to check the release notes and any optional upgrade notes before running
 
 ### Verify the new installation
 
-Once Rancher Observability has been upgraded and started, verify that the new installation of Rancher Observability is reachable and that the application is running.
+Once SUSE Observability has been upgraded and started, verify that the new installation of SUSE Observability is reachable and that the application is running.
 
 ## See also
 

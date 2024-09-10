@@ -1,12 +1,12 @@
 ---
-description: Rancher Observability Self-hosted
+description: SUSE Observability Self-hosted
 ---
 
 # Non-high availability setup
 
 ## Overview
 
-The recommended Kubernetes/OpenShift deployment of Rancher Observability is a production ready setup with many services running redundantly. If required, it's also possible to run Rancher Observability in a non-redundant setup, where each service has only a single replica.
+The recommended Kubernetes/OpenShift deployment of SUSE Observability is a production ready setup with many services running redundantly. If required, it's also possible to run SUSE Observability in a non-redundant setup, where each service has only a single replica.
 
 {% hint style="info" %}
 The non-high availability setup is only suitable for situations that don't require high availability.
@@ -14,12 +14,12 @@ The non-high availability setup is only suitable for situations that don't requi
 
 ## Create `nonha_values.yaml`
 
-To deploy Rancher Observability in a non-high availability setup, you will need a `nonha_values.yaml` file. Follow the instructions below to create this file and use it for deployment of Rancher Observability.
+To deploy SUSE Observability in a non-high availability setup, you will need a `nonha_values.yaml` file. Follow the instructions below to create this file and use it for deployment of SUSE Observability.
 
 1. Create a Helm values file `nonha_values.yaml` with the following content and store it next to the generated `values.yaml` file:
 
   ```yaml
-  # This files defines additional Helm values to run Rancher Observability on a 
+  # This files defines additional Helm values to run SUSE Observability on a 
   # non-high availability production setup. Use this file in combination
   # with a regular values.yaml file that contains your API key, etc.
   elasticsearch:
@@ -57,7 +57,7 @@ To deploy Rancher Observability in a non-high availability setup, you will need 
     replicaCount: 1
   ```
 
-2. Continue with the instructions to deploy Rancher Observability with Helm:
+2. Continue with the instructions to deploy SUSE Observability with Helm:
    * [Deploy on Kubernetes](/setup/install-stackstate/kubernetes_openshift/kubernetes_install.md#deploy-stackstate-with-helm).
    * [Deploy on OpenShift](/setup/install-stackstate/kubernetes_openshift/openshift_install.md#deploy-stackstate-with-helm).
 

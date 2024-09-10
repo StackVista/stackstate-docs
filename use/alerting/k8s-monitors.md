@@ -1,13 +1,13 @@
 ---
-description: Rancher Observability
+description: SUSE Observability
 ---
 
 # Monitors
 
 ## Overview
 
-Rancher Observability has the best practices encoded via monitors. Rancher Observability monitors not only monitor metrics, events or logs but can also monitor the topology and meta-data to detect common issues, ensuring compliance and adherence to industry standards.
-Combining monitors with our unique troubleshooting intelligence, Rancher Observability quickly detects issues that are related and advises on how to remediate them. This proactive approach reduces the risk of undetected problems and helps maintain a healthy and robust Kubernetes environment.
+SUSE Observability has the best practices encoded via monitors. SUSE Observability monitors not only monitor metrics, events or logs but can also monitor the topology and meta-data to detect common issues, ensuring compliance and adherence to industry standards.
+Combining monitors with our unique troubleshooting intelligence, SUSE Observability quickly detects issues that are related and advises on how to remediate them. This proactive approach reduces the risk of undetected problems and helps maintain a healthy and robust Kubernetes environment.
 Monitors are accompanied by remediation guides specific to the resource on which is alerted and the monitored condition to guide our users in their troubleshooting.
 
 ## Monitor results

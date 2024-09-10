@@ -1,5 +1,5 @@
 ---
-description: Rancher Observability
+description: SUSE Observability
 ---
 
 # Custom views
@@ -11,7 +11,7 @@ Whilst a [kubernetes view](k8s-views.md) acts as a starting point to explore a s
 In other words, you can create a custom view by saving a [kubernetes view](k8s-views.md) or an [explore view](k8s-explore-views.md) with your own settings (filters, visualization options, view settings, timeline configuration) to bookmark a part of your topology that's of particular interest to you or your team.
 
 {% hint style="info" %}
-By default, custom views will be visible to all users, these can be secured by a **Rancher Observability administrator** if required.
+By default, custom views will be visible to all users, these can be secured by a **SUSE Observability administrator** if required.
 {% endhint %}
 
 ![Custom view](../../.gitbook/assets/k8s/k8s-custom-view.png)

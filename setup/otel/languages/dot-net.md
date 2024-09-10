@@ -1,5 +1,5 @@
 ---
-description: Rancher Observability
+description: SUSE Observability
 ---
 
 # .NET Applications
@@ -34,7 +34,7 @@ env:
 ```
 3. Also add the extra environment variables [to configure the service name and exporter endpoint](./sdk-exporter-config.md) on the pod.
 4. Deploy your application with the changes
-5. [Verify](./verify.md) Rancher Observability is receiving traces and/or metrics
+5. [Verify](./verify.md) SUSE Observability is receiving traces and/or metrics
 
 For more details please refer to the [Open Telemetry documentation](https://opentelemetry.io/docs/languages/java/automatic/). 
 
@@ -50,6 +50,6 @@ There is detailed documentation for this on the [Open Telemetry .NET SDK doc pag
 
 Make sure you use the OTLP exporter (this is the default) and [auto-configuration](https://opentelemetry.io/docs/languages/java/instrumentation/#autoconfiguration). When deploying the application the service name and exporter are [configured via environment variables](./sdk-exporter-config.md).
 
-## Metrics in Rancher Observability
+## Metrics in SUSE Observability
 
-For some .NET  metrics, for example, garbage collector metrics, Rancher Observability has defined charts on the related components. For Kubernetes,the charts are available on the pods. It is possible to [add charts for more metrics](/use/metrics/k8s-add-charts.md), this works for metrics from automatic instrumentation but also for application-specific metrics from manual instrumentation.
+For some .NET  metrics, for example, garbage collector metrics, SUSE Observability has defined charts on the related components. For Kubernetes,the charts are available on the pods. It is possible to [add charts for more metrics](/use/metrics/k8s-add-charts.md), this works for metrics from automatic instrumentation but also for application-specific metrics from manual instrumentation.

@@ -1,5 +1,5 @@
 ---
-description: Rancher Observability
+description: SUSE Observability
 ---
 
 # Teams 
@@ -29,7 +29,7 @@ Copy the HTTP URL parameter.
 
 ![Configure Teams Channe](/.gitbook/assets/k8s/configure-teams-channel.png)
 
-Back in Rancher Observability you can now use the Webhook URL to create a notification channel.
+Back in SUSE Observability you can now use the Webhook URL to create a notification channel.
 
 ## Teams messages for notifications
 

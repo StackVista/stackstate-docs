@@ -1,5 +1,5 @@
 ---
-description: Rancher Observability
+description: SUSE Observability
 ---
 
 # Troubleshooting Open Telemetry
@@ -9,7 +9,7 @@ There are a lot of configuration options but more importantly, every (Kubernetes
 1. Check the beginning of the logs for the pod, SDKs will log warnings or errors when instrumentation fails at startup
 2. Check the logs also for any errors related to sending data to the collector
 3. Check the logs of the collector pod(s) for configuration or initialization errors, these will be logged right after the startup of the pod
-4. Check the collector logs also for errors related to sending data to Rancher Observability
+4. Check the collector logs also for errors related to sending data to SUSE Observability
 
 The error(s) in the logs usually give a good indication of the problem. We list the most common causes for Open Telemetry data not being available for some or all of your instrumented applications. If the problem is not listed here you can also look at the [language-specific SDK documentation](https://opentelemetry.io/docs/languages/) or the [collector documentation](https://opentelemetry.io/docs/collector/troubleshooting/) from Open Telemetry.
 
@@ -17,19 +17,19 @@ The error(s) in the logs usually give a good indication of the problem. We list 
 
 Make sure you use the same Kubernetes cluster name for the same cluster when:
 * Installing the Open Telemetry Collector
-* Installing the Rancher Observability agent
+* Installing the SUSE Observability agent
 * Installing the Kubernetes StackPack
 
-When different names are used for the same cluster Rancher Observability will not be able to match the data from Open Telemetry with the data from the Rancher Observability agent and the traces perspective will remain empty.
+When different names are used for the same cluster SUSE Observability will not be able to match the data from Open Telemetry with the data from the SUSE Observability agent and the traces perspective will remain empty.
 
-## The collector cannot send data to Rancher Observability
+## The collector cannot send data to SUSE Observability
 
-### Rancher Observability's OTLP endpoint and API key are misconfigured
+### SUSE Observability's OTLP endpoint and API key are misconfigured
 
-If there are connection errors it is possible the OTLP endpoint is incorrect. If there are authentication/authorization errors (status codes 401 and 403) it is likely the API key is not valid (anymore). Check that the configured OTLP endpoint is the URL for your Rancher Observability, prefixed with `otlp-` and suffixed with `:443`. For example, the  OTLP endpoint for `play.stackstate.com` is `otlp-play.stackstate.com:443`. 
+If there are connection errors it is possible the OTLP endpoint is incorrect. If there are authentication/authorization errors (status codes 401 and 403) it is likely the API key is not valid (anymore). Check that the configured OTLP endpoint is the URL for your SUSE Observability, prefixed with `otlp-` and suffixed with `:443`. For example, the  OTLP endpoint for `play.stackstate.com` is `otlp-play.stackstate.com:443`. 
 
 To ensure the api key is configured correctly check that:
-1. the secret contains a valid API key (verify this in Rancher Observability)
+1. the secret contains a valid API key (verify this in SUSE Observability)
 2. the secret is used as environment variables on the pod
 3. the `bearertokenauth` extension is using the correct scheme and the value from the `API_KEY` environment variable
 4. the `bearertokenauth` extension is used by the `otlp/stackstate` exporter

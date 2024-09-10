@@ -1,18 +1,18 @@
 ---
-description: Rancher Observability
+description: SUSE Observability
 ---
 
 # Request tracing
 
 ## Observability through load balancers, service meshes and between clusters
 
-Rancher Observability can observe connections between services and pods in different Clusters, or when the connections go through a Service Mesh or Load Balancer. Observing these connections is done through `request tracing`. Traced requests will result in connections in the [topology perspective](/use/views/k8s-topology-perspective.md), to give insight in the dependencies across an application and help with finding the root cause of an incident.
+SUSE Observability can observe connections between services and pods in different Clusters, or when the connections go through a Service Mesh or Load Balancer. Observing these connections is done through `request tracing`. Traced requests will result in connections in the [topology perspective](/use/views/k8s-topology-perspective.md), to give insight in the dependencies across an application and help with finding the root cause of an incident.
 
 ## How does it work
 
-Request tracing is done by injecting a unique header (the `X-Request-ID` header) into all HTTP traffic. This unique header is observed at both client and server through an eBPF probe installed with the Rancher Observability Agent. These observations are sent to Rancher Observability, which uses the observations to understand which clients and server are connected.
+Request tracing is done by injecting a unique header (the `X-Request-ID` header) into all HTTP traffic. This unique header is observed at both client and server through an eBPF probe installed with the SUSE Observability Agent. These observations are sent to SUSE Observability, which uses the observations to understand which clients and server are connected.
 
-The `X-Request-Id` headers are [injected](#enabling-the-trace-header-injection-sidecar) by a sidecar proxy that can be automatically injected by the Rancher Observability Agent. The sidecar gets injected by a [mutating webhook](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#mutatingadmissionwebhook), which injects the sidecar into every pod for which the `http-header-injector.stackstate.io/inject: enabled` annotation is defined. Sidecar injection is not supported on OpenShift. 
+The `X-Request-Id` headers are [injected](#enabling-the-trace-header-injection-sidecar) by a sidecar proxy that can be automatically injected by the SUSE Observability Agent. The sidecar gets injected by a [mutating webhook](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/#mutatingadmissionwebhook), which injects the sidecar into every pod for which the `http-header-injector.stackstate.io/inject: enabled` annotation is defined. Sidecar injection is not supported on OpenShift. 
 
 It's also possible to add the `X-Request-Id` header if your application [already has a proxy or LoadBalancer](#add-the-trace-header-id-to-an-existing-proxy), is deployed to an [Istio service mesh](#add-the-trace-header-id-with-envoy-filter) enabled Kubernetes cluster or through [instrumenting your own code](#instrument-your-application). Advantage of this is that the extra sidecar proxy isn't needed.
 
@@ -20,7 +20,7 @@ It's also possible to add the `X-Request-Id` header if your application [already
 
 Enabling trace header injection is a two-step process:
 
- 1. Install the mutating webhook into the cluster by adding `--set httpHeaderInjectorWebhook.enabled=true` to the helm upgrade invocation when installing the Rancher Observability agent. By default the sidecar injector generates its own self-signed certificate, requiring cluster roles to install these into the cluster. It is also possible to [manage your own certificates](/setup/agent/k8sTs-agent-request-tracing-certificates.md) in a more restricted environment.
+ 1. Install the mutating webhook into the cluster by adding `--set httpHeaderInjectorWebhook.enabled=true` to the helm upgrade invocation when installing the SUSE Observability agent. By default the sidecar injector generates its own self-signed certificate, requiring cluster roles to install these into the cluster. It is also possible to [manage your own certificates](/setup/agent/k8sTs-agent-request-tracing-certificates.md) in a more restricted environment.
  2. For every pod that has a endpoint which processes http(s) requests, place the annotation `http-header-injector.stackstate.io/inject: enabled` to have the sidecar injected.
 
 {% hint style="warning" %}
@@ -34,7 +34,7 @@ If the annotation is placed before the webhook is installed. Installing the webh
 Disabling the trace header injection can be done with the reverse process:
 
 1. Remove the `http-header-injector.stackstate.io/inject: enabled` annotation from all pods.
-2. Redeploy the Rancher Observability Agent without the `--set httpHeaderInjectorWebhook.enabled=true` setting. 
+2. Redeploy the SUSE Observability Agent without the `--set httpHeaderInjectorWebhook.enabled=true` setting. 
 
 {% hint style="warning" %}
 **Disabling the mutating webhook will only take effect upon pod restart**

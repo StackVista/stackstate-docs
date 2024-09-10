@@ -1,5 +1,5 @@
 ---
-description: Rancher Observability
+description: SUSE Observability
 ---
 
 # Events Perspective
@@ -48,4 +48,4 @@ For example:
 ## See also
 
 * [Filtering data](k8s-filters.md)
-* [Working with Rancher Observability views](k8s-view-structure.md)
+* [Working with SUSE Observability views](k8s-view-structure.md)

@@ -1,12 +1,12 @@
 ---
-description: Rancher Observability
+description: SUSE Observability
 ---
 
 # Timeline and time-travel
 
 ## Overview
 
-The timeline at the bottom of the Rancher Observability UI allows you to travel back in time to the state of the topology at a specific point in the past. You can then navigate through all telemetry available for the selected topology snapshot. Health and events charts in the timeline give an overview of the state of the topology during the selected telemetry interval.
+The timeline at the bottom of the SUSE Observability UI allows you to travel back in time to the state of the topology at a specific point in the past. You can then navigate through all telemetry available for the selected topology snapshot. Health and events charts in the timeline give an overview of the state of the topology during the selected telemetry interval.
 
 ![Timeline](../../.gitbook/assets/k8s/k8s-timeline.png)
 
@@ -14,7 +14,7 @@ The timeline at the bottom of the Rancher Observability UI allows you to travel 
 
 ### Telemetry interval
 
-The telemetry interval specifies the time window for which events, metrics and traces are available in the Rancher Observability perspectives. It runs from left to right on the timeline.
+The telemetry interval specifies the time window for which events, metrics and traces are available in the SUSE Observability perspectives. It runs from left to right on the timeline.
 
 ![Telemetry interval](../../.gitbook/assets/v51_telemetry_interval.png)
 
@@ -24,7 +24,7 @@ The selected telemetry interval can be either relative \(live mode\), or set to 
 
 {% hint style="info" %}
 * The telemetry interval can be a maximum of 6 months. 
-* When a custom telemetry interval is set for the telemetry interval, Rancher Observability will pause the [topology time](#topology-time) and enter [time travel mode](#time-travel).
+* When a custom telemetry interval is set for the telemetry interval, SUSE Observability will pause the [topology time](#topology-time) and enter [time travel mode](#time-travel).
 {% endhint %}
 
 The telemetry interval can be set in the following ways:
@@ -48,7 +48,7 @@ The telemetry interval can be set in the following ways:
 
 ### Topology time
 
-The topology in Rancher Observability is based on a snapshot of your environments as observed at that moment. The moment from which this snapshot is taken is specified by the topology time. By default, Rancher Observability is in live mode with the topology time set to the current time. You can [time travel](#time-travel) to a previous state of the topology by selecting a custom topology time. This helps you to investigate an issue at a certain moment in time. Even if a pod is long gone you can still see how it was connected, its logs, events, related resources, events and more.
+The topology in SUSE Observability is based on a snapshot of your environments as observed at that moment. The moment from which this snapshot is taken is specified by the topology time. By default, SUSE Observability is in live mode with the topology time set to the current time. You can [time travel](#time-travel) to a previous state of the topology by selecting a custom topology time. This helps you to investigate an issue at a certain moment in time. Even if a pod is long gone you can still see how it was connected, its logs, events, related resources, events and more.
 
 ![Topology time](../../.gitbook/assets/v51_topology_time.png)
 
@@ -113,7 +113,7 @@ A single click on the timeline will move the play head to this point in time, an
 
 ## Time travel
 
-In each of the Rancher Observability perspectives, you can either be in live mode or in the past. In live mode, Rancher Observability will constantly poll for new data. When you time-travel through topology or telemetry, you are effectively working with a snapshot of your infrastructure. The data available is based on two selections:
+In each of the SUSE Observability perspectives, you can either be in live mode or in the past. In live mode, SUSE Observability will constantly poll for new data. When you time-travel through topology or telemetry, you are effectively working with a snapshot of your infrastructure. The data available is based on two selections:
 
 * [Topology time](#topology-time) - a specific moment in time for which you want to fetch a snapshot of your Kubernetes resources.
 * [Telemetry interval](#telemetry-interval) - the time range for which you want to see telemetry and traces.

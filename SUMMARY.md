@@ -1,12 +1,12 @@
 # Table of contents
 
-* [Rancher Observability docs!](README.md)
-* [Docs for all Rancher Observability products](classic.md)
+* [SUSE Observability docs!](README.md)
+* [Docs for all SUSE Observability products](classic.md)
 
 ## 🚀 Get started
 
 * [Quick start guide](k8s-quick-start-guide.md)
-* [Rancher Observability walk-through](k8s-getting-started.md)
+* [SUSE Observability walk-through](k8s-getting-started.md)
 * [SUSE Rancher Prime](k8s-suse-rancher-prime.md)
   * [Air-gapped](k8s-suse-rancher-prime-air-gapped.md)
   * [Agent Air-gapped](k8s-suse-rancher-prime-agent-air-gapped.md)
@@ -102,10 +102,10 @@
 * [Troubleshooting](setup/otel/troubleshooting.md)
   
 ## CLI
-* [Rancher Observability CLI](setup/cli/cli-sts.md)
+* [SUSE Observability CLI](setup/cli/cli-sts.md)
 
 ## 🚀 Self-hosted setup
-* [Install Rancher Observability](setup/install-stackstate/README.md)
+* [Install SUSE Observability](setup/install-stackstate/README.md)
   * [Requirements](setup/install-stackstate/requirements.md)
   * [Kubernetes / OpenShift](setup/install-stackstate/kubernetes_openshift/README.md)
     * [Kubernetes install](setup/install-stackstate/kubernetes_openshift/kubernetes_install.md)
@@ -115,22 +115,22 @@
     * [Small profile setup](setup/install-stackstate/kubernetes_openshift/small_profile_setup.md)
     * [Override default configuration](setup/install-stackstate/kubernetes_openshift/customize_config.md)
     * [Configure storage](setup/install-stackstate/kubernetes_openshift/storage.md)
-    * [Exposing Rancher Observability outside of the cluster](setup/install-stackstate/kubernetes_openshift/ingress.md)
+    * [Exposing SUSE Observability outside of the cluster](setup/install-stackstate/kubernetes_openshift/ingress.md)
   * [Initial run guide](setup/install-stackstate/initial_run_guide.md)
   * [Troubleshooting](setup/install-stackstate/troubleshooting.md)
     * [Logs](configure/logging/kubernetes-logs.md)
-* [Configure Rancher Observability](setup/configure-stackstate/README.md)
+* [Configure SUSE Observability](setup/configure-stackstate/README.md)
   * [Slack notifications](setup/configure-stackstate/slack-notifications.md)
   * [Stackpacks](stackpacks/about-stackpacks.md)
 * [Release Notes](setup/release-notes/README.md)
   * [v1.11.0 - 18/07/2024](setup/release-notes/20240718165243.md)
-* [Upgrade Rancher Observability](setup/upgrade-stackstate/README.md)
+* [Upgrade SUSE Observability](setup/upgrade-stackstate/README.md)
   * [Steps to upgrade](setup/upgrade-stackstate/steps-to-upgrade.md)
   * [Version-specific upgrade instructions](setup/upgrade-stackstate/version-specific-upgrade-instructions.md)
-* [Uninstall Rancher Observability](setup/install-stackstate/kubernetes_openshift/uninstall.md)
+* [Uninstall SUSE Observability](setup/install-stackstate/kubernetes_openshift/uninstall.md)
 * [Air-gapped](setup/install-stackstate/kubernetes_openshift/no_internet/README.md)
-  * [Rancher Observability air-gapped](setup/install-stackstate/kubernetes_openshift/no_internet/stackstate_installation.md)
-  * [Rancher Observability Kubernetes Agent air-gapped](setup/install-stackstate/kubernetes_openshift/no_internet/agent_install.md)
+  * [SUSE Observability air-gapped](setup/install-stackstate/kubernetes_openshift/no_internet/stackstate_installation.md)
+  * [SUSE Observability Kubernetes Agent air-gapped](setup/install-stackstate/kubernetes_openshift/no_internet/agent_install.md)
 * [Data management](setup/data-management/README.md)
   * [Backup and Restore](setup/data-management/backup_restore/README.md)
     * [Kubernetes backup](setup/data-management/backup_restore/kubernetes_backup.md)
@@ -162,6 +162,6 @@
 * [User Management](saas/user-management.md)
 
 ## Reference
-* [Rancher Observability Query Language \(STQL\)](develop/reference/k8sTs-stql_reference.md)
+* [SUSE Observability Query Language \(STQL\)](develop/reference/k8sTs-stql_reference.md)
 * [Chart units](develop/reference/k8sTs-chart-units.md)
 * [Topology Identifiers](configure/topology/identifiers.md)

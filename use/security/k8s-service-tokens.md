@@ -1,12 +1,12 @@
 ---
-description: Rancher Observability
+description: SUSE Observability
 ---
 
 # Service tokens
 
 ## Overview
 
-Using Service tokens it's possible to authenticate to Rancher Observability without having an associated a user account. This is useful for situations where you want to use Rancher Observability from headless services like a CI server. In such a scenario you typically don't want to provision a user account in your identity provider.
+Using Service tokens it's possible to authenticate to SUSE Observability without having an associated a user account. This is useful for situations where you want to use SUSE Observability from headless services like a CI server. In such a scenario you typically don't want to provision a user account in your identity provider.
 
 ## Manage service tokens
 
@@ -29,7 +29,7 @@ Use "sts service-token [command] --help" for more information about a command.
 
 ### Create service tokens
 
-To create a service token in your instance of Rancher Observability, you can use the `sts` CLI.
+To create a service token in your instance of SUSE Observability, you can use the `sts` CLI.
 
 ```sh
 sts service-token create
@@ -75,10 +75,10 @@ A service token can be deleted using the `sts` CLI. Pass the ID of the service t
 
 ## Authenticating using service tokens
 
-Once created, a service token can be used to authenticate to Rancher Observability from a headless service. To do this you can either use the CLI or directly talk to the API.
+Once created, a service token can be used to authenticate to SUSE Observability from a headless service. To do this you can either use the CLI or directly talk to the API.
 
 
-### Rancher Observability `sts` CLI
+### SUSE Observability `sts` CLI
 
 A service token can be used for authentication with the new `sts` CLI.
 
@@ -86,9 +86,9 @@ A service token can be used for authentication with the new `sts` CLI.
 > sts context --name <name> --service-token <TOKEN> --url https://<tenant>.app.stackstate.io
 ```
 
-### Rancher Observability APIs
+### SUSE Observability APIs
 
-To use a service token to talk directly to the Rancher Observability API, add it to the header of the request in one of the following ways:
+To use a service token to talk directly to the SUSE Observability API, add it to the header of the request in one of the following ways:
 
 * In the `Authorization` header:
     ```sh

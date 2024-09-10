@@ -1,12 +1,12 @@
 ---
-description: Rancher Observability Self-hosted
+description: SUSE Observability Self-hosted
 ---
 
 # Troubleshooting
 
 ## Quick troubleshooting guide
 
-Here is a quick guide for troubleshooting the startup of Rancher Observability:
+Here is a quick guide for troubleshooting the startup of SUSE Observability:
 
 1. Check that the install completed successfully and the release is listed:
 
@@ -14,7 +14,7 @@ Here is a quick guide for troubleshooting the startup of Rancher Observability:
    helm list --namespace stackstate
    ```
 
-2. Check that all pods in the Rancher Observability namespace are running:
+2. Check that all pods in the SUSE Observability namespace are running:
 
    ```text
    kubectl get pods
@@ -24,8 +24,8 @@ Here is a quick guide for troubleshooting the startup of Rancher Observability:
 
    Pods that are in `pending` state are usually an indication of a problem:
    * The pod is unschedulable due to lack of resources in the cluster. If a cluster auto-scaler is active it will often be able to resolve this automatically, otherwise manual intervention is needed to add more nodes to the cluster
-   * The pod is unschedulable, there are nodes it would fit on, but those nodes have `taints` that the pod doesn not tolerate. To solve this more nodes can be added that don't have the taints, but Rancher Observability can also be [configured](kubernetes_openshift/customize_config.md#override-default-configuration) to tolerate certain taints and run on the tainted nodes.
-   * The pod is waiting for the Persistent Volumes (PVs) to be mounted. A cause can be that the Rancher Observability Helm chart doesn't specify a `storageClassName` but relies on the cluster having a default storage class. When there is no default for the cluster it's required to [specify a storage class](./kubernetes_openshift/storage.md) via the Helm values of Rancher Observability.
+   * The pod is unschedulable, there are nodes it would fit on, but those nodes have `taints` that the pod doesn not tolerate. To solve this more nodes can be added that don't have the taints, but SUSE Observability can also be [configured](kubernetes_openshift/customize_config.md#override-default-configuration) to tolerate certain taints and run on the tainted nodes.
+   * The pod is waiting for the Persistent Volumes (PVs) to be mounted. A cause can be that the SUSE Observability Helm chart doesn't specify a `storageClassName` but relies on the cluster having a default storage class. When there is no default for the cluster it's required to [specify a storage class](./kubernetes_openshift/storage.md) via the Helm values of SUSE Observability.
 
    For pods with state `ImagePullBackOff` also check the exact error message, common causes are:
    * An incorrect username/password used to pull the images
@@ -41,9 +41,9 @@ Here is a quick guide for troubleshooting the startup of Rancher Observability:
    The output contains an `event` section at the end which usually contains the problem. It also has a `State` section for each container that has more details for termination of the container.
 
 3. [Check the logs](/configure/logging/kubernetes-logs.md) for errors.
-4. Check the Knowledge base on the [Rancher Observability Support site](https://support.stackstate.com/).
+4. Check the Knowledge base on the [SUSE Observability Support site](https://support.stackstate.com/).
 
 ## Known issues
 
-Check the [Rancher Observability support Knowledge base](https://support.stackstate.com/hc/en-us/sections/360004684540-Known-issues) to find troubleshooting steps for all known issues.
+Check the [SUSE Observability support Knowledge base](https://support.stackstate.com/hc/en-us/sections/360004684540-Known-issues) to find troubleshooting steps for all known issues.
 

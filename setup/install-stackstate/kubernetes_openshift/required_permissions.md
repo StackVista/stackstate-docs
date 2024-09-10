@@ -1,20 +1,20 @@
 ---
-description: Rancher Observability Self-hosted
+description: SUSE Observability Self-hosted
 ---
 
 # Required Permissions
 
 ## Overview
 
-All of Rancher Observability's own components can run without any extra permissions. However, to install Rancher Observability successfully, you need some additional privileges, or ensure that the requirements described in this page are met.
+All of SUSE Observability's own components can run without any extra permissions. However, to install SUSE Observability successfully, you need some additional privileges, or ensure that the requirements described in this page are met.
 
 ## Service-to-service authentication and authorization
 
-To allow communication between Rancher Observability services Rancher Observability uses Kubernetes service accounts. To be able to verify their validity and roles the helm chart creates a `ClusterRole` and a `ClusterRoleBinding` resources. Creating these cluster-wide resources is often prohibited for users that aren't a Kubernetes/OpenShift administrator. For that case the creation can be disabled and instead the roles and role bindings need to be [created manually](required_permissions.md#manually-create-cluster-wide-resources) by your cluster admin.
+To allow communication between SUSE Observability services SUSE Observability uses Kubernetes service accounts. To be able to verify their validity and roles the helm chart creates a `ClusterRole` and a `ClusterRoleBinding` resources. Creating these cluster-wide resources is often prohibited for users that aren't a Kubernetes/OpenShift administrator. For that case the creation can be disabled and instead the roles and role bindings need to be [created manually](required_permissions.md#manually-create-cluster-wide-resources) by your cluster admin.
 
 ### Disable automatic creation of cluster-wide resources
 
-The automatic creation of cluster-wide resources during installation of Rancher Observability can be disabled by adding the following section to the `values.yaml` file used to install Rancher Observability:
+The automatic creation of cluster-wide resources during installation of SUSE Observability can be disabled by adding the following section to the `values.yaml` file used to install SUSE Observability:
 
 {% tabs %}
 {% tab title="values.yaml" %}
@@ -95,13 +95,13 @@ subjects:
 
 ## Elasticsearch
 
-Rancher Observability uses Elasticsearch to store its indices. There are some additional requirements for the nodes that Elasticsearch runs on.
+SUSE Observability uses Elasticsearch to store its indices. There are some additional requirements for the nodes that Elasticsearch runs on.
 
 As the `vm.max_map_count` Linux system setting is usually lower than required for Elasticsearch to start, an init container is used that runs in privileged mode and as the root user. The init container is enabled by default to allow the `vm.max_map_count` system setting to be changed.
 
 ### Disable the privileged Elasticsearch init container
 
-In case you or your Kubernetes/OpenShift administrators don't want the privileged Elasticsearch init container to be enabled by default, you can disable this behavior in the file `values.yaml` used to install Rancher Observability:
+In case you or your Kubernetes/OpenShift administrators don't want the privileged Elasticsearch init container to be enabled by default, you can disable this behavior in the file `values.yaml` used to install SUSE Observability:
 
 {% tabs %}
 {% tab title="values.yaml" %}
@@ -202,6 +202,6 @@ elasticsearch:
 
 ## See also
 
-* [Install Rancher Observability on Kubernetes](kubernetes_install.md)
-* [Install Rancher Observability on OpenShift](openshift_install.md)
+* [Install SUSE Observability on Kubernetes](kubernetes_install.md)
+* [Install SUSE Observability on OpenShift](openshift_install.md)
 

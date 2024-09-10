@@ -1,10 +1,10 @@
 ---
-description: Rancher Observability
+description: SUSE Observability
 ---
 
 # Keyboard shortcuts
 
-The keyboard shortcuts below can be used to navigate the Rancher Observability UI.
+The keyboard shortcuts below can be used to navigate the SUSE Observability UI.
 
 | Keyboard shortcut | Action                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | :--- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

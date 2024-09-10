@@ -1,12 +1,12 @@
 ---
-description: Rancher Observability
+description: SUSE Observability
 ---
 
 # Explore logs
 
 ## Navigate to Logs
 
-You can explore the container logs of any Kubernetes environment that is configured with log shipping through the Rancher Observability UI.
+You can explore the container logs of any Kubernetes environment that is configured with log shipping through the SUSE Observability UI.
 This can be done by drilling down to `pod` level through any of the provided paradigms (Services, Deployments, Stateful Sets, Daemon Sets, etc.) from the Kubernetes menu on the left
 
 ![Kubernetes Paradigms Menu](../../.gitbook/assets/k8s/k8s-menu.png)

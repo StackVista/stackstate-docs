@@ -1,12 +1,12 @@
 ---
-description: Rancher Observability
+description: SUSE Observability
 ---
 
 # Explore views
 
 ## Overview
 
-In general, the concept of a [view](k8s-view-structure.md) in Rancher Observability allows you to monitor an area of your IT landscape that you had previously saved. But, often times when you need to investigate a subset of a particular view, you don't want to lose the scope of that view. This is where the **explore views** come into play.
+In general, the concept of a [view](k8s-view-structure.md) in SUSE Observability allows you to monitor an area of your IT landscape that you had previously saved. But, often times when you need to investigate a subset of a particular view, you don't want to lose the scope of that view. This is where the **explore views** come into play.
 
 To keep the scope of a particular view (e.g. `my view`) intact, all the investigative actions applied to a topology element or selection of elements (e.g. components, relations, groups) will automatically open in a temporary explore view, under the view you have started from (e.g. `my view / explore`).
 

@@ -1,20 +1,20 @@
 ---
-description: Rancher Observability Self-hosted
+description: SUSE Observability Self-hosted
 ---
 
 # Self-signed certificates
 
 ## Overview
 
-Rancher Observability has several points of interaction with external systems. For example, event handlers can call out to webhooks in other systems. With the default configuration, Rancher Observability won't be able to communicate with these systems if they're secured with TLS using a self-signed certificate, or a certificate that isn't by default trusted by the JVM.
+SUSE Observability has several points of interaction with external systems. For example, event handlers can call out to webhooks in other systems. With the default configuration, SUSE Observability won't be able to communicate with these systems if they're secured with TLS using a self-signed certificate, or a certificate that isn't by default trusted by the JVM.
 
-To mitigate this, Rancher Observability allows configuration of a custom trust store.
+To mitigate this, SUSE Observability allows configuration of a custom trust store.
 
 ## Create a custom trust store
 
 You need to have the custom TLS certificate available. If you don't have that, you will need to [retrieve it via the browser](self-signed-certificates.md#retrieve-certificate-via-the-browser).
 
-Use the keytool tool and the `cacerts` file included in the JVM \(Java Virtual Machine\) installation to convert an existing TLS certificate file to the format needed by Rancher Observability. You can run this on any machine, regardless of the type of operating system.
+Use the keytool tool and the `cacerts` file included in the JVM \(Java Virtual Machine\) installation to convert an existing TLS certificate file to the format needed by SUSE Observability. You can run this on any machine, regardless of the type of operating system.
 
 If you don't have the JVM installed on your computer, you can also [use a JVM Docker image](self-signed-certificates.md#using-a-docker-jvm) instead.
 

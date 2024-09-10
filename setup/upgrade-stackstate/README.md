@@ -1,6 +1,6 @@
 ---
-description: Rancher Observability Self-hosted
+description: SUSE Observability Self-hosted
 ---
 
-# Upgrade Rancher Observability
+# Upgrade SUSE Observability
 
