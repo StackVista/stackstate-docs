@@ -11,7 +11,7 @@ SUSE Observability, formerly known as StackState can be used for Observability o
 The installation of SUSE Observability, the SUSE Observability UI extension and the SUSE Observability Agents takes about 30 minutes in total.
 
 ## Getting help
-To get support, ask any question or provide feedback you can reach us during the tech preview phase on the following email rancherobservability@suse.com
+For support please file a support case in [SUSE Customer Center (SCC)](https://scc.suse.com/).
 
 ## Prerequisites
 
