@@ -35,7 +35,7 @@ Run the following commands on the local host to obtain the necessary Docker imag
 
 ```bash
 # Adding the Helm repository for the SUSE Observability Agent
-helm repo add stackstate https://helm.stackstate.io
+helm repo add suse-observability https://charts.rancher.com/server-charts/prime/suse-observability
 helm repo update
 ```
 
@@ -46,16 +46,16 @@ The following command will download a TGZ archive of the chart from the Helm rep
 ```bash
 # Downloading the chart for the SUSE Observability Agent
 # The file will be named stackstate-agent-X.Y.Z.tgz
-helm fetch stackstate/stackstate-k8s-agent
+helm fetch suse-observability/suse-observability-agent
 ```
 
 **Getting the Bash scripts to save Docker images.**
 
 ```bash
 # o11y-agent-get-images.sh
-curl -LO https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/stackstate-k8s-agent/installation/o11y-agent-get-images.sh
+curl -LO https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/suse-observability-agent/installation/o11y-agent-get-images.sh
 # o11y-agent-save-images.sh
-curl -LO https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/stackstate-k8s-agent/installation/o11y-agent-save-images.sh
+curl -LO https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/suse-observability-agent/installation/o11y-agent-save-images.sh
 
 # Make the scripts executable
 chmod a+x o11y-agent-get-images.sh o11y-agent-save-images.sh
@@ -65,10 +65,10 @@ chmod a+x o11y-agent-get-images.sh o11y-agent-save-images.sh
 
 ```bash
 # Extract the list of images from the Helm chart and save it to a file.
-./o11y-agent-get-images.sh -f stackstate-k8s-agent-X.Y.Z.tgz > o11y-agent-images.txt
+./o11y-agent-get-images.sh -f suse-observability-agent-X.Y.Z.tgz > o11y-agent-images.txt
 ```
 {% hint style="info" %}
-Replace `stackstate-k8s-agent-X.Y.Z.tgz` with the actual filename of the chart archive downloaded earlier.*
+Replace `suse-observability-agent-X.Y.Z.tgz` with the actual filename of the chart archive downloaded earlier.*
 {% endhint %}
 
 ```bash
@@ -83,9 +83,9 @@ Replace `stackstate-k8s-agent-X.Y.Z.tgz` with the actual filename of the chart a
 The following files have to be copied from the local host to the host in the private network:
 - o11y-agent-images.txt (List of images required by the SUSE Observability Agent chart)
 - o11y-agent-images.tar.gz (An archive with the SUSE Observability Agent's Docker images)
-- [o11y-agent-load-images.sh](https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/stackstate-k8s-agent/installation/o11y-agent-load-images.sh) (Bash script to upload Docker images to a registry)
+- [o11y-agent-load-images.sh](https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/suse-observability-agent/installation/o11y-agent-load-images.sh) (Bash script to upload Docker images to a registry)
 - Helm charts downloaded earlier:
-  - stackstate-k8s-agent-X.Y.Z.tgz
+  - suse-observability-agent-X.Y.Z.tgz
 
 ## Restoring Docker Images from the Archive to the Private Registry
 
@@ -117,13 +117,13 @@ When an instance is added, the UI will provide the instructions how the Helm cha
 
 The command has to be updated for the air-gapped installation:
 - Overriding the image registry with `all.image.registry` value.
-- Using the arhive with the Helm chart instead of the Helm repository. `stackstate/stackstate-k8s-agent` -> `./stackstate-k8s-agent-X.Y.Z.tgz`
+- Using the arhive with the Helm chart instead of the Helm repository. `suse-observability/suse-observability-agent` -> `./suse-observability-agent-X.Y.Z.tgz`
 
 Run the command to install the SUSE Observability Agent
 
 ```bash
 helm upgrade --install \
---namespace stackstate \
+--namespace suse-observability \
 --create-namespace \
 --set-string 'stackstate.apiKey'='<api-key>' \
 --set-string 'stackstate.cluster.name'='<cluster-name>' \
@@ -132,7 +132,7 @@ helm upgrade --install \
 --set-string 'all.image.registry'='registry.acme.com:5000' \
 --set-string 'global.imageRegistry'='registry.acme.com:5000' \
 --set-string 'global.skipSslValidation'=true \
-stackstate-k8s-agent ./stackstate-k8s-agent-X.Y.Z.tgz
+suse-observability-agent ./suse-observability-agent-X.Y.Z.tgz
 ```
 
 **Validating the Deployment**

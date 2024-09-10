@@ -37,7 +37,7 @@ Run the following commands on the local host to obtain the required Docker image
 
 ```bash
 # Adding the Helm repository for SUSE Observability
-helm repo add rancher-prime-observability https://helm-rancher-prime.stackstate.io
+helm repo add suse-observability https://charts.rancher.com/server-charts/prime/suse-observability
 helm repo update
 ```
 
@@ -45,21 +45,21 @@ helm repo update
 
 ```bash
 # Downloading the chart for SUSE Observability
-# The file will be named stackstate-k8s-A.B.C.tgz
-helm fetch rancher-prime-observability/stackstate-k8s
+# The file will be named suse-observability-k8s-A.B.C.tgz
+helm fetch suse-observability/suse-observability
 
 # Downloading the helper chart that generates values for SUSE Observability
-# The file will be named stackstate-values-L.M.N.tgz
-helm fetch rancher-prime-observability/stackstate-values
+# The file will be named suse-observability-values-L.M.N.tgz
+helm fetch suse-observability/suse-observability-values
 ```
 
 **Downloading the Bash scripts to save Docker images:**
 
 ```bash
 # o11y-get-images.sh
-curl -LO https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/stackstate-k8s/installation/o11y-get-images.sh
+curl -LO https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/suse-observability/installation/o11y-get-images.sh
 # o11y-save-images.sh
-curl -LO https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/stackstate-k8s/installation/o11y-save-images.sh
+curl -LO https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/suse-observability/installation/o11y-save-images.sh
 
 # Make the scripts executable
 chmod a+x o11y-get-images.sh o11y-save-images.sh
@@ -69,10 +69,10 @@ chmod a+x o11y-get-images.sh o11y-save-images.sh
 
 ```bash
 # Extract the list of images from the Helm chart and save it to a file.
-./o11y-get-images.sh -f stackstate-k8s-A.B.C.tgz > o11y-images.txt
+./o11y-get-images.sh -f suse-observability-A.B.C.tgz > o11y-images.txt
 ```
 {% hint style="info" %}
-Replace `stackstate-k8s-A.B.C.tgz` with the actual filename of the chart archive downloaded earlier.*
+Replace `suse-observability-A.B.C.tgz` with the actual filename of the chart archive downloaded earlier.*
 {% endhint %}
 
 
@@ -88,10 +88,10 @@ Replace `stackstate-k8s-A.B.C.tgz` with the actual filename of the chart archive
 Copy the following files from the local host to the host in the private network:
 - o11y-images.txt (List of images required by the SUSE Observability chart)
 - o11y-images.tar.gz (An archive with the SUSE Observability's Docker images)
-- [o11y-load-images.sh](https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/stackstate-k8s/installation/o11y-load-images.sh) (Bash script to upload Docker images to a registry)
+- [o11y-load-images.sh](https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/suse-observability/installation/o11y-load-images.sh) (Bash script to upload Docker images to a registry)
 - Helm charts downloaded earlier:
-  - stackstate-k8s-A.B.C.tgz
-  - stackstate-values-L.M.N.tgz
+  - suse-observability-A.B.C.tgz
+  - suse-observability-values-L.M.N.tgz
 
 ## Restoring Docker Images from the Archive to the Private Registry
 
@@ -123,15 +123,15 @@ global:
 elasticsearch:
   prometheus-elasticsearch-exporter:
     image:
-      repository: registry.example.com:5043/stackstate/elasticsearch-exporter
+      repository: registry.example.com:5043/suse-observability/elasticsearch-exporter
 victoria-metrics-0:
   server:
     image:
-      repository: registry.example.com:5043/stackstate/victoria-metrics
+      repository: registry.example.com:5043/suse-observability/victoria-metrics
 victoria-metrics-1:
   server:
     image:
-      repository: registry.example.com:5043/stackstate/victoria-metrics
+      repository: registry.example.com:5043/suse-observability/victoria-metrics
 ```
 
 This guide follows the [Installing a default HA setup for up to 250 Nodes](https://docs.stackstate.com/get-started/k8s-suse-rancher-prime#installing-a-default-ha-setup-for-up-to-250-nodes) setup, but instead of using publicly available Helm and Docker repositories/registries, it uses pre-downloaded Helm archives and private Docker registries.
@@ -146,7 +146,7 @@ helm template \
     --set baseUrl='<baseURL>' \
     --set pullSecret.username='trial' \
     --set pullSecret.password='trial' \
-    prime-observability-values stackstate-values-L.M.N.tgz\
+    suse-observability-values suse-observability-values-L.M.N.tgz\
      > values.yaml
 ```
 {% endcode %}
@@ -156,17 +156,17 @@ helm template \
 {% code title="helm_deploy.sh" lineNumbers="true" %}
 ```text
 helm upgrade --install \
-    --namespace prime-observability \
+    --namespace suse-observability \
     --create-namespace \
     --values values.yaml \
     --values private-registry.yaml \
-    prime-observe \
-    stackstate-k8s-A.B.C.tgz
+    suse-observability \
+    suse-observability-A.B.C.tgz
 ```
 {% endcode %}
 
 **Validating the Deployment:**
 
 ```bash
-kubectl get pod -n prime-observability
+kubectl get pod -n suse-observability
 ```

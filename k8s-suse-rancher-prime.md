@@ -2,13 +2,13 @@
 description: SUSE Observability
 ---
 
-# SUSE Rancher Prime - Observability Tech Preview
+# SUSE Observability Tech Preview
 
 ## Introduction
 
-This page describes how to install SUSE Rancher Prime - Observability during the Tech Preview phase on-premise.
+This page describes how to install SUSE Observability during the Tech Preview phase on-premise.
 
-SUSE Rancher Prime - Observability, formerly known as SUSE Observability can be used for Observability of your Kubernetes clusters and their workloads.
+SUSE Observability, formerly known as SUSE Observability can be used for Observability of your Kubernetes clusters and their workloads.
 During the Tech Preview phase we only offer 2 on-prem installations which can support up-to 50 (non-HA) or up-to 250 (HA) worker Nodes.
 
 The Tech Preview phase is expected  is expected to last at least 30 days. After the Tech Preview phase a GA version will be made available for SUSE Rancher Prime customers. There is no guarantee that the Tech Preview will be compatible from a feature or upgrade perspective with the GA version.
@@ -21,7 +21,7 @@ To get support, ask any question or provide feedback you can reach us during the
 ## Prerequisites
 
 ### License key
-A license key for SUSE Observability server can be obtained via the SUSE Customer Center and will be shown as "SUSE Rancher Prime - Observability Tech Preview" Registration Code. The license for the tech preview is valid until Oct, 31 2024. Before the end a license will be made available which is valid until the end of your SUSE Rancher Prime subscription.
+A license key for SUSE Observability server can be obtained via the SUSE Customer Center and will be shown as "SUSE Observability Tech Preview" Registration Code. The license for the tech preview is valid until Oct, 31 2024. Before the end a license will be made available which is valid until the end of your SUSE Rancher Prime subscription.
 
 ### Requirements
 To install SUSE Observability, ensure that the nodes have enough CPU and memory capacity. Below are the specific requirements.
@@ -87,7 +87,7 @@ If you created the cluster using Rancher Manager and would like to run the provi
 ![Rancher](/.gitbook/assets/k8s/prime/rancher_cluster_dashboard.png)
 
 
-After meeting the prerequisites you can proceed with the installation. The installation is NOT YET AVAILABLE from the app store. Instead, you can install SUSE Observability via the downstream or upstream kubectl shell of the cluster.
+After meeting the prerequisites you can proceed with the installation. The installation is NOT YET AVAILABLE from the app store. Instead, you can install SUSE Observability via the kubectl shell of the cluster.
 
 You can now follow the instruction below for a HA or NON-HA setup.
 
@@ -95,13 +95,12 @@ You can now follow the instruction below for a HA or NON-HA setup.
 Be aware upgrading or downgrading from HA to NON-HA and visa-versa is not yet supported.
 {% endhint %}
 
-
 ### Installing a default HA setup for up to 250 Nodes
 
 1. Get the helm chart
 {% code title="helm_repo.sh" lineNumbers="true" %}
 ```text
-helm repo add rancher-prime-observability https://helm-rancher-prime.stackstate.io
+helm repo add suse-observability https://charts.rancher.com/server-charts/prime/suse-observability
 helm repo update
 ```
 {% endcode %}
@@ -116,8 +115,8 @@ helm template \
     --set baseUrl='<baseURL>' \
     --set pullSecret.username='trial' \
     --set pullSecret.password='trial' \
-    prime-observability-values \
-    rancher-prime-observability/stackstate-values > values.yaml
+    suse-observability-values \
+    suse-observability/suse-observability-values > values.yaml
 ```
 {% endcode %}
 
@@ -126,11 +125,11 @@ helm template \
 {% code title="helm_deploy.sh" lineNumbers="true" %}
 ```text
 helm upgrade --install \
-    --namespace prime-observability \
+    --namespace suse-observability \
     --create-namespace \
     --values values.yaml \
-    prime-observe \
-    rancher-prime-observability/stackstate-k8s
+    suse-observability \
+    suse-observability/suse-observability
 ```
 {% endcode %}
 
@@ -139,7 +138,7 @@ helm upgrade --install \
 1. Get the helm chart
    {% code title="helm_repo.sh" lineNumbers="true" %}
 ```text
-helm repo add rancher-prime-observability https://helm-rancher-prime.stackstate.io
+helm repo add suse-observability https://charts.rancher.com/server-charts/prime/suse-observability
 helm repo update
 ```
 {% endcode %}
@@ -153,12 +152,12 @@ helm template \
     --set baseUrl='<baseURL>' \
     --set pullSecret.username='trial' \
     --set pullSecret.password='trial' \
-    prime-observability-values \
-    rancher-prime-observability/stackstate-values > values.yaml
+    suse-observability-values \
+    suse-observability/suse-observability-values > values.yaml
 ```
 {% endcode %}
 
-The `baseUrl` must be the URL via which StackState will be accessible to Rancher, users, and the StackState agent. The URL must including the scheme, for example `https://stackstate.internal.mycompany.com`. See also [accessing StackState](#accessing-stackstate).
+The `baseUrl` must be the URL via which SUSE Observability will be accessible to Rancher, users, and the SUSE Observability agent. The URL must including the scheme, for example `https://observability.internal.mycompany.com`. See also [accessing SUSE Observability](#accessing-suse-observability).
 
 3. Create a second values file for the non-ha setup, named nonha_values.yaml with the following content:
 
@@ -213,26 +212,22 @@ clickhouse:
 {% code title="helm_deploy.sh" lineNumbers="true" %}
 ```text
 helm upgrade --install \
-    --namespace prime-observability \
+    --namespace suse-observability \
     --create-namespace \
     --values values.yaml \
     --values nonha_values.yaml \
-    prime-observe \
-    rancher-prime-observability/stackstate-k8s
+    suse-observability \
+    suse-observability/suse-observability
 ```
 {% endcode %}
 
-## Accessing StackState
+## Accessing SUSE Observability
 
-The StackState Helm chart has support for creating an Ingress resource to make StackState accessible outside of the cluster. Follow [these instructions](setup/install-stackstate/kubernetes_openshift/ingress.md) to set that up when you have an ingress controller in the cluster. Make sure that the resulting URL uses TLS with a valid, not self-signed, certificate.
+The SUSE Observability Helm chart has support for creating an Ingress resource to make SUSE Observability accessible outside of the cluster. Follow [these instructions](setup/install-stackstate/kubernetes_openshift/ingress.md) to set that up when you have an ingress controller in the cluster. Make sure that the resulting URL uses TLS with a valid, not self-signed, certificate.
 
-If you prefer to use a load balancer instead of ingress, expose the `prime-observe-stackstate-k8s-router` service. The URL for the loadbalancer needs to use a valid, not self-signed, TLS certificate.
+If you prefer to use a load balancer instead of ingress, expose the `suse-observability-router` service. The URL for the loadbalancer needs to use a valid, not self-signed, TLS certificate.
 
 ## Installing UI extensions
-
-{% hint style="warning" %}
-Currently the UI extension for SUSE SUSE Observability is only supported on the 2.8.x versions for SUSE Rancher Prime, and not on the 2.9.x versions. The 2.9.x version will be released soon.
-{% endhint %}
 
 To install UI extensions, enable the UI extensions from the rancher UI
 
@@ -243,11 +238,11 @@ After enabling UI extensions, follow these steps:
 1. Navigate to **Local Cluster > Apps > Repositories** and create a new repository.
 Use the default Helm option and add the **Index URL**: http://stackvista.github.io/rancher-extension-stackstate
 1. Once it is created, a deployment by the name **ui-plugin-operator** in the namespace **cattle-ui-plugin-system** gets created in the local cluster
-1. Navigate to extensions on the rancher UI and under Available section of extensions, we will have the Observability extension available.
-1. Install the Observability extension.
-1. Once installed, on the left panel of the rancher UI, the _SUSE Observability_ section appears.
-1. Navigate to the _SUSE Observability_ section and select "configurations". In this section, you can add the SUSE Observability server details and connect it.
-1. Follow the instructions as mentioned in *Obtain a service token* tab and fill in the details.
+2. Navigate to extensions on the rancher UI and under Available section of extensions, we will have the Observability extension available.
+3. Install the Observability extension.
+4. Once installed, on the left panel of the rancher UI, the _SUSE Observability_ section appears.
+5. Navigate to the _SUSE Observability_ section and select "configurations". In this section, you can add the SUSE Observability server details and connect it.
+6. Follow the instructions as mentioned in *Obtain a service token* tab and fill in the details.
 
 ### Obtain a service token:
 1. Log into the SUSE Observability instance.
@@ -257,16 +252,16 @@ Use the default Helm option and add the **Index URL**: http://stackvista.github.
 
 {% code %}
 ```
-sts service-token create --name rancher-prime-observability --roles stackstate-k8s-troubleshooter
+sts service-token create --name suse-observability-extension --roles stackstate-k8s-troubleshooter
 ```
 {% endcode %}
 
 
 ## Installing the SUSE Observability Agent
-There are two ways to install the SUSE Observability Agent: via the Rancher UI or directly via helm, as mentioned in the instructions of the StackPack page.
+There are two ways to install the SUSE Observability Agent: via the Rancher UI or directly via Helm, as mentioned in the instructions of the StackPack page.
 
 {$ hint style="warning" %}
-Ensure that the cluster name provided in the StackState UI matches the cluster name in the Rancher UI.
+Ensure that the cluster name provided in the SUSE Observability UI matches the cluster name in the Rancher UI.
 {$ endhint %}
 
 ### Install the StackState Agent from the Rancher UI:
@@ -308,7 +303,7 @@ To enable Single sign-on with your own authentication provider please [see here]
    * This information should be deleted when the UI extensions are uninstalled.
 1. After the extensions are installed, the SUSE Observability UI opens in the same tab as the Rancher UI.
    * You can use shift-click to open in a new tab, this will become the default behaviour
-1. The SUSE Rancher Prime - Observability Extension is only supported on 2.8.x versions and not yet on the 2.9.x version.
+1. The SUSE Observability Extension is only supported on 2.8.x versions and not yet on the 2.9.x version.
    * Support for 2.9.x will be available soon.
 1. On RKE(1) The Node Agent does not start process-agent with Ubuntu 20.04.6 LTS worker nodes it fails with a message `failed to create network tracer`
 1. Be aware upgrading or downgrading from HA to NON-HA and visa-versa is not yet supported.
