@@ -230,14 +230,11 @@ To install UI extensions, enable the UI extensions from the rancher UI
 
 After enabling UI extensions, follow these steps:
 
-1. Navigate to **Local Cluster > Apps > Repositories** and create a new repository.
-Use the default Helm option and add the **Index URL**: http://stackvista.github.io/rancher-extension-stackstate
-1. Once it is created, a deployment by the name **ui-plugin-operator** in the namespace **cattle-ui-plugin-system** gets created in the local cluster
-2. Navigate to extensions on the rancher UI and under Available section of extensions, we will have the Observability extension available.
-3. Install the Observability extension.
-4. Once installed, on the left panel of the rancher UI, the _SUSE Observability_ section appears.
-5. Navigate to the _SUSE Observability_ section and select "configurations". In this section, you can add the SUSE Observability server details and connect it.
-6. Follow the instructions as mentioned in *Obtain a service token* tab and fill in the details.
+1. Navigate to extensions on the rancher UI and under the "Available" section of extensions, you will find the Observability extension.
+2. Install the Observability extension.
+3. Once installed, on the left panel of the rancher UI, the _SUSE Observability_ section appears.
+4. Navigate to the _SUSE Observability_ section and select "configurations". In this section, you can add the SUSE Observability server details and connect it.
+5. Follow the instructions as mentioned in *Obtain a service token* section below and fill in the details.
 
 ### Obtain a service token:
 1. Log into the SUSE Observability instance.
