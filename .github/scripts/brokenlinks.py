@@ -13,6 +13,8 @@ def findrefs(path, line):
         ref = m[1]
         if ref[:4] == 'http':
             continue
+        if ref[:7] == 'mailto:':
+            continue
         hash_idx = ref.find('#')
         if hash_idx > 0:
             ref = ref[:hash_idx]
