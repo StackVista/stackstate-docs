@@ -7,7 +7,7 @@
 
 * [Quick start guide](k8s-quick-start-guide.md)
 * [SUSE Observability walk-through](k8s-getting-started.md)
-* [SUSE Rancher Prime](k8s-suse-rancher-prime.md)
+* [SUSE Observability](k8s-suse-rancher-prime.md)
   * [Air-gapped](k8s-suse-rancher-prime-air-gapped.md)
   * [Agent Air-gapped](k8s-suse-rancher-prime-agent-air-gapped.md)
 

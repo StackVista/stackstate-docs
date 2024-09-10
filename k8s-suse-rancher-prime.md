@@ -11,9 +11,9 @@ This page describes how to install SUSE Observability during the Tech Preview ph
 SUSE Observability, formerly known as SUSE Observability can be used for Observability of your Kubernetes clusters and their workloads.
 During the Tech Preview phase we only offer 2 on-prem installations which can support up-to 50 (non-HA) or up-to 250 (HA) worker Nodes.
 
-The Tech Preview phase is expected  is expected to last at least 30 days. After the Tech Preview phase a GA version will be made available for SUSE Rancher Prime customers. There is no guarantee that the Tech Preview will be compatible from a feature or upgrade perspective with the GA version.
+The Tech Preview phase is expected  is expected to last at least 30 days. After the Tech Preview phase a GA version will be made available for SUSE Observability customers. There is no guarantee that the Tech Preview will be compatible from a feature or upgrade perspective with the GA version.
 
-The installation of SUSE Observability, the SUSE SUSE Observability UI extension and the SUSE Observability Agents takes about 30 minutes in total.
+The installation of SUSE Observability, the SUSE Observability UI extension and the SUSE Observability Agents takes about 30 minutes in total.
 
 ## Getting help
 To get support, ask any question or provide feedback you can reach us during the tech preview phase on the following email rancherobservability@suse.com
@@ -21,7 +21,7 @@ To get support, ask any question or provide feedback you can reach us during the
 ## Prerequisites
 
 ### License key
-A license key for SUSE Observability server can be obtained via the SUSE Customer Center and will be shown as "SUSE Observability Tech Preview" Registration Code. The license for the tech preview is valid until Oct, 31 2024. Before the end a license will be made available which is valid until the end of your SUSE Rancher Prime subscription.
+A license key for SUSE Observability server can be obtained via the SUSE Customer Center and will be shown as "SUSE Observability Tech Preview" Registration Code. The license for the tech preview is valid until Oct, 31 2024. Before the end a license will be made available which is valid until the end of your SUSE Observability subscription.
 
 ### Requirements
 To install SUSE Observability, ensure that the nodes have enough CPU and memory capacity. Below are the specific requirements.
@@ -52,7 +52,7 @@ Next to this, it contains a set of services for all the observability tasks. e.g
 
 The lightweight SUSE Observability agent is installed on your downstream worker nodes. It collects and reports metrics, events, traces and logs, and it provides real-time observability and insights, enabling proactive monitoring and troubleshooting of your IT environment.
 
-The SUSE Rancher Prime version of the Agent also uses eBPF as a lightweight way to monitor all your workloads and their communication. It also decodes the RED (Rate, Errors and Duration) signals for most of the common L7 protocols like TCP, HTTP, TLS, Redis, etc.
+The SUSE Observability version of the Agent also uses eBPF as a lightweight way to monitor all your workloads and their communication. It also decodes the RED (Rate, Errors and Duration) signals for most of the common L7 protocols like TCP, HTTP, TLS, Redis, etc.
 
 #### Rancher Prime - Observability UI extension
 

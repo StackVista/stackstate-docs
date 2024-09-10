@@ -1,5 +1,5 @@
 ---
-description: Suse Rancher Prime
+description: SUSE Observability
 ---
 
 # Installing SUSE Observability in Air-Gapped Mode
