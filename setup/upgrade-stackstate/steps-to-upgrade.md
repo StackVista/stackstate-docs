@@ -4,6 +4,10 @@ description: SUSE Observability Self-hosted
 
 # Steps to upgrade
 
+{% hint style="warning" %}
+Upgrading from StackState 6.0 to SUSE Observability is not yet supported.
+{% endhint %}
+
 ## Overview
 
 This document describes the upgrade procedure for SUSE Observability.
