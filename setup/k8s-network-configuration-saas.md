@@ -19,7 +19,7 @@ The installation of the SUSE Observability Agent is done through Helm. By defaul
 2. Proxy the Quay.io container registry through your own container registry.
 3. Pull the Docker images into your own container registry.
 
-For option 2 and 3, you need to configure the Helm Chart to pull the SUSE Observability Agent container images from your own container registry. A guide to configure the SUSE Observability Agent Helm Chart to pull images from your own container registry can be found [here](/setup/agent/k8s-custom-registry.md).
+For option 2 and 3, you need to configure the Helm Chart to pull the SUSE Observability Agent container images from your own container registry. A guide to configure the SUSE Observability Agent Helm Chart to pull images from your own container registry can be found [here](/k8s-suse-rancher-prime-agent-air-gapped.md).
 
 
 ## SUSE Observability Agent communication

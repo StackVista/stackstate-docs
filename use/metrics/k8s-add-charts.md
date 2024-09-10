@@ -94,7 +94,7 @@ The queries and scope section will be filled in the next steps. Note that the un
 
 ## Write the topology query
 
-Use the Explore view of the [Topology perspective](/use/views/k8s-topology-perspective.md), http://your-stackstate-instance/#/views/explore, and select the components that need to show the new metric. Both the basic and advanced views can be used to make the selection. The most common fields to select topology on for metric bindings are `type` for the component type and `label` for selecting all the labels. For example for the deployments:
+Use the Explore view of the [Topology perspective](/use/views/k8s-topology-perspective.md), http://your-instance/#/views/explore, and select the components that need to show the new metric. Both the basic and advanced views can be used to make the selection. The most common fields to select topology on for metric bindings are `type` for the component type and `label` for selecting all the labels. For example for the deployments:
 
 ```
 type = "deployment" and label = "stackpack:kubernetes"
@@ -110,7 +110,7 @@ Metric bindings only support the query filters, query functions like `withNeighb
 
 ## Write the PromQL query
 
-Go to the [metric explorer](/use/metrics/k8sTs-explore-metrics.md) of your SUSE Observability instance, http://your-stackstate-instance/#/metrics, and use it to query for the metric of interest. The explorer has auto-completion for metrics, labels, label values but also PromQL functions, and operators to help you out. Start with a short time range of, for example, an hour to get the best results.
+Go to the [metric explorer](/use/metrics/k8sTs-explore-metrics.md) of your SUSE Observability instance, http://your-instance/#/metrics, and use it to query for the metric of interest. The explorer has auto-completion for metrics, labels, label values but also PromQL functions, and operators to help you out. Start with a short time range of, for example, an hour to get the best results.
 
 For the total number of replicas use the `kubernetes_state_deployment_replicas` metric. To make the charts shown for this metric representative for the time series data extend the query to do an aggregation using the `${__interval}` parameter:
 

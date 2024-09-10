@@ -117,7 +117,7 @@ When an instance is added, the UI will provide the instructions how the Helm cha
 
 The command has to be updated for the air-gapped installation:
 - Overriding the image registry with `all.image.registry` value.
-- Using the arhive with the Helm chart instead of the Helm repository. `suse-observability/suse-observability-agent` -> `./suse-observability-agent-X.Y.Z.tgz`
+- Using the archive with the Helm chart instead of the Helm repository. `suse-observability/suse-observability-agent` -> `./suse-observability-agent-X.Y.Z.tgz`
 
 Run the command to install the SUSE Observability Agent
 

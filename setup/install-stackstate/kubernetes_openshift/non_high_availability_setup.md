@@ -58,6 +58,6 @@ To deploy SUSE Observability in a non-high availability setup, you will need a `
   ```
 
 2. Continue with the instructions to deploy SUSE Observability with Helm:
-   * [Deploy on Kubernetes](/setup/install-stackstate/kubernetes_openshift/kubernetes_install.md#deploy-stackstate-with-helm).
-   * [Deploy on OpenShift](/setup/install-stackstate/kubernetes_openshift/openshift_install.md#deploy-stackstate-with-helm).
+   * [Deploy on Kubernetes](/setup/install-stackstate/kubernetes_openshift/kubernetes_install.md#deploy-suse-observability-with-helm).
+   * [Deploy on OpenShift](/setup/install-stackstate/kubernetes_openshift/openshift_install.md#deploy-suse-observability-with-helm).
 

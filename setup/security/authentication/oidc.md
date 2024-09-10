@@ -69,11 +69,11 @@ Follow the steps below to configure SUSE Observability to authenticate using OID
    ```text
     helm upgrade \
       --install \
-      --namespace stackstate \
+      --namespace suse-observability \
       --values values.yaml \
       --values authentication.yaml \
-    stackstate \
-    stackstate/stackstate-k8s
+    suse-observability \
+    suse-observability/suse-observability
    ```
 
 {% hint style="info" %}

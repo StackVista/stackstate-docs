@@ -19,4 +19,4 @@ To clear stored data in SUSE Observability running on Kubernetes, it's recommend
 
 1. [Uninstall SUSE Observability](../install-stackstate/kubernetes_openshift/uninstall.md#un-install-the-helm-chart)
 2. [Remove all PVC's](../install-stackstate/kubernetes_openshift/uninstall.md#remove-remaining-resources)
-3. Install SUSE Observability again using the same configuration as before, on [Kubernetes](../install-stackstate/kubernetes_openshift/kubernetes_install.md#deploy-stackstate-with-helm) or [OpenShift](../install-stackstate/kubernetes_openshift/openshift_install.md#deploy-stackstate-with-helm). 
+3. Install SUSE Observability again using the same configuration as before, on [Kubernetes](../install-stackstate/kubernetes_openshift/kubernetes_install.md#deploy-suse-observability-with-helm) or [OpenShift](../install-stackstate/kubernetes_openshift/openshift_install.md#deploy-suse-observability-with-helm). 

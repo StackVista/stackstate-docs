@@ -51,7 +51,7 @@ nodes:
 The fields in this template are:
 
 * `_type`: SUSE Observability needs to know this is a monitor so, value always needs to be `Monitor`
-* `query`: A PromQL query. Use the [metric explorer](/use/metrics/k8sTs-explore-metrics.md) of your SUSE Observability instance, http://your-stackstate-instance/#/metrics, and use it to construct query for the metric of interest.
+* `query`: A PromQL query. Use the [metric explorer](/use/metrics/k8sTs-explore-metrics.md) of your SUSE Observability instance, http://your-instance/#/metrics, and use it to construct query for the metric of interest.
 * `unit`: The unit of the values in the time series returned by the query or queries, used to render the Y-axis of the chart. See the [supported units](/develop/reference/k8sTs-chart-units.md) reference for all units.
 * `aliasTemplate`: An alias for time series in the metric chart. This is a template that can substitute labels from the time series using the `${my_label}` placeholder. 
 * `comparator`: Choose one of LTE/LT/GTE/GT to compare the threshold against the metric. Time series for which `<metric> <comparator> <threshold>` holds true will produce the failure state.   

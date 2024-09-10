@@ -231,11 +231,11 @@ To use it in for your SUSE Observability installation \(or already running insta
 ```text
 helm upgrade \
   --install \
-  --namespace stackstate \
+  --namespace suse-observability \
   --values values.yaml \
   --values authentication.yaml \
-stackstate \
-stackstate/stackstate-k8s
+suse-observability \
+suse-observability/suse-observability
 ```
 
 ### Custom roles with custom scopes and permissions via the configuration file
@@ -249,36 +249,27 @@ stackstate:
       custom:
         development-troubleshooter:
           systemPermissions:
-          - create-views
-          - access-analytics
-          - execute-scripts
-          - read-settings
-          - update-settings
-          - import-settings
-          - export-settings
-          - manage-topology-elements
           - access-cli
-          - access-explore
-          - update-visualization
-          - perform-custom-query
-          - read-permissions
-          - manage-star-view
-          - read-stackpacks
-          - manage-stackpacks
-          - execute-component-templates
-          - access-topic-data
-          - access-log-data
-          - access-synchronization-data
-          - execute-node-sync
-          - read-telemetry-streams
-          - manage-telemetry-streams
+          - create-views
           - execute-component-actions
-          - manage-annotations
-          - manage-event-handlers
+          - export-settings
           - manage-monitors
-          - run-monitors
-          - view-monitors
+          - manage-notifications
+          - manage-stackpacks
+          - manage-star-view
+          - perform-custom-query
+          - read-agents
           - read-metrics
+          - read-permissions
+          - read-settings
+          - read-system-notifications
+          - read-telemetry-streams
+          - read-traces
+          - run-monitors
+          - update-visualization
+          - view-metric-bindings
+          - view-monitors
+          - view-notifications
           viewPermissions:
           - access-view
           - save-view
@@ -291,11 +282,11 @@ To use it in for your SUSE Observability installation \(or already running insta
 ```text
 helm upgrade \
   --install \
-  --namespace stackstate \
+  --namespace suse-observability \
   --values values.yaml \
   --values authentication.yaml \
-stackstate \
-stackstate/stackstate-k8s
+suse-observability \
+suse-observability/suse-observability
 ```
 
 ### Custom roles via the CLI
@@ -318,36 +309,27 @@ To set up a new role called `development-troubleshooter`, which will allow the s
     sts rbac grant --subject development-troubleshooter --permission save-view --resource "everything"
     sts rbac grant --subject development-troubleshooter --permission delete-view --resource "everything"
     
-    sts rbac grant --subject development-troubleshooter --permission access-analytics
     sts rbac grant --subject development-troubleshooter --permission access-cli
-    sts rbac grant --subject development-troubleshooter --permission access-explore
-    sts rbac grant --subject development-troubleshooter --permission access-log-data
-    sts rbac grant --subject development-troubleshooter --permission access-synchronization-data
-    sts rbac grant --subject development-troubleshooter --permission access-topic-data
     sts rbac grant --subject development-troubleshooter --permission create-views
     sts rbac grant --subject development-troubleshooter --permission execute-component-actions
-    sts rbac grant --subject development-troubleshooter --permission execute-component-templates
-    sts rbac grant --subject development-troubleshooter --permission execute-node-sync
-    sts rbac grant --subject development-troubleshooter --permission execute-scripts
     sts rbac grant --subject development-troubleshooter --permission export-settings
-    sts rbac grant --subject development-troubleshooter --permission import-settings
-    sts rbac grant --subject development-troubleshooter --permission manage-annotations
-    sts rbac grant --subject development-troubleshooter --permission manage-event-handlers
     sts rbac grant --subject development-troubleshooter --permission manage-monitors
+    sts rbac grant --subject development-troubleshooter --permission manage-notifications
     sts rbac grant --subject development-troubleshooter --permission manage-stackpacks
     sts rbac grant --subject development-troubleshooter --permission manage-star-view
-    sts rbac grant --subject development-troubleshooter --permission manage-telemetry-streams
-    sts rbac grant --subject development-troubleshooter --permission manage-topology-elements
     sts rbac grant --subject development-troubleshooter --permission perform-custom-query
+    sts rbac grant --subject development-troubleshooter --permission read-agents
     sts rbac grant --subject development-troubleshooter --permission read-metrics
     sts rbac grant --subject development-troubleshooter --permission read-permissions
     sts rbac grant --subject development-troubleshooter --permission read-settings
-    sts rbac grant --subject development-troubleshooter --permission read-stackpacks
+    sts rbac grant --subject development-troubleshooter --permission read-system-notifications
     sts rbac grant --subject development-troubleshooter --permission read-telemetry-streams
+    sts rbac grant --subject development-troubleshooter --permission read-traces
     sts rbac grant --subject development-troubleshooter --permission run-monitors
-    sts rbac grant --subject development-troubleshooter --permission update-settings
     sts rbac grant --subject development-troubleshooter --permission update-visualization
+    sts rbac grant --subject development-troubleshooter --permission view-metric-bindings
     sts rbac grant --subject development-troubleshooter --permission view-monitors
+    sts rbac grant --subject development-troubleshooter --permission view-notifications
     ```
 
   Please note that the subject's name, as well as permissions, are case-sensitive.

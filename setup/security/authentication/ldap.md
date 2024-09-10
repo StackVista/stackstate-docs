@@ -81,11 +81,11 @@ Follow the steps below to configure SUSE Observability to authenticate using LDA
 ```text
 helm upgrade \
   --install \
-  --namespace stackstate \
+  --namespace suse-observability \
   --values values.yaml \
   --values authentication.yaml \
-stackstate \
-stackstate/stackstate-k8s
+suse-observability \
+suse-observability/suse-observability
 ```
 
 **trustCertificates**
@@ -93,12 +93,12 @@ stackstate/stackstate-k8s
 ```bash
 helm upgrade \
   --install \
-  --namespace stackstate \
+  --namespace suse-observability \
   --values values.yaml \
   --values authentication.yaml \
   --set-file stackstate.authentication.ldap.ssl.trustCertificates=./ldap-certificate.pem \
-stackstate \
-stackstate/stackstate-k8s
+suse-observability \
+suse-observability/suse-observability
 ```
 
 **trustStore**
@@ -106,12 +106,12 @@ stackstate/stackstate-k8s
 ```bash
 helm upgrade \
   --install \
-  --namespace stackstate \
+  --namespace suse-observability \
   --values values.yaml \
   --values authentication.yaml \
   --set-file stackstate.authentication.ldap.ssl.trustStore=./ldap-cacerts \
-stackstate \
-stackstate/stackstate-k8s
+suse-observability \
+suse-observability/suse-observability
 ```
 
 {% hint style="info" %}

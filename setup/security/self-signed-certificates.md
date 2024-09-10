@@ -79,12 +79,12 @@ The trust store and the password can be specified as values. The trust store can
 ```bash
 helm upgrade \
   --install \
-  --namespace stackstate \
+  --namespace suse-observability \
   --values values.yaml \
   --set-file 'stackstate.java.trustStore'=custom_cacerts \
   --set 'stackstate.java.trustStorePassword'=changeit \
-stackstate \
-stackstate/stackstate-k8s
+suse-observability \
+suse-observability/suse-observability
 ```
 
 {% hint style="info" %}
@@ -107,12 +107,12 @@ To use a base64 encoded trust store, run the following `helm upgrade` command:
 ```bash
 helm upgrade \
   --install \
-  --namespace stackstate \
+  --namespace suse-observability \
   --values values.yaml \
   --set 'stackstate.java.trustStoreBase64Encoded'=$(cat custom_cacerts | base64 -w0) \
   --set 'stackstate.java.trustStorePassword'=changeit \
-stackstate \
-stackstate/stackstate-k8s
+suse-observability \
+suse-observability/suse-observability
 ```
 
 {% endtab %}
@@ -123,12 +123,12 @@ To use a base64 encoded trust store, run the following `helm upgrade` command:
 ```bash
 helm upgrade \
   --install \
-  --namespace stackstate \
+  --namespace suse-observability \
   --values values.yaml \
   --set 'stackstate.java.trustStoreBase64Encoded'=$(cat custom_cacerts | base64) \
   --set 'stackstate.java.trustStorePassword'=changeit \
-stackstate \
-stackstate/stackstate-k8s
+suse-observability \
+suse-observability/suse-observability
 ```
 
 {% endtab %}

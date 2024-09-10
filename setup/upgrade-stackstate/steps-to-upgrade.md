@@ -76,7 +76,7 @@ Be sure to check the release notes and any optional upgrade notes before running
 
 1. Get the latest helm chart by running `helm repo update`.
 2. Check the [version specific upgrade notes](version-specific-upgrade-instructions.md) for all changes between your current version and the version that you will upgrade to. If there have been changes made to configuration items specified in your `values.yaml` file, the file should be updated.
-3. To upgrade, use the same helm command as for the [first time Kubernetes installation](../install-stackstate/kubernetes_openshift/kubernetes_install.md#deploy-stackstate-with-helm). The new helm chart will pull newer versions of Docker images and handle the upgrade.
+3. To upgrade, use the same helm command as for the [first time Kubernetes installation](../install-stackstate/kubernetes_openshift/kubernetes_install.md#deploy-suse-observability-with-helm). The new helm chart will pull newer versions of Docker images and handle the upgrade.
 {% endtab %}
 
 {% tab title="OpenShift" %}
@@ -84,7 +84,7 @@ Be sure to check the release notes and any optional upgrade notes before running
 2. Get the latest helm chart by running `helm repo update`.
 3. Check the [version specific upgrade notes](version-specific-upgrade-instructions.md) for all changes between your current version and the version that you will upgrade to. If there have been changes made to configuration items specified in your `values.yaml` file, the file should be updated.
 4. [Update the `openshift-values.yaml`](/setup/install-stackstate/kubernetes_openshift/openshift_install.md#additional-openshift-values-file) file.
-5. To upgrade, use the same helm command as for the [first time OpenShift installation](/setup/install-stackstate/kubernetes_openshift/openshift_install.md#deploy-stackstate-with-helm). The new helm chart will pull newer versions of Docker images and handle the upgrade.
+5. To upgrade, use the same helm command as for the [first time OpenShift installation](/setup/install-stackstate/kubernetes_openshift/openshift_install.md#deploy-suse-observability-with-helm). The new helm chart will pull newer versions of Docker images and handle the upgrade.
 {% endtab %}
 
 {% endtabs %}

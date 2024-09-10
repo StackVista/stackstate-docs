@@ -61,7 +61,7 @@ stackstate:
 {% endtabs %}
 
 {% hint style="info" %}
-For the SUSE Observability `api` service, environment variables will override [custom configuration set using `config`](customize_config.md#custom-configuration-for-stackstate-api).
+For the SUSE Observability `api` service, environment variables will override [custom configuration set using `config`](#custom-configuration-for-suse-observability-api).
 {% endhint %}
 
 * Full details on the naming of all the different services can be found in the [SUSE Observability Helm chart readme](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-k8s).

@@ -68,7 +68,7 @@ To get data from a Kubernetes cluster into SUSE Observability, follow the steps 
 
 1. Add the SUSE Observability helm repository to the local helm client:
     ```buildoutcfg
-    helm repo add stackstate https://helm.stackstate.io
+    helm repo add suse-observability https://charts.rancher.com/server-charts/prime/suse-observability
     helm repo update
     ```
 
@@ -81,7 +81,7 @@ To get data from a Kubernetes cluster into SUSE Observability, follow the steps 
    * Once the Agents have been deployed, they will begin collecting data and push this to SUSE Observability
 
 {% hint style="warning" %}
-When running on a self-hosted air-gapped environment prepare the agent installation first with the [air-gapped instructions](setup/install-stackstate/kubernetes_openshift/no_internet/agent_install.md).
+When running on a self-hosted air-gapped environment prepare the agent installation first with the [air-gapped instructions](./k8s-suse-rancher-prime-agent-air-gapped.md).
 {% endhint %}
 ---
 
@@ -128,7 +128,7 @@ To get data from a Kubernetes cluster into SUSE Observability, follow the steps 
 
 1. Add the SUSE Observability helm repository to the local helm client:
     ```buildoutcfg
-    helm repo add stackstate https://helm.stackstate.io
+    helm repo add suse-observability https://charts.rancher.com/server-charts/prime/suse-observability
     helm repo update
     ```
 
@@ -194,7 +194,7 @@ To get data from a Kubernetes cluster into SUSE Observability, follow the steps 
 
 1. Add the SUSE Observability helm repository to the local helm client:
     ```buildoutcfg
-    helm repo add stackstate https://helm.stackstate.io
+    helm repo add suse-observability https://charts.rancher.com/server-charts/prime/suse-observability
     helm repo update
     ```
 
@@ -253,7 +253,7 @@ To get data from a Kubernetes cluster into SUSE Observability, follow the steps 
 
 1. Add the SUSE Observability helm repository to the local helm client:
     ```buildoutcfg
-    helm repo add stackstate https://helm.stackstate.io
+    helm repo add suse-observability https://charts.rancher.com/server-charts/prime/suse-observability
     helm repo update
     ```
 
@@ -309,7 +309,7 @@ To get data from a Kubernetes cluster into SUSE Observability, follow the steps 
 
 1. Add the SUSE Observability helm repository to the local helm client:
     ```buildoutcfg
-    helm repo add stackstate https://helm.stackstate.io
+    helm repo add suse-observability https://charts.rancher.com/server-charts/prime/suse-observability
     helm repo update
     ```
 
@@ -375,7 +375,7 @@ To get data from a Kubernetes cluster into SUSE Observability, follow the steps 
 
 1. Add the SUSE Observability helm repository to the local helm client:
     ```buildoutcfg
-    helm repo add stackstate https://helm.stackstate.io
+    helm repo add suse-observability https://charts.rancher.com/server-charts/prime/suse-observability
     helm repo update
     ```
 
@@ -443,7 +443,7 @@ To get data from a Kubernetes cluster into SUSE Observability, follow the steps 
 
 1. Add the SUSE Observability helm repository to the local helm client:
     ```buildoutcfg
-    helm repo add stackstate https://helm.stackstate.io
+    helm repo add suse-observability https://charts.rancher.com/server-charts/prime/suse-observability
     helm repo update
     ```
 

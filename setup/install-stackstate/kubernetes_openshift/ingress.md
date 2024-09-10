@@ -6,7 +6,7 @@ description: SUSE Observability Self-hosted
 
 ## Overview
 
-SUSE Observability can be exposed with a Kubernetes Ingress resource. The example on this page shows how to configure an nginx-ingress controller using [Helm for SUSE Observability running on Kubernetes](ingress.md#configure-ingress-via-the-stackstate-helm-chart). This page also documents which service/port combination to expose when using a different method of configuring ingress traffic.
+SUSE Observability can be exposed with a Kubernetes Ingress resource. The example on this page shows how to configure an nginx-ingress controller using [Helm for SUSE Observability running on Kubernetes](ingress.md#configure-ingress-via-the-suse-observability-helm-chart). This page also documents which service/port combination to expose when using a different method of configuring ingress traffic.
 
 When observing the cluster that also hosts SUSE Observability, the agent traffic can be kept entirely within the cluster itself by [changing the agent configuration](./ingress.md#agents-in-the-same-cluster) during agent installation.
 
@@ -36,11 +36,11 @@ Include the `ingress_values.yaml` file when you run the `helm upgrade` command t
 ```text
 helm upgrade \
   --install \
-  --namespace "stackstate" \
+  --namespace "suse-observability" \
   --values "ingress_values.yaml" \
   --values "values.yaml" \
-stackstate \
-stackstate/stackstate-k8s
+suse-observability \
+suse-observability/suse-observability
 ```
 
 ## Configure Ingress Rule for Open Telemetry Traces via the SUSE Observability Helm chart
@@ -70,11 +70,11 @@ Include the `ingress_otel_values.yaml` file when you run the `helm upgrade` comm
 ```text
 helm upgrade \
   --install \
-  --namespace "stackstate" \
+  --namespace "suse-observability" \
   --values "ingress_otel_values.yaml" \
   --values "values.yaml" \
-stackstate \
-stackstate/stackstate-k8s
+suse-observability \
+suse-observability/suse-observability
 ```
 
 ## Configure via external tools
@@ -98,7 +98,7 @@ SUSE Observability itself doesn't use TLS encrypted traffic, TLS encryption is e
 
 ## Agents in the same cluster
 
-Agents that are deployed to the same cluster as SUSE Observability can of course use the external URL on which SUSE Observability is exposed, but it's also possible to configure the agent to directly connect to the SUSE Observability instance via the Kubernetes internal network only. To do that replace the value of the `'stackstate.url'` in the `helm install` command from the [Agent Kubernetes installation](../../../k8s-quick-start-guide.md) with the internal cluster URL for the router service (see also above): `http://<namespace>-stackstate-k8s-router.<namespace>.svc.cluster.local:8080/receiver/stsAgent` (the `<namespace>` sections need to be replaced with the namespace of SUSE Observability). 
+Agents that are deployed to the same cluster as SUSE Observability can of course use the external URL on which SUSE Observability is exposed, but it's also possible to configure the agent to directly connect to the SUSE Observability instance via the Kubernetes internal network only. To do that replace the value of the `'stackstate.url'` in the `helm install` command from the [Agent Kubernetes installation](../../../k8s-quick-start-guide.md) with the internal cluster URL for the router service (see also above): `http://<namespace>-suse-observability-router.<namespace>.svc.cluster.local:8080/receiver/stsAgent` (the `<namespace>` sections need to be replaced with the namespace of SUSE Observability). 
 
 ## See also
 

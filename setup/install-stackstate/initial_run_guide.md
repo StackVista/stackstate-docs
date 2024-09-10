@@ -26,14 +26,14 @@ Install SUSE Observability on [OpenShift](kubernetes_openshift/openshift_install
 {% tab title="Kubernetes" %}
 To access the SUSE Observability UI:
 
-1. [Enable a port-forward](kubernetes_openshift/kubernetes_install.md#access-the-stackstate-ui).
+1. [Enable a port-forward](kubernetes_openshift/kubernetes_install.md#access-the-suse-observability-ui).
 2. Access the SUSE Observability UI at: [https://localhost:8080](https://localhost:8080)
 {% endtab %}
 
 {% tab title="OpenShift" %}
 To access the SUSE Observability UI:
 
-1. [Enable a port-forward](kubernetes_openshift/openshift_install.md#access-the-stackstate-ui).
+1. [Enable a port-forward](kubernetes_openshift/openshift_install.md#access-the-suse-observability-ui).
 2. Access the SUSE Observability UI at: [https://localhost:8080](https://localhost:8080)
 {% endtab %}
 {% endtabs %}

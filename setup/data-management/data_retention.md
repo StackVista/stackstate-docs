@@ -109,8 +109,8 @@ To change the retention period override both `retentionPeriod` keys with the sam
 
 After making changes to the values.yaml SUSE Observability needs to be updated to apply those changes to the runtime. This may cause some short downtime while the services restart. To update SUSE Observability use the same command that was used during installation of SUSE Observability and make sure to include the same configuration files including the changes that have been made:
 
-* [Kubernetes](/setup/install-stackstate/kubernetes_openshift/kubernetes_install.md#deploy-stackstate-with-helm)
-* [OpenShift](/setup/install-stackstate/kubernetes_openshift/openshift_install.md#deploy-stackstate-with-helm):
+* [Kubernetes](/setup/install-stackstate/kubernetes_openshift/kubernetes_install.md#deploy-suse-observability-with-helm)
+* [OpenShift](/setup/install-stackstate/kubernetes_openshift/openshift_install.md#deploy-suse-observability-with-helm):
 
 ## Resizing storage
 
