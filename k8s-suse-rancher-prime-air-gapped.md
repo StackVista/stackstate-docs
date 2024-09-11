@@ -57,9 +57,9 @@ helm fetch suse-observability/suse-observability-values
 
 ```bash
 # o11y-get-images.sh
-curl -LO https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/suse-observability/installation/o11y-get-images.sh
+curl -LO https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/stackstate-k8s/installation/o11y-get-images.sh
 # o11y-save-images.sh
-curl -LO https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/suse-observability/installation/o11y-save-images.sh
+curl -LO https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/stackstate-k8s/installation/o11y-save-images.sh
 
 # Make the scripts executable
 chmod a+x o11y-get-images.sh o11y-save-images.sh
@@ -88,7 +88,7 @@ Replace `suse-observability-A.B.C.tgz` with the actual filename of the chart arc
 Copy the following files from the local host to the host in the private network:
 - o11y-images.txt (List of images required by the SUSE Observability chart)
 - o11y-images.tar.gz (An archive with the SUSE Observability's Docker images)
-- [o11y-load-images.sh](https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/suse-observability/installation/o11y-load-images.sh) (Bash script to upload Docker images to a registry)
+- [o11y-load-images.sh](https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/stackstate-k8s/installation/o11y-load-images.sh) (Bash script to upload Docker images to a registry)
 - Helm charts downloaded earlier:
   - suse-observability-A.B.C.tgz
   - suse-observability-values-L.M.N.tgz
