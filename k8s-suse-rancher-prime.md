@@ -163,6 +163,8 @@ elasticsearch:
   replicas: 1
 
 hbase:
+  deployment:
+    mode: "Mono"
   hbase:
     master:
       replicaCount: 1
@@ -186,6 +188,9 @@ stackstate:
   components:
     ui:
       replicaCount: 1
+  experimental:
+    server:
+      split: false
 
 victoria-metrics-1:
   enabled: false

@@ -19,7 +19,7 @@ To deploy SUSE Observability in a non-high availability setup, you will need a `
 1. Create a Helm values file `nonha_values.yaml` with the following content and store it next to the generated `values.yaml` file:
 
   ```yaml
-  # This files defines additional Helm values to run SUSE Observability on a 
+  # This files defines additional Helm values to run SUSE Observability on a
   # non-high availability production setup. Use this file in combination
   # with a regular values.yaml file that contains your API key, etc.
   elasticsearch:
@@ -27,6 +27,8 @@ To deploy SUSE Observability in a non-high availability setup, you will need a `
     replicas: 1
 
   hbase:
+    deployment:
+      mode: "Mono"
     hbase:
       master:
         replicaCount: 1
@@ -45,14 +47,21 @@ To deploy SUSE Observability in a non-high availability setup, you will need a `
     defaultReplicationFactor: 1
     offsetsTopicReplicationFactor: 1
     transactionStateLogReplicationFactor: 1
+
   stackstate:
     components:
       ui:
         replicaCount: 1
+    experimental:
+      server:
+        split: false
+
   victoria-metrics-1:
     enabled: false
+
   zookeeper:
     replicaCount: 1
+
   clickhouse:
     replicaCount: 1
   ```
