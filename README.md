@@ -4,8 +4,7 @@
 
 ### Get started
 
-Visit the [quick start guide page](https://docs.stackstate.com/get-started/k8s-quick-start-guide).
-
+Visit the [Rancher Prime getting started guide](./k8s-suse-rancher-prime.md) if you're a Rancher Prime user, if you're a SaaS user visit the [quick start guide](./k8s-quick-start-guide.md).
 
 ## Can't find something?
 
