@@ -108,8 +108,6 @@ helm repo update
 helm template \
     --set license='<licenseKey>' \
     --set baseUrl='<baseURL>' \
-    --set pullSecret.username='trial' \
-    --set pullSecret.password='trial' \
     suse-observability-values \
     suse-observability/suse-observability-values > values.yaml
 ```
@@ -145,8 +143,6 @@ helm repo update
 helm template \
     --set license='<licenseKey>' \
     --set baseUrl='<baseURL>' \
-    --set pullSecret.username='trial' \
-    --set pullSecret.password='trial' \
     suse-observability-values \
     suse-observability/suse-observability-values > values.yaml
 ```

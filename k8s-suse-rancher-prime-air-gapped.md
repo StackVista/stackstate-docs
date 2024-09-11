@@ -144,6 +144,18 @@ This guide follows the [Installing a default HA setup for up to 250 Nodes](https
 helm template \
     --set license='<licenseKey>' \
     --set baseUrl='<baseURL>' \
+    suse-observability-values suse-observability-values-L.M.N.tgz\
+     > values.yaml
+```
+{% endcode %}
+
+If the private registry requires authentiation include the pull secret username and password like this:
+
+{% code title="helm_template.sh" lineNumbers="true" %}
+```text
+helm template \
+    --set license='<licenseKey>' \
+    --set baseUrl='<baseURL>' \
     --set pullSecret.username='trial' \
     --set pullSecret.password='trial' \
     suse-observability-values suse-observability-values-L.M.N.tgz\
