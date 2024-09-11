@@ -14,6 +14,11 @@ Use SUSE Observability to troubleshoot your Rancher Kubernetes cluster.
 
 🚀 [SUSE Observability docs](https://docs.stackstate.com/)
 
+### StackState Kubernetes Troubleshooting (v6.0)
+
+Use StackState to troubleshoot your Kubernetes cluster.
+
+🚀 [SUSE Observability docs](https://docs.stackstate.com/v/6.0)
 
 ### StackState Self-hosted
 
