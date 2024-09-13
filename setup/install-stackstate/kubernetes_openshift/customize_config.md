@@ -4,7 +4,7 @@ description: StackState Self-hosted
 
 # Override default configuration
 
-A number of values can be set in the [StackState Helm chart](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-k8s). For example, it's possible to customize the `tolerations` and `nodeSelectors` for each of the components. You can also add customized configuration and include environment variables
+A number of values can be set in the [StackState Helm chart](https://github.com/StackVista/helm-charts/tree/stackstate-6.x/stable/stackstate-k8s). For example, it's possible to customize the `tolerations` and `nodeSelectors` for each of the components. You can also add customized configuration and include environment variables
 
 ## Custom configuration for StackState `api`
 
@@ -64,6 +64,6 @@ stackstate:
 For the StackState `api` service, environment variables will override [custom configuration set using `config`](customize_config.md#custom-configuration-for-stackstate-api).
 {% endhint %}
 
-* Full details on the naming of all the different services can be found in the [StackState Helm chart readme](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-k8s).
+* Full details on the naming of all the different services can be found in the [StackState Helm chart readme](https://github.com/StackVista/helm-charts/tree/stackstate-6.x/stable/stackstate-k8s).
 * Find more details on [customizing authentication](../../security/authentication/README.md).
 

@@ -321,7 +321,7 @@ The indices for which a snapshot is created can be configured using the Helm val
 
 ## Restore backups and snapshots
 
-Scripts to list and restore backups and snapshots can be found in the [restore directory of the StackState Helm chart repository \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-k8s/restore). To use the scripts, download them from GitHub or checkout the repository.
+Scripts to list and restore backups and snapshots can be found in the [restore directory of the StackState Helm chart repository \(github.com\)](https://github.com/StackVista/helm-charts/tree/stackstate-6.x/stable/stackstate-k8s/restore). To use the scripts, download them from GitHub or checkout the repository.
 
 {% hint style="info" %}
 **Before you use the scripts, ensure that:**

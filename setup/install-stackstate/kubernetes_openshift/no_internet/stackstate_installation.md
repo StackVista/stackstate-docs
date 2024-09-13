@@ -42,7 +42,7 @@ This results in a file like this `stackstate-k8s-1.0.4.tgz`. Copy this file (usi
 Make sure to first run `helm repo update` again to have the latest version of the Helm chart available.
 {% endhint %}
 
-Download the `copy_images.sh` bash script from the [StackState Helm chart Github repository](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-k8s/installation) and make it executable:
+Download the `copy_images.sh` bash script from the [StackState Helm chart Github repository](https://github.com/StackVista/helm-charts/tree/stackstate-6.x/stable/stackstate-k8s/installation) and make it executable:
 
 ```bash
 chmod +x copy_images.sh

@@ -57,9 +57,9 @@ helm fetch rancher-prime-observability/stackstate-values
 
 ```bash
 # o11y-get-images.sh
-curl -LO https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/stackstate-k8s/installation/o11y-get-images.sh
+curl -LO https://raw.githubusercontent.com/StackVista/helm-charts/stackstate-6.x/stable/stackstate-k8s/installation/o11y-get-images.sh
 # o11y-save-images.sh
-curl -LO https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/stackstate-k8s/installation/o11y-save-images.sh
+curl -LO https://raw.githubusercontent.com/StackVista/helm-charts/stackstate-6.x/stable/stackstate-k8s/installation/o11y-save-images.sh
 
 # Make the scripts executable
 chmod a+x o11y-get-images.sh o11y-save-images.sh
@@ -88,7 +88,7 @@ Replace `stackstate-k8s-A.B.C.tgz` with the actual filename of the chart archive
 Copy the following files from the local host to the host in the private network:
 - o11y-images.txt (List of images required by the Rancher Prime Observability chart)
 - o11y-images.tar.gz (An archive with the Rancher Prime Observability's Docker images)
-- [o11y-load-images.sh](https://raw.githubusercontent.com/StackVista/helm-charts/master/stable/stackstate-k8s/installation/o11y-load-images.sh) (Bash script to upload Docker images to a registry)
+- [o11y-load-images.sh](https://raw.githubusercontent.com/StackVista/helm-charts/stackstate-6.x/stable/stackstate-k8s/installation/o11y-load-images.sh) (Bash script to upload Docker images to a registry)
 - Helm charts downloaded earlier:
   - stackstate-k8s-A.B.C.tgz
   - stackstate-values-L.M.N.tgz
