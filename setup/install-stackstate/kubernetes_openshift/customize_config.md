@@ -4,7 +4,7 @@ description: SUSE Observability Self-hosted
 
 # Override default configuration
 
-A number of values can be set in the [SUSE Observability Helm chart](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-k8s). For example, it's possible to customize the `tolerations` and `nodeSelectors` for each of the components. You can also add customized configuration and include environment variables
+A number of values can be set in the [SUSE Observability Helm chart](https://github.com/StackVista/helm-charts/tree/master/stable/suse-observability). For example, it's possible to customize the `tolerations` and `nodeSelectors` for each of the components. You can also add customized configuration and include environment variables
 
 ## Custom configuration for SUSE Observability `api`
 
@@ -64,6 +64,6 @@ stackstate:
 For the SUSE Observability `api` service, environment variables will override [custom configuration set using `config`](#custom-configuration-for-suse-observability-api).
 {% endhint %}
 
-* Full details on the naming of all the different services can be found in the [SUSE Observability Helm chart readme](https://github.com/StackVista/helm-charts/tree/master/stable/stackstate-k8s).
+* Full details on the naming of all the different services can be found in the [SUSE Observability Helm chart readme](https://github.com/StackVista/helm-charts/tree/master/stable/suse-observability).
 * Find more details on [customizing authentication](../../security/authentication/README.md).
 
