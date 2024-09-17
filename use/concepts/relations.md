@@ -38,7 +38,7 @@ The **Direct relation details** tab is shown in the StackState UI right panel wh
 
 ![](/.gitbook/assets/v51_indirect_relation_comp_comp.png)
 
-Indirect relations link two components that are connected together via a path of invisible components. Indirect relations in a view will be displayed when **Show all indirect relations** is enabled in the [visualization settings](/use/stackstate-ui/views/visualization_settings.md). An **indirect relation** between two components is shown as a dashed line. The direction of the arrowhead shows the direction of the dependency. Select an indirect relation to view the full path between the components in the right panel details tab - **Indirect relation details**.    
+Indirect relations link two components that are connected together via a path of invisible components. Indirect relations in a view are displayed when **Show all indirect relations** is enabled in the [visualization settings](/use/stackstate-ui/views/visualization_settings.md). An **indirect relation** between two components is shown as a dashed line. The direction of the arrowhead shows the direction of the dependency. Select an indirect relation to view the full path between the components in the right panel details tab - **Indirect relation details**.    
 
 #### Indirect relation details
 

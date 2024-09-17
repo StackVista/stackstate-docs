@@ -80,17 +80,6 @@ Select an element to show detailed information about it in the right panel detai
 
 The view filters are saved together with the View. For details, see the page [filters](../filters.md).
 
-## Visualization settings
-
-The visualization of components and relations in the topology perspective can be customized in the visualization settings. Click the **Visualization Settings** icon in the left menu to open the visualization settings menu. Here you can edit:
-
-* Root cause display - to what extent the view should be expanded when an element in the view reports a `DEVIATING` or `CRITICAL` health state or propagated health state.
-* Grouping - should all components be displayed individually or should like components be grouped. For details, see [component grouping](topology-perspective.md#grouping).
-* Grid - should components be organized by [layer and domain](../../concepts/layers_domains_environments.md).
-* Indirect relations - should relations between components be shown if these connect through other components that aren't displayed in the view. For details, see [relations](/use/concepts/relations.md).
-
-The Visualization Settings are saved together with the View. For details, see the page [Visualization settings](../views/visualization_settings.md).
-
 ## Problems
 
 If one or more components in a view have a CRITICAL state, StackState will show the related components and their states as a **Problem** in the [View summary](../views/about_views.md#view-summary).
@@ -109,18 +98,11 @@ See the full list of [StackState keyboard shortcuts](../keyboard-shortcuts.md).
 
 ### Show root cause
 
-If there are components with [telemetry streams](../../metrics/telemetry_streams.md) and [health checks](../../concepts/health-state.md) in your view, the Topology Perspective will calculate a health state and propagate this state throughout the graph. The propagated health state will help you to see the risk of affecting other components. When an element has an unhealthy [propagated health state](/use/concepts/health-state.md#element-propagated-health-state), this will be shown as an outer color in the topology visualization.
+A view can contain components with a `DEVIATING` [propagated health state](/use/concepts/health-state.md#element-propagated-health-state) (outer color) caused by a component that isn't included in the view itself. By default, these components aren't displayed, however, the topology visualization can be configured to automatically expand and show all root cause components currently affecting the components within the view. Three settings are available:
 
-{% hint style="success" "self-hosted info" %}
-
-You can configure or develop your own [propagation functions](../../../develop/developer-guides/custom-functions/propagation-functions.md).
-{% endhint %}
-
-It's possible that a view can contain components that have a `DEVIATING` propagated health state caused by a component that's not included in the view itself. The Topology Perspective allows you to configure whether the view should be expanded to automatically show root cause components that are outside the currently displayed view:
-
-* **Don't show root cause** - Don't show the root causes of components shown by the current topology filters.
-* **Show root cause only** - Only show the root causes of components shown by the current topology filters that have a `CRITICAL` or `DEVIATING` propagated health. Indirect relations are visualized if a component directly depends on at least one invisible component that leads to the root cause.
-* **Show full root cause tree** - Show all paths from components shown by the current topology filters that have a `CRITICAL` or `DEVIATING` propagated health to their root causes.
+* **Don't show root cause** (default) - only components matching the current topology filters are displayed.
+* **Show root cause only** - the topology filters are automatically expanded to include the root cause component of any component with a `CRITICAL` or `DEVIATING` propagated health state. Indirect relations are visualized if a component directly depends on at least one invisible component that leads to the root cause.
+* **Show full root cause tree** - the topology filters are automatically expanded to include the full path to the root cause component of any component with a `CRITICAL` or `DEVIATING` propagated health state.
 
 ![Root cause](/.gitbook/assets/v51_show_full_root_cause_tree.png)
 
@@ -137,3 +119,17 @@ From list mode, the component list can be exported as a CSV file. The CSV file i
 1. From the topology perspective, click the **List mode** icon on the top right to open the topology in list mode.
 2. Click **Download as CSV** from the top of the page.
    * The component list will be downloaded as a CSV file named `<view_name>.csv`.
+
+### Visualization settings
+
+The visualization of components and relations in the topology perspective can be customized in the visualization settings. Click the **Visualization Settings** icon in the top right of the topology visualizer to open the visualization settings menu. 
+
+![Visualization settings menu](.gitbook/assets/v52_visualization_settings.png)
+
+Here you can edit:
+
+* Grid options - organize components by [layer and domain](../../concepts/layers_domains_environments.md).
+* Components grouping - display components individually or join like components together in component groups. For details, see [component grouping](/use/concepts/components.md#grouping).
+* Relations settings - show or hide indirect relations between components. For details, see [indirect relations](/use/concepts/relations.md#indirect-relations).
+
+The Visualization Settings are saved together with the View. For details, see the page [Visualization settings](../views/visualization_settings.md).

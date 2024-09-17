@@ -42,8 +42,7 @@ When you first open a view, the **View summary** will be visible in the right pa
 * **View properties** - the view health state, query, last updated timestamp and a summary of the number of components in the view.
 * **Event handlers** - lists all event handlers configured for the view.
 * **Problems** - any [problems](../../problem-analysis/about-problems.md) identified in the view.
-* **Events** - the most recent events 
-* that occurred for components in the view. Click **View all** to open the [Events Perspective](../perspectives/events_perspective.md).
+* **Events** - the most recent events that occurred for components in the view. Click **View all** to open the [Events Perspective](../perspectives/events_perspective.md).
 
 ![View summary tab](/.gitbook/assets/v51_view_summary.png)
 

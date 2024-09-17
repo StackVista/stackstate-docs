@@ -14,14 +14,14 @@ Up to 10,000 components can be displayed at any time, if there are already more 
 
 ## Perspectives
 
-![Perspectives](../../.gitbook/assets/v51_perspective_buttons.png)
+![Perspectives](../../.gitbook/assets/v52_perspective_tabs.png)
 
-As in any StackState view, explore mode gives you access to data from your IT landscape in all available [StackState perspectives](../concepts/perspectives.md). Each perspective shows different data from the filtered \(or unfiltered\) components. Use the perspective buttons across the top of the screen to switch between them:
+As in any StackState view, explore mode gives you access to data from your IT landscape in all available [StackState perspectives](../concepts/perspectives.md). Each perspective shows different data from the filtered \(or unfiltered\) components. Use the perspective tabs at the top of the screen to switch between them:
 
-* [Topology Perspective](perspectives/topology-perspective.md)
-* [Metrics Perspective](perspectives/metrics-perspective.md)
-* [Events Perspective](perspectives/events_perspective.md)
-* [Traces Perspective](perspectives/traces-perspective.md)
+* [Topology](../stackstate-ui/perspectives/topology-perspective.md) - the components and relations.
+* [Events](../stackstate-ui/perspectives/events_perspective.md) - all events and changes relating to the topology.
+* [Metrics](../stackstate-ui/perspectives/metrics-perspective.md) - telemetry streams for a selection of components in the topology.
+* [Traces](../stackstate-ui/perspectives/traces-perspective.md) - all traces and spans relating to the topology.
 
 ## Add a filter
 
