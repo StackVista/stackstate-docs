@@ -1,5 +1,5 @@
 ---
-description: StackState Self-hosted
+description: SUSE Observability Self-hosted
 ---
 
 # Release Notes
