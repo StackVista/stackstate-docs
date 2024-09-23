@@ -111,7 +111,6 @@
     * [Kubernetes install](setup/install-stackstate/kubernetes_openshift/kubernetes_install.md)
     * [OpenShift install](setup/install-stackstate/kubernetes_openshift/openshift_install.md)
     * [Required Permissions](setup/install-stackstate/kubernetes_openshift/required_permissions.md)
-    * [Non-high availability setup](setup/install-stackstate/kubernetes_openshift/non_high_availability_setup.md)
     * [Small profile setup](setup/install-stackstate/kubernetes_openshift/small_profile_setup.md)
     * [Override default configuration](setup/install-stackstate/kubernetes_openshift/customize_config.md)
     * [Configure storage](setup/install-stackstate/kubernetes_openshift/storage.md)

@@ -38,8 +38,6 @@ The minimum requirements do not include spare CPU/Memory capacity to ensure smoo
 For installation of SUSE Observability please follow the installation instructions provided below:
 - [Kubernetes](/setup/install-stackstate/kubernetes_openshift/kubernetes_install.md)
 - [OpenShift](/setup/install-stackstate/kubernetes_openshift/openshift_install.md)
-- [Non-high availability setup](/setup/install-stackstate/kubernetes_openshift/non_high_availability_setup.md)
-- [Small profile setup](/setup/install-stackstate/kubernetes_openshift/small_profile_setup.md)
 
 ### Storage
 
