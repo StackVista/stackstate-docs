@@ -123,6 +123,8 @@
   * [Stackpacks](stackpacks/about-stackpacks.md)
 * [Release Notes](setup/release-notes/README.md)
   * [v1.11.0 - 18/07/2024](setup/release-notes/20240718165243.md)
+  * [v1.11.3 - 15/08/2024](setup/release-notes/20240815083601.md)
+  * [v1.11.4 - 29/08/2024](setup/release-notes/20240829112751.md)
 * [Upgrade StackState](setup/upgrade-stackstate/README.md)
   * [Steps to upgrade](setup/upgrade-stackstate/steps-to-upgrade.md)
   * [Version-specific upgrade instructions](setup/upgrade-stackstate/version-specific-upgrade-instructions.md)
