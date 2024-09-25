@@ -120,18 +120,52 @@ Create a private-registry.yaml file with the following content:
 ```yaml
 global:
   imageRegistry: registry.example.com:5043
+minio:
+  image:
+    registry: registry.example.com:5043
 elasticsearch:
   prometheus-elasticsearch-exporter:
     image:
       repository: registry.example.com:5043/suse-observability/elasticsearch-exporter
+victoriametrics-cluster:
+  vmstorage:
+    image:
+      repository: registry.example.com:5043/suse-observability/vmstorage
+  vminsert:
+    image:
+      repository: registry.example.com:5043/suse-observability/vminsert
+  vmselect:
+    image:
+      repository: registry.example.com:5043/suse-observability/vmselect
 victoria-metrics-0:
   server:
     image:
       repository: registry.example.com:5043/suse-observability/victoria-metrics
+  backup:
+    setupCron:
+      image:
+        repository: registry.example.com:5043/suse-observability/container-tools
+    vmbackup:
+      image:
+        repository: registry.example.com:5043/suse-observability/vmbackup
 victoria-metrics-1:
   server:
     image:
       repository: registry.example.com:5043/suse-observability/victoria-metrics
+  backup:
+    setupCron:
+      image:
+        repository: registry.example.com:5043/suse-observability/container-tools
+    vmbackup:
+      image:
+        repository: registry.example.com:5043/suse-observability/vmbackup
+clickhouse:
+  backup:
+    image:
+      registry: registry.example.com:5043
+opentelemetry-collector:
+  image:
+    repository: registry.example.com:5043/suse-observability/sts-opentelemetry-collector
 ```
 
 This guide follows the [Installing a default HA setup for up to 250 Nodes](https://docs.stackstate.com/get-started/k8s-suse-rancher-prime#installing-a-default-ha-setup-for-up-to-250-nodes) setup, but instead of using publicly available Helm and Docker repositories/registries, it uses pre-downloaded Helm archives and private Docker registries.
