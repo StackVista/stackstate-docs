@@ -48,7 +48,8 @@ The following permissions are available in StackState:
 * `import-settings` - Import settings.
 * `manage-annotations` - Persist and fetch Anomaly annotations in StackState.
 * `manage-ingestion-api-keys` - Manage [API keys](/use/security/k8s-ingestion-api-keys.md) for data ingestion.
-* `manage-monitors` - Create, delete and change [monitors](/use/checks-and-monitors/monitors.md).
+* `manage-metric-bindings` - Create, delete and change [metric bindings](/use/metrics/k8s-add-charts.md)
+* `manage-monitors` - Create, delete and change [monitors](/use/alerting/monitors.md).
 * `manage-notifications` - Create, delete, and modify [notifications](/use/alerting/notifications/configure.md).
 * `manage-service-tokens`- Create/delete [Service Tokens](../security/authentication/service_tokens.md) in StackState.
 * `manage-stackpacks` - Install/upgrade/uninstall StackPacks.
@@ -56,12 +57,14 @@ The following permissions are available in StackState:
 * `manage-telemetry-streams` - [Create or edit new telemetry streams](/use/metrics/add-telemetry-to-element.md) for components in the StackState UI.
 * `manage-topology-elements` - Create/update/delete topology elements.
 * `perform-custom-query` - Access the [topology filter](/use/stackstate-ui/filters.md#filter-topology).
+* `read-agents` - List connected agents with the cli `agent list` command
 * `read-permissions` - List all granted permissions across the entire system using the CLI.
 * `read-settings` - Access the Settings page in the StackState UI.
 * `read-stackpacks`
+* `read-system-notifications` - Access the system notifications in the UI
 * `read-telemetry-streams` - Access the telemetry data for components in the StackState UI
 * `read-traces` - Read and access trace data.
-* `run-monitors` - Execute a [monitor](/use/checks-and-monitors/monitors.md) and make it run periodically.
+* `run-monitors` - Execute a [monitor](/use/alerting/monitors.md) and make it run periodically.
 * `save-view`- A **view permission**. Update a specific view \(when granted on a view\) or all views \(when granted on `everything`\). Granted on the following views for predefined StackState roles:
   * Administrator: `everything` (all views)
   * Platform Administrator: -
@@ -72,6 +75,7 @@ The following permissions are available in StackState:
 * `update-settings` - Update settings.
 * `update-visualization` - Change [visualization settings](/use/stackstate-ui/views/visualization_settings.md).
 * `upload-stackpacks` - Upload new \(versions of\) StackPacks.
+* `view-metric-bindings` - View [metric bindings](/use/metrics/k8s-add-charts.md) (via the cli)
 * `view-monitors` - View monitor configurations.
 * `view-notifications` - View notification settings.
 
