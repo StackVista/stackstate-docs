@@ -48,6 +48,7 @@ The following permissions are available in SUSE Observability:
 * `import-settings` - Import settings.
 * `manage-annotations` - Persist and fetch Anomaly annotations in SUSE Observability.
 * `manage-ingestion-api-keys` - Manage [API keys](/use/security/k8s-ingestion-api-keys.md) for data ingestion.
+* `manage-metric-bindings` - Create, delete and change [metric bindings](/use/metrics/k8s-add-charts.md)
 * `manage-monitors` - Create, delete and change [monitors](/use/alerting/k8s-monitors.md).
 * `manage-notifications` - Create, delete, and modify [notifications](/use/alerting/notifications/configure.md).
 * `manage-service-tokens`- Create/delete [Service Tokens](/use/security/k8s-service-tokens.md) in SUSE Observability.
@@ -55,13 +56,15 @@ The following permissions are available in SUSE Observability:
 * `manage-star-view` - Add and remove stars from views in the SUSE Observability UI.
 * `manage-topology-elements` - Create/update/delete topology elements.
 * `perform-custom-query` - Access the [topology filter](/use/views/k8s-filters.md#filter-topology).
+* `read-agents` - List connected agents with the cli `agent list` command
 * `read-permissions` - List all granted permissions across the entire system using the CLI.
 * `read-settings` - Access the Settings page in the SUSE Observability UI.
 * `read-stackpacks`
-* `read-telemetry-streams` - Access the telemetry data for components in the SUSE Observability UI
+* `read-system-notifications` - Access the system notifications in the UI
+* `read-telemetry-streams` - Access the telemetry data for components in the StackState UI
 * `read-traces` - Read and access trace data.
 * `run-monitors` - Execute a [monitor](/use/alerting/k8s-monitors.md) and make it run periodically.
-* `save-view`- A **view permission**. Update a specific view \(when granted on a view\) or all views \(when granted on `everything`\). Granted on the following views for predefined SUSE Observability roles:
+* `save-view`- A **view permission**. Update a specific view \(when granted on a view\) or all views \(when granted on `everything`\). Granted on the following views for predefined StackState roles:
   * Administrator: `everything` (all views)
   * Platform Administrator: -
   * Power User: `everything` (all views)
@@ -71,6 +74,7 @@ The following permissions are available in SUSE Observability:
 * `update-settings` - Update settings.
 * `update-visualization` - Change [visualization settings](/use/views/k8s-topology-perspective.md#visualization-settings).
 * `upload-stackpacks` - Upload new \(versions of\) StackPacks.
+* `view-metric-bindings` - View [metric bindings](/use/metrics/k8s-add-charts.md) (via the cli)
 * `view-monitors` - View monitor configurations.
 * `view-notifications` - View notification settings.
 
