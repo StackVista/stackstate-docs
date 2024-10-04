@@ -87,7 +87,7 @@ For StackState to be able to work properly it needs:
 * [Kubernetes Persistent Storage](https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/manage-clusters/create-kubernetes-persistent-storage) to be available in the observability cluster to store metrics, events, etc.
 * the observability cluster to support a way to expose StackState on an HTTPS URL to Rancher, StackState users and the StackState agent. This can be done via an Ingress configuration using an ingress controller, alternatively a (cloud) loadbalancer for the StackState services could do this too, for more information see the [Rancher docs](https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/kubernetes-resources-setup/load-balancer-and-ingress-controller).
 
-![Architecture](/.gitbook/assets/k8s/prime/architecture.png)
+![Architecture](/.gitbook/assets/k8s/prime/SUSEObservabilityDeployment.png)
 
 ### Pre-Installation
 Before installing the SUSE Observability server a default storage class must be set up in the cluster where the SUSE Observability server will be installed:
@@ -232,6 +232,5 @@ To enable Single sign-on with your own authentication provider please [see here]
    * You can use shift-click to open in a new tab, this will become the default behaviour
 1. The SUSE Observability Extension is only supported on 2.8.x versions and not yet on the 2.9.x version.
    * Support for 2.9.x will be available soon.
-1. On RKE(1) The Node Agent does not start process-agent with Ubuntu 20.04.6 LTS worker nodes it fails with a message `failed to create network tracer`
 1. Be aware upgrading or downgrading from HA to NON-HA and visa-versa is not yet supported.
 
