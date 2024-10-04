@@ -134,18 +134,20 @@ victoria-metrics-1:
       repository: registry.example.com:5043/suse-observability/victoria-metrics
 ```
 
-This guide follows the [Installing a default HA setup for up to 250 Nodes](https://docs.stackstate.com/get-started/k8s-suse-rancher-prime#installing-a-default-ha-setup-for-up-to-250-nodes) setup, but instead of using publicly available Helm and Docker repositories/registries, it uses pre-downloaded Helm archives and private Docker registries.
+This guide follows the [Installation](https://docs.stackstate.com/get-started/k8s-suse-rancher-prime#installation) setup, but instead of using publicly available Helm and Docker repositories/registries, it uses pre-downloaded Helm archives and private Docker registries.
 
 
 **Command to Generate Helm Chart Values File:**
 
 {% code title="helm_template.sh" lineNumbers="true" %}
 ```text
+export VALUES_DIR=.
 helm template \
     --set license='<licenseKey>' \
     --set baseUrl='<baseURL>' \
+    --set sizing.profile='<sizing.profile>' \
     suse-observability-values suse-observability-values-L.M.N.tgz\
-     > values.yaml
+    --output-dir $VALUES_DIR
 ```
 {% endcode %}
 
@@ -153,13 +155,15 @@ If the private registry requires authentiation include the pull secret username 
 
 {% code title="helm_template.sh" lineNumbers="true" %}
 ```text
+export VALUES_DIR=.
 helm template \
     --set license='<licenseKey>' \
     --set baseUrl='<baseURL>' \
+    --set sizing.profile='<sizing.profile>' \
     --set pullSecret.username='trial' \
     --set pullSecret.password='trial' \
     suse-observability-values suse-observability-values-L.M.N.tgz\
-     > values.yaml
+    --output-dir $VALUES_DIR
 ```
 {% endcode %}
 
@@ -170,7 +174,8 @@ helm template \
 helm upgrade --install \
     --namespace suse-observability \
     --create-namespace \
-    --values values.yaml \
+    --values $VALUES_DIR/suse-observability-values/templates/baseConfig_values.yaml \
+    --values $VALUES_DIR/suse-observability-values/templates/sizing_values.yaml \
     --values private-registry.yaml \
     suse-observability \
     suse-observability-A.B.C.tgz

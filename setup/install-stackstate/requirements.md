@@ -23,7 +23,7 @@ There are different installation options available for SUSE Observability. It is
 In the table below you can find the resource requirements for the different installation options. For the HA setup you can find different installation profiles depending on the size of the environment being observed.
 
 | | 10 non-HA | 20 non-HA | 50 non-HA | 100 non-HA | 150 HA | 250 HA | 500 HA |
-| --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- | --- |
 | **CPU Requests** | 7,5 | 10,5 | 15 | 25 | 49 | 62 | 86.5 |
 | **CPU Limits** | 16 | 21,5 | 30,5 | 50 | 103 | 128 | 176 |
 | **Memory Requests** | 22Gi | 28Gi | 32.5Gi | 126.5Gi | 67Gi | 143Gi | 161.5Gi |
@@ -45,9 +45,14 @@ SUSE Observability uses persistent volume claims for the services that need to s
 
 For our different installation profiles, the following are the defaulted storage requirements:
 
-| | 10 non-HA | 20 non-HA | 50 non-HA | 100 non-HA | 150 HA | 250 HA | 500 HA |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Storage requirement** | 700GB | 700GB | 700GB | 850GB | 2TB | 2TB | 2TB |
+| | trial | 10 non-HA | 20 non-HA | 50 non-HA | 100 non-HA | 150 HA | 250 HA | 500 HA |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **Retention (days)** | 3 | 30 | 30 | 30 | 30 | 30 | 30 | 30 |
+| **Storage requirement** | 125GB | 280GB | 420GB | 420GB | 600GB | 2TB | 2TB | 2.5TB |
+
+{% hint style="info" %}
+The storage estimates presented take into account a default of 14 days of retention for NONHA and 1 month for HA installations. For short lived test instances the storage sizes can be further reduced.
+{% endhint %}
 
 For more details on the defaults used, see the page [Configure storage](/setup/install-stackstate/kubernetes_openshift/storage.md).
 
