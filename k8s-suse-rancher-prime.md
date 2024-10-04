@@ -23,12 +23,38 @@ To install SUSE Observability, ensure that the nodes have enough CPU and memory 
 
 There are different installation options available for SUSE Observability. It is possible to install SUSE Observability either in a High-Availability (HA) or single instance (non-HA) setup. The non-HA setup is recommended for testing purposes or small environments. For production environments, it is recommended to install SUSE Observability in a HA setup.
 
-The HA production setup can support up to 250 Nodes (a Node is counted as<= 4 vCPU and <= 16GB Memory) under observation
-The Non-HA setup can support up to 50 Nodes under observation.
+The HA production setup can support from 150 up to 500 Nodes (a Node is counted as<= 4 vCPU and <= 16GB Memory) under observation.
+The Non-HA setup can support from 10 up to 100 Nodes under observations.
 
-![Requirements](/.gitbook/assets/k8s/prime/requirements.png)
+| | trial | 10 non-HA | 20 non-HA | 50 non-HA | 100 non-HA | 150 HA | 250 HA | 500 HA |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **CPU Requests** | 7,5 | 7,5 | 10,5 | 15 | 25 | 49 | 62 | 86.5 |
+| **CPU Limits** | 16 | 16 | 21,5 | 30,5 | 50 | 103 | 128 | 176 |
+| **Memory Requests** | 22Gi | 22Gi | 28Gi | 32.5Gi | 126.5Gi | 67Gi | 143Gi | 161.5Gi |
+| **Memory Limits** | 23Gi | 23Gi | 29Gi | 33Gi | 51,5Gi | 131Gi | 147.5Gi | 166Gi |
 
-In the near feature we will have more options with lower resource constraints and for smaller + larger setups.
+{% hint style="info" %}
+A trial setup is a 10 non-HA setup configured with a 3 day retention and lower disk space requirements.
+{% endhint %}
+
+These are just the upper and lower bounds of the resources that can be consumed by SUSE Observability in the different installation options. The actual resource usage will depend on the features used, configured resource limits and dynamic usage patterns, such as Deployment or DaemonSet scaling. For our Rancher Prime customers, we recommend to start with the default requirements and monitor the resource usage of the SUSE Observability components.
+
+{% hint style="info" %}
+The minimum requirements do not include spare CPU/Memory capacity to ensure smooth application rolling updates.
+{% endhint %}
+
+### Storage
+
+SUSE Observability uses persistent volume claims for the services that need to store data. The default storage class for the cluster will be used for all services unless this is overridden by values specified on the command line or in a `values.yaml` file. All services come with a pre-configured volume size that should be good to get you started, but can be customized later using variables as required.
+
+For our different installation profiles, the following are the defaulted storage requirements:
+
+| | trial | 10 non-HA | 20 non-HA | 50 non-HA | 100 non-HA | 150 HA | 250 HA | 500 HA |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **Retention (days)** | 3 | 30 | 30 | 30 | 30 | 30 | 30 | 30 |
+| **Storage requirement** | 125GB | 280GB | 420GB | 420GB | 600GB | 2TB | 2TB | 2.5TB |
+
+For more details on the defaults used, see the page [Configure storage](/setup/install-stackstate/kubernetes_openshift/storage.md).
 
 ### The different components
 
@@ -90,43 +116,8 @@ You can now follow the instruction below for a HA or NON-HA setup.
 Be aware upgrading or downgrading from HA to NON-HA and visa-versa is not yet supported.
 {% endhint %}
 
-### Installing a default HA setup for up to 250 Nodes
 
-1. Get the helm chart
-{% code title="helm_repo.sh" lineNumbers="true" %}
-```text
-helm repo add suse-observability https://charts.rancher.com/server-charts/prime/suse-observability
-helm repo update
-```
-{% endcode %}
-
-
-2. Command to generate helm chart values file:
-
-{% code title="helm_template.sh" lineNumbers="true" %}
-```text
-helm template \
-    --set license='<licenseKey>' \
-    --set baseUrl='<baseURL>' \
-    suse-observability-values \
-    suse-observability/suse-observability-values > values.yaml
-```
-{% endcode %}
-
-3. Deploy the SUSE Observability helm chart with the generated values:
-
-{% code title="helm_deploy.sh" lineNumbers="true" %}
-```text
-helm upgrade --install \
-    --namespace suse-observability \
-    --create-namespace \
-    --values values.yaml \
-    suse-observability \
-    suse-observability/suse-observability
-```
-{% endcode %}
-
-### Installing a NON-HA setup for up to 50 Nodes
+### Installation
 
 1. Get the helm chart
    {% code title="helm_repo.sh" lineNumbers="true" %}
@@ -136,82 +127,44 @@ helm repo update
 ```
 {% endcode %}
 
-2. Command to generate helm chart values file:
+2. Command to generate helm chart values files:
 
 {% code title="helm_template.sh" lineNumbers="true" %}
 ```text
+export VALUES_DIR=.
 helm template \
-    --set license='<licenseKey>' \
-    --set baseUrl='<baseURL>' \
-    suse-observability-values \
-    suse-observability/suse-observability-values > values.yaml
+  --set license='<your license>' \
+  --set baseUrl='<suse-observability-base-url>' \
+  --set sizing.profile='<sizing.profile>' \
+  suse-observability-values \
+  suse-observability/suse-observability-values --output-dir $VALUES_DIR
 ```
 {% endcode %}
 
-The `baseUrl` must be the URL via which SUSE Observability will be accessible to Rancher, users, and the SUSE Observability agent. The URL must including the scheme, for example `https://observability.internal.mycompany.com`. See also [accessing SUSE Observability](#accessing-suse-observability).
+The `baseUrl` must be the URL via which SUSE Observability will be accessible to Rancher, users, and the SUSE Observability agent. The URL must include the scheme, for example `https://observability.internal.mycompany.com`. See also [accessing SUSE Observability](#accessing-suse-observability).
 
-3. Create a second values file for the non-ha setup, named nonha_values.yaml with the following content:
+The `sizing.profile` should be one of trial, 10-nonha, 20-nonha, 50-nonha, 100-nonha, 150-ha, 250-ha, 500-ha. Based on this profiles the `sizing_values.yaml` file is generated containing default sizes for the SUSE Observability resources and configuration to be deployed on an Ha or NonHa mode. E.g. 10-nonha will produce a `sizing_values.yaml` meant to deploy a NonHa SUSE Observability instance to observe a 10 node cluster in a Non High Available mode. Currently moving from a nonha to an ha environment is not possible, so if you expect that your environment willrequire to observe around 150 nodes then better to go with ha immediately.
 
+This command will generate a `$VALUES_DIR/suse-observability-values/templates/baseConfig_values.yaml` and a `$VALUES_DIR/suse-observability-values/templates/sizing_values.yaml` file which contains the necessary configuration for installing the SUSE Observability Helm Chart.
 
-{% code title="nonha_values.yaml" lineNumbers="true" %}
-```text
-# This files defines additional Helm values to run SUSE Observability on a
-# non-high availability production setup. Use this file in combination
-# with a regular values.yaml file that contains your API key, etc.
-elasticsearch:
-  minimumMasterNodes: 1
-  replicas: 1
+{% hint style="info" %}
+The SUSE Observability administrator passwords will be autogenerated by the above command and are output as comments in the generated `basicConfig.yaml` file. The actual values contain the `bcrypt` hashes of those passwords so that they're securely stored in the Helm release in the cluster.
+{% endhint %}
 
-hbase:
-  deployment:
-    mode: "Mono"
-  hbase:
-    master:
-      replicaCount: 1
-    regionserver:
-      replicaCount: 1
-  hdfs:
-    datanode:
-      replicaCount: 1
-    secondarynamenode:
-      enabled: false
-  tephra:
-    replicaCount: 1
+{% hint style="info" %}
+Store the generated `basicConfig.yaml` and `sizing_values.yaml` files somewhere safe. You can reuse this files for upgrades, which will save time and \(more importantly\) will ensure that SUSE Observability continues to use the same API key. This is desirable as it means Agents and other data providers for SUSE Observability won't need to be updated.
+The files can be regenerated independently using the switches `basicConfig.generate=false` and `sizing.generate=false` to disable any of them while still keeping the previosuly generated version of the file in the `output-dir`.
+{% endhint %}
 
-kafka:
-  replicaCount: 1
-  defaultReplicationFactor: 1
-  offsetsTopicReplicationFactor: 1
-  transactionStateLogReplicationFactor: 1
-
-stackstate:
-  components:
-    ui:
-      replicaCount: 1
-  experimental:
-    server:
-      split: false
-
-victoria-metrics-1:
-  enabled: false
-
-zookeeper:
-  replicaCount: 1
-
-clickhouse:
-  replicaCount: 1
-```
-{% endcode %}
-
-4. Deploy the SUSE Observability helm chart with the generated values, as well as the non-ha configuration values:
+3. Deploy the SUSE Observability helm chart with the generated values:
 
 {% code title="helm_deploy.sh" lineNumbers="true" %}
 ```text
 helm upgrade --install \
     --namespace suse-observability \
     --create-namespace \
-    --values values.yaml \
-    --values nonha_values.yaml \
+    --values $VALUES_DIR/suse-observability-values/templates/baseConfig_values.yaml \
+    --values $VALUES_DIR/suse-observability-values/templates/sizing_values.yaml \
     suse-observability \
     suse-observability/suse-observability
 ```
