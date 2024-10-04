@@ -61,7 +61,7 @@ For StackState to be able to work properly it needs:
 * [Kubernetes Persistent Storage](https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/manage-clusters/create-kubernetes-persistent-storage) to be available in the observability cluster to store metrics, events, etc.
 * the observability cluster to support a way to expose StackState on an HTTPS URL to Rancher, StackState users and the StackState agent. This can be done via an Ingress configuration using an ingress controller, alternatively a (cloud) loadbalancer for the StackState services could do this too, for more information see the [Rancher docs](https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/kubernetes-resources-setup/load-balancer-and-ingress-controller).
 
-![Architecture](/.gitbook/assets/k8s/prime/SUSE Observability Tech Preview.png)
+![Architecture](/.gitbook/assets/k8s/prime/SUSEObservabilityDeployment.png)
 
 ### Pre-Installation
 Before installing the SUSE Observability server a default storage class must be set up in the cluster where the SUSE Observability server will be installed:
