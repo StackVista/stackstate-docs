@@ -121,6 +121,7 @@
     * [Logs](configure/logging/kubernetes-logs.md)
 * [Configure SUSE Observability](setup/configure-stackstate/README.md)
   * [Slack notifications](setup/configure-stackstate/slack-notifications.md)
+  * [E-mail notifications](setup/configure-stackstate/email-notifications.md)
   * [Stackpacks](stackpacks/about-stackpacks.md)
 * [Release Notes](setup/release-notes/README.md)
   * [v2.0.0 - 11/09/2024](setup/release-notes/20240911112250.md)
