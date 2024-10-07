@@ -43,7 +43,7 @@ Verify that you specify the correct service account and namespace for the bound 
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: stackstate-authorization
+  name: suse-observability-authorization
 rules:
 - apiGroups:
   - rbac.authorization.k8s.io
@@ -61,15 +61,15 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: stackstate-authentication
+  name: suse-observability-authentication
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: system:auth-delegator
 subjects:
 - kind: ServiceAccount
-  name: stackstate-stackstate-k8s-api
-  namespace: stackstate
+  name: suse-observability-suse-observability-k8s-api
+  namespace: suse-observability
 ```
 {% endtab %}
 {% endtabs %}
@@ -80,15 +80,15 @@ subjects:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: stackstate-authorization
+  name: suse-observability-authorization
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: stackstate-authorization
+  name: suse-observability-authorization
 subjects:
 - kind: ServiceAccount
-  name: stackstate-stackstate-k8s-api
-  namespace: stackstate
+  name: suse-observability-suse-observability-k8s-api
+  namespace: suse-observability
 ```
 {% endtab %}
 {% endtabs %}
