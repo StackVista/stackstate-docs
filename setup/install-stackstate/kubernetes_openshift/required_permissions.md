@@ -34,7 +34,7 @@ If the creation of the cluster role and cluster role binding has been disabled p
 If you need to manually create the cluster-wide resources, ask your Kubernetes/OpenShift administrator to create the 3 resources below in the clsuter.
 
 {% hint style="info" %}
-Verify that you specify the correct service account and namespace for the bound `ServiceAccount` for both of the `ClusterRoleBinding` resources. The example assumes the `stackstate` namespace is used, if some other namespace is used changed the namespace in the examples. Also the service accounts referenced need to be changed to `<namespace>-stackstate-k8s-api`.
+Verify that you specify the correct service account and namespace for the bound `ServiceAccount` for both of the `ClusterRoleBinding` resources. The example assumes the `suse-observability` namespace is used and that `suse-observability` is used as the release, if some other namespace is used changed the namespace in the examples. Also the service accounts referenced need to be changed to `<release>-suse-observability-api`.
 {% endhint %}
 
 {% tabs %}
@@ -68,7 +68,7 @@ roleRef:
   name: system:auth-delegator
 subjects:
 - kind: ServiceAccount
-  name: suse-observability-suse-observability-k8s-api
+  name: suse-observability-api
   namespace: suse-observability
 ```
 {% endtab %}
@@ -87,7 +87,7 @@ roleRef:
   name: suse-observability-authorization
 subjects:
 - kind: ServiceAccount
-  name: suse-observability-suse-observability-k8s-api
+  name: suse-observability-api
   namespace: suse-observability
 ```
 {% endtab %}
