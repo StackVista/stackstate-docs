@@ -34,7 +34,7 @@ If the creation of the cluster role and cluster role binding has been disabled p
 If you need to manually create the cluster-wide resources, ask your Kubernetes/OpenShift administrator to create the 3 resources below in the clsuter.
 
 {% hint style="info" %}
-Verify that you specify the correct service account and namespace for the bound `ServiceAccount` for both of the `ClusterRoleBinding` resources. The example assumes the `stackstate` namespace is used, if some other namespace is used changed the namespace in the examples. Also the service accounts referenced need to be changed to `<namespace>-stackstate-k8s-api`.
+Verify that you specify the correct service account and namespace for the bound `ServiceAccount` for both of the `ClusterRoleBinding` resources. The example assumes the `suse-observability` namespace is used and that `suse-observability` is used as the release, if some other namespace is used changed the namespace in the examples. Also the service accounts referenced need to be changed to `<release>-suse-observability-api`.
 {% endhint %}
 
 {% tabs %}
@@ -43,7 +43,7 @@ Verify that you specify the correct service account and namespace for the bound 
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: stackstate-authorization
+  name: suse-observability-authorization
 rules:
 - apiGroups:
   - rbac.authorization.k8s.io
@@ -61,15 +61,15 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: stackstate-authentication
+  name: suse-observability-authentication
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
   name: system:auth-delegator
 subjects:
 - kind: ServiceAccount
-  name: stackstate-stackstate-k8s-api
-  namespace: stackstate
+  name: suse-observability-api
+  namespace: suse-observability
 ```
 {% endtab %}
 {% endtabs %}
@@ -80,15 +80,15 @@ subjects:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: stackstate-authorization
+  name: suse-observability-authorization
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: stackstate-authorization
+  name: suse-observability-authorization
 subjects:
 - kind: ServiceAccount
-  name: stackstate-stackstate-k8s-api
-  namespace: stackstate
+  name: suse-observability-api
+  namespace: suse-observability
 ```
 {% endtab %}
 {% endtabs %}
