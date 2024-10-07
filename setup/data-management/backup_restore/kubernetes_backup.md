@@ -58,6 +58,8 @@ backup:
     bucketName: AWS_STACKGRAPH_BUCKET
   elasticsearch:
     bucketName: AWS_ELASTICSEARCH_BUCKET
+  configuration:
+    bucketName: AWS_CONFIGURATION_BUCKET
 victoria-metrics-0:
   backup:
     bucketName: AWS_VICTORIA_METRICS_BUCKET
@@ -82,7 +84,7 @@ Replace the following values:
   * YOUR_ACCESS_KEY should contain 5 to 20 alphanumerical characters.
   * YOUR_SECRET_KEY should contain 8 to 40 alphanumerical characters.
 * `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` are the AWS credentials for the IAM user that has access to the S3 buckets where the backups will be stored. See below for the permission policy that needs to be attached to that user.
-* `AWS_STACKGRAPH_BUCKET`, `AWS_ELASTICSEARCH_BUCKET`, `AWS_VICTORIA_METRICS_BUCKET` and `AWS_CLICKHOUSE_BUCKET` are the names of the S3 buckets where the backups should be stored. Note: The names of AWS S3 buckets are global across the whole of AWS, therefore the S3 buckets with the default name \(`sts-elasticsearch-backup`, `sts-stackgraph-backup`, `sts-victoria-metrics-backup` and `sts-clickhouse-backup` \) will probably not be available.
+* `AWS_STACKGRAPH_BUCKET`, `AWS_CONFIGURATION_BUCKET`, `AWS_ELASTICSEARCH_BUCKET`, `AWS_VICTORIA_METRICS_BUCKET` and `AWS_CLICKHOUSE_BUCKET` are the names of the S3 buckets where the backups should be stored. Note: The names of AWS S3 buckets are global across the whole of AWS, therefore the S3 buckets with the default name \(`sts-elasticsearch-backup`, `sts-configuration-backup`, `sts-stackgraph-backup`, `sts-victoria-metrics-backup` and `sts-clickhouse-backup` \) will probably not be available.
 
 The IAM user identified by `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` must be configured with the following permission policy to access the S3 buckets:
 
@@ -101,7 +103,8 @@ The IAM user identified by `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` must be configu
                 "arn:aws:s3:::AWS_STACKGRAPH_BUCKET",
                 "arn:aws:s3:::AWS_ELASTICSEARCH_BUCKET",
                 "arn:aws:s3:::AWS_VICTORIA_METRICS_BUCKET",
-                "arn:aws:s3:::AWS_CLICKHOUSE_BUCKET"
+                "arn:aws:s3:::AWS_CLICKHOUSE_BUCKET",
+                "arn:aws:s3:::AWS_CONFIGURATION_BUCKET"
             ]
         },
         {
@@ -116,7 +119,8 @@ The IAM user identified by `AWS_ACCESS_KEY` and `AWS_SECRET_KEY` must be configu
                 "arn:aws:s3:::AWS_STACKGRAPH_BUCKET/*",
                 "arn:aws:s3:::AWS_ELASTICSEARCH_BUCKET/*",
                 "arn:aws:s3:::AWS_VICTORIA_METRICS_BUCKET/*",
-                "arn:aws:s3:::AWS_CLICKHOUSE_BUCKET/*"
+                "arn:aws:s3:::AWS_CLICKHOUSE_BUCKET/*",
+                "arn:aws:s3:::AWS_CONFIGURATION_BUCKET"
             ]
         }
     ]
@@ -142,7 +146,7 @@ Replace the following values:
 * `AZURE_STORAGE_ACCOUNT_NAME` - the [Azure storage account name \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal) 
 * `AZURE_STORAGE_ACCOUNT_KEY` - the [Azure storage account key \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage?tabs=azure-portal) where the backups should be stored.
 
-The StackGraph, Elasticsearch and Victoria Metrics backups are stored in BLOB containers called `sts-stackgraph-backup`, `sts-elasticsearch-backup`, `sts-victoria-metrics-backup`, `sts-clickhouse-backup` respectively. These names can be changed by setting the Helm values `backup.stackGraph.bucketName`, `backup.elasticsearch.bucketName`, `victoria-metrics-0.backup.bucketName`, `victoria-metrics-1.backup.bucketName` and `clickhouse.backup.bucketName` respectively.
+The StackGraph, Elasticsearch and Victoria Metrics backups are stored in BLOB containers called `sts-stackgraph-backup`, `sts-configuration-backup`, `sts-elasticsearch-backup`, `sts-victoria-metrics-backup`, `sts-clickhouse-backup` respectively. These names can be changed by setting the Helm values `backup.stackGraph.bucketName`, `backup.elasticsearch.bucketName`, `victoria-metrics-0.backup.bucketName`, `victoria-metrics-1.backup.bucketName` and `clickhouse.backup.bucketName` respectively.
 
 ### Kubernetes storage
 
