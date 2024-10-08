@@ -196,6 +196,61 @@ helm list --namespace stackstate
 kubectl get pods --namespace stackstate
 ```
 
+### Deploy StackState with ArgoCD
+
+It is possible to deploy the Stackstate Helm chart with ArgoCD by using [the built-in Helm plugin](https://argo-cd.readthedocs.io/en/stable/user-guide/helm/). ArgoCD application must set `deployment.compatibleWithArgoCD` Helm value to `true` in order to make the Chart compatible with ArgoCD.
+
+
+An example of ArgoCD application to deploy the Stackstate Helm chart. It assumes that `<<argocd project>>` and `<<argocd cluster name>>` have been added to ArgoCD and the values have been generated as described [above](###-generate-valuesyaml). Note that `deployment.compatibleWithArgoCD` is explicitly configured.
+
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: stackstate-dev
+  namespace: argocd
+spec:
+  project: <<argocd project>>
+  destination:
+    name: <<argocd cluster name>>
+    namespace: stackstate
+  source:
+    chart: stackstate-k8s
+    repoURL: https://helm.stackstate.io
+    targetRevision: 1.11.0
+    helm:
+      releaseName: stackstate
+      valuesObject:
+        deployment:
+          compatibleWithArgoCD: true
+        global:
+          receiverApiKey: "..."
+          imagePullSecrets:
+            - stackstate-pull-secret
+        pull-secret:
+          credentials:
+            - password: "..."
+              registry: quay.io
+              username: "..."
+          enabled: true
+          fullnameOverride: stackstate-pull-secret
+          baseUrl: "https://..."
+          admin:
+            authentication:
+              password: "..."
+          authentication:
+            adminPassword: "..."
+          license:
+            key: "..."
+  syncPolicy:
+    syncOptions:
+    - ApplyOutOfSyncOnly=true
+    - PruneLast=true
+    - FailOnSharedResource=true
+    - RespectIgnoreDifferences=true
+    - CreateNamespace=true
+```
+
 ### Access the StackState UI
 
 After StackState has been deployed you can check if all pods are up and running:
