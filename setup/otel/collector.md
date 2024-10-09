@@ -61,7 +61,7 @@ presets:
 config:
   extensions:
     bearertokenauth:
-      scheme: SUSEObservability
+      scheme: SUSEObservability   #Use `StackState` for the Chart older than 2.0.3 
       token: "${env:API_KEY}"
   exporters:
     otlp/stackstate:
