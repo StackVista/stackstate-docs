@@ -18,15 +18,15 @@ Un-installing the helm chart will preserve all data because helm will not remove
 
 To un-install SUSE Observability the first action is to run the `helm uninstall` command. This command will remove all resources created by the `helm upgrade --install` command.
 
-Uninstall the `stackstate` release from the `stackstate` namespace like this, replace the namespace or release name with any custom names used during installation:
+Uninstall the `suse-observability` release from the `suse-observability` namespace like this, replace the namespace or release name with any custom names used during installation:
 
 ```
-helm uninstall --namespace stackstate stackstate
+helm uninstall --namespace suse-observability suse-observability
 ```
 
 The command will return almost immediately but shutting down all the pods and removing all other resources can take a while. Check if all pods are gone with:
 ```
-kubectl get pods --namespace stackstate
+kubectl get pods --namespace suse-observability
 ```
 
 If you want to re-install SUSE Observability later and have the old data still available this is all, for a full uninstall continue with the next 2 sections.
@@ -40,7 +40,7 @@ Removing the Persistent Volume Claims and/or the namespace will result in all da
 To remove the namespace and with that, the Persistent Volume Claims and their linked Persistent Volumes simply remove the entire namespace:
 
 ```
-kubectl delete namespace stackstate
+kubectl delete namespace suse-observability
 ```
 
 When the command returns the namespace and all volumes will have been removed.
@@ -48,14 +48,14 @@ When the command returns the namespace and all volumes will have been removed.
 To only remove the Persistent Volume Claims (PVCs) and keep the namespace run:
 
 ```
-kubectl delete pvc --all -n stackstate
+kubectl delete pvc --all -n suse-observability
 ```
 
 On OpenShift the Helm chart also created a security context constraint (SCC). It is not cleaned up automatically by Helm but instead needs to be manually removed:
 
 ```
-# The scc is always named stackstate-k8s-<namespace>
-oc delete scc stackstate-k8s-stackstate
+# The scc is always named suse-observability-<namespace>
+oc delete scc suse-observability-suse-observability
 ```
 
 ## Remove manually created resources
@@ -69,7 +69,7 @@ As described in the [required permissions](required_permissions.md#manually-crea
 Delete the cluster role and the cluster role bindings that have been created like this:
 
 ```
-kubectl delete cluster-role stackstate-authorization
-kubectl delete cluster-role-binding stackstate-authorization
-kubectl delete cluster-role-binding stackstate-authentication
+kubectl delete cluster-role suse-observability-authorization
+kubectl delete cluster-role-binding suse-observability-authorization
+kubectl delete cluster-role-binding suse-observability-authentication
 ```
