@@ -61,7 +61,7 @@ presets:
 config:
   extensions:
     bearertokenauth:
-      scheme: SUSE-Observability
+      scheme: SUSEObservability
       token: "${env:API_KEY}"
   exporters:
     otlp/stackstate:
