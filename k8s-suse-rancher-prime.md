@@ -95,7 +95,6 @@ Before installing the SUSE Observability server a default storage class must be 
 - **For k3s**: The local-path storage class of type rancher.io/local-path is created by default.
 - **For EKS, AKS, GKE** a storage class is set by default
 - **For RKE2 Node Drivers**: No storage class is created by default. You will need to create one before installing SUSE Observability.
-- **RKE1** is not supported to run SUSE Observability server.
 
 ## Installing SUSE Observability
 
