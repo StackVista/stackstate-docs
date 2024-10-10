@@ -26,7 +26,7 @@ In the table below you can find the resource requirements for the different inst
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | **CPU Requests** | 7,5 | 10,5 | 15 | 25 | 49 | 62 | 86.5 |
 | **CPU Limits** | 16 | 21,5 | 30,5 | 50 | 103 | 128 | 176 |
-| **Memory Requests** | 22Gi | 28Gi | 32.5Gi | 126.5Gi | 67Gi | 143Gi | 161.5Gi |
+| **Memory Requests** | 22Gi | 28Gi | 32.5Gi | 51Gi | 67Gi | 143Gi | 161.5Gi |
 | **Memory Limits** | 23Gi | 29Gi | 33Gi | 51,5Gi | 131Gi | 147.5Gi | 166Gi |
 
 These are just the upper and lower bounds of the resources that can be consumed by SUSE Observability in the different installation options. The actual resource usage will depend on the features used, configured resource limits and dynamic usage patterns, such as Deployment or DaemonSet scaling. For our Self-hosted customers, we recommend to start with the default requirements and monitor the resource usage of the SUSE Observability components.
