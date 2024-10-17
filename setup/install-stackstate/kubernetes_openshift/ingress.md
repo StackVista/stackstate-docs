@@ -38,10 +38,16 @@ helm upgrade \
   --install \
   --namespace "suse-observability" \
   --values "ingress_values.yaml" \
-  --values "values.yaml" \
+  --values $VALUES_DIR/suse-observability-values/templates/baseConfig_values.yaml \
+  --values $VALUES_DIR/suse-observability-values/templates/sizing_values.yaml \  
 suse-observability \
 suse-observability/suse-observability
 ```
+
+{% hint style="info" %}
+This step assummes that [Generate `baseConfig_values.yaml` and `sizing_values.yaml`](./kubernetes_install.md#generate-baseconfig_values.yaml-and-sizing_values.yaml) was already executed.
+{% endhint %}
+
 
 ## Configure Ingress Rule for Open Telemetry Traces via the SUSE Observability Helm chart
 
@@ -77,10 +83,15 @@ helm upgrade \
   --install \
   --namespace "suse-observability" \
   --values "ingress_otel_values.yaml" \
-  --values "values.yaml" \
+  --values $VALUES_DIR/suse-observability-values/templates/baseConfig_values.yaml \
+  --values $VALUES_DIR/suse-observability-values/templates/sizing_values.yaml \ 
 suse-observability \
 suse-observability/suse-observability
 ```
+
+{% hint style="info" %}
+This step assummes that [Generate `baseConfig_values.yaml` and `sizing_values.yaml`](./kubernetes_install.md#generate-baseconfig_values.yaml-and-sizing_values.yaml) was already executed.
+{% endhint %}
 
 ## Configure via external tools
 
