@@ -6,138 +6,74 @@ description: SUSE Observability Self-hosted
 
 ## Overview
 
-SUSE Observability configuration can be exported and imported. The import/export functionality can be used to automate the installation process or for backup purposes. An export and import can be made in the settings page of SUSE Observability's user interface by using the buttons 'Export Model' and 'Import Model'.
+SUSE Observability has a backup mechanism specifically for configuration (also referred to as settings). This includes installed stackpacks with their configuration, but also any other customizations created by the user. For example monitors that have been disabled or customized, custom views, service tokens, etc.
 
-## Export configuration
+The main advantage of the configuration backup is that it is very small (usually only several megabytes) and easy and quick to restore with minimal downtime. After the configuration backup is restored new data will be processed as before, recreating topology, health states and alerts. Topology history (including health) are however not preserved. For that purpose there is the [StackGraph backup](kubernetes_backup.md), however those backups are a lot bigger, and take much longer to create and restore.
 
-An export of the SUSE Observability configuration can be obtained from the SUSE Observability UI, the [SUSE Observability CLI](../../cli/cli-sts.md) or using curl commands. 
+The configuration backup is enabled by default. In its default setup it will make a backup every night, but backups are stored only on a persistent volume in its own namespace and a maximum of the 10 most recent backups are kept.
 
-### SUSE Observability CLI
+## Working with configuration backups
 
-{% hint style="info" %}
-Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack configuration won't be included in the export.
-{% endhint %}
+Scripts to work with configuration backups (but also all other backups)  can be found in the [restore directory of the SUSE Observability Helm chart repository \(github.com\)](https://github.com/StackVista/helm-charts/tree/master/stable/suse-observability/restore). To use the scripts, download them from GitHub or checkout the repository.
 
-To export configuration using the `sts` CLI, run the command:
-
-```text
-# Output in terminal window
-sts settings describe
-
-# Export to file
-sts settings describe --file <PATH_TO_FILE.sty>
+**Before you use the scripts, ensure that** the `kubectl` binary is installed and it is configured with the context and namespace where SUSE Observability is installed. For example run this command to connect to the context `observability-cluster` and namespace `suse-observablity`:
+```
+kubectl config use-context <context-for-cluster-with-suse-observability>
+kubectl config set-context --current --namespace=<suse-observability>
 ```
 
-### curl
+The command line tools to interact with the backups all work by creating a Kubernetes job in the cluster and interacting with that job. After the tool is done the job is automatically removed. Starting the job can take some time (pulling the docker image, scheduling the job in the cluster, etc, all take some time), so the commands will not produce a result immediately.
 
-{% hint style="info" %}
-Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack configuration won't be included in the export.
+### Restore a backup
+
+{% hint style="warning" %}
+Restoring a configuration backup will remove all topology, including health states, alerts and the topology history. It also will remove all previous configuration and requires down-time (can be limited to a few minutes).
 {% endhint %}
 
-To export configuration using curl, follow the steps below. The `<api-token>` used for authorization is available on the **CLI** page in the SUSE Observability UI main menu:
+To restore a backup:
 
-```text
-# Do actual request
-curl -X POST \
-  -H "Authorization: ApiToken <api-token>" \
-  -H 'Content-Type: application/json;charset=UTF-8' \
-  -d '{}' \
-  "http://<HOST>/api/export?timeoutSeconds=300" > export.sty
-```
+1. Make sure to connect to the context and namespace for SUSE Observability, [see here](#working-with-configuration-backups)
+1. Get the list of available backups using
+   ```
+   ./list-configuration-backups.sh
+   ```
+2. From the list of backup files choose the backup you want to restore
+3. The restore will first scale down deployments that interact with StackGraph, then the backup will be restored. This can be followed via the output of the restore command. Restore the backup with the command below (answer `yes` to confirm erasing all topology and settings from SUSE Observability):
+   ```
+   ./restore-configuration-backup.sh sts-backup-your-choice.sty
+   ```
+5. After the restore has finished the deployments need to be scaled up manually:
+   ```
+   ./scale-up.sh
+   ```
+6. After a short while all deployments are running and ready and SUSE Observability can be used again
 
-### SUSE Observability UI
 
-{% hint style="info" %}
-Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack configuration won't be included in the export.
-{% endhint %}
+### Trigger a manual backup
 
-To export configuration from the SUSE Observability UI:
+A backup can be created at any time without any service interruption. The `backup-configuration-now.sh` script in the Github repostiroy can be used to trigger a backup at any time. The backup will follow the standard naming convention, including the date/time of the backup.
 
-1. Go to **Settings** &gt; **Import/Export** &gt; **Export Settings**
-2. Click the button **STS-EXPORT-ALL**.
+### Customizing configuration backups
 
-![Export configuration from the SUSE Observability UI](../../../.gitbook/assets/v51_export_configuration.png)
+Configuration backups can be stored in object storage, this happens automatically when configuring MinIO and enabling backups for topology, metrics, events and logs. Please follow the instructions for the [Kubernetes backup](./kubernetes_backup.md#enable-backups).
 
-## Import configuration
+By default 365 days of backups are retained, this can be modified via the Helm values. It is also possible to disable the configuration backup entirely or customize the backup schedule. Some other parts of the backup can also be customized:
 
-### SUSE Observability CLI
-
-{% hint style="info" %}
-* Import is intended to be a one-off action - importing multiple times might result in duplicate configuration entries. This behavior applies to importing nodes without any identifier. 
-* Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack won't be included in configuration export files - **all configuration items will be unlocked after import**.
-{% endhint %}
-
-To import SUSE Observability configuration using the `sts` CLI, follow the steps below.
-
-Before import, clear the SUSE Observability configuration by following the instructions at [clear stored data](/setup/data-management/clear_stored_data.md). 
-
-```text
-sts settings apply --file <PATH_TO_FILE.sty>
-```
-
-### curl
-
-{% hint style="info" %}
-* Import is intended to be a one-off action - importing multiple times might result in duplicate configuration entries. This behavior applies to importing nodes without any identifier. 
-* Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack won't be included in configuration export files - **all configuration items will be unlocked after import**.
-{% endhint %}
-
-To import SUSE Observability configuration using curl with authentication, follow the steps below.
-
-Before import, clear the SUSE Observability configuration by following the instructions at [clear stored data](/setup/data-management/clear_stored_data.md). 
-
-The `<api-token>` can be found on the **CLI** page in the SUSE Observability UI main menu.
-
-```text
-curl -X POST -d @export.sty \
-  -H "Authorization: ApiToken <api-token>" \
-  -H 'Content-Type: application/json;charset=UTF-8' \
-  "http://<HOST>/api/import?timeoutSeconds=15"
-```
-
-### SUSE Observability UI
-
-{% hint style="info" %}
-* Import is intended to be a one-off action - importing multiple times might result in duplicate configuration entries. This behavior applies to importing nodes without any identifier. 
-* Note that the [lock status](../../../stackpacks/about-stackpacks.md#locked-configuration-items) of configuration items installed by a StackPack won't be included in configuration export files - **all configuration items will be unlocked after import**.
-{% endhint %}
-
-Before import, clear the SUSE Observability configuration by following the instructions at [clear stored data](/setup/data-management/clear_stored_data.md).
-
-To import SUSE Observability configuration in the SUSE Observability UI:
-
-1. Go to **Settings** &gt; **Import/Export** &gt; **Import Settings**.
-2. Choose the `*.sty` file that you want to import configuration from.
-3. Click the button **START IMPORT**.
-
-![Import configuration from the SUSE Observability UI](../../../.gitbook/assets/v51_import_configuration.png)
-
-## Advanced import/export
-
-### Individual configuration items
-
-It's possible to export and import individual configuration items through the SUSE Observability user interface. For example, to export or export a component type:
-
-1. Go to the **Settings** page and click **Component Types**.
-2. To export an individual component type, click **Export as config**.
-3. To import a configuration item, click **Import Model**.
-
-### Idempotent import/export
-
-There is a way to use identifiers and namespaces that come with them to perform a configuration update of the specific sets of nodes idempotently. This approach doesn't lead to duplicates, but checks for the changes within a specified namespace and applies them to existing nodes, including removing nodes, as well as allow for creating the new ones.
-
-Node identifiers are specified in a following pattern: `urn:stackpack:{stackpack_name}:{type_name}:{object_name}`. The namespace effectively used by this process is `urn:stackpack:{stackpack_name}:`. If every configuration node has an identifier and they're all in the same namespace, then you can perform an idempotent update using following STS CLI commands:
-
-#### export
-
-```sh
-sts settings describe --namespace urn:stackpack:{stackpack_name}:
-```
-
-#### import
-
-```
-curl -XPOST http://yourInstance/api/import?namespace=urn:stackpack:{stackpack_name} \
-    --data @./filename \
-    -H 'Content-Type: application/json'
+```yaml
+backup:
+  configuration:
+    # backup.configuration.bucketName -- Name of the bucket to store configuration backups (needs to be a globally unique bucket when using Amazon S3).
+    bucketName: 'sts-configuration-backup'
+    # backup.configuration.maxLocalFiles -- The maximum number of configuration backup files stored on the PVC for the configuration backup (which is only of limited size, see backup.configuration.scheduled.pvc.size)
+    maxLocalFiles: 10
+    scheduled:
+      # backup.configuration.scheduled.enabled -- Enable scheduled configuration backups (if `backup.enabled` is set to `true`).
+      enabled: true
+      # backup.configuration.scheduled.schedule -- Cron schedule for automatic configuration backups in [Kubernetes cron schedule syntax](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#cron-schedule-syntax).
+      schedule: '0 4 * * *'
+      # backup.configuration.scheduled.backupRetentionTimeDelta -- Time to keep configuration backups in object storage. The value is passed to GNU date tool to determine a specific date, and files older than this date will be deleted.
+      backupRetentionTimeDelta: '365 days ago'
+      pvc:
+        # backup.configuration.scheduled.pvc.size -- Size of volume for settings backup in the cluster
+        size: '1Gi'
 ```
