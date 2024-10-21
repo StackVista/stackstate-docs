@@ -18,8 +18,8 @@ Scripts to work with configuration backups (but also all other backups) can be f
 
 **Before you use the scripts, ensure that** the `kubectl` binary is installed and it is configured with the context and namespace where StackState is installed. For example run this command to connect to the context `stackstate-cluster` and namespace `stackstate`:
 ```
-kubectl config use-context <context-for-cluster-with-stackstate>
-kubectl config set-context --current --namespace=<stackstate>
+kubectl config use-context stackstate-cluster
+kubectl config set-context --current --namespace=stackstate
 ```
 
 The command line tools to interact with the backups all work by creating a Kubernetes job in the cluster and interacting with that job. After the tool is done the job is automatically removed. Starting the job can take some time (pulling the docker image, scheduling the job in the cluster, etc, all take some time), so the commands will not produce a result immediately.
@@ -27,7 +27,7 @@ The command line tools to interact with the backups all work by creating a Kuber
 ### Restore a backup
 
 {% hint style="warning" %}
-Restoring a configuration backup will remove all topology, including health states, alerts and the topology history. It also will remove all previous configuration and requires down-time (can be limited to a few minutes).
+Restoring a configuration backup will remove all topology, including health states, alerts and the topology history. It also will remove all previous configuration and requires down-time for the API, UI, monitors, notifications and topology synchronization (can be limited to a few minutes). Data collection and ingestion stays active during the restore.
 {% endhint %}
 
 To restore a backup:
