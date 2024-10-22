@@ -56,6 +56,10 @@ For our different installation profiles, the following are the defaulted storage
 
 For more details on the defaults used, see the page [Configure storage](/setup/install-stackstate/kubernetes_openshift/storage.md).
 
+### Helm
+
+SUSE Observability is installed through Helm, which needs to be installed with a minimum version of 3.13.1.
+
 ### The different components
 
 #### SUSE Observability Server
