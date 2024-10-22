@@ -53,7 +53,7 @@ Set up a Kubernetes integration to collect topology, events, logs, change and me
 To set up a SUSE Observability Kubernetes integration you need to have:
 
 * An up-and-running Kubernetes Cluster.
-* A recent version of Helm 3.
+* Helm version 3.13.1 or higher.
 * A user with the permission to `create privileged pods`, `ClusterRoles` and `ClusterRoleBindings`:
   * ClusterRole and ClusterRoleBinding are needed to grant SUSE Observability Agents permissions to access the Kubernetes API.
   * SUSE Observability Agents need to run in a privileged pod to be able to gather information on network connections and host information.
@@ -113,7 +113,7 @@ Set up an OpenShift integration to collect topology, events, logs, change and me
 To set up a SUSE Observability OpenShift integration you need to have:
 
 * An up-and-running OpenShift Cluster.
-* A recent version of Helm 3.
+* Helm version 3.13.1 or higher.
 * A user with the permission to `create privileged pods`, `ClusterRoles` and `ClusterRoleBindings`:
   * ClusterRole and ClusterRoleBinding are needed to grant SUSE Observability Agents permissions to access the Kubernetes API.
   * SUSE Observability Agents need to run in a privileged pod to be able to gather information on network connections and host information.
@@ -179,7 +179,7 @@ Set up an Amazon EKS integration to collect topology, events, logs, change and m
 To set up a SUSE Observability Amazon EKS integration you need to have:
 
 * An up-and-running Amazon EKS Cluster.
-* A recent version of Helm 3.
+* Helm version 3.13.1 or higher.
 * A user with the permission to `create privileged pods`, `ClusterRoles` and `ClusterRoleBindings`:
     * ClusterRole and ClusterRoleBinding are needed to grant SUSE Observability Agents permissions to access the Kubernetes API.
     * SUSE Observability Agents need to run in a privileged pod to be able to gather information on network connections and host information.
@@ -238,7 +238,7 @@ Set up a Google GKE integration to collect topology, events, logs, change and me
 To set up a SUSE Observability Google GKE integration you need to have:
 
 * An up-and-running Google GKE Cluster.
-* A recent version of Helm 3.
+* Helm version 3.13.1 or higher.
 * A user with the permission to `create privileged pods`, `ClusterRoles` and `ClusterRoleBindings`:
     * ClusterRole and ClusterRoleBinding are needed to grant SUSE Observability Agents permissions to access the Kubernetes API.
     * SUSE Observability Agents need to run in a privileged pod to be able to gather information on network connections and host information.
@@ -294,7 +294,7 @@ Set up an Azure AKS integration to collect topology, events, logs, change and me
 To set up a SUSE Observability Azure AKS integration you need to have:
 
 * An up-and-running Azure AKS Cluster.
-* A recent version of Helm 3.
+* Helm version 3.13.1 or higher.
 * A user with the permission to `create privileged pods`, `ClusterRoles` and `ClusterRoleBindings`:
     * ClusterRole and ClusterRoleBinding are needed to grant SUSE Observability Agents permissions to access the Kubernetes API.
     * SUSE Observability Agents need to run in a privileged pod to be able to gather information on network connections and host information.
@@ -360,7 +360,7 @@ Set up a KOPS integration to collect topology, events, logs, change and metrics 
 To set up a SUSE Observability KOPS integration you need to have:
 
 * An up-and-running KOPS Cluster.
-* A recent version of Helm 3.
+* Helm version 3.13.1 or higher.
 * A user with the permission to `create privileged pods`, `ClusterRoles` and `ClusterRoleBindings`:
     * ClusterRole and ClusterRoleBinding are needed to grant SUSE Observability Agents permissions to access the Kubernetes API.
     * SUSE Observability Agents need to run in a privileged pod to be able to gather information on network connections and host information.
@@ -426,7 +426,7 @@ Set up a Self-hosted integration to collect topology, events, logs, change and m
 To set up a SUSE Observability Self-hosted integration you need to have:
 
 * An up-and-running Self-hosted Cluster.
-* A recent version of Helm 3.
+* Helm version 3.13.1 or higher.
 * A user with the permission to `create privileged pods`, `ClusterRoles` and `ClusterRoleBindings`:
     * ClusterRole and ClusterRoleBinding are needed to:
       * Grant SUSE Observability Agents permissions to access the Kubernetes API
