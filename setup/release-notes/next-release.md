@@ -7,6 +7,7 @@ description: SUSE Observability Self-hosted
 ## Release Notes StackState version ... Helm Chart version 2.1.0
 
 ### New Features & Enhancements:
+* It is now possible to upgrade from StackState 6.x to SUSE Observability. Please follow the [migration guide](../upgrade-stackstate/migrate-from-6.md).
 * Introduce a command-line accessible backup mechanism for the configuration of SUSE Observability. This replaces the previous export/import backup method, improving reliability of the restoration process.
 * We only support Helm 3.13.1 and above. This was already the case but it was not enforced yet. Now it is.
 * Added Node events and Persistent Volume Events on Cluster Resources.

@@ -125,6 +125,7 @@
   * [v2.0.0 - 11/09/2024](setup/release-notes/20240911112250.md)
   * [v2.1.0 - ../../2024](setup/release-notes/next-release.md)
 * [Upgrade SUSE Observability](setup/upgrade-stackstate/README.md)
+  * [Migration from StackState](setup/upgrade-stackstate/migrate-from-6.md)
   * [Steps to upgrade](setup/upgrade-stackstate/steps-to-upgrade.md)
   * [Version-specific upgrade instructions](setup/upgrade-stackstate/version-specific-upgrade-instructions.md)
 * [Uninstall SUSE Observability](setup/install-stackstate/kubernetes_openshift/uninstall.md)
