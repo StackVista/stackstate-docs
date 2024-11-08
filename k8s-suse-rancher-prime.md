@@ -32,8 +32,8 @@ The Non-HA setup can support up to 100 Nodes under observation.
 | ------------------- | ------ | --------- | --------- | --------- | ---------- | ------ | ------- | ------- | ------- |
 | **CPU Requests**    | 7.5    | 7.5       | 10.5      | 15        | 25         | 49     | 62      | 86.5    | 210     |
 | **CPU Limits**      | 16     | 16        | 21.5      | 30.5      | 50         | 103    | 128     | 176     | 278     |
-| **Memory Requests** | 22.5Gi | 22.5Gi    | 28Gi      | 32Gi      | 51Gi       | 126Gi   | 143Gi   | 161.5Gi | 256Gi   |
-| **Memory Limits**   | 23.5Gi | 23.5Gi    | 29Gi      | 33.5Gi    | 51.5Gi     | 131Gi  | 147.5Gi | 166Gi   | 317.5Gi |
+| **Memory Requests** | 25.5Gi | 25.5Gi    | 31Gi      | 35Gi      | 54Gi       | 129Gi  | 146Gi   | 164.5Gi | 259Gi   |
+| **Memory Limits**   | 26Gi   | 26Gi      | 31.5Gi    | 36Gi      | 54Gi       | 133.5Gi| 150Gi   | 168.5Gi | 320Gi   |
 
 {% hint style="info" %}
 The requirement shown for profile represent the total amount of resources needed to run the Suse Observability server.
