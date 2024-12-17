@@ -118,10 +118,10 @@ One of the following operating systems running Java. Check also the specific req
 | Ubuntu | Bionic |
 | Ubuntu | Xenial |
 | Ubuntu | Trusty |
-| Fedora | 28 |
-| CentOS | 7 |
+| Fedora | 28 - 40 |
+| CentOS | 7, Stream 8 - 9 |
 | Debian | Stretch |
-| Red Hat | 7.5 |
+| Red Hat | 7 - 9.3 |
 | Amazon Linux | 2 |
 
 #### Java
