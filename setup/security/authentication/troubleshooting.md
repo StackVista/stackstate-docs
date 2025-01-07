@@ -17,14 +17,14 @@ stackstate:
   components:
     server:
       additionalLogging: |
-        logger("org.pac4j.core.engine", DEBUG)
-        logger("org.pac4j.oidc.profile.creator", DEBUG)
-        logger("org.pac4j.oidc.credentials.authenticator", DEBUG)
+        <logger name="org.pac4j.core.engine" level="DEBUG"/>
+        <logger name="org.pac4j.oidc.profile.creator" level="DEBUG"/>
+        <logger name="org.pac4j.oidc.credentials.authenticator" level="DEBUG"/>
     api:
       additionalLogging: |
-        logger("org.pac4j.core.engine", DEBUG)
-        logger("org.pac4j.oidc.profile.creator", DEBUG)
-        logger("org.pac4j.oidc.credentials.authenticator", DEBUG)
+        <logger name="org.pac4j.core.engine" level="DEBUG"/>
+        <logger name="org.pac4j.oidc.profile.creator" level="DEBUG"/>
+        <logger name="org.pac4j.oidc.credentials.authenticator" level="DEBUG"/>
 ```
 
 Now run the `helm upgrade` command you used before but include this one extra yaml file (so `helm upgrade .... --values debug-auth.yaml`) to enable debug logging. No pods will be restarting, the logging configuration changes will be loaded automatically after about 30 seconds.
