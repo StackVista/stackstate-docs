@@ -60,7 +60,7 @@ For our different installation profiles, the following are the defaulted storage
 | | trial | 10 non-HA | 20 non-HA | 50 non-HA | 100 non-HA | 150 HA | 250 HA | 500 HA | 4000 HA
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | **Retention (days)** | 3 | 30 | 30 | 30 | 30 | 30 | 30 | 30 | 30 |
-| **Storage requirement** | 125GB | 280GB | 420GB | 420GB | 600GB | 2TB | 2TB | 2.5TB | 2.5TB | 5.5 TB
+| **Storage requirement** | 125GB | 280GB | 420GB | 420GB | 600GB | 2TB | 2TB | 2.5TB | 5.5TB
 
 For more details on the defaults used, see the page [Configure storage](/setup/install-stackstate/kubernetes_openshift/storage.md).
 
