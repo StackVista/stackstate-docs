@@ -80,9 +80,8 @@ For further information on how to use SUSE Cloud Observability, including creati
 
 ### SUSE Cloud Observability Limitations
 
-Note that SUSE Cloud Observability does not provide fine grained latency and error rates out of the box.  This feature is available with SUSE Rancher Prime.
-
-/// Comment - Need to install open telemetry connector???
+Note that SUSE Cloud Observability does not provide out of the box RED signals (Rate, Errors and Duration), only the Rate signal is shown.  This feature is available with SUSE Rancher Prime.
+Customers that need these signals to have a complete Observability solution should contact SUSE to discuss SUSE Rancher Prime, alternatively this data can be collected using the OpenTelemetry collectors.
 
 ## Additional Information
 
