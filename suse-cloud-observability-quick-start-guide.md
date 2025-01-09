@@ -33,13 +33,13 @@ Initially you should be taken to the following screen, to get here, in the SUSE 
 
 ![SUSE Cloud Observability - StackPacks](resources/screenshots/integrating_first_cluster_stackpacks.png)
 
-Once you are in the Kubernetes StackPack screen, it is very simple to add a cluster to the Observability environment.
+Once you are in the Kubernetes StackPack screen, it is very simple to add a cluster to the observability environment.
 
 Enter a name for the cluster you wish to observe, it does not have to match the cluster name used in 'kubeconfig'.
 
 The Kubernetes cluster name must start and end with a lower case letter or digit and can consist of only lower case letters, digits, dots and dashes (. -)
 
-Enter the name and click the 'Install' button.  This should take you to the following screen with the cluster flagged as 'Waiting for data'
+Enter the name and click the `Install` button.  This should take you to the following screen with the cluster flagged as 'Waiting for data'
 
 ![SUSE Cloud Observability - Adding A Cluster](resources/screenshots/integrating_first_cluster_eks.png)
 
@@ -49,23 +49,23 @@ Review the information and ensure you have the correct permissions to your Kuber
 
 These commands are unique to your observability deployment and include the required API Keys and URLs.  Select the approriate commands for your cluster, there are sections for EKS, RKE, generic Kubnernetes cluster and many more.
 
-These commands will install the SUSE Cloud Obervability agents and connect the cluster to your SUSE Cloud Observability environbment.
+These commands will install the SUSE Cloud Obervability agents and connect the cluster to your SUSE Cloud Observability environment.
 
-Copy the commands and run on your downstream clusters.
+You can use the commands directly from the UI or you can deploy to your downstream clusters by following the commands provided in the 'Deploy the StackState Agent and Cluster Agent' section in the [quick-start guide](k8s-quick-start-guide.md)
 
 ![SUSE Cloud Observability - Post Install](resources/screenshots/integrating_first_cluster_eks_after_agent_install.png)
 
-After the the cluster has been connected, there should be a green tick in the SUSE Cloud Obervability UI.
+After the the cluster has been connected, there should be a green tick in the SUSE Cloud Observability UI.
 
 At this point you can begin exploring your data.
 
 ### Change your personal account details
 
-Step 4 from your email is to update your personal information.  Click the unique link from the email and add your basic personal details as needed.  You can also setup 2FA authenitcation from this section.
+Step 4 from your email is to update your personal information.  Click the unique link from the email and add your basic personal details as needed.  You can also setup 2FA authentication from this section.
 
 ### Explore your data
 
-To start exploring your data, from the SUSE Observability menu on the left select 'Kubernetes' to reveal a list of observable items
+To start exploring your data, open the main menu by clicking in the top left of the screen and go to `Kubernetes` to reveal a list of observable items.
 
 ![SUSE Cloud Observability - Exploring Your Data](resources/screenshots/accessing_views_1.png)
 
