@@ -91,8 +91,8 @@ opentelemetry-collector:
                 port: 4318
         tls:
           - hosts:
-            - otlp-http-stackstate.MY_DOMAIN        
-              secretName: otlp-http-tls-secret        
+              - otlp-http-stackstate.MY_DOMAIN        
+            secretName: otlp-http-tls-secret        
 ```
 
 What stands out in this file is the Nginx annotation to increase the allowed `proxy-body-size` to `50m` \(larger than any expected request\). By default, Nginx allows body sizes of maximum `1m`. SUSE Observability Agents and other data providers can sometimes send much larger requests. For this reason, you should make sure that the allowed body size is large enough, regardless of whether you are using Nginx or another ingress controller. Make sure to update the `baseUrl` in the values file generated during initial installation, it will be used by SUSE Observability to generate convenient installation instructions for the agent.
