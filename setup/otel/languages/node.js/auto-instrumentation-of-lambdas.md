@@ -147,6 +147,6 @@ Auto-instrumentation docs → [https://opentelemetry.io/docs/faas/lambda-auto-in
 
 Collector docs → [https://opentelemetry.io/docs/faas/lambda-collector/](https://opentelemetry.io/docs/faas/lambda-collector/)
 
-Github Releases Page (for finding latest ARNs) → https://github.com/open-telemetry/opentelemetry-lambda/releases
+Github Releases Page for finding latest ARNs → [https://github.com/open-telemetry/opentelemetry-lambda/releases](https://github.com/open-telemetry/opentelemetry-lambda/releases)
 
 OTLP Exporter Configuration → [https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/)
