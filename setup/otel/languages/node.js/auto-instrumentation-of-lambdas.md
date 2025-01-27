@@ -1,10 +1,14 @@
+---
+description: SUSE Observability
+---
+
 # Auto-Instrumenting a NodeJS Lambda
 
-# Introduction
+## Introduction
 
 This document guides you through auto-instrumenting NodeJS Lambda functions using OpenTelemetry. Auto-instrumentation simplifies the process of adding observability to your Lambda functions by automatically capturing performance metrics and tracing information.
 
-# **Prerequisites**
+## Prerequisites
 
 Before you begin, ensure you have the following:
 
@@ -14,7 +18,7 @@ Before you begin, ensure you have the following:
 - **SUSE Observability:** An account with SUSE Observability where you'll send your telemetry data.
 - **Memory:** Enough memory to run the Lambda’s including the instrumentation.
 
-# Values supplied by the environment
+## Values supplied by the environment
 
 OpenTelemetry relies on various configuration values to function correctly. These values control aspects like data collection, exporting, and communication with backend systems. To make your OpenTelemetry deployment flexible and adaptable to different environments, you can provide these settings through environment variables. This approach offers several benefits:
 
@@ -50,7 +54,7 @@ OTLP_INSTR_LAYER_ARN: "arn:aws:lambda:<aws-region>:184161586896:layer:openteleme
 OTLP_COLLECTOR_LAYER_ARN: "arn:aws:lambda:<aws-region>:184161586896:layer:opentelemetry-collector-<amd64|arm64>-0_12_0:1"
 ```
 
-# The collector.yaml file
+## The collector.yaml file
 
 OTEL collection configuration sets up how the data collected should be distributed.  This is done in the collector.yaml file placed in the src directory where the lambda files can be found.  Below is an example collector.yaml file.
 
@@ -89,11 +93,11 @@ Be aware this collector is used to send the data over to a next collector which 
 
 ![AWS Lambda Instrumentation With Opentelemetry](/.gitbook/assets/otel/aws_nodejs_otel_auto_instrumentation.svg)
 
-# Package.json
+## Package.json
 
 Make sure to add `"@opentelemetry/auto-instrumentations-node": "^0.55.2",` to `package.json` and execute `npm install` to add the auto-instrumentation client libraries to your NodeJS Lambda.
 
-# Troubleshooting Timeouts
+## Troubleshooting Timeouts
 
 If the addition of the OTEL Lambda layers results in lambdas that time out (checking the logs might indicate that the collector was asked to shut down while still busy, e.g. seeing the following log entry):
 
@@ -137,7 +141,7 @@ Note the memory increment is 128MB
 
 Note Timeout is an integer value denoting seconds.
 
-# References
+## References
 
 Auto-instrumentation docs → [https://opentelemetry.io/docs/faas/lambda-auto-instrument/](https://opentelemetry.io/docs/faas/lambda-auto-instrument/)
 
