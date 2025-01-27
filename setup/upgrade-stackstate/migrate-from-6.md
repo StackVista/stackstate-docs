@@ -26,7 +26,7 @@ Throughout this guide all examples assume the following setup, customize the com
 
 Only the latest version of StackState 6.x has a configuration backup that contains all configuration in a format that is compatible with SUSE Observability. Please make sure you have the latest version installed by running `helm list --namespace stackstate` (use the namespace where StackState is installed):
 
-* Helm chart version should be `1.12.0`
+* Helm chart version should be `1.12.1`
 * Application version should be `6.0.0-snapshot.20241023094532-stackstate-6.x-7be52ad`
 
 If you don't have that version please upgrade first following the standard [upgrade steps](https://docs.stackstate.com/6.0/self-hosted-setup/upgrade-stackstate/steps-to-upgrade#minor-or-maintenance-stackstate-release).

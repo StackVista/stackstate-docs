@@ -21,13 +21,17 @@ SUSE Observability can be installed on a Kubernetes or OpenShift cluster using t
 There are different installation options available for SUSE Observability. It is possible to install SUSE Observability either in a High-Availability (HA) or single instance (non-HA) setup. The non-HA setup is recommended for testing purposes only. For production environments, it is recommended to install SUSE Observability in a HA setup. For a standard, production, deployment, the SUSE Observability Helm chart will deploy many services in a redundant setup with 3 instances of each service.
 
 In the table below you can find the resource requirements for the different installation options. For the HA setup you can find different installation profiles depending on the size of the environment being observed.
+An observed node in this sizing table is taken to be 4 vCPUs and 16GB of memory, our `default node size`.
+If nodes in your observed cluster are bigger, they can count for multiple `default nodes`, so a node of 12vCPU and 48GB counts as 3 `default nodes` under observation when picking
+a profile.
 
-| | trial | 10 non-HA | 20 non-HA | 50 non-HA | 100 non-HA | 150 HA | 250 HA | 500 HA | 4000 HA |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |  --- |
-| **CPU Requests** | 7,5 | 7,5 | 10,5 | 15 | 25 | 49 | 62 | 86.5 | 210 |
-| **CPU Limits** | 16 | 16 | 21,5 | 30,5 | 50 | 103 | 128 | 176 | 278 |
-| **Memory Requests** | 22Gi | 22Gi | 28Gi | 32.5Gi | 51Gi | 67Gi | 143Gi | 161.5Gi | 256Gi |
-| **Memory Limits** | 23Gi | 23Gi | 29Gi | 33Gi | 51,5Gi | 131Gi | 147.5Gi | 166Gi |317.5Gi |
+
+|                     | trial  | 10 non-HA | 20 non-HA | 50 non-HA | 100 non-HA | 150 HA | 250 HA  | 500 HA  | 4000 HA |
+| ------------------- | ------ | --------- | --------- | --------- | ---------- | ------ | ------- | ------- | ------- |
+| **CPU Requests**    | 7.5    | 7.5       | 10.5      | 15        | 25         | 49     | 62      | 86.5    | 210     |
+| **CPU Limits**      | 16     | 16        | 21.5      | 30.5      | 50         | 103    | 128     | 176     | 278     |
+| **Memory Requests** | 22.5Gi | 22.5Gi    | 28Gi      | 32Gi      | 51Gi       | 67Gi   | 143Gi   | 161.5Gi | 256Gi   |
+| **Memory Limits**   | 23.5Gi | 23.5Gi    | 29Gi      | 33.5Gi    | 51.5Gi     | 131Gi  | 147.5Gi | 166Gi   | 317.5Gi |
 
 {% hint style="info" %}
 The requirement shown for profile represent the total amount of resources needed to run the Suse Observability server.
