@@ -97,6 +97,7 @@
   * [Generic Exporter configuration](setup/otel/languages/sdk-exporter-config.md)
   * [Java](setup/otel/languages/java.md)
   * [Node.js](setup/otel/languages/node.js.md)
+    * [Auto-instrumentation of Lambdas](setup/otel/languages/node.js/auto-instrumentation-of-lambdas.md)
   * [.NET](setup/otel/languages/dot-net.md)
   * [Verify the results](setup/otel/languages/verify.md)
 * [Troubleshooting](setup/otel/troubleshooting.md)
