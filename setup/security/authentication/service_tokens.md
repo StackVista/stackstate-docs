@@ -66,7 +66,7 @@ To configure SUSE Observability to create a bootstrap service token on Kubernete
 ```yaml
 stackstate:
   authentication:
-    servicetoken:
+    serviceToken:
       bootstrap:
         token: <token>
         roles:
