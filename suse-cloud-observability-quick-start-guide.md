@@ -61,7 +61,7 @@ At this point you can begin exploring your data.
 
 ### Change your personal account details
 
-Step 4 from your email is to update your personal information.  Click the unique link from the email and add your basic personal details as needed.  You can also setup 2FA authentication from this section.
+Step 4 from your email is to update your personal information.  Click the unique link from the email and add your basic personal details as needed.  You can also setup 2FA authentication from this section if required.
 
 ### Explore your data
 
