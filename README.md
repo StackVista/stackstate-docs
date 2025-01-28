@@ -14,5 +14,3 @@ If you believe any documentation is missing, please let us know on the [SUSE Obs
 ## Troubleshooting and support
 
 Any questions? We love to help! Find our support team on the [SUSE Observability support site](http://support.stackstate.com/).
-
-  
