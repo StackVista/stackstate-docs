@@ -23,23 +23,24 @@ To install SUSE Observability, ensure that the nodes have enough CPU and memory 
 
 There are different installation options available for SUSE Observability. It is possible to install SUSE Observability either in a High-Availability (HA) or single instance (non-HA) setup. The non-HA setup is recommended for testing purposes or small environments. For production environments, it is recommended to install SUSE Observability in a HA setup.
 
-The HA production setup can support from 150 up to 500 observed nodes. An observed node in this sizing table is taken to be 4 vCPUs and 16GB of memory, our `default node size`. 
+The HA production setup can support from 150 up to 4000 observed nodes. An observed node in this sizing table is taken to be 4 vCPUs and 16GB of memory, our `default node size`. 
 If nodes in your observed cluster are bigger, they can count for multiple `default nodes`, so a node of 12vCPU and 48GB counts as 3 `default nodes` under observation when picking
 a profile.
 The Non-HA setup can support up to 100 Nodes under observation.
 
-|                     | trial  | 10 non-HA | 20 non-HA | 50 non-HA | 100 non-HA | 150 HA | 250 HA  | 500 HA  |
-| ------------------- | ------ | --------- | --------- | --------- | ---------- | ------ | ------- | ------- |
-| **CPU Requests**    | 7.5    | 7.5       | 10.5      | 15        | 25         | 49     | 62      | 86.5    |
-| **CPU Limits**      | 16     | 16        | 21.5      | 30.5      | 50         | 103    | 128     | 176     |
-| **Memory Requests** | 22.5Gi | 22.5Gi    | 28Gi      | 32Gi      | 51Gi       | 67Gi   | 143Gi   | 161.5Gi |
-| **Memory Limits**   | 23.5Gi | 23.5Gi    | 29Gi      | 33.5Gi    | 51.5Gi     | 131Gi  | 147.5Gi | 166Gi   |
+|                     | trial  | 10 non-HA | 20 non-HA | 50 non-HA | 100 non-HA | 150 HA | 250 HA  | 500 HA  | 4000 HA |
+| ------------------- | ------ | --------- | --------- | --------- | ---------- | ------ | ------- | ------- | ------- |
+| **CPU Requests**    | 7.5    | 7.5       | 10.5      | 15        | 25         | 49     | 62      | 86.5    | 210     |
+| **CPU Limits**      | 16     | 16        | 21.5      | 30.5      | 50         | 103    | 128     | 176     | 278     |
+| **Memory Requests** | 22.5Gi | 22.5Gi    | 28Gi      | 32Gi      | 51Gi       | 67Gi   | 143Gi   | 161.5Gi | 256Gi   |
+| **Memory Limits**   | 23.5Gi | 23.5Gi    | 29Gi      | 33.5Gi    | 51.5Gi     | 131Gi  | 147.5Gi | 166Gi   | 317.5Gi |
 
 {% hint style="info" %}
 The requirement shown for profile represent the total amount of resources needed to run the Suse Observability server.
 To ensure that all different services of Suse Observability server can be allocated:
 * For non-HA installations the recommended node size is 4VCPU, 8GB
-* For HA installations the min recommended node size is 8VCPU, 16GB
+* For HA installations up to 500 nodes the min recommended node size is 8VCPU, 16GB
+* For 4000 nodes HA installations the min recommended node size is 16VCPU, 32GB
 {% endhint %}
 
 {% hint style="info" %}
@@ -58,10 +59,10 @@ SUSE Observability uses persistent volume claims for the services that need to s
 
 For our different installation profiles, the following are the defaulted storage requirements:
 
-| | trial | 10 non-HA | 20 non-HA | 50 non-HA | 100 non-HA | 150 HA | 250 HA | 500 HA |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **Retention (days)** | 3 | 30 | 30 | 30 | 30 | 30 | 30 | 30 |
-| **Storage requirement** | 125GB | 280GB | 420GB | 420GB | 600GB | 2TB | 2TB | 2.5TB |
+| | trial | 10 non-HA | 20 non-HA | 50 non-HA | 100 non-HA | 150 HA | 250 HA | 500 HA | 4000 HA
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **Retention (days)** | 3 | 30 | 30 | 30 | 30 | 30 | 30 | 30 | 30 |
+| **Storage requirement** | 125GB | 280GB | 420GB | 420GB | 600GB | 2TB | 2TB | 2.5TB | 5.5TB
 
 For more details on the defaults used, see the page [Configure storage](/setup/install-stackstate/kubernetes_openshift/storage.md).
 
