@@ -14,18 +14,18 @@ You will receive an email from SUSE Cloud Observability with the required login 
 
 1. Setup a password
 2. Login to your SUSE Cloud Observability Instance
-3. Install SUSE Observability agent to your cluster
+3. Install the SUSE Observability agent to your cluster
 4. Change your personal account details
 
 ### Setup a password
 
-The email from SUSE Cloud Observability contains a unique link which allows you to set your initial password on the account.  This must be pperformed before you can login and configure the observability environment.
+The email from SUSE Cloud Observability contains a unique link which allows you to set your initial password on the account.  This must be performed before you can login and configure the observability environment.
 
 ### Accessing your SUSE Observability Environment
 
 Login in to your SUSE Cloud Observability environment by clicking on the unique link in the email you received from SUSE Cloud Observability.  Entering your password will take you to the configuration screen in order to add clusters.
 
-### Install SUSE Observability agent to your cluster
+### Install the SUSE Observability agent to your cluster
 
 SUSE Cloud Observability uses StackPacks in order to make it easier to configure your downstream clusters and get data into the observability environment.
 
