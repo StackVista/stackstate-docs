@@ -19,7 +19,7 @@ You will receive an email from SUSE Cloud Observability with the required login 
 
 ### Setup a password
 
-The email from SUSE Cloud Observability contains a unique link which allows you to set your initial password on the account.  This must be pperformed before you can login and configure the observability environment.
+The email from SUSE Cloud Observability contains a unique link which allows you to set your initial password on the account.  This must be performed before you can login and configure the observability environment.
 
 ### Accessing your SUSE Observability Environment
 
