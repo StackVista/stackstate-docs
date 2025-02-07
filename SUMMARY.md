@@ -93,6 +93,7 @@
 ## 🔭 Open Telemetry
 * [Getting started](setup/otel/getting-started.md)
 * [Open telemetry collector](setup/otel/collector.md)
+  * [Collector as a proxy](setup/otel/proxy-collector.md)
 * [Languages](setup/otel/languages/README.md)
   * [Generic Exporter configuration](setup/otel/languages/sdk-exporter-config.md)
   * [Java](setup/otel/languages/java.md)
