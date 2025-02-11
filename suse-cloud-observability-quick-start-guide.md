@@ -47,7 +47,7 @@ Click on the cluster name, this will expand this section and reveal a series of 
 
 Review the information and ensure you have the correct permissions to your Kubernetes environment, ensure you are running a supported version of Kubernetes.
 
-These commands are unique to your observability deployment and include the required API Keys and URLs.  Select the approriate commands for your cluster, there are sections for EKS, RKE, generic Kubnernetes cluster and many more.
+These commands are unique to your observability deployment and include the required API Keys and URLs.  Select the appropriate commands for your cluster, there are sections for EKS, RKE, generic Kubnernetes cluster and many more.
 
 These commands will install the SUSE Cloud Obervability agents and connect the cluster to your SUSE Cloud Observability environment.
 
