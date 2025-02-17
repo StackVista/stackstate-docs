@@ -95,8 +95,6 @@ Example URN global scope identifiers from the common StackPack. The objects will
 
 * Component type server:
   * `urn:stackpack:common:component-type:server` 
-* View health state configuration function Minimum Propagated Health States:
-  * `urn:stackpack:common:view-health-state-configuration-function:minimum-propagated-health-states`
 
 ### SUSE Observability Agent
 
