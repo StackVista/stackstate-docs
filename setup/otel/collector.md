@@ -51,6 +51,8 @@ extraEnvsFrom:
   - secretRef:
       name: open-telemetry-collector
 mode: deployment
+image:
+  repository: "otel/opentelemetry-collector-k8s"
 ports:
   metrics:
     enabled: true

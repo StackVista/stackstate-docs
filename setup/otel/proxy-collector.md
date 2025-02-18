@@ -26,8 +26,7 @@ extraEnvsFrom:
    - secretRef:
         name: open-telemetry-collector
 image:
-   # Temporary override for image tag, the helm chart has not been released yet
-   tag: 0.97.0
+   repository: "otel/opentelemetry-collector-k8s"
 
 config:
    receivers:
