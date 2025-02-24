@@ -55,7 +55,8 @@ collect_yaml_configs() {
     kubectl -n "$NAMESPACE" get configmaps -o yaml > "$OUTPUT_DIR/yaml/configmaps.yaml"
     # Cronjob YAMLs
     kubectl -n "$NAMESPACE" get cronjob -o yaml > "$OUTPUT_DIR/yaml/cronjob.yaml"
-
+    # PV,PVC YAML
+    kubectl -n "$NAMESPACE" get pv,pvc -o yaml  > "$OUTPUT_DIR/yaml/pv-pvc.yaml"
 }
 
 # Function to collect pod logs
@@ -99,6 +100,9 @@ kubectl -n "$NAMESPACE" get secrets -o wide > "$OUTPUT_DIR/secrets"
 
 techo "Collecting cronjob information..."
 kubectl -n "$NAMESPACE" get cronjob -o wide > "$OUTPUT_DIR/cronjob"
+
+techo "Collecting PV and PVC information"
+kubectl -n "$NAMESPACE" get pv,pvc -o wide > "$OUTPUT_DIR/pv-pvc"
 
 techo "Collecting events in $NAMESPACE ..."
 kubectl -n "$NAMESPACE" get events --sort-by='.metadata.creationTimestamp' > "$OUTPUT_DIR/events"
