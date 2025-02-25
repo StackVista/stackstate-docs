@@ -59,7 +59,7 @@ metadata:
    name: "<custom-secret-name>"
 type: Opaque
 data:
-  API_KEY: "<base64 of the license key>"
+  API_KEY: "<base64 of the API key>"
 ```
 
 Add the following to your helm install command to use the secret:
