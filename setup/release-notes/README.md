@@ -50,6 +50,7 @@ Each component follows a rolling release model, with no fixed cadence:
 ### SUSE Observability Rancher UI Extension
 
 - Ensure the UI extension version matches the recommended version for your Rancher deployment.
+    - See the UI extension and Rancher compatibility matrix [here](../../k8s-suse-rancher-prime.md#suse-observability-rancher-ui-extension-compatibility-matrix).
 - Upgrades and compatibility are typically aligned with Rancher and SUSE Observability platform releases.
 
 ## Support Policy

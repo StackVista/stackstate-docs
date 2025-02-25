@@ -220,6 +220,13 @@ sts service-token create --name suse-observability-extension --roles stackstate-
 ```
 {% endcode %}
 
+### SUSE Observability Rancher UI extension compatibility matrix
+
+| UI Extension Version | Supported Rancher Version |
+|----------------------|---------------------------|
+| 0.x.x                | 2.8                       |
+| 1.x.x                | 2.9                       |
+| 2.x.x                | 2.10                      |
 
 ## Installing the SUSE Observability Agent
 
