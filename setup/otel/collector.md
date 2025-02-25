@@ -123,7 +123,6 @@ config:
       namespace: otel_span
     routing/traces:
       error_mode: ignore
-      match_once: false
       table: 
       - statement: route()
         pipelines: [traces/sampling, traces/spanmetrics]
