@@ -87,7 +87,7 @@
   * [Proxy Configuration](setup/agent/k8s-network-configuration-proxy.md)
 * [Using a custom registry](k8s-suse-rancher-prime-agent-air-gapped.md)
 * [Custom Secret Management](setup/agent/k8s-custom-secrets-setup.md)
-  * * [Custom Secret Management (Deprecated)](setup/agent/k8s-custom-secrets-setup-deprecated.md)
+  * [Custom Secret Management (Deprecated)](setup/agent/k8s-custom-secrets-setup-deprecated.md)
 * [Request tracing](setup/agent/k8sTs-agent-request-tracing.md)
   * [Certificates for sidecar injection](setup/agent/k8sTs-agent-request-tracing-certificates.md)
 
