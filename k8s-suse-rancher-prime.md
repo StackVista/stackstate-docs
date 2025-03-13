@@ -126,7 +126,7 @@ After meeting the prerequisites you can proceed with the installation. The insta
 You can now follow the instruction below for a HA or NON-HA setup.
 
 {% hint style="info" %}
-Be aware upgrading or downgrading from HA to NON-HA and visa-versa is not yet supported.
+Be aware upgrading or downgrading from HA to NON-HA and vice-versa is not yet supported.
 {% endhint %}
 
 
@@ -255,5 +255,5 @@ To enable Single sign-on with your own authentication provider please [see here]
    * This information should be deleted when the UI extensions are uninstalled.
 1. After the extensions are installed, the SUSE Observability UI opens in the same tab as the Rancher UI.
    * You can use shift-click to open in a new tab, this will become the default behaviour
-1. Be aware upgrading or downgrading from HA to NON-HA and visa-versa is not yet supported.
+1. Be aware upgrading or downgrading from HA to NON-HA and vice-versa is not yet supported.
 
