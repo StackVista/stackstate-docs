@@ -61,7 +61,6 @@
 * [Send health data over HTTP](configure/health/send-health-data/README.md)
   * [Send health data](configure/health/send-health-data/send-health-data.md)
   * [Repeat Snapshots JSON](configure/health/send-health-data/repeat_snapshots.md)
-  * [Repeat States JSON](configure/health/send-health-data/repeat_states.md)
   * [Transactional Increments JSON](configure/health/send-health-data/transactional_increments.md)
 * [Debug health synchronization](configure/health/debug-health-sync.md)
 

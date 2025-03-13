@@ -43,7 +43,6 @@ Topology, telemetry and health data are sent to the receiver API via HTTP POST. 
 SUSE Observability accepts health data based on a chosen [consistency model](/configure/health/health-synchronization.md#consistency-models). The message that can be sent for each model are described on the pages below:
 
 * [Repeat Snapshots JSON](/configure/health/send-health-data/repeat_snapshots.md)
-* [Repeat States JSON](/configure/health/send-health-data/repeat_states.md)
 * [Transactional Increments JSON](/configure/health/send-health-data/transactional_increments.md)
 
 ## See also
