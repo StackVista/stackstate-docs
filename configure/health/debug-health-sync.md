@@ -78,7 +78,6 @@ $ sts health status -u urn:health:sourceId:streamId -sub-stream-urn subStreamId3
 {% hint style="info" %}
 A substream status will show the metadata related to the consistency model:
 * **Repeat Snapshots** - Show repeat interval and expiry
-* **Repeat States** - Show repeat interval and expiry
 * **Transactional Increments** - Show checkpoint offset and checkpoint batch index
 {% endhint %}
 
