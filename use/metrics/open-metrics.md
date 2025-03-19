@@ -63,7 +63,7 @@ To enable the OpenMetrics integration and begin collecting metrics data from an 
    - **ssl_cert** - If your OpenMetrics endpoint is secured, enter the path to the certificate and specify the private key in the `ssl_private_key` parameter, or give the path to a file containing both the certificate and the private key.
    - **ssl_private_key** - required if the certificate linked in `ssl_cert` doesn't include the private key. Note that the private key to your local certificate must be unencrypted.
    - **ssl_ca_cert** - the path to the trusted CA used for generating custom certificates.
-   - **extra_headers** - a list of additional HTTP headers to send in queries to the OpenMetrics endpoint. Can be combined with autodiscovery template variables. For example, `"Authorization: Bearer %%env_TOKEN%%"`.
+   - **extra_headers** -  a dictionary mapping HTTP header names to their corresponding values to send in queries to the OpenMetrics endpoint. The values can dynamically include environment variables using the `%%env_VARIABLE%%` syntax. For example, `"Authorization: Bearer %%env_TOKEN%%"` automatically substitutes the value of the `TOKEN` environment variable.
 4. Wait for the Agent to collect data from the OpenMetrics endpoint and send it to SUSE Observability.
 
 {% endtab %}
