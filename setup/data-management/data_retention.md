@@ -99,7 +99,7 @@ In most clusters it's possible to resize a persistent volume after it has been c
 2. Resize the volumes
 3. Update values.yaml and apply change (optional but recommended)
 
-The examples below use the VictoriaMetrics storage as an example. SUSE Observability is installed in the `stackstate` namespace. The volume is going to be resized to 500Gi.
+The examples below use the VictoriaMetrics storage as an example. SUSE Observability is installed in the `suse-observability` namespace. The volume is going to be resized to 500Gi.
 
 ### Verify the storage class supports resizing
 
@@ -107,7 +107,7 @@ Use the following `kubectl` commands to get the storage class used and check tha
 
 ```bash
 # Get the PVC's for SUSE Observability
-kubectl get pvc --namespace stackstate
+kubectl get pvc --namespace suse-observability
 
 # There is a storage class column in the output, copy it and use it to describe the storage class
 kubectl describe storageclass <storage-class-name>
@@ -129,13 +129,13 @@ To change the PVC size use the following commands.
 
 ```bash
 # Get the PVC's for SUSE Observability, allows us to check the current size and copy the name of the PVC to modify it with the next command
-kubectl get pvc --namespace stackstate
+kubectl get pvc --namespace suse-observability
 
 # Patch the PVC's specified size, change it to 500Gi
 kubectl patch pvc server-volume-stackstate-victoria-metrics-0-0 -p '{"spec":{"resources": { "requests": { "storage": "500Gi" }}}}'
 
 # Get the PVC's again to verify if it was resized, depending on the provider this can take a while
-kubectl get pvc --namespace stackstate
+kubectl get pvc --namespace suse-observability
 ```
 
 ### Update values.yaml and apply the change
@@ -152,10 +152,10 @@ Now remove the stateful set for the application(s) for which the storage has bee
 
 ```bash
 # List all stateful sets, check that all are ready, if not please troubleshoot that first
-kubectl get statefulset --namespace stackstate
+kubectl get statefulset --namespace suse-observability
 
 # Delete the 
-kubectl delete statefulset --namespace stackstate stackstate-victoria-metrics-0 --cascade=orphan
+kubectl delete statefulset --namespace suse-observability stackstate-victoria-metrics-0 --cascade=orphan
 ```
 
-Finally [update SUSE Observability](./data_retention.md#update-stackstate) with the new settings.
+Finally [update SUSE Observability](./data_retention.md#update-) with the new settings.
