@@ -32,9 +32,9 @@ env:
 - name: OTEL_DOTNET_AUTO_HOME
   value: "/autoinstrumentation"
 ```
-3. Also add the extra environment variables [to configure the service name and exporter endpoint](./sdk-exporter-config.md) on the pod.
+3. Also add the extra environment variables [to configure the service name and exporter endpoint](./sdk-exporter-config.md) on the pod, supported protocols are gRPC and protobuf over HTTP.
 4. Deploy your application with the changes
-5. [Verify](./verify.md) SUSE Observability is receiving traces and/or metrics
+5. Verify SUSE Observability is receiving traces and/or metrics by searching for the metrics / traces in the metrics / trace explorer for your service name
 
 For more details please refer to the [Open Telemetry documentation](https://opentelemetry.io/docs/languages/java/automatic/). 
 

@@ -6,258 +6,223 @@ description: SUSE Observability
 
 The OpenTelemetry Collector offers a vendor-agnostic implementation to receive, process and export telemetry data. Applications instrumented with Open Telemetry SDKs can use the collector to send telemetry data to SUSE Observability (traces and metrics). 
 
-Your applications, when set up with OpenTelemetry SDKs, can use the collector to send telemetry data, like traces and metrics, straight to SUSE Observability. The collector is set up to receive this data by default via OTLP, the native open telemetry protocol. It can also receive data in other formats provided by other instrumentation SDKs like Jaeger and Zipkin for traces, and Influx and Prometheus for metrics.
+Your applications, when set up with OpenTelemetry SDKs, can use the collector to send telemetry data, like traces and metrics, to SUSE Observability or another collector (for further processing). The collector is set up to receive this data by default via OTLP, the native open telemetry protocol. It can also receive data in other formats provided by other instrumentation SDKs like Jaeger and Zipkin for traces, and Influx and Prometheus for metrics.
 
-Usually, the collector is running close to your application, like in the same Kubernetes cluster, making the process efficient.
+The collector is running close to your application, in the same Kubernetes cluster, on the same virtual machine, etc. This allows SDKs to quickly offload data to the collector, which can then do transformations, batching and filtering. It can be used by multiple applications and allows for easy changes to your data processing pipeline.
 
-For SUSE Observability integration, it's simple: SUSE Observability offers an OTLP endpoint using the gRPC protocol and uses bearer tokens for authentication. This means configuring your OpenTelemetry collector to send data to SUSE Observability is easy and standardized.
+For installation guides use the different [getting started guides](./getting-started/). The getting started guides give provide a basic collector configuration to get started, but over time you'll want to customize it to your needs and add additional receivers, processors, and exporters to customize your ingestion pipeline to your needs.
 
-## Pre-requisites
+## Configuration
 
-1. A Kubernetes cluster with an application that is [instrumented with Open Telemetry](./languages/README.md)
-2. An API key for SUSE Observability
-3. Permissions to deploy the open telemetry collector in a namespace on the cluster (i.e. create resources like deployments and configmaps in a namespace). To be able to enrich the data with Kubernetes attributes permission is needed to create a [cluster role](https://github.com/open-telemetry/opentelemetry-helm-charts/blob/main/charts/opentelemetry-collector/templates/clusterrole.yaml) and role binding.
+The collector configuration defines pipelines for processing the different telemetry signals. The components in the processing pipeline can be divided in several categories, and each component has its own configuration. Here we'll give an overview of the different configuration sections and how to use them.
 
-## Kubernetes configuration and deployment
+### Receivers
 
-To install and configure the collector for usage with SUSE Observability we'll use the [Open Telemetry Collector helm chart](https://opentelemetry.io/docs/kubernetes/helm/collector/) and add the configuration needed for SUSE Observability:
+Receivers accept telemetry data from instrumented applications, here via OTLP:
 
-1. [Configure the collector](#configure-the-collector)
-   1. helm chart configuration
-   2. generating metrics from traces
-   3. sending the data to SUSE Observability
-   4. combine it all together in pipelines
-2. [Create a Kubernetes secret for the SUSE Observability API key](#create-secret-for-the-api-key)
-3. [Deploy the collector](#deploy-the-collector)
-4. [Configure your instrumented applicatins to send telemetry to the collector](#configure-applications)
-
-### Configure the collector
-
-Here is the full values file needed, continue reading below the file for an explanation of the different parts. Or skip ahead to the next step, but make sure to replace:
-* `<otlp-stackstate-endpoint>` with the OTLP endpoint of your SUSE Observability. If, for example, you access SUSE Observability on `play.stackstate.com` the OTLP endpoint is `otlp-play.stackstate.com` for GRPC and `otlp-http-play.stackstate.com` for  HTTP traffic. So simply prefixing `otlp-` or `otlp-http-` to the normal SUSE Observability url will do.
-* `<your-cluster-name>` with the cluster name you configured in SUSE Observability. **This must be the same cluster name used when installing the SUSE Observability agent**. Using a different cluster name will result in an empty traces perspective for Kubernetes components.
-
-{% hint style="warning" %}
-The Kubernetes attributes and the span metrics namespace are required for SUSE Observability to provide full functionality.
-{% endhint %}
-
-{% hint style="info" %}
-The suggested configuration includes tail sampling for traces. Sampling can be fully customized and, depending on your applications and the volume of traces, it may be needed to [change this configuration](#trace-sampling). For example an increase (or decrease) in `max_total_spans_per_second`. It is highly recommended to keep sampling enabled to keep resource usage and cost under control.
-{% endhint %}
-
-{% code title="otel-collector.yaml" lineNumbers="true" %}
 ```yaml
-extraEnvsFrom:
-  - secretRef:
-      name: open-telemetry-collector
-mode: deployment
-image:
-  repository: "otel/opentelemetry-collector-k8s"
-ports:
-  metrics:
-    enabled: true
-presets:
-  kubernetesAttributes:
-    enabled: true
-    extractAllPodLabels: true
-config:
-  extensions:
-    bearertokenauth:
-      scheme: SUSEObservability
-      token: "${env:API_KEY}"
-  exporters:
-    otlp/stackstate:
-      auth:
-        authenticator: bearertokenauth
-      endpoint: <otlp-stackstate-endpoint>:443
-    otlphttp/stackstate:
-       auth:
-          authenticator: bearertokenauth
-       endpoint: https://<otlp--http-stackstate-endpoint>      
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+      http:
+        endpoint: 0.0.0.0:4318
+```
+
+There are many more receivers that accept data via other protocols, for example Zipkin traces, or that actively collect data from various sources, for example:
+* Host metrics
+* Kubernetes metrics
+* Prometheus metrics (OpenMetrics)
+* Databases
+
+Some receivers support all 3 signals (traces, metrics, logs), others support only 1 or 2, for example the Prometheus receiver can only collect metrics. The opentelemetry-collector-contrib repository has [all receivers](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/receiver) with documentation on their configuration.
+
+### Processors
+
+The data from the receivers can be transformed or filtered by processors.
+
+```yaml
+processors:
+  batch: {}
+```
+
+The batch processor batches all 3 signals, improving compression and reducing the number of outgoing connections. The opentelemetry-collector-contrib repository has [all processors](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor) with documentation on their configuration.
+
+### Exporters
+
+To send data to the SUSE Observability backend the collector has exporters. There are exporters for different protocols, push- or pull-based, and different backends. Using the OTLP protocols it is also possible to use another collector as a destination for additional processing.
+
+```yaml
+exporters:
+  otlp/suse-observability:
+    auth:
+      authenticator: bearertokenauth
+    # Put in your own otlp endpoint
+    endpoint: <otlp-suse-observability-endpoint>
+```
+
+The SUSE Observability exporter requires authentication using an api key, to configure that an [authentication extension](#extensions) is used. The opentelemetry-collector-contrib repository has [all exporters](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter) with documentation on their configuration.
+
+### Service pipeline
+
+For each telemetry signal a separate pipeline is configured. The pipelines are configured in the `service.pipeline` section and define which receivers, processors and exporters should be used in which order. Before using a component in the pipeline it must first be defined in its configuration section. The `batch` processor, for example, doesn't have any configuration but still has to be declared in the `processors` section. Components that are configured but are not included in a pipeline will not be active at all.
+
+```yaml
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [memory_limiter, resource, batch]
+      exporters: [debug, spanmetrics, otlp/suse-observability]
+    metrics:
+      receivers: [otlp, spanmetrics, prometheus]
+      processors: [memory_limiter, resource, batch]
+      exporters: [debug, otlp/suse-observability]
+```
+
+### Extensions
+
+Extensions are not used directly in pipelines for processing data but extend the capabilities of the collector in other ways. For SUSE Observability it is used to configure the authentication using an api key. Extensions must be defined in a configuration section before they can be used. Similar to the pipeline components an extension is only active when it is enabled in the `service.extensions` section.
+
+```yaml
+extensions:
+  bearertokenauth:
+    scheme: SUSEObservability
+    token: "${env:API_KEY}"
+service:
+  extensions: [ bearertokenauth ]
+```
+
+The opentelemetry-collector-contr ib repository has [all extensions](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/extension) with documentation on their configuration.
+
+## Transforming telemetry
+
+There are many processors in the [opentelemetry-collector-contrib repository](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor). Here we try to give an overview of commonly used processors and their capabilities. For more details and many more processors use the [opentelemetry-collector-contrib repository](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor).
+
+### Filtering
+
+Some instrumentations or applications may generate a lot of telemetry data that is just noisy and unneeded for your use-case. The [filter processor](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/filterprocessor) can be used to drop the data that you don't need in the collector, to avoid sending the data to SUSE Observability. For example to drop all the data of 1 specific service:
+
+```yaml
+processors:
+  filter/ignore-service1:
+    error_mode: ignore
+    traces:
+      span:
+        - resource.attributes["service.name"] == "service1"
+```
+
+The filter processor uses the [Open Telemetry Transformation Lanuage (OTTL)](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/pkg/ottl/README.md) to define the filters.
+
+### Adding, modifying or deleting attributes
+
+The [attributes processor](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/attributesprocessor) can change attributes of spans, logs or metrics. 
+
+```yaml
+processors:
+  attributes/accountid:
+    actions:
+      - key: account_id
+        value: 2245
+        action: insert
+```
+
+The [resource attributes processor]() can modify attributes of a [resource](concepts.md#resources). For example to add a Kubernetes cluster name to every resource:
+
+```yaml
   processors:
-    tail_sampling:
-      decision_wait: 10s
-      policies:
-      - name: rate-limited-composite
-        type: composite
-        composite:
-          max_total_spans_per_second: 500
-          policy_order: [errors, slow-traces, rest]
-          composite_sub_policy:
-          - name: errors
-            type: status_code
-            status_code: 
-              status_codes: [ ERROR ]
-          - name: slow-traces
-            type: latency
-            latency:
-              threshold_ms: 1000
-          - name: rest
-            type: always_sample
-          rate_allocation:
-          - policy: errors
-            percent: 33
-          - policy: slow-traces
-            percent: 33
-          - policy: rest
-            percent: 34
-    resource:
+    resource/add-k8s-cluster:
       attributes:
       - key: k8s.cluster.name
         action: upsert
-        value: <your-cluster-name>
-      - key: service.instance.id
-        from_attribute: k8s.pod.uid
-        action: insert
-      - key: service.namespace
-        from_attribute: k8s.namespace.name
-        action: insert
-    filter/dropMissingK8sAttributes:
-      error_mode: ignore
-      traces:
-        span:
-          - resource.attributes["k8s.node.name"] == nil
-          - resource.attributes["k8s.pod.uid"] == nil
-          - resource.attributes["k8s.namespace.name"] == nil
-          - resource.attributes["k8s.pod.name"] == nil
-  connectors:
-    spanmetrics:
-      metrics_expiration: 5m
-      namespace: otel_span
-    routing/traces:
-      error_mode: ignore
-      table: 
-      - statement: route()
-        pipelines: [traces/sampling, traces/spanmetrics]
-  service:
-    extensions:
-      - health_check
-      - bearertokenauth
-    pipelines:
-      traces:
-        receivers: [otlp]
-        processors: [filter/dropMissingK8sAttributes, memory_limiter, resource]
-        exporters: [routing/traces]
-      traces/spanmetrics:
-        receivers: [routing/traces]
-        processors: []
-        exporters: [spanmetrics]
-      traces/sampling:
-        receivers: [routing/traces]
-        processors: [tail_sampling, batch]
-        exporters: [debug, otlp/stackstate]
-      metrics:
-        receivers: [otlp, spanmetrics, prometheus]
-        processors: [memory_limiter, resource, batch]
-        exporters: [debug, otlp/stackstate]
+        value: my-k8s-cluster
 ```
-{% endcode %}
 
-The `config` section customizes the collector config itself and is discussed in the next section. The other parts are:
+For changing metric names and other metric specific information there is also the [metrics transformer](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/metricstransformprocessor).
 
-* `extraEnvsFrom`: Sets environment variables from the specified secret, in the next step this secret is created for storing the SUSE Observability API key (Receiver / [Ingestion API Key](../../use/security/k8s-ingestion-api-keys.md))
-* `mode`: Run the collector as a Kubernetes deployment, when to use the other modes is discussed [here](https://opentelemetry.io/docs/kubernetes/helm/collector/).
-* `ports`: Used to enable the metrics port such that the collector can scrape its own metrics
-* `presets`: Used to enable the default configuration for adding Kubernetes metadata as attributes, this includes Kubernetes labels and metadata like namespace, pod, deployment etc. Enabling the metadata also introduces the cluster role and role binding mentioned in the pre-requisites.
+### Transformations
 
-#### Configuration
+The [transform processor](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/transformprocessor) can be used to, for example, set a span status:
 
-The `service` section determines what components of the collector are enabled. The configuration for those components comes from the other sections (extensions, receivers, connectors, processors and exporters). The `extensions` section enables:
-* `health_check`, doesn't need additional configuration but adds an endpoint for Kubernetes liveness and readiness probes
-* `bearertokenauth`, this extension adds an authentication header to each request with the SUSE Observability API key. In its configuration, we can see it is getting the SUSE Observability API key from the environment variable `API_KEY`.
+```yaml
+processors:
+  transform:
+    error_mode: ignore
+    trace_statements:
+      - set(span.status.code, STATUS_CODE_OK) where span.attributes["http.request.status_code"] == 400
+```
 
-The `pipelines` section defines pipelines for the traces and metrics. The metrics pipeline defines:
-* `receivers`, to receive metrics from instrumented applications (via the OTLP protocol, `otlp`), from spans (the `spanmetrics` connector) and by scraping Prometheus endpoints (the `prometheus` receiver). The latter is configured by default in the collector Helm chart to scrape the collectors own metrics
-* `processors`: The `memory_limiter` helps to prevent out-of-memory errors. The `batch` processor helps better compress the data and reduce the number of outgoing connections required to transmit the data. The `resource` processor adds additional resource attributes (discussed separately)
-* `exporters`: The `debug` exporter simply logs to stdout which helps when troubleshooting. The `otlp/stackstate` exporter sends telemetry data to SUSE Observability using the OTLP protocol via GRPC (Default). The `otlphttp/stackstate` exporter sends telemetry data to SUSE Observability using the OTLP protocol via HTTP and is meant to be used where there area some impediments to use the GRPC one (needs to be activated in the pipelines). Both OTLP exporters are configured to use the bearertokenauth extension for authentication to send data to the SUSE Observability OTLP endpoint.
+It supports many more transformations, like modifying the span name, converting metric types or modifying log events. See it's [readme](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/transformprocessor) for all the possibilities. It uses the [Open Telemetry Transformation Lanuage (OTTL)](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/pkg/ottl/README.md) to define the filters.
 
-For traces, there are 3 pipelines that are connected:
-* `traces`: The pipeline that receives traces from SDKs (via the `otlp` receiver) and does the initial processing using the same processors as for metrics. It exports into a router which routes all spans to both other traces pipelines. This setup makes it possible to calculate span metrics for all spans while applying sampling to the traces that are exported.
-* `traces/spanmetrics`: Use the `spanmetrics` connector as an exporter to generate metrics from the spans  (`otel_span_duration` and `otel_span_calls`). It is configured to not report time series anymore when no spans have been observed for 5 minutes. SUSE Observability expects the span metrics to be prefixed with `otel_span_`, which is taken care of by the `namespace` configuration.
-* `traces/sampling`: The pipeline that exports traces to SUSE Observability using the OTLP protocol, but uses the tail sampling processor to make the trace volume that is sent to SUSE Observability predictable to keep the cost predictable as well. Sampling is discussed in a [separate section](#trace-sampling).
+## Scrub sensistive data
 
-The `resource` processor is configured for both metrics and traces. It adds extra resource attributes:
+The collector is the ideal place to remove or obfuscate sensitive data, because it sits right between your applications and SUSE Observability and has processors to [filter and transform your data](#transforming-telemetry). Next to the filtering and transformation capabilities already discussed there is also a [redaction processor](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/redactionprocessor) available that can mask attribute values that match a block list. It can also remove attributes that don't match a specified list of allowed attributes, however using this can quickly result in dropping most attributes resulting in very limited observability capabilities. Note that it does not process resource attributes.
 
-* The `k8s.cluster.name` is added by providing the cluster name in the configuration. SUSE Observability needs the cluster name and Open Telemetry does not have a consistent way of determining it. Because some SDKs, in some environments, provide a cluster name that does not match what SUSE Observability expects the cluster name is an `upsert` (overwrites any pre-existing value).
-* The `service.instance.id` is added based on the pod uid. It is recommended to always provide a service instance id, and the pod uid is an easy way to get a unique identifier if the SDKs don't provide one.
+An example that only masks specific attributes and/or values:
 
-#### Trace Sampling
+```yaml
+processors:
+  redaction:
+    allow_all_keys: true
+    # attributes matching the regexes on the list are masked.
+    blocked_key_patterns:
+      - ".*token.*"
+      - ".*api_key.*"
+    blocked_values: # Regular expressions for blocking values of allowed span attributes
+      - '4[0-9]{12}(?:[0-9]{3})?' # Visa credit card number
+      - '(5[1-5][0-9]{14})' # MasterCard number
+    summary: debug
+```
 
-It is highly recommended to use sampling for traces:
+## Trying out the collector
 
-* To manage resource usage by only processing and storing the most relevant traces
-* To manage costs and have predictable costs
-* To reduce noise and focus on the important traces only, for example by filtering out health checks
-
-There are 2 approaches for sampling, head sampling and tail sampling. This [Open Telemetry docs page](https://opentelemetry.io/docs/concepts/sampling/) discusses the pros and cons of both approaches in detail. The collector configuration provided here uses tail sampling to support these requirements:
-
-1. Have predictable cost by having a predictable trace volume
-2. Have a large sample of all errors
-3. Have a large sample of all slow traces
-4. Have a sample of all other traces to see the normal application behavior
-
-Criteria 2 and 3 can only be fulfilled by tail sampling. Let's look at the sampling policies used in the configuration of the tail sampler now:
-
-* There is only one top-level policy, it is a `composite` policy. It uses a rate limit, allowing at most 500 traces per second, giving a predictable trace volume. It uses other policies as sub-policies to make the actual sampling decissions.
-* The `errors` policy is of type `status_code` and is configured to only sample traces that contain errors. 33% of the rate limit is reserved for errors, via the `rate_allocation` section of the composite policy.
-* The `slow-traces` policy is of type `latency` and filters all traces slower than 1 second. 33% of the rate limits is reserved for the slow traces.
-* The `rest` policy is of the `always_sample` type. It will sample all traces until it hits the rate limit enforced by the composite policy, which is 34% of the total rate limit of 500 traces.
-
-There are many more policies available that can be added to the configuration when needed. For example, it is possible to filter traces based on certain attributes (only for a specific application or customer). The tail sampler can also be replaced with the probabilistic sampler. For all configuration options please use the documentation of these processors:
-* [Tail sampling](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/tailsamplingprocessor)
-* [Probabilistic sampling](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/probabilisticsamplerprocessor)
-
-### Create a secret for the API key
-
-The collector needs a Kubernetes secret with the SUSE Observability API key. Create that in the same namespace (here we are using the `open-telemetry` namespace) where the collector will be installed (replace `<stackstate-api-key>` with your API key):
+The getting started guides show how to deploy the collector to Kubernetes or using Linux packages for a production ready setup. It is also possible to run it, for example for tests, directly as a docker container to try it out:
 
 ```bash
-kubectl create secret generic open-telemetry-collector \
-    --namespace open-telemetry \
-    --from-literal=API_KEY='<stackstate-api-key>' 
+docker run \
+  -p 127.0.0.1:4317:4317 \
+  -p 127.0.0.1:4318:4318 \
+  -v $(pwd)/config.yaml:/etc/otelcol-contrib/config.yaml \
+  otel/opentelemetry-collector-contrib:latest
 ```
 
-SUSE Observability supports two types of keys:
-- Receiver API Key
-- Ingestion API Key
-
-#### Receiver API Key
-
-You can find the API key for SUSE Observability on the Kubernetes Stackpack installation screen:
-
-1. Open SUSE Observability
-2. Navigate to StackPacks and select the Kubernetes StackPack
-3. Open one of the installed instances
-4. Scroll down to the first set of installation instructions. It shows the API key as `STACKSTATE_RECEIVER_API_KEY` in text and as `'stackstate.apiKey'` in the command.
-
-#### Ingestion API Key
-
-SUSE Observability supports creating multiple Ingestion Keys. This allows you to assign a unique key to each OpenTelemetry Collector for better security and access control.
-For instructions on generating an Ingestion API Key, refer to the [documentation page](../../use/security/k8s-ingestion-api-keys.md).
-
-### Deploy the collector
-
-To deploy the collector first make sure you have the Open Telemetry helm charts repository configured:
+This uses the collector contrib image which includes all contributed components (receivers, processors, etc.). A smaller, more limited version of the image is also available, but it has only a very limited set of components available: 
 
 ```bash
-helm repo add open-telemetry https://open-telemetry.github.io/opentelemetry-helm-charts
+docker run \
+  -p 127.0.0.1:4317:4317 \
+  -p 127.0.0.1:4318:4318 \
+  -v $(pwd)/config.yaml:/etc/otelcol/config.yaml \
+  otel/opentelemetry-collector:latest
 ```
 
-Now install the collector, using the configuration defined in the previous steps:
+Note that the Kubernetes installation defaults to the Kubernetes distribution of the collector image, `otel/opentelemetry-collector-k8s`, which has more components than the basic image, but less than the contrib image. If you run into missing components with that image you can simply switch it to use the contrib image , `otel/opentelemetry-collector-contrib`, instead.
 
-```bash
-helm upgrade --install opentelemetry-collector open-telemetry/opentelemetry-collector \
-  --values otel-collector.yaml \
-  --namespace open-telemetry
+# Troubleshooting
+
+## HTTP Requests from the exporter are too big
+
+In some cases HTTP requests for telemetry data can become very large and may be refused by SUSE Observability . SUSE Observability has a limit of 4MB for the gRPC protocol. If you run into HTTP requests limits you can lower the requests size by changing the compression algorithm and limiting the maximum batch size.
+
+### HTTP request compression
+
+The getting started guides enable `snappy` compression on the collector, this is not the best compression but uses less CPU resources than `gzip`. If you removed the compression you can enable it again, or you can switch to a compression algorithm that offers a better [compression ratio](https://github.com/open-telemetry/opentelemetry-collector/blob/main/config/configgrpc/README.md#compression-comparison). 
+
+### Max batch szie
+
+To reduce the HTTP request size can be reduced by adding configuration to the `batch` processor limiting the batch size:
+
+```yaml
+processor:
+  batch:
+    send_batch_size: 8192 # This is the default value
+    send_batch_max_size: 10000 # The default is 0, meaning no max size at all
 ```
 
-### Configure applications
+The batch size is defined in number of spans, metric data points, or log records (not in bytes), so you might need some experimentation to find the correct setting for your situation. For more details please refer to the [batch processor documentation](https://github.com/open-telemetry/opentelemetry-collector/blob/main/processor/batchprocessor/README.md).
 
-The collector as it is configured now is ready to receive and send telemetry data. The only thing left to do is to update the SDK configuration for your applications to send their telemetry via the collector to the agent.
-
-Use the [generic configuration for the SDKs](./languages/sdk-exporter-config.md) to export data to the collector. Follow the [language-specific instrumentation instructions](./languages/README.md) to enable the SDK for your applications.
-
-## Related resources
+# Related resources
 
 The Open Telemetry documentation provides much more details on the configuration and alternative installation options:
 
