@@ -23,6 +23,7 @@ Note that setting up TLS is required for the use of the rancher UI extension.
 ```text
 ingress:
   enabled: true
+  ingressClassName: nginx
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: "50m"
   hosts:
@@ -33,7 +34,9 @@ ingress:
       secretName: tls-secret
 ```
 
-The thing that stands out in this file is the Nginx annotation to increase the allowed `proxy-body-size` to `50m` \(larger than any expected request\). By default, Nginx allows body sizes of maximum `1m`. SUSE Observability Agents and other data providers can sometimes send much larger requests. For this reason, you should make sure that the allowed body size is large enough, regardless of whether you are using Nginx or another ingress controller. Make sure to update the `baseUrl` in the values file generated during initial installation, it will be used by SUSE Observability to generate convenient installation instructions for the agent.
+What stands out in this file is the Nginx annotation to increase the allowed `proxy-body-size` to `50m` \(larger than any expected request\). By default, Nginx allows body sizes of maximum `1m`. SUSE Observability Agents and other data providers can sometimes send much larger requests. For this reason, you should make sure that the allowed body size is large enough, regardless of whether you are using Nginx or another ingress controller. Make sure to update the `baseUrl` in the values file generated during initial installation, it will be used by SUSE Observability to generate convenient installation instructions for the agent.
+
+The example uses the `ingressClassName` field to specify the [ingress class](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class) instead of the deprecated `kubernetes.io/ingress.class` annotation. If your cluster has a default ingress class defined the ingerss class name field can be omitted.
 
 Include the `ingress_values.yaml` file when you run the `helm upgrade` command to deploy SUSE Observability:
 
@@ -62,6 +65,7 @@ To configure the `opentelemetry-collector` ingress for SUSE Observability, creat
 opentelemetry-collector:
   ingress:
     enabled: true
+    ingressClassName: nginx
     annotations:
       nginx.ingress.kubernetes.io/proxy-body-size: "50m"
       nginx.ingress.kubernetes.io/backend-protocol: GRPC
@@ -91,7 +95,9 @@ opentelemetry-collector:
               secretName: otlp-http-tls-secret        
 ```
 
-The thing that stands out in this file is the Nginx annotation to increase the allowed `proxy-body-size` to `50m` \(larger than any expected request\). By default, Nginx allows body sizes of maximum `1m`. SUSE Observability Agents and other data providers can sometimes send much larger requests. For this reason, you should make sure that the allowed body size is large enough, regardless of whether you are using Nginx or another ingress controller. Make sure to update the `baseUrl` in the values file generated during initial installation, it will be used by SUSE Observability to generate convenient installation instructions for the agent.
+What stands out in this file is the Nginx annotation to increase the allowed `proxy-body-size` to `50m` \(larger than any expected request\). By default, Nginx allows body sizes of maximum `1m`. SUSE Observability Agents and other data providers can sometimes send much larger requests. For this reason, you should make sure that the allowed body size is large enough, regardless of whether you are using Nginx or another ingress controller. Make sure to update the `baseUrl` in the values file generated during initial installation, it will be used by SUSE Observability to generate convenient installation instructions for the agent.
+
+The example uses the `ingressClassName` field to specify the [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class) instead of the deprecated `kubernetes.io/ingress.class` annotation. If your cluster has a default ingress class defined the ingerss class name field can be omitted.
 
 Include the `ingress_otel_values.yaml` file when you run the `helm upgrade` command to deploy SUSE Observability:
 
