@@ -12,6 +12,10 @@ The defaults for those storage classes are typically to delete the PV \(persiste
 
 To remove the PVC's either remove them manually with `kubectl delete pvc` or delete the entire namespace.
 
+{% hint style="info" %}
+For production environments, NFS is not recommended and supported for storage provisioning in SUSE Observability due to the potential risk of data corruption.
+{% endhint %}
+
 ## Customize storage
 
 You can customize the `storageClass` and `size` settings for different volumes in the Helm chart. These example values files show how to change the storage class or the volume size. These can be merged to change both at the same time.
