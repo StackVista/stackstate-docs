@@ -124,6 +124,8 @@
   * [Slack notifications](setup/configure-stackstate/slack-notifications.md)
   * [E-mail notifications](setup/configure-stackstate/email-notifications.md)
   * [Stackpacks](stackpacks/about-stackpacks.md)
+  * [Advanced](advanced/index.md)
+    * [Analytics](advanced/analytics.md)
 * [Release Notes](setup/release-notes/README.md)
   * [v2.0.0 - 11/Sep/2024](setup/release-notes/v2.0.0.md)
   * [v2.0.1 - 18/Sep/2024](setup/release-notes/v2.0.1.md)
