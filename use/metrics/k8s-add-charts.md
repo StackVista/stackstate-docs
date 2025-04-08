@@ -47,15 +47,12 @@ nodes:
       alias:
   scope:
   layout:
-    weight:
-    layouts:
-      - pespective: Metrics
-        tab: 
-          name: 
-          weight:
-        section: 
-          name:
-          weight:
+    metricPerspective:
+      tab:
+      section:
+      weight:
+    componentSummary:
+      weight:
 ```
 
 The fields in this template are:
@@ -294,21 +291,17 @@ Any MetricsBinding without a specified layout will be displayed in a tab and sec
 Here is an example configuration:
 ```
 layout:
-  weight: 100
-  layouts:
-    - perspective: Metrics
-      tab:
-        name: AMQP
-        weight: 150
-      section:
-        name: Performance
-        weight: 300
+  metricPerspective:
+    tab: Kubernetes Pod
+    section: Performance
+    weight: 2
+  componentSummary:
+    weight: 2
 ```
-
 Fields:
-- `layout.weight` - This represents the weight of the chart within sections. The charts are sorted in ascending order by weight, followed by alphabetical order.
-- `layout.layouts` -  (array) This allows each chart to be added to multiple views (perspectives).
-- `layout.layouts.perspective` - This is the type of perspective to display the chart. Currently, only the `Metrics` perspective is supported. 
-  - `Metrics` - display on [Metrics perspective](/use/views/k8s-metrics-perspective.md)
-- `layout.layouts.tab` - This indicates the tab `name` and its `weight`. Tabs are sorted ascending by weight (the lowest one from all `MetricBinding`), followed by alphabetical order.
-- `layout.layouts.section` - This is the section `name` and its `weight`. Sections are sorted alphabetically.
+- `layout.metricPerspective` - Defines metrics to display on `Metrics Perspective`. Metrics are grouped into tabs and then sections.
+- `layout.metricPerspective.tab` - Tab name. Tabs are sorted alphabetically.
+- `layout.metricPerspective.section` - Section name. Sections are sorted alphabetically.
+- `layout.metricPerspective.weight` - Metrics within a section are sorted primarily by weight (ascending) and secondarily by name (alphabetical).
+- `layout.componentSummary` - Specifies metrics to display in the `Components details` sidebar upon component selection. Charts appear only when this property is defined.
+- `layout.componentSummary.weight` - This represents the weight of the chart. Charts are sorted in ascending order by weight and then displays first 3 charts.
