@@ -31,7 +31,7 @@ SUSE Cloud Observability uses StackPacks in order to make it easier to configure
 
 Initially you should be taken to the following screen, to get here, in the SUSE Observability UI, open the main menu by clicking in the top left of the screen and go to `StackPacks` > `Kubernetes`.
 
-![SUSE Cloud Observability - StackPacks](resources/screenshots/integrating_first_cluster_stackpacks.png)
+![SUSE Cloud Observability - StackPacks](/.gitbook/assets/integrating_first_cluster_stackpacks.png)
 
 Once you are in the Kubernetes StackPack screen, it is very simple to add a cluster to the observability environment.
 
@@ -41,7 +41,7 @@ The Kubernetes cluster name must start and end with a lower case letter or digit
 
 Enter the name and click the `Install` button.  This should take you to the following screen with the cluster flagged as 'Waiting for data'
 
-![SUSE Cloud Observability - Adding A Cluster](resources/screenshots/integrating_first_cluster_eks.png)
+![SUSE Cloud Observability - Adding A Cluster](/.gitbook/assets/integrating_first_cluster_eks.png)
 
 Click on the cluster name, this will expand this section and reveal a series of information including prerequisits and commands which can be used on your existing clusters to add them to your observability environment.
 
@@ -53,7 +53,7 @@ These commands will install the SUSE Cloud Obervability agents and connect the c
 
 You can use the commands directly from the UI or you can deploy to your downstream clusters by following the commands provided in the 'Deploy the StackState Agent and Cluster Agent' section in the [quick-start guide](k8s-quick-start-guide.md)
 
-![SUSE Cloud Observability - Post Install](resources/screenshots/integrating_first_cluster_eks_after_agent_install.png)
+![SUSE Cloud Observability - Post Install](/.gitbook/assets/integrating_first_cluster_eks_after_agent_install.png)
 
 After the the cluster has been connected, there should be a green tick in the SUSE Cloud Observability UI.
 
@@ -67,11 +67,11 @@ Step 4 from your email is to update your personal information.  Click the unique
 
 To start exploring your data, open the main menu by clicking in the top left of the screen and go to `Kubernetes` to reveal a list of observable items.
 
-![SUSE Cloud Observability - Exploring Your Data](resources/screenshots/accessing_views_1.png)
+![SUSE Cloud Observability - Exploring Your Data](/.gitbook/assets/accessing_views_1.png)
 
 Select 'Clusters' from the infrastructure section which should show a list of monitored clusters, select your cluster to reveal one of the many built in views.
 
-![SUSE Cloud Observability - Cluster View](resources/screenshots/accessing_views_2.png)
+![SUSE Cloud Observability - Cluster View](/.gitbook/assets/accessing_views_2.png)
 
 At this point you can start exploring the data for your cluster or add more clusters from which to gather data. 
 
