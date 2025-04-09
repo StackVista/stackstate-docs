@@ -55,6 +55,10 @@ For installation of SUSE Observability please follow the installation instructio
 
 SUSE Observability uses persistent volume claims for the services that need to store data. The default storage class for the cluster will be used for all services unless this is overridden by values specified on the command line or in a `values.yaml` file. All services come with a pre-configured volume size that should be good to get you started, but can be customized later using variables as required.
 
+{% hint style="info" %}
+For production environments, NFS is not recommended and supported for storage provisioning in SUSE Observability due to the potential risk of data corruption.
+{% endhint %}
+
 For our different installation profiles, the following are the defaulted storage requirements:
 
 | | trial | 10 non-HA | 20 non-HA | 50 non-HA | 100 non-HA | 150 HA | 250 HA | 500 HA | 4000 HA
