@@ -101,9 +101,9 @@ This is an UI extension to Rancher Manager that integrates the health signals ob
 
 SUSE Observability server should be installed in its own downstream cluster intended for Observability. See the below picture for reference.
 
-For StackState to be able to work properly it needs:
+For SUSE Observability to be able to work properly it needs:
 * [Kubernetes Persistent Storage](https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/manage-clusters/create-kubernetes-persistent-storage) to be available in the observability cluster to store metrics, events, etc.
-* the observability cluster to support a way to expose StackState on an HTTPS URL to Rancher, StackState users and the StackState agent. This can be done via an Ingress configuration using an ingress controller, alternatively a (cloud) loadbalancer for the StackState services could do this too, for more information see the [Rancher docs](https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/kubernetes-resources-setup/load-balancer-and-ingress-controller).
+* the observability cluster to support a way to expose SUSE Observability on an HTTPS URL to Rancher, SUSE Observability users and the SUSE Observability agent. This can be done via an Ingress configuration using an ingress controller, alternatively a (cloud) loadbalancer for the SUSE Observability services could do this too, for more information see the [Rancher docs](https://ranchermanager.docs.rancher.com/how-to-guides/new-user-guides/kubernetes-resources-setup/load-balancer-and-ingress-controller).
 
 ![Architecture](/.gitbook/assets/k8s/prime/SUSEObservabilityDeployment.png)
 
