@@ -109,6 +109,9 @@ config:
       - key: service.instance.id
         from_attribute: k8s.pod.uid
         action: insert
+      - key: service.namespace
+        from_attribute: k8s.namespace.name
+        action: insert
     filter/dropMissingK8sAttributes:
       error_mode: ignore
       traces:
