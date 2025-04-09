@@ -10,6 +10,7 @@
 * [SUSE Rancher Prime](k8s-suse-rancher-prime.md)
   * [Air-gapped](k8s-suse-rancher-prime-air-gapped.md)
   * [Agent Air-gapped](k8s-suse-rancher-prime-agent-air-gapped.md)
+* [SUSE Cloud Observability](suse-cloud-observability-quick-start-guide.md)
 
 ## 🦮 Guided troubleshooting
 
