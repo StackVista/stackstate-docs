@@ -230,7 +230,7 @@ sts service-token create --name suse-observability-extension --roles stackstate-
 |----------------------|---------------------------|
 | 0.x.x                | 2.8                       |
 | 1.x.x                | 2.9                       |
-| 2.x.x                | 2.10                      |
+| 2.x.x                | 2.10 <br> 2.11            |
 
 ## Installing the SUSE Observability Agent
 
