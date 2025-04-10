@@ -3,13 +3,13 @@
 # comments on changes are added as a review on the PR by the github-actionsbot
 
 name: brokenlink-checker
-on: [push]
+on: [pull_request]
 
 jobs:
   broken-link-checker:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: Run brokenlink checker
-      run: python .github/scripts/brokenlinks.py
-      shell: sh
+      - uses: actions/checkout@v4
+      - name: Run brokenlink checker
+        run: python .github/scripts/brokenlinks.py
+        shell: sh
