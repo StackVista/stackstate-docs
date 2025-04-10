@@ -2,7 +2,7 @@
 description: SUSE Observability
 ---
 
-# Teams 
+# Teams
 
 ## Configure Teams notifications
 
@@ -18,16 +18,14 @@ In Teams, create a new Flow from the "Webhook" template.
 
 Select the Team and Channel you want the notification pasted to and save the flow.
 
-Edit the flow and click the "When a Teams webhook request is received" box.  
+Edit the flow and click the "When a Teams webhook request is received" box.
 Copy the HTTP URL parameter.
 
 ![Select URL from Flow](/.gitbook/assets/k8s/notifications-teams-select-url.png)
 
-{% hint style="info" %}
-
 ## Add and test the channel
 
-![Configure Teams Channe](/.gitbook/assets/k8s/configure-teams-channel.png)
+![Configure Teams Channel](/.gitbook/assets/k8s/configure-teams-channel.png)
 
 Back in SUSE Observability you can now use the Webhook URL to create a notification channel.
 
