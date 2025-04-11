@@ -32,6 +32,7 @@
   * [Troubleshooting](use/alerting/notifications/troubleshooting.md)
 * [Customize](dynamic/customize-alerting.md)
   * [Add a monitor using the CLI](use/alerting/k8s-add-monitors-cli.md)
+  * [Derived State monitor](use/alerting/k8s-derived-state-monitors.md)
   * [Override monitor arguments](use/alerting/k8s-override-monitor-arguments.md)
   * [Write a remediation guide](use/alerting/k8s-write-remediation-guide.md)
 
