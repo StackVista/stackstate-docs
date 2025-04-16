@@ -37,13 +37,13 @@ The collector provides packages (apk, deb and rpm) for most Linux versions and a
 {% tab title="DEB AMD64" %}
 ```bash
 wget https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.123.1/otelcol-contrib_0.123.1_linux_amd64.deb
-sudo dpkg -1 otelcol-contrib_0.123.1_linux_amd64.deb
+sudo dpkg -i otelcol-contrib_0.123.1_linux_amd64.deb
 ```
 {% endtab %}
 {% tab title="DEB ARM64" %}
 ```bash
 wget https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.123.1/otelcol-contrib_0.123.1_linux_arm64.deb
-sudo dpkg -1 otelcol-contrib_0.123.1_linux_arm64.deb
+sudo dpkg -i otelcol-contrib_0.123.1_linux_arm64.deb
 ```
 {% endtab %}
 {% tab title="RPM ARM64" %}
@@ -62,7 +62,7 @@ sudo rpm -iv1 otelcol-contrib_0.123.1_linux_arm64.rpm
 
 For other installation options use the [Open Telemetry instructions](https://opentelemetry.io/docs/collector/installation/#linux).
 
-After installation modify the collector configuration by editing `/etc/otelcol/config.yaml`. Change the file such that it looks like the `config.yaml` example here, replace `<otlp-suse-observability-endpoint>` with your OTLP endpoint (see [OTLP API](../otlp-apis.md) for your endpoint) and insert your receiver api key (see [here](/use/security/k8s-ingestion-api-keys.md#api-keys) where to find it) for `<<receiver-api-key>`:
+After installation modify the collector configuration by editing `/etc/otelcol/config.yaml`. Change the file such that it looks like the `config.yaml` example here, replace `<otlp-suse-observability-endpoint>` with your OTLP endpoint (see [OTLP API](../otlp-apis.md) for your endpoint) and insert your receiver api key for `<receiver-api-key>` (see [here](/use/security/k8s-ingestion-api-keys.md#api-keys) where to find it):
 
 {% code title="config.yaml" lineNumbers="true" %}
 ```yaml

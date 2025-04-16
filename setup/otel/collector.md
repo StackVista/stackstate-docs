@@ -55,14 +55,35 @@ To send data to the SUSE Observability backend the collector has exporters. Ther
 
 ```yaml
 exporters:
+  # The gRPC otlp exporter
   otlp/suse-observability:
     auth:
       authenticator: bearertokenauth
     # Put in your own otlp endpoint
     endpoint: <otlp-suse-observability-endpoint>
+    # Use snappy compression, if no compression specified the data will be uncompressed
+    compression: snappy
 ```
 
 The SUSE Observability exporter requires authentication using an api key, to configure that an [authentication extension](#extensions) is used. The opentelemetry-collector-contrib repository has [all exporters](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter) with documentation on their configuration.
+
+If the gRPC exporter doesn't work for you (see also [troubleshooting](./troubleshooting.md#some-proxies-and-firewalls-dont-work-well-with-grpc)), you can switch to the, slightly less efficient, OTLP over HTTP protocol by using the `otlphttp` exporter instead. Replace all references to `otlp/suse-observability` with `otlphttp/suse-observability` (don't forget the references in the pipelines) and make sure to update the exporter config to:
+
+```yaml
+exporters:
+  # The gRPC otlp exporter
+  otlphttp/suse-observability:
+    auth:
+      authenticator: bearertokenauth
+    # Put in your own otlp HTTP endpoint
+    endpoint: <otlp-http-suse-observability-endpoint>
+    # Use snappy compression, if no compression specified the data will be uncompressed
+    compression: snappy
+```
+
+{% hint type="warning" %}
+The OTLP HTTP endpoint for SUSE Observability is different from the OTLP endpoint. Use the [OTLP APIs](./otlp-apis.md) to find the correct URL.
+{% endhint %}
 
 ### Service pipeline
 
@@ -207,7 +228,7 @@ In some cases HTTP requests for telemetry data can become very large and may be 
 
 ### HTTP request compression
 
-The getting started guides enable `snappy` compression on the collector, this is not the best compression but uses less CPU resources than `gzip`. If you removed the compression you can enable it again, or you can switch to a compression algorithm that offers a better [compression ratio](https://github.com/open-telemetry/opentelemetry-collector/blob/main/config/configgrpc/README.md#compression-comparison). 
+The getting started guides enable `snappy` compression on the collector, this is not the best compression but uses less CPU resources than `gzip`. If you removed the compression you can enable it again, or you can switch to a compression algorithm that offers a better [compression ratio](https://github.com/open-telemetry/opentelemetry-collector/blob/main/config/configgrpc/README.md#compression-comparison). The same compression types are available for gRPC and HTTP protocols.
 
 ### Max batch size
 
