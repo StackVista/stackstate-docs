@@ -28,11 +28,12 @@ First we'll install the OTel (Open Telemetry) collector in cluster A. We configu
 
 Next to that it will also retry sending data when there are a connection problems.
 
-### Create a secret for the API key
+### Create the namespace and a secret for the API key
 
-We'll use the receiver API key generated during installation (see [here](/use/security/k8s-ingestion-api-keys.md#api-keys) where to find it):
+We'll install in the `open-telemetry` namespace and use the receiver API key generated during installation (see [here](/use/security/k8s-ingestion-api-keys.md#api-keys) where to find it):
 
 ```bash
+kubectl create namespace open-telemetry
 kubectl create secret generic open-telemetry-collector \
     --namespace open-telemetry \
     --from-literal=API_KEY='<suse-observability-api-key>' 
@@ -92,7 +93,7 @@ config:
       check_interval: 5s
       limit_percentage: 80
       spike_limit_percentage: 25
-    batch:
+    batch: {}
     resource:
       attributes:
       - key: k8s.cluster.name
