@@ -209,13 +209,13 @@ In some cases HTTP requests for telemetry data can become very large and may be 
 
 The getting started guides enable `snappy` compression on the collector, this is not the best compression but uses less CPU resources than `gzip`. If you removed the compression you can enable it again, or you can switch to a compression algorithm that offers a better [compression ratio](https://github.com/open-telemetry/opentelemetry-collector/blob/main/config/configgrpc/README.md#compression-comparison). 
 
-### Max batch szie
+### Max batch size
 
 To reduce the HTTP request size can be reduced by adding configuration to the `batch` processor limiting the batch size:
 
 ```yaml
 processor:
-  batch:
+  batch: {}
     send_batch_size: 8192 # This is the default value
     send_batch_max_size: 10000 # The default is 0, meaning no max size at all
 ```

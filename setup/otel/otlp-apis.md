@@ -10,16 +10,16 @@ SUSE Observability supports 2 versions of the OTLP protocol, the `grpc` version 
 
 The endpoints for SUSE Cloud Observability are:
 
-* OTLP: https://otlp-<your-suse-observabillity>.app.stackstate.com:443
-* OTLP over HTTP: https://otlp-http-<your-suse-observabillity>.app.stackstate.com
+* OTLP: `https://otlp-<your-suse-observabillity>.app.stackstate`.com:443
+* OTLP over HTTP: `https://otlp-http-<your-suse-observabillity>`.app.stackstate.com
 
 ## Self-hosted SUSE Observability
 
 For a self-hosted installation you need to enable one of the endpoints, or both, by configuring the ingress for SUSE Observability as [described here](../install-stackstate/kubernetes_openshift/ingress.md#configure-ingress-rule-for-open-telemetry).
 
 When SUSE Observability is running in the same cluster as the collector you can also use it without ingress by using the service endpoints:
-* OTLP: http://suse-observability-otel-collector.<namespace>.svc.cluster.local:4317
-* OTLP over HTTP: http://suse-observability-otel-collector.<namespace>.svc.cluster.local:4318
+* OTLP: `http://suse-observability-otel-collector.<namespace>.svc.cluster.local:4317`
+* OTLP over HTTP: `http://suse-observability-otel-collector.<namespace>.svc.cluster.local:4318`
 
 Make sure to set `insecure: true` in the collector configuration (see next section) to allow the usage of plain http endpoints instead of https.
 

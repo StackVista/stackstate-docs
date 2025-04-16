@@ -19,7 +19,7 @@ The advantages of head sampling are:
 * Efficient
 * Simple to configure
 
-But a down side is that it is impossible to make sampling decissions on an entire trace, for example to sample all failed traces and only a small selection of the successful traces.
+But a down side is that it is impossible to make sampling decisions on an entire trace, for example to sample all failed traces and only a small selection of the successful traces.
 
 To enable head sampling configure the processor and include it in the pipelines. This example samples 1 out of 4 traces based on the trace id:
 
@@ -32,44 +32,44 @@ processors:
 
 ## Tail sampling
 
-Tail sampling postpones the sampling decission until a trace is (almost) complete. This allows the tail sampler to make decissions based on the entire traces, for example to always sample failed traces and/or slow traces. There are many more possibilities of course. The Open Telemetry collector has a [tail sampling processor](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/tailsamplingprocessor) to apply tail sampling.
+Tail sampling postpones the sampling decision until a trace is (almost) complete. This allows the tail sampler to make  based on the entire traces, for example to always sample failed traces and/or slow traces. There are many more possibilities of course. The Open Telemetry collector has a [tail sampling processor](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/tailsamplingprocessor) to apply tail sampling.
 
-So the main advantage of tail sampling is the much bigger flexibility it provides in making sampling decissions. But it comes at a price:
+So the main advantage of tail sampling is the much bigger flexibility it provides in making sampling . But it comes at a price:
 * Harder to configure properly and understand
-* Must be stateful to store the spans for traces until a sampling decission is made
+* Must be stateful to store the spans for traces until a sampling decision is made
 * Therefore also (a lot) more resource usage
 * The sampler might not keep up and needs extra monitoring and scaling for that
 
 To enable tail sampling configure the processor and include in the pipelines.
 
 ```yaml
-  processors:
-    tail_sampling:
-      decision_wait: 10s
-      policies:
-      - name: rate-limited-composite
-        type: composite
-        composite:
-          max_total_spans_per_second: 500
-          policy_order: [errors, slow-traces, rest]
-          composite_sub_policy:
-          - name: errors
-            type: status_code
-            status_code: 
-              status_codes: [ ERROR ]
-          - name: slow-traces
-            type: latency
-            latency:
-              threshold_ms: 1000
-          - name: rest
-            type: always_sample
-          rate_allocation:
-          - policy: errors
-            percent: 33
-          - policy: slow-traces
-            percent: 33
-          - policy: rest
-            percent: 34
+processors:
+  tail_sampling:
+    decision_wait: 10s
+    policies:
+    - name: rate-limited-composite
+      type: composite
+      composite:
+        max_total_spans_per_second: 500
+        policy_order: [errors, slow-traces, rest]
+        composite_sub_policy:
+        - name: errors
+          type: status_code
+          status_code: 
+            status_codes: [ ERROR ]
+        - name: slow-traces
+          type: latency
+          latency:
+            threshold_ms: 1000
+        - name: rest
+          type: always_sample
+        rate_allocation:
+        - policy: errors
+          percent: 33
+        - policy: slow-traces
+          percent: 33
+        - policy: rest
+          percent: 34
 ```
 
 The example samples:
@@ -115,4 +115,4 @@ service:
       exporters: [debug, otlp/stackstate]
 ```
 
-The example uses the probabilistic sampler configured to sample 25% percent of the traffic. You'll likely want to tune the percentage for your situation or switch to the [tail sampler]() instead. The pipeline setup is the same for the tail sampler, just replace the reference to the `probabilistic_sampler` with `tail_sampling`.
+The example uses the probabilistic sampler configured to sample 25% percent of the traffic. You'll likely want to tune the percentage for your situation or switch to the [tail sampler](#tail-sampling) instead. The pipeline setup is the same for the tail sampler, just replace the reference to the `probabilistic_sampler` with `tail_sampling`.
