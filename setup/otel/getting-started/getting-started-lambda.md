@@ -6,7 +6,7 @@ description: SUSE Observability
 
 We'll setup monitoring for one or more AWS Lambda functions:
 * The monitored AWS Lambda function(s) (instrumented using Open Telemetry)
-* The Open Telmetry collector
+* The Open Telemetry collector
 * SUSE Observability or SUSE Cloud Observability
 
 ![AWS Lambda Instrumentation With Opentelemetry with Open Telemetry collector running in Kubernetes](/.gitbook/assets/otel/open-telemetry-collector-lambda.png)
@@ -63,7 +63,7 @@ config:
         http:
           endpoint: 0.0.0.0:4318
   extensions:
-    # Use the API key from the env far for authentication
+    # Use the API key from the env for authentication
     bearertokenauth:
       scheme: SUSEObservability
       token: "${env:API_KEY}"
@@ -130,7 +130,7 @@ Open Telemetry supports instrumenting Lambda functions in multiple languages usi
 ## View the results
 Go to SUSE Observability and make sure the Open Telemetry Stackpack is installed (via the main menu -> Stackpacks). 
 
-After a a short while and if your Lambda function(s) are getting some traffic you should be able to find the functions under their service name in the Open Telemetry -> services and service instances overviews. Traces will appear in the [trace explorer](/use/traces/k8sTs-explore-traces.md) and in the [trace perspective](/use/views/k8s-traces-perspective.md) for the service and service instance components. Span metrics and language specific metrics (if available) will become available in the [metrics perspective](/use/views/k8s-metrics-perspective.md) for the components.
+After a short while and if your Lambda function(s) are getting some traffic you should be able to find the functions under their service name in the Open Telemetry -> services and service instances overviews. Traces will appear in the [trace explorer](/use/traces/k8sTs-explore-traces.md) and in the [trace perspective](/use/views/k8s-traces-perspective.md) for the service and service instance components. Span metrics and language specific metrics (if available) will become available in the [metrics perspective](/use/views/k8s-metrics-perspective.md) for the components.
 
 # More info
 

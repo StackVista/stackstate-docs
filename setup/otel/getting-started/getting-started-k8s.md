@@ -26,7 +26,7 @@ First we'll install the OTel (Open Telemetry) collector in cluster A. We configu
 * Generate metrics for traces
 * Forward the data to SUSE Observability, including authentication using the API key
 
-Next to that it will also retry sending data when there are a connection problems.
+Next to that it will also retry sending data when there are connection problems.
 
 ### Create the namespace and a secret for the API key
 
@@ -78,7 +78,7 @@ config:
         http:
           endpoint: 0.0.0.0:4318
   extensions:
-    # Use the API key from the env for for authentication
+    # Use the API key from the env for authentication
     bearertokenauth:
       scheme: SUSEObservability
       token: "${env:API_KEY}"
@@ -133,7 +133,7 @@ config:
 {% endcode %}
 
 {% hint type="warning" %}
-**Use the same cluster name as used for installing the SUSE Observability agent** if you also use the SUSE Observablity agent with the Kubernetes stackpack. Using a different cluster name will result in an empty traces perspective for Kubernetes components and will overall make correlating information much harder for SUSE Observability and your users.
+**Use the same cluster name as used for installing the SUSE Observability agent** if you also use the SUSE Observability agent with the Kubernetes stackpack. Using a different cluster name will result in an empty traces perspective for Kubernetes components and will overall make correlating information much harder for SUSE Observability and your users.
 {% endhint %}
 
 Now install the collector, using the configuration file:
@@ -158,7 +158,7 @@ For other languages follow the documentation on [opentelemetry.io](https://opent
 ## View the results
 Go to SUSE Observability and make sure the Open Telemetry Stackpack is installed (via the main menu -> Stackpacks). 
 
-After a a short while and if your pods are getting some traffic you should be able to find them under their service name in the Open Telemetry -> services and service instances overviews. Traces will appear in the [trace explorer](/use/traces/k8sTs-explore-traces.md) and in the [trace perspective](/use/views/k8s-traces-perspective.md) for the service and service instance components. Span metrics and language specific metrics (if available) will become available in the [metrics perspective](/use/views/k8s-metrics-perspective.md) for the components.
+After a short while and if your pods are getting some traffic you should be able to find them under their service name in the Open Telemetry -> services and service instances overviews. Traces will appear in the [trace explorer](/use/traces/k8sTs-explore-traces.md) and in the [trace perspective](/use/views/k8s-traces-perspective.md) for the service and service instance components. Span metrics and language specific metrics (if available) will become available in the [metrics perspective](/use/views/k8s-metrics-perspective.md) for the components.
 
 If you also have the Kubernetes stackpack installed the instrumented pods will also have the traces available in the [trace perspective](/use/views/k8s-traces-perspective.md).
 

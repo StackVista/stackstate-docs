@@ -10,7 +10,7 @@ Your applications, when set up with OpenTelemetry SDKs, can use the collector to
 
 The collector is running close to your application, in the same Kubernetes cluster, on the same virtual machine, etc. This allows SDKs to quickly offload data to the collector, which can then do transformations, batching and filtering. It can be used by multiple applications and allows for easy changes to your data processing pipeline.
 
-For installation guides use the different [getting started guides](./getting-started/). The getting started guides give provide a basic collector configuration to get started, but over time you'll want to customize it to your needs and add additional receivers, processors, and exporters to customize your ingestion pipeline to your needs.
+For installation guides use the different [getting started guides](./getting-started/). The getting started guides provide a basic collector configuration to get started, but over time you'll want to customize it to your needs and add additional receivers, processors, and exporters to customize your ingestion pipeline to your needs.
 
 ## Configuration
 
@@ -115,7 +115,7 @@ service:
   extensions: [ bearertokenauth ]
 ```
 
-The opentelemetry-collector-contr ib repository has [all extensions](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/extension) with documentation on their configuration.
+The opentelemetry-collector-contrib repository has [all extensions](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/extension) with documentation on their configuration.
 
 ## Transforming telemetry
 
@@ -149,7 +149,7 @@ processors:
         action: insert
 ```
 
-The [resource attributes processor]() can modify attributes of a [resource](concepts.md#resources). For example to add a Kubernetes cluster name to every resource:
+The [resource processor](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/resourceprocessor) can modify attributes of a [resource](concepts.md#resources). For example to add a Kubernetes cluster name to every resource:
 
 ```yaml
   processors:
@@ -224,7 +224,7 @@ Note that the Kubernetes installation defaults to the Kubernetes distribution of
 
 ## HTTP Requests from the exporter are too big
 
-In some cases HTTP requests for telemetry data can become very large and may be refused by SUSE Observability . SUSE Observability has a limit of 4MB for the gRPC protocol. If you run into HTTP requests limits you can lower the requests size by changing the compression algorithm and limiting the maximum batch size.
+In some cases HTTP requests for telemetry data can become very large and may be refused by SUSE Observability. SUSE Observability has a limit of 4MB for the gRPC protocol. If you run into HTTP requests limits you can lower the requests size by changing the compression algorithm and limiting the maximum batch size.
 
 ### HTTP request compression
 
