@@ -162,6 +162,9 @@ After a short while and if your pods are getting some traffic you should be able
 
 If you also have the Kubernetes stackpack installed the instrumented pods will also have the traces available in the [trace perspective](/use/views/k8s-traces-perspective.md).
 
+## Next steps
+You can add new charts to components, for example the service or service instance, for your application, by following [our guide](/use/metrics/k8s-add-charts.md). It is also possible to create [new monitors](/use/alerting/k8s-monitors.md) using the metrics and setup [notifications](/use/alerting/notifications/configure.md) to get notified when your application is not available or having performance issues.
+
 # More info
 
 * [API keys](/use/security/k8s-ingestion-api-keys.md)
