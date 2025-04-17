@@ -149,6 +149,9 @@ Go to SUSE Observability and make sure the Open Telemetry Stackpack is installed
 
 After a short while and if your Lambda function(s) are getting some traffic you should be able to find the functions under their service name in the Open Telemetry -> services and service instances overviews. Traces will appear in the [trace explorer](/use/traces/k8sTs-explore-traces.md) and in the [trace perspective](/use/views/k8s-traces-perspective.md) for the service and service instance components. Span metrics and language specific metrics (if available) will become available in the [metrics perspective](/use/views/k8s-metrics-perspective.md) for the components.
 
+## Next steps
+You can add new charts to components, for example the service or service instance, for your application, by following [our guide](/use/metrics/k8s-add-charts.md). It is also possible to create [new monitors](/use/alerting/k8s-monitors.md) using the metrics and setup [notifications](/use/alerting/notifications/configure.md) to get notified when your application is not available or having performance issues.
+
 # More info
 
 * [API keys](/use/security/k8s-ingestion-api-keys.md)
