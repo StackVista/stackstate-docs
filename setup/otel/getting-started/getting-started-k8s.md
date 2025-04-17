@@ -70,6 +70,7 @@ presets:
 # This is the config file for the collector:
 config:
   receivers:
+    nop: {}
     otlp:
       protocols:
         grpc:
@@ -82,6 +83,7 @@ config:
       scheme: SUSEObservability
       token: "${env:API_KEY}"
   exporters:
+    nop: {}
     otlp/suse-observability:
       auth:
         authenticator: bearertokenauth
@@ -123,6 +125,10 @@ config:
         receivers: [otlp, spanmetrics, prometheus]
         processors: [memory_limiter, resource, batch]
         exporters: [debug, otlp/suse-observability]
+      logs:
+        receivers: [nop]
+        processors: []
+        exporters: [nop]
 ```
 {% endcode %}
 

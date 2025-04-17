@@ -62,24 +62,40 @@ sudo rpm -iv1 otelcol-contrib_0.123.1_linux_arm64.rpm
 
 For other installation options use the [Open Telemetry instructions](https://opentelemetry.io/docs/collector/installation/#linux).
 
-After installation modify the collector configuration by editing `/etc/otelcol/config.yaml`. Change the file such that it looks like the `config.yaml` example here, replace `<otlp-suse-observability-endpoint>` with your OTLP endpoint (see [OTLP API](../otlp-apis.md) for your endpoint) and insert your receiver api key for `<receiver-api-key>` (see [here](/use/security/k8s-ingestion-api-keys.md#api-keys) where to find it):
+After installation modify the collector configuration by editing `/etc/otelcol-contrib/config.yaml`. Change the file such that it looks like the `config.yaml` example here, replace `<otlp-suse-observability-endpoint>` with your OTLP endpoint (see [OTLP API](../otlp-apis.md) for your endpoint) and insert your receiver api key for `<receiver-api-key>` (see [here](/use/security/k8s-ingestion-api-keys.md#api-keys) where to find it):
 
 {% code title="config.yaml" lineNumbers="true" %}
 ```yaml
 receivers:
+  nop: {}
   otlp:
     protocols:
-      # Only bind to localhost to keep the collector secure
+      # Only bind to localhost to keep the collector secure, see https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/security-best-practices.md#safeguards-against-denial-of-service-attacks
       grpc:
         endpoint: 127.0.0.1:4317
       http:
         endpoint: 127.0.0.1:4318
+  # Collect own metrics
+  prometheus:
+    config:
+      scrape_configs:
+      - job_name: 'otel-collector'
+        scrape_interval: 10s
+        static_configs:
+        - targets: ['0.0.0.0:8888']
 extensions:
+  health_check: {}
+  pprof:
+    endpoint: 0.0.0.0:1777
+  zpages:
+    endpoint: 0.0.0.0:55679
   # Use the API key from the env far for authentication
   bearertokenauth:
     scheme: SUSEObservability
     token: "<receiver-api-key>"
 exporters:
+  nop: {}
+  debug: {}
   otlp/suse-observability:
     compression: snappy
     auth:
@@ -103,7 +119,7 @@ connectors:
     metrics_expiration: 5m
     namespace: otel_span
 service:
-  extensions: [ bearertokenauth ]
+  extensions: [ bearertokenauth, health_check, pprof, zpages ]
   pipelines:
     traces:
       receivers: [otlp]
@@ -113,18 +129,22 @@ service:
       receivers: [otlp, spanmetrics, prometheus]
       processors: [memory_limiter, batch, resourcedetection/system]
       exporters: [debug, otlp/suse-observability]
+    logs:
+      receivers: [nop]
+      processors: []
+      exporters: [nop]
 ```
 {% endcode %}
 
 Finally restart the collector:
 
 ```bash
-sudo systemctl restart otelcol
+sudo systemctl restart otelcol-contrib
 ```
 
 To see the logs of the collector use:
 ```bash
-sudo journalctl otelcol
+sudo journalctl -u otelcol-contrib
 ```
 
 ## Collect telemetry data from your application
