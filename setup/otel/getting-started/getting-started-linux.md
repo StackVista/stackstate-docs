@@ -46,7 +46,7 @@ wget https://github.com/open-telemetry/opentelemetry-collector-releases/releases
 sudo dpkg -i otelcol-contrib_0.123.1_linux_arm64.deb
 ```
 {% endtab %}
-{% tab title="RPM ARM64" %}
+{% tab title="RPM AMD64" %}
 ```bash
 wget https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.123.1/otelcol-contrib_0.123.1_linux_amd64.rpm
 sudo rpm -iv1 otelcol-contrib_0.123.1_linux_amd64.rpm
@@ -89,7 +89,7 @@ extensions:
     endpoint: 0.0.0.0:1777
   zpages:
     endpoint: 0.0.0.0:55679
-  # Use the API key from the env far for authentication
+  # Use the API key from the env for authentication
   bearertokenauth:
     scheme: SUSEObservability
     token: "<receiver-api-key>"
@@ -161,7 +161,7 @@ For other languages follow the documentation on [opentelemetry.io](https://opent
 ## View the results
 Go to SUSE Observability and make sure the Open Telemetry Stackpack is installed (via the main menu -> Stackpacks). 
 
-After a a short while and if your application is processing some traffic you should be able to find it under its service name in the Open Telemetry -> services and service instances overviews. Traces will appear in the [trace explorer](/use/traces/k8sTs-explore-traces.md) and in the [trace perspective](/use/views/k8s-traces-perspective.md) for the service and service instance components. Span metrics and language specific metrics (if available) will become available in the [metrics perspective](/use/views/k8s-metrics-perspective.md) for the components.
+After a short while and if your application is processing some traffic you should be able to find it under its service name in the Open Telemetry -> services and service instances overviews. Traces will appear in the [trace explorer](/use/traces/k8sTs-explore-traces.md) and in the [trace perspective](/use/views/k8s-traces-perspective.md) for the service and service instance components. Span metrics and language specific metrics (if available) will become available in the [metrics perspective](/use/views/k8s-metrics-perspective.md) for the components.
 
 # More info
 

@@ -2,16 +2,16 @@
 description: SUSE Observability
 ---
 
-# SUSE Observabilty Open Telemetry Protocol support
+# SUSE Observability Open Telemetry Protocol support
 
-SUSE Observability supports 2 versions of the OTLP protocol, the `grpc` version (also referred to as OTLP) and `http/protobuf` (also referred to as OTLP over HTTP). In the collector configuration you can choose which exporter to use, but make sure to configure the correcct URL for SUSE Observability. The `grpc` version of the protocol is preferred, it allows for larger payloads and higher throughput. But in case of poor support for `grpc` in your infra-structure you can switch to the HTTP version. See also [troubleshooting](./troubleshooting.md#some-proxies-and-firewalls-dont-work-well-with-grpc)
+SUSE Observability supports 2 versions of the OTLP protocol, the `grpc` version (also referred to as OTLP) and `http/protobuf` (also referred to as OTLP over HTTP). In the collector configuration you can choose which exporter to use, but make sure to configure the correcct URL for SUSE Observability. The `grpc` version of the protocol is preferred, it allows for larger payloads and higher throughput. But in case of poor support for `grpc` in your infrastructure you can switch to the HTTP version. See also [troubleshooting](./troubleshooting.md#some-proxies-and-firewalls-dont-work-well-with-grpc)
 
 ## SUSE Cloud Observability
 
 The endpoints for SUSE Cloud Observability are:
 
-* OTLP: `https://otlp-<your-suse-observabillity>.app.stackstate`.com:443
-* OTLP over HTTP: `https://otlp-http-<your-suse-observabillity>`.app.stackstate.com
+* OTLP: `https://otlp-<your-suse-observability>.app.stackstate`.com:443
+* OTLP over HTTP: `https://otlp-http-<your-suse-observability>`.app.stackstate.com
 
 ## Self-hosted SUSE Observability
 
