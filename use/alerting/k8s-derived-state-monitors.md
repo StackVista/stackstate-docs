@@ -31,9 +31,11 @@ A Monitor implemented using the `derived-state-monitor` function looks like:
     arguments:
       componentTypes: "deployment, replicaset, statefulset, daemonset"
     intervalSeconds: 30
-    remediationHint: "Investigate component [{{ causeName }}](/#/components/{{ causeComponentUrnForUrl }}) as is causing the workload to be unhealthy."
+    remediationHint: "Investigate component [{{ causeComponentName }}](/#/components/{{ causeComponentUrnForUrl }}) as is causing the workload to be unhealthy."
 ```
 * The function has a single argument `componentTypes` where you can express the different component types as a single string of `,` separated values
-* The function offers two values to use in the remediation guide, `causeComponentName` being the component name where the state is propagated from and its `causeComponentUrnForUrl` to be able to create a link
+* The function offers three values to use in the remediation guide
+  * `componentName` being the name of the logical component.
+  * `causeComponentName` being the component name where the state is propagated from and its `causeComponentUrnForUrl` to be able to create a link.
 
 The monitor can be implemented using the guide at [Add a threshold monitor to components using the CLI](/use/alerting/k8s-add-monitors-cli.md)
