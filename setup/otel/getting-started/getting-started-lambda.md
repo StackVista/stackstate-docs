@@ -19,11 +19,12 @@ For a production setup it is strongly recommended to install the collector, sinc
 
 First we'll install the OTel (Open Telemetry) collector, in this example we use a Kubernetes cluster to run it close to the Lambda functions. A similar setup can be made using a collector installed on a virtual machine instead. The configuration used here only acts as a secure proxy to offload data quickly from the Lambda functions and runs within trusted network infrastructure. 
 
-### Create a secret for the API key
+### Create the namespace and a secret for the API key
 
-We'll use the receiver API key generated during installation (see [here](/use/security/k8s-ingestion-api-keys.md#api-keys) where to find it):
+We'll install in the `open-telemetry` namespace and use the receiver API key generated during installation (see [here](/use/security/k8s-ingestion-api-keys.md#api-keys) where to find it):
 
 ```bash
+kubectl create namespace open-telemetry
 kubectl create secret generic open-telemetry-collector \
     --namespace open-telemetry \
     --from-literal=API_KEY='<suse-observability-api-key>' 
@@ -37,7 +38,7 @@ We install the collector with a Helm chart provided by the Open Telemetry projec
 helm repo add open-telemetry https://open-telemetry.github.io/opentelemetry-helm-charts
 ```
 
-Create a `otel-collector.yaml` values file for the Helm chart. Here is a good starting point for usage with SUSE Observability, replace `<otlp-suse-observability-endpoint>` with your OTLP endpoint (see [OTLP API](../otlp-apis.md) for your endpoint) and insert the name for your Kubernetes cluster instead of `<your-cluster-name>`:
+Create a `otel-collector.yaml` values file for the Helm chart. Here is a good starting point for usage with SUSE Observability, replace `<otlp-suse-observability-endpoint>` with your OTLP endpoint (see [OTLP API](../otlp-apis.md) for your endpoint) and insert the name for your Kubernetes cluster instead of `<your-cluster-name>`. When using the ingress configuration also make sure to insert your own domain name and the corresponding TLS certificate secret in the marked locations.
 
 {% code title="otel-collector.yaml" lineNumbers="true" %}
 ```yaml
@@ -99,15 +100,29 @@ ingress:
     # "12.34.56.78/32" IP address of NatGateway in the VPC where the otel data is originating from
     #  nginx.ingress.kubernetes.io/whitelist-source-range: "12.34.56.78/32"
   hosts:
-    - host: "otlp-collector-proxy.${CLUSTER_NAME}"
+    - host: "otlp-collector-proxy.<your-domain>"
       paths:
         - path: /
           pathType: ImplementationSpecific
           port: 4317
   tls:
-    - secretName: ${CLUSTER_NODOT}-ecc-tls
+    - secretName: <secret-for-tls-certificate>
       hosts:
-        - "otlp-collector-proxy.${CLUSTER_NAME}"
+        - "otlp-collector-proxy.<your-domain>"
+
+# Instead of ingress:
+
+# Alternative 1, load balancer service
+#service:
+#  type: LoadBalancer
+#  loadBalancerSourceRanges: 12.34.56.78/32 # The IP address of NatGateway in the VPC for the lambda functions
+
+# Alternative 2, node port service
+#service:
+#  type: NodePort
+#ports:
+#  otlp:
+#    nodePort: 30317
 ```
 {% endcode %}
 
@@ -119,7 +134,9 @@ helm upgrade --install opentelemetry-collector open-telemetry/opentelemetry-coll
   --namespace open-telemetry
 ```
 
-Make sure that the proxy is accessible by the Lambda functions by connecting them to the same VPC. It is recommended to use a source-range whitelist to filter out data from untrusted and/or unknown sources. 
+Make sure that the proxy collector is accessible by the Lambda functions by either having the ingress publicly accessible or by having the collector IP in the same VPC as the Lambda functions.  It is recommended to use a source-range whitelist to filter out data from untrusted and/or unknown sources (see the comment in the yaml). Next to the ingress setup it is also possible to expose the collector to the Lambda functions via:
+* a LoadBalancer service that restricts access by limiting the source ranges, see "Alternative 1".
+* a NodePort service for the collector, see "Alternative 2".
 
 The collector offers a lot more configuration receivers, processors and exporters, for more details see our [collector page](../collector.md). For production usage often large amounts of spans are generated and you will want to start setting up [sampling](../sampling.md).
 
