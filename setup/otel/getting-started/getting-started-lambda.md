@@ -13,7 +13,7 @@ We'll setup monitoring for one or more AWS Lambda functions:
 
 ## The Open Telemetry collector
 
-{% hint type="info" %}
+{% hint style="info" %}
 For a production setup it is strongly recommended to install the collector, since it allows your service to offload data quickly and the collector can take care of additional handling like retries, batching, encryption or even sensitive data filtering.
 {% endhint %}
 

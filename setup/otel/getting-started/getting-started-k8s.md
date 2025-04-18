@@ -15,7 +15,7 @@ Here is the setup we'll be creating, for an application that needs to be monitor
 
 ## The Open Telemetry collector
 
-{% hint type="info" %}
+{% hint style="info" %}
 For a production setup it is strongly recommended to install the collector, since it allows your service to offload data quickly and the collector can take care of additional handling like retries, batching, encryption or even sensitive data filtering.
 {% endhint %}
 
@@ -131,7 +131,7 @@ config:
 ```
 {% endcode %}
 
-{% hint type="warning" %}
+{% hint style="warning" %}
 **Use the same cluster name as used for installing the SUSE Observability agent** if you also use the SUSE Observability agent with the Kubernetes stackpack. Using a different cluster name will result in an empty traces perspective for Kubernetes components and will overall make correlating information much harder for SUSE Observability and your users.
 {% endhint %}
 

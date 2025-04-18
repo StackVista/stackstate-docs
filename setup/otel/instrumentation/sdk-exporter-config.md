@@ -81,6 +81,6 @@ In small test setups it can be convenient to directly send data from your instru
 * For gRPC use the OTLP endpoint for SUSE Observability, see the [OTLP APIs page](../otlp-apis.md).
 * For HTTP use the OTLP over HTTP endpoint for SUSE Observability, see the [OTLP APIs page](../otlp-apis.md).
 
-{% hint type="info" %}
+{% hint style="info" %}
 Replace both the collector URL **and** the port with the SUSE Observability endpoints. Depending on your SUSE Observability installation the ports will be different.
 {% endhint %}
