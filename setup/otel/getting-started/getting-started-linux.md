@@ -14,7 +14,7 @@ Here is the setup we'll be creating, for an application that needs to be monitor
 
 ## Install the Open Telemetry collector
 
-{% hint type="info" %}
+{% hint style="info" %}
 For a production setup it is strongly recommended to install the collector, since it allows your service to offload data quickly and the collector can take care of additional handling like retries, batching, encryption or even sensitive data filtering.
 {% endhint %}
 

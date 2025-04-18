@@ -193,7 +193,7 @@ spec:
 ```
 {% endcode %}
 
-{% hint type="warning" %}
+{% hint style="warning" %}
 **Use the same cluster name as used for installing the SUSE Observability agent** if you also use the SUSE Observability agent with the Kubernetes stackpack. Using a different cluster name will result in an empty traces perspective for Kubernetes components and will overall make correlating information much harder for SUSE Observability and your users.
 {% endhint %}
 
@@ -276,7 +276,7 @@ When a pod with one of the annotations is created the operator modifies the pod 
 
 If you need to customize which containers should be instrumented use the [operator documentation](https://github.com/open-telemetry/opentelemetry-operator?tab=readme-ov-file#multi-container-pods-with-multiple-instrumentations).
 
-{% hint type="warning" %}
+{% hint style="warning" %}
 Go auto-instrumentation requires elevated permissions. These permissions are set automatically by the operator:
 
 ```yaml

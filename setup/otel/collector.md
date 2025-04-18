@@ -81,7 +81,7 @@ exporters:
     compression: snappy
 ```
 
-{% hint type="warning" %}
+{% hint style="warning" %}
 The OTLP HTTP endpoint for SUSE Observability is different from the OTLP endpoint. Use the [OTLP APIs](./otlp-apis.md) to find the correct URL.
 {% endhint %}
 
