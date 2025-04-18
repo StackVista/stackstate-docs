@@ -2,7 +2,7 @@
 description: SUSE Observability
 ---
 
-# Getting Started with Open Telemetry on Rancher / Kubernetes
+# Getting Started with Open Telemetry on Kubernetes
 
 Here is the setup we'll be creating, for an application that needs to be monitored:
 
@@ -10,7 +10,7 @@ Here is the setup we'll be creating, for an application that needs to be monitor
 * The Open Telemetry collector running near the observed application(s), so in cluster A, and sending the data to SUSE Observability
 * SUSE Observability running in cluster B, or SUSE Cloud Observability
 
-![Container instrumentation with Opentelemetry via collector running as Kubernetes deployment](/.gitbook/assets/otel/open-telemetry-collector-kubernetes.png)
+![Container instrumentation with Open Telemetry via collector running as Kubernetes deployment](/.gitbook/assets/otel/open-telemetry-collector-kubernetes.png)
 
 
 ## The Open Telemetry collector

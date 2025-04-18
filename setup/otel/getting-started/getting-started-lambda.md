@@ -9,7 +9,7 @@ We'll setup monitoring for one or more AWS Lambda functions:
 * The Open Telemetry collector
 * SUSE Observability or SUSE Cloud Observability
 
-![AWS Lambda Instrumentation With Opentelemetry with Open Telemetry collector running in Kubernetes](/.gitbook/assets/otel/open-telemetry-collector-lambda.png)
+![AWS Lambda Instrumentation With Open Telemetry with Open Telemetry collector running in Kubernetes](/.gitbook/assets/otel/open-telemetry-collector-lambda.png)
 
 ## The Open Telemetry collector
 
