@@ -50,9 +50,8 @@ manager:
     repository: ghcr.io/open-telemetry/opentelemetry-operator/opentelemetry-operator
   collectorImage:
     # find the latest collector releases at https://github.com/open-telemetry/opentelemetry-collector-releases/releases
-    repository:
-      ghcr.io/open-telemetry/opentelemetry-collector-k8s
-    tag: 0.123.1
+    repository: otel/opentelemetry-collector-k8s
+    tag: 0.123.0
   targetAllocatorImage:
     repository: ""
     tag: ""
@@ -117,7 +116,6 @@ spec:
   # serviceAccount: otel-collector
   config:
     receivers:
-      nop: {}
       otlp:
         protocols:
           grpc:
@@ -141,6 +139,7 @@ spec:
         scheme: SUSEObservability
         token: "${env:API_KEY}"
     exporters:
+      debug: {}
       nop: {}
       otlp/suse-observability:
         auth:
@@ -184,7 +183,7 @@ spec:
           processors: [memory_limiter, resource, batch]
           exporters: [debug, otlp/suse-observability]
         logs:
-          receivers: [nop]
+          receivers: [otlp]
           processors: []
           exporters: [nop]
       telemetry:
@@ -200,7 +199,7 @@ spec:
 Now apply this `collector.yaml` in the `open-telemetry` namespace to deploy a collector:
 
 ```bash
-kubectl apply --namespace open-telemetry --values collector.yaml
+kubectl apply --namespace open-telemetry -f collector.yaml
 ```
 
 The collector offers a lot more configuration receivers, processors and exporters, for more details see our [collector page](../collector.md). For production usage often large amounts of spans are generated and you will want to start setting up [sampling](../sampling.md).
@@ -215,7 +214,7 @@ It can be defined in a single place and used by all pods in the cluster, but it 
 
 Create an `instrumentation.yaml`:
 
-{% code title="otel-operator.yaml" lineNumbers="true" %}
+{% code title="instrumentation.yaml" lineNumbers="true" %}
 ```yaml
 apiVersion: opentelemetry.io/v1alpha1
 kind: Instrumentation
@@ -252,7 +251,7 @@ spec:
 Now apply the `instrumentation.yaml` also in the `open-telemetry` namespace:
 
 ```bash
-kubectl apply --namespace open-telemetry --values instrumentation.yaml
+kubectl apply --namespace open-telemetry -f instrumentation.yaml
 ```
 
 ### Enable auto-instrumentation for a pod
