@@ -112,6 +112,11 @@ elasticsearch:
     enabled: false
 scc:
   enabled: true
+clickhouse:
+   podSecurityContext:
+      enabled: false
+   containerSecurityContext:
+      enabled: false
 ```
 
 ### Deploy SUSE Observability with Helm
@@ -138,6 +143,7 @@ helm upgrade \
   --values $VALUES_DIR/suse-observability-values/templates/baseConfig_values.yaml \
   --values $VALUES_DIR/suse-observability-values/templates/sizing_values.yaml \  
   --values openshift-values.yaml \
+  --set "clickhouse.sidecars[0].securityContext.runAsUser=null" \
 suse-observability \
 suse-observability/suse-observability
 ```
@@ -160,6 +166,7 @@ helm upgrade \
   --values $VALUES_DIR/suse-observability-values/templates/baseConfig_values.yaml \
   --values $VALUES_DIR/suse-observability-values/templates/sizing_values.yaml \  
   --values openshift-values.yaml \
+  --set "clickhouse.sidecars[0].securityContext.runAsUser=null" \
 suse-observability \
 suse-observability/suse-observability
 ```
