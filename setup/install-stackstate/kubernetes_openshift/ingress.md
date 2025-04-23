@@ -55,7 +55,7 @@ This step assummes that [Generate `baseConfig_values.yaml` and `sizing_values.ya
 {% endhint %}
 
 
-## Configure Ingress Rule for Open Telemetry Traces via the SUSE Observability Helm chart
+## Configure Ingress Rule for Open Telemetry
 
 The SUSE Observability Helm chart exposes an `opentelemetry-collector` service in its values where a dedicated `ingress` can be created. This is disabled by default. The ingress needed for `opentelemetry-collector` purposed needs to support GRPC protocol. The example below shows how to use the Helm chart to configure an nginx-ingress controller with GRPC and  TLS encryption enabled. Note that setting up the controller itself and the certificates is beyond the scope of this document.
 

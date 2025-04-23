@@ -17,8 +17,8 @@ Automatic instrumentation does not require any modifications of the application.
 ```bash
 java -javaagent:/path/to/opentelemetry-javaagent.jar -jar myapp.jar
 ```
-3. Deploy your application with the extra environment variables [to configure the service name and exporter endpoint](./sdk-exporter-config.md).
-4. [Verify](./verify.md) SUSE Observability is receiving traces and/or metrics
+3. Deploy your application with the extra environment variables [to configure the service name and exporter endpoint](./sdk-exporter-config.md), supported protocols are gRPC and protobuf over HTTP.
+4. Verify SUSE Observability is receiving traces and/or metrics by searching for the metrics / traces in the metrics / trace explorer for your service name
 
 For more details please refer to the [Open Telemetry documentation](https://opentelemetry.io/docs/languages/java/automatic/). 
 

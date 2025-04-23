@@ -2,9 +2,19 @@
 description: SUSE Observability
 ---
 
-# Ingestion API Keys
+# API Keys
 
-## Overview
+API keys are used for sending telemetry data to SUSE Observability. It now offers two types of API keys:
+- Receiver API Key: This key is typically generated during the initial installation of your SUSE Observability instance, and it never expires
+- Ingestion API Key: You can create Ingestion API Keys using the SUSE Observability CLI (STS). These keys offer expiration dates, requiring periodic rotation for continued functionality.
+
+The receiver API key can be found in your `values.yaml` as the `receiverApiKey`, but you can also find it in the installation instructions of the stackpacks. For example if you installed the Kubernetes stackpack:
+1. Open SUSE Observability
+2. Navigate to StackPacks and select the Kubernetes StackPack
+3. Open one of the installed instances
+4. Scroll down to the first set of installation instructions. It shows the API key as `STACKSTATE_RECEIVER_API_KEY` in text and as `'stackstate.apiKey'` in the command.
+
+## Ingestion API Keys
 
 Ingestion API Keys are used by external tools to ingest data (like metrics, events, traces and so on) to the SUSE Observability cluster. 
 These tools can be STS Agent or/and OTel Collector.
@@ -74,14 +84,13 @@ An Ingestion API Key can be deleted using the `sts` CLI. Pass the ID of the Key 
 ✅ Ingestion Api Key deleted: 250558013078953
 ```
 
-## Authenticating using service tokens
+## Authenticate using Ingestion API keys
 
 Once created, an Ingestion API Key can be used to authenticate:
-- stackstate-k8s-agent
+- suse-observability-agent
 - OTel Collector
 
-
-### stackstate-k8s-agent
+### suse-observability-agent
 
 The SUSE Observability agent requires an API key for communication, historically known as the Receiver API Key. SUSE Observability now offers two options for authentication:
 - Receiver API Key: This key is typically generated during the initial installation of your SUSE Observability instance,
@@ -92,20 +101,18 @@ The SUSE Observability agent requires an API key for communication, historically
 When using the SUSE Observability collector, you'll need to include an `Authorization` header in your configuration. The collector accepts either a Receiver API Key or an Ingestion API Key for authentication. 
 The following code snippet provides an example configuration:
 ```yaml
-  extensions:
-    bearertokenauth:
-      scheme: SUSE Observability
-      token: "${env:API_KEY}"
-  
-  ...
-  
-  exporters:
-    otlp/stackstate:
-      auth:
-        authenticator: bearertokenauth
-      endpoint: <otlp-stackstate-endpoint>:443
-    otlphttp/stackstate:
-      auth:
-        authenticator: bearertokenauth
-      endpoint: https://<otlp-http-stackstate-endpoint>
+extensions:
+  bearertokenauth:
+    scheme: SUSE Observability
+    token: "${env:API_KEY}"
+exporters:
+  otlp/suse-observability:
+    auth:
+      authenticator: bearertokenauth
+    endpoint: <otlp-suse-observability-endpoint>:443
+  # or
+  otlphttp/suse-observability:
+    auth:
+      authenticator: bearertokenauth
+    endpoint: https://<otlp-http-suse-observability-endpoint>
 ```
