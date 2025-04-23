@@ -33,6 +33,7 @@
   * [Troubleshooting](use/alerting/notifications/troubleshooting.md)
 * [Customize](dynamic/customize-alerting.md)
   * [Add a monitor using the CLI](use/alerting/k8s-add-monitors-cli.md)
+  * [Derived State monitor](use/alerting/k8s-derived-state-monitors.md)
   * [Override monitor arguments](use/alerting/k8s-override-monitor-arguments.md)
   * [Write a remediation guide](use/alerting/k8s-write-remediation-guide.md)
 
@@ -92,16 +93,21 @@
   * [Certificates for sidecar injection](setup/agent/k8sTs-agent-request-tracing-certificates.md)
 
 ## 🔭 Open Telemetry
-* [Getting started](setup/otel/getting-started.md)
+* [Overview](setup/otel/overview.md)
+* [Getting started](setup/otel/getting-started/README.md)
+  * [Concepts](setup/otel/concepts.md)
+  * [Rancher & Kubernetes](setup/otel/getting-started/getting-started-k8s.md)
+  * [Linux](setup/otel/getting-started/getting-started-linux.md)
+  * [AWS Lambda](setup/otel/getting-started/getting-started-lambda.md)
 * [Open telemetry collector](setup/otel/collector.md)
-  * [Collector as a proxy](setup/otel/proxy-collector.md)
-* [Languages](setup/otel/languages/README.md)
-  * [Generic Exporter configuration](setup/otel/languages/sdk-exporter-config.md)
-  * [Java](setup/otel/languages/java.md)
-  * [Node.js](setup/otel/languages/node.js.md)
-    * [Auto-instrumentation of Lambdas](setup/otel/languages/node.js/auto-instrumentation-of-lambdas.md)
-  * [.NET](setup/otel/languages/dot-net.md)
-  * [Verify the results](setup/otel/languages/verify.md)
+  * [Sampling](setup/otel/sampling.md)
+  * [SUSE Observability OTLP APIs](setup/otel/otlp-apis.md)
+* [Instrumentation](setup/otel/instrumentation/README.md)
+  * [Java](setup/otel/instrumentation/java.md)
+  * [Node.js](setup/otel/instrumentation/node.js.md)
+    * [Auto-instrumentation of Lambdas](setup/otel/instrumentation/node.js/auto-instrumentation-of-lambdas.md)
+  * [.NET](setup/otel/instrumentation/dot-net.md)
+  * [SDK Exporter configuration](setup/otel/instrumentation/sdk-exporter-config.md)
 * [Troubleshooting](setup/otel/troubleshooting.md)
   
 ## CLI
@@ -172,7 +178,7 @@
 ## 🔐 Security
 
 * [Service Tokens](use/security/k8s-service-tokens.md)
-* [Ingestion API Keys](use/security/k8s-ingestion-api-keys.md)
+* [API Keys](use/security/k8s-ingestion-api-keys.md)
 
 ## ☁️ SaaS
 * [User Management](saas/user-management.md)

@@ -32,14 +32,13 @@ To ensure the api key is configured correctly check that:
 1. the secret contains a valid API key (verify this in SUSE Observability)
 2. the secret is used as environment variables on the pod
 3. the `bearertokenauth` extension is using the correct scheme and the value from the `API_KEY` environment variable
-4. the `bearertokenauth` extension is used by the `otlp/stackstate` exporter
+4. the `bearertokenauth` extension is used by the `otlp/suse-observability` exporter
 
 ### Some proxies and firewalls don't work well with gRPC
 
-If the collector needs to send data through a proxy or a firewall it can be that they either block the traffic completely or possibly drop some parts of the gRPC messages or unexpectedly drop the long-lived gRPC connection completely. The easiest fix is to switch from gRPC to use HTTP instead, by replacing the `otlp/stackstate` exporter configuration and all its references with the  `otlphttp/stackstate` exporter which is already configured and ready.
+If the collector needs to send data to SUSE Observability through a proxy or a firewall it can be that they either block the traffic completely or possibly drop some parts of the gRPC messages or unexpectedly drop the long-lived gRPC connection completely. The easiest fix is to switch from gRPC to use HTTP instead, by replacing the `otlp/suse-observability` exporter configuration and all its references with the  `otlphttp/suse-observability` exporter which is already configured and ready.
 
-
-Here `<otlp-http-stackstate-endpoint>` is similar to the `<otlp-stackstate-endpoint>`, but instead of a `otlp-` prefix it has `otlp-http-` prefix, for example, `otlp-http-play.stackstate.com`.
+Here `<otlp-http-suse-observability-endpoint>` is similar to the `<otlp-suse-observability-endpoint>`, but instead of a `otlp-` prefix it has `otlp-http-` prefix, for example, `otlp-http-play.stackstate.com`. For more details see the [collector configuration](./collector.md#exporters).
 
 ## The instrumented application cannot send data to the collector
 
@@ -52,15 +51,11 @@ If the SDK logs network connection timeouts it can be that either there is a mis
 
 ### The language SDK doesn't support gRPC
 
-Not all language SDKs have support for gRPC. If OTLP over gRPC is not supported it is best to switch to OTLP over HTTP. The [SDK exporter config](./languages/sdk-exporter-config.md#grpc-vs-http) describes how to make this switch.
+Not all language SDKs have support for gRPC. If OTLP over gRPC is not supported it is best to switch to OTLP over HTTP. The [SDK exporter config](./instrumentation/sdk-exporter-config.md#grpc-vs-http) describes how to make this switch.
 
 ### The language SDK uses the wrong port
 
-Using the wrong port usually appears as a connection error but can also show up as network connections being unexpectedly closed. Make sure the SDK exporter is using the right port when sending data. See the [SDK exporter config](./languages/sdk-exporter-config.md#grpc-vs-http).
-
-### Some proxies and firewalls don't work well with gRPC 
-
-If the collector needs to send data through a proxy or a firewall it can be that they either block the traffic completely or possibly drop some parts of the gRPC messages or unexpectedly drop the long-lived gRPC connection completely. The [SDK exporter config](./languages/sdk-exporter-config.md#grpc-vs-http) describes how to switch from gRPC to HTTP instead. 
+Using the wrong port usually appears as a connection error but can also show up as network connections being unexpectedly closed. Make sure the SDK exporter is using the right port when sending data. See the [SDK exporter config](./instrumentation/sdk-exporter-config.md#grpc-vs-http).
 
 ## Kubernetes pods with hostNetwork enabled
 
