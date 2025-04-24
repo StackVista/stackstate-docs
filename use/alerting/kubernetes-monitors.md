@@ -144,22 +144,18 @@ Cluster doesn't have any health itself. But a cluster is build from few componen
 - all nodes
 and then takes the most critical health state.
 
-### Aggregated health state of a DaemonSet
+### Derived Workloads health state (Deployment, DaemonSet, ReplicaSet, StatefulSet)
 
-The monitor aggregates states of all children Pods and then returns the most critical health state.
+The monitor aggregates states of all top-most dependencies and then returns the most critical health state based on direct observations (e.g., from metrics).
+This approach ensures that health signals propagate from low-level technical components (like Pods) to higher-level logical components, but only when the component itself lacks an observed health state.
+To use this monitor effectively, make sure that some or all of following health checks are disabled:
+* Deployment desired replicas
+* DaemonSet desired replicas
+* ReplicaSet desired replicas
+* StatefulSet desired replicas
 
-### Aggregated health state of a Deployment
+If you have a use case where logical components have no direct monitors then you can use the [Derived State Monitor](/use/alerting/k8s-derived-state-monitors.md) function to infer their health based on the technical components they depend on.
 
-The monitor aggregates states of all children ReplicaSets and then returns the most critical health state. ReplicaSets have
-the similar Monitor, so eventually this one aggregates health states of all children ReplicaSets and Pods.
-
-### Aggregated health state of a ReplicaSet
-
-The monitor aggregates states of all children Pods and then returns the most critical health state.
-
-### Aggregated health state of a StatefulSet
-
-The monitor aggregates states of all children Pods and then returns the most critical health state.
 
 ## See also
 
