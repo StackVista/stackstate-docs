@@ -90,6 +90,14 @@ It isn't recommended to set a ResourceQuota as this can interfere with resource 
 
 If it's necessary to set a ResourceQuota for your implementation, the namespace resource limit should be set to match the node [sizing requirements](requirements.md#resource-requirements).
 
+### Supported architectures
+Please note that SUSE Observability is designed and tested to run on specific hardware architectures. Installation and operation are exclusively supported on systems utilizing one of the following processor architectures:
+
+* `x86_64` (also known as AMD64 or Intel 64)
+* `arm64` (also known as AArch64)
+
+Ensure your target environment meets these requirements before proceeding with the deployment. Attempting to install or run SUSE Observability on any other architecture is not supported and will result in failure.
+
 ## Client \(browser\)
 
 To use the SUSE Observability GUI, you must use one of the following web browsers:
