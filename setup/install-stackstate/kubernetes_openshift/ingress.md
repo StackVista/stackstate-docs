@@ -45,7 +45,7 @@ helm upgrade --install \
   --namespace "suse-observability" \
   --values "ingress_values.yaml" \
   --values $VALUES_DIR/suse-observability-values/templates/baseConfig_values.yaml \
-  --values $VALUES_DIR/suse-observability-values/templates/sizing_values.yaml \  
+  --values $VALUES_DIR/suse-observability-values/templates/sizing_values.yaml \
 suse-observability \
 suse-observability/suse-observability
 ```
@@ -107,7 +107,7 @@ helm upgrade \
   --namespace "suse-observability" \
   --values "ingress_otel_values.yaml" \
   --values $VALUES_DIR/suse-observability-values/templates/baseConfig_values.yaml \
-  --values $VALUES_DIR/suse-observability-values/templates/sizing_values.yaml \ 
+  --values $VALUES_DIR/suse-observability-values/templates/sizing_values.yaml \
 suse-observability \
 suse-observability/suse-observability
 ```

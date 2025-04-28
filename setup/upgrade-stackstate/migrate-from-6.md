@@ -301,7 +301,7 @@ Re-routing the traffic will switch both agent traffic and users of StackState to
       --install \
       --namespace suse-observability \
       --values $VALUES_DIR/suse-observability-values/templates/baseConfig_values.yaml \
-      --values $VALUES_DIR/suse-observability-values/templates/sizing_values.yaml \  
+      --values $VALUES_DIR/suse-observability-values/templates/sizing_values.yaml \
       --values ingress.yaml \
     suse-observability \
     suse-observability/suse-observability

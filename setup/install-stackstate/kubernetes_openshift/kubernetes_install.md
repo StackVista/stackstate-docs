@@ -10,6 +10,7 @@ description: SUSE Observability Self-hosted
 Extra notes for installing on:
 
 * **Kubernetes clusters with limited permissions**: Read the [required permissions](required_permissions.md).
+* **Alibaba Cloud Container Service for Kubernetes (ACK)**: Read the [ACK installation notes](ack.md).
 * **OpenShift**: Refer to the [OpenShift installation instructions](openshift_install.md).
 {% endhint %}
 
@@ -114,7 +115,7 @@ helm upgrade \
   --install \
   --namespace suse-observability \
   --values $VALUES_DIR/suse-observability-values/templates/baseConfig_values.yaml \
-  --values $VALUES_DIR/suse-observability-values/templates/sizing_values.yaml \  
+  --values $VALUES_DIR/suse-observability-values/templates/sizing_values.yaml \
 suse-observability \
 suse-observability/suse-observability
 ```
