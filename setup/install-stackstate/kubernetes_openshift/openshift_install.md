@@ -141,7 +141,7 @@ helm upgrade \
   --install \
   --namespace suse-observability \
   --values $VALUES_DIR/suse-observability-values/templates/baseConfig_values.yaml \
-  --values $VALUES_DIR/suse-observability-values/templates/sizing_values.yaml \  
+  --values $VALUES_DIR/suse-observability-values/templates/sizing_values.yaml \
   --values openshift-values.yaml \
   --set "clickhouse.sidecars[0].securityContext.runAsUser=null" \
 suse-observability \
@@ -164,7 +164,7 @@ helm upgrade \
   --namespace suse-observability \
   --values local-docker-registry.yaml \
   --values $VALUES_DIR/suse-observability-values/templates/baseConfig_values.yaml \
-  --values $VALUES_DIR/suse-observability-values/templates/sizing_values.yaml \  
+  --values $VALUES_DIR/suse-observability-values/templates/sizing_values.yaml \
   --values openshift-values.yaml \
   --set "clickhouse.sidecars[0].securityContext.runAsUser=null" \
 suse-observability \
