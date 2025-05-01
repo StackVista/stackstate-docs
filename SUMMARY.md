@@ -119,6 +119,7 @@
   * [Kubernetes / OpenShift](setup/install-stackstate/kubernetes_openshift/README.md)
     * [Kubernetes install](setup/install-stackstate/kubernetes_openshift/kubernetes_install.md)
     * [OpenShift install](setup/install-stackstate/kubernetes_openshift/openshift_install.md)
+    * [Alibaba Cloud ACK install](setup/install-stackstate/kubernetes_openshift/ack.md)
     * [Required Permissions](setup/install-stackstate/kubernetes_openshift/required_permissions.md)  
     * [Override default configuration](setup/install-stackstate/kubernetes_openshift/customize_config.md)
     * [Configure storage](setup/install-stackstate/kubernetes_openshift/storage.md)
