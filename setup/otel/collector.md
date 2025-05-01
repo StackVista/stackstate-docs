@@ -205,7 +205,7 @@ docker run \
   -p 127.0.0.1:4317:4317 \
   -p 127.0.0.1:4318:4318 \
   -v $(pwd)/config.yaml:/etc/otelcol-contrib/config.yaml \
-  otel/opentelemetry-collector-contrib:latest
+  ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib:latest
 ```
 
 This uses the collector contrib image which includes all contributed components (receivers, processors, etc.). A smaller, more limited version of the image is also available, but it has only a very limited set of components available: 
@@ -215,10 +215,10 @@ docker run \
   -p 127.0.0.1:4317:4317 \
   -p 127.0.0.1:4318:4318 \
   -v $(pwd)/config.yaml:/etc/otelcol/config.yaml \
-  otel/opentelemetry-collector:latest
+  ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector:latest
 ```
 
-Note that the Kubernetes installation defaults to the Kubernetes distribution of the collector image, `otel/opentelemetry-collector-k8s`, which has more components than the basic image, but less than the contrib image. If you run into missing components with that image you can simply switch it to use the contrib image , `otel/opentelemetry-collector-contrib`, instead.
+Note that the Kubernetes installation defaults to the Kubernetes distribution of the collector image, `ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-k8s`, which has more components than the basic image, but less than the contrib image. If you run into missing components with that image you can simply switch it to use the contrib image , `ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib`, instead.
 
 # Troubleshooting
 
