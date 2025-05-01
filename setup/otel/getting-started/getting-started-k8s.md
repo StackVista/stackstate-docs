@@ -70,7 +70,6 @@ presets:
 # This is the config file for the collector:
 config:
   receivers:
-    nop: {}
     otlp:
       protocols:
         grpc:
@@ -126,7 +125,7 @@ config:
         processors: [memory_limiter, resource, batch]
         exporters: [debug, otlp/suse-observability]
       logs:
-        receivers: [nop]
+        receivers: [otlp]
         processors: []
         exporters: [nop]
 ```
