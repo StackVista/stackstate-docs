@@ -53,7 +53,7 @@ extraEnvsFrom:
   - secretRef:
       name: open-telemetry-collector
 image:
-  repository: "otel/opentelemetry-collector-k8s"
+  repository: "ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-k8s"
 
 config:
   receivers:

@@ -57,9 +57,9 @@ extraEnvsFrom:
       name: open-telemetry-collector
 mode: deployment
 image:
-  # Use the collector container image that has all components important for k8s. In case of missing components the otel/opentelemetry-collector-contrib image can be used which
+  # Use the collector container image that has all components important for k8s. In case of missing components the ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib image can be used which
   # has all components in the contrib repository: https://github.com/open-telemetry/opentelemetry-collector-contrib
-  repository: "otel/opentelemetry-collector-k8s"
+  repository: "ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-k8s"
 ports:
   metrics:
     enabled: true
