@@ -67,7 +67,6 @@ After installation modify the collector configuration by editing `/etc/otelcol-c
 {% code title="config.yaml" lineNumbers="true" %}
 ```yaml
 receivers:
-  nop: {}
   otlp:
     protocols:
       # Only bind to localhost to keep the collector secure, see https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/security-best-practices.md#safeguards-against-denial-of-service-attacks
@@ -130,7 +129,7 @@ service:
       processors: [memory_limiter, batch, resourcedetection/system]
       exporters: [debug, otlp/suse-observability]
     logs:
-      receivers: [nop]
+      receivers: [otlp]
       processors: []
       exporters: [nop]
 ```
