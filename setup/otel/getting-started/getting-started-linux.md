@@ -62,7 +62,7 @@ sudo rpm -iv1 otelcol-contrib_0.123.1_linux_arm64.rpm
 
 For other installation options use the [Open Telemetry instructions](https://opentelemetry.io/docs/collector/installation/#linux).
 
-After installation modify the collector configuration by editing `/etc/otelcol-contrib/config.yaml`. Change the file such that it looks like the `config.yaml` example here, replace `<otlp-suse-observability-endpoint>` with your OTLP endpoint (see [OTLP API](../otlp-apis.md) for your endpoint) and insert your receiver api key for `<receiver-api-key>` (see [here](/use/security/k8s-ingestion-api-keys.md#api-keys) where to find it):
+After installation modify the collector configuration by editing `/etc/otelcol-contrib/config.yaml`. Change the file such that it looks like the `config.yaml` example here, replace `<otlp-suse-observability-endpoint:port>` with your OTLP endpoint (see [OTLP API](../otlp-apis.md) for your endpoint) and insert your receiver api key for `<receiver-api-key>` (see [here](/use/security/k8s-ingestion-api-keys.md#api-keys) where to find it):
 
 {% code title="config.yaml" lineNumbers="true" %}
 ```yaml
@@ -99,8 +99,8 @@ exporters:
     compression: snappy
     auth:
       authenticator: bearertokenauth
-    # Put in your own otlp endpoint
-    endpoint: <otlp-suse-observability-endpoint>
+    # Put in your own otlp endpoint, for example suse-observability.my.company.com:443
+    endpoint: <otlp-suse-observability-endpoint:port>
 processors:
   memory_limiter:
     check_interval: 5s

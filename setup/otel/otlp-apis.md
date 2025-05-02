@@ -10,8 +10,8 @@ SUSE Observability supports 2 versions of the OTLP protocol, the `grpc` version 
 
 The endpoints for SUSE Cloud Observability are:
 
-* OTLP: `https://otlp-<your-suse-observability>.app.stackstate`.com:443
-* OTLP over HTTP: `https://otlp-http-<your-suse-observability>`.app.stackstate.com
+* OTLP: `https://otlp-<your-suse-observability>.app.stackstate.com:443`
+* OTLP over HTTP: `https://otlp-http-<your-suse-observability>.app.stackstate.com`
 
 ## Self-hosted SUSE Observability
 
