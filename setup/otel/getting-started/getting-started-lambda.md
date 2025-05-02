@@ -38,7 +38,7 @@ We install the collector with a Helm chart provided by the Open Telemetry projec
 helm repo add open-telemetry https://open-telemetry.github.io/opentelemetry-helm-charts
 ```
 
-Create a `otel-collector.yaml` values file for the Helm chart. Here is a good starting point for usage with SUSE Observability, replace `<otlp-suse-observability-endpoint>` with your OTLP endpoint (see [OTLP API](../otlp-apis.md) for your endpoint) and insert the name for your Kubernetes cluster instead of `<your-cluster-name>`. When using the ingress configuration also make sure to insert your own domain name and the corresponding TLS certificate secret in the marked locations.
+Create a `otel-collector.yaml` values file for the Helm chart. Here is a good starting point for usage with SUSE Observability, replace `<otlp-suse-observability-endpoint:port>` with your OTLP endpoint (see [OTLP API](../otlp-apis.md) for your endpoint) and insert the name for your Kubernetes cluster instead of `<your-cluster-name>`. When using the ingress configuration also make sure to insert your own domain name and the corresponding TLS certificate secret in the marked locations.
 
 {% code title="otel-collector.yaml" lineNumbers="true" %}
 ```yaml
@@ -72,8 +72,8 @@ config:
     otlp:
       auth:
         authenticator: bearertokenauth
-      # Put in your own otlp endpoint
-      endpoint: <otlp-suse-observability-endpoint>
+      # Put in your own otlp endpoint, for example suse-observability.my.company.com:443
+      endpoint: <otlp-suse-observability-endpoint:port>
 
   service:
     extensions: [health_check, bearertokenauth]

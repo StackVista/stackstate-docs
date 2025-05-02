@@ -99,7 +99,7 @@ This only installs the operator. Continue to install the collector and enable au
 
 The operator manages one or more collector deployments via a Kubernetes custom resource of kind `OpenTelemetryCollector`. We'll create one using the same configuration as used in the [Kubernetes getting started guide](./getting-started-k8s.md). 
 
-It uses the secret created earlier in the guide. Make sure to replace `<otlp-suse-observability-endpoint>` with your OTLP endpoint (see [OTLP API](../otlp-apis.md) for your endpoint) and insert the name for your Kubernetes cluster instead of `<your-cluster-name>`:
+It uses the secret created earlier in the guide. Make sure to replace `<otlp-suse-observability-endpoint:port>` with your OTLP endpoint (see [OTLP API](../otlp-apis.md) for your endpoint) and insert the name for your Kubernetes cluster instead of `<your-cluster-name>`:
 
 {% code title="collector.yaml" lineNumbers="true" %}
 ```yaml
@@ -144,8 +144,8 @@ spec:
       otlp/suse-observability:
         auth:
           authenticator: bearertokenauth
-        # Put in your own otlp endpoint
-        endpoint: <otlp-suse-observability-endpoint>
+        # Put in your own otlp endpoint, for example suse-observability.my.company.com:443
+        endpoint: <otlp-suse-observability-endpoint:port>
         compression: snappy
     processors:
       memory_limiter:
