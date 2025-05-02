@@ -13,7 +13,7 @@ Extra notes for installing on:
 * **Alibaba Cloud Container Service for Kubernetes (ACK)**: Read the [ACK installation notes](ack.md).
 * **OpenShift**: Refer to the [OpenShift installation instructions](openshift_install.md).
 {% endhint %}
-
+ 
 Before you start the installation of SUSE Observability:
 
 * Check the [requirements](/setup/install-stackstate/requirements.md) to make sure that your Kubernetes environment fits the setup that you will use (recommended, minimal or non- high availability).
