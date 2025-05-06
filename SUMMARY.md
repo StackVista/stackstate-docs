@@ -145,6 +145,7 @@
   * [v2.3.0 - 30/Jan/2025](setup/release-notes/v2.3.0.md)
   * [v2.3.1 - 17/Mar/2025](setup/release-notes/v2.3.1.md)
   * [v2.3.2 - 22/Apr/2025](setup/release-notes/v2.3.2.md)
+  * [v2.3.3 - 07/May/2025](setup/release-notes/v2.3.3.md)
 * [Upgrade SUSE Observability](setup/upgrade-stackstate/README.md)
   * [Migration from StackState](setup/upgrade-stackstate/migrate-from-6.md)
   * [Steps to upgrade](setup/upgrade-stackstate/steps-to-upgrade.md)
