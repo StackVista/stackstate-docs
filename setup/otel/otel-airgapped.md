@@ -1,0 +1,4 @@
+---
+description: SUSE Observability
+---
+

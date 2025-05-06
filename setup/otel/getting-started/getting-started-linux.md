@@ -14,7 +14,7 @@ Here is the setup we'll be creating, for an application that needs to be monitor
 
 ## Install the Open Telemetry collector
 
-{% hint type="info" %}
+{% hint style="info" %}
 For a production setup it is strongly recommended to install the collector, since it allows your service to offload data quickly and the collector can take care of additional handling like retries, batching, encryption or even sensitive data filtering.
 {% endhint %}
 
@@ -62,12 +62,11 @@ sudo rpm -iv1 otelcol-contrib_0.123.1_linux_arm64.rpm
 
 For other installation options use the [Open Telemetry instructions](https://opentelemetry.io/docs/collector/installation/#linux).
 
-After installation modify the collector configuration by editing `/etc/otelcol-contrib/config.yaml`. Change the file such that it looks like the `config.yaml` example here, replace `<otlp-suse-observability-endpoint>` with your OTLP endpoint (see [OTLP API](../otlp-apis.md) for your endpoint) and insert your receiver api key for `<receiver-api-key>` (see [here](/use/security/k8s-ingestion-api-keys.md#api-keys) where to find it):
+After installation modify the collector configuration by editing `/etc/otelcol-contrib/config.yaml`. Change the file such that it looks like the `config.yaml` example here, replace `<otlp-suse-observability-endpoint:port>` with your OTLP endpoint (see [OTLP API](../otlp-apis.md) for your endpoint) and insert your receiver api key for `<receiver-api-key>` (see [here](/use/security/k8s-ingestion-api-keys.md#api-keys) where to find it):
 
 {% code title="config.yaml" lineNumbers="true" %}
 ```yaml
 receivers:
-  nop: {}
   otlp:
     protocols:
       # Only bind to localhost to keep the collector secure, see https://github.com/open-telemetry/opentelemetry-collector/blob/main/docs/security-best-practices.md#safeguards-against-denial-of-service-attacks
@@ -100,8 +99,8 @@ exporters:
     compression: snappy
     auth:
       authenticator: bearertokenauth
-    # Put in your own otlp endpoint
-    endpoint: <otlp-suse-observability-endpoint>
+    # Put in your own otlp endpoint, for example suse-observability.my.company.com:443
+    endpoint: <otlp-suse-observability-endpoint:port>
 processors:
   memory_limiter:
     check_interval: 5s
@@ -130,7 +129,7 @@ service:
       processors: [memory_limiter, batch, resourcedetection/system]
       exporters: [debug, otlp/suse-observability]
     logs:
-      receivers: [nop]
+      receivers: [otlp]
       processors: []
       exporters: [nop]
 ```

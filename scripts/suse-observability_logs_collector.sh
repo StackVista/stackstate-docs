@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Namespace to collect information
-NAMESPACE="suse-observability"
+NAMESPACE=${1:-suse-observability}
 
 # Check if kubectl is installed or not
 if ! command -v kubectl &>/dev/null; then

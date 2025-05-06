@@ -32,7 +32,6 @@ PERMISSION                  | RESOURCE
 access-view                 | everything
 delete-view                 | everything
 save-view                   | everything
-access-analytics            | system    
 access-cli                  | system    
 access-explore              | system    
 access-log-data             | system    
@@ -43,7 +42,6 @@ execute-component-actions   | system
 execute-component-templates | system    
 execute-node-sync           | system    
 execute-restricted-scripts  | system    
-execute-scripts             | system    
 export-settings             | system    
 import-settings             | system    
 manage-annotations          | system    
@@ -86,7 +84,6 @@ PERMISSION                  | RESOURCE
 access-view                 | everything
 delete-view                 | everything
 save-view                   | everything
-access-analytics            | system    
 access-cli                  | system    
 access-explore              | system    
 access-log-data             | system    
@@ -96,7 +93,6 @@ create-views                | system
 execute-component-actions   | system    
 execute-component-templates | system    
 execute-node-sync           | system    
-execute-scripts             | system    
 export-settings             | system    
 import-settings             | system    
 manage-annotations          | system    
@@ -132,7 +128,6 @@ PERMISSION                  | RESOURCE
 access-view                 | everything
 delete-view                 | everything
 save-view                   | everything
-access-analytics            | system    
 access-cli                  | system    
 access-explore              | system    
 access-log-data             | system    
@@ -142,7 +137,6 @@ create-views                | system
 execute-component-actions   | system    
 execute-component-templates | system    
 execute-node-sync           | system    
-execute-scripts             | system    
 export-settings             | system    
 import-settings             | system    
 manage-annotations          | system    

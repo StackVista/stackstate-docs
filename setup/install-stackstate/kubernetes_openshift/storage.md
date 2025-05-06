@@ -93,6 +93,21 @@ stackstate:
     vmagent:
       persistence:
         size: 10Gi
+  experimental:
+    storeTransactionLogsToPVC:
+      volumeSize: 600Mi
+  stackpacks:
+    pvc:
+      size: 1Gi
+
+backup:
+  configuration:
+    scheduled:
+      pvc:
+        size: 1Gi
+minio:
+  persistence:
+    size: 500Gi
 ```
 {% endtab %}
 {% tab title="Changing volume size Non-Ha" %}
@@ -148,6 +163,23 @@ stackstate:
     vmagent:
       persistence:
         size: 10Gi
+  experimental:
+    storeTransactionLogsToPVC:
+      volumeSize: 600Mi
+  stackpacks:
+    localpvc:
+      size: 1Gi
+    pvc:
+      size: 1Gi
+
+backup:
+  configuration:
+    scheduled:
+      pvc:
+        size: 1Gi
+minio:
+  persistence:
+    size: 500Gi
 ```
 {% endtab %}
 {% endtabs %}
