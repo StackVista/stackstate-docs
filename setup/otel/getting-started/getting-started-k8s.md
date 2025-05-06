@@ -2,7 +2,7 @@
 description: SUSE Observability
 ---
 
-# Getting Started with Open Telemetry on Rancher / Kubernetes
+# Getting Started with Open Telemetry on Kubernetes
 
 Here is the setup we'll be creating, for an application that needs to be monitored:
 
@@ -10,12 +10,12 @@ Here is the setup we'll be creating, for an application that needs to be monitor
 * The Open Telemetry collector running near the observed application(s), so in cluster A, and sending the data to SUSE Observability
 * SUSE Observability running in cluster B, or SUSE Cloud Observability
 
-![Container instrumentation with Opentelemetry via collector running as Kubernetes deployment](/.gitbook/assets/otel/open-telemetry-collector-kubernetes.png)
+![Container instrumentation with Open Telemetry via collector running as Kubernetes deployment](/.gitbook/assets/otel/open-telemetry-collector-kubernetes.png)
 
 
 ## The Open Telemetry collector
 
-{% hint type="info" %}
+{% hint style="info" %}
 For a production setup it is strongly recommended to install the collector, since it allows your service to offload data quickly and the collector can take care of additional handling like retries, batching, encryption or even sensitive data filtering.
 {% endhint %}
 
@@ -47,7 +47,7 @@ We install the collector with a Helm chart provided by the Open Telemetry projec
 helm repo add open-telemetry https://open-telemetry.github.io/opentelemetry-helm-charts
 ```
 
-Create a `otel-collector.yaml` values file for the Helm chart. Here is a good starting point for usage with SUSE Observability, replace `<otlp-suse-observability-endpoint>` with your OTLP endpoint (see [OTLP API](../otlp-apis.md) for your endpoint) and insert the name for your Kubernetes cluster instead of `<your-cluster-name>`:
+Create a `otel-collector.yaml` values file for the Helm chart. Here is a good starting point for usage with SUSE Observability, replace `<otlp-suse-observability-endpoint:port>` with your OTLP endpoint (see [OTLP API](../otlp-apis.md) for your endpoint) and insert the name for your Kubernetes cluster instead of `<your-cluster-name>`:
 
 {% code title="otel-collector.yaml" lineNumbers="true" %}
 ```yaml
@@ -86,8 +86,8 @@ config:
     otlp/suse-observability:
       auth:
         authenticator: bearertokenauth
-      # Put in your own otlp endpoint
-      endpoint: <otlp-suse-observability-endpoint>
+      # Put in your own otlp endpoint, for example suse-observability.my.company.com:443
+      endpoint: <otlp-suse-observability-endpoint:port>
       compression: snappy
   processors:
     memory_limiter:
@@ -131,7 +131,7 @@ config:
 ```
 {% endcode %}
 
-{% hint type="warning" %}
+{% hint style="warning" %}
 **Use the same cluster name as used for installing the SUSE Observability agent** if you also use the SUSE Observability agent with the Kubernetes stackpack. Using a different cluster name will result in an empty traces perspective for Kubernetes components and will overall make correlating information much harder for SUSE Observability and your users.
 {% endhint %}
 
