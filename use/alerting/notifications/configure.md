@@ -41,6 +41,7 @@ There are 4 possible scope filters. By default a notification will be sent for e
 SUSE Observability can send notifications to different external systems via channels. Supported channels are:
 
 * [Slack](channels/slack.md) - Send notifications to Slack
+* [Teams](channels/teams.md) - Send notifications to Microsoft Teams
 * [Webhook](channels/webhook.md) - Send notifications to a webhook, the webhook endpoint can translate the SUSE Observability payload into any custom third-party API needed
 * [Opsgenie](channels/opsgenie.md) - Send notifications to OpsGenie
 
