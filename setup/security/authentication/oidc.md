@@ -36,6 +36,7 @@ stackstate:
       scope: ["openid", "email"]
       jwtClaims:
         usernameField: email
+        displayNameField: name
         groupsField: groups
       customParameters:
         access_type: offline
@@ -61,6 +62,7 @@ Follow the steps below to configure SUSE Observability to authenticate using OID
    * **customParameters** - Optional map of key/value pairs that are sent to the OIDC provider as custom request parameters. Some OIDC providers require extra request parameters not sent by default.
    * **jwtClaims** -
      * **usernameField** - The field in the OIDC user profile that should be used as the username. By default, this will be the `preferred_username`, however, many providers omit this field. A good alternative is `email`.
+     * **displayNameField** - The field in the OIDC user profile that should be used as the displayName. By default, this will be the `name`.
      * **groupsField** - The field from which SUSE Observability will read the role/group for a user.
 2. In `authentication.yaml` - map user roles from OIDC to the correct SUSE Observability subjects using the `roles.guest`, `roles.powerUser`, `roles.admin` or `roles.platformAdmin` settings \(see the example above\). For details, see the [default SUSE Observability roles](../rbac/rbac_permissions.md#predefined-roles). More SUSE Observability roles can also be created, see the [RBAC documentation](../rbac/).
 3. Store the file `authentication.yaml` together with the `values.yaml` file from the SUSE Observability installation instructions.
