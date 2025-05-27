@@ -61,6 +61,7 @@ The full annotation then would look like
 * [Node Memory Pressure](/use/alerting/kubernetes-monitors.md#node-memory-pressure)
 * [Node PID Pressure](/use/alerting/kubernetes-monitors.md#node-pid-pressure)
 * [Node Readiness](/use/alerting/kubernetes-monitors.md#node-readiness)
+* [Orphaned Persistent Volumes](/use/alerting/kubernetes-monitors.md#orphaned-persistent-volumes) (Only the `enabled` property)
 * [Out of memory for containers](/use/alerting/kubernetes-monitors.md#out-of-memory-for-containers)
 
 ## Build an override for a custom monitor
