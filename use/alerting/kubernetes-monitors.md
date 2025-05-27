@@ -77,6 +77,10 @@ Allows [Override Monitor arguments](/use/alerting/k8s-override-monitor-arguments
 Check if the Node is up and running as expected.
 Allows [Override Monitor arguments](/use/alerting/k8s-override-monitor-arguments.md)
 
+### Orphaned Persistent Volumes
+Verify that no persistent volumes are orphaned. An orphaned persistent volume is a persistent volume that is not associated with a persistent volume claim. An orphaned persistent volume can be a security risk, as it may contain sensitive data that is not being used. An orphaned persistent volume can also be a waste of resources, as it is not being used.
+Allows [Override Monitor arguments](/use/alerting/k8s-override-monitor-arguments.md) but only the `enabled` property
+
 ### Out of memory for containers
 
 It is important to ensure that the containers running in your Kubernetes cluster have enough memory to function properly. Out-of-memory (OOM) conditions can cause containers to crash or become unresponsive, leading to restarts and potential data loss.
