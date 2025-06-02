@@ -12,8 +12,6 @@ Two kinds of roles are used for accessing SUSE Observability:
 
 A number of `RoleTemplate`s are available to achieve this, with common groupings of permissions.  Binding these templates to users or groups on a cluster or namespace will trigger roles and role-bindinds to be provisioned on the target cluster.  The default templates are described below.  Note that it is possible to define your own combinations of permissions in a custom RoleTemplate.
 
-A standalone installation of SUSE Observability supplies predefined groups that correspond to the below instance roles.
-
 ### Observer role
 
 The observer role grants a user the permission to read topology, metrics, logs and trace data for a namespace or a cluster.  There are three `RoleTemplate`s that grant access to observability data:
@@ -35,17 +33,22 @@ The permissions assigned to each predefined SUSE Observability role can be found
 {% tabs %}
 {% tab title="Recommended Access" %}
 Recommended access grants permissions that are not strictly necessary, but that make SUSE Observability a lot more useful.
-| *Resource* | *Verbs* |
+
+| Resource | Verbs |
+| --- | --- |
 | apitokens | get |
 | favoritedashboards | create, delete |
 | favoriteviews | create, delete |
 | stackpacks | get |
 | visualizationsettings | update |
+
 {% endtab %}
 
 {% tab title="Troubleshooter" %}
 The Troubleshooter role has access to all data available in SUSE Observability and the ability to create views and enable/disable monitors.
-| *Resource* | *Verbs* |
+
+| Resource | Verbs |
+| --- | --- |
 | agents | get |
 | apitokens | get |
 | componentactions | execute |
@@ -64,11 +67,14 @@ The Troubleshooter role has access to all data available in SUSE Observability a
 | traces | get |
 | views | get, create, update, delete |
 | visualizationsettings | get |
+
 {% endtab %}
 
 {% tab title="Administrator" %}
 The Administrator role has all permissions assigned.
-| *Resource* | *Verbs* |
+
+| Resource | Verbs |
+| --- | --- |
 | agents | get |
 | apitokens | get |
 | componentactions | execute |
@@ -93,6 +99,7 @@ The Administrator role has all permissions assigned.
 | traces | get |
 | views | get, create, update, delete |
 | visualizationsettings | update |
+
 {% endtab %}
 
 
@@ -107,7 +114,9 @@ These resources correspond to data collected by the SUSE Observability agent and
 These resources can only be read, so the only applicable verb is `get`.
 
 Apart from these RBAC resources controlling access to observability data, "instance" resources define user capabilities for executing and configuring SUSE Observability:
-| *Resource*                | *Verbs* | *Description* |
+
+| Resource                  | Verbs | Description |
+| --- | --- | --- |
 | `agents`                  | `get`   |  List connected agents with the cli `agent list` command |
 | `apitokens`               | `get`   | Access the CLI page. This provides the API key to use for authentication with the SUSE Observability CLI |
 | `componentactions`        | `execute` | Execute [component actions](/use/views/k8s-topology-perspective.md#actions) |
@@ -118,7 +127,6 @@ Apart from these RBAC resources controlling access to observability data, "insta
 | `metricbindings`          | `get`, `create`, `update`, `delete` | Create, delete and change [metric bindings](/use/metrics/k8s-add-charts.md) |
 | `monitors`                | `get`, `create`, `update`, `delete` | Create, delete and change [monitors](/use/alerting/k8s-monitors.md) |
 | `notifications`           | `get`, `create`, `update`, `delete` | Create, delete and change [notifications](/use/alerting/notifications/configure.md) |
-<!-- | `permissions`        ||| -->
 | `restrictedscripts`       | `execute` | Execute scripts using the HTTP script API in the SUSE Observability UI analytics environment. Also requires `scripts` |
 | `scripts`                 | `execute` | Execute a query in the SUSE Observability UI Analytics environment. The `restrictedscripts` resource is also required to execute scripts using the HTTP script API |
 | `servicetokens`           | `get`, `create`, `delete` | Create/delete [Service Tokens](/use/security/k8s-service-tokens.md) in SUSE Observability |
@@ -129,5 +137,5 @@ Apart from these RBAC resources controlling access to observability data, "insta
 | `systemnotifications`     | `get` | Access the system notifications in the UI |
 | `topicmessages`           | `get` | Access SUSE Observability Receiver data using the CLI |
 | `views`                   | `get`, `create`, `update`, `delete` | Access, create, delete and change [views](/use/views/k8s-custom-views.md) in the SUSE Observability UI |
-| `visualizationsettings`   | `update` | Change [visualization settings](/use/views/k8s-topology-perspective.md#visualization-settings).
+| `visualizationsettings`   | `update` | Change [visualization settings](/use/views/k8s-topology-perspective.md#visualization-settings). |
 
