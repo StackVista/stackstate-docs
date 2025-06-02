@@ -139,3 +139,33 @@ Apart from these RBAC resources controlling access to observability data, "insta
 | `views`                   | `get`, `create`, `update`, `delete` | Access, create, delete and change [views](/use/views/k8s-custom-views.md) in the SUSE Observability UI |
 | `visualizationsettings`   | `update` | Change [visualization settings](/use/views/k8s-topology-perspective.md#visualization-settings). |
 
+
+### Granting permissions to every authenticated user
+
+Every authenticated user is automatically added to the `system:authenticated` group.  So if you want to grant permissions to, say, view metricbindings, this can be achieved with the manifest: 
+```
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: everyone-gets-to-see-metricbindings
+rules:
+  - apiGroups:
+    - instance.observability.cattle.io
+    resources:
+    - metricbindings
+    verbs:
+    - get
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: everyone-gets-to-see-metricbindings
+roleRef:
+  kind: Role
+  name: everyone-gets-to-see-metricbindings
+  apiGroup: rbac.authorization.k8s.io
+subjects:
+  - kind: Group
+    name: "system:authenticated"
+```
+
