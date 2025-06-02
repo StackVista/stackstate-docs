@@ -48,7 +48,7 @@ To configure Rancher as the OIDC provider for SUSE Observability, the OIDC detai
 ```yaml
 stackstate:
   authentication:
-    oidc:
+    rancher:
       clientId: "<oidc-client-id>"
       secret: "<oidc-secret>"
       baseUrl: "<rancher-url>"
