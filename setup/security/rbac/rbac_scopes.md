@@ -2,23 +2,27 @@
 description: SUSE Observability Self-hosted
 ---
 
-# Scopes
+# Topology Scopes
 
-## How do scopes work?
+{% hint style="warning" %}
+The topology scopes discussed here only apply to a *Standalone RBAC* deployment.  See [Rancher RBAC](rbac_rancher.md) for the available scopes in a *Rancher RBAC* deployment.
+{% endhint %}
 
-The scope is an [STQL query](../../../develop/reference/k8sTs-stql_reference.md) that's added as a prefix to every query executed in SUSE Observability. Whenever a user wants to select a view or pass a query in SUSE Observability, this prefix query is executed as a part of the user's query. This limits the results accordingly to match the user's role.
+## How do topology scopes work?
+
+The topology scope is an [STQL query](../../../develop/reference/k8sTs-stql_reference.md) that's added as a prefix to every query executed in SUSE Observability. Whenever a user wants to select a view or pass a query in SUSE Observability, this prefix query is executed as a part of the user's query. This limits the results accordingly to match the user's role.
 
 Note: Please note that function calls like `withCauseOf` and `withNeighborsOf` aren't supported as they would not be performant in this context.
 
-If a user belongs to multiple groups, then this user can have multiple scopes, which translates to multiple prefixes. In this situation, the prefix is executed as an OR of all scopes that this user has.
+If a user belongs to multiple groups, then this user can have multiple topology scopes, which translates to multiple prefixes. In this situation, the prefix is executed as an OR of all topology scopes that this user has.
 
 Users need to log out and authenticate again to SUSE Observability whenever any changes to roles or permissions are made.
 
-## Why scopes?
+## Why topology scopes?
 
-Scopes are introduced as a security feature that's mandatory for every subject within SUSE Observability. The predefined SUSE Observability users Administrator, Power User and Guest roles have no scope defined.
+Topology scopes are introduced as a security feature that's mandatory for every subject within SUSE Observability. The predefined SUSE Observability users Administrator, Power User and Guest roles have no scope defined.
 
-It's possible to specify a scope as a query wildcard, however, this will result in access to everything and isn't recommended. If there is a need for access without a scope, it's recommended to use one of the [predefined roles](rbac_permissions.md#predefined-roles) instead.
+It's possible to specify a topology scope as a query wildcard, however, this will result in access to everything and isn't recommended. If there is a need for access without a topology scope, it's recommended to use one of the [predefined roles](rbac_permissions.md#predefined-roles) instead.
 
 ## Examples
 
@@ -34,7 +38,7 @@ The query for this view is the same as for the others, but without any prefix:
 'layer = "Infrastructure" AND domain IN ("Customer1", "Customer2")'
 ```
 
-### Below user is in a group with configured subject X with the following scope:
+### Below user is in a group with configured subject X with the following topology scope:
 
 ```text
 'domain = "Customer1"'
@@ -48,7 +52,7 @@ Query with the prefix for this view is:
 '(domain = "Customer1") AND (layer = "Infrastructure" AND domain IN ("Customer1", "Customer2"))'
 ```
 
-### Another user who is a part of a group with a configured subject Y that has the following scope:
+### Another user who is a part of a group with a configured subject Y that has the following topology scope:
 
 ```text
 'domain = "Customer2"'

@@ -8,6 +8,10 @@ Access Management helps you manage who has access to the specific topology eleme
 
 RBAC is an authorization system that provides fine-grained access management of SUSE Observability resources, a clean and easy way to audit user privileges and to fix identified issues with access rights.
 
+There are two different ways to configure RBAC:
+* **Kubernetes RBAC** - Roles and RoleBindings are provisioned on both the cluster running SUSE Observability as well as any monitored cluster.  The supported way to do this is by using Rancher.
+* **Standalone RBAC** - Configuration is done via the SUSE Observability application itself.
+
 ## What can I do with RBAC?
 
 Here are some examples of what you can do with RBAC:
@@ -24,9 +28,7 @@ This depends a bit on how SUSE Observability is deployed.  Both modes of deploym
 ## More on RBAC configuration
 
 * [Rancher RBAC](rbac_rancher.md)
-* [Permissions](rbac_permissions.md)
-* [How to set up roles](rbac_roles.md)
-* [Scopes](rbac_scopes.md)
+* [Standalone RBAC](rbac_roles.md)
 * [How to configure authentication](../authentication/)
 
 

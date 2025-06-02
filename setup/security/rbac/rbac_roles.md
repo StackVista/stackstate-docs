@@ -273,6 +273,8 @@ suse-observability \
 suse-observability/suse-observability
 ```
 
+For details on the `topologyScope`, see [RBAC Scopes](rbac_scopes.md).
+
 ### Custom roles via the CLI
 
 To set up a new role called `development-troubleshooter`, which will allow the same permissions as the normal troubleshooter role, but only for the `dev-test` cluster, a new subject needs to be created. Further more this subject needs to be assigned the required set of permissions:

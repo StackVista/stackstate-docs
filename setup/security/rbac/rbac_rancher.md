@@ -4,7 +4,8 @@ description: SUSE Observability Self-hosted
 
 ## Overview
 
-The SUSE Rancher Prime Observability Extension allows RBAC configuration of users access in SUSE Observability.
+The SUSE Rancher Prime Observability Extension uses Kubernetes RBAC to grant access to Rancher users in SUSE Observability.
+If you do not use Rancher, look at [How to set up roles](rbac_roles.md) in a standalone installation.
 
 Two kinds of roles are used for accessing SUSE Observability:
 * A *scope role* (Observer) grants access to data - either all data in a SUSE Observability instance, data coming from a cluster, or just the data for a namespace.  This role is provisioned in a cluster to be observed.
@@ -20,13 +21,16 @@ The observer role grants a user the permission to read topology, metrics, logs a
 * **Cluster Observer** - grants access to all data coming from a Cluster.  This template can be used in the "Cluster Membership" section of the cluster configuration.
 * **Instance Observer** - grants access to all data in a SUSE Observability instance.  This template can be used on the Project that includes SUSE Observability itself.
 
+In order to use these observer roles, it is recommended that the following role is granted on the Project running SUSE Observability itself:
+* **Recommended Access** - has recommended permissions for using SUSE Observability.
+
 ### Instance roles
 
-There are four roles predefined in SUSE Observability:
+There are two roles predefined in SUSE Observability, allowing for configuring the system - setting up views, monitors, notitifications etcetera:
+As these concern "global" settings of SUSE Observability, these roles include access to all data in an observability instance.
 
-* **Recommended Access** - has recommended permissions for using SUSE Observability.
-* **Instance Troubleshooter** - has all permissions required to use SUSE Observability for troubleshooting, including the ability to enable/disable monitors, create custom views and use the Cli.  This role includes access to all data in an observability instance.
-* **Instance Administrator** - has full access to all views and has all permissions.  This role includes access to all data in an observability instance.
+* **Instance Troubleshooter** - has all permissions required to use SUSE Observability for troubleshooting, including the ability to enable/disable monitors, create custom views and use the Cli. 
+* **Instance Administrator** - has full access to all views and has all permissions.
 
 The permissions assigned to each predefined SUSE Observability role can be found below. For details of the different permissions and how to manage them using the `sts` CLI, see [Role based access control (RBAC) permissions](/setup/security/rbac/rbac_permissions.md)
 

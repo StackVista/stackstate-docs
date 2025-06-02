@@ -53,10 +53,10 @@ stackstate:
       secret: "<oidc-secret>"
       baseUrl: "<rancher-url>"
 ```
-You can override and extend some of the OIDC config for Rancher with the following fields:
-- `discoveryUri`
-- `redirectUri`
-- `customParams`
+You can override and extend the OIDC config for Rancher with the following fields:
+   * **discoveryUri** - URI that can be used to discover the OIDC provider. Normally also documented or returned when creating the client in the OIDC provider.
+   * **redirectUri** - Optional \(not in the example\): The URI where the login callback endpoint of SUSE Observability is reachable. Populated by default using the `stackstate.baseUrl`, but can be overridden. This must be a fully qualified URL that points to the `/loginCallback` path.
+   * **customParameters** - Optional map of key/value pairs that are sent to the OIDC provider as custom request parameters. Some OIDC providers require extra request parameters not sent by default.
 
 If you need to disable TLS verification due to a setup not using verifiable SSL certificates, you can disable SSL checks with some application config (don't use in production):
 ```yaml
