@@ -16,8 +16,7 @@ A standalone installation of SUSE Observability supplies predefined groups that 
 
 ### Observer role
 
-The observer role grants a user the permission to read topology, metrics, logs and trace data for a namespace or a cluster.  See [rbac_resources](RBAC resources)
-There are three `RoleTemplate`s that grant access to observability data:
+The observer role grants a user the permission to read topology, metrics, logs and trace data for a namespace or a cluster.  There are three `RoleTemplate`s that grant access to observability data:
 
 * **Observer** - grants access to data coming from namespaces in a Project.  This can be used in the "Project Membership" section of the cluster configuration.
 * **Cluster Observer** - grants access to all data coming from a Cluster.  This template can be used in the "Cluster Membership" section of the cluster configuration.
