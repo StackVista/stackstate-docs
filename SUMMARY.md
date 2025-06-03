@@ -34,6 +34,7 @@
 * [Customize](dynamic/customize-alerting.md)
   * [Add a monitor using the CLI](use/alerting/k8s-add-monitors-cli.md)
   * [Derived State monitor](use/alerting/k8s-derived-state-monitors.md)
+  * [Dynamic Threshold monitor](use/alerting/k8s-dynamic-threshold-monitors.md)
   * [Override monitor arguments](use/alerting/k8s-override-monitor-arguments.md)
   * [Write a remediation guide](use/alerting/k8s-write-remediation-guide.md)
 
