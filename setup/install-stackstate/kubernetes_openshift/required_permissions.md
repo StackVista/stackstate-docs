@@ -93,6 +93,25 @@ subjects:
 {% endtab %}
 {% endtabs %}
 
+## Pod Security Standards
+
+If your Kubernetes cluster has [Pod Security Standards enabled](https://kubernetes.io/docs/concepts/security/pod-security-standards/), you need to configure appropriate security policies for the `suse-observability` namespace. SUSE Observability requires the baseline Pod Security Standard to function properly.
+
+### Configure Pod Security Standards
+
+Apply the baseline Pod Security Standard to the `suse-observability` namespace:
+
+```bash
+kubectl label ns suse-observability pod-security.kubernetes.io/enforce=baseline --overwrite
+kubectl label ns suse-observability pod-security.kubernetes.io/audit=baseline --overwrite
+kubectl label ns suse-observability pod-security.kubernetes.io/warn=baseline --overwrite
+```
+
+{% hint style="info" %}
+If Pod Security Standards are enabled in your cluster, you must ensure that the Elasticsearch prerequisites are properly configured before deploying SUSE Observability.
+Since the baseline Pod Security Standard does not allow privileged containers, you need to follow [the instructions](required_permissions.md#Elasticsearch) to configure the required `vm.max_map_count` kernel parameter at the host level.
+{% endhint %}
+
 ## Elasticsearch
 
 SUSE Observability uses Elasticsearch to store its indices. There are some additional requirements for the nodes that Elasticsearch runs on.
@@ -141,6 +160,7 @@ apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: set-vm-max-map-count
+  namespace: kube-system
   labels:
     k8s-app: set-vm-max-map-count
 spec:
@@ -180,7 +200,8 @@ spec:
       # See also this Kubernetes issue https://github.com/kubernetes/kubernetes/issues/36601
       containers:
         - name: pause
-          image: google/pause
+          image: busybox
+          command: ["sleep", "infinity"]
           resources:
             limits:
               cpu: 50m
@@ -204,4 +225,3 @@ elasticsearch:
 
 * [Install SUSE Observability on Kubernetes](kubernetes_install.md)
 * [Install SUSE Observability on OpenShift](openshift_install.md)
-
