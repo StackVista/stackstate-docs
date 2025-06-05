@@ -109,7 +109,7 @@ kubectl label ns suse-observability pod-security.kubernetes.io/warn=baseline --o
 
 {% hint style="info" %}
 If Pod Security Standards are enabled in your cluster, you must ensure that the Elasticsearch prerequisites are properly configured before deploying SUSE Observability.
-Since the baseline Pod Security Standard does not allow privileged containers, you need to follow [the instructions](required_permissions.md#Elasticsearch) to configure the required `vm.max_map_count` kernel parameter at the host level.
+Since the baseline Pod Security Standard does not allow privileged containers, you need to follow [the instructions](required_permissions.md#elasticsearch) to configure the required `vm.max_map_count` kernel parameter at the host level.
 {% endhint %}
 
 ## Elasticsearch
