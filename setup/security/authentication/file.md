@@ -8,7 +8,7 @@ description: SUSE Observability Self-hosted
 
 In case no external authentication provider can be used, you can use file based authentication. This will require every SUSE Observability user to be pre-configured in the configuration file. For every change made to a user in the configuration, SUSE Observability will automatically restart after applying the changes with Helm.
 
-SUSE Observability includes a number of default roles, see the example configuration below. The permissions assigned to each default role and instructions on how to create other roles can be found in the [Role based access control (RBAC) documentation](../rbac/role_based_access_control.md).
+SUSE Observability includes a number of default roles, see the example configuration below. The permissions assigned to each default role and instructions on how to create other roles can be found in the [Role based access control (RBAC) documentation](../rbac/README.md).
 
 ## Set up file based authentication
 

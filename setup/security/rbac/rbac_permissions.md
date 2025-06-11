@@ -6,6 +6,10 @@ description: SUSE Observability Self-hosted
 
 ## Overview
 
+{% hint style="warning" %}
+This page only applies to "Standalone RBAC".  Details on permissions in "Rancher RBAC" can be found in [Resource details](rbac_rancher.md#resource-details).
+{% endhint %}
+
 Permissions in SUSE Observability allow Administrators to manage the actions that each user or user group can perform inside SUSE Observability and the information that will be shown in their SUSE Observability UI. Only the feature set relevant to each user's active role will be presented. The actions, information and pages that a user doesn't have access to are simply not displayed in their SUSE Observability UI.
 
 {% hint style="info" %}

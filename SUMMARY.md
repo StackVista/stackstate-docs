@@ -173,7 +173,7 @@
     * [Service tokens](setup/security/authentication/service_tokens.md)
     * [Troubleshooting](setup/security/authentication/troubleshooting.md)
   * [RBAC](setup/security/rbac/README.md)
-    * [Role-based Access Control](setup/security/rbac/role_based_access_control.md)
+    * [Rancher](setup/security/rbac/rbac_rancher.md)
     * [Permissions](setup/security/rbac/rbac_permissions.md)
     * [Roles](setup/security/rbac/rbac_roles.md)
     * [Scopes](setup/security/rbac/rbac_scopes.md)

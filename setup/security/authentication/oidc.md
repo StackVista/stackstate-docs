@@ -19,7 +19,54 @@ Before you can configure SUSE Observability to authenticate using OIDC, you need
 
 The result of this configuration should produce a **clientId** and a **secret**. Copy those and keep them around for configuring SUSE Observability. Also write down the **discoveryUri** of the provider. Usually this is either in the same screen or can be found in the documentation.
 
+### Configuring Rancher as OIDC provider
+
+In order for SUSE Observability to authenticate with Rancher, an OIDC Client needs to be created for it.  This can be provisioned as a Kubernetes resource in the Rancher "local" cluster:
+```
+apiVersion: management.cattle.io/v3
+kind: OIDCClient
+metadata:
+  name: oidc-observability
+spec:
+  tokenExpirationSeconds: 600
+  refreshTokenExpirationSeconds: 3600
+  redirectURIs:
+    - "https://<suse-observability-url>/loginCallback?client_name=StsOidcClient"
+```
+After creation, Rancher will add a `status` field:
+```
+status:
+  clientID: <oidc-client-id>
+```
+This will lead to the creation of a secret with name `<oidc-client-id>` in the `cattle-oidc-client-secrets` namespace.
+
 ## Configure SUSE Observability for OIDC
+
+### Rancher
+
+To configure Rancher as the OIDC provider for SUSE Observability, the OIDC details need to be added to the authentication values:
+```yaml
+stackstate:
+  authentication:
+    rancher:
+      clientId: "<oidc-client-id>"
+      secret: "<oidc-secret>"
+      baseUrl: "<rancher-url>"
+```
+You can override and extend the OIDC config for Rancher with the following fields:
+   * **discoveryUri** - URI that can be used to discover the OIDC provider. Normally also documented or returned when creating the client in the OIDC provider.
+   * **redirectUri** - Optional \(not in the example\): The URI where the login callback endpoint of SUSE Observability is reachable. Populated by default using the `stackstate.baseUrl`, but can be overridden. This must be a fully qualified URL that points to the `/loginCallback` path.
+   * **customParameters** - Optional map of key/value pairs that are sent to the OIDC provider as custom request parameters. Some OIDC providers require extra request parameters not sent by default.
+
+If you need to disable TLS verification due to a setup not using verifiable SSL certificates, you can disable SSL checks with some application config (don't use in production):
+```yaml
+stackstate:
+  components:
+    server:
+      extraEnv:
+        open:
+          CONFIG_FORCE_stackstate_misc_sslCertificateChecking: false
+```
 
 ### Kubernetes
 
