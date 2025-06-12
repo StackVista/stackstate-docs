@@ -46,6 +46,7 @@ helm upgrade --install \
   --values "ingress_values.yaml" \
   --values $VALUES_DIR/suse-observability-values/templates/baseConfig_values.yaml \
   --values $VALUES_DIR/suse-observability-values/templates/sizing_values.yaml \
+  --values $VALUES_DIR/suse-observability-values/templates/affinity_values.yaml \
 suse-observability \
 suse-observability/suse-observability
 ```
@@ -108,6 +109,7 @@ helm upgrade \
   --values "ingress_otel_values.yaml" \
   --values $VALUES_DIR/suse-observability-values/templates/baseConfig_values.yaml \
   --values $VALUES_DIR/suse-observability-values/templates/sizing_values.yaml \
+  --values $VALUES_DIR/suse-observability-values/templates/affinity_values.yaml \
 suse-observability \
 suse-observability/suse-observability
 ```
@@ -144,4 +146,3 @@ Agents that are deployed to the same cluster as SUSE Observability can of course
 * [AKS \(learn.microsoft.com\)](https://learn.microsoft.com/en-us/azure/aks/ingress-tls?tabs=azure-cli)
 * [EKS Official docs](https://docs.aws.amazon.com/eks/latest/userguide/alb-ingress.html) \(not using nginx\)
 * [EKS blog post](https://aws.amazon.com/blogs/opensource/network-load-balancer-nginx-ingress-controller-eks/) \(using nginx\)
-

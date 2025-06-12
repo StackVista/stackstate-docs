@@ -164,6 +164,7 @@ helm upgrade --install \
     --create-namespace \
     --values $VALUES_DIR/suse-observability-values/templates/baseConfig_values.yaml \
     --values $VALUES_DIR/suse-observability-values/templates/sizing_values.yaml \
+    --values $VALUES_DIR/suse-observability-values/templates/affinity_values.yaml \
     --values private-registry.yaml \
     suse-observability \
     suse-observability-A.B.C.tgz

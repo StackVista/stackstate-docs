@@ -57,6 +57,7 @@ helm upgrade \
   --namespace suse-observability \
   --values $VALUES_DIR/suse-observability-values/templates/baseConfig_values.yaml \
   --values $VALUES_DIR/suse-observability-values/templates/sizing_values.yaml \
+  --values $VALUES_DIR/suse-observability-values/templates/affinity_values.yaml \
   --values ack-values.yaml \
 suse-observability \
 suse-observability/suse-observability
